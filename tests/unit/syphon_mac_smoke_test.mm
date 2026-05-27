@@ -52,7 +52,11 @@ TEST( SyphonMacSmoke, PublishMetalTextureIOSurfaceBackedReturnsOk )
     @autoreleasepool
     {
         id<MTLDevice> device = MTLCreateSystemDefaultDevice();
-        ASSERT_NE( device, nil );
+        if( device == nil )
+        {
+            GTEST_SKIP() << "Metal device unavailable on this runner ; "
+                            "skipping IOSurface-backed publish test.";
+        }
 
         //	Build an IOSurface-backed MTLTexture. The IOSurface must be
         //	allocated explicitly (Apple Silicon : plain
@@ -219,7 +223,11 @@ TEST( SyphonMacSmoke, PublishPostsDistributedNotification )
     @autoreleasepool
     {
         id<MTLDevice> device = MTLCreateSystemDefaultDevice();
-        ASSERT_NE( device, nil );
+        if( device == nil )
+        {
+            GTEST_SKIP() << "Metal device unavailable on this runner ; "
+                            "skipping distributed-notification publish test.";
+        }
 
         //	Build the IOSurface-backed MTLTexture (same shape as the
         //	c122 PublishMetalTextureIOSurfaceBackedReturnsOk test).

@@ -1,0 +1,13 @@
+1. https://developer.apple.com/documentation/virtualization/graphics 
+2. https://developer.apple.com/documentation/coregraphics 
+3. https://developer.apple.com/documentation/ 
+4. https://developer.apple.com/documentation/Metal 
+5. https://developer.apple.com/documentation/metalperformanceshaders 
+6. https://developer.apple.com/documentation/xcode/optimizing-gpu-performance 
+7. https://developer.apple.com/library/archive/documentation/3DDrawing/Conceptual/MTLBestPracticesGuide/ 
+8. https://github.com/mikeroyal/Metal-Guide 
+9. https://developer.apple.com/metal/cpp/ 
+10. https://learn.microsoft.com/en-us/cpp/?view=msvc-170 
+11. https://devdocs.io/cpp/ 
+12. https://aaaseed.org/fr/ 
+13. https://aaaseed.org/files/ 

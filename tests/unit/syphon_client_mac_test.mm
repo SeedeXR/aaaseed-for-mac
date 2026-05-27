@@ -199,7 +199,11 @@ TEST( SyphonClientMac, ConsumeMetalTexture )
     @autoreleasepool
     {
         id<MTLDevice> device = MTLCreateSystemDefaultDevice();
-        ASSERT_NE( device, nil );
+        if( device == nil )
+        {
+            GTEST_SKIP() << "Metal device unavailable on this runner ; "
+                            "skipping Syphon Metal-texture consume test.";
+        }
 
         std::string const server_name =
             UniqueServerName( "Mtl" );
