@@ -1,0 +1,9 @@
+-- preset for MEU|K2Mocap_1
+tab["cam_index"] = 7
+tab["dist"] = 0.50214391858461
+tab["draw"] = 1
+tab["number"] = 1
+tab["cam_use"] = 2
+tab["x"] = 0.67090017937479
+tab["x off"] = 0
+tab["z"] = 2.6400138510794

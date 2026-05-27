@@ -1,0 +1,24 @@
+-- preset for MEU|ImgReader_1
+tab["cam_index"] = 0
+tab["draw"] = 0
+tab["fps"] = 1.8897637724876
+tab["frame offset"] = 0.089113025499511
+tab["nb_playing"] = 5
+tab["run transition"] = 0
+tab["seq_1"] = 5
+tab["seq_10"] = 5
+tab["seq_11"] = 5
+tab["seq_12"] = 5
+tab["seq_13"] = 5
+tab["seq_14"] = 5
+tab["seq_15"] = 5
+tab["seq_2"] = 5
+tab["seq_3"] = 5
+tab["seq_4"] = 5
+tab["seq_5"] = 5
+tab["seq_6"] = 5
+tab["seq_7"] = 5
+tab["seq_8"] = 5
+tab["seq_9"] = 5
+tab["seqs"] = 2
+tab["speed"] = 5.9606299027801

@@ -1,0 +1,7 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Out_6_4_left/fx" ;
+	Bind_02 = "Pre_at_2_on_4/fx" ;
+	Bind_04 = "Out_4TiersRot/fx" ;
+	Bind_06 = "Mire/fx" ;
+	}

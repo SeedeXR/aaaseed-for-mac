@@ -1,0 +1,21 @@
+-- preset for MEU|Plancton_White("proto_Plancton")
+tab["cam_index"] = 7
+tab["color_1_alpha"] = 1
+tab["color_1_blue"] = 1
+tab["color_1_green"] = 1
+tab["color_1_red"] = 1
+tab["color_2_alpha"] = 1
+tab["color_2_blue"] = 1
+tab["color_2_green"] = 0
+tab["color_2_red"] = 0
+tab["density"] = 0.34485168704193
+tab["hardness"] = 9.8181438446045
+tab["shader"] = 1
+tab["size"] = { 1.4653315544128, 7.1659607887268 }
+tab["speed"] = 0.46799451112747
+tab["speed_range"] = { 0, 1 }
+tab["speed_x"] = 0.14760376513004
+tab["speed_y"] = 0.61178189516068
+tab["speed_z"] = 0.17774099111557
+tab["texa_bank"] = 0
+tab["texa_bind"] = 1

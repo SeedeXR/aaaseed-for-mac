@@ -1,0 +1,208 @@
+# AAASeed for Mac -- release workflow.
+#
+# Builds the universal-binary DMG via `scripts/ship-dmg.sh`, verifies it with
+# `scripts/verify-dmg.sh`, packages a source tarball via `git archive`, then
+# attaches both artifacts to a GitHub Release for the pushed tag.
+#
+# Trigger: tag push matching `v*` (e.g. `v0.0.1`, `v0.1.0`, `v1.0.0`).
+# Manual trigger: workflow_dispatch with an explicit `tag` input ; useful for
+# re-running a release on a tag that already exists.
+#
+# Honest-scope note: the produced DMG is UNSIGNED and UN-NOTARIZED. See
+# SHIP_CHECKLIST.md for the signing / notarization runbook.
+
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Version tag (e.g., v0.0.1). Must already exist on the default branch.'
+        required: true
+
+permissions:
+  contents: write   # required to create the Release and upload assets.
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # 1. Build the universal DMG on macos-14 (Apple Silicon runner) and verify.
+  # ---------------------------------------------------------------------------
+  build-dmg:
+    name: build + verify universal DMG
+    runs-on: macos-14
+    timeout-minutes: 60
+
+    outputs:
+      dmg-name: ${{ steps.build.outputs.dmg-name }}
+      tag-name: ${{ steps.resolve-tag.outputs.tag }}
+      version:  ${{ steps.resolve-tag.outputs.version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0   # full history so `git archive` produces a stable tarball.
+
+      - name: Resolve tag + version
+        id: resolve-tag
+        run: |
+          if [ -n "${{ inputs.tag }}" ]; then
+            TAG="${{ inputs.tag }}"
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+          fi
+          if [ -z "$TAG" ]; then
+            echo "::error::Could not resolve release tag."
+            exit 1
+          fi
+          VERSION="${TAG#v}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Resolved tag=$TAG version=$VERSION"
+
+      - name: Verify toolchain
+        run: |
+          sw_vers
+          uname -m
+          xcodebuild -version || true
+          cmake --version
+          which hdiutil
+          which codesign || true
+
+      - name: Install CMake + Ninja (idempotent)
+        run: |
+          brew update
+          brew install cmake ninja || true
+          cmake --version
+          ninja --version
+
+      - name: Build universal DMG via scripts/ship-dmg.sh
+        id: build
+        env:
+          BUILD_TYPE: Release
+        run: |
+          chmod +x scripts/ship-dmg.sh
+          ./scripts/ship-dmg.sh
+          DMG="$(ls out/AAASeed-*.dmg | head -1)"
+          if [ ! -f "$DMG" ]; then
+            echo "::error::ship-dmg.sh did not produce out/AAASeed-*.dmg."
+            ls -la out/ || true
+            exit 1
+          fi
+          echo "dmg-name=$(basename "$DMG")" >> "$GITHUB_OUTPUT"
+          echo "dmg-path=$DMG" >> "$GITHUB_OUTPUT"
+          echo "Built: $DMG"
+
+      - name: Verify DMG via scripts/verify-dmg.sh
+        run: |
+          chmod +x scripts/verify-dmg.sh
+          ./scripts/verify-dmg.sh "${{ steps.build.outputs.dmg-path }}"
+
+      - name: Create source tarball
+        run: |
+          TAG="${{ steps.resolve-tag.outputs.tag }}"
+          VERSION="${{ steps.resolve-tag.outputs.version }}"
+          TARBALL="aaaseed-for-mac-${VERSION}-src.tar.gz"
+          git archive \
+            --format=tar.gz \
+            --prefix="aaaseed-for-mac-${VERSION}/" \
+            -o "$TARBALL" \
+            HEAD
+          ls -la "$TARBALL"
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts
+          path: |
+            out/AAASeed-*.dmg
+            aaaseed-for-mac-*-src.tar.gz
+          if-no-files-found: error
+          retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  # 2. Publish the GitHub Release with both artifacts attached.
+  # ---------------------------------------------------------------------------
+  publish-release:
+    name: publish GitHub Release
+    needs: build-dmg
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Download release artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts
+          path: artifacts
+
+      - name: Flatten artifact layout
+        run: |
+          # upload-artifact preserves the `out/` prefix for the DMG ; flatten
+          # so softprops/action-gh-release sees a clean glob.
+          find artifacts -type f -name 'AAASeed-*.dmg' -exec mv {} artifacts/ \;
+          find artifacts -type f -name 'aaaseed-for-mac-*-src.tar.gz' -exec mv {} artifacts/ \;
+          ls -la artifacts/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.build-dmg.outputs.tag-name }}
+          name: AAASeed for Mac ${{ needs.build-dmg.outputs.tag-name }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: |
+            artifacts/AAASeed-*.dmg
+            artifacts/aaaseed-for-mac-*-src.tar.gz
+          body: |
+            ## AAASeed for Mac -- Universal Binary Release
+
+            See `SHIP_CHECKLIST.md` in the source tarball for full install +
+            verify steps.
+
+            **Universal binary**: arm64 + x86_64. Runs on Apple Silicon AND
+            Intel Macs.
+
+            ### Quick install
+
+            1. Download `AAASeed-*.dmg` (asset below).
+            2. Double-click to mount.
+            3. Drag `AAASeed.app` to the `Applications` symlink inside the
+               mounted volume.
+            4. On first launch, clear the quarantine bit:
+
+               ```
+               xattr -d com.apple.quarantine /Applications/AAASeed.app
+               ```
+
+            5. Launch from `/Applications/AAASeed.app` (double-click or
+               `open -a AAASeed`).
+
+            ### Verify your download
+
+            Clone the source tarball, then:
+
+            ```
+            tar xzf aaaseed-for-mac-*-src.tar.gz
+            cd aaaseed-for-mac-*
+            ./scripts/verify-dmg.sh /path/to/AAASeed-*.dmg
+            ```
+
+            The verifier checks the DMG mounts cleanly, contains the universal
+            `aaaseed_app` binary with both `arm64` and `x86_64` slices, and
+            that the Info.plist version string matches the release tag.
+
+            ### Honest scope
+
+            This release is **unsigned and un-notarized**. The `xattr` step
+            above is required for first launch on a machine that downloaded
+            the DMG through a browser. See `SHIP_CHECKLIST.md` for the
+            signing / notarization runbook (requires an Apple Developer ID).

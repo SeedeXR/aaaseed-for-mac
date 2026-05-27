@@ -1,0 +1,35 @@
+midi ( Version 0 )
+	{
+	active = ON ;
+	in_active = ON ;
+	in_device = 0 ;
+	out_active = ON ;
+	out_device = 1 ;
+	bank_direct = ON ;
+	Midi_controller = "BCF2000_by_Behringer" ;
+	allow_Non_Registered_Parameter_Number = ON ;
+	mackie_master = ON ;
+	mackie_bank_interpolate_allow = OFF ;
+	mackie_mess = "AAATK" ;
+	fader_shift = ON ;
+	vpot_shift = ON ;
+	but_shift = ON ;
+	o2_control_ui = 17 ;
+	verbose_name = "BCF2000" ;
+	verbose_low_in = ON ;
+	verbose_low_out = ON ;
+	verbose_master = ON ;
+	verbose_velocity_master = ON ;
+	verbose_noteon = ON ;
+	verbose_velocity = ON ;
+	verbose_noteoff = ON ;
+	verbose_program_change = ON ;
+	verbose_control_change = ON ;
+	verbose_aftertouch_poly = ON ;
+	verbose_aftertouch_channel = ON ;
+	verbose_pitchbend = ON ;
+	verbose_system = ON ;
+	verbose_midi_clock = ON ;
+	verbose_read_bank = ON ;
+	verbose_event = ON ;
+	}

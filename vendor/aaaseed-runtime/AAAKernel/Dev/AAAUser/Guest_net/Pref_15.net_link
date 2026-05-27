@@ -1,0 +1,10 @@
+net_link ( Version 0 )
+	{
+	active = ON ;
+	enable = ON ;
+	tcp_no_marker = OFF ;
+	port_nb = 3333 ;
+	dst_ip = "127.0.0.1" ;
+	port_nb_udp_dst = 3333 ;
+	disable_when_connection_failed = OFF ;
+	}

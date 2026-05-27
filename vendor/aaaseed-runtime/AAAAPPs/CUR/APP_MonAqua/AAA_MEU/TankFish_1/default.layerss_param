@@ -1,0 +1,7 @@
+module ( Version 0 )
+	{
+	active = ON ;
+	layers_index_cur = 18 ;
+	layers_index_end = 78 ;
+	load_all = OFF ;
+	}

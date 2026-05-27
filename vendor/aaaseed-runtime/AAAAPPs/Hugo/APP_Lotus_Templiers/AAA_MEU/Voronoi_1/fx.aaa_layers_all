@@ -1,0 +1,112 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "voronoi.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	camera_index_ui = 7 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport_left = 0.5 ;
+	ortho_size = 28.1185 ;
+	draw_axe = ON ;
+	rot_y = -0.021 ;
+	tra_z = -4.7549 ;
+	}
+//AAA::filename fx_a.bdd_voronoi
+bdd_voronoi ( Version 0 )
+	{
+	bdd_src = "prev" ;
+	index_end = 8192 ;
+	draw_site_size = 0.05 ;
+	voronoi = ON ;
+	voronoi_draw_poly = OFF ;
+	voronoi_draw_poly_before = ON ;
+	voronoi_draw_poly_size = 0.502139 ;
+	voronoi_draw_poly_size_barycenter = 1 ;
+	voronoi_draw_poly_as_triangle = ON ;
+	voronoi_draw_triangle = ON ;
+	image_color_alpha_thereshold = 0.239754 ;
+	image_color_bind = 65 ;
+	image_color_size_u = 8 ;
+	image_color_size_v = 4.5 ;
+	site_index_end = 1073741824 ;
+	precision = 1.86265e-09 ;
+	escape_nb_site = 89 ;
+	escape_nb_half_edge = 12 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	name_symbo = "dum" ;
+	line_smooth = ON ;
+	line_size = 0.927095 ;
+	point_size = 50.9918 ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 0.0625 ;
+	size_v = 0.0625 ;
+	offset_axe = 524288 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_implicit = OFF ;
+	tex_axe = "Z" ;
+	tex_right = 4 ;
+	tex_top = 4 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	blend = OFF ;
+	alpha_test = "GREATER" ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	convert = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_4 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_voronoi" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	bind_2d = 1 ;
+	use_lights_switch = ON ;
+	}

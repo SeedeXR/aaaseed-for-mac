@@ -1,0 +1,86 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0585 ;
+	rot_y = -0.1315 ;
+	tra_z = -3.72968 ;
+	}
+//AAA::filename fx_a.cone
+bdd_cone ( Version 0 )
+	{
+	nb_u = 192 ;
+	nb_v = 128 ;
+	radius_top = 1 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	blend = OFF ;
+	blend_equation = "MIN" ;
+	blend_src = "ONE_MINUS_DST_COLOR" ;
+	blend_dst = "ONE_MINUS_CONSTANT_ALPHA" ;
+	alpha_test = "GREATER" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	geometry_reload_trig = ON ;
+	fragment_bind = 48 ;
+	fu_int_01 = 4 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_axe = 2 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 1.45332 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cone" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 14 ;
+	}

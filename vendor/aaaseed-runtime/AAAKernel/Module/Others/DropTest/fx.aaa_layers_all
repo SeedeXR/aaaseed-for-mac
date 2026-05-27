@@ -1,0 +1,51 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "drop_test.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 4.0723 ;
+	rot_x = -0.002 ;
+	rot_y = -0.001 ;
+	tra_z = 0.0524504 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 9 ;
+	size_factor = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 28 ;
+	}

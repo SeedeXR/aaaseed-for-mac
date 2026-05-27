@@ -1,0 +1,7 @@
+bdd_datagrid ( Version 0 )
+	{
+	active = ON ;
+	comma_is_separator = ON ;
+	data_new = ON ;
+	data_filename = "%media%/FAF/List/FAF_history.csv" ;
+	}

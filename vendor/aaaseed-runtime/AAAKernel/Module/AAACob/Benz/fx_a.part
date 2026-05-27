@@ -1,0 +1,27 @@
+bdd_particle ( Version 0 )
+	{
+	nb_max = 1 ;
+	nb_by_sec = 0.250000 ;
+	life_time = 8.000000 ;
+	living_box_type = "Wrap" ;
+	living_box_bounce_factor = 0.062500 ;
+	living_box_size_X = 2.000000 ;
+	living_box_size_Z = 4.000000 ;
+	living_box_size_factor = 8.000000 ;
+	emission_origin_z = -4.001350 ;
+	emission_box_size_u = 0.062500 ;
+	emission_box_size_v = 0.062500 ;
+	jitter_speed_abs = 1.745188 ;
+	Accel_Z = 0.000118 ;
+	Offset_X = 0.001321 ;
+	Offset_Z = 0.102261 ;
+	viscosity = 0.650472 ;
+	turb_accel = 0.423191 ;
+	turb_speed = 0.068055 ;
+	turb_gain = 0.558681 ;
+	turb_bias = 0.248394 ;
+	turb_offset_X = 1.024000 ;
+	turb_offset_Y = 0.016000 ;
+	turb_factor_X = 2.000000 ;
+	turb_factor_Y = 1.975705 ;
+	}

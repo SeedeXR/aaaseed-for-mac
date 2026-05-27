@@ -1,0 +1,12 @@
+-- preset for MEU_DIR|TRACKERS("TRACKERS")
+tab["a"] = 1
+tab["b"] = 0
+tab["restore"] = 1
+tab["trax_1"] = 1
+tab["trax_2"] = 0.90521380698427
+tab["trax_3"] = 0
+tab["trax_4"] = 0
+tab["trax_5"] = 0
+tab["trax_6"] = 0
+tab["trax_7"] = 0
+tab["trax_8"] = 0

@@ -1,0 +1,12 @@
+-- BU position value for BUS|Dir_KinectA
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.preset proto", 1 )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 1 )
+BUS.set_bu_pos_value( "fieldgene_a", {-0.1375,-0.1, 0.225,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "kinmoveauto_a", {0.0625,0, 0.225,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "monitor_1", {-0.228125,0.0609375, 0.21875,0.046875}, { render=0 } )
+BUS.set_bu_pos_value( "opencvbase_kina", {0.059375,0.125, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "ref_fbo_f1", {-0.1125,-0.225, 0.225,0.05}, { render=1 } )
+BUS.set_bu_value( "restore", 0 )

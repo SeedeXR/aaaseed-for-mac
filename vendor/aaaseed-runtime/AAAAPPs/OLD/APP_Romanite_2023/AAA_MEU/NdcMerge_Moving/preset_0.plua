@@ -1,0 +1,17 @@
+-- preset v0 for MEU|NdcMerge_Moving
+tab["draw"] = 3
+tab["fboa"] = true
+tab["fboa nb offset"] = 0
+tab["fboa src"] = "Fbo_Cap.A"
+tab["fbob"] = true
+tab["fbob nb offset"] = 0
+tab["fbob src"] = "Fbo_Cap.B"
+tab["in a_bank"] = 1
+tab["in a_bind"] = 1
+tab["in b_bank"] = 1
+tab["in b_bind"] = 12
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["shader"] = true
+tab["threshold alpha"] = 0.94764536619186
+tab["threshold out"] = 0.01871245354414

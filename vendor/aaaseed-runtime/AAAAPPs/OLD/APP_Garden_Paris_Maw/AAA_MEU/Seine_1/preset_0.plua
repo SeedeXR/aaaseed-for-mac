@@ -1,0 +1,14 @@
+-- preset v0 for MEU|Seine_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["cone deformation"] = 0
+tab["dim"] = 0
+tab["mapping_blend"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["tex_bank"] = 1
+tab["tex_bind"] = 18
+tab["time factor"] = 0.047876462340355
+tab["u min max"] = { 0, 1 }
+tab["v min max"] = { 0, 1 }

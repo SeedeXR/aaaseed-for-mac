@@ -1,0 +1,11 @@
+-- preset v0 for MEU|imgAnal_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["accum 1"] = 0
+tab["center u"] = 0
+tab["center v"] = 0
+tab["cov 1"] = 0
+tab["cov max1"] = 1
+tab["detection"] = 1
+tab["tex in_bank"] = 4
+tab["tex in_bind"] = 31

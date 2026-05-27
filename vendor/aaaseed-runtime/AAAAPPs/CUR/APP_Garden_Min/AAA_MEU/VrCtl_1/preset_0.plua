@@ -1,0 +1,16 @@
+-- preset v0 for MEU|VrCtl_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["draw_controller_1"] = false
+tab["draw_controller_2"] = false
+tab["draw_hmd"] = true
+tab["draw_reference_1"] = false
+tab["draw_reference_2"] = false
+tab["use_controller_1"] = false
+tab["use_controller_2"] = false
+tab["use_hmd"] = true
+tab["use_reference_1"] = false
+tab["use_reference_2"] = false

@@ -1,0 +1,4 @@
+-- config for porite
+tab["PAVONA"] = { { fbx_name = "PAVONA", position = { x = 14.354, y = -0.01, z = -5.355,  } , rotation = { x = 0, y = 65, z = 0,  } ,  } , { fbx_name = "PAVONA", position = { x = 19.382, y = 0.144, z = -7.721,  } , rotation = { x = 0, y = 35, z = 0,  } ,  } , { fbx_name = "PAVONA", position = { x = 11.231, y = 1.559, z = -13.292,  } , rotation = { x = -3.405, y = -109.72, z = -9.408,  } ,  }  }
+tab["PORITE"] = { { fbx_name = "PORITE", position = { x = 2.296, y = -0.085, z = -4.869,  } , rotation = { x = 0, y = 0, z = 0,  } ,  } , { fbx_name = "PORITE", position = { x = 11.961, y = -0.183, z = -4.93,  } , rotation = { x = 0, y = -40, z = -10,  } ,  }  }
+tab["TURBIN"] = { { fbx_name = "TURBIN", position = { x = 17.327, y = 0.462, z = -7.7,  } , rotation = { x = 0, y = 0, z = 0,  } ,  } , { fbx_name = "TURBIN", position = { x = 7.615, y = 1.045, z = -14.485,  } , rotation = { x = 0, y = 0, z = 0,  } ,  }  }

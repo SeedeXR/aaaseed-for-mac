@@ -1,0 +1,6 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Tex_generator/fx" ;
+	Bind_02 = "Kinect_Draw/fx" ;
+	Bind_03 = "Kinect_Mask/fx" ;
+	}

@@ -1,0 +1,1 @@
+-- this MEU have a full class defined in MEU_BEGIN_END.lua 

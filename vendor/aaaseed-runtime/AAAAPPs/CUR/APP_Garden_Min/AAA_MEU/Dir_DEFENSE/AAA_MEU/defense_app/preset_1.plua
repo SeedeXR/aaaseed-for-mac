@@ -1,0 +1,13 @@
+-- preset for MEU|defense_app
+tab["cam_index"] = 1
+tab["field"] = 0.8380001009111
+tab["field active"] = 0
+tab["mul_axe"] = 1
+tab["mul_size"] = 0.5
+tab["mul_u"] = 1
+tab["mul_v"] = 0.0078125
+tab["multiple"] = 1
+tab["nb by boid"] = 16
+tab["repulse dist"] = 0.1533500047694
+tab["speed"] = -0.86191163735126
+tab["speed active"] = 0

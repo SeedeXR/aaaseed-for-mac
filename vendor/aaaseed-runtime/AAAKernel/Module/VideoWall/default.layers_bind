@@ -1,0 +1,16 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "WaveEO/fx" ;
+	Bind_02 = "IconGrid/fx" ;
+	Bind_04 = "Control_Cam/fx" ;
+	Bind_05 = "VideoA/fx" ;
+	Bind_06 = "VideoB/fx" ;
+	Bind_08 = "Mahe_framing/fx" ;
+	Bind_10 = "FBO_LED/fx" ;
+	Bind_11 = "Mahe/fx" ;
+	Bind_12 = "VJet/fx" ;
+	Bind_13 = "Videos/fx" ;
+	Bind_14 = "WaveTest/fx" ;
+	Bind_17 = "LED_Mire/fx" ;
+	Bind_18 = "LED_Out/fx" ;
+	}

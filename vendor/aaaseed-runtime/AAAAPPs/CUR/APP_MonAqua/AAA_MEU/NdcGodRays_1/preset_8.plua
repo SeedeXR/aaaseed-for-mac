@@ -1,0 +1,13 @@
+-- preset for MEU|NdcGodRays_1
+tab["cam_index"] = 0
+tab["decay"] = 0.99248111248016
+tab["density"] = 0.1315300911665
+tab["draw"] = true
+tab["illumination decay"] = 0.21933649480343
+tab["screen x"] = -0.057953674346209
+tab["screen y"] = 1.1324483156204
+tab["shader"] = 1
+tab["tex_1_bank"] = 5
+tab["tex_1_bind"] = 25
+tab["tex_1_dim"] = 2
+tab["weight"] = 0.1810866445303

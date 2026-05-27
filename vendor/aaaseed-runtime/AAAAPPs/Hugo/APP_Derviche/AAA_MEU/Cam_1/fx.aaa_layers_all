@@ -1,0 +1,25 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0.015625 ;
+	Min = -1.25284 ;
+	Max = -16 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.5035 ;
+	rot_y = -0.0814999 ;
+	tra_z = -6.43024 TraxLoc01Out ;
+	}

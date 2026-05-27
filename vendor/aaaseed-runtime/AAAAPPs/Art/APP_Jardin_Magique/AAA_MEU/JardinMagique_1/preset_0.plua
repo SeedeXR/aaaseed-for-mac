@@ -1,0 +1,16 @@
+-- preset v0 for MEU|JardinMagique_1
+tab["capteur"] = true
+tab["destroy"] = 0
+tab["destroy_down"] = 50
+tab["destroy_time"] = 18.518639074639
+tab["destroy_up"] = 9.9986466336333
+tab["intro"] = 0
+tab["max"] = 200
+tab["max use"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["min"] = 88.914210580989
+tab["min use"] = true
+tab["presence"] = 0
+tab["simul"] = false
+tab["verbose"] = false

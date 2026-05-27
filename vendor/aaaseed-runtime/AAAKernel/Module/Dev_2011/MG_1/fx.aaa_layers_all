@@ -1,0 +1,211 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TRIANGLE" ;
+	Freq = 0.125 ;
+	Min = 2 ;
+	Max = -2 ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_INDEX_U" ;
+	Offset = 1 ;
+	}
+//AAA::filename fx.09.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_INDEX" ;
+	Max = 0.0175776 ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0.015625 ;
+	Phase = 1.10739 TraxLoc09Out ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	name_symbo = "aqua_fish" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.563498 ;
+	rot_y = 0.0275 ;
+	tra_z = -2.53064 ;
+	m00 = 1 ;
+	m11 = 1 ;
+	m22 = 1 ;
+	m33 = 1 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	translate = ON ;
+	translate_x = 1.67627 TraxLoc01Out ;
+	scale = ON ;
+	scale_factor = -0.299738 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	transform_point = OFF ;
+	vbo_use = ON ;
+	scale_factor = 0.01 ;
+	translation_x = -0.13862 ;
+	translation_y = -0.248257 ;
+	flip_yz_at_read = ON ;
+	draw_file_normal = ON ;
+	draw_uv = ON ;
+	tex_change = "FROM_MTL" ;
+	draw_mtl_offset = 19 ;
+	model_filename = "../../Aqua/3D/requin/requin_neutre.obj" ;
+	bounding_box_center_x = -0.0010635 ;
+	bounding_box_center_y = -0.248257 ;
+	bounding_box_center_z = -0.248257 ;
+	clipping = OFF ;
+	}
+//AAA::filename fx_a00.def
+def_path ( Version 0 )
+	{
+	active = ON ;
+	bdd_name_symbo = "aqua_mocap" ;
+	channel = 8 TraxLoc03Out ;
+	offset_axe = 8.78852 ;
+	scale_axe = 0.0539898 ;
+	}
+//AAA::filename fx_a01.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	harmonique_nb = 3 ;
+	axe = "Y" ;
+	offset_x = 0.001 ;
+	strenght = 0.25 ;
+	offset = 0.5 ;
+	phase = 3.55473 ;
+	phase_speed = 0.191713 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	AddFileRel "fx_a01.def" def_01 = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	light = ON ;
+	depth = ON ;
+	normal_red = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	uv_src_bdd_use = ON ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_factor = 7 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	unit_1 = ON ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	bind_2d = 19 ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_1.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_factor = 4 ;
+	tex_wrap_u = "MIRRORED_REPEAT" ;
+	tex_wrap_v = "MIRRORED_REPEAT" ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 63 ;
+	vu_float_02 = 1 ;
+	vu_01_r_x = -2 ;
+	vu_01_b_z = 0.910667 ;
+	vu_01_a_w = 1 ;
+	vu_02_r_x = -1 ;
+	vu_02_g_y = -0.0974209 ;
+	vu_02_b_z = 0.398069 ;
+	vu_02_a_w = 1 ;
+	vu_03_r_x = 0.2622 ;
+	vu_03_g_y = 0.0275694 ;
+	vu_03_b_z = -0.0363164 ;
+	vu_04_r_x = 1 ;
+	vu_04_g_y = 0.108487 ;
+	vu_04_b_z = 0.238368 ;
+	vu_05_r_x = 2 ;
+	vu_05_g_y = 0.52354 TraxLoc10Out ;
+	vu_05_b_z = 1.29529 ;
+	vu_06_r_x = 3 ;
+	fu_01_r_x = 0.514804 ;
+	fu_01_g_y = 0.0460921 ;
+	fu_02_g_y = 0.580484 ;
+	fu_02_b_z = 0.336524 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0.0034579 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_x = 0.5 ;
+	rotate_z = 0.5 ;
+	scale = ON ;
+	scale_factor = 0.0625 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	use_shading = "Owner" ;
+	use_color = ON ;
+	use_lights_switch = ON ;
+	bind_2d = 22 ;
+	}

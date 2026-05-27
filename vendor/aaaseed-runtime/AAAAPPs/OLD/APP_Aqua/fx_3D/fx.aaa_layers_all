@@ -1,0 +1,104 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "fx_3d.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal = 106.983 ;
+	ortho_size = 13.91 ;
+	rot_x = -0.1725 ;
+	rot_y = 0.3645 ;
+	tra_x = 0.954 ;
+	tra_y = -0.146 ;
+	tra_z = -11.2238 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 0.266375 TraxLoc01Out ;
+	translate_y = 0.032034 ;
+	translate_z = 0.245155 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	model_filename = "%media%/Aqua/3D/Deca_smooth.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	space_period = 8 ;
+	strenght = 1 ;
+	offset = 0.5 ;
+	phase_speed = 0.302402 ;
+	phase_axe = "Y" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	src_fixed = ON ;
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	type = "CUBE" ;
+	size_factor = 0.0329415 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	tex_v = 0 ;
+	tex_factor = 2 ;
+	tex_wrap_u = "MIRRORED_REPEAT" ;
+	tex_wrap_v = "MIRRORED_REPEAT" ;
+	blend_equation = "MAX" ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 6 ;
+	bind_2d = 8 ;
+	use_lights_switch = ON ;
+	}

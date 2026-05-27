@@ -1,0 +1,23 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "voxlib.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.001 ;
+	rot_y = -0.0025 ;
+	}

@@ -1,0 +1,39 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "nimes_anal_zones.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	image_src = 159 ;
+	force_compute = ON ;
+	begin_u = 0.933333 ;
+	size_u = 0.0666667 ;
+	discrete = ON ;
+	discrete_skip_line = 0 ;
+	draw_frame_in = OFF ;
+	draw_corosshair = OFF ;
+	draw_center = OFF ;
+	coverage_min = 0.002 ;
+	coverage_max = 0.384 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	comment = "check entry in room" ;
+	}

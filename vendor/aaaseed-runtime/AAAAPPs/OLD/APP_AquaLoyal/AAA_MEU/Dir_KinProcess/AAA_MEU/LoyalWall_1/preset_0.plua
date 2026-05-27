@@ -1,0 +1,11 @@
+-- preset v0 for MEU|LoyalWall_1
+tab["analyse"] = true
+tab["center_u"] = 0
+tab["center_v"] = 0
+tab["coverage"] = 0
+tab["coverage_min"] = 0.0021573256435216
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["presence"] = 0
+tab["time_empty"] = 49.426911933348
+tab["time_presence"] = 0

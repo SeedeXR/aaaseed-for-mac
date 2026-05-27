@@ -1,0 +1,62 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "kin_flipper.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	}
+//AAA::filename fx_a.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 104 ;
+	image_component = "BLUE" ;
+	agitation = ON ;
+	background_reset = ON ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}
+//AAA::filename fx_b.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	image_src = 104 ;
+	image_component = "ALPHA" ;
+	begin_u = 0.428571 ;
+	end_u = 0.5775 ;
+	size_u = 0.148929 ;
+	coverage_min = 0.1 ;
+	coverage_max = 0.213204 ;
+	}
+//AAA::filename fx_b.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 104 ;
+	image_component = "BLUE" ;
+	background_reset = ON ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_img_analyse" ;
+	}

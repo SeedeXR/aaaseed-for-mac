@@ -1,0 +1,85 @@
+//AAA::set_filename_relative
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_PATH_POS" ;
+	Freq = 0 ;
+	Phase = 1.0275 ;
+	Format = "%%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_PATH_POS" ;
+	Freq = 0 ;
+	Phase = -3.07593 TraxGlo24Out ;
+	Format = "%%.2f" ;
+	}
+//AAA::filename fx.16.trax
+trax ( Version 0 )
+	{
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal = 31.176 ;
+	ortho_size = -15.3061 ;
+	tra_x_sin_amplitude = 1 ;
+	tra_y_sin_amplitude = 1 ;
+	tra_z_sin_amplitude = 1 ;
+	ui_lock = ON ;
+	center_x = 0 TraxGlo30Out ;
+	rot_x = 0 TraxGlo26Out TraxLoc16In ;
+	tra_z = 0 ;
+	euler_order = "XZY" ;
+	clip_far_perspective = 400 ;
+	clip_close_ortho = -240 ;
+	clip_far_ortho = 240 ;
+	m00 = 0.425242 ;
+	m01 = 0.248268 ;
+	m02 = -0.870365 ;
+	m10 = -0.606959 ;
+	m11 = 0.79158 ;
+	m12 = -0.070753 ;
+	m20 = 0.671397 ;
+	m21 = 0.558363 ;
+	m22 = 0.487301 ;
+	m30 = -0.08768 ;
+	m31 = -15.7891 ;
+	m32 = -25.7492 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "tube_in_0" ;
+	focal = 26.0667 ;
+	lookat = ON ;
+	center_x = 0 TraxGlo27Out ;
+	rot_x = -0.054 ;
+	rot_y = -0.002 ;
+	tra_x = 0 TraxGlo30Out ;
+	tra_z = 0 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.209 ;
+	rot_y = 0.168 ;
+	tra_z = -28.31 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	bind_1d = 10 ;
+	material_front = 1 ;
+	material_back = 1 ;
+	}

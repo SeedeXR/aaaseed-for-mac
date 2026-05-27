@@ -1,0 +1,6 @@
+light ( Version 0 )
+	{
+	Position_x = 2 ;
+	Position_z = -2.5 ;
+	Radius = 1 ;
+	}

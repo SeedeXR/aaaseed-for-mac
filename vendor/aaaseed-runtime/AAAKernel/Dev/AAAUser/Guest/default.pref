@@ -1,0 +1,39 @@
+pref ( Version 0 )
+	{
+	dll_print_trig = OFF ;
+	cursor_hide_delay = 1.875 ;
+	edit = ON ;
+	camera_edit = ON ;
+	ui_camera_inter = 0.99 ;
+	mouse_multiplier = 16 ;
+	mouse_sensitivity = 0.5 ;
+	mouse_sensitivity_bdd = 0.5 ;
+	slide_index = 1 ;
+	clean_focus = OFF ;
+	camera_format_custom_x = 1280 ;
+	camera_format_custom_y = 720 ;
+	camera_format_custom_factor = 0.75 ;
+	fullscreen_mode = 2 ;
+	window_border_y = 33 ;
+	window_force_x = -1920 ;
+	window_force_size_x = 3480 ;
+	window_force_size_y = 1200 ;
+	image_save_from_texture = ON ;
+	image_save_from_texture_bind = 138 ;
+	image_save_format = "jpg" ;
+	image_save_compression = 0.2 ;
+	image_save_dir = ".." ;
+	image_save_filename_with_date = OFF ;
+	image_save_index = 113910 ;
+	image_2d_refresh_start = 384 ;
+	image_2d_refresh_stop = 512 ;
+	cpy_use_movsb = ON ;
+	cpy_parallel_thread_nb = 0 ;
+	osc_net_dst_0 = 2 ;
+	osc_net_dst_1 = 1 ;
+	osc_net_dst_2 = 14 ;
+	print_receive_from_net = ON ;
+	verbose_image_missing = OFF ;
+	verbose_memory_size_min = 128 ;
+	vector_lib = "XNA Math" ;
+	}

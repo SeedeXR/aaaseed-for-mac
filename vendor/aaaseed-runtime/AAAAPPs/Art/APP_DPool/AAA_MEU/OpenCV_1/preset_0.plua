@@ -1,0 +1,5 @@
+-- preset v0 for MEU|OpenCV_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_index"] = 7
+tab["cam_use"] = 2

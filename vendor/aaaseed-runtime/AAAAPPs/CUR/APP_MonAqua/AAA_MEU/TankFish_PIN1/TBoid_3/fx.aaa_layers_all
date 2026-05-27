@@ -1,0 +1,103 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "TURTL_BB_KR" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 3 ;
+	birth_origin_x = 10 ;
+	birth_origin_y = 1.75 ;
+	birth_origin_z = 5.2 ;
+	birth_size_x = 22 ;
+	birth_size_y = 2.5 ;
+	birth_size_z = 2 ;
+	birth_id = "from_index" ;
+	speed_x = 0.9 ;
+	speed_min = 0.499988 ;
+	speed_max = 1.8177 ;
+	speed_vertical_ratio_max = 0.5 ;
+	viscosity = 0.101831 ;
+	visibility_angle = 0.25 ;
+	visibility_max_seen = 512 ;
+	field_active = ON ;
+	field_influence = 0.015625 ;
+	target_active = OFF ;
+	target_axe = "Y" ;
+	target_x = -1 ;
+	target_y = 0.6 ;
+	target_z = -4.2 ;
+	target_radius_internal = 0.5 ;
+	target_radius_external = 2.09968 ;
+	target_normal = 1 ;
+	box_type_x = "Wrap_and_random" ;
+	box_type_y = "Repulse" ;
+	box_type_z = "Repulse" ;
+	box_influence = 0.5 ;
+	box_x = 10 ;
+	box_y = 1.75 ;
+	box_z = 5.2 ;
+	box_size_x = 22 ;
+	box_size_y = 2.5 ;
+	box_size_z = 2 ;
+	box_draw = ON ;
+	acceleration_max_interaction = OFF ;
+	repulse_distance = 0.5 ;
+	repulse_net_draw = ON ;
+	flocking_influence = 0.5 ;
+	flocking_distance = 0.5 ;
+	steering_influence = 0 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a00.def
+def_distance_field ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 4 ;
+	size_v = 4 ;
+	size_factor = 0.00359818 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	convert = ON ;
+	hue = 0.333333 ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}

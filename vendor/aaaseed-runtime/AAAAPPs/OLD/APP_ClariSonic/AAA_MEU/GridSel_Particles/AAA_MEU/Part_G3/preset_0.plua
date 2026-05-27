@@ -1,0 +1,24 @@
+-- preset v0 for MEU|Part_G3
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 3
+tab["cam_use"] = 0
+tab["color_blue"] = 1
+tab["color_green"] = 1
+tab["color_grey"] = 1
+tab["color_hue"] = 0
+tab["color_red"] = 1
+tab["color_sat"] = 0
+tab["color_value"] = 1
+tab["dim"] = 2
+tab["mapping_blend"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["ori_u"] = 0
+tab["ori_v"] = 0
+tab["sfactor"] = 0.76656800508499
+tab["su"] = 1
+tab["sv"] = 1
+tab["tex_bank"] = 3
+tab["tex_bind"] = 2
+tab["u"] = 1
+tab["v"] = 1

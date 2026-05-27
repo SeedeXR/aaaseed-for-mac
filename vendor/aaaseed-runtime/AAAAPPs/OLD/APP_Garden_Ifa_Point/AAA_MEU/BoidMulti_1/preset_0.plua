@@ -1,0 +1,9 @@
+-- preset v0 for MEU|BoidMulti_1
+tab["cam_axe_show"] = 1
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["move"] = true
+tab["nb boid"] = 715.10442241399
+tab["white"] = false

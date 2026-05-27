@@ -1,0 +1,18 @@
+-- preset v0 for MEU|KinectPoint_1
+tab["calage"] = 0
+tab["cam_axe_show"] = 1
+tab["cam_index"] = 7
+tab["cam_use"] = 2
+tab["camx"] = 0
+tab["camy"] = 0.21776504814625
+tab["camz"] = 0.37658816576004
+tab["dist"] = { -10, 10 }
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["rotvert"] = 0
+tab["rotx"] = 0
+tab["roty"] = 0
+tab["rotz"] = 0
+tab["trax"] = 0
+tab["tray"] = 0
+tab["traz"] = 0

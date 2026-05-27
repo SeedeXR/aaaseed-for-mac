@@ -1,0 +1,56 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -1.413 ;
+	rot_y = 0.0749999 ;
+	tra_x = 0.292 ;
+	tra_y = -2.772 ;
+	tra_z = -1.8312 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 65536 ;
+	nb_max = 32768 ;
+	nb_by_sec = 1024 ;
+	flow_continuous = ON ;
+	life_time = 8 ;
+	emission_speed_factor = 1 ;
+	jitter_cone_angle = 10.762 ;
+	jitter_speed_abs = 0 ;
+	jitter_vec_nb = 8192 ;
+	turb_speed = 1.95528 ;
+	net_channel = 16 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.0323731 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 21 ;
+	}

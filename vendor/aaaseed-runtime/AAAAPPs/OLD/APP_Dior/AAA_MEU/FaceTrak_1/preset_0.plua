@@ -1,0 +1,26 @@
+-- preset v0 for MEU|FaceTrak_1
+tab["2d"] = false
+tab["3d"] = false
+tab["all"] = true
+tab["bary"] = false
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["delay"] = 1
+tab["dim"] = 2
+tab["dior"] = true
+tab["eye brow"] = false
+tab["grille"] = false
+tab["line"] = false
+tab["map"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["nose scale"] = false
+tab["old"] = false
+tab["out"] = false
+tab["point"] = false
+tab["points"] = false
+tab["pre"] = 0
+tab["tex_bank"] = 2
+tab["tex_bind"] = 5
+tab["validate half"] = false

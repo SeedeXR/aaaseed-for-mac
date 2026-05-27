@@ -1,0 +1,23 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	bind_1d = 9 ;
+	bind_2d = 4 ;
+	}

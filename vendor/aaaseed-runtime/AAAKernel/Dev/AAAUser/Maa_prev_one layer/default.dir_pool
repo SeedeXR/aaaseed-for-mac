@@ -1,0 +1,17 @@
+dir_pool ( Version 0 )
+	{
+	dir_a_symbol = "start" ;
+	dir_a_path = "D:/AAA/AAAGaBuZo" ;
+	dir_b_symbol = "kernel" ;
+	dir_b_path = "D:/AAA/AAAGaBuZo/AAAKernel" ;
+	dir_c_symbol = "net" ;
+	dir_c_path = "D:/AAA/AAAGaBuZo/AAAUser/Maa_Net" ;
+	dir_d_symbol = "user" ;
+	dir_d_path = "D:/AAA/AAAGaBuZo/AAAUser/Maa" ;
+	dir_e_symbol = "media" ;
+	dir_e_path = "../../Media" ;
+	dir_f_symbol = "app" ;
+	dir_f_path = "D:/AAA/AAAGaBuZo/APP" ;
+	dir_h_symbol = "cul" ;
+	dir_h_path = "../../Media/Maa/Cul" ;
+	}

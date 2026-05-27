@@ -1,0 +1,90 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "part.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	camera_index_ui = 3 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.5 ;
+	tra_z = -2.23088 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	restart_trig = ON ;
+	nb_allocated = 8192 ;
+	nb_max = 2048 ;
+	nb_by_sec = 8 ;
+	flow_continuous = ON ;
+	life_time = 16 ;
+	emission_box_size_factor = 0.539353 ;
+	render_life_color = ON ;
+	render_life_color_ease_out = 0.852127 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.0025 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "color" ;
+	global_alpha = 0 ;
+	convert = ON ;
+	saturation = 0.772709 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 9 ;
+	}

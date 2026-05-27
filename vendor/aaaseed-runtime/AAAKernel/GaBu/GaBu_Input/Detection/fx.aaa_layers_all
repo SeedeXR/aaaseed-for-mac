@@ -1,0 +1,729 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "cv_reset.lua" ;
+	}
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_01 = 0.56359 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	stereo = "field_update" ;
+	lua = ON ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	name_symbo = "GaBuIn_detect_layers" ;
+	comment = "make blobs" ;
+	index_end = "Layer_H" ;
+	camera_index_ui = 2 ;
+	used_for_picking = OFF ;
+	Layer_A = ON ;
+	Layer_F = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = -2.92 ;
+	rot_x = -0.005 ;
+	rot_y = 0.008 ;
+	rot_offset_x = 0.00236834 ;
+	rot_offset_y = -0.00853465 ;
+	rot_offset_z = 0.000629753 ;
+	tra_x = -2.09548e-08 ;
+	tra_y = 0.028 ;
+	tra_offset_z = 2.48118 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 216.23 ;
+	rot_x = 0.005 ;
+	rot_y = 0.004 ;
+	tra_x = -1.668 ;
+	tra_y = -0.092 ;
+	tra_z = -4.8288 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -1.1875 ;
+	rot_y = -2.472 ;
+	tra_x = -19.184 ;
+	tra_y = 3.198 ;
+	tra_z = -2.23088 ;
+	}
+//AAA::filename fx_a.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	name_symbo = "GaBuIn_cvmultitouch" ;
+	active = ON ;
+	image_src = 33 ;
+	image_dst_base = 37 ;
+	image_component = "GREEN" ;
+	smooth_image_dst = 34 ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 1 ;
+	smooth_size_y = 1 ;
+	remanence = ON ;
+	remanence_image_dst = 35 ;
+	remanence_image_ref_src = 43 ;
+	remanence_save_filename = "AAANamedefine" ;
+	remanence_restart_trig = ON ;
+	remanence_accumulate = OFF ;
+	remanence_time = 0 ;
+	remanence_diff = ON ;
+	remanence_diff_method = "Difference" ;
+	remanence_diff_min = 0.593799 ;
+	remanence_diff_factor = 36.764 ;
+	background_image_dst = 35 ;
+	background_reset = ON ;
+	background_divide_factor = 2.05329 ;
+	laplace_image_dst = 35 ;
+	laplace_size = 2 ;
+	bc_image_dst = 36 ;
+	bc_min = 0.0497166 ;
+	bc_max = 0.50965 ;
+	dilate_pass = 4 ;
+	optical_flow_poly_n = "7" ;
+	smooth2_image_dst = 37 ;
+	smooth2_method = "GAUSSIAN" ;
+	smooth2_size_x = 1 ;
+	smooth2_size_y = 1 ;
+	highpass_image_dst = 36 ;
+	highpass_simple = ON ;
+	highpass_simple_smooth_size = 18 ;
+	highpass_simple_noise_size = 1 ;
+	highpass_filter = 36 ;
+	highpass_scale = 26 ;
+	rectify = ON ;
+	rectify_image_dst = 38 ;
+	rectify_level = 0.385307 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}
+//AAA::filename fx_c.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	name_symbo = "Pass1" ;
+	active = ON ;
+	image_src = 36 ;
+	smooth_image_dst = 34 ;
+	smooth_size_y = 1 ;
+	background_image_dst = 34 ;
+	bc = ON ;
+	bc_image_dst = 37 ;
+	bc_min = 0.079659 ;
+	bc_max = 0.506662 ;
+	optical_flow_poly_n = "7" ;
+	highpass = ON ;
+	highpass_image_dst = 37 ;
+	highpass_simple = ON ;
+	rectify_image_dst = 37 ;
+	rectify_level = 0.186208 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	comment = "Cv1" ;
+	}
+//AAA::filename fx_d.cone
+bdd_cone ( Version 0 )
+	{
+	nb_u = 96 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_d.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 8 ;
+	nb_v = 8 ;
+	}
+//AAA::filename fx_d.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 36 ;
+	invert_image_dst = 35 ;
+	smooth = ON ;
+	smooth_image_dst = 38 ;
+	smooth_size_y = 1 ;
+	background_image_dst = 38 ;
+	laplace = ON ;
+	laplace_image_dst = 39 ;
+	laplace_size = 1 ;
+	sobel_dx = 2 ;
+	sobel_dy = 2 ;
+	sobel_aperture = 3 ;
+	bc = ON ;
+	bc_image_dst = 39 ;
+	bc_max = 0.197207 ;
+	optical_flow_poly_n = "7" ;
+	highpass_image_dst = 39 ;
+	highpass_simple = ON ;
+	highpass_filter = 4 ;
+	highpass_scale = 6 ;
+	rectify_image_dst = 39 ;
+	rectify_level = 0.2401 ;
+	}
+//AAA::filename fx_d.mocap
+bdd_mocap ( Version 0 )
+	{
+	mocap_filename = "Mocap\Milena\dance4.bvh" ;
+	frame_cur = 0 ;
+	tra_scale_factor = 0.0254 ;
+	size_origins = 0.127312 ;
+	draw_segment = ON ;
+	draw_segment_end = 24 ;
+	size_number = 0.06 ;
+	}
+//AAA::filename fx_d.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 55 ;
+	nb_v = 30 ;
+	}
+//AAA::filename fx_d.torus
+bdd_torus ( Version 0 )
+	{
+	center_x = 0.013906 ;
+	center_y = 0.049062 ;
+	center_z = 0.060781 ;
+	radius_int = 0.324219 ;
+	nb_u = 11 ;
+	u_center = 0.611328 ;
+	v_center = 0.433594 ;
+	}
+//AAA::filename fx_d.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 15.952 ;
+	draw_file_normal = ON ;
+	model_filename = "Geo3d\tetepoly.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_d.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	primitive = "TRIANGLE_FAN" ;
+	}
+//AAA::filename fx_d.multiple
+multiple ( Version 0 )
+	{
+	type = "LAYERS" ;
+	alignment = "Normal" ;
+	axe = "X" ;
+	size_factor = 0.505859 ;
+	start = 2 ;
+	stop = 2 ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "SPHERE" ;
+	blend_dst = "ONE_MINUS_DST_ALPHA" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.000849 ;
+	}
+//AAA::filename fx_d.model
+model ( Version 0 )
+	{
+	size_axe = 0 ;
+	}
+//AAA::filename fx_d.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_d.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	image_keep_nb = 2 ;
+	video_src = 1 ;
+	play = ON ;
+	loop = ON ;
+	capture = ON ;
+	capture_force_default = ON ;
+	capture_format = "YUY2" ;
+	capture_size_x = 352 ;
+	capture_size_y = 288 ;
+	remanence_time = 0.0625 ;
+	}
+//AAA::filename fx_d.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	depth_raw_max = 0 ;
+	}
+//AAA::filename fx_d.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate_x = -0.5 ;
+	translate_y = -0.5 ;
+	scale = ON ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bind_2d = 31 ;
+	use_tex_video = ON ;
+	use_lights_switch = ON ;
+	trs_1 = "Owner" ;
+	use_stencil = "Owner" ;
+	comment = "Laplace" ;
+	origin_draw = OFF ;
+	}
+//AAA::filename fx_f.cone
+bdd_cone ( Version 0 )
+	{
+	nb_v = 32 ;
+	}
+//AAA::filename fx_f.feedback
+bdd_feedback ( Version 0 )
+	{
+	bind_2d_dst = 39 ;
+	verbose_grab = ON ;
+	grab_alpha = OFF ;
+	grab_to_image = ON ;
+	grab_to_image_size_x = 256 ;
+	grab_to_image_size_y = 256 ;
+	}
+//AAA::filename fx_f.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 32 ;
+	nb_v = 32 ;
+	}
+//AAA::filename fx_f.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	draw_texture = ON ;
+	draw_frame = ON ;
+	threshold = 0.145398 ;
+	}
+//AAA::filename fx_f.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	name_symbo = "GaBuIn_detect_img_contour" ;
+	active = ON ;
+	image_src = 38 ;
+	move_to_aaaseed = OFF ;
+	draw_in_texture = ON ;
+	contour_dst = 39 ;
+	contour_dst_clear = OFF ;
+	blob_point_nb_max = 800 ;
+	blob_area_filter = ON ;
+	blob_area_max = 4362.95 ;
+	center_x = 0.5 ;
+	center_y = 0.5 ;
+	transfer_bdd_target = "GaBuIn_blob_dispatch" ;
+	}
+//AAA::filename fx_f.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 100000 ;
+	nb_max = 16621 ;
+	nb_by_sec = 570.386 ;
+	flow_continuous = ON ;
+	regular = ON ;
+	life_time = 3.73092 ;
+	life_time_jitter = 0.006615 ;
+	living_box_type = "Bounce" ;
+	living_box_bounce_factor = 0 ;
+	viscosity = 0.091016 ;
+	turb_accel = 0.0136 ;
+	turb_fractal_sum = OFF ;
+	}
+//AAA::filename fx_f.bdd_point
+bdd_point ( Version 0 )
+	{
+	net_receive = OFF ;
+	net_send = ON ;
+	net_send_filtered = ON ;
+	filter_active = ON ;
+	limit_speed = 2.29429 ;
+	limit_acceleration = 2 ;
+	analyse_active = ON ;
+	play = OFF ;
+	}
+//AAA::filename fx_f.tub
+bdd_tube ( Version 0 )
+	{
+	Time_Factor = 0.971136 ;
+	}
+//AAA::filename fx_f.anim
+tex_anim ( Version 0 )
+	{
+	start = 128 ;
+	stop = 247 ;
+	frequency = 0 ;
+	phase_offset = 9.92797 ;
+	force_start = 128 ;
+	force_stop = 247 ;
+	}
+//AAA::filename fx_f.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	back_mode = "LINE" ;
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_f.map
+mapping ( Version 0 )
+	{
+	tex_use = "1D" ;
+	tex_axe = "X" ;
+	texture_feedback = ON ;
+	blend = OFF ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_f.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	fragment_bind = 21 ;
+	fu_float_01 = 0.0625 ;
+	fu_float_02 = 1 ;
+	fu_float_03 = 320 ;
+	fu_float_04 = 240 ;
+	fu_float_05 = 13.2518 ;
+	fu_int_01 = 1 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_r_x = 1 ;
+	fu_02_g_y = 0.25 ;
+	fu_02_b_z = 0.25 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_f.tex_video
+tex_video ( Version 0 )
+	{
+	image_keep_nb = 4 ;
+	video_src = 3 ;
+	play = ON ;
+	loop = ON ;
+	retry_open = ON ;
+	volume = 0 ;
+	threshold = 0 ;
+	y_offset = -0.080312 ;
+	tex_pos_u = 0.5 ;
+	tex_pos_v = 0.5 ;
+	tex_u_origin = 0 TraxLoc01In ;
+	tex_v_origin = 0 TraxLoc02In ;
+	tex_u_size = 1 TraxLoc03In ;
+	tex_v_size = 1 TraxLoc04In ;
+	}
+//AAA::filename fx_f.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	depth_raw_max = 0 ;
+	}
+//AAA::filename fx_f.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -0.5 ;
+	translate_y = -0.5 ;
+	}
+//AAA::filename fx_f.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale = ON ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_contour" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 7 ;
+	trs_1 = "Owner" ;
+	comment = "contour" ;
+	}
+//AAA::filename fx_g.bdd_blob_tracking
+bdd_blob_tracking ( Version 0 )
+	{
+	active = ON ;
+	use_mouse = ON ;
+	net_out = ON ;
+	use_predicted_pos = ON ;
+	min_dist = 0.00199786 ;
+	reject_dist = 0.0625 ;
+	ghost_frame_nb = 0 ;
+	branch_try_max = 1024 ;
+	iteration_max = 200000 ;
+	filter = 0.4 ;
+	draw_mode = "TRACKING_ALL" ;
+	frames_nb = 4096 ;
+	frames_nb_to_draw = 128 ;
+	}
+//AAA::filename fx_g.cone
+bdd_cone ( Version 0 )
+	{
+	nb_v = 32 ;
+	}
+//AAA::filename fx_g.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 32 ;
+	nb_v = 32 ;
+	}
+//AAA::filename fx_g.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 100000 ;
+	nb_max = 16621 ;
+	nb_by_sec = 570.386 ;
+	flow_continuous = ON ;
+	regular = ON ;
+	life_time = 3.73092 ;
+	life_time_jitter = 0.006615 ;
+	living_box_type = "Bounce" ;
+	living_box_bounce_factor = 0 ;
+	viscosity = 0.091016 ;
+	turb_accel = 0.0136 ;
+	turb_fractal_sum = OFF ;
+	}
+//AAA::filename fx_g.bdd_point
+bdd_point ( Version 0 )
+	{
+	net_receive = OFF ;
+	net_send = ON ;
+	net_send_filtered = ON ;
+	filter_active = ON ;
+	limit_speed = 2.29429 ;
+	limit_acceleration = 2 ;
+	analyse_active = ON ;
+	play = OFF ;
+	}
+//AAA::filename fx_g.bdd_snd_wave
+bdd_snd_wave ( Version 0 )
+	{
+	time = 0 ;
+	wave_filename = "D:\Bucarest\seq\01_disneyland\alphabet\a_andrea.wav" ;
+	}
+//AAA::filename fx_g.sphere
+bdd_sphere ( Version 0 )
+	{
+	center_x = 0.002541 ;
+	center_y = 0.002541 ;
+	center_z = 2.81366 ;
+	nb_u = 23 ;
+	}
+//AAA::filename fx_g.tub
+bdd_tube ( Version 0 )
+	{
+	Time_Factor = 0.971136 ;
+	}
+//AAA::filename fx_g.anim
+tex_anim ( Version 0 )
+	{
+	start = 128 ;
+	stop = 247 ;
+	frequency = 0 ;
+	phase_offset = 9.92797 ;
+	force_start = 128 ;
+	force_stop = 247 ;
+	}
+//AAA::filename fx_g.ren
+rendering ( Version 1 )
+	{
+	primitive = "TRIANGLE_FAN" ;
+	}
+//AAA::filename fx_g.multiple
+multiple ( Version 0 )
+	{
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 1.19922 ;
+	size_factor = 0.5 ;
+	start = 0 ;
+	}
+//AAA::filename fx_g.map
+mapping ( Version 0 )
+	{
+	tex_axe = "X" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_g.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	fragment_bind = 21 ;
+	fu_float_01 = 0.0625 ;
+	fu_float_02 = 1 ;
+	fu_float_03 = 320 ;
+	fu_float_04 = 240 ;
+	fu_float_05 = 13.2518 ;
+	fu_int_01 = 1 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_r_x = 1 ;
+	fu_02_g_y = 0.25 ;
+	fu_02_b_z = 0.25 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_g.tex_video
+tex_video ( Version 0 )
+	{
+	image_keep_nb = 4 ;
+	video_src = 3 ;
+	play = ON ;
+	loop = ON ;
+	retry_open = ON ;
+	volume = 0 ;
+	threshold = 0 ;
+	y_offset = -0.080312 ;
+	tex_pos_u = 0.5 ;
+	tex_pos_v = 0.5 ;
+	tex_u_origin = 0 TraxLoc01In ;
+	tex_v_origin = 0 TraxLoc02In ;
+	tex_u_size = 1 TraxLoc03In ;
+	tex_v_size = 1 TraxLoc04In ;
+	}
+//AAA::filename fx_g.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	depth_raw_max = 0 ;
+	}
+//AAA::filename fx_g.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -0.5 ;
+	translate_y = -0.5 ;
+	scale = ON ;
+	}
+//AAA::filename fx_g.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale = ON ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_blob_tracking" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_2d = 31 ;
+	use_lights_switch = ON ;
+	trs_1 = "Owner" ;
+	use_list = ON ;
+	}
+//AAA::filename fx_h.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 60 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_h.bdd_snd_wave
+bdd_snd_wave ( Version 0 )
+	{
+	time = 0 ;
+	wave_filename = "D:\Bucarest\seq\01_disneyland\alphabet\a_andrea.wav" ;
+	}
+//AAA::filename fx_h.sphere
+bdd_sphere ( Version 0 )
+	{
+	center_x = 0.002541 ;
+	center_y = 0.002541 ;
+	center_z = 2.81366 ;
+	nb_u = 23 ;
+	}
+//AAA::filename fx_h.ren
+rendering ( Version 1 )
+	{
+	back_mode = "LINE" ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_h.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "X" ;
+	}
+//AAA::filename fx_h.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 31 ;
+	}

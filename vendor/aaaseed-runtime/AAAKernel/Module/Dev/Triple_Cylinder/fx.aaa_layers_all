@@ -1,0 +1,126 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	name_symbo = "ref_other" ;
+	comment = "comment" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal = 94.0649 ;
+	flying = ON ;
+	rot_x = 0.5 ;
+	m00 = 0.999999 ;
+	m01 = 2.3687e-06 ;
+	m02 = 0.00125663 ;
+	m10 = 7.89568e-07 ;
+	m11 = 0.999997 ;
+	m12 = -0.00251327 ;
+	m20 = -0.00125664 ;
+	m21 = 0.00251327 ;
+	m22 = 0.999996 ;
+	m30 = -0.000779265 ;
+	m31 = 0.000358528 ;
+	m32 = -0.0165019 ;
+	}
+//AAA::filename fx_a.cone
+bdd_cone ( Version 0 )
+	{
+	nb_u = 48 ;
+	nb_v = 16 ;
+	radius_top = 1 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 16 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cone" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.cone
+bdd_cone ( Version 0 )
+	{
+	nb_u = 48 ;
+	nb_v = 16 ;
+	radius_top = 1 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cone" ;
+	use_model = ON ;
+	use_color = ON ;
+	}
+//AAA::filename fx_c.cone
+bdd_cone ( Version 0 )
+	{
+	nb_u = 48 ;
+	nb_v = 16 ;
+	radius_top = 1 ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_green = 0 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cone" ;
+	use_model = ON ;
+	use_color = ON ;
+	bind_1d = 9 ;
+	}

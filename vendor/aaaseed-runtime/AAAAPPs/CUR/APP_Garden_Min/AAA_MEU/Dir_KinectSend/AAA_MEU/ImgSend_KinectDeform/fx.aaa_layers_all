@@ -1,0 +1,32 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.bdd_img_send
+bdd_img_send ( Version 0 )
+	{
+	active = ON ;
+	image_src = 70 ;
+	image_dst_base = 65 ;
+	crop_left = 0.5 ;
+	crop_right = 0.189114 ;
+	crop_bottom = 0.25 ;
+	crop_top = 0.25 ;
+	rotate_angle = "90" ;
+	link_index = 3 ;
+	channel_id = 2 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_send" ;
+	bank_2d = 3 ;
+	bind_2d = 6 ;
+	}

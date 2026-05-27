@@ -1,0 +1,3 @@
+[submodule "APPs_Maa"]
+	path = APPs_Maa
+	url = https://gitlab.com/aaa_foundation/apps_maa.git

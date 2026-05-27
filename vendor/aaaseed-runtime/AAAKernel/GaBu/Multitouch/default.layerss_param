@@ -1,0 +1,8 @@
+module ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "Multitouch" ;
+	layers_index_cur = 2 ;
+	layers_index_end = 26 ;
+	load_all = OFF ;
+	}

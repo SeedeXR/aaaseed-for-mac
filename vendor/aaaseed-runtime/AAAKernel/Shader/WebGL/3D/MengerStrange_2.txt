@@ -1,0 +1,193 @@
+#ifdef GL_ES
+precision highp float;
+#endif
+
+//fixing stupid uninitated variables - fu nvidia drivers - sphinx
+
+#define iterations 64
+
+//#define mouse iMouse
+//#define resolution iResolution
+
+uniform vec2 mouse;
+uniform vec2 resolution;
+uniform float time;
+
+struct ray{
+	vec3 o, p, d, c;
+	float l;
+};
+
+struct light{
+	vec3 p, d, c;
+};
+
+ray 	trace(ray r);
+float 	map(vec3 p);
+mat4    htmat(vec3 t, vec3 r, vec4 s);
+vec3 	derivate(vec3 p);
+ray 	shade(ray r, light l);
+
+void main( void )
+{
+	vec2 uv = gl_FragCoord.xy/resolution.xy;
+	uv      = uv * 2. - 1.;
+	uv.x 	*= resolution.x/resolution.y;
+
+	ray r;
+	r.d = normalize(vec3(uv, -1.5));
+        r.o = vec3(0., 0., 21.);
+	r.p = r.o;
+	r.c = vec3(0.);
+	r.l = 0.;
+
+	r = trace(r);
+
+	if(r.l < 32.)
+	{
+		light l;
+		l.p = vec3(32., 32., 32.);
+		l.d = normalize(l.p-r.p);
+		l.c = vec3(.7, .7, .8);
+
+		r.c = pow(r.c, 1.-max(vec3(.2), normalize(r.p)));
+
+		r = shade(r, l);
+	}
+    else
+    {
+        r.c *= .5;
+    }
+    r.c = pow(r.c, vec3(1.33)+r.c);
+
+	gl_FragColor = vec4(r.c, 1.);
+}
+
+float capsule( vec3 p, vec3 a, vec3 b, float r )
+{
+	vec3 pa = p - a;
+	vec3 ba = b - a;
+	float h = clamp( dot(pa,ba)/dot(ba,ba), 0.0, 1.0 );
+
+	return length( pa - ba*h ) - r;
+}
+
+//homogeneous transformation matrix
+//t = translation, r = rotation, s = scale
+//http://planning.cs.uiuc.edu/node111.html
+mat4 htmat(vec3 t, vec3 r, vec4 s)
+{
+    vec3 cr = cos(r);
+    vec3 sr = sin(r);
+
+    mat4 tm;
+    tm[0][0] = s.x+cr.y*cr.z;
+    tm[0][1] = cr.y*sr.z;
+    tm[0][2] = sr.y;
+    tm[0][3] = t.x;
+    tm[1][0] = -sr.x*sr.y*cr.z-cr.x*sr.z;
+    tm[1][1] = s.y-sr.x*sr.y*sr.z+cr.x*cr.z;
+    tm[1][2] = sr.x*cr.y;
+    tm[1][3] = t.y;
+    tm[2][0] = -cr.x*sr.y*cr.z+sr.x*sr.z;
+    tm[2][1] = -cr.x*cr.y*sr.z-sr.x*cr.z;
+    tm[2][2] = s.z+cr.x*cr.y;
+    tm[2][3] = t.z;
+    tm[3][0] = 0.;
+    tm[3][1] = 0.;
+    tm[3][2] = 0.;
+    tm[3][3] = s.w;
+
+    return tm;
+}
+
+float map(vec3 p)
+{
+    vec3 c = vec3(2., 1., 5.);
+    //vec2 m = mouse.xy/resolution.xy;
+    vec2 m = mouse.xy;
+
+    vec2 hmr = m*6.28;
+    m.x = (mouse.x-.5) * 6.28;
+    mat2 rot = mat2(cos(m.x), sin(m.x), -sin(m.x), cos(m.x));
+
+    p.xz *= rot;
+
+    vec4 p4 = vec4(p, c.y);
+
+    //note, scale messes with the fractal - but will work on other primitives
+    //distance will not be preserved
+    mat4 hm = htmat(vec3(cos(time*1.33)), vec3(hmr,0.), vec4(0.));
+    hm *= c.x;
+
+    float k = 2048.;
+    float l = abs(length(p));
+	for (int i = 0; i < 8; i++)
+    {
+        if((m.y*8.)<float(i+2))
+        {
+            p4  	= abs(p4)-3.;
+	    p4.w 	= 1.;
+            p4  	*= hm;
+            c.z 	*= c.x;
+        }
+    }
+
+    k = min(k, capsule(p4.xyz, p, -p, .2)/c.z);
+
+    return k;
+}
+
+//via dave hoskins
+ray trace(ray r){
+	float precis = 0.0080;
+    float h		 = precis*.2;
+    float t		 = 0.01;
+	float res	 = 128.;
+	bool hit	 = false;
+    float f = 0.;
+    for( int i = 0; i < iterations; i++ )
+    {
+		if (!hit && t < 32.)
+		{
+			h = map(r.o + r.d * t);
+			if (h < precis)
+			{
+				res = t;
+				hit = true;
+			}
+			t += h * .8;
+			precis *= 1.03;
+            f += .02/abs(t-h);
+		}
+    }
+    r.c += f; //laziness
+	r.p = r.p + r.d * res;
+    r.l = res;
+    return r;
+}
+
+vec3 derivate(vec3 p){
+	vec3 n = vec3(0.);
+	vec2 d = vec2(0., .0001);
+	n.x = map(p+d.yxx)-map(p-d.yxx);
+	n.y = map(p+d.xyx)-map(p-d.xyx);
+	n.z = map(p+d.xxy)-map(p-d.xxy);
+	return normalize(n);
+}
+
+ray shade(ray r, light l){
+
+
+    vec3 n     = derivate(r.p);
+	float ndl  = max(dot(n, l.d), 0.);
+	float a    = clamp(1./r.l, 0., 1.);
+
+    vec3 h = normalize(r.d - l.d);
+    float ndh = dot(n, h);
+    float s = max(pow(ndh, 32.), 0.) * .25;
+
+	r.c = r.c * ndl + a + s;
+
+	return r;
+}

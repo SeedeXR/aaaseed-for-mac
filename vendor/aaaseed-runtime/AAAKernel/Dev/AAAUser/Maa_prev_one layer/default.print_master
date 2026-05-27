@@ -1,0 +1,5 @@
+print_master ( Version 0 )
+	{
+	from_texture = ON ;
+	from_texture_bind = 112 ;
+	}

@@ -1,0 +1,13 @@
+bdd_sound ( Version 0 )
+	{
+	type = "SOUND_SPECTRUM" ;
+	channel = 4 ;
+	col_nb = 16 ;
+	row_nb = 16 ;
+	draw_loop = ON ;
+	offset_u = 0.25 ;
+	offset_v = 0.25 ;
+	size_u = 0.5 ;
+	size_v = 0.5 ;
+	size_axe = 0.5 ;
+	}

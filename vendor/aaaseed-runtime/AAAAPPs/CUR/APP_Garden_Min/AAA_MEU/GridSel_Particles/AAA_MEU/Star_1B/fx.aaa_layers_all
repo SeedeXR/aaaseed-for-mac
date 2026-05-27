@@ -1,0 +1,203 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	camera_index_ui = 2 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	tra_z = -2.23561 ;
+	m00 = 0.99717 ;
+	m01 = 0.0452546 ;
+	m02 = -0.060088 ;
+	m10 = -0.0402941 ;
+	m11 = 0.995876 ;
+	m12 = 0.0813447 ;
+	m20 = 0.0635211 ;
+	m21 = -0.0786929 ;
+	m22 = 0.994876 ;
+	m30 = -0.043256 ;
+	m31 = -0.757393 ;
+	m32 = -0.0596981 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	tra_z = -6.80222 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	tra_z = -10.0496 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	tra_z = -14.0714 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	orbiting = ON ;
+	rot_y_frequency = 0.0625 ;
+	tra_z = -6.80222 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	orbiting = ON ;
+	rot_y_frequency = -0.0625 ;
+	tra_z = -6.80222 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	orbiting = ON ;
+	rot_x_frequency = 0.0165836 ;
+	rot_x = 0.019443 ;
+	rot_y = -0.00224023 ;
+	m00 = 0.996855 ;
+	m01 = 0.0792273 ;
+	m02 = 0.00366607 ;
+	m10 = -0.0785471 ;
+	m11 = 0.97978 ;
+	m12 = 0.184046 ;
+	m20 = 0.0109895 ;
+	m21 = -0.183754 ;
+	m22 = 0.982916 ;
+	m30 = 1.45615 ;
+	m31 = -10.0093 ;
+	m32 = -5.96019 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	flying = ON ;
+	rot_x = 0.00706812 ;
+	rot_y = -0.000882042 ;
+	tra_z = -3.33011 ;
+	m12 = 1.89649e-06 ;
+	m21 = -1.89649e-06 ;
+	m30 = -1.87861e-34 ;
+	m31 = 5.68946e-06 ;
+	m32 = -3 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 16384 ;
+	nb_max = 16384 ;
+	nb_by_sec = 32 ;
+	flow_continuous = ON ;
+	life_time = 16 ;
+	emission_box_size_v = 4 ;
+	emission_box_size_factor = 1 ;
+	emission_mask_type = "Origin" ;
+	jitter_speed_abs = 0.5 ;
+	render_life_color = ON ;
+	render_life_color_ease_in = 0.183278 ;
+	render_life_color_ease_out = 0.852127 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Billboard" ;
+	axe = "X" ;
+	size_factor = 0.17766 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.0025 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	fragment_bind = 81 ;
+	fu_out = 0 ;
+	fu_float_01 = 1 ;
+	fu_float_02 = 0.985842 ;
+	fu_float_03 = 1 ;
+	fu_float_05 = 0.265999 ;
+	fu_float_08 = 1 ;
+	fu_int_01 = 4 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_r_x = 1 ;
+	fu_02_g_y = 1 ;
+	fu_02_b_z = 1 ;
+	fu_05_r_x = 1 ;
+	fu_05_a_w = 0.500853 ;
+	fu_06_r_x = 1 ;
+	fu_06_g_y = 0.556895 ;
+	fu_06_b_z = 0.267122 ;
+	fu_06_a_w = 1 ;
+	fu_07_r_x = 0.873082 ;
+	fu_07_g_y = -0.217265 ;
+	fu_07_b_z = 0.182942 ;
+	fu_07_a_w = 1 ;
+	fu_08_r_x = 1.36364 ;
+	fu_08_g_y = 0.874615 ;
+	fu_08_a_w = 1.43484 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "color" ;
+	convert = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bind_2d = 15 ;
+	}

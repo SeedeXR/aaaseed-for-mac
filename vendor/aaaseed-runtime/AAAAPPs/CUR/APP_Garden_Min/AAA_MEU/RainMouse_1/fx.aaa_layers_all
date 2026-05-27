@@ -1,0 +1,96 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 16.1211 ;
+	rot_x = 0.000328106 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx_a.bdd_opencl_part
+bdd_opencl_part ( Version 0 )
+	{
+	active = ON ;
+	point_nb = 524288 ;
+	point_nb_used = 131072 ;
+	nb_u = 255 ;
+	placer_outside = ON ;
+	filename = "rainmouse.cl" ;
+	kernel_name = "rain_kernel" ;
+	param_01 = 0.471517 ;
+	param_02 = 0.51547 ;
+	param_03 = 0.436605 ;
+	param_04 = 16 ;
+	param_05 = 8 ;
+	param_06 = 4 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 0.001 ;
+	point_size = 3.94409 ;
+	point_mode = "POINT_SPRITE" ;
+	point_sprite_tex = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_axe = "Z" ;
+	tex_factor = 0.0625 ;
+	tex_env_mode = "DECAL" ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_opencl_part" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bind_2d = 1 ;
+	}

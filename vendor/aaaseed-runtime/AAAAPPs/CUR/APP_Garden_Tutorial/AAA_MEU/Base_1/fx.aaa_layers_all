@@ -1,0 +1,60 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "base.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.068 ;
+	rot_y = 0.106 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	back_mode = "POINT" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "color" ;
+	global_alpha = 0.783093 ;
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 5 ;
+	bind_3d = 10 ;
+	}

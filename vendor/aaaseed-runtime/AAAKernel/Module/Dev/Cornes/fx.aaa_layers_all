@@ -1,0 +1,372 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 43 ;
+	Format = "%.2f" ;
+	out_0 = 0 TraxLoc02In ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MORE_THAN_FREQ" ;
+	Freq = 0.001 ;
+	Min = -30 ;
+	Max = 15.8596 ;
+	Filter = 0.977647 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Comment = "DEPLIER" ;
+	Fn = "TOASTER" ;
+	Control_id = 7 ;
+	Phase = 1 ;
+	Min = 0.286875 ;
+	Max = 0.02125 ;
+	Filter = 0.969834 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.20.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TOASTER" ;
+	Max = 0.5 ;
+	Filter = 0.879991 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.21.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TOASTER" ;
+	Control_id = 2 ;
+	Max = 0.5 ;
+	Filter = 0.825304 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.22.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Min = 0.5 ;
+	Max = -1 ;
+	Filter = 0.930772 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	transfo = ON ;
+	index_end = "Layer_G" ;
+	used_for_picking = OFF ;
+	Layer_A = ON TraxLoc10Out ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	Layer_F = ON ;
+	Layer_G = ON ;
+	Layer_H = ON ;
+	Layer_I = ON ;
+	Layer_J = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -2.08099 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = 0.744375 ;
+	rotate = ON ;
+	rotate_y = 0.5 ;
+	}
+//AAA::filename fx_a.cone
+bdd_cone ( Version 0 )
+	{
+	center_x = 15.8596 TraxLoc02Out ;
+	nb_u = 15 ;
+	nb_v = 78 ;
+	u_center = 0.0546875 TraxLoc22Out ;
+	u_range = 0.703125 ;
+	radius_top = 0.01 ;
+	}
+//AAA::filename fx_a00.def
+def_spiral ( Version 0 )
+	{
+	active = ON ;
+	axe = "X" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	texture_feedback = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "X" ;
+	size_u = -1.10156 ;
+	size_v = 0.695313 ;
+	size_axe = 5.37891 ;
+	size_factor = 2.98829 ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = 32 ;
+	rotate = ON ;
+	rotate_x = 0.845937 ;
+	rotate_z = -0.25 ;
+	scale = ON ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_a.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	rotate = ON ;
+	rotate_y = -0.0095313 ;
+	rotate_z = -0.0485937 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cone" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	bind_1d = "CURRENT" ;
+	bind_2d = 12 ;
+	material_front = 6 ;
+	trs_1 = "Owner" ;
+	trs_2 = "Owner" ;
+	comment = "CORNE_1" ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -22.1711 ;
+	translate_y = 26.2968 ;
+	translate_z = -12.4402 ;
+	rotate = ON ;
+	rotate_z = -0.25 ;
+	scale = ON ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_b.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_y = 0.0139062 ;
+	rotate_z = 0.088125 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	material_front = 6 ;
+	trs_1 = "Owner" ;
+	trs_2 = "Owner" ;
+	comment = "CORNE_2" ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -13.977 ;
+	translate_y = 22.5471 ;
+	translate_z = 10.9447 ;
+	rotate = ON ;
+	rotate_z = -0.25 ;
+	scale = ON ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_c.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_y = -0.0798438 ;
+	rotate_z = -0.0525 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	material_front = 6 ;
+	trs_1 = "Owner" ;
+	trs_2 = "Owner" ;
+	comment = "CORNE_3" ;
+	}
+//AAA::filename fx_d.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -31.8501 ;
+	translate_y = 26.2968 ;
+	translate_z = 7.27353 ;
+	rotate = ON ;
+	rotate_z = -0.25 ;
+	scale = ON ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_d.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -2.57063 ;
+	translate_y = 2.12414 ;
+	translate_z = -4.6668 ;
+	rotate = ON ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	material_front = 6 ;
+	trs_1 = "Owner" ;
+	trs_2 = "Owner" ;
+	comment = "CORNE_4" ;
+	}
+//AAA::filename fx_e.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -31.8501 ;
+	translate_y = 26.2968 ;
+	translate_z = 7.27353 ;
+	rotate = ON ;
+	rotate_z = -0.25 ;
+	scale = ON ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_e.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -2.08302 ;
+	translate_y = 9.33508 ;
+	translate_z = -18.9208 ;
+	rotate = ON ;
+	rotate_z = -0.0603125 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	material_front = 6 ;
+	trs_1 = "Owner" ;
+	trs_2 = "Owner" ;
+	comment = "CORNE_4" ;
+	}
+//AAA::filename fx_f.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 3.71005 ;
+	translate_y = 26.2968 ;
+	translate_z = 7.22275 ;
+	rotate = ON ;
+	rotate_z = -0.25 ;
+	scale = ON ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_f.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 0.878589 ;
+	translate_y = 2.9757 ;
+	translate_z = -1.40118 ;
+	rotate = ON ;
+	rotate_y = 0.0217187 ;
+	rotate_z = 0.04125 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	material_front = 6 ;
+	trs_1 = "Owner" ;
+	trs_2 = "Owner" ;
+	comment = "CORNE_4" ;
+	}
+//AAA::filename fx_g.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -31.8501 ;
+	translate_y = 26.2968 ;
+	translate_z = 7.27353 ;
+	rotate = ON ;
+	rotate_z = -0.25 ;
+	scale = ON ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_g.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -2.86751 ;
+	translate_y = 18.9301 ;
+	translate_z = -11.4715 ;
+	rotate = ON ;
+	rotate_y = 0.0646875 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	material_front = 6 ;
+	trs_1 = "Owner" ;
+	trs_2 = "Owner" ;
+	comment = "CORNE_4" ;
+	}

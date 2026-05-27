@@ -1,0 +1,96 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "PARROT_BL_F_KR23" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 6 ;
+	birth_origin_x = 10.5 ;
+	birth_origin_y = 1.75 ;
+	birth_origin_z = 6.4 ;
+	birth_size_x = 11 ;
+	birth_size_y = 2.5 ;
+	birth_size_z = 3.2 ;
+	birth_id = "from_index" ;
+	acceleration_max = 2.30116 ;
+	speed_min = 1.08799 ;
+	speed_max = 3.21383 ;
+	speed_vertical_ratio_max = 0.5 ;
+	speed_noise = 0.5 ;
+	viscosity = 0.123875 ;
+	curvature_limit = ON ;
+	curvature_turn_by_sec = 0.5 ;
+	visibility_angle = 0.5 ;
+	visibility_max_seen = 512 ;
+	field_active = ON ;
+	target_influence = 1.00193 ;
+	target_x = 8.89186 ;
+	target_y = 0.758696 ;
+	target_z = 9.04379 ;
+	target_radius_internal = 2.21 ;
+	target_radius_external = 4.35 ;
+	box_active = OFF ;
+	box_type = "Repulse" ;
+	box_x = 10.5 ;
+	box_y = 1.75 ;
+	box_z = 6.7392 ;
+	box_size_x = 11 ;
+	box_size_y = 2.5 ;
+	box_size_z = 3.2 ;
+	box_size_factor = 1.24271 ;
+	box_border_size = 0.25 ;
+	box_draw = ON ;
+	repulse_influence = 0.422067 ;
+	repulse_distance = 0.883277 ;
+	repulse_net_draw = ON ;
+	repulse_net_blue = 0 ;
+	flocking_active = ON ;
+	flocking_influence = 0.505474 ;
+	flocking_visibility_use = ON ;
+	steering_influence = 2 ;
+	steering_visibility_use = ON ;
+	steering_distance = 0.5 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 5.70204 ;
+	size_axe = 8 ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_blue = 0 ;
+	convert = ON ;
+	hue = 0.166667 ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}

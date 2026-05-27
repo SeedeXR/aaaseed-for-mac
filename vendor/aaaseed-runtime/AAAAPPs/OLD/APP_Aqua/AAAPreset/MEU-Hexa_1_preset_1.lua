@@ -1,0 +1,23 @@
+-- preset for MEU-Hexa_1
+tab["cam"] = 6
+tab["v"] = 0.99999999988358
+tab["su"] = 1
+tab["nb_u"] = 16.58040201005
+tab["sv"] = 1
+tab["nb_v"] = 22.610552763819
+tab["ori_u"] = 0.051019601407461
+tab["bind_TEX"] = 29
+tab["du"] = 0.53316326530612
+tab["u"] = 0.99999999988358
+tab["Green"] = 1
+tab["hexa"] = 1
+tab["top_line"] = 0
+tab["Blue"] = 0.99999999988358
+tab["ori_v"] = 0
+tab["dv"] = 0.56919699907303
+tab["offset_4"] = 0
+tab["offset_2"] = 0
+tab["bank_TEX"] = 0
+tab["offset_6"] = 0
+tab["Red"] = 0.99999999988358
+tab["sfactor"] = 3.4756271109289

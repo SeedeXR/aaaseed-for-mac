@@ -1,0 +1,68 @@
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = samples (from 2.0 to 16.0)
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+
+vec2 res;
+
+float height(vec2 p)
+{
+	p.x -= res.x/8.;
+
+	float c = 0.0;
+
+	for(float i = 0.;i < 6.0;i++)
+	{
+		for(float j = 0.;j < 6.;j++)
+		{
+			float s = clamp(1.-distance(p,vec2(i+sin(aaa_fu_float[0]+j),j+cos(aaa_fu_float[0]-i))/8.)*((-10.3)*aaa_fu_float[2]+4.1),0.,8.8);
+			c = abs(c-s);
+		}
+	}
+
+	return c;
+}
+
+void main( void )
+{
+	vec2 p = gl_TexCoord[0].st;
+	vec2 res = vec2(1.*-10.*aaa_fu_float[1],1.*-10.*aaa_fu_float[1]);
+
+	float c = height(p+aaa_fu_float[1]*.01);
+	ivec2	tex_suv = textureSize( aaa_tex2d[0], 0 );
+	float u = height(p+vec2(0,2)/tex_suv);
+	float r = height(p+vec2(2,0)/tex_suv);
+	//c = 1.-pow(c,0.2);
+	vec2 size = vec2(-0.02,0.0);
+	vec3 n = cross(normalize(vec3(size.yx,c-u)),normalize(vec3(size.xy,c-r)));
+	//n.z = abs(n.z);
+
+	vec3 color1 = vec3(n.r, n.r, n.r);
+	vec4 outCol = vec4( vec3( color1*.5+.5 ), 1.0 ); // * texture2D(aaa_tex2d[0], gl_TexCoord[0].st);
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (outCol * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+
+}

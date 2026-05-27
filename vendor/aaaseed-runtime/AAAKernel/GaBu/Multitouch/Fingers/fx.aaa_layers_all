@@ -1,0 +1,62 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "fingers.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	name_symbo = "gabu_fingers" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 1.27093 ;
+	rot_z = -0.00695568 ;
+	tra_z = -3.42055 ;
+	tra_offset_x = 0.0273254 ;
+	tra_offset_y = 0.0747987 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 1 ;
+	nb_v = 1 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	back_mode = "POINT" ;
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYERS_NAME" ;
+	axe = "X" ;
+	Translation = "No" ;
+	target_name = "Doigt" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	texture_feedback = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

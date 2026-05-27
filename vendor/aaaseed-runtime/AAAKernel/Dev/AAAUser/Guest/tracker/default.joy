@@ -1,0 +1,15 @@
+joy ( Version 0 )
+	{
+	open_at_load = ON ;
+	in_left_right = 0.488273 ;
+	in_down_up = 0.496025 ;
+	in_rotZ = 0 ;
+	in_R = 0.628916 ;
+	in_U = 0.488273 ;
+	in_V = 0 ;
+	neutral_center_0 = 0.0625 ;
+	neutral_center_1 = 0.0625 ;
+	out_left_right = 0.5 TraxGlo01In ;
+	out_down_up = 0.5 TraxGlo02In ;
+	out_button_6 = OFF TraxGlo03In ;
+	}

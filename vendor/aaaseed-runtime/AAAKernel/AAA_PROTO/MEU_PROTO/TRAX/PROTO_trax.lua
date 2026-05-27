@@ -1,0 +1,1 @@
+-- this MEU have a full class defined in MEU_TRAX.lua (search for MEU_TRAX)

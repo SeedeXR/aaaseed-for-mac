@@ -1,0 +1,9 @@
+picking ( Version 0 )
+	{
+	allow = OFF ;
+	size_x_pixel = 8 ;
+	size_y_pixel = 8 ;
+	verbose = ON ;
+	max = 128 ;
+	choose = "Max" ;
+	}

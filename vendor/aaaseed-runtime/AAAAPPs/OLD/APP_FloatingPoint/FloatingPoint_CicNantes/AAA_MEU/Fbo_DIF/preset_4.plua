@@ -1,0 +1,13 @@
+-- preset for MEU|Fbo_DIF("DIF")
+tab["active"] = 1
+tab["cam_index"] = 0
+tab["depth_erase"] = 1
+tab["depth_use"] = 1
+tab["erase"] = 1
+tab["erase_always"] = 0
+tab["img save"] = 0
+tab["monitor"] = 1
+tab["cam_axe_show"] = 0
+tab["tex1 oncpu"] = 1
+tab["trail"] = 3.1332094244102
+tab["cam_use"] = 2

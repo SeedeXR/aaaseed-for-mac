@@ -1,0 +1,10 @@
+-- preset for MEU|NdcPost_1
+tab["cam_index"] = 0
+tab["draw"] = true
+tab["exposure fstops"] = 1
+tab["gamma"] = 1
+tab["kelvin degrees"] = 5200
+tab["shader"] = 1
+tab["tex_1_bank"] = 6
+tab["tex_1_bind"] = 0
+tab["tex_1_dim"] = 2

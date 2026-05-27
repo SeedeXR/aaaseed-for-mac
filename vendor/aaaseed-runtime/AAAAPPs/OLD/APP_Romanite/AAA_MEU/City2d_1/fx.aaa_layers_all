@@ -1,0 +1,62 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "City2d.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	tra_z = 0.956569 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	focal = 58.9198 ;
+	lookat = ON ;
+	center_x = 0.251922 ;
+	center_z = -0.310701 ;
+	tra_x = -0.626658 ;
+	tra_y = 0.8 ;
+	tra_z = -1.89929 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	line_size = 8 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	tex_wrap_w = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.997827 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

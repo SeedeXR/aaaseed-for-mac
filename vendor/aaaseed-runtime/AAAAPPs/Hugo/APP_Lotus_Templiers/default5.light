@@ -1,0 +1,11 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	type = "BULB" ;
+	camera_lock = ON ;
+	Position_y = -1 ;
+	Position_z = -15.795 TraxMod10Out ;
+	Diffuse_grey = 1 ;
+	attenuation_type = "ALL" ;
+	attenuation_linear = 0.0625 ;
+	}

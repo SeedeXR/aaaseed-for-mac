@@ -1,0 +1,15 @@
+-- preset v0 for MEU|TexCompress_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["flip v"] = true
+tab["format"] = 1
+tab["generate mipmap"] = true
+tab["gpu"] = true
+tab["jpg"] = true
+tab["margin"] = 0
+tab["max compression"] = true
+tab["mipmap nb"] = 0
+tab["overwrite"] = true
+tab["png"] = true
+tab["same folder"] = true
+tab["tga"] = true

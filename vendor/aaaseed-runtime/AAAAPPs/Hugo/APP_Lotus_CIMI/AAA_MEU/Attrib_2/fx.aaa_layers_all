@@ -1,0 +1,89 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "attrib.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_z = -3.00526 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.1095 ;
+	rot_y = -0.2755 ;
+	tra_z = -1.63136 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_z = -3.42992 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_x_frequency_sin = 0.125 ;
+	rot_x_amplitude_sin = 0.0625 ;
+	rot_y_frequency = 0.125 ;
+	draw_axe = ON ;
+	rot_x = 0.1225 ;
+	rot_y = 0.068 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_factor = 0.308186 ;
+	camera_use = "BY_NAME" ;
+	camera_name_symbo = "lotus_top_cam" ;
+	tex_wrap_w = "REPEAT" ;
+	blend = OFF ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 1 ;
+	use_lights_switch = ON ;
+	material_front = 32 ;
+	material_back = 32 ;
+	}

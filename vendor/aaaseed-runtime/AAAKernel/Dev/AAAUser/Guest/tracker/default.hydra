@@ -1,0 +1,17 @@
+hydra ( Version 0 )
+	{
+	active = ON ;
+	open = ON ;
+	coor_one_space = OFF ;
+	filter_active = ON ;
+	filter_near_range = 0.358728 ;
+	filter_near_val = 0.237299 ;
+	filter_far_range = 0.418805 ;
+	tra_1_center_trig = OFF TraxGlo43Out ;
+	ctl_1_pos_x = 0 TraxGlo42In ;
+	ctl_1_trigger = 0 TraxGlo44In ;
+	ctl_1_button_start = OFF TraxGlo43In ;
+	tra_2_center_trig = OFF TraxGlo53Out ;
+	ctl_2_pos_x = 0 TraxGlo52In ;
+	ctl_2_button_start = OFF TraxGlo53In ;
+	}

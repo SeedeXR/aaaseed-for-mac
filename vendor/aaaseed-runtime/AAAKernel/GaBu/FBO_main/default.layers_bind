@@ -1,0 +1,6 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "FBO/fx" ;
+	Bind_01 = "FBO_Vittel/fx" ;
+	Bind_02 = "FBO_Big/fx" ;
+	}

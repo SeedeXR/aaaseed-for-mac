@@ -1,0 +1,11 @@
+-- preset v0 for MEU|DownStreamKey_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 5
+tab["cam_use"] = 2
+tab["dim"] = 1
+tab["grey"] = 0.00079435226507485
+tab["level"] = { 0.43669268488884, 0.60298818349838 }
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["tex_bank"] = 3
+tab["tex_bind"] = 16

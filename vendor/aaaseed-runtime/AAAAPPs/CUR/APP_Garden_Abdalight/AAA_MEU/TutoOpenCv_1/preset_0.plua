@@ -1,0 +1,22 @@
+-- preset v0 for MEU|TutoOpenCv_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["dilate"] = false
+tab["dilate first"] = true
+tab["dilate_iteration"] = 48
+tab["dst_bank"] = 2
+tab["dst_bind"] = 0
+tab["edge"] = false
+tab["equalize"] = false
+tab["erode"] = false
+tab["erode_iteration"] = 43
+tab["factor"] = 0.25
+tab["float"] = false
+tab["invert"] = false
+tab["laplace"] = false
+tab["mono"] = true
+tab["offset"] = -0.76559799909592
+tab["resize"] = true
+tab["scale"] = 5.2661809921265
+tab["src_bank"] = 3
+tab["src_bind"] = 0

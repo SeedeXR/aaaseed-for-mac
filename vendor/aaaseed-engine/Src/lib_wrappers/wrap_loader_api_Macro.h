@@ -1,0 +1,13 @@
+
+WRAP_LOADER(	ConnectServer,			int,											( const char * ip, int port )																	)
+WRAP_LOADER(	SendRequest,			int,											( const PQ_SDK_MultiTouch::TouchClientRequest & request )										)
+WRAP_LOADER(	SendThreshold,			int,											( int move_threshold )																			)
+WRAP_LOADER(	SetRawDataResolution,	int,											( int max_x, int max_y )																		)
+WRAP_LOADER(	GetServerResolution,	int,											( PQ_SDK_MultiTouch::PFuncOnGetServerResolution	pFnCallback, void * call_back_object )			)
+WRAP_LOADER(	DisconnectServer,		int,											( void )																						)
+WRAP_LOADER(	SetOnReceivePointFrame,	PQ_SDK_MultiTouch::PFuncOnReceivePointFrame,	( PQ_SDK_MultiTouch::PFuncOnReceivePointFrame pf_on_rcv_point_frame, void * call_back_object )	)
+WRAP_LOADER(	SetOnReceiveGesture,	PQ_SDK_MultiTouch::PFuncOnReceiveGesture,		( PQ_SDK_MultiTouch:: PFuncOnReceiveGesture pf_on_rcv_gesture, void * call_back_object )		)
+WRAP_LOADER(	SetOnServerBreak,		PQ_SDK_MultiTouch::PFuncOnServerBreak,			( PQ_SDK_MultiTouch::PFuncOnServerBreak pf_on_rcv_data, void * call_back_object )				)
+WRAP_LOADER(	SetOnReceiveError,		PQ_SDK_MultiTouch::PFuncOnReceiveError,			( PQ_SDK_MultiTouch::PFuncOnReceiveError pf_on_rcv_error, void * call_back_object )				)
+WRAP_LOADER(	SetOnGetDeviceInfo,		PQ_SDK_MultiTouch::PFuncOnGetDeviceInfo,		( PQ_SDK_MultiTouch::PFuncOnGetDeviceInfo pf_on_get_device_info, void * call_back_object )		)
+WRAP_LOADER(	GetGestureName,			const char *,									( const PQ_SDK_MultiTouch::TouchGesture & tg )													)

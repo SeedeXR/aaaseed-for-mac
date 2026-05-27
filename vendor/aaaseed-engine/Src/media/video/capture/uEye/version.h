@@ -1,0 +1,4 @@
+
+#define PROGRAM_VERSION_NUMBER	4, 70, 0, 0
+#define PROGRAM_VERSION_TEXT	"4.70.0.0"
+#define CURRENT_YEAR			"2015"

@@ -1,0 +1,27 @@
+-- preset v0 for MEU|IfsFractals_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["c1_alpha"] = 1
+tab["c1_blue"] = 4
+tab["c1_green"] = 4
+tab["c1_red"] = 4
+tab["c2_alpha"] = 1.7784179172055
+tab["c2_blue"] = 10.782376557603
+tab["c2_green"] = 0.66636552203374
+tab["c2_red"] = 0.40874686368525
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 2
+tab["cam_use"] = 2
+tab["cross"] = 0
+tab["fade"] = 0
+tab["fractal"] = 0
+tab["mapping_blend"] = 2
+tab["out"] = 0.5
+tab["scale"] = 10.444780349731
+tab["shader"] = 224
+tab["src"] = 0.5
+tab["tex_bank"] = 3
+tab["tex_bind"] = 8
+tab["tex_dim"] = 1
+tab["time"] = true
+tab["time_factor"] = -0.056329139197042

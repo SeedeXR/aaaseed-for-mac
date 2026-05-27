@@ -1,0 +1,11 @@
+
+WRAP_LOADER(	PS3EyeMulticamGetCameraCount,		int,	( void )										)
+WRAP_LOADER(	PS3EyeMulticamOpen,					bool,	( int camCnt, Resolution res, int frameRate )	)
+WRAP_LOADER(	PS3EyeMulticamClose,				void,	( void )										)
+WRAP_LOADER(	PS3EyeMulticamStart,				bool,	( void )										)
+WRAP_LOADER(	PS3EyeMulticamStop,					void,	( void )										)
+WRAP_LOADER(	PS3EyeMulticamLoadSettings,			bool,	( char* fileName /*="settings.xml"*/ )			)
+WRAP_LOADER(	PS3EyeMulticamSaveSettings,			bool,	( char* fileName /*="settings.xml"*/ )			)
+WRAP_LOADER(	PS3EyeMulticamShowSettings,			void,	( void )										)
+WRAP_LOADER(	PS3EyeMulticamGetFrameDimensions,	bool,	( int &width, int &height )						)
+WRAP_LOADER(	PS3EyeMulticamGetFrame,				bool,	( PBYTE pData, int waitTimeout /*=2000*/ )		)

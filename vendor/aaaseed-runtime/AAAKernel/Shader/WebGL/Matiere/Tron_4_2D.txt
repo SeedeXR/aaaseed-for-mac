@@ -1,0 +1,148 @@
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = size
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+const float fog_density = 1.05;
+
+vec2 rand22(in vec2 p)
+{
+	return fract(vec2(sin(p.x * 591.32 + p.y * 154.077), cos(p.x * 391.32 + p.y * 49.077)));
+}
+float rand12(vec2 p)
+{
+    return fract(sin(dot(p.xy, vec2(12.9898, 78.233))) * 43758.5357);
+}
+vec2 rand21(float p)
+{
+	return fract(vec2(sin(p * 591.32), cos(p * 391.32)));
+}
+vec3 voronoi(in vec2 x)
+{
+	vec2 n = floor(x); // grid cell id
+	vec2 f = fract(x); // grid internal position
+	vec2 mg; // shortest distance...
+	vec2 mr; // ..and second shortest distance
+	float md = 8.0, md2 = 8.0;
+
+	for(int j = -1; j <= 1; j ++)
+	{
+		for(int i = -1; i <= 1; i ++)
+		{
+			vec2 g = vec2(float(i), float(j)); // cell id
+			vec2 o = rand22(n + g); // offset to edge point
+			vec2 r = g + o - f;
+
+			float d = max(abs(r.x), abs(r.y)); // distance to the edge
+
+			if(d < md)
+				{md2 = md; md = d; mr = r; mg = g;}
+			else if(d < md2)
+				{md2 = d;}
+		}
+	}
+	return vec3(n + mg, md2 - md);
+}
+
+#define A2V(a) vec2(sin((a) * 6.28318531 / 100.0), cos((a) * 6.28318531 / 100.0))
+
+vec2 rotate(vec2 p, float a)
+{
+	return vec2(p.x * cos(a) - p.y * sin(a), p.x * sin(a) + p.y * cos(a));
+}
+
+vec3 intersect(in vec3 o, in vec3 d, vec3 c, vec3 u, vec3 v)
+{
+	vec3 q = o - c;
+	return vec3(
+		dot(cross(u, v), q),
+		dot(cross(q, u), d),
+		dot(cross(v, q), d)) / dot(cross(v, u), d);
+}
+
+vec3 hsv2rgb(vec3 c) //thanks sam@lolengine
+{
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+void main( void )
+{
+	vec2 iMouse = vec2( aaa_fu_float[1], aaa_fu_float[2] );
+
+	vec2 uv = gl_TexCoord[0].st;
+
+	// ray origin
+	vec3 ro = vec3(10.0, 10.0, aaa_fu_float[0] * 0.0);
+	ro.y = 0.0;
+	// camera look at
+	vec3 ta = vec3(10.0, 512.0, 5.0);
+
+	vec3 ww = normalize(ro - ta);
+	vec3 uu = normalize(cross(ww, normalize(vec3(0.0, 1.0, 0.0))));
+	vec3 vv = normalize(cross(uu, ww));
+	// obtain ray direction
+	vec3 rd = normalize(uv.x * uu + uv.y * vv + 1.0 * ww);
+
+	vec3 its;
+	float v, g;
+	vec3 col = vec3(0.0, 0.0, 0.0);
+	vec3 layer_col;
+	int layers = 14;
+
+	// voronoi floor layers
+	for(int i = 0; i < 14; i++)
+	{
+		float layer = float(i);
+		float inten = 0.0;
+		its = intersect(ro, rd, vec3(0.0, -5.0 - layer * 5.0, 0.0), vec3(1.0, 0.0, 0.0), vec3(0.0, 0.0, 1.0));
+		if(its.x > 0.0)
+		{
+			vec3 vo = voronoi((its.yz) * 0.05 + 8.0 * rand21(float(i)));
+			v = exp(-100.0 * (vo.z - 0.02));
+
+			float fx = 0.0;
+			// add some special timed fx to each layer
+			{
+				float crd = 0.0;//fract(aaa_fu_float[0] * 0.2) * 50.0 - 25.0;
+				float fxi = cos(vo.x * 0.2 + aaa_fu_float[0] * (iMouse.y / 5.0) * float(i + 1));//abs(crd - vo.x);
+				fx = clamp(smoothstep(0.9, 1.0, fxi), 0.0, 0.9) * 1.0 * rand12(vo.xy);
+				fx *= exp(-3.0 * vo.z) * 2.0;
+			}
+			inten += v * 0.1 + fx;
+		}
+		layer_col = hsv2rgb(vec3(float(i + 1) / float(layers) + (aaa_fu_float[0] * 0.3), 0.9, inten));
+		col += pow(layer_col, (sin(aaa_fu_float[0] * 0.1) + 1.0) * 10.0 * hsv2rgb(vec3(aaa_fu_float[0] * 0.075, 0.9, 1.0)));
+	}
+
+	vec4 color = vec4(col, (col.r+col.g+col.b)*.333 )	;
+
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st)) * aaa_fu_vec4[0]  * aaa_fu_src;
+	vec4 fx  = (color * aaa_fu_vec4[1])  * aaa_fu_out;
+
+	gl_FragColor = vec4( (src + fx) * 0.5 );
+}
+

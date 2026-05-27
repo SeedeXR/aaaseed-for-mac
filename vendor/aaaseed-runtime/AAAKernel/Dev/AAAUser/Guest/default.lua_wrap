@@ -1,0 +1,5 @@
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "default.lua" ;
+	}

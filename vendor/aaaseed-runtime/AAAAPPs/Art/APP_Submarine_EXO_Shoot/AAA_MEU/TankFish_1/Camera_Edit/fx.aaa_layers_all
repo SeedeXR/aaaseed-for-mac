@@ -1,0 +1,87 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	name_symbo = "fish_camera_edit_layers" ;
+	multiple_only = ON ;
+	camera_index_ui = 4 ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	tra_x = -0.092 ;
+	tra_y = 0.164 ;
+	tra_z = -3.52981 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	sca_factor = 2.52887 ;
+	tra_z = -7.02704 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 4.34 ;
+	rot_x = 0.0175 ;
+	rot_y = -0.0875 ;
+	tra_x = 0.632 ;
+	tra_y = -0.488001 ;
+	tra_z = -1.50738 ;
+	clip_close_perspective = 0.16 ;
+	clip_far_perspective = 6.25 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "aqua_camera_hook" ;
+	focal = 240 ;
+	ortho_size = 4.805 ;
+	lookat = ON ;
+	center_x = -5.44091 ;
+	center_y = -1.86388 ;
+	center_z = -2.88711 ;
+	tra_x = -5.46797 ;
+	tra_y = -1.82771 ;
+	tra_z = -2.62433 ;
+	clip_close_perspective = 0.08 ;
+	clip_far_perspective = 200 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "fish_camera_wall_ref" ;
+	focal = 73.7769 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -13 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	tra_z = -11.2237 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 16.5305 ;
+	ui_lock = ON ;
+	rot_x = 0.75 ;
+	tra_z = -9.8248 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	rot_z = -0.25 ;
+	tra_x = -0.016 ;
+	tra_y = -0.006 ;
+	tra_z = -19.617 ;
+	}

@@ -1,0 +1,5 @@
+bind ( Version 0 )
+	{
+	Bind_01 = "cubes/fx" ;
+	Bind_02 = "rain/fx" ;
+	}

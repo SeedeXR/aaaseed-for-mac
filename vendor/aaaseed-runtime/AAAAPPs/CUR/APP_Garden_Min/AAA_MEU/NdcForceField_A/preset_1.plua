@@ -1,0 +1,8 @@
+-- preset for MEU|NdcFxaa_1("proto_NdcFxaa")
+tab["cam_index"] = 7
+tab["draw"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["shader"] = 1
+tab["tex_1_bank"] = 5
+tab["tex_1_bind"] = 28

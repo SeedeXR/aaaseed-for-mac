@@ -1,0 +1,103 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "FLASH_KL" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 5 ;
+	birth_origin_x = 10.5 ;
+	birth_origin_y = 2.15 ;
+	birth_origin_z = -4.85 ;
+	birth_size_x = 23 ;
+	birth_size_y = 3.7 ;
+	birth_size_z = 1.3 ;
+	birth_id = "from_index" ;
+	acceleration_max = 2.26863 ;
+	speed_min = 1.72365 ;
+	speed_max = 2.64621 ;
+	speed_vertical_ratio_max = 0.5 ;
+	viscosity = 0.0923661 ;
+	internal_radius = 0.0822675 ;
+	visibility_use = ON ;
+	visibility_max_seen = 512 ;
+	field_active = ON ;
+	field_influence = 0.03125 ;
+	target_influence = 1.00193 ;
+	target_x = 10.3 ;
+	target_y = 3.66921 ;
+	target_z = -8.4815 ;
+	target_radius_internal = 2.52876 ;
+	target_radius_external = 4.38545 ;
+	box_active = OFF ;
+	box_type = "Repulse" ;
+	box_x = 10.5 ;
+	box_y = 2.15 ;
+	box_z = -4.85 ;
+	box_size_x = 23 ;
+	box_size_y = 3.7 ;
+	box_size_z = 1.3 ;
+	box_border_size = 0.537476 ;
+	box_draw = ON ;
+	acceleration_max_interaction = OFF ;
+	repulse_distance = 0.636738 ;
+	repulse_net_draw = ON ;
+	repulse_by_other = "like_other" ;
+	flocking_influence = 0.433504 ;
+	flocking_visibility_use = ON ;
+	flocking_distance = 0.923077 ;
+	steering_influence = 0.52501 ;
+	steering_distance = 1.49589 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a00.def
+def_distance_field ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 0.125 ;
+	size_v = 0.125 ;
+	size_factor = 0.56075 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_green = 0.407067 ;
+	convert = ON ;
+	hue = 0.598822 ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}

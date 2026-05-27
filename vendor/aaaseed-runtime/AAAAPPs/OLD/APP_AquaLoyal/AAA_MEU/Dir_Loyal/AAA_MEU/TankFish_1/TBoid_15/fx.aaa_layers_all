@@ -1,0 +1,89 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "Picasso" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 15 ;
+	nb_allocated = 50 ;
+	nb_alive_min = 50 ;
+	nb_alive_max = 50 ;
+	birth_id = "from_index" ;
+	acceleration_max = 2 ;
+	speed_min = 0.625 ;
+	speed_max = 1.25 ;
+	speed_vertical_ratio_max = 0.25 ;
+	viscosity = 0.227198 ;
+	draw_force = ON ;
+	internal_radius = 0.25 ;
+	visibility_angle = 0.25 ;
+	visibility_max_seen = 1 ;
+	target_active = OFF ;
+	target_influence = 0.125 ;
+	target_axe = "Y" ;
+	target_x = 5 ;
+	target_y = -1 ;
+	target_z = 2 ;
+	target_normal = 1 ;
+	box_type = "Repulse" ;
+	box_exponent = 3 ;
+	box_x = -0.0250244 ;
+	box_y = 0.685169 ;
+	box_z = -4.14367 ;
+	box_size_x = 24.7886 ;
+	box_size_y = 19.7451 ;
+	box_size_z = 17.6895 ;
+	box_size_factor = 4 ;
+	box_border_size = 0.261369 ;
+	box_sphere = ON ;
+	box_draw = ON ;
+	repulse_distance = 0.1 ;
+	repulse_net_draw = ON ;
+	repulse_net_red = 0.5 ;
+	repulse_net_blue = 0.5 ;
+	repulse_net_alpha = 0.466009 ;
+	repulse_by_other = "like_other" ;
+	flocking_distance = 0.5 ;
+	steering_influence = 2 ;
+	steering_distance = 0.5 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_axe = 8 ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}

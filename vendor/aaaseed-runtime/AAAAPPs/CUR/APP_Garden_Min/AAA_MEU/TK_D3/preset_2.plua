@@ -1,0 +1,11 @@
+-- preset for MEU|TK_3("proto_TK")
+tab["back_mode"] = 1
+tab["bottom"] = 0
+tab["cam_index"] = 1
+tab["front_mode"] = 2
+tab["left"] = 0
+tab["mapping_blend"] = 1
+tab["offset"] = 0
+tab["right"] = 0.99999999988358
+tab["sound_process"] = 1
+tab["top"] = 0.99999999988358

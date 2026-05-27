@@ -1,0 +1,3 @@
+// diagnostic : UV gradient (red along x, green along y).
+// tests that vs_in.tex_coor is properly wired between vert and frag.
+gradient(0).out()

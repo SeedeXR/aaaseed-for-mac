@@ -1,0 +1,172 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	skip_rest = ON ;
+	filename = "slider_two.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	FBO = "CURRENT" ;
+	name_symbo = "BU_slider" ;
+	index_cur = "Layer_D" ;
+	index_end = "Layer_E" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "gabu_slider_att_mapping" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	name_symbo = "gabu_slider_att_layer" ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_alpha = 0.5 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_color = ON ;
+	bind_2d_offset = 255 ;
+	name_symbo = "gabu_slider_back_layer" ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = -0.5 ;
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_u = 0 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.5 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	name_symbo = "gabu_slider_button_layer" ;
+	}
+//AAA::filename fx_d.text
+bdd_text ( Version 0 )
+	{
+	name_symbo = "gabu_slider_text" ;
+	origin_x = -0.460857 ;
+	origin_y = -0.384198 ;
+	axe = "Z" ;
+	type = "GLUT_LINE" ;
+	font = 3 ;
+	line_length = 128 ;
+	face_size = 32 ;
+	text = "Vin A" ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	gouraud = OFF ;
+	depth = ON ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "1D" ;
+	}
+//AAA::filename fx_d.model
+model ( Version 0 )
+	{
+	size_u = 1.7 ;
+	size_v = 4.76 ;
+	size_factor = 0.12 ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_blue = 0 ;
+	global_grey = 0 ;
+	}
+//AAA::filename fx_d.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_z = 0.5 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_text" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	name_symbo = "gabu_slider_text_layer" ;
+	}
+//AAA::filename fx_e.text
+bdd_text ( Version 0 )
+	{
+	axe = "Z" ;
+	type = "FONT_POLYGON" ;
+	text = "toto" ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_text" ;
+	use_color = ON ;
+	}

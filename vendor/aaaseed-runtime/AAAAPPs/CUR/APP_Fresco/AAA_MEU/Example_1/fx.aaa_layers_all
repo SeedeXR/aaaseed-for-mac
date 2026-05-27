@@ -1,0 +1,220 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "example.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_G" ;
+	index_end = "Layer_G" ;
+	camera_index_view = 1 ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_G = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 6.56798 ;
+	rot_x = 0.031 ;
+	rot_y = -0.993999 ;
+	tra_x = 0.372 ;
+	tra_y = 0.002 ;
+	tra_z = -6.90239 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 9.97688 ;
+	position_x = 1 ;
+	rot_x = 0.902998 ;
+	rot_y = 1.947 ;
+	tra_x = 0.016 ;
+	tra_y = -0.176 ;
+	tra_z = -4.63211 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0555 ;
+	rot_y = 0.157 ;
+	tra_x = 0.144 ;
+	tra_y = -0.02 ;
+	tra_z = -4.21646 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 96 ;
+	nb_v = 48 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 0.970801 ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "mapping" ;
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_rot = ON ;
+	tex_speed_factor = 0 ;
+	camera_use = "BY_INDEX" ;
+	camera_index = 1 ;
+	eye_z = -4 ;
+	tex_wrap_w = "REPEAT" ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_file_check_change = ON ;
+	geometry_reload_trig = ON ;
+	fragment_file_check_change = ON ;
+	compute_reload_trig = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 2 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "dummy" ;
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 1 ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_file_location = "Local path" ;
+	vertex_fname_asked = "example.vert" ;
+	vertex_file_check_change = ON ;
+	geometry_reload_trig = ON ;
+	geometry_file_check_change = ON ;
+	fragment_file_location = "Local path" ;
+	fragment_fname_asked = "example.frag" ;
+	fragment_file_check_change = ON ;
+	fu_float_01 = 11860 ;
+	fu_float_02 = 0.0626328 ;
+	fu_float_03 = 1.15543 ;
+	compute_reload_trig = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_shading = "Owner" ;
+	bank_2d = "CURRENT" ;
+	bind_2d = "CURRENT" ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 128 ;
+	nb_v = 128 ;
+	}
+//AAA::filename fx_c00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	axe = "Z" ;
+	strenght = 2 ;
+	offset = 0.5 ;
+	phase_speed = 0.25 ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_c.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_c00.def" def_00 = ON ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_c.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	bind_1d = 0 TraxLoc01Out ;
+	bank_2d = "CURRENT" ;
+	bind_2d = "CURRENT" ;
+	material_front = 2 ;
+	material_back = 2 ;
+	}
+//AAA::filename fx_e.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	draw_number = ON ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_3d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_edit" ;
+	}

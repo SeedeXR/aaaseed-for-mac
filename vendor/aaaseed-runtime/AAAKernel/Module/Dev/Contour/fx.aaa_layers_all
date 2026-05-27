@@ -1,0 +1,330 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Max = 32 ;
+	Offset = 1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Offset = 33 TraxLoc01Out ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_H" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0179999 ;
+	rot_y = -0.002 ;
+	tra_z = -0.3324 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 11.3 ;
+	rot_x = 0.0130001 ;
+	rot_y = 0.013 ;
+	tra_x = -0.488 ;
+	tra_y = -0.36 ;
+	tra_z = -3.67348 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 1.01 ;
+	rot_y = -0.0349999 ;
+	tra_x = -0.34 ;
+	tra_y = -0.648 ;
+	tra_z = -2.8304 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 1.33 ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 TraxLoc01In ;
+	bind_2d = 1 TraxLoc02In ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	verbose = ON ;
+	image_src = 34 TraxLoc02Out ;
+	image_dst_base = 34 ;
+	draw_in_texture = ON ;
+	threshold = 0.547554 ;
+	blob_point_nb_filter = ON ;
+	blob_point_nb_min = 32 ;
+	blob_point_nb_max = 4096 ;
+	blob_area_max = 1e+06 ;
+	polygon_approximation_factor = 4.56782e-05 ;
+	contour_draw_discarded = ON ;
+	contour_draw = ON ;
+	contour_draw_alpha = 0.9678 ;
+	bounding_draw = ON ;
+	bounding_draw_alpha = 0.23064 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUADS" ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	texture_feedback = ON ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 1.33 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.436299 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = 1 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_contour" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	trs_1 = "Owner" ;
+	name_symbo = "cont A" ;
+	comment = "contour" ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -1 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 2 ;
+	trs_1 = "Owner" ;
+	comment = "show contour" ;
+	}
+//AAA::filename fx_d.bdd_img_smooth
+bdd_img_smooth ( Version 0 )
+	{
+	active = ON ;
+	image_src = 34 ;
+	image_dst_base = 35 ;
+	smooth_size_x = 12 ;
+	smooth_size_y = 12 ;
+	bc = ON ;
+	bc_min = 0.0276588 ;
+	bc_max = 0.394594 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_smooth" ;
+	comment = "blur" ;
+	}
+//AAA::filename fx_e.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_e.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 1.34996 ;
+	translate_y = -1 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 3 ;
+	trs_1 = "Owner" ;
+	comment = "show blur" ;
+	}
+//AAA::filename fx_f.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 35 ;
+	contour_dst = 34 ;
+	blob_point_nb_max = 1000000 ;
+	blob_area_max = 1.07374e+09 ;
+	contour_draw = ON ;
+	bounding_draw = ON ;
+	}
+//AAA::filename fx_f.ren
+rendering ( Version 1 )
+	{
+	primitive = "LINE_LOOP" ;
+	}
+//AAA::filename fx_f.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 1.35599 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_contour" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	name_symbo = "cont B" ;
+	}
+//AAA::filename fx_g.bdd_blob_tracking
+bdd_blob_tracking ( Version 0 )
+	{
+	active = ON ;
+	net_in = ON ;
+	tuio_in = ON ;
+	blob_max_nb = 64 ;
+	reject_dist = 0.125 ;
+	iteration_max = 12480 ;
+	draw_mode = "TRACKING_ALL" ;
+	frames_nb = 16 ;
+	frames_nb_to_draw = 16 ;
+	contour_alpha = 1 ;
+	contour_with_quad = ON ;
+	bounding_as_ellipse = ON ;
+	segment_alpha = 1 ;
+	}
+//AAA::filename fx_g.ren
+rendering ( Version 1 )
+	{
+	primitive = "POLYGON" ;
+	}
+//AAA::filename fx_g.multiple
+multiple ( Version 0 )
+	{
+	type = "BOX" ;
+	axe = "Z" ;
+	size_v = 0.486768 ;
+	size_axe = 0.392176 ;
+	size_factor = -0.644524 ;
+	}
+//AAA::filename fx_g.model
+model ( Version 0 )
+	{
+	size_axe = 0 ;
+	}
+//AAA::filename fx_g.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.469727 ;
+	}
+//AAA::filename fx_g.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	light_switch_4 = ON ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_blob_tracking" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 18 ;
+	use_lights_switch = ON ;
+	comment = "tracking" ;
+	}
+//AAA::filename fx_h.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_face" ;
+	}

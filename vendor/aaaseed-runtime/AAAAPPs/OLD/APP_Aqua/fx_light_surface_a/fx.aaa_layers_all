@@ -1,0 +1,135 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	run_only_when_compiled = ON ;
+	filename = "%app%/OLD/APP_Aqua/fx_light_surface_a/fx.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 8.48 ;
+	rot_x = 0.258897 ;
+	rot_y = 0.0594809 ;
+	tra_x = 0.002 ;
+	tra_y = 0.002 ;
+	tra_z = -6.42752 ;
+	euler_order = "YXZ" ;
+	roll = 0.0941732 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_v = 4 ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	center_y = 4 TraxLoc01Out ;
+	u_center = 0.5 ;
+	u_range = 0.1 ;
+	v_range = 0.1 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	axe = "Z" ;
+	strenght = 3.5301 ;
+	offset = 0.5 ;
+	phase_speed = 0.00983912 ;
+	phase_axe = "Y" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "POINT" ;
+	primitive = "QUAD_STRIP" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Normal_with_offset" ;
+	axe = "X" ;
+	size_u = 4.53456 ;
+	size_v = 0.356708 ;
+	offset_u = -1.3623 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_u = 18.522 ;
+	size_v = 4 ;
+	size_factor = 1 TraxLoc01In ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.246302 ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -3.08231 ;
+	translate_y = 8 ;
+	rotate = ON ;
+	rotate_x = -0.0625 ;
+	rotate_y = 0.25 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 17 ;
+	trs_1 = "Owner" ;
+	}

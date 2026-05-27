@@ -1,0 +1,192 @@
+# =====================================================================
+#  Build nothiput
+# =====================================================================
+out/
+build/
+cmake-build-*/
+
+# Ship-script staging directories (see scripts/ship-dmg.sh).
+**/dmg_staging/
+**/ship_staging/
+**/ship_dmg_staging/
+
+# =====================================================================
+#  CMake / IDE state
+# =====================================================================
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+compile_commands.json
+.cache/
+.ccls-cache/
+
+# CTest auto-generated runtime output (at repo root + inside build dirs)
+Testing/
+**/Testing/
+LastTest.log
+**/LastTest.log
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+
+# VS Code
+.vscode/
+
+# JetBrains / CLion
+.idea/
+
+# Mach-O debug symbols
+*.dSYM/
+*.dSYM
+
+# =====================================================================
+#  macOS detritus
+# =====================================================================
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+Icon
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.com.apple.timemachine.donotpresent
+
+# =====================================================================
+#  Vendored library build artifacts (we ship sources, never binaries)
+# =====================================================================
+vendor/**/lib_x64/
+vendor/**/Lib_x64/
+vendor/**/dll_x64/
+vendor/**/*.exe
+vendor/**/*.pdb
+vendor/**/*.dll
+vendor/**/out/
+vendor/**/build/
+
+# =====================================================================
+#  Distributable .app / .dmg / .pkg artifacts
+# =====================================================================
+*.app/
+*.dmg
+*.pkg
+
+# Source tarballs produced by the release workflow ; never commit.
+aaaseed-for-mac-*-src.tar.gz
+aaaseed-for-mac-*-src.tar
+aaaseed-for-mac-*-src.zip
+
+# =====================================================================
+#  Test output
+# =====================================================================
+tests/regression/captured/
+tests/fixtures/deproj/scratch/
+
+# =====================================================================
+#  MkDocs build output (`docs/mkdocs.yml` -> site_dir: ../site)
+# =====================================================================
+site/
+docs/site/
+.cache/plugins/
+
+# =====================================================================
+#  Python venv / cache (used by docs workflow + scripts)
+# =====================================================================
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# =====================================================================
+#  Node (in case tooling sub-projects ever add it)
+# =====================================================================
+node_modules/
+npm-debug.log*
+
+# =====================================================================
+#  Editor temp files
+# =====================================================================
+*~
+*.swp
+*.swo
+.~lock.*
+*.bak
+*.orig
+*.rej
+
+# =====================================================================
+#  Environment + secrets (NEVER commit)
+# =====================================================================
+.env
+.env.local
+.env.*.local
+*.p8
+*.p12
+*.cer
+*.mobileprovision
+NotaryAPIKey.json
+
+# =====================================================================
+#  Log files
+# =====================================================================
+*.log
+*.log.txt
+**/Log/
+
+# =====================================================================
+#  Stray Mach-O / Unix build artifacts (defensive ; primary sweep is out/)
+#  NB : *.obj is intentionally NOT ignored ; Wavefront 3D meshes
+#  (vendor/.../Mercedes.obj) use that extension and must reach LFS.
+# =====================================================================
+*.o
+*.a
+*.dylib
+*.so
+*.so.*
+
+# =====================================================================
+#  Misc OS / archive scratch
+# =====================================================================
+.Trash-*
+*.tmp
+*.temp
+
+# =====================================================================
+#  Broken LFS pointers from upstream Windows clone
+# =====================================================================
+# These 6 vendor texture files are LFS POINTERS without local content
+# (130-byte placeholders, not the actual binary blobs). They block
+# `git push` with "Git LFS upload failed: (missing)". The Mac port does
+# NOT load them (Path A catalog + MEU Runner shim bypass the
+# AAAKernel/Texture/ tree per c142-C inventory). Ignored so the push
+# succeeds ; files remain on disk locally for reference. To recover the
+# real binaries, fetch from the upstream Windows AAASeed LFS endpoint.
+vendor/aaaseed-runtime/AAAKernel/Texture/Capture/silhouette_01.TGA
+vendor/aaaseed-runtime/AAAKernel/Texture/Capture/silhouette_02.TGA
+vendor/aaaseed-runtime/AAAKernel/Texture/Capture/silhouette_03.TGA
+vendor/aaaseed-runtime/AAAKernel/Texture/Capture/silhouette_04.TGA
+vendor/aaaseed-runtime/AAAKernel/Texture/Capture/silhouette_05.TGA
+vendor/aaaseed-runtime/AAAKernel/Texture/FromNeHe/The Abyss.JPG
+
+# =====================================================================
+#  Per-contributor / local-only directories (intentional team choice)
+# =====================================================================
+.claude/
+.claude-task-state/
+books/
+instructions/
+memory/

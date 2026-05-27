@@ -1,0 +1,146 @@
+
+#define PHASE_FLUID 2135949312
+#define PHASE_NONE 0
+
+
+struct st_part_custom
+{
+	uint  _active;
+	float _age;
+	float _emitter_sel;
+	int   _hit_test;
+};
+
+
+layout( std430, binding=0 ) buffer particles_pos_out_buffer			{	vec4			pos_out[];			};
+layout( std430, binding=1 ) buffer particles_vel_out_buffer	        {	float			vel_out[];  		};
+layout( std430, binding=2 ) buffer particles_phase_out_buffer	    {	uint			phase_out[];		};
+layout( std430, binding=3 ) buffer particles_custom_out_buffer		{	st_part_custom	custom_out[];		};
+
+layout( std430, binding=4 ) buffer particles_free_indices_buffer	{	uint  			free_indices_in[];  };
+layout( std430, binding=5 ) buffer particles_free_accum_buffer	    {	uint  			free_accum_in[]; 	};
+
+layout( std430, binding=6 ) buffer particles_accum_buffer	        {	uint  			accum_in[];  };
+layout( std430, binding=7 ) buffer particles_pos_in_buffer			{	vec4  			pos_in[];	 };
+layout( std430, binding=8 ) buffer particles_vel_in_buffer			{	vec4  			vel_in[];	 };
+
+layout(binding = 0) uniform particles_settings_block
+{
+	st_flex_solver sd;
+} part_settings;
+
+layout(binding = 1) uniform particles_emit_block
+{
+	st_img_filter	img;
+	st_emitter		emitter[EMITTER_NB_MAX];
+} emit_settings;
+
+#define GROUP_SIZE 32
+layout( local_size_x = GROUP_SIZE, local_size_y = 1, local_size_z = 1 ) in;
+
+void main(void)
+{
+	uint index = gl_GlobalInvocationID.x;
+
+	bool use_free_indices = true;
+
+	uint emit_index;
+	if( use_free_indices == false )
+	{
+		emit_index = (part_settings.sd._emit_offset + index)
+					%	part_settings.sd._active_nb;
+	}
+	else
+	{
+		//no available particle
+		if( index >= free_accum_in[0] )
+			return;
+		emit_index = free_indices_in[index];
+	}
+
+	//uint emit_index = index;
+	uint filter_nb = accum_in[0];
+
+	//get a random particle
+	st_part_custom custom = custom_out[emit_index];
+	custom._hit_test = 0;
+	custom._emitter_sel = 0.;
+
+	//todo shopuld be done at higher level (in C)
+	float fcover;
+	if( emit_settings.img._coverage_enable == 0 )
+		fcover = 1.0;
+	else
+		fcover = emit_settings.img._coverage;
+
+	float coverage = fcover * float(filter_nb);
+
+	vec3 emit_vel;
+
+	//only replace position if particle is within our bounds
+	if( index < uint(coverage) ) //todo mutliply by coverage
+	{	
+		vec3 emit_pos;
+		float emit_sel;	// which emitter is used
+
+		//get a random source from the image_filter pass
+		uint idx_src = index + part_settings.sd._emit_offset;
+		idx_src = rand_wang_hash(idx_src) % filter_nb;
+		if( true )
+		{
+			emit_pos = pos_in[idx_src].xyz;
+			emit_sel = pos_in[idx_src].w;
+			emit_vel = vel_in[idx_src].xyz;
+		}
+		else
+		{
+			emit_pos = vec3(0);
+			emit_sel = 0.;
+			emit_vel = vec3(0);	
+		}
+
+		//apply jitter
+		vec3 jit_pos_rnd;
+		jit_pos_rnd.x = rand_normalized( idx_src );
+		jit_pos_rnd.y = rand_normalized( idx_src + 1 );
+		jit_pos_rnd.z = rand_normalized( idx_src + 2 );
+		jit_pos_rnd -= 1.0;
+
+		idx_src = idx_src * 2;
+		vec3 jit_vel_rnd;
+		jit_vel_rnd.x = rand_normalized( idx_src );
+		jit_vel_rnd.y = rand_normalized( idx_src + 1 );
+		jit_vel_rnd.z = rand_normalized( idx_src + 2 );
+		jit_vel_rnd -= 1.0;
+
+		int idx = (emit_sel > 0.5) ? 1 : 0;
+
+		emit_pos += jit_pos_rnd * emit_settings.emitter[idx]._jitter_pos.xyz;
+		pos_out[emit_index] = vec4( emit_pos, 1 );
+
+		emit_vel += jit_vel_rnd * emit_settings.emitter[idx]._jitter_vel.xyz;
+
+		custom._active = 1;
+		custom._age = 0.0;
+		custom._emitter_sel = emit_sel;
+
+		phase_out[emit_index] = PHASE_FLUID;
+	}
+	else
+	{
+		emit_vel = vec3(.0);
+		//only overwrite in non indices mode
+		if( use_free_indices == false )
+		{
+			custom._active = 0;
+			custom._age = 0.0;
+			phase_out[emit_index] = PHASE_NONE;
+		}
+	}
+
+	vel_out[emit_index*3] =   emit_vel.x;
+	vel_out[emit_index*3+1] = emit_vel.y;
+	vel_out[emit_index*3+2] = emit_vel.z;
+
+	custom_out[emit_index] = custom;
+}

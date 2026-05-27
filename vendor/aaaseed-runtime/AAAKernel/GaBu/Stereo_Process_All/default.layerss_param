@@ -1,0 +1,7 @@
+module ( Version 0 )
+	{
+	module_traxs = OFF ;
+	layers_index_end = 3 ;
+	layers_index_cur = 1 ;
+	load_all = OFF ;
+	}

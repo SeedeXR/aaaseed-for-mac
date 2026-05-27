@@ -1,0 +1,4 @@
+-- preset v0 for MEU_VIDEO|Video_proto
+tab["allow"] = true
+tab["on cpu"] = true
+tab["on gpu"] = true

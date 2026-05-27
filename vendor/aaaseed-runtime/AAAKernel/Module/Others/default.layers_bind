@@ -1,0 +1,7 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "HH_Mesure/fx" ;
+	Bind_02 = "DropTest/fx" ;
+	Bind_03 = "Drop/fx" ;
+	Bind_05 = "test_Out/fx" ;
+	}

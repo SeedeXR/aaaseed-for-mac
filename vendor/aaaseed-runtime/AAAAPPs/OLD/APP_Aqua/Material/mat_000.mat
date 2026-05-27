@@ -1,0 +1,6 @@
+material ( Version 0 )
+	{
+	Ambient_green = 0.331 ;
+	Ambient_grey = 0.25 ;
+	Specular_grey = 0.101034 ;
+	}

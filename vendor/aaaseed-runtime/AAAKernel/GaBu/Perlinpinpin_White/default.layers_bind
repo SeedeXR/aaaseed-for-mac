@@ -1,0 +1,11 @@
+bind ( Version 0 )
+	{
+	Bind_01 = "Perlinpinpin_1/fx" ;
+	Bind_02 = "Perlinpinpin_2/fx" ;
+	Bind_03 = "Perlinpinpin_3/fx" ;
+	Bind_04 = "Perlinpinpin_4/fx" ;
+	Bind_05 = "Perlinpinpin_5/fx" ;
+	Bind_06 = "Perlinpinpin_6/fx" ;
+	Bind_07 = "Perlinpinpin_7/fx" ;
+	Bind_08 = "Perlinpinpin_8/fx" ;
+	}

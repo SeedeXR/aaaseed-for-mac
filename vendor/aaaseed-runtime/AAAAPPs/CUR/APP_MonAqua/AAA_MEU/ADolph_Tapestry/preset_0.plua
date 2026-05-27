@@ -1,0 +1,12 @@
+-- preset v0 for MEU|ADolph_Tapestry
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["inverse"] = false
+tab["kc"] = false
+tab["kl"] = false
+tab["kr"] = false
+tab["loop"] = false
+tab["play"] = false
+tab["so"] = false
+tab["speed"] = 0.5
+tab["time_factor"] = 4

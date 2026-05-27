@@ -1,0 +1,84 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 14.78 ;
+	rot_x = -0.934 ;
+	rot_y = 0.7285 ;
+	tra_x = -0.004 ;
+	tra_z = -12.3656 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 128 ;
+	nb_v = 128 ;
+	draw_field = ON ;
+	}
+//AAA::filename fx_a00.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 44 ;
+	axe_src = "Z" ;
+	radius_factor = 0.44498 ;
+	axe_dst = "Z" ;
+	Gradient = ON ;
+	strenght = 2 ;
+	}
+//AAA::filename fx_a01.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 62 ;
+	axe_src = "Z" ;
+	ellipse = ON ;
+	radius_factor = 0.0078125 ;
+	axe_dst = "Z" ;
+	strenght = -0.838165 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	AddFileRel "fx_a01.def" def_01 = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 6 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 30 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_mapping = ON ;
+	}

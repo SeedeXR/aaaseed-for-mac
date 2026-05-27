@@ -1,0 +1,163 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_C" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 7.45459 ;
+	focal_horizontal = ON ;
+	rot_x = -0.00200025 ;
+	rot_y = -3 ;
+	tra_x = 0.048 ;
+	tra_y = -0.012 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	rot_x = -0.00178712 ;
+	rot_y = 0.00240866 ;
+	tra_x = -0.0932863 ;
+	tra_y = -0.0521012 ;
+	tra_z = -2.19093 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0308093 ;
+	rot_y = 0.0148863 ;
+	tra_x = -0.0234786 ;
+	tra_y = 0.0227873 ;
+	tra_z = -34.802 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	point_mode = "POINT_SPRITE" ;
+	point_sprite_tex = ON ;
+	primitive = "POINTS" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "mapping" ;
+	tex_use = "2D" ;
+	tex_by_side = ON ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	unit_1 = ON ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	bank_2d = 3 ;
+	bind_2d = 11 ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	bank_2d = 1 ;
+	bind_2d = 1 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "dummy" ;
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 3 ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 1 ;
+	nb_v = 1 ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_file_location = "Local path" ;
+	vertex_fname_asked = "sha.vert" ;
+	vertex_file_check_change = ON ;
+	geometry_file_check_change = ON ;
+	fragment_file_location = "Local path" ;
+	fragment_fname_asked = "sha.frag" ;
+	fragment_file_check_change = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_shading = "Owner" ;
+	}
+//AAA::filename fx_c.draw_instance
+bdd_draw_instance ( Version 0 )
+	{
+	vertex_nb = 10000 ;
+	}
+//AAA::filename fx_c.torus
+bdd_torus ( Version 0 )
+	{
+	radius_int = 0.2 ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_axe = 0.5 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_draw_instance" ;
+	use_model = ON ;
+	use_shading = "CURRENT" ;
+	}

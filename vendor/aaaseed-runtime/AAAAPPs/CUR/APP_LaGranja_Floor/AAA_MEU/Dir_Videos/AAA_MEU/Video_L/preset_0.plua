@@ -1,0 +1,25 @@
+-- preset v0 for MEU_VIDEO|Video_L
+tab["bank"] = 7
+tab["bias"] = 0.5
+tab["bind"] = 10
+tab["capture"] = false
+tab["clip"] = false
+tab["cpu"] = true
+tab["flip u"] = 0
+tab["flip v"] = 0
+tab["gain"] = 0.5
+tab["gpu"] = true
+tab["incrust"] = false
+tab["inv"] = false
+tab["levels"] = { 0.10948792845011, 0.27251106500626 }
+tab["loop"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["monitor"] = true
+tab["play"] = true
+tab["sound"] = false
+tab["speed"] = 1
+tab["step"] = 10
+tab["timecode_in"] = 0
+tab["timecode_out"] = 32400
+tab["volume"] = 1

@@ -1,0 +1,19 @@
+-- preset for MEU|Lotus_2
+tab["dim"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["petal_1"] = true
+tab["petal_10"] = true
+tab["petal_11"] = true
+tab["petal_12"] = true
+tab["petal_2"] = true
+tab["petal_3"] = true
+tab["petal_4"] = true
+tab["petal_5"] = true
+tab["petal_6"] = true
+tab["petal_7"] = true
+tab["petal_8"] = true
+tab["petal_9"] = true
+tab["rot"] = 0
+tab["tex_bank"] = 3
+tab["tex_bind"] = 9

@@ -1,0 +1,6 @@
+light ( Version 0 )
+	{
+	type = "BULB" ;
+	Position_x = 15 ;
+	Position_y = 2.5 ;
+	}

@@ -1,0 +1,8 @@
+bdd_datagrid ( Version 0 )
+	{
+	active = ON ;
+	check_for_change = OFF ;
+	comma_is_separator = ON ;
+	data_new = ON ;
+	data_filename = "%media%/FAF/List/FAF_keyword.csv" ;
+	}

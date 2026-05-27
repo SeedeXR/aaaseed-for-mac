@@ -1,0 +1,101 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "CartoMatonController.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Once" ;
+	multiple_only = ON ;
+	camera_index_ui = 7 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0165 ;
+	rot_y = 0.084 ;
+	tra_z = -7.03622 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -6.65963 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0145 ;
+	rot_y = 0.091 ;
+	tra_z = -5.46322 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.0075 ;
+	rot_y = -0.1935 ;
+	tra_x = 0.002 ;
+	tra_y = -0.002 ;
+	tra_z = -8.78724 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_y_frequency = -0.125 ;
+	tra_z = -8.28041 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.0105 ;
+	rot_y = -0.178 ;
+	tra_x = 2.106 ;
+	tra_y = -0.336 ;
+	tra_z = -10.9084 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	line_size = 5.7145 ;
+	point_size = 3.61418 ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "mapping" ;
+	tex_axe = "X" ;
+	tex_by_side = ON ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	tex_force_min_mag = ON ;
+	tex_2d_minification = "LINEAR" ;
+	tex_2d_magnification = "LINEAR" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	bind_2d = 4 ;
+	}

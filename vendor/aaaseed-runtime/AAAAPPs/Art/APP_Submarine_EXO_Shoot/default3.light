@@ -1,0 +1,15 @@
+light ( Version 0 )
+	{
+	Intensity = 0.733136 ;
+	Position_y = 2 ;
+	Position_z = 2 ;
+	Radius = 0 ;
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Ambient_grey = 0.25 ;
+	Specular_red = 1 ;
+	Specular_green = 1 ;
+	Specular_blue = 1 ;
+	Specular_grey = 1 ;
+	}

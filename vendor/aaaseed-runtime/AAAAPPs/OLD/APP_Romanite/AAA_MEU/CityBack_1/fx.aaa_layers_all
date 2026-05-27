@@ -1,0 +1,411 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "CityBack.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_F" ;
+	index_end = "Layer_F" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	Layer_F = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal = 41.5926 ;
+	rot_x = 0.0419996 ;
+	rot_y = -1.0275 ;
+	tra_x = -0.0320015 ;
+	tra_y = -2.324 ;
+	tra_z = 2.1906 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	focal = 44.9764 ;
+	lookat = ON ;
+	center_x = -0.389474 ;
+	center_y = 0.219 ;
+	center_z = 0.0552281 ;
+	rot_x = 0.374 ;
+	rot_y = 0.0675 ;
+	tra_x = 0.384817 ;
+	tra_y = 3 ;
+	tra_z = 3.98732 ;
+	p00 = 1 ;
+	p11 = 1 ;
+	p22 = 1 ;
+	p33 = 1 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.2525 ;
+	rot_y = 0.000999983 ;
+	tra_x = -0.486 ;
+	tra_y = -2.244 ;
+	tra_z = -14.8208 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	nb_axe = 220 ;
+	}
+//AAA::filename fx_a.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	verbose = ON ;
+	image_src = 104 ;
+	image_dst_base = 105 ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 32 ;
+	smooth_size_y = 32 ;
+	background_reset = ON ;
+	bc = ON ;
+	bc_min = 0.191584 ;
+	bc_max = 0.230642 ;
+	dilate_pass = 7 ;
+	erode_pass = 8 ;
+	optical_flow_poly_n = "7" ;
+	smooth2 = ON ;
+	smooth2_method = "GAUSSIAN" ;
+	smooth2_size_x = 64 ;
+	smooth2_size_y = 64 ;
+	highpass_simple_smooth_method = "BLUR" ;
+	highpass_simple_smooth_size = 12 ;
+	highpass_simple_noise_size = 13 ;
+	bc_out_max = 0.454298 ;
+	rectify = ON ;
+	rectify_level = 0.388187 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 8192 ;
+	nb_max = 2048 ;
+	nb_by_sec = 512 ;
+	flow_continuous = ON ;
+	life_time = 4 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	back_mode = "LINE" ;
+	point_size = 2 ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.0625 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	tex_offset_2 = 0 ;
+	tex_offset_4 = 0 ;
+	tex_offset_6 = 0 ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	tex_wrap_w = "CLAMP_TO_BORDER" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_axe = 0.974349 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "color" ;
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	density = 0.165694 ;
+	red = 0.75 ;
+	green = 0.77 ;
+	blue = 0.84 ;
+	start = 3.52201 ;
+	end = 11.7305 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 5 ;
+	use_fog = "Owner" ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "BACK" ;
+	front_mode = "LINE" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 24 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0.75 ;
+	global_green = 0.77 ;
+	global_blue = 0.84 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_fog = "CURRENT" ;
+	}
+//AAA::filename fx_c.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.01 ;
+	flip_yz_at_read = ON ;
+	vbo_use = ON ;
+	draw_uv = ON ;
+	model_filename = "%media%/AAARom/Demo/3D/SOL.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	line_smooth = ON ;
+	line_size = 2 ;
+	depth = ON ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	tex_wrap_w = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_c.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 201 ;
+	geometry_reload_trig = ON ;
+	fragment_bind = 201 ;
+	fu_out = 1.09789 ;
+	fu_float_01 = 8.1582 ;
+	fu_float_02 = 6.2993 ;
+	fu_float_03 = 1 ;
+	fu_float_04 = 1 ;
+	fu_float_05 = 1 ;
+	fu_float_06 = 1 ;
+	fu_int_01 = 3 ;
+	fu_int_02 = 256 ;
+	fu_02_r_x = 1 ;
+	fu_02_g_y = 1 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	fu_04_r_x = 1 ;
+	fu_04_g_y = 1 ;
+	fu_04_b_z = 1 ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_z = -0.5 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	bank_2d = 20 ;
+	use_fog = "CURRENT" ;
+	}
+//AAA::filename fx_d.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.01 ;
+	flip_yz_at_read = ON ;
+	vbo_use = ON ;
+	draw_uv = ON ;
+	model_filename = "%media%/AAARom/Demo/3D/BATIMENTS.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	tex_wrap_w = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_d.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	bank_2d = 20 ;
+	bind_2d = 1 ;
+	use_fog = "CURRENT" ;
+	}
+//AAA::filename fx_e.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.01 ;
+	flip_yz_at_read = ON ;
+	vbo_use = ON ;
+	draw_uv = ON ;
+	model_filename = "%media%/AAARom/Demo/3D/TRONCS.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_e.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_factor = 8 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_e.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.198326 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	bank_2d = 20 ;
+	bind_2d = 2 ;
+	use_fog = "CURRENT" ;
+	}
+//AAA::filename fx_f.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.01 ;
+	flip_yz_at_read = ON ;
+	vbo_use = ON ;
+	draw_uv = ON ;
+	model_filename = "%media%/AAARom/Demo/3D/FEUILLAGE.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_f.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.720089 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_color = ON ;
+	bank_2d = 20 ;
+	bind_2d = 3 ;
+	use_fog = "CURRENT" ;
+	}

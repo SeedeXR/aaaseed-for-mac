@@ -1,0 +1,8 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Back_Test/fx" ;
+	Bind_02 = "Back_plasma/fx" ;
+	Bind_03 = "One/fx" ;
+	Bind_04 = "Several/fx" ;
+	Bind_05 = "part_a/fx" ;
+	}

@@ -1,0 +1,94 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "SURGERY_KL" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 14 ;
+	birth_origin_x = 10.4 ;
+	birth_origin_y = 1.65 ;
+	birth_origin_z = -5.25 ;
+	birth_size_x = 21.2 ;
+	birth_size_y = 1.3 ;
+	birth_size_z = 1.5 ;
+	birth_id = "from_index" ;
+	speed_min = 1 ;
+	speed_vertical_ratio_max = 0.5 ;
+	viscosity = 0.227198 ;
+	internal_radius = 0.25 ;
+	visibility_angle = 0.25 ;
+	visibility_max_seen = 111 ;
+	field_active = ON ;
+	target_active = OFF ;
+	target_influence = 0.400114 ;
+	target_axe = "Y" ;
+	target_x = 10.4473 ;
+	target_y = 2.80986 ;
+	target_z = -5.08347 ;
+	target_radius_internal = 3.3121 ;
+	target_radius_external = 7.99597 ;
+	target_normal = 1 ;
+	box_type = "Bounce" ;
+	box_type_x = "Bounce" ;
+	box_type_y = "Bounce" ;
+	box_x = 10.4 ;
+	box_y = 1.65 ;
+	box_z = -5.25 ;
+	box_size_x = 21.2 ;
+	box_size_y = 1.3 ;
+	box_size_z = 1.5 ;
+	box_border_size = 0.25 ;
+	repulse_distance = 0.25 ;
+	repulse_net_draw = ON ;
+	repulse_net_green = 0.5 ;
+	repulse_net_blue = 0.5 ;
+	repulse_net_alpha = 0.466009 ;
+	repulse_by_other = "like_other" ;
+	flocking_active = ON ;
+	flocking_influence = 0.5 ;
+	steering_active = ON ;
+	steering_influence = 2 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_axe = 8 ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0.5 ;
+	global_blue = 0.5 ;
+	convert = ON ;
+	hue = 0 ;
+	saturation = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}

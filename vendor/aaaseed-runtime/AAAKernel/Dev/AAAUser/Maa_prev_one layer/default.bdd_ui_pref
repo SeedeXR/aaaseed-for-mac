@@ -1,0 +1,9 @@
+bdd_ui_pref ( Version 0 )
+	{
+	background_color_blue = 0 ;
+	construction_color_red = 0 ;
+	construction_color_green = 0 ;
+	frame_color_red = 0 ;
+	frame_sub_color_green = 0 ;
+	output_line_size = 128 ;
+	}

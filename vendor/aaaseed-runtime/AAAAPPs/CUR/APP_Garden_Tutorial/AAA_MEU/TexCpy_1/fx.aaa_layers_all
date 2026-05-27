@@ -1,0 +1,123 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = -2.845 ;
+	center_x = 0 TraxLoc06Out ;
+	rot_x = 0.433 ;
+	rot_y = -0.12 ;
+	tra_z = -1.06352 TraxLoc10In ;
+	tra_offset_z = 3.26994 TraxLoc16Out ;
+	clip_close_perspective = 5e-06 ;
+	clip_far_perspective = 1.5625 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 6.20825 ;
+	rot_x = 0.819 ;
+	rot_y = -0.1845 ;
+	tra_x = -0.63 ;
+	tra_y = 0.038 ;
+	tra_z = -17.7127 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 1.94454 ;
+	rot_x = 0.021 ;
+	rot_y = 0.005 ;
+	tra_z = -8.92552 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 3.47454 ;
+	tra_z = -11.6234 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 4.70454 ;
+	tra_z = -9.17533 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 5.75454 ;
+	tra_z = -11.2736 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.55454 ;
+	orbiting = ON ;
+	rot_x_frequency = 0.092472 ;
+	rot_y_frequency = 0.0436428 ;
+	rot_x = 0.0070775 ;
+	rot_y = 0.00359901 ;
+	tra_z = -18.3128 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 6.83454 ;
+	rot_x = -0.019 ;
+	rot_y = 0.004 ;
+	tra_z = -11.0238 ;
+	}
+//AAA::filename fx_a.bdd_tex_copy
+bdd_tex_copy ( Version 0 )
+	{
+	mipmap_generate = ON ;
+	pos_x = 0.0625 ;
+	pos_y = 0.0625 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_v = 0.759105 ;
+	size_factor = 4 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex_copy" ;
+	use_model = ON ;
+	use_tex_anim = "CURRENT" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	}

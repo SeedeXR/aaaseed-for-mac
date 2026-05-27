@@ -1,0 +1,27 @@
+-- preset v0 for MEU|TutoLuaColor_New
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 7
+tab["cam_use"] = 1
+tab["color1_blue"] = 1
+tab["color1_green"] = 1
+tab["color1_grey"] = 1
+tab["color1_hue"] = 1
+tab["color1_red"] = 1
+tab["color1_sat"] = 0
+tab["color1_value"] = 1
+tab["color2_alpha"] = 1
+tab["color2_blue"] = 1
+tab["color2_green"] = 1
+tab["color2_grey"] = 1
+tab["color2_red"] = 1
+tab["render.back"] = 0
+tab["render.cull"] = 2
+tab["render.depth"] = false
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 1
+tab["render.normal"] = 1
+tab["render.normal active"] = false
+tab["render.point"] = 1

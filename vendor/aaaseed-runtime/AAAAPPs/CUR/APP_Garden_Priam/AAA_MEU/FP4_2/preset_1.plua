@@ -1,0 +1,17 @@
+-- preset for MEU|FP4_2
+tab["cam_index"] = 0
+tab["draw"] = 2
+tab["draw field"] = 2
+tab["field"] = true
+tab["flocking"] = false
+tab["flocking_distance"] = 0.04061346128583
+tab["flocking_influence"] = 0.39504042267799
+tab["influence"] = 0.125
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["repulse"] = true
+tab["repulse_distance"] = 0.097165741026402
+tab["repulse_influence"] = 1
+tab["steering"] = true
+tab["steering_distance"] = 0.10889551788568
+tab["steering_influence"] = 0.019884549081326

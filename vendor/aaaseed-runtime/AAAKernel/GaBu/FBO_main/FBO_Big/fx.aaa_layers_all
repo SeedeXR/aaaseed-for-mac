@@ -1,0 +1,16 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "Owner" ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 8192 ;
+	size_asked_y = 1024 ;
+	tex_1_bind_2d_asked = 31 ;
+	tex_1_mipmap_generate = ON ;
+	}

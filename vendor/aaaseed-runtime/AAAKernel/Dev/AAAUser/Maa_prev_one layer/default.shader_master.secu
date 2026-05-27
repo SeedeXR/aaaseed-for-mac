@@ -1,0 +1,18 @@
+shader_master ( Version 0 )
+	{
+	include_dir_a = "Shader/include" ;
+	include_dir_b = "../APP/OLD/APP_Aqua/Shader/include" ;
+	include_dir_c = "../APP/Hugo/Shader/include" ;
+	include_1_general = "Shader/include/include_a.glsl" ;
+	include_1_amd = "Shader/include/include_a_amd.glsl" ;
+	include_1_intel = "Shader/include/include_a_intel.glsl" ;
+	include_1_nvidia = "Shader/include/include_a_nvidia.glsl" ;
+	include_2 = "Shader/include/include_b.glsl" ;
+	include_3 = "Shader/include/include_fn.glsl" ;
+	include_4 = "Shader/include/include_noise.glsl" ;
+	include_5 = "Shader/include/include_color.glsl" ;
+	include_6 = "Shader/include/include_light.glsl" ;
+	include_7 = "Shader/include/include_catmull.glsl" ;
+	include_8 = "Shader/include/include_blur.glsl" ;
+	include_9 = "Shader/include/include_rest.glsl" ;
+	}

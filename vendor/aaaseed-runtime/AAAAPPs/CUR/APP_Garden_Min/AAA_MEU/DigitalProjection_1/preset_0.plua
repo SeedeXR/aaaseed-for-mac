@@ -1,0 +1,12 @@
+-- preset v0 for MEU|DigitalProjection_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["altitude"] = 2
+tab["color.max"] = 3
+tab["color.mode"] = 2
+tab["color.temp"] = 5
+tab["input"] = 2
+tab["laser.mode"] = 2
+tab["laser.power"] = 103
+tab["pic.mode"] = 0
+tab["test.pattern"] = 0

@@ -1,0 +1,101 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_video" ;
+	bind_dst = 128 ;
+	force_in_format = "RGBA Fp32" ;
+	play = ON ;
+	loop = ON ;
+	video_preroll = 8 ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_run = ON ;
+	capture_device_index_asked = 1 ;
+	capture_device_id_asked = "000170604912" ;
+	capture_size = "1920p/i" ;
+	capture_size_x = 1920 ;
+	capture_size_y = 1080 ;
+	incrust_max = 1 ;
+	incrust_gain = 0.354756 ;
+	remanence_time = 0.0625 ;
+	remanence_color = ON ;
+	remanence_diff_factor = 8 ;
+	mipmap_generate = ON ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	version_asked = "Kinect_Azure" ;
+	motor_position = 0.903753 ;
+	depth_deform_bind = 130 ;
+	depth_range_extended = ON ;
+	depth_render_type = "Distance_INT16" ;
+	depth_clip_left = 0.136759 ;
+	depth_clip_right = 0.849789 ;
+	depth_clip_bottom = 0.289406 ;
+	depth_clip_top = 0.863838 ;
+	depth_invalid_green = 0.5 ;
+	depth_invalid_blue = 0 ;
+	depth_invalid_grey = 0 ;
+	depth_invalid_alpha = 0 ;
+	depth_raw_min = -1.24196 ;
+	depth_raw_max = 0.89 ;
+	depth_near_red = 0 ;
+	depth_near_green = 0 ;
+	depth_far_red = 0 ;
+	depth_far_green = 0 ;
+	depth_far_alpha = 0.5 ;
+	depth_meter_min = -0.605652 ;
+	rgb_start_k4_asked = "HD_720p" ;
+	rgb_bind = 129 ;
+	rgb_cpu = ON ;
+	rgb_aligned_asked = ON ;
+	rgb_aligned_bind = 131 ;
+	rgb_aligned_cpu = ON ;
+	skeleton_x_flip = ON ;
+	skeleton_mocap_target_1 = "kin2_mocap_1" ;
+	skeleton_mocap_target_2 = "kin2_mocap_2" ;
+	skeleton_mocap_target_3 = "kin2_mocap_3" ;
+	skeleton_mocap_target_4 = "kin2_mocap_4" ;
+	skeleton_mocap_target_5 = "kin2_mocap_5" ;
+	skeleton_mocap_target_6 = "kin2_mocap_6" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_particle" ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	use_tex_video = ON ;
+	}
+//AAA::filename fx_c.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 96 ;
+	image_dst_base = 106 ;
+	image_component = "BLUE" ;
+	agitation = ON ;
+	background_reset = ON ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}

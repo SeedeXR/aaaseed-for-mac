@@ -1,0 +1,27 @@
+-- preset v0 for MEU|LVNemethCord_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["circle"] = false
+tab["debug"] = false
+tab["line size"] = 0.07083832422678
+tab["render.back"] = 0
+tab["render.cull"] = 2
+tab["render.depth"] = false
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 3.5078582763672
+tab["render.normal"] = 8
+tab["render.normal active"] = false
+tab["render.point"] = 0.83568662405014
+tab["sf"] = 8
+tab["step u"] = 240
+tab["step v"] = 4
+tab["su"] = 1
+tab["sv"] = 0.015625
+tab["tex_bank"] = 1
+tab["tex_bind"] = 2
+tab["tex_dim"] = 2
+tab["y"] = true

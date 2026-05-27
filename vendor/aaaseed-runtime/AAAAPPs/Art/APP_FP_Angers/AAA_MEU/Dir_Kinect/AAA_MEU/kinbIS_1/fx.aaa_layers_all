@@ -1,0 +1,73 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "KINBIS.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 4 ;
+	focal_horizontal = ON ;
+	}
+//AAA::filename fx_a.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	name_symbo = "dummy" ;
+	color = OFF ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = 0.823358 ;
+	nb_u = 5 ;
+	nb_v = 5 ;
+	}
+//AAA::filename fx_a.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	center_y = 1.4 ;
+	deform = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 4 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_equation = "MAX" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 5.12 ;
+	size_v = 4.24 ;
+	size_factor = 0.372044 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 4 ;
+	}

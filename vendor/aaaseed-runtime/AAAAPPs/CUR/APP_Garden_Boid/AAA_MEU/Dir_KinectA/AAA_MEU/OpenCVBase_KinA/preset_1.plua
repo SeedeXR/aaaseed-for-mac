@@ -1,0 +1,26 @@
+-- preset v0 for MEU|OpenCVBase_KinA
+tab["bc1"] = { 0, 1 }
+tab["bc1 on"] = false
+tab["bc2"] = { 0.37252819538116, 1 }
+tab["bc2 on"] = true
+tab["bc3"] = { 0, 1 }
+tab["bc3 on"] = false
+tab["blur1"] = 9
+tab["blur2"] = 9
+tab["blur3"] = 16
+tab["diff"] = 1
+tab["dilate"] = false
+tab["dilate_pass"] = 3
+tab["dst_bank"] = 2
+tab["dst_bind"] = 1
+tab["erode"] = true
+tab["erode_pass"] = 3
+tab["first"] = false
+tab["method1"] = 1
+tab["method2"] = 2
+tab["method3"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["pass 2"] = false
+tab["src_bank"] = 2
+tab["src_bind"] = 0

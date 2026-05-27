@@ -1,0 +1,26 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "material/mat_000" ;
+	Bind_01 = "material/mat_001" ;
+	Bind_02 = "material/mat_002" ;
+	Bind_03 = "material/mat_003" ;
+	Bind_04 = "material/mat_004" ;
+	Bind_05 = "material/mat_005" ;
+	Bind_06 = "material/mat_006" ;
+	Bind_07 = "material/mat_007" ;
+	Bind_08 = "material/mat_008" ;
+	Bind_09 = "material/mat_009" ;
+	Bind_10 = "material/mat_010" ;
+	Bind_11 = "material/mat_011" ;
+	Bind_12 = "material/mat_012" ;
+	Bind_13 = "material/mat_013" ;
+	Bind_14 = "material/mat_014" ;
+	Bind_15 = "material/mat_015" ;
+	Bind_16 = "material/mat_016" ;
+	Bind_17 = "material/mat_017" ;
+	Bind_18 = "material/mat_018" ;
+	Bind_19 = "material/mat_019" ;
+	Bind_20 = "material/mat_020" ;
+	Bind_27 = "material/mat_027" ;
+	Bind_52 = "material/mat_052" ;
+	}

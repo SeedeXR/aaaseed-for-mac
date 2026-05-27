@@ -1,0 +1,12 @@
+-- preset for MEU|Logos_1
+tab["angle"] = 31.347473772947
+tab["cam_index"] = 0
+tab["construction"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["middle"] = 0.69924342656807
+tab["radius"] = 1.5322504572553
+tab["rotation"] = 0
+tab["top"] = 0.12406604454275
+tab["tra u"] = 0
+tab["tra v"] = -0.034031233566085

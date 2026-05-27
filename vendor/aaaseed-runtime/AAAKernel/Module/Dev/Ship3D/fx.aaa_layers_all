@@ -1,0 +1,66 @@
+//AAA::set_filename_relative
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_INDEX" ;
+	Limit = "WRAP" ;
+	Limit_max = 20 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	transfo = ON ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.766003 ;
+	rot_y = 0.187999 ;
+	tra_z = -2.18092 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_y = 0.25 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.0377467 ;
+	translation_z = -0.130636 ;
+	draw_file_normal = ON ;
+	model_filename = "M:\Heavent\AAATas.obj" ;
+	draw_by_object = ON ;
+	draw_by_id = ON ;
+	object_start = 11 TraxLoc02Out TraxLoc04In ;
+	object_stop = 11 TraxLoc04Out ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	}

@@ -1,0 +1,10 @@
+// kaleidoscope of texture s0 modulated by s1, scrolled, and layered
+// over s2. Showcases all four textures and demonstrates that s0..s3
+// each map to a distinct sampler binding 0..3.
+src(s0)
+  .kaleid(6)
+  .modulate(src(s1), 0.1)
+  .scrollX(0, 0.05)
+  .layer(src(s2))
+  .blend(src(s3), 0.3)
+  .out()

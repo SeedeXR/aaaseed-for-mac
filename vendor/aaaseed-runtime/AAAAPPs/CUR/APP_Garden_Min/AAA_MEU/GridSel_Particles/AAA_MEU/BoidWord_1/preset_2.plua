@@ -1,0 +1,26 @@
+-- preset for MEU|BoidWord_1
+tab["adn"] = 0
+tab["alpfar"] = 7.9962773580325
+tab["alpfardist"] = 0.82797005557346
+tab["alpnear"] = 0.78652784520837
+tab["alpneardist"] = 1.163922199681
+tab["axe"] = 2
+tab["billboard"] = 1
+tab["boid"] = 0
+tab["cam_index"] = 0
+tab["debug"] = 0
+tab["interval"] = 3
+tab["inv"] = 0
+tab["line"] = 0
+tab["list"] = 2
+tab["local"] = 0
+tab["phase"] = 0.13357029637437
+tab["run"] = 1
+tab["sha_x"] = 0
+tab["sha_y"] = 0.089035503523081
+tab["sha_z"] = 0.23351636881678
+tab["shadow"] = 1
+tab["size"] = { 0, 0.06609706969625 }
+tab["skipbegin"] = 4.7674860046094
+tab["speed"] = 1
+tab["z_size"] = { 3.8610921761946, 12 }

@@ -1,0 +1,8 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Shader/vux_flare_render/particle_update.comp" ;
+	Bind_20 = "Shader/flex/integrate_velocity.comp" ;
+	Bind_21 = "Shader/flex/reset_acc.comp" ;
+	Bind_22 = "Shader/flex/filter_image.comp" ;
+	Bind_23 = "Shader/flex/emit_buffer.comp" ;
+	}

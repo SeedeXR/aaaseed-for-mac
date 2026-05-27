@@ -1,0 +1,17 @@
+bind ( Version 0 )
+	{
+	Bind_03 = "Background/fx" ;
+	Bind_04 = "Dessin_deformer/fx" ;
+	Bind_06 = "BaseBis/fx" ;
+	Bind_07 = "Text/fx" ;
+	Bind_08 = "BlastAway/fx" ;
+	Bind_11 = "Fond/fx" ;
+	Bind_12 = "Gridef/fx" ;
+	Bind_15 = "Gradient/fx" ;
+	Bind_16 = "One/fx" ;
+	Bind_17 = "Boid/fx" ;
+	Bind_18 = "Test/fx" ;
+	Bind_20 = "Out/fx" ;
+	Bind_21 = "Proj/fx" ;
+	Bind_24 = "Calage/fx" ;
+	}

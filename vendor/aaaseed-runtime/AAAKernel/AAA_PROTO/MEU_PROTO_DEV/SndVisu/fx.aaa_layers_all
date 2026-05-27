@@ -1,0 +1,180 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "PROTO_SndVisu.lua" ;
+	}
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "FFT" ;
+	Restart_trig = ON ;
+	Freq = 0.851616 ;
+	Filter = 0.410562 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = 0.141731 TraxLoc01Out ;
+	value_01 = 0.848527 TraxLoc02Out ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON TraxMod18Out ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	name_symbo = "SndVisu" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport_right = 0.666549 ;
+	ortho_size = 59.84 ;
+	rot_x_frequency = 0.024132 ;
+	rot_x = 0.249 ;
+	rot_y = -0.00049998 ;
+	rot_offset_x = -0.184957 ;
+	tra_z = -16.6887 ;
+	clip_close_ortho = -60 ;
+	clip_far_ortho = 60 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	rotate = ON ;
+	rotate_x = 0.25 ;
+	scale = ON ;
+	scale_factor = 0.25 ;
+	}
+//AAA::filename fx_a.bddsound
+bdd_sound ( Version 0 )
+	{
+	origin_z = 1 ;
+	type = "SOUND_WAVE" ;
+	col_nb = 64 ;
+	row_nb = 32 ;
+	draw_loop = ON ;
+	use_max = ON ;
+	size_u = 1 ;
+	size_v = 1 ;
+	size_axe = 0.5 ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 48 ;
+	nb_v = 48 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	model_filename = "none" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	back_mode = "POINT" ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "BOX" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	texture_feedback = ON ;
+	tex_flip_uv = ON ;
+	tex_v_ori = 0.365159 ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.000132 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	resolution = 1.49 ;
+	size_u = 0.5 ;
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.0268334 ;
+	global_blue = 0.0278347 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	rotate = ON ;
+	rotate_z = 0.25 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sound" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 10 ;
+	bind_2d = 0 TraxLoc16Out ;
+	use_lights_switch = ON ;
+	material_front = 8 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.bddsound
+bdd_sound ( Version 0 )
+	{
+	origin_x = 4.41 ;
+	type = "SOUND_WAVE" ;
+	channel = 2 ;
+	col_nb = 16 ;
+	row_nb = 16 ;
+	draw_loop = ON ;
+	size_u = 1.45006 ;
+	size_v = 3.807 ;
+	size_axe = 1 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sound" ;
+	use_multiple = "CURRENT" ;
+	bind_1d = 10 ;
+	bind_2d = 0 TraxLoc16Out ;
+	material_front = 8 ;
+	}

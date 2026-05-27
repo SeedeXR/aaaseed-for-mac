@@ -1,0 +1,94 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -2.005 ;
+	rot_y = 0.028 ;
+	tra_z = -3.77962 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_x_frequency = 0.086611 ;
+	rot_x_amplitude_sin = 0.133405 ;
+	rot_x = 2.266 ;
+	rot_y = 0.0250001 ;
+	tra_x = -0.0079998 ;
+	tra_y = -0.68 ;
+	tra_z = 2.01571 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.001 ;
+	rot_y = 1.28057e-09 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	front_mode = "LINE" ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_x = -3.9196 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Quake" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	bind_2d = 7 ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_factor = 8.4 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	}

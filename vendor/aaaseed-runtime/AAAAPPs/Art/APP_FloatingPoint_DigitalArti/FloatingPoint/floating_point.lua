@@ -1,0 +1,9 @@
+if APP.DECLARE( "FLOATING_POINT", APP_GP ) then
+end
+
+local L_APP = FLOATING_POINT
+
+if IS_BUSS_OPEN() then
+	APP.CREATE_INST( L_APP )
+end
+

@@ -1,0 +1,8 @@
+module ( Version 0 )
+	{
+	name_symbo = "romzy_module" ;
+	module_materials = ON ;
+	module_lights = ON ;
+	layers_index_end = 1 ;
+	load_all = OFF ;
+	}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  bundle/macos/Info.plist.in
+  Phase 8 distribution beachhead (c136-B opened, 2026-05-27 ; collapsed
+  to single source-of-truth on 2026-05-27 by Info.plist singularity work).
+
+  CANONICAL Info.plist template for AAASeed.app. CMake `configure_file()`
+  substitutes `${...}` sites and writes the resolved plist to
+  `${CMAKE_BINARY_DIR}/Info.plist` ; that resolved artefact is what
+  `MACOSX_BUNDLE_INFO_PLIST` consumes AND what future codesign /
+  notarytool / hdiutil packaging steps consume verbatim. ONE source.
+
+  History : before the collapse there were TWO plists --
+    - bundle/macos/Info.plist        (canonical, fully-resolved, 18 keys)
+    - src/ui/macos/Info.plist.in     (template, 14 keys)
+  These drifted independently (e.g. MetalCaptureEnabled was only in the
+  template ; NSCameraUsageDescription only in the canonical). Collapsed
+  here into a single ${...}-substituted template ; the old per-UI plist
+  was deleted (see src/ui/macos/CMakeLists.txt for the reconciliation
+  report comment block).
+
+  Phase 8 (todo.md L365-L383) :
+    - L367-L370 .app bundle layout : the configured output of this
+      template is the Contents/Info.plist.
+    - L377 codesign --entitlements bundle/macos/entitlements.plist .
+    - L378 hardened runtime entitlements : mic / camera / JIT.
+    - L379 notarization metadata depends on these keys being present.
+
+  CFBundleIdentifier = ai.bsa.aaaseed     (user's domain bsa.ai reversed)
+  CFBundleExecutable = aaaseed_app        (matches CMake target name)
+  LSMinimumSystemVersion = ${CMAKE_OSX_DEPLOYMENT_TARGET}  (Apple Silicon baseline 13.0)
+
+  No code signing in this commit -- needs Developer ID + keychain. The
+  scaffolding here is the runbook future sessions build on.
+
+  See bundle/macos/README.md for codesign / notarize / DMG templates.
+-->
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleIdentifier</key>
+    <string>ai.bsa.aaaseed</string>
+    <key>CFBundleName</key>
+    <string>${MACOSX_BUNDLE_BUNDLE_NAME}</string>
+    <key>CFBundleDisplayName</key>
+    <string>AAASeed</string>
+    <key>CFBundleExecutable</key>
+    <string>${MACOSX_BUNDLE_EXECUTABLE_NAME}</string>
+    <key>CFBundleVersion</key>
+    <string>${MACOSX_BUNDLE_BUNDLE_VERSION}</string>
+    <key>CFBundleShortVersionString</key>
+    <string>${MACOSX_BUNDLE_SHORT_VERSION_STRING}</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>${CMAKE_OSX_DEPLOYMENT_TARGET}</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSSupportsAutomaticGraphicsSwitching</key>
+    <true/>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.graphics-design</string>
+    <key>NSCameraUsageDescription</key>
+    <string>AAASeed accesses cameras for video input MEUs (USB capture, AVFoundation).</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>AAASeed accesses microphones for audio input MEUs (line-in, AVFoundation).</string>
+    <key>CFBundleDocumentTypes</key>
+    <array/>
+    <key>LSHandlerRank</key>
+    <string>Owner</string>
+    <key>MetalCaptureEnabled</key>
+    <true/>
+</dict>
+</plist>

@@ -1,0 +1,15 @@
+-- preset v0 for MEU|NetConfig_New
+tab[":"] = ":"
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["active link"] = false
+tab["activea"] = true
+tab["dst ip"] = "Dst ip"
+tab["host ip 0"] = "192.168.1.123"
+tab["host ip 1"] = "100.70.97.115"
+tab["host ip 2"] = ""
+tab["host ip 3"] = ""
+tab["link index"] = 3
+tab["port nb"] = "Port nb"
+tab["run"] = false
+tab["test"] = false

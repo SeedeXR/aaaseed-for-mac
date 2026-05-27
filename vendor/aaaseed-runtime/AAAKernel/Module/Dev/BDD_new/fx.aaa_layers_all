@@ -1,0 +1,75 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -1.22891 ;
+	}
+//AAA::filename fx_a.bdd_web
+bdd_web ( Version 0 )
+	{
+	active = ON ;
+	verbose = ON ;
+	library = "WKE" ;
+	http_address = "http://www.youtube.com" ;
+	mouse_x = 0.0245028 ;
+	mouse_y = 0.0540809 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	top_line = ON ;
+	top_point = ON ;
+	top_red = 0 ;
+	top_green = 0 ;
+	top_blue = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_web" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	}
+//AAA::filename fx_b.bdd_polygon
+bdd_polygon ( Version 0 )
+	{
+	point_nb = 6 ;
+	draw_line = ON ;
+	draw_line_close = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	bank_2d = 2 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_face" ;
+	}

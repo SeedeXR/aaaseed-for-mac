@@ -1,0 +1,6 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Min = -4 ;
+	Max = 4 ;
+	}

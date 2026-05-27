@@ -1,0 +1,5 @@
+lights ( Version 0 )
+	{
+	intensity_factor = 2.25004 ;
+	two_side = ON ;
+	}

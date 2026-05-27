@@ -1,0 +1,107 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	tra_z = -6.3276 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = -1.86909 ;
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.bdd_polygon
+bdd_polygon ( Version 0 )
+	{
+	point_nb = 6 ;
+	point_01_u = -1.43701 ;
+	point_01_v = -0.1428 ;
+	point_02_u = 0.94039 ;
+	point_03_v = 0.990903 ;
+	point_04_u = 0.8171 ;
+	point_04_v = 0.733842 ;
+	point_05_u = 1.07936 ;
+	point_05_v = -0.887822 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "1D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	size_v = 4 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_grey = 0 ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -2.12337 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -1.65493 ;
+	rotate = ON ;
+	rotate_first = ON ;
+	rotate_y = 1 ;
+	rotate_z = 0.361128 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -1.43105 ;
+	rotate = ON ;
+	rotate_first = ON ;
+	rotate_z = -0.362342 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	trs_1 = "Owner" ;
+	}

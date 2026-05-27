@@ -1,0 +1,13 @@
+
+WRAP_LOADER(	ConnectServer,			int,						( const char * ip, int port )												)
+WRAP_LOADER(	SendRequest,			int,						( const TouchClientRequest & request )										)
+WRAP_LOADER(	SendThreshold,			int,						( int move_threshold )														)
+WRAP_LOADER(	SetRawDataResolution,	int,						( int max_x, int max_y )													)
+WRAP_LOADER(	GetServerResolution,	int,						( PFuncOnGetServerResolution	pFnCallback, void * call_back_object )		)
+WRAP_LOADER(	DisconnectServer,		int,						( void )																	)
+WRAP_LOADER(	SetOnReceivePointFrame,	PFuncOnReceivePointFrame,	( PFuncOnReceivePointFrame pf_on_rcv_point_frame, void * call_back_object )	)
+WRAP_LOADER(	SetOnReceiveGesture,	PFuncOnReceiveGesture,		( PFuncOnReceiveGesture pf_on_rcv_gesture, void * call_back_object )		)
+WRAP_LOADER(	SetOnServerBreak,		PFuncOnServerBreak,			( PFuncOnServerBreak pf_on_rcv_data, void * call_back_object )				)
+WRAP_LOADER(	SetOnReceiveError,		PFuncOnReceiveError,		( PFuncOnReceiveError pf_on_rcv_error, void * call_back_object )			)
+WRAP_LOADER(	SetOnGetDeviceInfo,		PFuncOnGetDeviceInfo,		( PFuncOnGetDeviceInfo pf_on_get_device_info, void * call_back_object )		)
+WRAP_LOADER(	GetGestureName,			const char *,				( const TouchGesture & tg )													)

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <UIVisualizer ServiceId="{A452AFEA-3DF6-46BB-9177-C0B08F318025}" Id="1" MenuName="Add to Image Watch"/>
+
+  <!-- AAASeed c_img -->
+
+  <Type Name="c_img">
+    <UIVisualizer ServiceId="{A452AFEA-3DF6-46BB-9177-C0B08F318025}" Id="1" />
+  </Type>
+
+  <Type Name="c_img">
+    <Expand>
+      <Synthetic Name="[type]">
+        <DisplayString>UINT8</DisplayString>
+      </Synthetic>
+      <Item Name="[channels]">_channel_nb</Item>
+      <Item Name="[width]">_sx</Item>
+      <Item Name="[height]">_sy</Item>
+      <Item Name="[data]">_data</Item>
+      <Item Name="[stride]">_sx*_channel_nb</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>

@@ -1,0 +1,9 @@
+-- preset v0 for MEU|UI_1
+tab["a"] = 0.33006193138166
+tab["force process"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["pre"] = 0
+tab["simul"] = false
+tab["time down"] = 2.5469822929928
+tab["time up"] = 2.3406044248446

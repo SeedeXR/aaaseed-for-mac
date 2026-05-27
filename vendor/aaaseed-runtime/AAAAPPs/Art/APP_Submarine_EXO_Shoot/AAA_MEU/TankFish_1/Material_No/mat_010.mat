@@ -1,0 +1,7 @@
+material ( Version 0 )
+	{
+	Ambient_Grey = 0.5 ;
+	Diffuse_Red = 1.10722 ;
+	Specular_Grey = 0.5 ;
+	Shininess = 0.5 ;
+	}

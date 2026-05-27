@@ -1,0 +1,22 @@
+-- preset for MEU|ColorsFlow_1
+tab["cam_index"] = 2
+tab["central"] = 0.067156352102757
+tab["color_blue"] = 1
+tab["color_green"] = 0
+tab["color_grey"] = 1
+tab["color_hue"] = 0.72156864404678
+tab["color_red"] = 0.32941177487373
+tab["color_sat"] = 0
+tab["color_value"] = 1
+tab["contrast"] = 1.095805644989
+tab["matrix"] = false
+tab["matrix_alpha"] = 0.56588021920851
+tab["matrix_size"] = 11.720190283778
+tab["pal"] = 1
+tab["plaques"] = true
+tab["power"] = 2.1615948677063
+tab["shader"] = 1
+tab["textest_bank"] = 3
+tab["textest_bind"] = 0
+tab["textest_dim"] = 2
+tab["type"] = 0

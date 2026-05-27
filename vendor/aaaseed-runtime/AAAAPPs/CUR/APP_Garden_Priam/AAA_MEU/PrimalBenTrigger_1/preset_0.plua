@@ -1,0 +1,8 @@
+-- preset v0 for MEU|PrimalBenTrigger_1
+tab["bu in"] = "BU IN"
+tab["bu out"] = "BU OUT"
+tab["__meu_bar.draw"] = true
+tab["meu in"] = "MEU IN"
+tab["meu out"] = "MEU OUT"
+tab["__meu_bar.update"] = true
+tab["range"] = { 0.5, 1 }

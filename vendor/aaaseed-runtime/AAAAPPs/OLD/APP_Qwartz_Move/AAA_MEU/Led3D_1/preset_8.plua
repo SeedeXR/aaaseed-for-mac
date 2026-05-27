@@ -1,0 +1,19 @@
+-- preset for MEU|Led3D_1
+tab["cam_index"] = 0
+tab["d_step"] = 0.22730907639474
+tab["d_y"] = 0.2
+tab["r_dec"] = 0.58357831778436
+tab["r_int"] = 0.20075357691061
+tab["r_step"] = 0.23607604727968
+tab["cam_axe_show"] = 0
+tab["sym_4"] = 1
+tab["test__rgb_viz"] = 1
+tab["test_alpha"] = 0.99999999988358
+tab["test_blue"] = 0.94491132755766
+tab["test_green"] = 0.62049804906451
+tab["test_grey"] = 1
+tab["test_hue"] = 2
+tab["test_red"] = 0.56617423527984
+tab["test_saturation"] = 0.45523072305656
+tab["test_value"] = 1
+tab["cam_use"] = 2

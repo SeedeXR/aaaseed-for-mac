@@ -1,0 +1,23 @@
+-- preset for MEU|Vin H("Vin H")
+tab["bank"] = 0
+tab["bias"] = 0.5
+tab["bind"] = 0
+tab["capture"] = true
+tab["clip"] = false
+tab["cpu"] = true
+tab["flip u"] = 0
+tab["flip v"] = 0
+tab["gain"] = 0.5
+tab["gpu"] = true
+tab["incrust"] = false
+tab["inv"] = false
+tab["levels"] = { 0.0070739099755883, 0.49266999959946 }
+tab["loop"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["monitor"] = true
+tab["play"] = true
+tab["sound"] = false
+tab["speed"] = 1
+tab["step"] = 0
+tab["volume"] = 1

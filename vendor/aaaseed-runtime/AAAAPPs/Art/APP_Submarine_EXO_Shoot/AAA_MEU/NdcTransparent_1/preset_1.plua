@@ -1,0 +1,8 @@
+-- preset for MEU|NdcTransparent_1("proto_NdcTransparent")
+tab["cam_index"] = 0
+tab["draw"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["shader"] = 1
+tab["src_bank"] = 6
+tab["src_bind"] = 0

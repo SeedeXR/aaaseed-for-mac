@@ -1,0 +1,12 @@
+-- BU position value for BUS KinProcess_MEU
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos_value( "depthdisplace_1", {-0.0375,0.15, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "kinflipper_1", {0.025,-0.025, 0.21875,0.05}, { render=0.91561508141502 } )
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "preset proto", 1 )
+BUS.set_bu_pos_value( "ref_fbo_f1", {-0.1375,0.075, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "ref_fbo_f2", {0.075,0.075, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "ref_fbo_f3", {-0.025,0.2375, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_value( "restore", 1 )

@@ -1,0 +1,11 @@
+net_link ( Version 0 )
+	{
+	active = ON ;
+	enable = ON ;
+	udp_send_only = ON ;
+	port_nb = 9002 ;
+	dst_ip = "127.0.0.1" ;
+	port_nb_udp_dst = 18010 ;
+	blk_checksum_skip = ON ;
+	disable_when_connection_failed = OFF ;
+	}

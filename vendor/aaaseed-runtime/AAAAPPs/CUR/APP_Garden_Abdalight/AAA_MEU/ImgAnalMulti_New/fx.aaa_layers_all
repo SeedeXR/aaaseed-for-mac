@@ -1,0 +1,34 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	image_src = 256 ;
+	force_compute = ON ;
+	begin_u = 0.00377527 ;
+	begin_v = 0.00882992 ;
+	end_u = 0.995587 ;
+	end_v = 0.305544 ;
+	size_u = 0.991812 ;
+	size_v = 0.296714 ;
+	discrete = ON ;
+	draw_frame_in = OFF ;
+	draw_corosshair = OFF ;
+	draw_center = OFF ;
+	threshold = 0.25 ;
+	coverage_min = 0.1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	}

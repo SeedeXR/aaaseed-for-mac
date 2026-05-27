@@ -1,0 +1,159 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 8 ;
+	Bias = 0.0625 ;
+	Max = 32 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 8 ;
+	Min = 1 ;
+	Max = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Min = 1 ;
+	Max = 64 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 2 ;
+	Min = 1 ;
+	Max = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.07.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 3 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.08.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.09.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 3 ;
+	Max = 4 ;
+	Limit = "CLAMP" ;
+	Limit_max = 4.76191 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 5 ;
+	Bias = 0.125 ;
+	Max = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	camera_index_ui = 7 ;
+	traxs_control_offset = 64 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.bdd_snd_synth_spectrum
+bdd_snd_synth_spectrum ( Version 0 )
+	{
+	band_nb = 32 TraxLoc03Out ;
+	use_image = ON ;
+	component = "GREY" TraxLoc09Out ;
+	freq_u = 0.212876 TraxLoc10Out ;
+	level_min = 0.269351 TraxLoc07Out ;
+	level_max = 0.687833 TraxLoc08Out ;
+	volume = 1 TraxLoc01Out ;
+	volume_power = 1 TraxLoc02Out ;
+	freq_start = 0.432791 TraxLoc04Out ;
+	freq_stop = 0.566179 TraxLoc05Out ;
+	freq_power = 1.07947 TraxLoc06Out ;
+	band_01 = 1.23298 ;
+	band_02 = 1 ;
+	band_03 = 1 ;
+	band_04 = 1 ;
+	band_05 = 1 ;
+	band_06 = 1 ;
+	band_07 = 1 ;
+	band_08 = 1 ;
+	band_09 = 1 ;
+	band_10 = 1 ;
+	band_11 = 1 ;
+	band_12 = 1 ;
+	band_13 = 1 ;
+	band_14 = 1 ;
+	band_15 = 1 ;
+	band_16 = 1 ;
+	band_17 = 1 ;
+	band_18 = 1 ;
+	band_19 = 1 ;
+	band_20 = 1 ;
+	band_21 = 1 ;
+	band_22 = 1 ;
+	band_23 = 1 ;
+	band_24 = 1 ;
+	band_25 = 1 ;
+	band_26 = 1 ;
+	band_27 = 1 ;
+	band_28 = 1 ;
+	band_29 = 1 ;
+	band_30 = 1 ;
+	band_31 = 1 ;
+	band_32 = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_snd_synth_spectrum" ;
+	use_multiple = "CURRENT" ;
+	bind_1d = 2 ;
+	}

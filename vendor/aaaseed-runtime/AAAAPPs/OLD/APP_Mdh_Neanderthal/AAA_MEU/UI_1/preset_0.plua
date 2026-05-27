@@ -1,0 +1,15 @@
+-- preset v0 for MEU|UI_1
+tab["a"] = 0
+tab["a "] = 0
+tab["ab"] = 0
+tab["b"] = 0
+tab["b "] = 0
+tab["langue"] = 4
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["music"] = 0.95092418495911
+tab["simul"] = false
+tab["time down"] = 5.575087964223
+tab["time up"] = 2.1064617262803
+tab["voix"] = 1
+tab["volume"] = 1

@@ -1,0 +1,9 @@
+light ( Version 0 )
+	{
+	type = "BULB" ;
+	Position_y = 2.5 ;
+	Position_z = -2.9282 ;
+	shadow_filter_width = 1.89986 ;
+	shadow_bias = 0.0117637 ;
+	intensity_map_mode = "PURE_ADD_DIFFUSE" ;
+	}

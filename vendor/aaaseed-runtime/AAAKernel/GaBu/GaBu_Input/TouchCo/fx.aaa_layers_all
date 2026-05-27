@@ -1,0 +1,132 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "Left_Right" ;
+	use_camera = "Owner" ;
+	name_symbo = "GaBuIn_touchco_layers" ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_z = -0.519751 ;
+	}
+//AAA::filename fx_a.bdd_touchco
+bdd_touchco ( Version 0 )
+	{
+	active = ON ;
+	max = 625 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_touchco" ;
+	bank_2d = 1 ;
+	}
+//AAA::filename fx_b.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 32 ;
+	image_dst_base = 33 ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 6 ;
+	smooth_size_y = 6 ;
+	remanence = ON ;
+	remanence_diff_factor = 8 ;
+	background_reset = ON ;
+	bc = ON ;
+	bc_max = 0.0460648 ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	top_line = ON ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_src = "SRC_COLOR" ;
+	blend_dst = "SRC_ALPHA" ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_u = 16 ;
+	size_v = 9 ;
+	size_factor = 0.0625 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	}
+//AAA::filename fx_d.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 112 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_d00.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 33 ;
+	axe_src = "Y" ;
+	clamped = ON ;
+	linear = ON ;
+	strenght = 0.125 ;
+	}
+//AAA::filename fx_d.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_d00.def" def_00 = ON ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	primitive = "LINES" ;
+	}
+//AAA::filename fx_d.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 9 ;
+	size_factor = 0.0625 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	}

@@ -1,0 +1,14 @@
+-- preset v0 for MEU|Star_3B
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 4
+tab["cam_use"] = 2
+tab["color_blue"] = 1
+tab["color_green"] = 0
+tab["color_grey"] = 0.52303999662399
+tab["color_hue"] = 0.66666698455811
+tab["color_red"] = 0
+tab["color_sat"] = 0
+tab["color_value"] = 0.52303999662399
+tab["mapping_blend"] = 2

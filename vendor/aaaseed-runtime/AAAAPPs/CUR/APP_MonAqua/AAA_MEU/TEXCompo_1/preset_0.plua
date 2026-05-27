@@ -1,0 +1,15 @@
+-- preset v0 for MEU|TEXCompo_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["auto"] = true
+tab["color_alpha"] = 0.5
+tab["color_blue"] = 0.4705882370472
+tab["color_green"] = 0.7843137383461
+tab["color_grey"] = 0.5
+tab["color_hue"] = 0.41666668653488
+tab["color_red"] = 0.15686275064945
+tab["color_sat"] = 0
+tab["color_value"] = 0.39215686917305
+tab["grid 1"] = true
+tab["grid 2"] = false
+tab["grid 3"] = false

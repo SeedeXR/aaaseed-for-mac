@@ -1,0 +1,178 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	stereo_frustum_eye_interval = 0.1 ;
+	stereo_eye_active = OFF ;
+	stereo_eye_interval = 0.1 ;
+	stereo_eye_angle_degree = 5.49729 ;
+	perspective = OFF ;
+	ortho_size = 2.91661 ;
+	draw_axe = ON ;
+	tra_z = -6.53557 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	stereo_frustum_eye_interval = 0.1 ;
+	stereo_eye_active = OFF ;
+	stereo_eye_interval = 0.1 ;
+	stereo_eye_angle_degree = 5.49729 ;
+	perspective = OFF ;
+	ortho_size = 4.10396 ;
+	draw_axe = ON ;
+	tra_z = -6.53557 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -0.831999 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.985 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 7.84 ;
+	rot_x = -0.981 ;
+	rot_y = 0.1745 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 5.2195 ;
+	rot_y = 3.631 ;
+	tra_x = -0.04 ;
+	tra_y = -1.138 ;
+	tra_z = -5.55245 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 13.4705 ;
+	center_z = -6.58162 ;
+	rot_x = 0.25 ;
+	tra_z = -13.2216 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	focal = 73.0409 ;
+	ortho_size = 6.05566 ;
+	orbiting = ON ;
+	tra_z_sin_frequency = 0.015625 ;
+	tra_z_sin_amplitude = 2 ;
+	rot_x_frequency_sin = 0.0625 ;
+	rot_x_amplitude_sin = 0.03125 ;
+	rot_y_frequency = 0.0134688 ;
+	draw_axe = ON ;
+	rot_x = -0.002 ;
+	tra_z = -0.432791 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate_z = -0.5 ;
+	rotate_y = 0.28118 ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	name_symbo = "bdd_boid" ;
+	id = 11 ;
+	nb_allocated = 38 ;
+	nb_alive_min = 38 ;
+	nb_alive_max = 38 ;
+	birth_size_x = 2 ;
+	birth_size_y = 4 ;
+	death_target_radius = 2 ;
+	death_by_choking_nb = 8 ;
+	dimension = "2D" ;
+	time_interval = 0.04 ;
+	mass = 0.913587 ;
+	acceleration_max = 2.32913 ;
+	speed_max = 4.20017 ;
+	viscosity = 0.186159 ;
+	diameter = 0.0898022 ;
+	draw_point = ON ;
+	draw_line = OFF ;
+	draw_force = ON ;
+	parallel_asked = OFF ;
+	cluster_by_unit = 100 ;
+	visibility_angle = 0.23277 ;
+	visibility_max_seen = 1024 ;
+	field_on_predicted_position = ON ;
+	field_influence = 0.493309 ;
+	target_active = OFF ;
+	target_influence = 0.261191 ;
+	target_axe = "Z" ;
+	target_radius_internal = 1 ;
+	target_normal = -0.263451 ;
+	box_border_size = 0.898192 ;
+	repulse_distance = 0.384104 ;
+	repulse_exponent = 0.25 ;
+	repulse_draw_factor = 1.66316 ;
+	repulse_net_draw = ON ;
+	repulse_net_color_define = ON ;
+	repulse_by_other = "explicit" ;
+	repulse_by_other_distance = 0.768209 ;
+	flocking_active = ON ;
+	flocking_influence = 0.1 ;
+	flocking_distance = 1.01851 ;
+	steering_draw = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 64 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 32768 ;
+	nb_max = 16384 ;
+	nb_by_sec = 2150.75 ;
+	flow_continuous = ON ;
+	life_time = 16 ;
+	emission_origin_x = 0.253258 ;
+	emission_origin_y = 1.52242 ;
+	jitter_speed_abs = 0.0625 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	convert = ON ;
+	hue = 0.85 TraxLoc11Out ;
+	saturation = 0.83779 ;
+	value = 0.996094 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_model = ON ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "CURRENT" ;
+	use_color = ON ;
+	bank_2d = "CURRENT" ;
+	bind_2d = "CURRENT" ;
+	use_fog = "CURRENT" ;
+	comment = "boid" ;
+	}

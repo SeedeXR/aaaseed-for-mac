@@ -1,0 +1,9 @@
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_axe = "X" ;
+	tex_u_ori = 0.453208 ;
+	tex_v_ori = -0.040074 ;
+	tex_u = 4.911308 ;
+	}

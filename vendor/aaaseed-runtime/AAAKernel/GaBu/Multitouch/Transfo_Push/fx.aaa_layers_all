@@ -1,0 +1,31 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	FBO = "CURRENT" ;
+	comment = "not used anymore" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_transfo" ;
+	translate = ON ;
+	translate_x = -1.61242 ;
+	translate_y = -1.80379 ;
+	rotate = ON ;
+	rotate_z = 0.0187749 ;
+	scale = ON ;
+	scale_x = 0.967085 ;
+	scale_y = 0.546375 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	trs_1 = "Owner" ;
+	pop = OFF ;
+	name_symbo = "gabu_transfo_push" ;
+	}

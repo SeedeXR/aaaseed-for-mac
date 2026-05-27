@@ -1,0 +1,12 @@
+-- preset for MEU_DIR|Sounds("Sounds")
+tab["a"] = 0
+tab["b"] = 0
+tab["restore"] = 0
+tab["sound 1"] = 1
+tab["sound 2"] = 1
+tab["sound 3"] = 1
+tab["sound 4"] = 1
+tab["sound 5"] = 1
+tab["sound a"] = 1
+tab["sound b"] = 1
+tab["sound c"] = 1

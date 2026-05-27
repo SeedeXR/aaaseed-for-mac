@@ -1,0 +1,91 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Min = 1 ;
+	Max = 1.79586 ;
+	Filter = 0.99162 ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 7 ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 6 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0265002 ;
+	rot_y = 0.357 ;
+	tra_z = -11.5734 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 64 ;
+	nb_v = 32 ;
+	}
+//AAA::filename fx_a00.def
+def_curve ( Version 0 )
+	{
+	active = ON ;
+	Space_Frequency = 0.342131 TraxLoc02Out ;
+	Strength = 0.619746 TraxLoc03Out ;
+	src_axe = "Y" ;
+	Phase_Offset = 0.17939 TraxLoc15Out ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 9 ;
+	size_factor = 0.430598 ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale = ON ;
+	scale_factor = 1.79585 TraxLoc01Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	trs_1 = "Owner" ;
+	}

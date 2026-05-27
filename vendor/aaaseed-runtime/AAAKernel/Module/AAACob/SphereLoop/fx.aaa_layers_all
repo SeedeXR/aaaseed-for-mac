@@ -1,0 +1,54 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	used_for_picking = OFF ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 9 ;
+	nb_v = 9 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 0.75 TraxLoc10Out ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	density = 0.156544 ;
+	red = 1 ;
+	green = 1 ;
+	blue = 1 ;
+	grey = 0.5 ;
+	start = 4.83553 ;
+	end = 10.9727 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	use_deformer = "CURRENT" ;
+	use_rendering = ON ;
+	bind_1d = 11 ;
+	bank_2d = 1 ;
+	material_front = 8 ;
+	material_back = 8 ;
+	use_fog = "Owner" ;
+	}

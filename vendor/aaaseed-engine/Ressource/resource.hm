@@ -1,0 +1,7 @@
+// Microsoft Visual C++ generated Help ID include file.
+// Used by Seed.rc
+//
+#define HIDC_INA                        0x808e03f4    // IDD_REALIN
+#define HIDC_MAX                        0x808e03f9    // IDD_REALIN
+#define HIDC_MIDDLE                     0x808e03f7    // IDD_REALIN
+#define HIDC_MIN                        0x808e03f6    // IDD_REALIN

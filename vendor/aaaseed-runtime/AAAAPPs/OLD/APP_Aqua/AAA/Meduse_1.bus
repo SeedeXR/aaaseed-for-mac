@@ -1,0 +1,7 @@
+-- BU position for Meduse_1
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_pos( 0, "FPS 176 / 174", 2, 3.8, 0.25, 0.25, 0 )
+BUS.set_bu_pos( 0, "Meduse_1 SMARTV_MST", 0.1, 3.9, 0.1, 0.1, 1 )
+BUS.set_bu_pos( 0, 3, 1, 3.6, 2, 0.4, 0 )
+BUS.set_bu_pos( 0, "Alpha", 1.05, 3.16, 1.7, 0.2, 0 )

@@ -1,0 +1,7 @@
+snap ( Version 0 )
+	{
+	Start = 0 ;
+	Stop = 16 ;
+	Preroll = 320 ;
+	Current = -12.8 ;
+	}

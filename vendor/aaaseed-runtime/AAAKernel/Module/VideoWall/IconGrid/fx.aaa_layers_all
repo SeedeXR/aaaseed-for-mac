@@ -1,0 +1,149 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Min = -0.25 ;
+	Filter = 0.907021 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal = 120 ;
+	ortho_size = 13.04 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -3.4549 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.461 ;
+	rot_y = 0.0690001 ;
+	tra_z = -4.3292 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	name_symbo = "icon_grid_bdd" ;
+	nb_u = 56 ;
+	nb_v = 5 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	axe = "Z" ;
+	strenght = 0 TraxLoc02Out ;
+	phase_speed = 0.415977 ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	src_fixed = ON ;
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.185012 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 11.7397 ;
+	size_v = 0.917989 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 512 ;
+	nb_alive_min = 280 ;
+	nb_alive_max = 280 ;
+	speed_min = 0.327027 ;
+	viscosity = 0.0585938 ;
+	cluster_by_unit = 781.25 ;
+	visibility_max_seen = 1 ;
+	target_influence = 0.25 ;
+	target_z = -6 ;
+	box_z = -1.21551 ;
+	box_size_x = 2 ;
+	box_size_y = 8 ;
+	box_size_z = 8 ;
+	box_border_size = 0.125 ;
+	repulse_distance = 0.5 ;
+	}
+//AAA::filename fx_b00.def
+def_interpolate ( Version 0 )
+	{
+	active = ON ;
+	start = 0.994779 TraxLoc01Out ;
+	size = 0.25 ;
+	bdd_name_symbo = "icon_grid_bdd" ;
+	flip = ON ;
+	middle = ON ;
+	middle_center = 0 ;
+	interpolate = 1 ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_b00.def" def_00 = ON ;
+	}
+//AAA::filename fx_b.anim
+tex_anim ( Version 0 )
+	{
+	start = 96 ;
+	stop = 121 ;
+	several_active = ON ;
+	force_start = 96 ;
+	force_stop = 121 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_deformer = "Owner" ;
+	use_multiple = "CURRENT" ;
+	use_tex_anim = "Owner" ;
+	bank_2d = 3 ;
+	}

@@ -1,0 +1,128 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "FFT" ;
+	Freq = 0.5 ;
+	Format = "%.2f" ;
+	draw = "ALL" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Fn = "FFT" ;
+	Output = "FN_TRIGGER_UP" ;
+	Freq = 0.5 ;
+	Format = "%.2f" ;
+	draw = "RAW" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "BEAT" ;
+	Restart_trig = ON ;
+	Phase = 0.515425 ;
+	Format = "%.2f" ;
+	draw = "ALL" ;
+	draw_red = 0 ;
+	draw_blue = 0 ;
+	draw_line_size = 4 ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Fn = "COPY" ;
+	Threshold = 0.0801105 ;
+	Max = 4 ;
+	Format = "%.2f" ;
+	draw = "ALL" ;
+	draw_red = 0 ;
+	draw_green = 0 ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Fn = "COPY" ;
+	Freq = 8 ;
+	Offset = 1 ;
+	Format = "%.2f" ;
+	draw = "ALL" ;
+	draw_green = 0 ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_01 = 0.499751 TraxLoc01Out ;
+	value_02 = 0 TraxLoc02Out ;
+	value_03 = 0.115964 TraxLoc03Out TraxLoc04In ;
+	value_04 = 0.25751 TraxLoc04Out TraxLoc10In ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 1.0505 ;
+	rot_y = 0.0935 ;
+	tra_z = -12.073 ;
+	}
+//AAA::filename fx_a.bddsound
+bdd_sound ( Version 0 )
+	{
+	type = "SOUND_SPECTRUM" ;
+	col_nb = 1 ;
+	row_nb = 16 ;
+	size_u = 1 ;
+	size_v = 1 ;
+	size_axe = 1 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "BOX" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sound" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	center_y = 4 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 1.25399 TraxLoc10Out ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	}

@@ -1,0 +1,7 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Calage/fx" ;
+	Bind_01 = "Grid/fx" ;
+	Bind_02 = "Cursor/fx" ;
+	Bind_03 = "WhiteOut/fx" ;
+	}

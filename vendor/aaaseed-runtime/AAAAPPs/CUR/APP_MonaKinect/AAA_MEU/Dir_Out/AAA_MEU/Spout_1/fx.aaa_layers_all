@@ -1,0 +1,32 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "spout.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.spout2
+bdd_spout2 ( Version 0 )
+	{
+	enabled = ON ;
+	receive = OFF ;
+	sender_name = "AAASeed Garden Spout_1" ;
+	sender_dx9_asked = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_spout2" ;
+	bank_2d = 3 ;
+	bind_2d = 18 ;
+	}

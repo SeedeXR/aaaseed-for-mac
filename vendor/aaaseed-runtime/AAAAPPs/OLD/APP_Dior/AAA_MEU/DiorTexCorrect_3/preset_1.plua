@@ -1,0 +1,21 @@
+-- preset for MEU|TexCorrect_C
+tab["black"] = 0.077177415045866
+tab["cam_index"] = 0
+tab["gain_blue"] = 1
+tab["gain_green"] = 0.98234533288138
+tab["gain_red"] = 1.2411297455225
+tab["gam_blue"] = 1
+tab["gam_green"] = 1
+tab["gam_red"] = 1
+tab["gamma"] = 1
+tab["rot z"] = 0.75
+tab["sfactor"] = 2
+tab["su"] = 1.7777777777778
+tab["sv"] = 1
+tab["tex_bank"] = 3
+tab["tex_bind"] = 1
+tab["tex_dim"] = 2
+tab["tra x"] = 0
+tab["tra y"] = 0
+tab["tra z"] = 0
+tab["white"] = 0.69385735440747

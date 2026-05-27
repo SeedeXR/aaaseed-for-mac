@@ -1,0 +1,18 @@
+-- preset v0 for MEU|TestFree_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["new l_bank"] = 3
+tab["new l_bind"] = 11
+tab["new r_bank"] = 3
+tab["new r_bind"] = 0
+tab["new r_dim"] = 1
+tab["tex l1_bank"] = 3
+tab["tex l1_bind"] = 11
+tab["tex l1_dim"] = 1
+tab["tex l2_bank"] = 3
+tab["tex l2_bind"] = 0
+tab["tex r1_bank"] = 3
+tab["tex r1_bind"] = 11
+tab["tex r1_dim"] = 1
+tab["tex r2_bank"] = 3
+tab["tex r2_bind"] = 0

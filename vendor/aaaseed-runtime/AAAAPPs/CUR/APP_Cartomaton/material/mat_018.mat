@@ -1,0 +1,8 @@
+material ( Version 0 )
+	{
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Ambient_grey = 1.28995 ;
+	Diffuse_grey = 1.49243 ;
+	}

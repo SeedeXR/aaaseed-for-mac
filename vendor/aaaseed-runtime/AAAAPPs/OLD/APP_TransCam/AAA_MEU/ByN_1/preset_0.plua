@@ -1,0 +1,14 @@
+-- preset v0 for MEU|ByN_1
+tab["angle"] = 0
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 5
+tab["cam_use"] = 2
+tab["dim"] = 1
+tab["fade"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["nb"] = 6.0525366633851
+tab["sym"] = 1
+tab["tex_bank"] = 3
+tab["tex_bind"] = 16
+tab["uv"] = { { 0.38012438654018, 0.39277560445756, false, 0.12096774193548, 0.16172506738544 } }

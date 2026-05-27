@@ -1,0 +1,87 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.039 ;
+	rot_y = -0.17 ;
+	tra_x = 0.086 ;
+	tra_y = -0.57 ;
+	tra_z = -2.63056 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	name_symbo = "part_src" ;
+	nb_max = 64 ;
+	life_time = 4 ;
+	emission_speed_factor = 1 ;
+	jitter_cone_angle = 37.8852 ;
+	jitter_speed_abs = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	name_symbo = "part_src" ;
+	}
+//AAA::filename fx_b.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 16384 ;
+	nb_max = 16384 ;
+	nb_by_sec = 8192 ;
+	regular = ON ;
+	life_time = 2 ;
+	emission_bdd = "part_src" ;
+	jitter_speed_abs = 0.159211 ;
+	Accel_y = -1 ;
+	turb_speed = 1.681 ;
+	turb_freq = 4 ;
+	turb_harm_nb = 2 ;
+	render_life_color = ON ;
+	render_life_color_ease_out = 0.209178 ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "X" ;
+	size_factor = 0.03125 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_blue = -0.00300145 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	bind_2d = 9 ;
+	}

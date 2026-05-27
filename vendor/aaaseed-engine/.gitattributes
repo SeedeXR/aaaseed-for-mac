@@ -1,0 +1,22 @@
+# Default : every text file stored with LF in the repo. Git normalizes on commit, no normalization
+# on checkout (working tree keeps LF too). This matches the modern cross, platform standard
+# (LF everywhere, ignored by MSVC / GCC / Clang / all modern editors on Windows).
+* text=auto eol=lf
+
+# Windows shell scripts need CRLF or cmd.exe chokes on certain edge cases.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+# Binary assets : stored as, is via Git LFS, never converted.
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.obj filter=lfs diff=lfs merge=lfs -text
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.7z filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.lib filter=lfs diff=lfs merge=lfs -text
+*.pdb filter=lfs diff=lfs merge=lfs -text
+dll_x64/OpenCV/opencv4120/opencv_world4120d.pdb filter=lfs diff=lfs merge=lfs -text

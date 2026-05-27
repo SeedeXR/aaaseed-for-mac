@@ -1,0 +1,23 @@
+-- preset v0 for MEU|VilleBoid_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 3
+tab["cam_use"] = 2
+tab["color_blue"] = 1
+tab["color_green"] = 1
+tab["color_hue"] = 1
+tab["color_red"] = 1
+tab["color_sat"] = 0
+tab["color_value"] = 1
+tab["mapping_blend"] = 2
+tab["origin_u"] = 0
+tab["origin_v"] = 0
+tab["sfactor"] = 0.88903099298477
+tab["su"] = 1
+tab["sv"] = 1
+tab["tex_bank"] = 4
+tab["tex_bind"] = 0
+tab["tex_dim"] = 0
+tab["u"] = 1
+tab["v"] = 1

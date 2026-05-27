@@ -1,0 +1,81 @@
+key version(0)
+{
+	phase = -8.18503 ;
+	pos_u = 0.0325008 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 1 ;
+	include = TRUE ;
+}
+{
+	phase = -6.13504 ;
+	pos_u = 0.240009 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 3 ;
+	include = TRUE ;
+}
+{
+	phase = -3.48002 ;
+	pos_u = -0.322491 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 2 ;
+	include = TRUE ;
+}
+{
+	phase = -2.14505 ;
+	pos_u = 0.200009 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 0 ;
+	include = TRUE ;
+}
+{
+	phase = -1.42504 ;
+	pos_u = 0.660009 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 1 ;
+	include = TRUE ;
+}
+{
+	phase = -0.669999 ;
+	pos_u = 0.1725 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 0 ;
+	include = TRUE ;
+}
+{
+	phase = -0.405046 ;
+	pos_u = -0.13499 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 0 ;
+	include = TRUE ;
+}
+{
+	phase = 0.137452 ;
+	pos_u = 0.365009 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 4 ;
+	include = TRUE ;
+}
+{
+	phase = 1.20249 ;
+	pos_u = 0.15 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 0 ;
+	include = TRUE ;
+}
+{
+	phase = 1.79995 ;
+	pos_u = 0.580011 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 0 ;
+	include = TRUE ;
+}

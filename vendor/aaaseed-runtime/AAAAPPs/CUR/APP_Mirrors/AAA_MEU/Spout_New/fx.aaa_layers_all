@@ -1,0 +1,24 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.spout2
+bdd_spout2 ( Version 0 )
+	{
+	enabled = ON ;
+	receive = OFF ;
+	sender_name = "AAASeed Garden New" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_spout2" ;
+	bank_2d = 3 ;
+	bind_2d = 18 ;
+	}

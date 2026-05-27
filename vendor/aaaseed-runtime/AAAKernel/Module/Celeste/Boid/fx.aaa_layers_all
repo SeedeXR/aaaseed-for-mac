@@ -1,0 +1,154 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "celeste_boid.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -7.52663 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 3 ;
+	nb_v = 3 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_v = 0.69 ;
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	name_symbo = "celeste.boid.layer_att" ;
+	}
+//AAA::filename fx_b.boid
+bdd_boid ( Version 0 )
+	{
+	name_symbo = "celeste.boid.bdd" ;
+	nb_allocated = 65536 ;
+	nb_alive_min = 96 ;
+	nb_alive_max = 96 ;
+	birth_origin_y = 1.5 ;
+	birth_size_x = 0.5 ;
+	birth_size_y = 0.0625 ;
+	birth_size_factor = 8 ;
+	dimension = "2D" ;
+	acceleration_y = -4 ;
+	acceleration_max = 8 ;
+	viscosity = 0.03125 ;
+	visibility_max_seen = 16384 ;
+	field_active = ON ;
+	field_influence = -8 ;
+	target_active = OFF ;
+	box_type = "Repulse" ;
+	box_size_y = 0.69 ;
+	box_size_factor = 8 ;
+	box_border_size = 0.125 ;
+	repulse_distance = 0.3 ;
+	repulse_draw_factor = 0.03125 ;
+	}
+//AAA::filename fx_b00.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 32 ;
+	axe_src = "Z" ;
+	clamped = ON ;
+	linear = ON ;
+	axe_dst = "Z" ;
+	Gradient = ON ;
+	strenght = 0.0625 ;
+	}
+//AAA::filename fx_b01.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 28 ;
+	axe_src = "Z" ;
+	clamped = ON ;
+	linear = ON ;
+	axe_dst = "Z" ;
+	Image_component = "BLUE" ;
+	Gradient = ON ;
+	strenght = 0.25 ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	src_fixed = ON ;
+	AddFileRel "fx_b00.def" def_00 = ON ;
+	AddFileRel "fx_b01.def" def_01 = ON ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.5 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_boid" ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 1 ;
+	bind_2d = 31 ;
+	name_symbo = "celeste.boid.layer" ;
+	}

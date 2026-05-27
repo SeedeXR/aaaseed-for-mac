@@ -1,0 +1,10 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "_2" ;
+	Bind_01 = "20" ;
+	Bind_02 = "LV" ;
+	Bind_03 = "Ceci est juste" ;
+	Bind_04 = "http://www.visitvar.fr/provence-cote-azur/default.aspx" ;
+	Bind_06 = "any" ;
+	Bind_255 = "last" ;
+	}

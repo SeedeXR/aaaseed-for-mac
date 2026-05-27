@@ -1,0 +1,74 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TRIANGLE" ;
+	Freq = -0.0130756 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TURBULENCE" ;
+	Freq = 0.015625 ;
+	Max = 0.837902 ;
+	Offset = 0.466584 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TURBULENCE" ;
+	Freq = 0.0061213 ;
+	Min = 1.21157 ;
+	Max = 0.862185 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.cone
+bdd_cone ( Version 0 )
+	{
+	nb_u = 96 ;
+	u_center = 0.966843 TraxLoc01Out ;
+	u_range = 0.573111 TraxLoc03Out ;
+	radius_top = 0.992412 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_v_ori = 0.810243 ;
+	tex_u = 64 ;
+	tex_v = 0.5 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_axe = 0 ;
+	size_factor = 1.19431 TraxLoc06Out ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.12 ;
+	global_blue = 0.74 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cone" ;
+	use_model = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	bind_2d = 8 ;
+	}

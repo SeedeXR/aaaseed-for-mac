@@ -1,0 +1,3 @@
+-- preset v0 for MEU|Kinect_proto
+tab["allow"] = true
+tab["on cpu"] = true

@@ -1,0 +1,9 @@
+-- BU position value for BUS Clari_MEU
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos_value( "draw_1", {0.1,0.375, 0.21875,0.05}, { render=0 } )
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_pos_value( "obj3d_1", {-0.1375,0.3125, 0.21875,0.05}, { render=0 } )
+BUS.set_bu_value( "preset proto", 1 )
+BUS.set_bu_value( "restore", 1 )

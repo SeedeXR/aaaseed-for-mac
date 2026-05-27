@@ -1,0 +1,21 @@
+-- preset v0 for MEU|TriMix_1
+tab["a_bank"] = 2
+tab["a_bind"] = 4
+tab["a_dim"] = 2
+tab["alpha"] = true
+tab["b_bank"] = 3
+tab["b_bind"] = 11
+tab["b_dim"] = 2
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["inverse"] = false
+tab["mask_bank"] = 2
+tab["mask_bind"] = 15
+tab["mask_dim"] = 2
+tab["max"] = 0.47949091485061
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["min"] = 0.71396334426426
+tab["mode"] = 1
+tab["shader"] = true

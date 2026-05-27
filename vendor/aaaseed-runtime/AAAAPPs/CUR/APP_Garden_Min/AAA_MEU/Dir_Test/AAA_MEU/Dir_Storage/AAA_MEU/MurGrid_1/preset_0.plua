@@ -1,0 +1,11 @@
+-- preset v0 for MEU|MurGrid_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["blob"] = 0
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["level"] = 1
+tab["nb_axe"] = 1
+tab["size"] = 0
+tab["strenght"] = 0

@@ -1,0 +1,21 @@
+-- preset v0 for MEU|BoidDP_Angers
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["close delay"] = 7
+tab["close duration"] = 1
+tab["doors"] = true
+tab["draw"] = 2
+tab["draw_force"] = true
+tab["field"] = true
+tab["floor"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["open"] = false
+tab["open duration"] = 1
+tab["run"] = 1
+tab["vol_1"] = 0.59275087913681
+tab["vol_2"] = 0.61050315677718
+tab["vol_3"] = 0.47786538782139
+tab["vol_4"] = 0.38215709386503
+tab["vol_5"] = 0.39180219794347

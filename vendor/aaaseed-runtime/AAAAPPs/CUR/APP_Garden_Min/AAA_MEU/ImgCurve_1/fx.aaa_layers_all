@@ -1,0 +1,139 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "image_curve.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_N" ;
+	index_end = "Layer_B" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 23.6291 ;
+	rot_y = 66.8402 ;
+	tra_x = 7.198 ;
+	tra_y = 1.856 ;
+	tra_z = -12.4593 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	nb_axe = 220 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 8192 ;
+	nb_max = 2048 ;
+	nb_by_sec = 512 ;
+	flow_continuous = ON ;
+	life_time = 4 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	point_size = 2 ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.0625 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "3D" ;
+	tex_implicit = OFF ;
+	tex_axe = "Z" ;
+	tex_factor = 1.00968 ;
+	tex_offset_2 = 0 ;
+	tex_offset_4 = 0 ;
+	tex_offset_6 = 0 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	blend_src = "SRC_COLOR" ;
+	blend_dst = "ONE_MINUS_SRC_COLOR" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_axe = 0.974349 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "color" ;
+	global_alpha = 0.0109751 ;
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 5 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	line_smooth = ON ;
+	line_size = 2 ;
+	depth = ON ;
+	top_line = ON ;
+	}
+//AAA::filename fx_b.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_2d = 5 ;
+	}

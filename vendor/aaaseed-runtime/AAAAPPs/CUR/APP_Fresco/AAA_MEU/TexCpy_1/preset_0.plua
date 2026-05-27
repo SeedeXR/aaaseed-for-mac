@@ -1,0 +1,10 @@
+-- preset v0 for MEU|TexCpy_1
+tab["dst_bank"] = 2
+tab["dst_bind"] = 4
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["on cpu"] = false
+tab["on gpu"] = true
+tab["smooth"] = true
+tab["src_bank"] = 1
+tab["src_bind"] = 1

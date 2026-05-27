@@ -1,0 +1,9 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Shader\gs_swizzle.geom" ;
+	Bind_01 = "Shader\gs_tess.geom" ;
+	Bind_02 = "Shader\gs_tess_bis.geom" ;
+	Bind_03 = "Shader\gs_tess_con.geom" ;
+	Bind_04 = "Shader\gs_point_Maa.geom" ;
+	Bind_121 = "Shader\gs_depth_displace.geom" ;
+	}

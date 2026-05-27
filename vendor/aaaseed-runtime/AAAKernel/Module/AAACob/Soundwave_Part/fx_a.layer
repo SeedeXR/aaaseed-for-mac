@@ -1,0 +1,14 @@
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "Particle" ;
+	use_bdd = "update_and_draw" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	bank_2d = 1 ;
+	bind_2d = 4 ;
+	trs_1 = "CURRENT" ;
+	}

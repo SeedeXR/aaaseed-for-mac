@@ -1,0 +1,23 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "Owner" ;
+	name_symbo = "aqua_fbo_layers" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 1280 ;
+	size_asked_y = 720 ;
+	channel_nb = 4 ;
+	depth_use = ON ;
+	depth_format = "16 bits" ;
+	stencil_format = "16 bits" ;
+	tex_1_bind_2d_asked = 48 ;
+	tex_1_mipmap_generate = ON ;
+	}

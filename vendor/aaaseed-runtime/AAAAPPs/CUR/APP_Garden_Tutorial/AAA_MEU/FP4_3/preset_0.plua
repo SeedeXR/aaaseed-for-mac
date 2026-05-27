@@ -1,0 +1,22 @@
+-- preset v0 for MEU|FP4_3
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["draw"] = 2
+tab["draw field"] = 2
+tab["field active"] = true
+tab["field_bank"] = 3
+tab["field_bind"] = 8
+tab["field_dim"] = 2
+tab["flocking"] = true
+tab["flocking_distance"] = 0
+tab["flocking_influence"] = 0
+tab["influence"] = 0
+tab["repulse"] = true
+tab["repulse_distance"] = 0
+tab["repulse_influence"] = 0
+tab["steering"] = true
+tab["steering_distance"] = 0
+tab["steering_influence"] = 0

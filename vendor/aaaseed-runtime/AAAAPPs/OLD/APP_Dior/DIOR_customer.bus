@@ -1,0 +1,12 @@
+-- BU position value for BUS DIOR_customer
+BUS.set_bu_pos_value( "auto", {-3.86,-0.5, 0.28,0.28}, 0 )
+BUS.set_bu_value( "black", 0 )
+BUS.set_bu_pos_value( "default", {-3.5,-0.82, 0.96,0.28} )
+BUS.set_bu_value( "experience", 1 )
+BUS.set_bu_value( "gain_blue", 0 )
+BUS.set_bu_value( "gain_green", 0 )
+BUS.set_bu_value( "gain_red", 0 )
+BUS.set_bu_value( "language", 1 )
+BUS.set_bu_value( "src", { abs=0, alpha=0, bind=97, center=false, draw_top=false, frame=false, frame_size=0.9, grid=false, grid_u=2, grid_v=2, hsv=0, invert=0, level=0, level_use=0, mode=0, orientation=3, out=0, top_alpha=0.5 } )
+BUS.set_bu_value( "used", { abs=0, alpha=0, bind=70, center=false, draw_top=false, frame=false, frame_size=0.9, grid=false, grid_u=2, grid_v=2, hsv=0, invert=0, level=0, level_use=0, mode=0, orientation=3, out=0, top_alpha=0.5 } )
+BUS.set_bu_value( "white", 0.53312629990122 )

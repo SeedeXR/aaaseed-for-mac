@@ -1,0 +1,10 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "CELT/fx" ;
+	Bind_01 = "RACE/fx" ;
+	Bind_02 = "CREATURE/fx" ;
+	Bind_03 = "GREA/fx" ;
+	Bind_04 = "GREA_BEHAVIOR/fx" ;
+	Bind_05 = "GGREA/fx" ;
+	Bind_06 = "TANK/fx" ;
+	}

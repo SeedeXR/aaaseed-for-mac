@@ -1,0 +1,10 @@
+-- preset for MEU|DIF("DIF")
+tab["active"] = 1
+tab["cam_index"] = 3
+tab["fbo.channel_type"] = 0
+tab["fbo.depth"] = 1
+tab["fbo.erase"] = 1
+tab["fbo.erase_depth"] = 1
+tab["fbo.save"] = 0
+tab["fbo.trail"] = 0
+tab["monitor"] = 1

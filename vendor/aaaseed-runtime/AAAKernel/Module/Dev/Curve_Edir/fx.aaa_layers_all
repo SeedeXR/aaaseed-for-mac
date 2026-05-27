@@ -1,0 +1,53 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	name_symbo = "dev_curve_edit" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -6.92712 ;
+	}
+//AAA::filename fx_a.bdd_curve_edit
+bdd_curve_edit ( Version 0 )
+	{
+	name_symbo = "turlututu" ;
+	control_nb = 2 ;
+	control_id = 2 ;
+	ui_draw = ON ;
+	ui_draw_axe = ON ;
+	ui_grid_lock_u = ON ;
+	ui_grid_lock_u_size = 0.125 ;
+	ui_grid_lock_v = ON ;
+	ui_grid_lock_v_size = 0.125 ;
+	}
+//AAA::filename fx_a.001.control_key
+control_key ( Version 0 )
+	{
+	key_phase = 0.375 ;
+	key_u = -0.625 ;
+	}
+//AAA::filename fx_a.002.control_key
+control_key ( Version 0 )
+	{
+	key_phase = 0.375 ;
+	key_u = -0.625 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_edit" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

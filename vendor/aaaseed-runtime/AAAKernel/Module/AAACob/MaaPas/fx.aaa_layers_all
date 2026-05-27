@@ -1,0 +1,248 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Fn = "3D_COPY" ;
+	Filter = 0.970236 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "FFT" ;
+	Freq = 0.568399 ;
+	Max = 4 ;
+	Filter = 0.667147 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Fn = "ADD" ;
+	Limit = "WRAP" ;
+	Limit_min = 1 ;
+	Limit_max = 2048 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Fn = "COPY" ;
+	Min = 0.125 ;
+	Max = 0.151938 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Fn = "TRIANGLE" ;
+	Freq = 0.015625 ;
+	Min = 1 ;
+	Max = 512 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.14.trax
+trax ( Version 0 )
+	{
+	Fn = "TRIANGLE" ;
+	Freq = 0.015625 ;
+	Max = 32 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.18.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0.125 ;
+	Min = -3.79617 ;
+	Max = 3.75324 ;
+	Offset = -6.71448 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = 4 TraxLoc02Out TraxLoc03In TraxLoc04In ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 24.33 ;
+	rot_y_frequency = 0.03125 ;
+	center_x = 0 TraxLoc01Out ;
+	rot_x = 0.500001 ;
+	rot_y = 0.519 ;
+	tra_z = -3.93429 TraxLoc18Out ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	channel_nb = 4 ;
+	tex_1_bind_2d_asked = 33 ;
+	tex_1_on_cpu = ON ;
+	tex_2_bind_2d_asked = 6 ;
+	}
+//AAA::filename fx_a.algo_maa
+bdd_algo_maa ( Version 0 )
+	{
+	point_allocated = 106410 ;
+	point_nb = 156.616 ;
+	seed = 51 ;
+	start_x = 0.041416 ;
+	stop_x = 0 TraxLoc01In ;
+	box_size_x = 5.14774 ;
+	box_size_z = 3.08082 ;
+	}
+//AAA::filename fx_a.face
+bdd_face ( Version 0 )
+	{
+	bdd_dimension = "3D" ;
+	bdd_nb_u = 8 ;
+	bdd_nb_v = 1 ;
+	bdd_nb_axe = 1 ;
+	face_offset_u = 0.824349 ;
+	rotation_speed_z = 0.25 ;
+	rotation_speed_factor = 1 ;
+	rotation_offset_y = 1 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 12 ;
+	nb_v = 5 ;
+	}
+//AAA::filename fx_a.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	font = 3 ;
+	align_horizontal = 0.5 ;
+	text = "Hello" ;
+	}
+//AAA::filename fx_a00.def
+def_wave ( Version 0 )
+	{
+	active = ON ;
+	Len = 1.25 ;
+	Period = 8 ;
+	Pertub_X = 0.1 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.anim
+tex_anim ( Version 0 )
+	{
+	start = 2 ;
+	stop = 3 ;
+	several_active = ON ;
+	force_start = 2 ;
+	force_stop = 3 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	line_size = 0.630968 ;
+	point_smooth = ON ;
+	multisample = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	Translation = "No" ;
+	size_factor = 0 TraxLoc04Out ;
+	start = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	texture_feedback = ON ;
+	tex_wrap_u = "MIRRORED_REPEAT" ;
+	tex_wrap_v = "MIRRORED_REPEAT" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	vu_float_04 = 1.07374e+09 ;
+	vu_float_05 = -1 ;
+	vu_float_06 = 1 ;
+	vu_int_02 = 1 ;
+	vu_01_g_y = 1 ;
+	vu_01_b_z = 1 ;
+	vu_01_a_w = 1 ;
+	vu_02_r_x = 0.00290124 ;
+	vu_02_b_z = 1 ;
+	vu_02_a_w = 1 ;
+	vu_03_r_x = 1 ;
+	vu_03_g_y = -1.1474e-25 ;
+	vu_03_b_z = -1 ;
+	vu_04_r_x = 1 ;
+	vu_04_g_y = -1 ;
+	vu_04_b_z = 1 ;
+	vu_05_g_y = 1 ;
+	vu_05_b_z = -1 ;
+	vu_06_r_x = 1 ;
+	fragment_bind = 3 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 1.61367 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	green = 1 ;
+	start = -0.401573 ;
+	end = -3.42155 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_tex_anim = "CURRENT" ;
+	bind_1d = 10 ;
+	bank_2d = 11 ;
+	bind_2d = 31 TraxLoc14Out ;
+	use_lights_switch = ON ;
+	}

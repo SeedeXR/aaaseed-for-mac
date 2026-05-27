@@ -1,0 +1,47 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "Aqua_main.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	FBO = "CURRENT" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 4.475 ;
+	rot_x = 0.0675 ;
+	rot_y = -0.027 ;
+	tra_x = -0.416 ;
+	tra_y = -0.166 ;
+	tra_z = -2.43072 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}

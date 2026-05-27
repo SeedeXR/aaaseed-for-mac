@@ -1,0 +1,26 @@
+-- preset v0 for MEU|OpenCVBase_KimA
+tab["bc1"] = { 0, 1 }
+tab["bc1 on"] = false
+tab["bc2"] = { 0, 1 }
+tab["bc2 on"] = false
+tab["bc3"] = { 0, 1 }
+tab["bc3 on"] = false
+tab["blur1"] = 4
+tab["blur2"] = 4
+tab["blur3"] = 16
+tab["diff"] = 1
+tab["dilate"] = true
+tab["dilate_pass"] = 3
+tab["dst_bank"] = 2
+tab["dst_bind"] = 0
+tab["erode"] = true
+tab["erode_pass"] = 5
+tab["first"] = true
+tab["method1"] = 1
+tab["method2"] = 1
+tab["method3"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["pass 2"] = false
+tab["src_bank"] = 4
+tab["src_bind"] = 31

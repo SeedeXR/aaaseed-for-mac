@@ -1,0 +1,216 @@
+Shader
+	Finalisation ?
+		Help
+		pixel+vertex+parametres
+	Lib 
+		Photoshop
+		Bump
+		fade
+	interface halftone + highlight
+	Lib Video
+		Hue
+		Saturation
+		Contraste/Luma
+		Blue screen final
+-	Deinterlace
+	shader_bind
+		by module
+	raccourci Shader
+	ligtht 1d 2d ... Debat architecture
+Multitexture finalisation
+	projection by texture (cam ?)
+PBO cleanup
+	ATI Ok ?
+	Crash when we go from AGP to PBO on the fly
+GPU
+	Render to texture
+		Frame Buffer Object (FBO)
+	NPOT ext
+	texture rectangle
+	finalisation anisotropic
+	pref by image
+	texture compresse
+	texture float
+Functionality
+-	Boid / Particule
+		couleur/taille des draws des behaviors
+-	force fields in boid
+	death of part/boid generate new	
+	Cellular automata
+		datacube generic
+-		Maavolution
+	new font lib
+		render to texture
+-	OPenVG
+	Wavelet Noise
+	unicode
+	psd import
+	flash in
+	web in
+	pavement
+	Open Sound Control Compatibility
+		light OSC
+	gestion des quadriques
+	deformer curve
+		add offset
+	bdd_clear
+	viewport
+		preview du tout ?
+	cut/paste
+	evolution bdd_point_network
+	save module in one file
+		"push/pop"
+	"save fx fast"
+	axe and line ?
+	snd sound
+	save/load window pos
+	Lua trax
+Architecture
+	layer and bdd
+		bdd load / Save
+	texture attributes
+	load multiple image
+	se retrouver ds des connexions de pistes existantes
+	Module
+		Local
+			bind	
+				gestion masquage
+				img
+				video
+				snd
+				mocap
+			menu change
+				with bind or all binds
+			light
+				bdd ?	
+			material
+				bdd ?
+			%lib% ?
+			autres ?
+-	ST_PARAM -> c_param
+-		<list>
+-		init
+		param color
+-	bdd encapsulation
+-	Node (Dynamic structure)
+-	Instance
+	Synchro
+		video multimachine
+		machine
+-	Struct vertex
+	Viewport
+-	Multithreading
+-	Assimilate
+-	Eval Ventuz
+	bind edit
+		bind insert
+		bind delete
+		bind erase
+		mocap
+		snd
+	Init/deint ds
+	switch sound lib on the fly
+	switch midi devce on the fly
+	calcule des tangentes
+	creer les dirs non existants
+		"Save as"
+		"Load as"
+	Multi Window / Multi Wiewport
+Bug
+	tbuf
+//	image Magick
+	mocap au tas
+	ralentissement en Double Window
+	'w' et mode dual
+Son
+	Passage tts fns de base a bass de base
+		choix lib at start
+	flag playing
+		et donc play aura un effet
+Video
+	Direct Show
+		Finalisation
+			lecture Directshow : time based et non framerate based
+			vmw a finir
+		? bu restart directshow (cheval)
+		lecture Directshow pour Real Media et Quicktime en utilisant les filtres directshow correspondant
+		time factor 0
+		"force Update
+		crash sur deinterlace
+			img_flux lock
+-		lock quänd pas assez de frame
+		frame order by video
+		leak_kernel ne devrait pas avoir de flip_order
+		crash sur changement nb be buffer par exemple
+	lecture du son
+		en sync
+	Analyse d'image
+	QuickTime
+	Flash
+	suite tga
+		preload multithread
+	Son
+		beat
+//	Real time control of capture parameters 
+	Deinterlace
+		Inpainting
+	New video in boards
+	Validation by UTRAM
+	carte de capture PCI express
+	HDV live
+Interface / Exploitation
+-	Curve
+-		better
+-			Couper/Coller
+-		Bezier
+-		Catmull-Rom
+-	media browser / Gestion des medias
+-	Mode presentation
+	AAASlide
+		Streams ?
+		bdd slide show
+	gestion Dual view
+-	Face avant
+-	fichier unique pour l'env ou plutot le module
++++	insertion dans une banque
+Net
+	log des packets
+		to file
+		better debug
+			verbose raw
+			verbose by type
+			net console 
+Portage
+-	FreeGlut / OpenGlut
+-	Open Source / Protocole / SDK
+-	Port Mac proc Intel
+	test avec gcc
+	tout les variables menbres en private
+	plus de global seche
+	header precompile
+	window 64 	
+Com
+	Site AAASeed
+	site Wiki		
+Captor
+	Berhinger to finish
+		double click to raz
+Bug
+	leak boid in upstream (leak with just the boid object)
+	boid marche pas avec tex_anim several
+Glut/Nvidia
+	tester nouvelles fns
+		multisample a tester
+		anisotropic filtering
+		vertical blanking 
+Clean up
+	check how draw for picking still work
+		make sur use for picking have some use now
+	menage ds glut
+	do gain/bias with interpolation of precomputed arrays
+fun
+	touche orgasme
+		hh q
+details
+	bdd_sound sauve en bddsound
+

@@ -1,0 +1,27 @@
+-- preset for MEU|Grid_1
+tab["backalpha"] = 0
+tab["backblue"] = 0
+tab["backgreen"] = 0
+tab["backgrey"] = 1
+tab["backhue"] = 0
+tab["backred"] = 1
+tab["backsat"] = 0
+tab["backvalue"] = 0.99999999988358
+tab["cam_index"] = 0
+tab["grid 1alpha"] = 0.049777960727873
+tab["grid 1blue"] = 1
+tab["grid 1green"] = 1
+tab["grid 1grey"] = 1
+tab["grid 1hue"] = 0
+tab["grid 1red"] = 1
+tab["grid 1sat"] = 0
+tab["grid 1value"] = 0.99999999988358
+tab["grid 2alpha"] = 0.11331958927487
+tab["grid 2blue"] = 1
+tab["grid 2green"] = 1
+tab["grid 2grey"] = 1
+tab["grid 2hue"] = 0
+tab["grid 2red"] = 1
+tab["grid 2sat"] = 0
+tab["grid 2value"] = 0.99999999988358
+tab["cam_use"] = 0

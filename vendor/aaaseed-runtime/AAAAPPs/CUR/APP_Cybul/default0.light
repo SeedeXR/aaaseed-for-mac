@@ -1,0 +1,23 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	Position_x = -0.237835 ;
+	Position_y = 0.769061 ;
+	Position_z = 0.593278 ;
+	Radius = 1 ;
+	shadow_active = ON ;
+	shadow_filter_width = 0.0579267 ;
+	shadow_bias = 0.00140198 ;
+	shadow_bbox_min_x = -4.652 ;
+	shadow_bbox_min_y = -0.001 ;
+	shadow_bbox_min_z = -0.001 ;
+	shadow_bbox_max_x = 10.7384 ;
+	shadow_bbox_max_y = 4.132 ;
+	shadow_bbox_max_z = 4.447 ;
+	intensity_map_mode = "ADD" ;
+	intensity_map_factor = 1.5 ;
+	intensity_map_scale_x = -10 ;
+	intensity_map_scale_y = -10 ;
+	Spot_direction_y = 4.59259 ;
+	Spot_direction_z = -4.31046 ;
+	}

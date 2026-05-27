@@ -1,0 +1,73 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 2.243 ;
+	rot_y = 0.043 ;
+	tra_x = -0.512 ;
+	tra_y = 1.318 ;
+	tra_z = -12.3228 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = 0.5 ;
+	center_y = 0.5 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.cone
+bdd_cone ( Version 0 )
+	{
+	name_symbo = "aqua_med_uv" ;
+	center_x = 0.474229 ;
+	center_y = 0.500895 ;
+	nb_u = 16 ;
+	nb_v = 11 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_axe = 0 ;
+	size_factor = 0.811408 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_cone" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	}

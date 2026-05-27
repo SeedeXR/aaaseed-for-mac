@@ -1,0 +1,13 @@
+-- BU position value for BUS|Dir_StableDif
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.preset proto", 1 )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "a", 0 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos_value( "pip_sdfade", {-0.065625,-0.0765625, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "pip_sdshow", {-0.003125,0.2359375, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "ref_fbo_dif", {-0.075,0.05, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "ref_fbo_f5", {-0.115625,-0.2390625, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_value( "restore", 0 )
+BUS.set_bu_pos_value( "spiral_sd", {-0.015625,0.1359375, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "watcherdir_1", {-0.028125,-0.1640625, 0.21875,0.05}, { render=1 } )

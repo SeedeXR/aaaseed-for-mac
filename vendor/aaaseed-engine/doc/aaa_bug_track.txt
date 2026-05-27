@@ -1,0 +1,19 @@
+bdd_text fuck up some texture
+	for now just had a layer before with a texture to fuck up
+	but there should be a trick in the object
+
+bdd_boid
+	visiblity opt by Maa is fucking up visibility case redo
+
+Testing: last GlutMaa solved this
+if AAASeed start with a desktop in 16 bits ( for example ) AAASeed exit with no message no dialog nothing
+	at min print "can open the right window" ...
+	then just start in shell mode a watchdog
+		add a lua hook for the case
+
+bdd_part
+	sort by depth not working ( direct or reverse )
+
+Testing: last GlutMaa solved this
+Video flag
+	Left right should have no effect on a single screen

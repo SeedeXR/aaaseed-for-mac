@@ -1,0 +1,24 @@
+-- preset for MEU_DIR|LK("LK")
+tab["a"] = 1
+tab["b"] = 0
+tab["kale_1"] = 1
+tab["lkfb_1"] = 1
+tab["lkfbgrab_1"] = 1
+tab["lkgrab_0"] = 1
+tab["lkpart_1"] = 1
+tab["lkson_1"] = 1
+tab["lktk_1"] = 1
+tab["lktk_2"] = 1
+tab["lktk_3"] = 1
+tab["lktk_4"] = 4
+tab["lktkcam_1"] = 1
+tab["lktkpart_1"] = 1
+tab["lktkpart_2"] = 1
+tab["lktkpart_3"] = 1
+tab["lktkpart_4"] = 1
+tab["lkvideo_1"] = 1
+tab["pip_lkout"] = 1
+tab["ref_f6"] = 1
+tab["ref_f7"] = 1
+tab["ref_f8"] = 1
+tab["restore"] = 0

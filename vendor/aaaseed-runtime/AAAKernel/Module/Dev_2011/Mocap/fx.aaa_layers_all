@@ -1,0 +1,42 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "aqua_mocap" ;
+	channel_id = 64 ;
+	nb_node = 12 ;
+	frame_cur = 0 ;
+	loop = OFF ;
+	draw_node_end = 12 ;
+	draw_path = ON ;
+	draw_path_resolution = 1 ;
+	draw_path_start = 0.256 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	type = "CUBE" ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

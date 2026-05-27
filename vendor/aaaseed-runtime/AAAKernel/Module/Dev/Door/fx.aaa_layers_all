@@ -1,0 +1,82 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "M:/AAA/AAAGaBuZo/GaBuData/Module/Dev/Door/fx.lua" ;
+	}
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "PLAYER_RAW" ;
+	Name = "upstream_door_build" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_01 = 0 TraxLoc01In ;
+	value_02 = 2 TraxLoc01In ;
+	value_03 = 0.224319 TraxLoc01In ;
+	value_04 = 0.0554797 TraxLoc01In ;
+	value_05 = -1.95851 TraxLoc01In ;
+	value_06 = -3.6666 TraxLoc01In ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0210003 ;
+	rot_y = 0.0350002 ;
+	tra_z = -8.7756 ;
+	}
+//AAA::filename fx_a.bdd_polygon
+bdd_polygon ( Version 0 )
+	{
+	point_nb = 4 ;
+	draw_polygon = OFF ;
+	draw_line = ON ;
+	point_01_u = -1.95851 ;
+	point_01_v = -2.15099 ;
+	point_02_u = -1.95851 ;
+	point_02_v = 1.51561 ;
+	point_03_u = 0.224319 ;
+	point_03_v = 2.05548 ;
+	point_04_u = 0.224319 ;
+	point_04_v = -1.61112 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_face" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	}

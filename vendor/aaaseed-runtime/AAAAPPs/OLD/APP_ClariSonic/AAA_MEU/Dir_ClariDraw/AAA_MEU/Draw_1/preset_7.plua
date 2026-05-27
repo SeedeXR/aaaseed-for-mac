@@ -1,0 +1,25 @@
+-- preset for MEU|Draw_1
+tab["cam_index"] = 0
+tab["coloralpha"] = 0
+tab["colorblue"] = 0
+tab["colorgreen"] = 0
+tab["colorhue"] = 0
+tab["colorred"] = 0
+tab["colorsat"] = 0
+tab["colorvalue"] = 0
+tab["connect"] = 0
+tab["cross"] = 0
+tab["give"] = 0
+tab["grid"] = 0
+tab["img_colalpha"] = 0
+tab["img_colblue"] = 0
+tab["img_colgreen"] = 0
+tab["img_colhue"] = 0
+tab["img_colred"] = 0
+tab["img_colsat"] = 0
+tab["img_colvalue"] = 0
+tab["imgs"] = 0
+tab["logo"] = 1
+tab["logo big"] = 0
+tab["logo c"] = 0
+tab["screens"] = 0

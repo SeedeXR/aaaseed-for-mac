@@ -1,0 +1,89 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_MULTIPLE_POS" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_DISTANCE" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_REAL" ;
+	Max = 0.00390625 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.26.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "FFT" ;
+	Max = 128 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_01 = -21.907 TraxLoc01Out TraxLoc02In ;
+	value_02 = -0.593938 ;
+	value_03 = 45.433 ;
+	value_05 = 1.17373 TraxLoc02In ;
+	value_06 = 0.565972 ;
+	value_07 = 0.480542 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	used_for_picking = OFF ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 24 ;
+	v_range = 0.863838 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "CUBE" ;
+	size_factor = 0.325777 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 50.5449 TraxLoc02Out ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_x = 0.3125 TraxLoc04Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	bind_1d = 11 ;
+	bank_2d = 1 ;
+	bind_2d = 16 ;
+	bind_2d_offset = 40 TraxLoc26Out ;
+	trs_1 = "Owner" ;
+	}

@@ -1,0 +1,6 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	Name = "ship_lr" ;
+	}

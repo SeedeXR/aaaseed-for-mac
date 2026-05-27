@@ -1,0 +1,69 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 2.03 ;
+	rot_y = 0.0860001 ;
+	tra_z = -10.1962 ;
+	clip_far_perspective = 12.5 ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	name_symbo = "dev11_boid" ;
+	nb_allocated = 2048 ;
+	nb_alive_min = 2048 ;
+	nb_alive_max = 2048 ;
+	birth_id = "from_index" ;
+	speed_max = 2 ;
+	visibility_max_seen = 1 ;
+	target_active = OFF ;
+	target_influence = 0.5 ;
+	box_type = "Repulse" ;
+	box_size_y = 0.00390625 ;
+	box_size_factor = 16 ;
+	box_border_size = 0.015625 ;
+	mocap_feed = ON ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "BACK" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "CUBE" ;
+	size_factor = 0.0625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_model = ON ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

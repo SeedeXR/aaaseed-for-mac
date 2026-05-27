@@ -1,0 +1,132 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	run_only_when_compiled = ON ;
+	filename = "%app%/OLD/APP_Aqua/fx_Algues_1/fx.lua" ;
+	}
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "FRACTAL SUM" ;
+	Freq = 0.125 ;
+	Min = -2 ;
+	Max = 2 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.4045 ;
+	rot_y = 0.043 ;
+	tra_x = 0.314 ;
+	tra_y = -0.638 ;
+	tra_z = -3.42992 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -1.36722 TraxLoc01Out ;
+	translate_z = -0.00536394 TraxLoc02Out ;
+	}
+//AAA::filename fx_a.torus
+bdd_torus ( Version 0 )
+	{
+	radius_int = 0.538418 ;
+	nb_u = 48 ;
+	nb_v = 24 ;
+	v_center = 0.139852 ;
+	v_range = 0.458828 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	space_period = 4 ;
+	strenght = 1 ;
+	offset = 0.5 ;
+	phase_speed = 0.74076 ;
+	phase_axe = "Y" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	top_red = -0.161415 ;
+	top_green = -0.0819948 ;
+	top_alpha = 0.791277 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYERS_NAME" ;
+	alignment = "Random_Axe_Y" ;
+	axe = "X" ;
+	target_name = "Algue" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_wrap_u = "MIRRORED_REPEAT" ;
+	tex_wrap_v = "MIRRORED_REPEAT" ;
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_factor = 16 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_grey = 0.447631 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	start = 0.139783 ;
+	end = 19.7993 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 7 ;
+	use_lights_switch = ON ;
+	use_fog = "Owner" ;
+	}

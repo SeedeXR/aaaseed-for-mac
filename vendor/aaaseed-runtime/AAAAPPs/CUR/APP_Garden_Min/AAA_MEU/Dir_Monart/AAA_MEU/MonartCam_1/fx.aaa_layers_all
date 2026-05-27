@@ -1,0 +1,206 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "monart_cam.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	stereo_frustum_eye_interval = 0.1 ;
+	stereo_eye_active = OFF ;
+	stereo_eye_interval = 0.1 ;
+	stereo_eye_angle_degree = 5.49729 ;
+	flying = ON ;
+	rot_y = 0.75 ;
+	tra_z = -5.91356 ;
+	clip_close_perspective = 0.08 ;
+	clip_far_perspective = 60 ;
+	m00 = -0.622002 ;
+	m02 = 0.782532 ;
+	m20 = -0.782532 ;
+	m22 = -0.622002 ;
+	m30 = 6.16853 ;
+	m32 = 6.4593 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	stereo_frustum_eye_interval = 0.1 ;
+	stereo_eye_active = OFF ;
+	stereo_eye_interval = 0.1 ;
+	stereo_eye_angle_degree = 5.49729 ;
+	perspective = OFF ;
+	ortho_size = 3.86261 ;
+	draw_axe = ON ;
+	rot_x = -0.947 ;
+	rot_y = -0.2685 ;
+	tra_x = -12.726 ;
+	tra_y = -0.038 ;
+	tra_z = -6.53557 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	tra_z = -0.831999 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.985 ;
+	draw_axe = ON ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 7.84 ;
+	draw_axe = ON ;
+	tra_x = -0.002 ;
+	tra_y = 0.002 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 5.2195 ;
+	rot_y = 3.631 ;
+	tra_x = -0.04 ;
+	tra_y = -1.138 ;
+	tra_z = -5.55245 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	center_z = -6.58162 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	tra_z_sin_frequency = 0.015625 ;
+	tra_z_sin_amplitude = 2 ;
+	rot_x_frequency_sin = 0.0625 ;
+	rot_x_amplitude_sin = 0.03125 ;
+	rot_y_frequency = 0.0134688 ;
+	draw_axe = ON ;
+	rot_x = 0.25 ;
+	rot_y = 0.75 ;
+	tra_y = -0.014 ;
+	tra_z = -20.768 ;
+	m32 = 2.7 ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	visibility_max_seen = 1 ;
+	}
+//AAA::filename fx_a00.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 96 ;
+	axe_src = "Z" ;
+	scale_by_model = OFF ;
+	scale_u = 1.77778 ;
+	scale_factor = 4 ;
+	clamped = ON ;
+	linear = ON ;
+	axe_dst = "Z" ;
+	Image_component = "GREY" ;
+	Gradient = ON ;
+	strenght = 0.5 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	clockwise = ON ;
+	cull = "FRONT" ;
+	line_smooth = ON ;
+	line_size = 12.2133 ;
+	point_size = 64 ;
+	point_mode = "POINT_SPRITE" ;
+	point_sprite_tex = ON ;
+	depth_write = OFF ;
+	normal_point = 0.5 ;
+	normal_blue = 0 ;
+	normal_alpha = 0.5 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	alignment = "Normal_using_z" ;
+	axe = "Z" ;
+	size_u = 0.890543 ;
+	size_v = 0.145817 ;
+	size_axe = 0.924539 ;
+	size_factor = 0.85732 TraxLoc01Out ;
+	target_name = "Text" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.0407135 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_v = 0.55 ;
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0.681028 ;
+	convert = ON ;
+	hue = 0.446838 TraxLoc11Out ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	red = 1 ;
+	green = 1 ;
+	blue = 1 ;
+	grey = 0 ;
+	alpha = 0 ;
+	start = 2.82468 ;
+	end = 5.19065 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_fog = "CURRENT" ;
+	}

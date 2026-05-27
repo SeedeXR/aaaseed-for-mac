@@ -1,0 +1,314 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "skel.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	name_symbo = "skeleton" ;
+	multiple_only = ON ;
+	index_end = "Layer_G" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	Layer_F = ON ;
+	Layer_G = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 0.011 ;
+	rot_y = 0.549 ;
+	tra_z = -0.832 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.048 ;
+	rot_y = 0.122 ;
+	tra_x = -1.844 ;
+	tra_y = 0.136 ;
+	tra_z = -3.23008 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.4985 ;
+	rot_y = -0.0005 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	line_size = 4 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "CUBE" ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0.5 ;
+	global_blue = 0.5 ;
+	global_alpha = 0.0113716 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_z = 3 ;
+	rotate = ON ;
+	rotate_y = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "kin2_mocap_1" ;
+	channel_id = 80 ;
+	nb_node = 25 ;
+	playing = ON ;
+	live = ON ;
+	frame_cur = 60 ;
+	phase = 136.515 ;
+	use_rot = OFF ;
+	use_sca = OFF ;
+	interpolate = OFF ;
+	interpolate_rotation = OFF ;
+	draw_node_end = 320 ;
+	draw_origins = ON ;
+	size_origins = 0.125 ;
+	draw_segment = ON ;
+	draw_segment_end = 24 ;
+	draw_number = "Billboard" ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_c.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "kin2_mocap_2" ;
+	channel_id = 80 ;
+	nb_node = 25 ;
+	playing = ON ;
+	live = ON ;
+	frame_cur = 182 ;
+	phase = 361.712 ;
+	use_rot = OFF ;
+	use_sca = OFF ;
+	interpolate = OFF ;
+	interpolate_rotation = OFF ;
+	draw_node_end = 320 ;
+	size_origins = 0.125 ;
+	draw_segment = ON ;
+	draw_segment_end = 24 ;
+	draw_number = "Billboard" ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_d.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "kin2_mocap_3" ;
+	channel_id = 80 ;
+	nb_node = 25 ;
+	playing = ON ;
+	live = ON ;
+	frame_cur = 156 ;
+	phase = 12.941 ;
+	use_rot = OFF ;
+	use_sca = OFF ;
+	interpolate = OFF ;
+	interpolate_rotation = OFF ;
+	draw_node_end = 320 ;
+	size_origins = 0.125 ;
+	draw_segment = ON ;
+	draw_segment_end = 24 ;
+	draw_number = "Billboard" ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_e.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "kin2_mocap_4" ;
+	channel_id = 80 ;
+	nb_node = 25 ;
+	playing = ON ;
+	live = ON ;
+	frame_cur = 224 ;
+	phase = 19.8761 ;
+	use_rot = OFF ;
+	use_sca = OFF ;
+	interpolate = OFF ;
+	interpolate_rotation = OFF ;
+	draw_node_end = 320 ;
+	size_origins = 0.125 ;
+	draw_segment = ON ;
+	draw_segment_end = 24 ;
+	draw_number = "Billboard" ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_e.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_f.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "kin2_mocap_5" ;
+	channel_id = 80 ;
+	nb_node = 25 ;
+	playing = ON ;
+	live = ON ;
+	frame_cur = 4 ;
+	phase = 17.0487 ;
+	use_rot = OFF ;
+	use_sca = OFF ;
+	interpolate = OFF ;
+	interpolate_rotation = OFF ;
+	draw_node_end = 320 ;
+	size_origins = 0.125 ;
+	draw_segment = ON ;
+	draw_segment_end = 24 ;
+	draw_number = "Billboard" ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_f.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_g.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "kin2_mocap_6" ;
+	channel_id = 80 ;
+	nb_node = 25 ;
+	playing = ON ;
+	live = ON ;
+	frame_cur = 247 ;
+	phase = 24.9684 ;
+	use_rot = OFF ;
+	use_sca = OFF ;
+	interpolate = OFF ;
+	interpolate_rotation = OFF ;
+	draw_node_end = 320 ;
+	size_origins = 0.125 ;
+	draw_segment = ON ;
+	draw_segment_end = 24 ;
+	draw_number = "Billboard" ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_g.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_color = ON ;
+	}

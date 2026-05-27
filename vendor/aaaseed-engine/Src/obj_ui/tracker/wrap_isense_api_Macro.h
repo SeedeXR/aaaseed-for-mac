@@ -1,0 +1,12 @@
+
+WRAP_LOADER(	ISLIB_OpenTracker,			ISD_TRACKER_HANDLE,		( HWND hParent, DWORD commPort, BOOL infoScreen, BOOL verbose )									)
+WRAP_LOADER(	ISLIB_CloseTracker,			BOOL,					( ISD_TRACKER_HANDLE handle )																	)
+WRAP_LOADER(	ISLIB_NumOpenTrackers,		BOOL,					( WORD *num )																					)
+WRAP_LOADER(	ISLIB_GetCommState,			BOOL,					( ISD_TRACKER_HANDLE handle, ISD_TRACKER_TYPE *Tracker )										)
+WRAP_LOADER(	ISLIB_GetTrackerState,		BOOL,					( ISD_TRACKER_HANDLE handle, ISD_TRACKER_TYPE *Tracker, BOOL verbose )							)
+WRAP_LOADER(	ISLIB_SetTrackerState,		BOOL,					( ISD_TRACKER_HANDLE handle, ISD_TRACKER_TYPE *Tracker, BOOL verbose )							)
+WRAP_LOADER(	ISLIB_SetStationState,		BOOL,					( ISD_TRACKER_HANDLE handle, ISD_STATION_CONFIG_TYPE *Station, WORD stationNum, BOOL verbose )	)
+WRAP_LOADER(	ISLIB_GetStationState,		BOOL,					( ISD_TRACKER_HANDLE handle, ISD_STATION_CONFIG_TYPE *Station, WORD stationNum, BOOL verbose )	)
+WRAP_LOADER(	ISLIB_GetTrackerData,		BOOL,					( ISD_TRACKER_HANDLE handle, ISD_DATA_TYPE *Data )												)
+WRAP_LOADER(	ISLIB_SendScript,			BOOL,					( ISD_TRACKER_HANDLE handle, char *script )														)
+WRAP_LOADER(	ISLIB_OpenConfigWindow,		HWND,					( ISD_TRACKER_HANDLE handle )																	)

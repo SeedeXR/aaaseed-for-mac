@@ -1,0 +1,43 @@
+--function twice (x) return 2*x end
+--dofile("lib1.lua")  
+--global variable so local ?
+---[[
+print(10)         --> 10
+--]]
+-- nil, boolean, number, string, userdata, function, thread, and table
+--Conditionals (such as the ones in control structures) consider false and nil as false
+	and anything else as tru
+--print(10 .. 20)        --> 1020
+---[[    a = {}     -- create a table and store its reference in `a'
+    k = "x"
+    a[k] = 10        -- new entry, with key="x" and value=10
+--]]
+A common mistake for beginners is to confuse a.x with a[x].
+	The first form represents a["x"], that is, a table indexed by the string "x".
+	The second form is a table indexed by the value of the variable x.
+-- read 10 lines storing them in a table
+	a = {}
+	for i=1,10 do
+		a[i] = io.read()
+	end
+For instance, you could print the lines read in the last example with the following code:
+	for i,line in ipairs(a) do
+		print(line)
+	end
+--x = x or v
+--(a and b) or c (or simply a and b or c) in C is  a ? b : c
+--precedence
+	^
+	not  - (unary)
+	*   /
+	+   -
+	..
+	<   >   <=  >=  ~=  ==
+	and
+	or
+--do block
+--local foo = foo
+--do return end
+--You can force a call to return exactly one result by enclosing it in an extra pair of parentheses
+
+

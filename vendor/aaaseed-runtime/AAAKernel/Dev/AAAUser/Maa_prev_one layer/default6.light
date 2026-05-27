@@ -1,0 +1,14 @@
+light ( Version 0 )
+	{
+	Position_y = 1 ;
+	Position_z = -2 ;
+	Radius = 0 ;
+	Ambient_occlusion = 0.195028 ;
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Specular_red = 1 ;
+	Specular_green = 1 ;
+	Specular_blue = 1 ;
+	Spot_direction_z = 1.31791 ;
+	}

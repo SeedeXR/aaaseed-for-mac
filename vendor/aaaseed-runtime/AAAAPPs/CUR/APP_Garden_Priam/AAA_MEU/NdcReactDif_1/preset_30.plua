@@ -1,0 +1,13 @@
+-- preset for MEU|NdcReactDif_1
+tab["cam_index"] = 0
+tab["diffusion a"] = 1.1414322853088
+tab["difussion b"] = 0.3890868127346
+tab["feed kill"] = { { 0.64037932503608, 0.93907382604063, false, 0.12096774193548, 0.12096774193548 }, { 0.72202376011879, 0.7846517695167, false, 0.12096774193548, 0.12096774193548 }, { 1, 0.34690147494213, false, 0.12096774193548, 0.12096774193548 }, { 0.68780636787414, 0.056841371407968, false, 0.12096774193548, 0.12096774193548 } }
+tab["grey gamma"] = 1.2080059051514
+tab["how"] = 0
+tab["iteration"] = 96
+tab["laplacian"] = 3
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mul"] = 0
+tab["shader"] = 1

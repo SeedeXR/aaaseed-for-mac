@@ -1,0 +1,20 @@
+
+//note, since we run acceleration + integrate back to back, we just bind pos/vel/accel directly and dispatch once with each shader
+//was std140
+layout( std430, binding=0 ) buffer particles_pos_outbuffer			{	vec4 pos_out[];	 };
+layout( std430, binding=1 ) buffer particles_vel_out_buffer	        {	vec3 vel_out[];  };
+layout( std430, binding=2 ) buffer particles_acc_out_buffer	        {	vec3 acc_out[];  };
+
+layout(binding = 0) uniform particles_settings_block		{	uint particle_count;	} u_particles_settings;
+
+#define GROUP_SIZE 512
+layout( local_size_x = GROUP_SIZE, local_size_y = 1, local_size_z = 1 ) in;
+
+void main(void)
+{
+	uint index = gl_GlobalInvocationID.x;
+	if( u_particles_settings.particle_count <= index  )
+		return;
+
+	acc_out[index] = vec3( 0. );
+}

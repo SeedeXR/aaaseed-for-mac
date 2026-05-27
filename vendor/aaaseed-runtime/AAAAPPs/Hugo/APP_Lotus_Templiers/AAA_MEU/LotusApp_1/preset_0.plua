@@ -1,0 +1,4 @@
+-- preset for MEU|LotusApp_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["take control"] = false

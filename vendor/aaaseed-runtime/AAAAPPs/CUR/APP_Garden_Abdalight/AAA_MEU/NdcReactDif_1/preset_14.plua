@@ -1,0 +1,27 @@
+-- preset for MEU|NdcReactDif_1("proto_NdcReactDif")
+tab["compo"] = 0
+tab["diffusion a"] = 1.0000001192093
+tab["diffusion b"] = 0.3042830824852
+tab["emboss"] = true
+tab["emboss dist"] = 0.5
+tab["emboss inv"] = true
+tab["emboss range"] = { 0.65420852088308, 1.0121271908804 }
+tab["feed kill"] = { { 0.76791244922934, 0.71557295533541, false, 0.12096774193548, 0.12096774193548 }, { 0.79909845854447, 0.29407481529212, false, 0.12096774193548, 0.12096774193548 } }
+tab["grey gamma"] = 3.29527759552
+tab["how"] = 1
+tab["iteration"] = 40
+tab["kf grey inv"] = false
+tab["kf grey range"] = { 0, 1 }
+tab["laplacian"] = 1
+tab["laplacian size gamma"] = 1
+tab["laplacian size range"] = { 0.47512569562839, 2.0160646258142 }
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mouse erase"] = false
+tab["mouse radius"] = 0.10000000149012
+tab["out"] = 1
+tab["out inv"] = true
+tab["out min max"] = { 0.028726580473175, 0.25935873614303 }
+tab["out mul factor"] = 1
+tab["shader"] = true
+tab["size"] = 4

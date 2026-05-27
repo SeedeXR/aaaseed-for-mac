@@ -1,0 +1,174 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_end = "Layer_C" ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 5.17316 ;
+	rot_x = 0.0600003 ;
+	rot_y = 46.0688 ;
+	tra_x = 0.006 ;
+	tra_y = 0.002 ;
+	m32 = -0.8 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.074 ;
+	rot_y = 0.115 ;
+	tra_x = -0.012 ;
+	tra_y = 0.044 ;
+	tra_z = -1.16466 ;
+	}
+//AAA::filename fx_a.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 96 ;
+	contour_dst_clear = OFF ;
+	band_nb = 3 ;
+	contour_mode = "All_then_full_hierarchy" ;
+	blob_point_nb_max = 2560 ;
+	blob_area_max = 16384 ;
+	blob_size_x_max = 8 ;
+	polygon_approximation = ON ;
+	polygon_approximation_factor = 0.00015625 ;
+	bounding_find_y_max_distance = 0.2 ;
+	contour_draw = ON ;
+	bounding_draw_alpha = 0.5 ;
+	bounding_draw_ellipse = ON ;
+	}
+//AAA::filename fx_a.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	force_compute = ON ;
+	image_src = 64 ;
+	image_dst_base = 65 ;
+	use_cuda = ON ;
+	mono = ON ;
+	float = ON ;
+	crop_left = 0.25 ;
+	crop_top = 0.25 ;
+	resize_fx = 0.5 ;
+	resize_fy = 0.5 ;
+	blur_enable = ON ;
+	blur_img_dst = "base" ;
+	blur_size_x = 7 ;
+	blur_size_y = 7 ;
+	bc_min = 0.125 ;
+	bc_max = 0.137812 ;
+	bilateral_img_dst = 65 ;
+	bilateral_size = 3 ;
+	bilateral_sigma_color = 10 ;
+	bilateral_sigma_space = 4 ;
+	edge_laplacian = ON ;
+	edge_scale = 2 ;
+	canny_threshold_min = 0 ;
+	canny_size = "5" ;
+	erode_type = "Ellipse" ;
+	erode_size_x = 2 ;
+	erode_size_y = 8 ;
+	erode_iteration = 16 ;
+	dilate_type = "Ellipse" ;
+	dilate_size_x = 2 ;
+	dilate_size_y = 12 ;
+	dilate_iteration = 8 ;
+	optical_flow_pyr_scale = 0.814447 ;
+	optical_flow_levels = 8 ;
+	optical_flow_winsize = 32 ;
+	optical_flow_iters = 2 ;
+	optical_flow_poly_n = "5" ;
+	optical_flow_poly_sigma = 1.28904 ;
+	optical_flow_initial_flow = ON ;
+	optical_flow_gaussian = ON ;
+	dist_type = "USER" ;
+	dist_size = "Precise" ;
+	dist_factor = 0.25 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	back_mode = "POINT" ;
+	line_size = 4 ;
+	primitive = "TRIANGLE_FAN" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 10 ;
+	}
+//AAA::filename fx_b.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	force_compute = ON ;
+	image_src = 96 ;
+	image_dst_base = 66 ;
+	float = ON ;
+	smooth = ON ;
+	smooth_method = "BLUR" ;
+	smooth_size_x = 12 ;
+	smooth_size_y = 12 ;
+	agitation = ON ;
+	optical_flow_poly_n = "7" ;
+	highpass = ON ;
+	highpass_image_dst = 67 ;
+	highpass_simple_smooth_size = 2 ;
+	highpass_simple_noise_size = 1 ;
+	highpass_erode_dilate = ON ;
+	highpass_filter = 256 ;
+	highpass_scale = 4 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	use_model = ON ;
+	}
+//AAA::filename fx_c.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	image_src = 64 ;
+	draw_frame_in = OFF ;
+	draw_corosshair = OFF ;
+	draw_center = OFF ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	}

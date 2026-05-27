@@ -1,0 +1,15 @@
+-- preset v0 for MEU|Spout_1
+tab["control next"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["receive"] = false
+tab["receive dx9"] = false
+tab["receive image"] = false
+tab["receive index"] = 0
+tab["receive v flip"] = false
+tab["send"] = true
+tab["send dx9"] = false
+tab["send image"] = false
+tab["send v flip"] = false
+tab["spout2 image_bank"] = 3
+tab["spout2 image_bind"] = 18

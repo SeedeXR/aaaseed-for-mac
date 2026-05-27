@@ -1,0 +1,125 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_INDEX" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Fn = "MULTIPLE_INDEX" ;
+	Offset = 1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 3 ;
+	Control_id = 96 ;
+	Min = 1 ;
+	Max = 0.279499 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Fn = "COPY" ;
+	Max = 0.5 ;
+	Offset = 0.5 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Offset = 1 ;
+	Format = "video%2.f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	top_line = ON ;
+	top_red = 0 ;
+	top_alpha = 0.25 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_u_ori = -0 TraxLoc04Out ;
+	tex_v_ori = -0 TraxLoc04Out ;
+	tex_factor = 1 TraxLoc03Out TraxLoc04In ;
+	tex_by_side = ON ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.75 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 4 TraxLoc02Out ;
+	bind_2d = 15 TraxLoc01Out TraxLoc06In ;
+	}
+//AAA::filename fx_b.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	origin_x = -0.0194346 ;
+	origin_y = -0.421726 ;
+	axe = "Z" ;
+	type = "GLUT_LINE" ;
+	font = 3 ;
+	align_horizontal = 0.765322 ;
+	text = "video16" TraxLoc06Out ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 0.196 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

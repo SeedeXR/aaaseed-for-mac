@@ -1,0 +1,31 @@
+midi ( Version 0 )
+	{
+	active = ON ;
+	in_force = ON ;
+	in_device = 0 ;
+	out_force = ON ;
+	out_device = 1 ;
+	bank_cur = 19 ;
+	bank_direct = ON ;
+	mackie_master = ON ;
+	mackie_mess = "AAATK MASTER" ;
+	vpot_shift = ON ;
+	but_global_a = ON ;
+	verbose = ON ;
+	filter_program_change = OFF ;
+	allow_Non_Registered_Parameter_Number = ON ;
+	channel_all = ON ;
+	channel_02_control_factor = 8 ;
+	verbose_velocity_master = ON ;
+	verbose_noteon = ON ;
+	verbose_velocity = ON ;
+	verbose_noteoff = ON ;
+	verbose_program_change = ON ;
+	verbose_control_change = ON ;
+	verbose_aftertouch_poly = ON ;
+	verbose_aftertouch_channel = ON ;
+	verbose_pitchbend = ON ;
+	verbose_system = ON ;
+	verbose_midi_clock = ON ;
+	verbose_read_bank = ON ;
+	}

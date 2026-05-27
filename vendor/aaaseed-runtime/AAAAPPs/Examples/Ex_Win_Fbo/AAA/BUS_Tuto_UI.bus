@@ -1,0 +1,7 @@
+-- BU position for BUS_Tuto_UI
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_pos( 0, "base", 1.1846939810363, -0.19074778093541, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "base", -1.5017945724655, 2.1055614858913, 0.2, 0.2, 0 )
+BUS.set_bu_pos( 0, "bis", 0, 0, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "bis", -1.0470211259739, 2.1056117581442, 0.2, 0.2, 0, true )

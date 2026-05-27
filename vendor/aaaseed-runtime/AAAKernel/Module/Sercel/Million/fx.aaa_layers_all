@@ -1,0 +1,59 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.2475 ;
+	rot_y = 1.6945 ;
+	tra_z = -246.292 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 33 ;
+	nb_v = 33 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	depth_test = "LESS_OR_EQUAL" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	type = "BOX" ;
+	size_factor = 0.0078125 ;
+	target_name = "BoxOne" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	material_back = 0 ;
+	}

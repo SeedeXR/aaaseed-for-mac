@@ -1,0 +1,64 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	name_symbo = "test" ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 16 ;
+	nb_v = 16 ;
+	}
+//AAA::filename fx_b00.def
+def_interpolate ( Version 0 )
+	{
+	active = ON ;
+	start = 0.0625 ;
+	size = 1 ;
+	bdd_name_symbo = "test" ;
+	middle_center = 0 ;
+	interpolate = 1 ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_b00.def" def_00 = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	use_deformer = "Owner" ;
+	}

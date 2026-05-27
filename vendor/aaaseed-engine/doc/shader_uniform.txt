@@ -1,0 +1,65 @@
+
+// AAASeed uniform implicit / OpenGL
+// updated 2024 May 22 by Maa
+// Dimension of textures : 0, 1, 2, 3 dimension, -1 if unused per Tex Unit
+uniform	int			aaa_tex_dim[4];
+
+// Mapping method per tex unit
+uniform int			aaa_tex_gen[4];
+
+// Textures
+uniform sampler2D	aaa_tex2d[4];
+
+// Tex env mode per tex unit
+uniform int			aaa_tex_env_mode[4];
+
+//	8 x 4bits per lights
+uniform uint		aaa_lights;
+
+Example for lights
+	//	parse 4 bits by 4 bits ( 8 lights )
+	uint lights = aaa_lights;
+	for( int i=0; i<LIGHT_NB; ++i )
+	{
+		int one = int(lights) & 0xf;
+		if( one!=0 )
+		{
+			if( one == 1 )
+				directionalLight( i, normal );
+			else if( one == 2 )
+				pointLight( i, normal, eye, ecPosition3 );
+			else
+				spotLight( i, normal, eye, ecPosition3 );
+		}
+		lights >>= 4u;
+		if( lights==0u )	//	avoid rest of loop
+			break;
+	}
+
+
+
+// Size of Texture for each texture unit
+uniform vec2	aaa_tex_0_size to aaa_tex_3_size
+	float	aaa_tex_0_size.x;
+	float 	aaa_tex_0_size.y;
+
+//	AAAseed uniform vertex shader
+uniform float	aaa_vu_float	[8];
+uniform int	aaa_vu_int	[4];
+uniform vec4	aaa_vu_vec4	[12];
+
+//	AAAseed uniform Geometry shader
+uniform float	aaa_gu_float	[4];
+uniform int	aaa_gu_int	[4];
+uniform vec4	aaa_gu_vec4	[4];
+
+//	AAAseed uniform pixel shader
+uniform float	aaa_pu_float	[24];
+uniform int	aaa_pu_int	[4];
+uniform vec4	aaa_pu_vec4	[8];
+
+//	AAAseed uniform compute shader
+uniform float	aaa_cu_float	[24];
+uniform int	aaa_cu_int	[4];
+uniform vec4	aaa_cu_vec4	[8];
+

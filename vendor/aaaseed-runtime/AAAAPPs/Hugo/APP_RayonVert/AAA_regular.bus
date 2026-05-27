@@ -1,0 +1,8 @@
+-- BU position value for BUS Garden
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle [,value] )
+-- page 0
+BUS.set_bu_value( "always on", 1 )
+BUS.set_bu_value( "dif on", 1 )
+BUS.set_bu_value( "duration", 1 )
+BUS.set_bu_value( "pre on", 1 )
+BUS.set_bu_value( "see all", false )

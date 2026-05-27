@@ -1,0 +1,64 @@
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = line weight
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+
+const float WEBN = 160.0;
+
+mat2 rotate(float a) { return mat2(cos(a),-sin(a),sin(a),cos(a)); }
+float noise(float x) { return texture2D(aaa_tex2d[0],vec2(x)).x;}
+
+
+void main(void)
+{
+	ivec2	tex_suv = textureSize( aaa_tex2d[0], 0 );
+	vec2 p = gl_TexCoord[0].st - 0.5; //(2.0*gl_FragCoord.xy-tex_suv)/tex_suv.y;
+	float l = aaa_fu_float[3];
+	float mz = 0.0;
+
+	for (float i=0.; i < WEBN; i+=1.0)
+	{
+		float fi = i/WEBN*acos(-1.0)*2.0;
+		float n = noise(fi);
+
+		float z = 1.0-mod(aaa_fu_float[0]/2.0+i/WEBN, 1.0);
+		vec2 o = p;
+		o -= vec2(sin(2.5*fi+aaa_fu_float[0])*2.0,cos(2.0*fi+aaa_fu_float[0]))*z;
+		o *= rotate(aaa_fu_float[0]*n*2.0)/(z*15.);
+		l += (smoothstep(0.98,1.0,sin(mod(length(o),0.5)*30.0)))*(0.5-z);
+		mz = min(mz,z);
+	}
+
+	vec3 col = vec3(l*(0.25+mz));
+	vec4 color = vec4(col,1.0) * texture2D(aaa_tex2d[0], gl_TexCoord[0].st);
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (color * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}
+
+
+
+
+

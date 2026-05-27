@@ -1,0 +1,79 @@
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = line weight
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+void main(void)
+{
+	vec2 uv = gl_TexCoord[0].st;
+	float t = aaa_fu_float[0] * 5.0;
+	vec2 p = 2.0 * uv - 1.0;
+	vec2 op = p;
+	ivec2	tex_suv = textureSize( aaa_tex2d[0], 0 );
+	p.x *= tex_suv.x/tex_suv.y;
+	vec3 color = vec3(0.0);
+	float v = length(2.0*uv-1.0);
+
+	p *= 10.0;
+
+	float movex = sin(t+p.x+p.y*v);
+	float movey = sin(t*0.5);
+	float grid = sin(p.x+movex)*sin(p.y+movey);
+	float grid2 = grid + 0.2;
+	float grid3 = grid + 0.3;
+
+	float inner = 1.0-ceil(grid+grid2);
+	float outer = 1.0-ceil(grid+grid3);
+
+	inner = max(0.0,min(1.0,inner));
+	outer = max(0.0,min(1.0,outer));
+	float stencil = inner-outer;
+
+	color.r = inner - outer;
+	p *= 0.5;
+	p = abs(p);
+	p *= v;
+	p.x += sin(p.y*sin(p.x));
+	float beam = sin(p.x+t);
+	beam = max(0.0,min(1.0,beam));
+
+	color.r += beam;
+	color.r *= beam*grid;
+	color *= 2.0;
+	color.r += stencil*beam;
+	color.b = max(0.0,min(1.0,color.r));
+	color.g = color.r*0.5;
+
+
+	// high constrast and vinj
+	color *= color * 10.0;
+	color *= 1.0-v;
+
+	//output final color
+	vec4 col = vec4(color,1.0) * texture2D(aaa_tex2d[0], gl_TexCoord[0].st);
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (col * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}

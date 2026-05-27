@@ -1,0 +1,5 @@
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	}

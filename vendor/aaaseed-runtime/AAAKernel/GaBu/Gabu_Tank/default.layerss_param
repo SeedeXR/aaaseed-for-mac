@@ -1,0 +1,7 @@
+module ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "TANK" ;
+	layers_index_cur = 6 ;
+	layers_index_end = 6 ;
+	}

@@ -1,0 +1,15 @@
+-- preset for MEU|Liberty_1
+tab["back"] = 2
+tab["cam_index"] = 3
+tab["cull"] = 2
+tab["depth"] = 1
+tab["dim"] = 2
+tab["f1"] = 0.72471964359283
+tab["f2"] = 0.89245182264131
+tab["front"] = 0
+tab["light"] = 1
+tab["line"] = 0
+tab["point"] = 24.930855747723
+tab["tex_bank"] = 1
+tab["tex_bind"] = 2
+tab["type"] = 0

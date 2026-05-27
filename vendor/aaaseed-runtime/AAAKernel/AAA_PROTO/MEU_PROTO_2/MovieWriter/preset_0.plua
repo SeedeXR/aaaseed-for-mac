@@ -1,0 +1,7 @@
+-- preset v0 for MEU|MovieWriter_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["movie writer image_bank"] = 3
+tab["movie writer image_bind"] = 18
+tab["movie writer image_dim"] = 1
+tab["v flip"] = false

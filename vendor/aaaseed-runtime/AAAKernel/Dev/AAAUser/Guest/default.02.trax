@@ -1,0 +1,7 @@
+trax ( Version 0 )
+	{
+	Fn = "NAME_REAL_SET" ;
+	Name = "ship_du" ;
+	Max = 2 ;
+	Offset = -1 ;
+	}

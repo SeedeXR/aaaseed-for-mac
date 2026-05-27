@@ -1,0 +1,9 @@
+-- preset v0 for MEU|MovieWriter_1
+tab["codec"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["quality"] = 70
+tab["record"] = false
+tab["source_bank"] = 3
+tab["source_bind"] = 18
+tab["vert flip"] = false

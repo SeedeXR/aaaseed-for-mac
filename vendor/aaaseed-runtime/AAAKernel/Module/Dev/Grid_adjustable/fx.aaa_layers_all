@@ -1,0 +1,328 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	transfo = ON ;
+	index_cur = "Layer_E" ;
+	index_end = "Layer_E" ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_E = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 5.8 ;
+	rot_x = 0.039 ;
+	rot_y = 0.0229999 ;
+	tra_z = -1.23168 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -0.47199 ;
+	}
+//AAA::filename fx_a.bdd_curve_edit
+bdd_curve_edit ( Version 0 )
+	{
+	ui_draw = ON ;
+	ui_draw_axe = ON ;
+	ui_draw_phase_cur = ON ;
+	ui_draw_curve = OFF ;
+	}
+//AAA::filename fx_a.000.control_key
+control_key ( Version 0 )
+	{
+	key_phase = -0.0674991 ;
+	key_u = 0.2025 ;
+	}
+//AAA::filename fx_a.001.control_key
+control_key ( Version 0 )
+	{
+	key_phase = -0.0674991 ;
+	key_u = 0.2025 ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_edit" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 0.75 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	bind_2d = 19 ;
+	}
+//AAA::filename fx_c.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	name_symbo = "dev_bdd_uv_test" ;
+	curve_nb_u = 11 ;
+	curve_nb_v = 15 ;
+	curve_nb_u_new = 11 ;
+	curve_nb_v_new = 15 ;
+	nb_u = 10 ;
+	nb_v = 8 ;
+	ui_tgn_size = 0 ;
+	ui_index_u = 4 ;
+	ui_index_v = 4 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	point_size = 8 ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_factor = 2 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_u = 0.75 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_alpha = -0.255812 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 4 ;
+	comment = "Base" ;
+	}
+//AAA::filename fx_d.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = 0.5 ;
+	center_y = 0.5 ;
+	}
+//AAA::filename fx_d.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	center_x = 0.5 ;
+	center_y = 0.5 ;
+	curve_nb_u_new = 4 ;
+	curve_nb_v_new = 4 ;
+	nb_u = 32 ;
+	nb_v = 32 ;
+	ui_draw = ON ;
+	ui_alpha = 0.835634 ;
+	ui_size = 1.069 ;
+	ui_pos_u = 1.34418 ;
+	ui_pos_v = 0.365359 ;
+	ui_index_u = 2 ;
+	ui_index_v = 2 ;
+	}
+//AAA::filename fx_d00.def
+def_bdd_uv ( Version 0 )
+	{
+	active = ON ;
+	bdd_name_symbo = "dev_bdd_uv_test" ;
+	reveal_uv = ON ;
+	left = 0.5 TraxLoc01In ;
+	right = 0.75 TraxLoc02In ;
+	bottom = 0.5 TraxLoc03In ;
+	top = 0.75 TraxLoc04In ;
+	}
+//AAA::filename fx_d.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_d00.def" def_00 = ON ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_left = 1.59161 TraxLoc01Out ;
+	tex_right = 1.00534 TraxLoc02Out ;
+	tex_bottom = 0.268537 TraxLoc03Out ;
+	tex_top = 0.515554 TraxLoc04Out ;
+	blend = OFF ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.281516 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 21 ;
+	comment = "Inherit" ;
+	}
+//AAA::filename fx_e.cone
+bdd_cone ( Version 0 )
+	{
+	nb_u = 256 ;
+	nb_v = 256 ;
+	u_range = 0.736435 ;
+	v_range = 0.665682 ;
+	}
+//AAA::filename fx_e.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 256 ;
+	nb_v = 256 ;
+	}
+//AAA::filename fx_e.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	curve_nb_u = 4 ;
+	curve_nb_v = 4 ;
+	curve_nb_u_new = 11 ;
+	curve_nb_v_new = 11 ;
+	nb_u = 25 ;
+	nb_v = 33 ;
+	ui_index_u = 2 ;
+	ui_index_v = 2 ;
+	}
+//AAA::filename fx_e.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 384 ;
+	nb_v = 384 ;
+	}
+//AAA::filename fx_e00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = 1 ;
+	offset = 0.5 ;
+	}
+//AAA::filename fx_e.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	AddFileRel "fx_e00.def" def_00 = ON ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	back_mode = "POINT" ;
+	point_size = 8 ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	top_alpha = 0.25 ;
+	}
+//AAA::filename fx_e.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	uv_src_bdd_use = ON ;
+	uv_src_bdd_name_symbo = "dev_bdd_uv_test" ;
+	}
+//AAA::filename fx_e.model
+model ( Version 0 )
+	{
+	size_u = 0.75 ;
+	}
+//AAA::filename fx_e.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_e.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 0.759229 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 19 ;
+	use_lights_switch = ON ;
+	material_front = 0 ;
+	material_back = 1 ;
+	trs_1 = "Owner" ;
+	}

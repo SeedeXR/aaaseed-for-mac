@@ -1,0 +1,53 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "StrataLentilleCam.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	transfo = ON ;
+	name_symbo = "groupCamLentille2" ;
+	multiple_only = ON ;
+	camera_index_ui = 1 ;
+	camera_lock_view_to_ui = OFF ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "camLentille2" ;
+	lookat_target = "LIGHT_6" ;
+	center_offset_use = OFF ;
+	tra_offset_use = OFF ;
+	clip_close_ortho = 0.04 ;
+	clip_far_ortho = 1.77205 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	center_offset_use = OFF ;
+	rot_x = 0.143 ;
+	rot_y = 0.0485 ;
+	tra_x = -0.31 ;
+	tra_y = 0.476 ;
+	tra_offset_use = OFF ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.25 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 5.83317e+24 ;
+	rotate = ON ;
+	scale = ON ;
+	}

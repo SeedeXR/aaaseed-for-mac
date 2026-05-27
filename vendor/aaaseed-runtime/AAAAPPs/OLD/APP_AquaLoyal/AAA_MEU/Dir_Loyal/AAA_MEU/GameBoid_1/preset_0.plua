@@ -1,0 +1,26 @@
+-- preset v0 for MEU|GameBoid_1
+tab["angle"] = 0
+tab["back"] = 1
+tab["bias"] = 0.5
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["click size"] = 0.1005895164842
+tab["dechet"] = 0
+tab["draw debug"] = false
+tab["gain"] = 0.5
+tab["go"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["nb_sec"] = 2
+tab["pop"] = 1
+tab["pre_l1"] = 1.1020876586377
+tab["pre_l2"] = 1.1172323081479
+tab["pre_l3"] = 1.1341141567724
+tab["second"] = 1
+tab["size"] = { 0.08, 0.16 }
+tab["speed"] = 0.125
+tab["volume_on"] = true
+tab["volune"] = 0.92797324395223
+tab["win_1"] = 0.94438804220138
+tab["win_2"] = 0.94845015938219

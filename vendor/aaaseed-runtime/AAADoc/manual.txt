@@ -1,0 +1,278 @@
+AAASeed
+THE MANUAL
+lines starting with // or -- should not be read they are maa's notes
+Focus mean that the PARAMETER flatland "focus" on this object
+
+Ctrl H inside AAASeed bring an help probably better to start that this document
+
+uppercase and lowercase are often different
+	so AVOID AVOID AVOID Caps Lock: it will get you lost.
+
+THE BASICS
+	THE AXIS
+		X axis is RED and have index	0
+		Y axis is GREEN and have index 1
+		Z axis is BLUE and have index 2
+		by default
+			the X axis go from left to right
+			the Y axis go from bottom to top
+			the Z axis do from back to front
+			Infact AAASeed use a right hand reference system
+
+	THE MOUSE
+		in flatland
+			left button
+				at the top left: toggle flatland param presence (as keyboard TAB)
+				a little right of previous position: toggle flatland info presence (as keyboard  ctrl TAB)
+				then the 2 lines below set focus on different object of the current hierarchy
+				below this first colum: scroll obj tree
+				rest of the area: edit param on same horizontal position
+					numeric value: get away from initial click then turn around (clockwise increase)
+					boolean value (ON/OFF): click then left or right from initial click for OFF or ON
+						if the param end by _trig just clicking on it set it to on
+							then the object owning the param, set it back to off on next update()
+					double click:
+						boolean value toggle
+						edit or trigger a special reaction defined for param at param or obj_ui level
+					SHIFT more precise ( divide by factor )
+					SHIFT ALT more precise ( divide by factor * factor)
+					CTRL SHIFT faster ( multiply by factor )
+					CTRL SHIFT ALT very fast ( multiply by factor * factor)
+			wheel
+			middle button on next update
+				scroll obj tree
+			right button
+				menu adapted
+					other menu (main) at the bottom 
+		in render area
+			middle button
+				initiate camera editing if allowed  (double F4 toggle it, param in pref/ui)
+				then
+					movement change rotation
+					movement with middle button pushed translation
+					left button: validate new position
+					right button: cancel camera change and go back to position before camera editing initiatated
+			wheel
+				if perspective, get close / far
+			right button
+				main menu zhen not camera position validation
+	CAMERA
+		if camera editing is allowed (double F4 toggle it, param in pref/ui)
+		SHIFT CTRL F4 :  Reset Current Camera
+		SHIFT CTRL F1	Reset Current Camera Rotate
+		SHIFT CTRL F2	Reset Current Camera Translate
+		X x Y y Z z: cam align with axe or reverse
+		o or O		Toggle perspective
+
+
+	TAB	:	Toggle the visualisation of flatland PARAMETER
+
+	if flatland PARAMETER
+		ARROWS	move in it
+		Space : open parameter
+
+	THE KEYBOARD
+
+		double ESC	save AAASeed Global environement (nearly everything except MU/MEU )
+						and exit
+		!			recall the last menu
+		\			Toggle 4 views mode which is flaky for now (2023 June)
+		a			Axe
+					Toggle the 3d axis display
+					no - on Camera current - on all cameras
+
+		1				Focus on MODDULES
+		2				Focus on current MODDULE
+		3				Focus on current LAYERS
+		4				Focus on current LAYER
+		5				Focus on current BDD
+		6				Focus on current DEFORMER
+		7				Focus on current SHADER
+		0 or 9 or 8		Focus on App (all the layers are there
+
+		ALT 			ARROW_DOWN	Next Layer (A to Z)
+		ALT 			ARROW_UP	Previous Layer (A to Z)
+		CTRL ALT 		ARROW_DOWN	Next Layers (0 to 63)
+		CTRL ALT		ARROW_UP	Previous Layers (0 to 63)
+		SHIFT CTRL ALT	ARROW_DOWN	Next Layers (0 to 63)
+		SHIFT CTRL ALT	ARROW_UP	revious Layers (0 to 63)
+		CTRL ARROW_DOWN	ARROW_DOWN	move Down (module, layers, layer, bind and trax only)
+		CTRL ARROW_UP	ARROW_UP	move Up (module, layers, layer, bind and trax only)
+
+	THE KEYBOARD FUNCTION KEYS
+		//F1 F2			change the role of the Left Mouse Button
+		//F1					Rotate
+		//F2					Translate
+		CTRL F3			Next camera (there is 8)
+		CTRL SHIFT F3	Previous camera
+		F4				Focus on Current Camera
+
+		//ALT F3		Flip camera ui mode //todo understand and explain
+		ALT F4		quit with confirm
+		SHIFT F4	Toggle Current Camera Orbiting
+--OLD	CTRL F2		Reset mapping factor
+--OLD	CTRL F3		Reset mapping origin
+
+		F5			Focus on Mapping
+		CTRL F5		Focus on Text_anim
+		F6			Focus on Rendering
+		F7			Focus on Color or Light depending on mode
+		CTRL F7		Focus on Light or Color depending on mode
+		F8			Focus on Mocap
+		CTRL F8		Focus on Feedback Object
+
+		F9			Focus on Local Traxs
+		CTRL F9		Focus on Global Traxs
+		F10			Focus on preferences
+		CTRL F10	Focus on starting preferences (need to save and launch AAASeed again to take effect)
+
+
+	PARAMETER MENUS AND KEYBOARD
+		You can move up and down with the up and down Arrow Keys
+		To change the selected Parameter (Changing Color) use the Keyboard
+			or directly the Mouse left button ( by moving Down/Up and/or Left/right or rotating depending on slider mode).
+		The Title bar always reflect the current cell and the last operation done on it.
+
+		TAB				Toggle the Parameter Viewport
+		TAB + SHIFT			Toggle the associated lua hook
+--Removed	CTRL+ TAB			Toggle the Info Viewport
+--Removed	CTRL+ TAB + SHIFT		Toggle the associated lua hook
+
+		LEFT_ARROW	Previous focus
+		RIGHT_ARROW	Next focus
+		UP_ARROW	Previous parameter, go down
+		DOWN_ARROW	Next parameter, go up
+
+		HOME		Default Value
+		END			Inactive Value
+		PAGE_UP		Maximum value
+		PAGE_DOWN	Minimum value
+
+		NUMPAD_/ or /	Half value
+		NUMPAD_* or *	Double value
+		NUMPAD_- or -	Decrement value
+		NUMPAD_+ or +	Increment value
+
+		NUMPAD_ENTER or enter	Toggle sign
+		NUMPAD_. or .			Closest integer value (remove fractionnal part)
+
+//		CTRL LEFT_ARROW		Previous Modifier
+//		CTRL RIGHT_ARROW	Next Modifier
+
+THE	REST
+	THE KEYBOARD LETTERS
+		a and A			Axe
+						Toggle the 3d axis display
+		ALT a and ALT A	Origin
+						Toggle the 3d Origin display
+		b or B			Back
+						3 state Toggle for the rendering of the backface
+						FILL->LINE->POINT->FILL
+		ALT b or ALT B	Bounding Box
+						Toggle the Bounding Box (bbox) display
+		c or C			Cull
+						3 state Toggle for culling
+						NONE->BACK->FRONT->NONE
+		ALT c or ALT C	Force Culling to None
+		d or D			Depth
+						Toggle for DepthBuffer (ZBuffer)
+		e				Erase
+						Toggle erase
+		E				Toggle ZBuffer erase
+		CTRL e			Edit
+				`		Toggle Edit Mode
+		ALT e and ALT E	Rotate thru background in global bdd_screen_clear (the one in app)
+		f or F			Front
+						3 state Toggle for the rendering of the frontface
+						FILL->LINE->POINT->FILL
+		ALT f			Toggle global force line
+		g or G			Gouraud
+						Toggle Gouraud
+		h or H			used for double h
+						if push twice the next key have a special meaning see DOUBLE H below
+		i				3 state Toggle for the Mapping
+							NONE->1D->2D->NONE
+		I				Idem but reverse
+							NONE->2D->1D->NONE
+		ALT i			toggle implicit mapping
+//		j or J			to be used
+		k and K			"close to i"
+						next/previous texture (1D or 2D depending on mapping) in Bind
+		ALT k			toggle global texture use
+		l or L			Light
+						Toggle Lighting
+		m or M			Model
+						next/previous model type (see bdd menu for order)
+		ALT n or ALT N	Automap ( Ask michel Bret )
+						switch the use of texture feedback
+		n or N			used for double n
+						if push twice the next key have a special meaning
+							see DOUBLE N below
+		o or O		Toggle perspective
+		P			Print				print rendering stat for every frame
+		p			Pointer (cursor)	Toggle clean video pointer
+											the cursor disappear in the video viewport
+		ALT p		Pointer				Toggle hide on move pointer
+											the cursor disappear on mouse move with left click on
+		q or Q		flip interactive bdd to intercept user interface
+		r			Restart for the currend bdd if it can do it
+		ALT r		Reread
+					reread the current texture
+		R			Record
+					flip the snap Record mode
+		s or S		Snap
+					Focus on Snap
+		ALT s		Snapshot
+					Save the current frame as tga file
+		ALT S		Snap
+					flip the snap Record mode
+					ask for the name ( e.g toto )
+					save an animation according to the Snap Parameter Menu
+					under numbered filenames ( e.g. toto0000.tga to toto0040.tga ).
+					Pressing ALT S during the snapshot, stop it.
+		CTRL s		Save All
+		t			Time	Reinitialize time to 0
+		T			Time	Toggle Real time
+		ALT t		time buffer toggle (for developer only ?)
+		v or V		Toggle Curve Viewport
+		ALT v or ALT V	Toggle flying Camera
+		w or W		Window
+					toggle Camera full window
+		ALT w or ALT W
+					toggle AAASeed window Full SCreen
+//					Arrow and Numeric Pad drive the camera
+		x y z		Align Camera on to the corresponding axe
+						looking to the negative side
+		X Y Z		Align Camera on to the corresponding axe
+						looking to the positive side
+
+
+DOUBLE H puis
+		a			autoconnect to midi trax
+		b			disconnect trax
+
+		e			switch to english keyboard
+		f			switch to french keyboard
+		x			switch to mac french keyboard
+
+		r			flip the net remote param
+DOUBLE N puis
+		d			focus on DMX
+
+		j			focus on joystick
+		l			focus on lua_master
+		m			focus on midi_a
+		n			focus on network
+		3			focus on magellan (spacemouse)
+
+
+USE OF SHIFT
+	when AAASeed exit if it go thru shutdwon, the shutdown is skipped if shift is on
+
+
+
+
+
+
+
+

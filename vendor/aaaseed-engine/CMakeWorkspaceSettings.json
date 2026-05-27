@@ -1,0 +1,5 @@
+{
+    "$schema": "https://schemastore.azurewebsites.net/schemas/json/CMakeWorkspaceSettings.schema.json",
+    "_comment": "Visual Studio CMake workspace settings. Tells VS Open Folder mode to use CMakePresets.json (vs2026-v145, vs2022-v143) instead of the legacy CMakeSettings.json or auto-detection.",
+    "enableCMakePresetsIntegration": true
+}

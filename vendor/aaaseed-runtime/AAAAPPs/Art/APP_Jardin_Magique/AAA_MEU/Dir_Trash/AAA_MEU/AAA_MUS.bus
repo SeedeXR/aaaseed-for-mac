@@ -1,0 +1,6 @@
+-- BU position value for BUS Trash_MEU
+BUS.set_bu_pos_value( "empty", {0.012500000186265,0.475, 0.12,0.04} )
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "preset proto", 1 )
+BUS.set_bu_pos_value( "ref_fbo_pip_2", {0.40000000596046,-0.475, 0.21875,0.05}, { render=0 } )

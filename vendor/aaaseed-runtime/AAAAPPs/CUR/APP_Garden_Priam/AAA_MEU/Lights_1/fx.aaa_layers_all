@@ -1,0 +1,60 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "lights.lua" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Fn = "TIME" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	camera_index_ui = 3 ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 4 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -17.5187 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.042 ;
+	rot_y = -0.0035 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	tra_x = -0.906 ;
+	tra_y = 1.006 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	tra_x = -2.05 ;
+	tra_y = 12.718 ;
+	tra_z = -45.1962 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.5 ;
+	tra_x = -0.886 ;
+	tra_y = 0.912 ;
+	tra_z = -11.9231 ;
+	}

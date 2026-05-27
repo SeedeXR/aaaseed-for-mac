@@ -1,0 +1,24 @@
+-- preset v0 for MEU|defense_app
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["boids nb"] = 8
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["field"] = 0.49330878521066
+tab["field active"] = false
+tab["flock active"] = false
+tab["flock dist factor"] = 2.6516601055119
+tab["line"] = 12.213293075562
+tab["mul_axe"] = 0.92453879117966
+tab["mul_size"] = 0.85731983184814
+tab["mul_u"] = 0.8905428647995
+tab["mul_v"] = 0.14581745862961
+tab["multiple"] = 0
+tab["nb by boid"] = 53
+tab["net_alpha"] = 0
+tab["point"] = 64
+tab["repulse dist"] = 0.37581026844335
+tab["speed"] = 0.38522411682258
+tab["speed active"] = true
+tab["viscosity"] = 0.18615872378817

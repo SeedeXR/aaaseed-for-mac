@@ -1,0 +1,12 @@
+-- BU position value for BUS|Dir_KinectB
+BUS.set_bu_value( "a", 0 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos_value( "fbo_kinb", {-0.115625,0.1984375, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "kinmoveauto_b", {0.1625,0.2, 0.225,0.05}, { render=0.88432093024521 } )
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_pos_value( "monitor_2", {-0.028125,0.2984375, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "ndcmerge_kinb", {0.159375,0.3859375, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_value( "preset proto", 1 )
+BUS.set_bu_pos_value( "ref_fbo_cap.b", {-0.0875,0.3875, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_value( "restore", 0 )

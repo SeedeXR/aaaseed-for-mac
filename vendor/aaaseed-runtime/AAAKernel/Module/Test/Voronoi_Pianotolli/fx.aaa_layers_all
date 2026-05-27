@@ -1,0 +1,191 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.4985 ;
+	rot_y = -0.0015 ;
+	tra_z = -6.12776 ;
+	m00 = 1 ;
+	m11 = 1 ;
+	m22 = 1 ;
+	m33 = 1 ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	name_symbo = "boid_for_voronoi_piano" ;
+	nb_allocated = 8192 ;
+	nb_alive_min = 2048 ;
+	nb_alive_max = 2048 ;
+	birth_size_factor = 8 ;
+	death_target_radius = 0.177826 ;
+	dimension = "2D" ;
+	acceleration_max = 4 ;
+	speed_max = 4 ;
+	viscosity = 0.144676 ;
+	field_influence = -0.548304 ;
+	target_active = OFF ;
+	target_influence = 0.087204 ;
+	target_shape = "Line" ;
+	box_type = "Repulse" ;
+	box_size_z = 0.162786 ;
+	box_size_factor = 6.59502 ;
+	box_sphere = ON ;
+	repulse_distance = 0.0890889 ;
+	repulse_net_draw = ON ;
+	repulse_net_image = ON ;
+	repulse_net_image_bind = 0 ;
+	repulse_net_image_u_begin = 0 ;
+	repulse_net_image_u_factor = 2.37617 ;
+	repulse_net_image_v_begin = 0.5 ;
+	flocking_active = ON ;
+	flocking_influence = 0.0318955 ;
+	flocking_distance = 0.353694 ;
+	steering_active = ON ;
+	steering_influence = 0.5 ;
+	steering_distance = 0.154932 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 65 ;
+	nb_v = 65 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	fn = "Turbulence" ;
+	harmonique_nb = 2 ;
+	axe = "Y" ;
+	strenght = 4 ;
+	offset = 0.410031 ;
+	phase = 52.7175 ;
+	phase_speed = 0.581849 ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_a01.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 43 ;
+	axe_src = "Z" ;
+	scale_by_model = OFF ;
+	scale_factor = 6.34936 ;
+	clamped = ON ;
+	linear = ON ;
+	radius_u = 0.25 ;
+	radius_v = 0.25 ;
+	radius_factor = 0.125 ;
+	axe_dst = "Z" ;
+	Image_component = "GREEN" ;
+	Gradient = ON ;
+	strenght = 1 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	src_fixed = ON ;
+	AddFileRel "fx_a00.def" def_00 = OFF ;
+	AddFileRel "fx_a01.def" def_01 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	line_size = 2 ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	axe = "Z" ;
+	size_factor = 0.0625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	use_tex_anim = "CURRENT" ;
+	}
+//AAA::filename fx_b.bdd_voronoi
+bdd_voronoi ( Version 0 )
+	{
+	bdd_src = "boid_for_voronoi_piano" ;
+	nb_max = 8192 ;
+	voronoi = ON ;
+	draw_edge = OFF ;
+	draw_edge_link = ON ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	point_size = 8 ;
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 0.00390625 ;
+	size_v = 0.015625 ;
+	size_axe = 0.5 ;
+	offset_axe = 524288 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 6.98658 ;
+	}
+//AAA::filename fx_b.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_4 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_voronoi" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_lights_switch = ON ;
+	}

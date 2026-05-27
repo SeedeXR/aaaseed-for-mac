@@ -1,0 +1,34 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "faf.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	camera_index_ui = 6 ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.011 ;
+	rot_y = 0.549 ;
+	tra_z = -0.832 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.4985 ;
+	rot_y = -0.0005 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.865 ;
+	}

@@ -1,0 +1,16 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "wone/fx" ;
+	Bind_01 = "Wromb/fx" ;
+	Bind_02 = "VideoFond/fx" ;
+	Bind_03 = "Part/fx" ;
+	Bind_04 = "PassageOblige/fx" ;
+	Bind_05 = "Bdd_tests/fx" ;
+	Bind_06 = "Buildings/fx" ;
+	Bind_07 = "TubeCity/fx" ;
+	Bind_08 = "ProceduralCity/fx" ;
+	Bind_09 = "Rain/fx" ;
+	Bind_13 = "TpLua1/fx" ;
+	Bind_14 = "LuaVive2/fx" ;
+	Bind_15 = "LuaVive1/fx" ;
+	}

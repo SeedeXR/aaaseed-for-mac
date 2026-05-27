@@ -1,0 +1,11 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	type = "BULB" ;
+	Position_y = 0.522338 ;
+	Ambient_red = 0.792113 ;
+	Ambient_green = 0.427996 ;
+	Ambient_grey = 1 ;
+	Diffuse_grey = 0.895736 ;
+	Spot_direction_y = -1 ;
+	}

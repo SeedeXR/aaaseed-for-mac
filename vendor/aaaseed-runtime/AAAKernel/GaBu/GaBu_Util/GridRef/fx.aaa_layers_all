@@ -1,0 +1,154 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	skip_rest = ON ;
+	filename = "grid.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	index_cur = "Layer_D" ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 16 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 129 ;
+	nb_v = 129 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	line_smooth = ON ;
+	primitive = "QUAD_STRIP" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	size_v = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_alpha = 0.125 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 17 ;
+	nb_v = 17 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	line_smooth = ON ;
+	line_size = 2 ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_alpha = 0.0625 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 9 ;
+	nb_v = 9 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_alpha = 0.125 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_d.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_d.tri
+bdd_tri ( Version 0 )
+	{
+	object_stop = 0 ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	line_size = 2 ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_d.model
+model ( Version 0 )
+	{
+	size_factor = 0.125 ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_alpha = 0.5 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	}

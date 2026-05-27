@@ -1,0 +1,8 @@
+lua_master ( Version 0 )
+	{
+	hook_event = ON ;
+	error_trig_dialog = ON ;
+	error_trig_editor = ON ;
+	editor = "Visual Studio Code" ;
+	gc_time_buffer_value = 4 ;
+	}

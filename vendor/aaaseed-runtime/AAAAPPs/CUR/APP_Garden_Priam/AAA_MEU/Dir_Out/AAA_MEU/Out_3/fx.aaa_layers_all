@@ -1,0 +1,128 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "PROTO_Out.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	sub_viewport_left = 0.666667 ;
+	sub_viewport_bottom = 0.502533 ;
+	perspective = OFF ;
+	ortho_size = 4 ;
+	ui_lock = ON ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	sub_viewport_left = 0.555556 ;
+	sub_viewport_bottom = 0.2 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	sub_viewport_left = 0.7 ;
+	sub_viewport_bottom = 0.166667 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	sub_viewport_left = 0.555556 ;
+	sub_viewport_bottom = 0.2 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	rotate = ON ;
+	scale = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 6 ;
+	nb_v = 9 ;
+	}
+//AAA::filename fx_a.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	curve_nb_u = 4 ;
+	curve_nb_v = 4 ;
+	curve_nb_u_new = 8 ;
+	curve_nb_v_new = 5 ;
+	nb_u = 68 ;
+	nb_v = 34 ;
+	force_compute = OFF ;
+	catmull = ON ;
+	edge_auto = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	back_mode = "LINE" ;
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	depth_write = OFF ;
+	top_red = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_wrap_u = "MIRRORED_REPEAT" ;
+	tex_wrap_v = "MIRRORED_REPEAT" ;
+	tex_wrap_w = "MIRRORED_REPEAT" ;
+	tex_env_mode = "BLEND" ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 3 ;
+	geometry_reload_trig = ON ;
+	fragment_bind = 39 ;
+	fu_float_07 = 8 ;
+	fu_float_08 = 1 ;
+	compute_reload_trig = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	name_symbo = "force" ;
+	size_axe = 0.641785 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.00787402 ;
+	convert = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	}

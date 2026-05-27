@@ -1,0 +1,7 @@
+-- preset for MEU|Sun_1("proto_Sun")
+tab["cam_index"] = 0
+tab["mapping_blend"] = 2
+tab["ori_u"] = 0
+tab["ori_v"] = 0
+tab["u"] = 1
+tab["v"] = 1

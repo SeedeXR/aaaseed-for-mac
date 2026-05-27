@@ -1,0 +1,159 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 33.47 ;
+	rot_x = 0.299 ;
+	rot_y = 0.069 ;
+	tra_z = -8.31038 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	render_type = "Quad" ;
+	render_min_size = 0.348326 ;
+	nb_allocated = 1048576 ;
+	nb_max = 70000 ;
+	nb_by_sec = 1024 ;
+	flow_continuous = ON ;
+	regular = ON ;
+	life_time = 32 ;
+	emission_axe = "Z" ;
+	emission_box_size_factor = 8 ;
+	emission_mask_bind = 56 ;
+	emission_mask_max = 0.179466 ;
+	emission_mask_try_max = 96 ;
+	emission_mask_try_always = ON ;
+	emission_mask_harmonique_nb = 3 ;
+	jitter_speed_abs = 0 ;
+	field_speed = ON ;
+	viscosity = 0.03125 ;
+	turb_freq = 16 ;
+	render_life_color = ON ;
+	render_life_color_ease_in = 0.144197 ;
+	render_life_color_ease_out = 0.253637 ;
+	clipping = OFF ;
+	}
+//AAA::filename fx_a00.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 49 ;
+	axe_src = "Z" ;
+	linear = ON ;
+	axe_dst = "Z" ;
+	Image_component = "ALPHA" ;
+	Gradient = ON ;
+	Normal = 2.78652 ;
+	strenght = -0.125 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	point_size = 8 ;
+	point_mode = "POINT_SPRITE" ;
+	point_sprite_tex = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	alignment = "Random" ;
+	axe = "Z" ;
+	size_u = 2 ;
+	size_v = 2 ;
+	size_factor = 0.0215652 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_u_ori = 0.01 ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.002 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	size_v = 8 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 8 ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 32 ;
+	nb_v = 32 ;
+	nb_axe = 32 ;
+	}
+//AAA::filename fx_b.anim
+tex_anim ( Version 0 )
+	{
+	start = 7 ;
+	stop = 14 ;
+	several_active = ON ;
+	force_start = 7 ;
+	force_stop = 14 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	front_mode = "POINT" ;
+	back_mode = "POINT" ;
+	point_size = 32 ;
+	point_mode = "POINT_SPRITE" ;
+	point_sprite_tex = ON ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Random_Axe_Y" ;
+	size_factor = 0.00390625 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.859085 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_tex_anim = "Owner" ;
+	bind_2d = 7 ;
+	}

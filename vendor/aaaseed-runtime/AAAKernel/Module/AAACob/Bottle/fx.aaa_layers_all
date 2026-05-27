@@ -1,0 +1,171 @@
+//AAA::set_filename_relative
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_REAL_U" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_REAL_V" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.07.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 3 ;
+	Filter = 0.731325 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TURBULENCE" ;
+	Freq = 6.26821 ;
+	Gain = 0.904172 ;
+	Bias = 1 TraxLoc07Out ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.11.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TURBULENCE" ;
+	Freq = 16 ;
+	Min = 0.5 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.12.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TURBULENCE" ;
+	Freq = 8 ;
+	Min = 0.5 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.15.trax
+trax ( Version 0 )
+	{
+	Fn = "TURBULENCE" ;
+	Freq = 163.364 ;
+	Min = 0.5 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.16.trax
+trax ( Version 0 )
+	{
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.20.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TURBULENCE" ;
+	Freq = 60.9524 ;
+	Bias = 0.742603 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.21.trax
+trax ( Version 0 )
+	{
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.22.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Max = 0.5 TraxLoc28Out ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.28.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 6 ;
+	Bias = 0.03125 ;
+	Min = 0.5 ;
+	Max = 128 ;
+	Filter = 0.768646 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = 0 TraxLoc05Out TraxLoc10In TraxLoc11In TraxLoc15In TraxLoc20In ;
+	value_01 = 0 TraxLoc06Out TraxLoc12In ;
+	value_05 = 0.007699 TraxLoc20Out TraxLoc21In TraxLoc22In ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.849 ;
+	rot_y = 0.043 ;
+	tra_z = -3.13016 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = 0.003849 TraxLoc22Out ;
+	nb_u = 8 ;
+	nb_v = 8 ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 24 ;
+	nb_v = 24 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 1 TraxLoc15Out ;
+	size_v = 1 TraxLoc21Out ;
+	size_factor = 0.129972 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_green = 0.501341 TraxLoc11Out ;
+	global_blue = 0.501341 TraxLoc12Out ;
+	global_alpha = 0.999583 TraxLoc10Out ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	bind_2d = 5 ;
+	material_front = 8 ;
+	}

@@ -1,0 +1,76 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.614 ;
+	rot_y = 0.102 ;
+	tra_x = -2.344 ;
+	tra_y = -5.896 ;
+	tra_z = 1.96576 ;
+	}
+//AAA::filename fx_a.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	channel_id = 8 ;
+	curve_load_save = OFF ;
+	draw_all_curves = ON ;
+	draw_dataset_end = 2048 ;
+	draw_number_scale = 0.0625 ;
+	constraint = "Plane XZ" ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	line_size = 4 ;
+	point_size = 2 ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	type = "AXE" ;
+	alignment = "Normal" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_line_3d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	material_use_color_dst = "Emission" ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	name_symbo = "dum" ;
+	global_green = 0.432992 ;
+	global_blue = 0 ;
+	global_grey = 0.729607 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "draw" ;
+	bdd = "EXTERNAL" ;
+	use_color = ON ;
+	}

@@ -1,0 +1,6 @@
+lights ( Version 0 )
+	{
+	intensity_factor = 2.25004 ;
+	ambient_global_grey = 0.314568 ;
+	two_side = ON ;
+	}

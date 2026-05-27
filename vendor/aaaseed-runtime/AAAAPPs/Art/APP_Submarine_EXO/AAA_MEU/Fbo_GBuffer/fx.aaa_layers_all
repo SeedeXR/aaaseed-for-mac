@@ -1,0 +1,229 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "Owner" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	camera_index_ui = 7 ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	center_offset_use = OFF ;
+	rot_x = 0.0285 ;
+	rot_y = 0.156 ;
+	tra_x = 0.266 ;
+	tra_y = -0.378 ;
+	tra_z = -4.63303 ;
+	clip_close_perspective = 0.125 ;
+	clip_far_perspective = 20 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -2.73993 ;
+	coc_near_out = 4 ;
+	coc_far_in = 5 ;
+	coc_far_out = 6 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.938501 ;
+	rot_y = -0.00850054 ;
+	tra_x = 0.474 ;
+	tra_y = -0.052 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -6.989 ;
+	rot_y = -118.917 ;
+	tra_x = 0.002 ;
+	tra_z = -10.5016 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	orbiting_play = OFF ;
+	rot_x = -1.961 ;
+	rot_y = 0.1165 ;
+	tra_x = -0.481 ;
+	tra_y = -0.570998 ;
+	tra_z = -6.71443 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -2.01812 ;
+	rot_y = 0.440498 ;
+	tra_x = -0.012 ;
+	tra_y = -0.062 ;
+	clip_close_perspective = 0.015625 ;
+	clip_far_perspective = 6.25 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	center_offset_use = OFF ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	lookat = ON ;
+	center_x = -2.19688 ;
+	center_y = 0.0368805 ;
+	center_z = -0.492547 ;
+	rot_x = -1.026 ;
+	rot_y = 0.023 ;
+	tra_x = -2.49318 ;
+	tra_y = 0.0922636 ;
+	tra_z = -0.437453 ;
+	clip_far_perspective = 25 ;
+	}
+//AAA::filename fx.08.cam
+seedcam ( Version 0 )
+	{
+	center_offset_use = OFF ;
+	rot_x = -0.004 ;
+	tra_x = 1.684 ;
+	tra_y = -0.228 ;
+	tra_z = -3.2013 ;
+	clip_close_perspective = 0.125 ;
+	clip_far_perspective = 20 ;
+	}
+//AAA::filename fx.09.cam
+seedcam ( Version 0 )
+	{
+	focal = 22.05 ;
+	center_x = 10.045 ;
+	center_y = 1.4 ;
+	center_z = 19.265 ;
+	tra_z = 0 ;
+	pitch = -0.03 ;
+	clip_close_perspective = 19 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.1545 ;
+	}
+//AAA::filename fx.10.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = 0.062 ;
+	rot_y = 2.4395 ;
+	tra_x = -0.0800005 ;
+	tra_y = -9.31601 ;
+	tra_z = -30.8783 ;
+	clip_close_perspective = 16 ;
+	clip_far_perspective = 200 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.11.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = 2.233 ;
+	rot_y = 20.2025 ;
+	tra_x = 0.79 ;
+	tra_y = -22.302 ;
+	tra_z = -13.8565 ;
+	clip_close_perspective = 16 ;
+	clip_far_perspective = 200 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.12.cam
+seedcam ( Version 0 )
+	{
+	focal = 30 ;
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = 0.023 ;
+	rot_y = 0.761 ;
+	tra_z = -0.0468971 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.13.cam
+seedcam ( Version 0 )
+	{
+	focal = 22.05 ;
+	center_x = 10.045 ;
+	center_y = 11.2 ;
+	center_z = 19.265 ;
+	rot_x = -0.028 ;
+	rot_y = 0.002 ;
+	tra_x = 0.885999 ;
+	tra_y = 3.55 ;
+	tra_z = 0 ;
+	pitch = 0.0599952 ;
+	clip_close_perspective = 19 ;
+	clip_far_perspective = 100 ;
+	}
+//AAA::filename fx.14.cam
+seedcam ( Version 0 )
+	{
+	clip_close_perspective = 0.25 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.15.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0005 ;
+	rot_y = 0.0045 ;
+	tra_x = -0.136 ;
+	tra_y = -0.182 ;
+	tra_z = -5.79644 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	size_asked_x = 1920 ;
+	size_asked_y = 1080 ;
+	channel_nb = 4 ;
+	depth_as_texture = ON ;
+	depth_bind_2d_asked = 187 ;
+	depth_format = "32 bits" ;
+	tex_1_bind_2d_asked = 188 ;
+	tex_1_mipmap_generate = ON ;
+	tex_2_active = ON ;
+	tex_2_bind_2d_asked = 189 ;
+	tex_3_active = ON ;
+	tex_3_bind_2d_asked = 190 ;
+	tex_4_active = ON ;
+	tex_4_bind_2d_asked = 191 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 3 ;
+	bind_2d = 17 ;
+	}

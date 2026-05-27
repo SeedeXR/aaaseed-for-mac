@@ -1,0 +1,6 @@
+lights ( Version 0 )
+	{
+	flag_atte = ON ;
+	two_side = ON ;
+	psy_frequency = 1023.97 ;
+	}

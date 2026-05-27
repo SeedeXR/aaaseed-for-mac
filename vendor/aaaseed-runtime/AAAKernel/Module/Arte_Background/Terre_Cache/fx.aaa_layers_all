@@ -1,0 +1,61 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	index_end = "Layer_C" ;
+	index_cur = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx_a.image_gradient
+bdd_img_gradient ( Version 0 )
+	{
+	size_asked_x = 1024 ;
+	size_asked_y = 1024 ;
+	type = "radial" ;
+	clamp = 1 ;
+	gain = 0.967799 ;
+	start_offset = 0.754922 ;
+	start_color_grey = 0 ;
+	stop_color_red = 0 ;
+	stop_color_green = 0 ;
+	stop_color_grey = 0 ;
+	stop_color_alpha = 0 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_gradient" ;
+	use_model = ON ;
+	bind_2d = 9 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 0.670048 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	bind_2d = 9 ;
+	}

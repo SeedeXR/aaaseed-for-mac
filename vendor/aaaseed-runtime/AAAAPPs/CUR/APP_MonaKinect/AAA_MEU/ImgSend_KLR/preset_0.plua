@@ -1,0 +1,12 @@
+-- preset v0 for MEU|ImgSend_KLR
+tab["force"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mono"] = true
+tab["received_bank"] = 4
+tab["received_bind"] = 0
+tab["sent_bank"] = 2
+tab["sent_bind"] = 1
+tab["time"] = 0
+tab["tmp_bank"] = 2
+tab["tmp_bind"] = 4

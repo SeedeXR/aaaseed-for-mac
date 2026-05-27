@@ -1,0 +1,22 @@
+-- preset v0 for MEU|AAACob_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 2
+tab["cam_use"] = 2
+tab["color_blue"] = 1
+tab["color_green"] = 1
+tab["color_grey"] = 1
+tab["color_hue"] = 1
+tab["color_red"] = 1
+tab["color_sat"] = 0
+tab["color_value"] = 1
+tab["render.back"] = 0
+tab["render.cull"] = 1
+tab["render.depth"] = true
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 1
+tab["render.normal"] = 8
+tab["render.normal active"] = false
+tab["render.point"] = 1

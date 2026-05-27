@@ -1,0 +1,9 @@
+key version(0)
+{
+	phase = 4.18001 ;
+	pos_u = -0.255 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 0 ;
+	include = TRUE ;
+}

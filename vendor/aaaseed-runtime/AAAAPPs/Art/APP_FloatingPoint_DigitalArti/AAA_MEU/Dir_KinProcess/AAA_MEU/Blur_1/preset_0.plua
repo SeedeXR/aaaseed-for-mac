@@ -1,0 +1,6 @@
+-- preset v0 for MEU|Blur_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["blur"] = 9.401919030715
+tab["diff"] = 1
+tab["method"] = 1

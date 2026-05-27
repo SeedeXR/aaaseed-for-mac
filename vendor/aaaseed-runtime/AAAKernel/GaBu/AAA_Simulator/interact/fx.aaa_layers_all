@@ -1,0 +1,208 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "simul.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	lua = ON ;
+	Traxs = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport_right = 0.5 ;
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	}
+//AAA::filename fx_a.bdd_boxes
+bdd_boxes ( Version 0 )
+	{
+	name_symbo = "gabu_simul_bdd" ;
+	stop = 10 ;
+	ui_intercept = ON ;
+	ui_crop_to_viewport = ON ;
+	number_draw = "Z" ;
+	draw_selected_with_line = OFF ;
+	box_size_factor = 0.03125 ;
+	number_size = 0.125 ;
+	text_size = 0.0625 ;
+	transfer_bdd_target = "GaBuIn_blob_dispatch" ;
+	transfer_center_x = 0.5 ;
+	transfer_center_y = 0.5 ;
+	Box01_active = ON ;
+	Box01_enabled = ON ;
+	Box01_type = "FINGER" ;
+	Box01_name = "but 1" ;
+	Box01_position_x = 0.0878466 ;
+	Box01_position_y = 0.239184 ;
+	Box01_size_x = 0.8 ;
+	Box01_size_y = 0.8 ;
+	Box02_active = ON ;
+	Box02_enabled = ON ;
+	Box02_type = "FINGER" ;
+	Box02_control_id = 2 ;
+	Box02_position_x = 0.00644782 ;
+	Box02_position_y = 0.134453 ;
+	Box02_size_x = 0.8 ;
+	Box02_size_y = 0.8 ;
+	Box03_active = ON ;
+	Box03_enabled = ON ;
+	Box03_type = "FINGER" ;
+	Box03_control_id = 3 ;
+	Box03_position_x = -0.164404 ;
+	Box03_position_y = 0.2547 ;
+	Box03_size_x = 0.8 ;
+	Box03_size_y = 0.8 ;
+	Box04_active = ON ;
+	Box04_enabled = ON ;
+	Box04_manual = ON ;
+	Box04_type = "FINGER" ;
+	Box04_control_id = 4 ;
+	Box04_position_x = -0.13131 ;
+	Box04_position_y = 0.254709 ;
+	Box04_size_x = 0.8 ;
+	Box04_size_y = 0.8 ;
+	Box05_active = ON ;
+	Box05_enabled = ON ;
+	Box05_type = "FINGER" ;
+	Box05_control_id = 5 ;
+	Box05_position_x = 0.0775197 ;
+	Box05_position_y = -0.10577 ;
+	Box05_size_x = 0.8 ;
+	Box05_size_y = 0.8 ;
+	Box06_active = ON ;
+	Box06_enabled = ON ;
+	Box06_type = "FINGER" ;
+	Box06_control_id = 6 ;
+	Box06_position_x = -0.27944 ;
+	Box06_position_y = 0.0799013 ;
+	Box06_size_x = 0.8 ;
+	Box06_size_y = 0.8 ;
+	Box07_active = ON ;
+	Box07_enabled = ON ;
+	Box07_manual = ON ;
+	Box07_type = "FINGER" ;
+	Box07_control_id = 7 ;
+	Box07_position_x = -0.0108412 ;
+	Box07_position_y = 0.252801 ;
+	Box07_size_x = 0.8 ;
+	Box07_size_y = 0.8 ;
+	Box08_active = ON ;
+	Box08_enabled = ON ;
+	Box08_type = "FINGER" ;
+	Box08_control_id = 8 ;
+	Box08_position_x = 0.0392579 ;
+	Box08_position_y = 0.25708 ;
+	Box08_size_x = 0.8 ;
+	Box08_size_y = 0.8 ;
+	Box09_active = ON ;
+	Box09_enabled = ON ;
+	Box09_type = "FINGER" ;
+	Box09_control_id = 9 ;
+	Box09_position_x = 0.0334708 ;
+	Box09_position_y = 0.21081 ;
+	Box09_size_x = 0.8 ;
+	Box09_size_y = 0.8 ;
+	Box10_active = ON ;
+	Box10_enabled = ON ;
+	Box10_type = "FINGER" ;
+	Box10_control_id = 10 ;
+	Box10_position_x = 0.0736904 ;
+	Box10_position_y = -0.150447 ;
+	Box10_size_x = 0.8 ;
+	Box10_size_y = 0.8 ;
+	Box11_enabled = ON ;
+	Box11_type = "FINGER" ;
+	Box11_control_id = 11 ;
+	Box11_position_x = 0.187768 ;
+	Box11_position_y = 0.319375 ;
+	Box11_size_x = 0.8 ;
+	Box11_size_y = 0.8 ;
+	Box11_size_factor = 0.0357143 ;
+	Box12_enabled = ON ;
+	Box12_type = "FINGER" ;
+	Box12_control_id = 12 ;
+	Box12_position_x = 0.304196 ;
+	Box12_position_y = 0.21875 ;
+	Box12_size_x = 0.8 ;
+	Box12_size_y = 0.8 ;
+	Box12_size_factor = 0.0357143 ;
+	Box13_enabled = ON ;
+	Box13_type = "FINGER" ;
+	Box13_control_id = 13 ;
+	Box13_position_x = 0.240625 ;
+	Box13_position_y = 0.073125 ;
+	Box13_size_x = 0.8 ;
+	Box13_size_y = 0.8 ;
+	Box13_size_factor = 0.0357143 ;
+	Box14_enabled = ON ;
+	Box14_type = "FINGER" ;
+	Box14_control_id = 14 ;
+	Box14_position_x = -0.364977 ;
+	Box14_position_y = 0.211406 ;
+	Box14_size_x = 0.8 ;
+	Box14_size_y = 0.8 ;
+	Box14_size_factor = 0.0357143 ;
+	Box15_enabled = ON ;
+	Box15_type = "FINGER" ;
+	Box15_control_id = 15 ;
+	Box15_position_x = -0.034799 ;
+	Box15_position_y = 0.029531 ;
+	Box15_size_x = 0.8 ;
+	Box15_size_y = 0.8 ;
+	Box15_size_factor = 0.0357143 ;
+	Box16_enabled = ON ;
+	Box16_type = "FINGER" ;
+	Box16_control_id = 16 ;
+	Box16_position_x = 0.433661 ;
+	Box16_position_y = 0.098125 ;
+	Box16_size_x = 0.8 ;
+	Box16_size_y = 0.8 ;
+	Box16_size_factor = 0.0714286 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	primitive = "QUAD_STRIP" ;
+	top_line = ON ;
+	top_green = 0 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	axe = "Z" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	global_alpha = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boxes" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 4 ;
+	}

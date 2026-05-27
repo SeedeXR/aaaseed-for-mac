@@ -1,0 +1,77 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "fish_col3" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 5 ;
+	birth_id = "from_index" ;
+	acceleration_max = 0.125 ;
+	speed_min = 1 ;
+	speed_vertical_ratio_max = 0.125 ;
+	viscosity = 0.139547 ;
+	draw_speed_min_active = OFF ;
+	draw_line = OFF ;
+	visibility_max_seen = 512 ;
+	target_active = OFF ;
+	target_influence = 1.00193 ;
+	target_y = -1 ;
+	target_z = 2 ;
+	target_radius_internal = 1 ;
+	target_draw = OFF ;
+	box_type = "Repulse" ;
+	box_z = -2 ;
+	box_size_factor = 8 ;
+	box_border_size = 0.5 ;
+	repulse_distance = 0.5 ;
+	repulse_net_draw = ON ;
+	repulse_by_other = "like_other" ;
+	flocking_influence = 0.25 ;
+	flocking_distance = 0.389073 ;
+	steering_influence = 2 ;
+	steering_distance = 0.5 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 0.125 ;
+	size_v = 0.125 ;
+	size_factor = 0.56075 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0.730542 ;
+	global_blue = 0.068679 ;
+	convert = ON ;
+	hue = 0.118445 ;
+	saturation = 0.931321 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	use_shading = "CURRENT" ;
+	material_use_color = ON ;
+	}

@@ -1,0 +1,8 @@
+-- preset v0 for MEU|AAASlide_New
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_index"] = 7
+tab["cam_use"] = 1
+tab["delay"] = 0.2
+tab["folder path"] = "folder path"
+tab["what"] = 1

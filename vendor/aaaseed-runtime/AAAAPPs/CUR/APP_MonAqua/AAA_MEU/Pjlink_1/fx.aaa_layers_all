@@ -1,0 +1,98 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	skip_rest = ON ;
+	filename = "pjlink.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.text
+bdd_text ( Version 0 )
+	{
+	axe = "Z" ;
+	type = "FONT_SDF" ;
+	font = 5 ;
+	alignment = "Left" ;
+	line_length = 24.8859 ;
+	text = "AAASeed msdf Font" ;
+	}
+//AAA::filename fx_a.bdd_yocto
+bdd_yocto ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	gouraud = OFF ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "X" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.001 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 55 ;
+	fragment_bind = 55 ;
+	fragment_file_check_change = ON ;
+	fu_01_r_x = 1 ;
+	fu_01_a_w = 1 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	name_symbo = "dumsdf" ;
+	size_factor = 3.15057 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "dumsdf" ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_pjlink" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 6 ;
+	bind_2d = 8 ;
+	use_tex_video = ON ;
+	}

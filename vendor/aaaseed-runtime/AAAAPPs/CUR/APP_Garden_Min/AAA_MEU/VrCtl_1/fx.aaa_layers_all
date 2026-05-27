@@ -1,0 +1,227 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "VR_CTL.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_end = "Layer_D" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "LuaVive2_cam" ;
+	draw = OFF ;
+	draw_axe = ON ;
+	rot_y = 0.5 ;
+	tra_x = -0.102 ;
+	tra_y = -0.018 ;
+	tra_z = -1.2067 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_y = 0.5 ;
+	tra_z = -1.4565 ;
+	}
+//AAA::filename fx_a.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "Vive_box_ctl1" ;
+	center_z = 0.5 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	vbo_use = ON ;
+	draw_file_normal = ON ;
+	force_normal = ON ;
+	draw_uv = ON ;
+	model_filename = "%media%/VR/vr_controller_vive_1_5/vr_controller_vive_1_5.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	light = ON ;
+	depth = ON ;
+	normal_point = 0.0190167 ;
+	normal_alpha = 0.407261 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 0.125 ;
+	size_v = 0.0625 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = -0.140137 ;
+	global_blue = 0.936908 ;
+	global_grey = 0.173203 ;
+	global_alpha = 0.615849 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "transfo_ctl1" ;
+	translate = ON ;
+	translate_x = 1.82845 ;
+	translate_y = 0.3056 ;
+	translate_z = 1.33351 ;
+	rotate = ON ;
+	rotate_order = "XYZ" ;
+	rotate_x = 0.454019 ;
+	rotate_y = -0.00224743 ;
+	rotate_z = 0.49067 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_use_color_face = "BACK" ;
+	material_use_color_dst = "Diffuse" ;
+	material_front = 35 ;
+	material_back = 35 ;
+	}
+//AAA::filename fx_b.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "Vive_box_ctl2" ;
+	center_z = 0.5 ;
+	}
+//AAA::filename fx_b.tri
+bdd_tri ( Version 0 )
+	{
+	vbo_use = ON ;
+	draw_file_normal = ON ;
+	force_normal = ON ;
+	draw_uv = ON ;
+	model_filename = "%media%/VR/generic_hmd/generic_hmd.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	front_mode = "LINE" ;
+	light = ON ;
+	depth = ON ;
+	normal_point = 0.0173445 ;
+	normal_red = 0 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 0.125 ;
+	size_v = 0.0625 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_grey = 0.25 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "transfo_ctl2" ;
+	translate = ON ;
+	translate_x = -3.2034 ;
+	translate_y = 0.458844 ;
+	translate_z = 1.27463 ;
+	rotate = ON ;
+	rotate_order = "XYZ" ;
+	rotate_x = 0.454355 ;
+	rotate_y = -0.0381059 ;
+	rotate_z = 0.49556 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	material_use_color = ON ;
+	material_use_color_dst = "Diffuse" ;
+	material_front = 32 ;
+	material_back = 32 ;
+	}
+//AAA::filename fx_c.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "Vive_box_base1" ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "transfo_base1" ;
+	translate = ON ;
+	rotate = ON ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Box" ;
+	use_model = ON ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_d.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "Vive_box_base2" ;
+	}
+//AAA::filename fx_d.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "transfo_base2" ;
+	translate = ON ;
+	rotate = ON ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Box" ;
+	use_model = ON ;
+	trs_1 = "Owner" ;
+	}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configpath>
+	<path name="dll_directory" path="C:/Users/aleister/C/PERSO/multiwindows_Cmake_06_07_11_c/multiwindows_Cmake_25_06_11_c/lib/debug" />
+	<path name="object_ressource_directory" path="C:/Users/aleister/C/PERSO/multiwindows_Cmake_06_07_11_c/multiwindows_Cmake_25_06_11_c/resources/object" />
+	<path name="texture_ressource_directory" path="C:/Users/aleister/C/PERSO/multiwindows_Cmake_06_07_11_c/multiwindows_Cmake_25_06_11_c/resources/texture" />
+	<path name="shader_ressource_directory" path="C:/Users/aleister/C/PERSO/multiwindows_Cmake_06_07_11_c/multiwindows_Cmake_25_06_11_c/resources/shader" />
+</configpath>

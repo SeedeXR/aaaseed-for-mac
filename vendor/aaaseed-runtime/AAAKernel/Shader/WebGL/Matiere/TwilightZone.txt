@@ -1,0 +1,50 @@
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+void main(void)
+{
+	vec2 center = vec2(0.5,0.5);
+	float speed = 0.035;
+	ivec2	tex_suv = textureSize( aaa_tex2d[0], 0 );
+	float invAr = tex_suv.y / tex_suv.x;
+
+	vec2 uv = gl_TexCoord[0].st;
+
+	vec3 col = vec4(uv,0.5+0.5*sin(aaa_fu_float[0]),1.0).xyz;
+
+
+	float x = (center.x-uv.x);
+	float y = (center.y-uv.y) *invAr;
+
+	float r = -(x*x + y*y);
+	float z = 1.0 + 0.5*sin((r+aaa_fu_float[0]*speed)/0.013);
+
+    vec3 texcol = vec3(z, z, z);
+
+	vec4 color = vec4( (col*texcol), 1.0 );
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (color * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}

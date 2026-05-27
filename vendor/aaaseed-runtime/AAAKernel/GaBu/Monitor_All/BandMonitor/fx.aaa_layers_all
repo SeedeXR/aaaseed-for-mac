@@ -1,0 +1,68 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Max = -1 ;
+	Offset = 1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Max = -0.25 ;
+	Offset = 0.218148 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	viewport = "WINDOW" ;
+	ortho_size = 7.52 ;
+	axe_visible = OFF ;
+	rot_x = 1.986 ;
+	rot_y = 1.008 ;
+	tra_x = -0.76799 ;
+	tra_y = -3.104 ;
+	tra_z = -6.84547 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 1 TraxLoc01In ;
+	nb_v = 6 TraxLoc02In ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYERS_NAME" ;
+	axe = "Z" ;
+	size_axe = -1 ;
+	target_name = "BandOne" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 0 TraxLoc01Out ;
+	size_v = -1.28185 TraxLoc02Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	}

@@ -1,0 +1,7 @@
+-- BU position value for BUS TANK
+BUS.set_bu_pos_value( "draw", {-2.0937504830251,1.2511761931475, 2.5,2} )
+BUS.set_bu_pos_value_mini( "draw", {-2,2, 0.25,0.2} )
+BUS.set_bu_pos_value( "fish", {2.8437999614094,1.5752624569125, 2,2} )
+BUS.set_bu_pos_value_mini( "fish", {1,2, 0.2,0.2} )
+BUS.set_bu_pos_value( "race", {0.95214578344911,1.3190887989481, 2.5,2} )
+BUS.set_bu_pos_value_mini( "race", {0,2, 0.25,0.2} )

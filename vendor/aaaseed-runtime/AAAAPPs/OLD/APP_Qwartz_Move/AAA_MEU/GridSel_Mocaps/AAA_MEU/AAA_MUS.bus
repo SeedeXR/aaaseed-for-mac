@@ -1,0 +1,7 @@
+-- BU position value for BUS Mocaps_MEU
+BUS.set_bu_value( "grid_sel", 3 )
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "preset proto", 1 )
+BUS.set_bu_value( "restore", 0 )
+BUS.set_bu_value( "sel", true )

@@ -1,0 +1,7 @@
+module ( Version 0 )
+	{
+	module_render_multiple = ON ;
+	layers_index_cur = 20 ;
+	layers_index_end = 24 ;
+	load_all = OFF ;
+	}

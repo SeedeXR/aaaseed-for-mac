@@ -1,0 +1,12 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Name = "capture_device_index" ;
+	Limit = "WRAP" ;
+	Limit_max = 64 ;
+	Format = "%.2f" ;
+	draw = "ALL" ;
+	draw_fixed = ON ;
+	draw_factor = 0.03125 ;
+	}

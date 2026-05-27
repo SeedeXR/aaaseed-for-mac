@@ -1,0 +1,63 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.061 ;
+	rot_y = 0.0135 ;
+	tra_z = -6.92712 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 64 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYERS_NAME" ;
+	size_factor = -0.0814977 ;
+	target_name = "LaurentHoOne" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_implicit = OFF ;
+	tex_axe = "Z" ;
+	tex_u = 0.125 ;
+	tex_v = 0.16666 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	size_v = 6 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 11 ;
+	use_lights_switch = ON ;
+	}

@@ -1,0 +1,10 @@
+# YouTube AAASeed An introduction
+[Part4: BU first contact](https://www.youtube.com/watch?v=ACbGd0lrApM&t=2s)  
+[Part5: BU_MONITOR](https://www.youtube.com/watch?v=zrCnJQI6Xo0&t=236s)  
+[Part6: BU is all you need](https://www.youtube.com/watch?v=xjTsc-Q4y3k)  
+[Part7: Meet more BUs](https://www.youtube.com/watch?v=bZeBIZs4GZM)  
+[Part8: More BU](https://www.youtube.com/watch?v=UJ5SZGNzu6k&t=567s)  
+[Part9: MEU](https://www.youtube.com/watch?v=SjnjKQQiLiI)  
+[Part10: Rendering chain](https://www.youtube.com/watch?v=mR4rhwJu3vY)  
+[Part11: MEU More](https://www.youtube.com/watch?v=237wdjM1Qoo&t=440s)  
+[Part12: Cameras & Axe](https://www.youtube.com/watch?v=A_XBk3NKjtU)  

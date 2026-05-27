@@ -1,0 +1,17 @@
+-- preset for MEU|AxiGene_Test
+tab["2x2"] = 4
+tab["3x3"] = 8
+tab["4x4"] = 9
+tab["always"] = false
+tab["draw"] = 1
+tab["draw order"] = 1
+tab["intensity"] = -0.024688239164931
+tab["nb_pass"] = 4
+tab["nb_try"] = 6
+tab["nb_u"] = 46
+tab["nb_v"] = 33
+tab["pos"] = { 0.12195109957629, 0.81743911653085 }
+tab["radius"] = 0.59283498987262
+tab["swap xy"] = 0
+tab["what"] = 5
+tab["x"] = { 0, 0.087774277792637 }

@@ -1,0 +1,9 @@
+mapping ( Version 0 )
+	{
+	tex_use = "1D" ;
+	tex_implicit = OFF ;
+	tex_mode = "SPHERE" ;
+	tex_factor = 0.062500 ;
+	tex_u_speed = 0.246980 ;
+	tex_v_speed = 1.981594 ;
+	}

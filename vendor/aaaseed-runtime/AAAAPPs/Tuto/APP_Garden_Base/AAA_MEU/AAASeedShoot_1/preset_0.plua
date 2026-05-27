@@ -1,0 +1,6 @@
+-- preset v0 for MEU|AAASeedShoot_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["delay"] = 0.2
+tab["folder path"] = "folder path"
+tab["what"] = 1

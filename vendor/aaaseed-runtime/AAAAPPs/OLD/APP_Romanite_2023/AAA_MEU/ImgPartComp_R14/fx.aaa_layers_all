@@ -1,0 +1,172 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_C" ;
+	camera_index_ui = 3 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal = 108.53 ;
+	ortho_size = 19.2585 ;
+	focal_link_to_target_dist = ON ;
+	rot_x = 0.002 ;
+	tra_x = 178.478 ;
+	tra_y = -27.382 ;
+	tra_z = -6.92824 ;
+	clip_close_ortho = -60 ;
+	clip_far_ortho = 60 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 8.10469 ;
+	rot_x = -0.006 ;
+	tra_x = 0.456 ;
+	tra_y = -3.418 ;
+	tra_z = -9.09118 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 5.18391 ;
+	rot_x = 0.033 ;
+	rot_y = -0.00599984 ;
+	tra_x = -0.148 ;
+	tra_y = -1.586 ;
+	tra_z = -14.0042 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -9.49949e-11 ;
+	tra_x = 0.008 ;
+	tra_z = -13.694 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.016 ;
+	rot_y = -0.00849999 ;
+	tra_x = 0.243999 ;
+	tra_y = 0.118 ;
+	tra_z = -1.72682 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 13.1931 ;
+	tra_x = 0.580001 ;
+	tra_y = -5.742 ;
+	tra_z = -12.8243 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	tra_z_sin_frequency = 0.0818703 ;
+	tra_z_sin_amplitude = 19.148 ;
+	rot_y_frequency_sin = 0.261835 ;
+	rot_y_amplitude_sin = 0.0157001 ;
+	rot_x = 4.604 ;
+	rot_y = 13.0025 ;
+	tra_z = -36.9267 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_z_frequency = 0.03125 ;
+	rot_x = -0.006 ;
+	tra_x = 0.008 ;
+	tra_z = -2.86436 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	point_mode = "POINT_SPRITE" ;
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 18 ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_file_location = "AAA path" ;
+	vertex_bind = 94 ;
+	vertex_fname_asked = "../AAAAPPs/OLD/APP_Romanite_2023/AAA_PROTO/ImgPartComp/particle_img_compute.vert" ;
+	vertex_file_check_change = ON ;
+	vu_10_b_z = 6 ;
+	vu_10_a_w = -8 ;
+	fragment_file_location = "AAA path" ;
+	fragment_bind = 94 ;
+	fragment_fname_asked = "../AAAAPPs/OLD/APP_Romanite_2023/AAA_PROTO/ImgPartComp/particle_img_compute.frag" ;
+	fragment_file_check_change = ON ;
+	compute_active = ON ;
+	compute_file_location = "AAA path" ;
+	compute_fname_asked = "../AAAAPPs/OLD/APP_Romanite_2023/AAA_PROTO/ImgPartComp/particle_img_compute.comp" ;
+	compute_file_check_change = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_shading = "Owner" ;
+	}
+//AAA::filename fx_c.bdd_gl_part
+bdd_gl_part ( Version 0 )
+	{
+	point_full_version = OFF ;
+	point_nb = 12544 ;
+	point_nb_used = 12544 ;
+	point_instance_nb = 2 ;
+	nb_u = 512 ;
+	placer_sphere = ON ;
+	placer_b_sphere = ON ;
+	group_nb_x = 32 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_gl_part" ;
+	use_shading = "CURRENT" ;
+	bank_2d = 34 ;
+	bind_2d = 18 ;
+	}

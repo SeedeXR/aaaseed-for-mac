@@ -1,0 +1,6 @@
+-- preset for MEU_DIR|Dir_Videos("Videos")
+tab["a"] = 1
+tab["alpha"] = 0.96494614478321
+tab["b"] = 0
+tab["master_alpha"] = 0.96003648164139
+tab["restore"] = 0

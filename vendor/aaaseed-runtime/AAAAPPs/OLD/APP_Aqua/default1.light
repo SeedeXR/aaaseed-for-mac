@@ -1,0 +1,8 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	Intensity = 0.265161 ;
+	type = "BULB" ;
+	Position_z = 10 ;
+	Diffuse_grey = 1 ;
+	}

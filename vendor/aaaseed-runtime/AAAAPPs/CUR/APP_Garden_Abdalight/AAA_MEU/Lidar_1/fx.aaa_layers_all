@@ -1,0 +1,74 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_video" ;
+	bind_dst = 136 ;
+	image_on_cpu_wanted = ON ;
+	capture_type = "Realsense" ;
+	capture = ON ;
+	capture_open = ON ;
+	capture_run = ON ;
+	capture_device_id_asked = "f0140740" ;
+	capture_frame_rate = 30 ;
+	capture_size_x = 320 ;
+	capture_size_y = 240 ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	depth_deform_bind = 138 ;
+	depth_raw_min = -1 ;
+	depth_raw_max = 0.89 ;
+	rgb_bind = 137 ;
+	rgb_cpu = ON ;
+	rgb_aligned_bind = 139 ;
+	rgb_aligned_cpu = ON ;
+	}
+//AAA::filename fx_a.cap_realsense
+realsense_ui ( Version 0 )
+	{
+	l500_min_distance_mm = 0 ;
+	ir_cpu = ON ;
+	rgb_asked = ON ;
+	rgb_bind = 137 ;
+	rgb_cpu = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_particle" ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	use_tex_video = ON ;
+	}
+//AAA::filename fx_c.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 96 ;
+	image_dst_base = 106 ;
+	image_component = "BLUE" ;
+	agitation = ON ;
+	background_reset = ON ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}

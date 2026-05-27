@@ -1,0 +1,12 @@
+-- preset v0 for MEU|Monart_testA
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["matrix"] = true
+tab["matrix_alpha"] = 0.23434418666185
+tab["matrix_size"] = 6.339988244954
+tab["plaques"] = true
+tab["shader"] = true
+tab["textest_bank"] = 3
+tab["textest_bind"] = 0
+tab["textest_dim"] = 2
+tab["type"] = 2

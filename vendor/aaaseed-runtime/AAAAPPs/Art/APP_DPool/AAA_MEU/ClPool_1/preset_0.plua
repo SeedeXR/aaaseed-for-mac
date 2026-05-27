@@ -1,0 +1,26 @@
+-- preset v0 for MEU|ClPool_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["color_1_alpha"] = 1
+tab["color_1_blue"] = 1
+tab["color_1_green"] = 1
+tab["color_1_red"] = 1
+tab["fade"] = { 0.14092122018337, 0.47052693367004 }
+tab["image_repulse"] = 2
+tab["part_size"] = { 0, 16.141382217407 }
+tab["shader"] = true
+tab["speed_factor"] = 0.25
+tab["speed_x"] = 0
+tab["speed_y"] = 0
+tab["speed_z"] = -0.10419154563043
+tab["tex_bank"] = 0
+tab["tex_bind"] = 27
+tab["tex_dim"] = 1
+tab["texa_bank"] = 2
+tab["texa_bind"] = 3
+tab["texb_bank"] = 2
+tab["texb_bind"] = 1
+tab["viscosity"] = 0.20143857598305

@@ -1,0 +1,10 @@
+-- preset v0 for MEU|LionelSlider_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["alpha"] = 0
+tab["dial"] = 0
+tab["double"] = { 0, 0 }
+tab["simple"] = 0
+tab["speed"] = -8
+tab["speed_b"] = 1
+tab["xy"] = { 1, 0 }

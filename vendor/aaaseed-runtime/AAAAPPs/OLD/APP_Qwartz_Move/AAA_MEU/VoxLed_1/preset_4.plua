@@ -1,0 +1,13 @@
+-- preset for MEU|VoxLed_1
+tab["cam_index"] = 4
+tab["cube"] = 1
+tab["dark"] = 0.36478213366944
+tab["image"] = 0
+tab["quinc"] = 1
+tab["radius"] = 16
+tab["save image"] = 0
+tab["cam_axe_show"] = 1
+tab["simul"] = 1
+tab["size"] = 0.1
+tab["size int"] = 0.23323751188263
+tab["cam_use"] = 2

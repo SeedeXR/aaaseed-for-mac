@@ -1,0 +1,80 @@
+
+
+
+#define POLES 		32
+#define REFLECTIONS 10.0
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = Thickness
+// 4 = PI factor
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+vec2 iAxes = vec2(0.5, 0.5);
+
+
+float ripple(float dist, float shift)
+{
+	return cos(64.0 * dist + shift) / (1.0 + 1.0 * dist);
+}
+
+void main(void)
+{
+	ivec2	tex_suv = textureSize( aaa_tex2d[0], 0 );
+	float larger = max(tex_suv.x, tex_suv.y);
+	vec2 uv 	= gl_TexCoord[0].st - 0.5;
+	vec2 uvflip = vec2(uv.x, -uv.y);
+	vec2 cursor = (iAxes * tex_suv.xy) / larger;
+	vec2 blessr = vec2(-cursor.x, cursor.y);
+
+
+	float lum = 0.5 + 0.1 * ripple(length(uv), 0.0);
+
+	float twopi = 2.0*3.141592654;
+	const int count = POLES;
+	float fcount = float(count);
+	vec2 rot = vec2(cos(twopi*0.618), sin(twopi*0.618));
+	vec2 tor = vec2(-sin(twopi*0.618), cos(twopi*0.618));
+	for (int i = 0; i < count; ++i)
+	{
+		lum += 0.2 * ripple(length(cursor - uv), -aaa_fu_float[0]);
+		cursor = cursor.x*rot + cursor.y*tor;
+	}
+
+	lum = 3.0*lum*lum - 2.0*lum*lum*lum;
+	vec4 col = vec4(lum, lum, lum, lum) * texture2D(aaa_tex2d[0], gl_TexCoord[0].st);
+
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (col * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}
+
+
+
+
+
+
+
+

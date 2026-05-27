@@ -1,0 +1,16 @@
+-- preset for MEU|NdcTonemap_1
+tab["average"] = 54.745197296143
+tab["cam_index"] = 0
+tab["draw"] = true
+tab["exposure bias"] = 78.049530029297
+tab["inverse gamma"] = 51.101852416992
+tab["keying"] = 81.134422302246
+tab["linear angle"] = 0.46210134029388
+tab["linear strength"] = 0.35632076859474
+tab["shader"] = 1
+tab["shoulder strength"] = 0.28939244151115
+
+tab["toe denominator"] = 56.404682159424
+tab["toe numerator"] = 6.7536878585815
+tab["toe strength"] = 0
+tab["white point"] = 96.810997009277

@@ -1,0 +1,8 @@
+-- preset v0 for MEU|LionelButtonText_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["bleft"] = 1
+tab["bright"] = 1
+tab["tleft"] = 1
+tab["top"] = 1
+tab["tright"] = 1

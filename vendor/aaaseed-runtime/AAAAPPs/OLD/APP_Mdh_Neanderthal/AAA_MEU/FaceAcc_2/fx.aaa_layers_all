@@ -1,0 +1,63 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "FaceAcc.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 1 ;
+	tra_offset_x = -0.5 ;
+	tra_offset_y = -0.5 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	focal = 58.9198 ;
+	focal_horizontal = ON ;
+	rot_y = -0.0005 ;
+	tra_z = -5.02864 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.001 ;
+	tra_z = -7.12696 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	tra_x = -0.128 ;
+	tra_y = -0.044 ;
+	tra_z = -1.63136 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_grey = 1.29886 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

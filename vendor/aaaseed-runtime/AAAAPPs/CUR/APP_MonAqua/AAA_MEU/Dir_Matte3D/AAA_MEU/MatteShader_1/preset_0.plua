@@ -1,0 +1,7 @@
+-- preset v0 for MEU|MatteShader_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["alpha threshold"] = 0.76134198904037
+tab["overwrite offset"] = false
+tab["shader"] = true
+tab["vertical offset"] = 0.13

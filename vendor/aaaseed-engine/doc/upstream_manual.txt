@@ -1,0 +1,38 @@
+Raccourcis clavier pour Upstream
+
+Point de Controle
+Ins			Insert un point de controle a la phase courant
+Del			Efface le point de controle courant (croix rouge)
+Fleche Haut	prochain point de controle
+Fleche Bas	precedent point de controle
+Home		1er point de controle
+End			Dernier point de controle
+
+Porte
+Ctrl-Ins	Insert une nouvelle porte
+Ctrl-Del	Efface la porte courant
+Page Up		1ere porte
+Page Down	Derniere porte
+Ctrl-Fleche Haut	Prochaine porte
+Ctrl-Fleche Bas		Precedente porte
+
+Temps
+Fleche Gauche		recule dans le temps
+Fleche Droite		avance dans le temps
+Space				Play/Pause
+r					restart
+
+Selection
+a			selectionne la tete
+z			selectionne largeur gauche / hauteur
+e			selectionne largeur droite / skew
+
+
+Affichage	(toggle on/off)
+t			affiche temps
+s			affiche courbe courante
+d			affiche affiche tout
+f			affiche courbe esclave
+g			affiche les courbes
+
+

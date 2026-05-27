@@ -1,0 +1,48 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 2.19 ;
+	rot_y = 0.0525001 ;
+	tra_z = -2.63056 ;
+	}
+//AAA::filename fx_a.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	draw_dataset_begin = 4 ;
+	draw_dataset_end = 10 ;
+	draw_number = ON ;
+	draw_number_scale = 0.25 ;
+	dataset_id = 10 ;
+	ui_u = 9 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	model_filename = "../../Aqua/3D/maquereau1.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	point_size = 8 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	comment = "Fixed Curves" ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_3d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	}

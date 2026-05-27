@@ -1,0 +1,58 @@
+Au lancement :
+si la souris affiche un sablier ou un cerle de chargement et/ou que F2 n'affiche pas l'interface GaBu et/ou que dans Flatland les touches n'ont pas le bon effet :
+ctrl + e : passer on/off le mode edit (a off AAASeed continue de jouer les process de rendu mais pas ceux d'�dition)
+
+I - L'interface
+F2 active et d�sactive l'interface de widgets (Nom : GaBU)
+Tab active et d�sactive l'interface "pro" ou "oldschool" (Nom : Flatland)
+
+  I-A GaBu
+    Il y a plusieures zones notables :
+      - Les UIs ( de 1 � 6 )
+      - Les zones d'Always, de Pre et de Dif
+    Il y a plusieurs �l�ments notables :
+      - Les MUs
+      - Les Moniteurs
+      - Les MEUs
+
+    I-A-1 UIs
+      Les UIs sont les zones d'affichage des MEUs, en cliquant sur un MU on
+      active le MEU correspondant dans la UI5 par d�faut.
+      En cliquant sur un des boutons marqu� UIx au centre on change la UI
+      cible pour l'affichage d'un MEU.
+      Comme les moniteur les UI ont un mode full screen, normal et mini,
+      qui switch avec le double click. Au centre pour full screen et en
+      haut de l'UI pour le mode mini.
+      Tout ces modes sont redimensionnables avec la touche alt.
+
+    I-A-2 Always, Pre, Dif
+      Ce sont les zones de rendu des MUs.
+      Dans l'ordre de bas en haut, de gauche � droite.
+      Toutes activable/d�sactivables avec le bouton correspondant.
+
+    I-A-3 MUs
+      Ce sont des encapsulation d'un objet, graphique ou non, dont
+      l'execution se d�roule durant une frame.
+      On les active/d�sactive en cliquant dessus puis en allant relacher le
+      click au dessus de "MAX" ou "MIN", on peut aussi laisser le slider
+      qui se d�ploie au dessus sur une valeur interm�diaire.
+      Ce qui correspond � un �tat actif.
+
+    I-A-4 Moniteurs
+      Comme les UI les moniteurs ont un mode full screen, normal et mini,
+      qui switch avec le double click. Au centre pour full screen et en
+      haut de l'UI pour le mode mini.
+      Tout ces modes sont redimensionnables avec la touche alt.
+
+    I-A-5 MEUs
+      Ils contiennent dans l'UI o� ils s'affichent les option de fonct-
+      ionnement les plus utilis�s d'un MU.
+      Si Flatland est affich�, un click sur le MEU active le focus sur
+      les couches correspondantes dans Flatland.
+
+
+
+  I-B Flatland
+    Il y a dans Flatland plusieurs raccourcis clavier qui conduisent vers des
+    zones utiles : la touche F10 qui m�ne vers les pr�f�rences
+    ...

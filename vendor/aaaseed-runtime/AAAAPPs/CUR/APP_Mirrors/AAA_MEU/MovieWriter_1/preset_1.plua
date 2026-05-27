@@ -1,0 +1,4 @@
+-- preset for MEU|MovieWriter_1
+tab["moviesource_bank"] = 3
+tab["moviesource_bind"] = 8
+tab["moviesource_dim"] = 0

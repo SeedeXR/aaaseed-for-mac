@@ -1,0 +1,82 @@
+//AAA::set_filename_relative
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_INDEX" ;
+	Offset = 1 ;
+	Format = "%2.f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TRIANGLE" ;
+	Control_id = 16 TraxLoc03Out ;
+	Max = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	transfo = ON ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 0.738281 TraxLoc04Out ;
+	translate_y = 40 ;
+	}
+//AAA::filename fx_a.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	text = "16" TraxLoc03Out ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	use_model = ON ;
+	use_color = ON ;
+	}
+//AAA::filename fx_b.circle
+bdd_circle ( Version 0 )
+	{
+	normal_x = 0.707107 ;
+	normal_z = 0.707107 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 2.29394 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.25 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_circle" ;
+	use_model = ON ;
+	use_color = ON ;
+	}

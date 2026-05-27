@@ -1,0 +1,6 @@
+net_link ( Version 0 )
+	{
+	active = ON ;
+	enable = ON ;
+	dst_ip = "211" ;
+	}

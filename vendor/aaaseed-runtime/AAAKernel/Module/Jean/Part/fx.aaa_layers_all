@@ -1,0 +1,77 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 65536 ;
+	nb_max = 32768 ;
+	nb_by_sec = 58891.4 TraxLoc01Out ;
+	flow_continuous = ON ;
+	life_time = 0.25 ;
+	emission_axe = "Z" ;
+	emission_box_size_u = 7.18342 ;
+	emission_box_size_v = -3.95986 ;
+	emission_box_size_axe = 0 ;
+	emission_box_size_factor = 1 ;
+	jitter_speed_abs = 0.015625 ;
+	field_speed = ON ;
+	field_acc = ON ;
+	render_life_color = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.0172266 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_u = 0.556838 ;
+	tex_factor = 0.231378 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0.59864 ;
+	global_blue = 1.3883 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 1 ;
+	}

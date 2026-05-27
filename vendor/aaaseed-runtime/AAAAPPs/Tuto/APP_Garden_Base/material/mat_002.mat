@@ -1,0 +1,7 @@
+material ( Version 0 )
+	{
+	Ambient_red = 0.372145 ;
+	Ambient_green = 0.403755 ;
+	Ambient_blue = 0.379725 ;
+	Ambient_grey = 0.426363 ;
+	}

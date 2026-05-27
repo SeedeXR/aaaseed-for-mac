@@ -1,0 +1,7 @@
+-- preset v0 for MEU|Anal_2
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 3
+tab["cam_use"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["presence"] = 0

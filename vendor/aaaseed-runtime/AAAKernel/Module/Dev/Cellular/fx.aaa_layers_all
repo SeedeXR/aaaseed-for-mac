@@ -1,0 +1,116 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Fn = "FFT" ;
+	Freq = 0.917948 ;
+	Max = 128 ;
+	Offset = -2 ;
+	Limit = "CLAMP" ;
+	Filter = 0.831703 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = -37.78 ;
+	rot_x = 0.759999 ;
+	rot_y = 0.722998 ;
+	tra_z = -3.739 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.369 ;
+	rot_y = -0.815999 ;
+	tra_z = -53.8894 ;
+	}
+//AAA::filename fx_a.bdd_cell_automata
+bdd_cell_automata ( Version 0 )
+	{
+	nb_u = 32 ;
+	nb_v = 32 ;
+	nb_axe = 32 ;
+	start_trig = ON ;
+	shift_freq = 0.990603 TraxLoc01Out ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	space_period = 2.04711 ;
+	strenght = 1.34283 ;
+	}
+//AAA::filename fx_a01.def
+def_panoscope ( Version 0 )
+	{
+	active = ON ;
+	axe = "Y" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = OFF ;
+	AddFileRel "fx_a01.def" def_01 = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	back_mode = "LINE" ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "BOX" ;
+	size_factor = 0.5259 ;
+	target_name = "One" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.179523 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cell_automata" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 4 ;
+	bank_2d = 1 ;
+	bind_2d = 17 ;
+	use_lights_switch = ON ;
+	}

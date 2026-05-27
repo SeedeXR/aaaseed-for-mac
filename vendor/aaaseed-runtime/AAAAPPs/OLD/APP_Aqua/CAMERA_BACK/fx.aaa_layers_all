@@ -1,0 +1,46 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	name_symbo = "aqua_camera_back_layers" ;
+	multiple_only = ON ;
+	time_buffer_use = OFF ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "aqua_camera_back" ;
+	perspective = OFF ;
+	ortho_size = 3 ;
+	ui_lock = ON ;
+	tra_z = -1.47814 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 12.5183 ;
+	rot_x = 1.0085 ;
+	rot_y = 0.0145 ;
+	tra_x = 0.362 ;
+	tra_y = 0.0899999 ;
+	tra_z = -12.7976 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.84105 ;
+	rot_x = 0.5 ;
+	tra_x = -0.188 ;
+	tra_y = 0.02 ;
+	tra_z = -10.1656 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.00150003 ;
+	rot_y = 0.052 ;
+	}

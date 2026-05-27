@@ -1,0 +1,27 @@
+-- preset for MEU|NdcReactDif_1("proto_NdcReactDif")
+tab["cam_index"] = 2
+tab["compo"] = 0
+tab["diffusion a"] = 1.0000001192093
+tab["diffusion b"] = 0.3042830824852
+tab["emboss"] = true
+tab["emboss dist"] = 0.5
+tab["emboss inv"] = true
+tab["emboss range"] = { 0.65420852088308, 1.1188368319567 }
+tab["feed kill"] = { { 0.74608902008303, 0.29132322377452, false, 0.12096774193548, 0.12096774193548 }, { 0.83325360282775, 0.4711093350498, false, 0.12096774193548, 0.12096774193548 }, { 0.75177290411852, 0.7026375548175, false, 0.12096774193548, 0.12096774193548 }, { 0.6529374627445, 0.9402049105523, false, 0.12096774193548, 0.12096774193548 } }
+tab["grey gamma"] = 3.29527759552
+tab["how"] = 0
+tab["iteration"] = 169
+tab["kf grey inv"] = false
+tab["kf grey range"] = { 0, 1 }
+tab["laplacian"] = 0
+tab["laplacian size gamma"] = 1
+tab["laplacian size range"] = { 0.79840219745654, 2.8528689493271 }
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["out"] = 1
+tab["out inv"] = true
+tab["out min max"] = { 0.028726580473175, 0.25935873614303 }
+tab["out mul factor"] = 1.7279629707336
+tab["shader"] = 1
+tab["shader mouse"] = 1
+tab["size"] = 4

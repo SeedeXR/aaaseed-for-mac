@@ -1,0 +1,164 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "text_line.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal = 11.9755 ;
+	ortho_size = 1 ;
+	focal_link_to_target_dist = ON ;
+	rot_z_frequency = -0.126786 ;
+	tra_z = -4.76699 ;
+	clip_far_perspective = 36.3059 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = -2.32461 ;
+	draw_axe = ON ;
+	tra_x = -0.454 ;
+	tra_y = 0.164 ;
+	tra_z = -1.73128 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_z_frequency = 0 TraxLoc28Out ;
+	draw_axe = ON ;
+	rot_x = -7.037 ;
+	rot_y = 3.0065 ;
+	tra_z = -2.81889 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 1.82001 ;
+	orbiting = ON ;
+	rot_z_frequency = 0.02035 ;
+	draw_axe = ON ;
+	rot_x = -0.0675 ;
+	rot_y = -0.1345 ;
+	rot_offset_x = 0.5 ;
+	tra_z = -0.132559 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 18.5852 ;
+	rot_z_frequency = 0.0153394 ;
+	draw_axe = ON ;
+	rot_x = 0.021 ;
+	rot_y = -0.0065 ;
+	rot_offset_z = 0 TraxLoc25Out ;
+	tra_x = 0.628 ;
+	tra_y = -3.954 ;
+	tra_z = -2.90329 TraxLoc23Out ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_y = -0.0005 ;
+	tra_z = -0.93192 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.219 ;
+	rot_y = 0.00300003 ;
+	tra_x = 1.674 ;
+	tra_y = 0.186 ;
+	tra_z = -2.15594 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	focal = 44.4725 ;
+	focal_link_to_target_dist = ON ;
+	rot_x = 0.0445 ;
+	rot_y = 0.238 ;
+	tra_x = 0.234 ;
+	tra_y = -1.356 ;
+	tra_z = -9.784 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	name_symbo = "grid" ;
+	nb_u = 24 ;
+	nb_v = 17 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	name_symbo = "rendering" ;
+	line_size = 2 ;
+	light = OFF TraxLoc04Out ;
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "mapping" ;
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	texture_feedback = OFF TraxLoc06Out ;
+	tex_u_speed = 1 ;
+	tex_speed_factor = 0 ;
+	tex_offset_2 = 0 ;
+	tex_offset_4 = 0 ;
+	tex_offset_6 = 0 ;
+	tex_offset_factor = 1 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.015625 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 2 ;
+	use_lights_switch = ON ;
+	}

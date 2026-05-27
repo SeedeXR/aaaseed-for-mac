@@ -1,0 +1,153 @@
+//AAA::set_filename_relative
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_C" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0634989 ;
+	rot_y = 1.047 ;
+	tra_x = 0.648001 ;
+	tra_y = 0.808 ;
+	tra_z = -5.55321 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "LAYERS_PREV" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_u = 4.41 ;
+	size_v = 4.41 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.125 ;
+	global_green = 0.125 ;
+	global_blue = 0.125 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 1 ;
+	}
+//AAA::filename fx_b.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	curve_load_save = OFF ;
+	draw_point = OFF ;
+	ui_intercept = ON ;
+	ui_u = 1 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_3d" ;
+	use_model = ON ;
+	}
+//AAA::filename fx_c.tube_path
+bdd_tube_path ( Version 0 )
+	{
+	b_curve = ON ;
+	len_before = 0.144703 ;
+	center = 0.578812 ;
+	len_after = 0.151938 ;
+	draw = "TUBE" ;
+	loop = OFF ;
+	ring_nb = 128 ;
+	ring_len = 32 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_c.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "LAYERS_PREV" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_factor = 0.25 ;
+	}
+//AAA::filename fx_c.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	resolution = 12.5 ;
+	size_factor = 0.125 ;
+	}
+//AAA::filename fx_c.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tube_path" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_2d = 1 ;
+	use_lights_switch = ON ;
+	material_front = 20 ;
+	material_back = 20 ;
+	}

@@ -1,0 +1,5 @@
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = 1.000000 ;
+	}

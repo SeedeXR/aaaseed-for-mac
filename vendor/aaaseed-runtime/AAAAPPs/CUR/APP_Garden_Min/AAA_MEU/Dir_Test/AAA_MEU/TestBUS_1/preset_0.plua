@@ -1,0 +1,9 @@
+-- preset v0 for MEU|TestBUS_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 1
+tab["cam_index"] = 4
+tab["cam_use"] = 2
+tab["ox"] = 0
+tab["oy"] = 0
+tab["text"] = "text"

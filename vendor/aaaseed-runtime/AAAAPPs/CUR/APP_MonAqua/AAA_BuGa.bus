@@ -1,0 +1,13 @@
+-- BU position value for BUS|BuGa
+BUS.set_bu_pos_value( "bank", {0,0, 4,2.25} )
+BUS.set_bu_pos_value_mini( "bank", {0.48118334227454,2.0321358933718, 0.3814975631364,0.12706499273349}, true )
+BUS.set_bu_pos_value( "bu", {1.1,0.875, 1,2.25} )
+BUS.set_bu_pos_value_mini( "bu", {1.175,2.1925, 0.125,0.125}, true )
+BUS.set_bu_pos_value( "doc", {0,0, 4,3} )
+BUS.set_bu_pos_value_mini( "doc", {0.42850533071067,1.8912202423684, 0.26248954058994,0.12291714920224}, true )
+BUS.set_bu_pos_value( "ga", {0.3,0.5, 0.6,3} )
+BUS.set_bu_pos_value_mini( "ga", {1,2.1925, 0.125,0.125}, true )
+BUS.set_bu_pos_value( "gp", {-0.5,-0.125, 1,1} )
+BUS.set_bu_pos_value_mini( "gp", {1.3319798024436,2.0379771399814, 0.1,0.1}, true )
+BUS.set_bu_pos_value( "meu", {0,0, 4,3} )
+BUS.set_bu_pos_value_mini( "meu", {0.7707307983661,1.6860821557605, 0.4314515491955,0.19936427927345}, true )

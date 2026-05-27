@@ -1,0 +1,142 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "Kinect.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_video" ;
+	bind_dst = 97 ;
+	image_on_cpu_wanted = ON ;
+	force_in_format = "RGBA Fp32" ;
+	play = ON ;
+	loop = ON ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_open = ON ;
+	capture_run = ON ;
+	capture_size = "1920p/i" ;
+	capture_size_x = 1920 ;
+	capture_size_y = 1080 ;
+	incrust_min = 0.0362796 ;
+	incrust_max = 0.346192 ;
+	incrust_gain = 0.354756 ;
+	remanence_time = 0.0625 ;
+	remanence_color = ON ;
+	remanence_diff_factor = 8 ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	motor_position = 0.903753 ;
+	skeleton_x_flip = ON ;
+	skeleton_mocap_target_1 = "kin2_mocap_1" ;
+	skeleton_mocap_target_2 = "kin2_mocap_2" ;
+	skeleton_mocap_target_3 = "kin2_mocap_3" ;
+	skeleton_mocap_target_4 = "kin2_mocap_4" ;
+	skeleton_mocap_target_5 = "kin2_mocap_5" ;
+	skeleton_mocap_target_6 = "kin2_mocap_6" ;
+	depth_deform_bind = 97 ;
+	depth_range_extended = ON ;
+	depth_render_type = "Z_Grey8" ;
+	depth_clip_left = 0.152261 ;
+	depth_clip_right = 0.78855 ;
+	depth_clip_bottom = 0.482127 ;
+	depth_invalid_green = 0.5 ;
+	depth_invalid_blue = 0 ;
+	depth_invalid_grey = 0 ;
+	depth_invalid_alpha = 0 ;
+	depth_raw_min = -0.113564 ;
+	depth_raw_max = 0.509966 ;
+	depth_near_red = 0 ;
+	depth_near_green = 0 ;
+	depth_far_red = 0 ;
+	depth_far_green = 0 ;
+	depth_far_alpha = 0.5 ;
+	depth_meter_min = -0.605652 ;
+	rgb_bind = 65 ;
+	rgb_aligned_bind = 97 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_particle" ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	use_tex_video = ON ;
+	}
+//AAA::filename fx_b.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	image_src = 97 ;
+	image_dst_base = 69 ;
+	mono = ON ;
+	image_component = "RED" ;
+	crop = ON ;
+	crop_left = 0.23928 ;
+	crop_right = 0.215458 ;
+	crop_bottom = 0.24381 ;
+	crop_top = 0.260789 ;
+	resize_fx = 0.5 ;
+	resize_fy = 0.5 ;
+	blur_size_x = 1 ;
+	blur_size_y = 1 ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	}
+//AAA::filename fx_c.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 69 ;
+	image_dst_base = 71 ;
+	image_component = "RED" ;
+	remanence = ON ;
+	remanence_image_dst = 70 ;
+	remanence_restart_trig = ON ;
+	remanence_accumulate = OFF ;
+	remanence_time = 7.6294e-06 ;
+	remanence_diff = ON ;
+	remanence_diff_method = "Difference" ;
+	remanence_diff_min = 0.00066069 ;
+	remanence_diff_factor = 2048 ;
+	agitation = ON ;
+	background_reset = ON ;
+	dilate_pass = 2 ;
+	optical_flow_poly_n = "7" ;
+	smooth2 = ON ;
+	smooth2_method = "GAUSSIAN" ;
+	smooth2_size_x = 13 ;
+	smooth2_size_y = 13 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}

@@ -1,0 +1,8 @@
+bind ( Version 0 )
+	{
+	Bind_01 = "Carre/fx" ;
+	Bind_03 = "Film/fx" ;
+	Bind_04 = "Part/fx" ;
+	Bind_06 = "Cache_Triangle/fx" ;
+	Bind_07 = "M:/AAA/AAAGaBuZo/GaBuData/tmp/IMAC/default" ;
+	}

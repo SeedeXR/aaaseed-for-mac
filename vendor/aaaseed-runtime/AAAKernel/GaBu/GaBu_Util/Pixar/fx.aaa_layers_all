@@ -1,0 +1,114 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	skip_rest = ON ;
+	filename = "PIXAR.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	lua = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	name_symbo = "pixar_layers" ;
+	camera_index_view = 1 ;
+	camera_index_ui = 1 ;
+	used_for_picking = OFF ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	stereo_use = ON ;
+	stereo_frustum_eye_interval = 0.2 ;
+	stereo_frustum_convergence_dist = 6.37275 ;
+	stereo_eye_active = OFF ;
+	stereo_eye_interval = 0.1 ;
+	ui_lock = ON ;
+	tra_z = -7.40918 ;
+	clip_close_perspective = 2 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "pixar_cam" ;
+	stereo_use = ON ;
+	stereo_frustum_convergence_dist = 4.06523 ;
+	stereo_eye_active = OFF ;
+	focal = 97 ;
+	ui_lock = ON ;
+	tra_z = -2.34561 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.069 ;
+	rot_y = 0.016 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale = ON ;
+	scale_factor = 0.617352 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	name_symbo = "pixar_render" ;
+	point_size = 4 ;
+	primitive = "TRIANGLE_FAN" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "X" ;
+	resolution = 2 ;
+	size_factor = 3.73942 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "pixar_color" ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate_x = 0.513497 ;
+	translate_y = 1.79899 ;
+	translate_z = 0.0455674 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "Teapot" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 20 ;
+	use_lights_switch = ON ;
+	material_front = 27 ;
+	material_back = 27 ;
+	}

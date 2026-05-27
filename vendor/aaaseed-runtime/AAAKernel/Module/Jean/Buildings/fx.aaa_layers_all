@@ -1,0 +1,136 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_REAL_U" ;
+	Min = 0.39714 ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_REAL_V" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D IMAGE COLOR" ;
+	Control_id = 2 ;
+	Freq = 1 TraxLoc01Out ;
+	Phase = 0.283465 TraxLoc02Out ;
+	Min = 1 ;
+	Max = 2 ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = 1 TraxLoc01Out ;
+	value_01 = 0.283465 TraxLoc02Out ;
+	value_03 = 2 TraxLoc04Out ;
+	value_04 = 2 ;
+	value_05 = 2 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	name_symbo = "Rob Duke" ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale = ON ;
+	scale_x = 0.0625 ;
+	scale_y = 2 TraxLoc04Out ;
+	scale_z = 2 ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_2d = 1 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 0.764125 ;
+	translate_z = 0.512 ;
+	scale = ON ;
+	scale_x = 0.125 ;
+	scale_y = 2 TraxLoc04Out ;
+	scale_z = 2 ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bind_2d = 1 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -1.01751 ;
+	translate_z = -0.404825 ;
+	scale = ON ;
+	scale_x = 0.25 ;
+	scale_y = 2 TraxLoc04Out ;
+	scale_z = 2 ;
+	scale_factor = 2 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bind_2d = 1 ;
+	trs_1 = "Owner" ;
+	}

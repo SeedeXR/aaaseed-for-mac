@@ -1,0 +1,79 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "sitem_draw.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	}
+//AAA::filename fx_a.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.0775069 ;
+	begin_v = 0.285726 ;
+	end_u = 0.327507 ;
+	end_v = 0.535726 ;
+	by_size = ON ;
+	size_u = 0.25 ;
+	size_v = 0.25 ;
+	discrete = ON ;
+	draw_texture = ON ;
+	draw_frame = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	line_size = 8 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "1D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 9 ;
+	size_factor = 0.5 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_grey = 0.911216 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_img_analyse" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 5 ;
+	bank_2d = 3 ;
+	bind_2d = 8 ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_use_color_dst = "Diffuse" ;
+	material_front = 84 ;
+	material_back = 84 ;
+	}

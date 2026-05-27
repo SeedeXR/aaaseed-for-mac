@@ -1,0 +1,22 @@
+-- preset v0 for MEU|RainMouse_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["mouse inflence"] = 0.51546996831894
+tab["pullback inflence"] = 0.4715168774128
+tab["render.back"] = 0
+tab["render.cull"] = 1
+tab["render.depth"] = false
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 0.0010000000474975
+tab["render.normal"] = 1
+tab["render.normal active"] = false
+tab["render.point"] = 3.9440927505493
+tab["shader"] = true
+tab["speed vertical"] = 0
+tab["tex_bank"] = 0
+tab["tex_bind"] = 1
+tab["tex_dim"] = 2

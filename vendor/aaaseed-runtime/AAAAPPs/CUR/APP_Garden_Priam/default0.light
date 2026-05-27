@@ -1,0 +1,27 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	type = "BULB" ;
+	camera_lock = ON ;
+	Position_z = 64 ;
+	Radius = 1 ;
+	shadow_active = ON ;
+	shadow_filter_width = 0.196466 ;
+	shadow_bias = 0.00206291 ;
+	shadow_bbox_min_x = -5 ;
+	shadow_bbox_min_y = -3 ;
+	shadow_bbox_min_z = -4 ;
+	shadow_bbox_max_x = 5 ;
+	shadow_bbox_max_y = 3 ;
+	intensity_map_mode = "ADD" ;
+	intensity_map_factor = 1.5 ;
+	intensity_map_scale_x = -10 ;
+	intensity_map_scale_y = -10 ;
+	Specular_red = 1 ;
+	Specular_green = 1 ;
+	Specular_blue = 1 ;
+	Specular_grey = 1 ;
+	attenuation_type = "QUADRATIC" ;
+	attenuation_constant = 2 ;
+	attenuation_quadratic = 2 ;
+	}

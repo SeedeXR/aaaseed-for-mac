@@ -1,0 +1,19 @@
+-- preset v0 for MEU|NimesAnalZones_1
+tab["coverage 1"] = 0
+tab["coverage 10"] = 0
+tab["coverage 11"] = 0.00080168154090643
+tab["coverage 12"] = 0
+tab["coverage 13"] = 0.072226919233799
+tab["coverage 14"] = 0.0099422968924046
+tab["coverage 15"] = 0
+tab["coverage 2"] = 0
+tab["coverage 3"] = 0.046744838356972
+tab["coverage 4"] = 0.018755936995149
+tab["coverage 5"] = 0
+tab["coverage 6"] = 0
+tab["coverage 7"] = 0
+tab["coverage 8"] = 0
+tab["coverage 9"] = 0.020890122279525
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["osc send"] = false

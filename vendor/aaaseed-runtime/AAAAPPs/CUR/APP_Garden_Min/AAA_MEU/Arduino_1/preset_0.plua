@@ -1,0 +1,12 @@
+-- preset v0 for MEU|Arduino_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["on1"] = 1
+tab["on2"] = 1
+tab["on3"] = 1
+tab["on4"] = 1
+tab["on5"] = 1
+tab["on6"] = 0
+tab["on7"] = 0
+tab["on8"] = 0
+tab["on9"] = 1

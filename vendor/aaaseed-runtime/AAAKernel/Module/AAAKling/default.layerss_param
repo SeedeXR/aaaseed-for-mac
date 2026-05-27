@@ -1,0 +1,7 @@
+module ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "AAAKling" ;
+	layers_index_end = 0 ;
+	load_all = OFF ;
+	}

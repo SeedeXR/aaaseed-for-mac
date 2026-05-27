@@ -1,0 +1,342 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_I" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	Layer_F = ON ;
+	Layer_G = ON ;
+	Layer_H = ON ;
+	Layer_I = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 1 ;
+	draw_axe = ON ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 3.091 ;
+	rot_y = -11.772 ;
+	tra_x = -0.004 ;
+	tra_y = -0.004 ;
+	tra_z = -17.5665 ;
+	clip_close_perspective = 0.32 ;
+	clip_far_perspective = 800 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -3.013 ;
+	rot_y = -0.381 ;
+	tra_x = -0.016 ;
+	tra_y = -0.026 ;
+	tra_z = -11.5946 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_y_frequency = 0.25 ;
+	rot_x = -1.1865 ;
+	rot_y = 5.9105 ;
+	tra_x = 0.024 ;
+	tra_y = 0.136 ;
+	tra_z = -0.688776 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 5.39249 ;
+	point_size = 7.77553 ;
+	depth = ON ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	unit_1 = ON ;
+	unit_2 = ON ;
+	unit_3 = ON ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	bind_2d = 2 ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_1.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 5 ;
+	bind_2d = 30 ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_2.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 5 ;
+	bind_2d = 27 ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_3.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	reload_all = ON ;
+	vertex_bind = 105 ;
+	fragment_bind = 105 ;
+	fu_float_01 = 0.5 ;
+	fu_float_02 = 0.5 ;
+	fu_float_03 = 0.5 ;
+	fu_float_04 = 0.5 ;
+	fu_float_05 = 0.5 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 11 ;
+	bind_2d = 15 ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_b.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -2.14748e+09 ;
+	translate_y = -2.14748e+09 ;
+	scale = ON ;
+	scale_factor = -2.14748e+09 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	bank_2d = 11 ;
+	bind_2d = 15 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -3.5 ;
+	scale = ON ;
+	scale_y = 0.25 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	bank_2d = 11 ;
+	bind_2d = 8 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_d.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_z = 1 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	bank_2d = 11 ;
+	bind_2d = 8 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_e.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -2.8142 ;
+	translate_z = 2 ;
+	scale = ON ;
+	scale_y = 0.25 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	bank_2d = 11 ;
+	bind_2d = 4 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_f.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -3.13411 ;
+	scale = ON ;
+	scale_y = 0.25 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	bank_2d = 11 ;
+	bind_2d = 8 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_g.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -2.14748e+09 ;
+	translate_y = -2.14748e+09 ;
+	scale = ON ;
+	scale_factor = -2.14748e+09 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	bank_2d = 11 ;
+	bind_2d = 8 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_h.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -2.14748e+09 ;
+	translate_y = -2.14748e+09 ;
+	scale = ON ;
+	scale_factor = -2.14748e+09 ;
+	}
+//AAA::filename fx_h.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	bank_2d = 11 ;
+	bind_2d = 4 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_i.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -3.13411 ;
+	scale = ON ;
+	scale_y = 0.25 ;
+	}
+//AAA::filename fx_i.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	bank_2d = 11 ;
+	trs_1 = "Owner" ;
+	}

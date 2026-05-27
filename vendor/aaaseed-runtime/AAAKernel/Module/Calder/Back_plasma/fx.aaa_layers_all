@@ -1,0 +1,109 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	rot_x = 0.517 ;
+	rot_y = -0.000999978 ;
+	tra_z = -2.8304 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.5 ;
+	tra_z = -5.72808 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 2048 ;
+	nb_max = 2048 ;
+	nb_by_sec = 32 ;
+	flow_continuous = ON ;
+	life_time = 8 ;
+	emission_axe = "Z" ;
+	emission_box_size_u = 8 ;
+	emission_box_size_axe = 0 ;
+	emission_box_size_factor = 1 ;
+	jitter_speed_abs = 0.313792 ;
+	jitter_vec_nb = 16385 ;
+	render_life_color = ON ;
+	render_life_color_ease_in = 0.105044 ;
+	render_life_color_ease_out = 0.16606 ;
+	render_life_image_bind = 255 ;
+	render_life_color_map = ON ;
+	color_map_v = 0.797497 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Random_Axe_Z" ;
+	axe = "Z" ;
+	size_factor = 2 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.001 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.0207088 ;
+	use_hsv = ON ;
+	hue = 0.847553 ;
+	saturation = 0.93483 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 7 ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 5 ;
+	nb_v = 3 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	back_mode = "LINE" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 1.95425 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

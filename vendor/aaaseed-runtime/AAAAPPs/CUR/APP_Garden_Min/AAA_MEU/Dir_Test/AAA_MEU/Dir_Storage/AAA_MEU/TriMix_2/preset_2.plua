@@ -1,0 +1,12 @@
+-- preset for MEU|TriMix_2("proto_TriMix")
+tab["a_bank"] = 3
+tab["a_bind"] = 4
+tab["a_dim"] = 0
+tab["b_bank"] = 3
+tab["b_bind"] = 5
+tab["b_dim"] = 0
+tab["factor"] = 2.2840434454509
+tab["mask_bank"] = 3
+tab["mask_bind"] = 2
+tab["mask_dim"] = 0
+tab["offset"] = -0.076361230134308

@@ -1,0 +1,74 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "tp_1.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	lua = ON ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "tp1_cam" ;
+	ortho_size = 21.965 ;
+	rot_x = 0.1325 ;
+	rot_y = 0.0475 ;
+	tra_x = -1.754 ;
+	tra_y = -0.122 ;
+	tra_z = -8.25114 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	name_symbo = "tp1_model" ;
+	size_u = 0.983231 ;
+	size_v = 0.104032 ;
+	size_factor = -0.278099 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.circle
+bdd_circle ( Version 0 )
+	{
+	draw = "POLYGON" ;
+	center_y = 0.0735059 ;
+	normal_x = 0.0811423 ;
+	normal_y = 0.996703 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_circle" ;
+	use_model = ON ;
+	}

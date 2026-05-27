@@ -1,0 +1,95 @@
+
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = line weight
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+
+const float  pi = 3.1415926535897932384626433832795;
+
+vec4 spuke(vec4 pos)
+{
+	vec2 iSsurfacePosition = gl_TexCoord[0].st;
+
+	vec2 p   =((pos.z+iSsurfacePosition*pi)+(sin((((length(sin(iSsurfacePosition*(pos.xy)+aaa_fu_float[0]*pi)))+(cos((iSsurfacePosition-aaa_fu_float[0]*pi)/pi)))))*iSsurfacePosition))+pos.xy*pos.z;
+	vec3 col = vec3( 0.0, 0.0, 0.0 );
+	float ca = 0.0;
+	for( int j = 1; j < 8; j++ )
+	{
+		p *= 1.4;
+		float jj = float( j );
+
+		for( int i = 1; i <8; i++ )
+		{
+			vec2 newp = p*0.96;
+			float ii = float( i );
+			newp.x += 1.2 / ( ii + jj ) * sin( ii * p.y + (p.x*.3) + cos(aaa_fu_float[0]/pi/pi)*pi*pi + 0.003 * ( jj / ii ) ) + 1.0;
+			newp.y += 0.8 / ( ii + jj ) * cos( ii * p.x + (p.y*.3) + sin(aaa_fu_float[0]/pi/pi)*pi*pi + 0.003 * ( jj / ii ) ) - 1.0;
+			p=newp;
+
+
+		}
+		p   *= 0.9;
+		col += vec3( 0.5 * sin( pi * p.x ) + 0.5, 0.5 * sin( pi * p.y ) + 0.5, 0.5 * sin( pi * p.x ) * cos( pi * p.y ) + 0.5 )*(0.5*sin(pos.z*pi)+0.5);
+		ca  += 0.7;
+	}
+	col /= ca;
+	return vec4( col * col * col, 1.0 );
+}
+//Gasy
+//kosmync64
+
+vec3 getGas(vec2 p){
+	float ret = ((cos(p.y*80.0)+1.0)*0.25)+
+	       ((sin(p.x*80.0)+1.0)*0.25);
+
+	return vec3(
+		ret + clamp(tan( p.x  * 0.6 ), 0.0, 0.5 ),
+		ret - clamp(tan( p.y  * 0.8 ), 0.0, 0.5 ),
+		ret - clamp(tan( p.x +p.y  * 0.1 ), -0.5, 0.5 )
+		);
+}
+
+void main( void )
+{
+
+	vec2 position = gl_TexCoord[0].st;
+
+	vec2 p = vec2(position.x+position.y,position.x-position.y);
+	for(int i=1;i<10;i++){
+		vec2 newp=p;
+		newp.x+=(0.11/float(i))*sin(p.y+float(i)*p.y*4.0+aaa_fu_float[0]*0.3)*2.2+1.2;
+		newp.y+=(0.1/float(i))*cos(p.x+float(i)*p.x*3.0+aaa_fu_float[0]*0.3)*1.2-1.2;
+		p=newp;
+	}
+
+	vec3 clr = getGas(p);
+
+	vec4 col = spuke(vec4( clr, 1.0 )) * texture2D(aaa_tex2d[0], gl_TexCoord[0].st);
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (col * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+
+}

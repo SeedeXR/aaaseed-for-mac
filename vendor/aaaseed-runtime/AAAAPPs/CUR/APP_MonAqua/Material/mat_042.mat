@@ -1,0 +1,6 @@
+material ( Version 0 )
+	{
+	Ambient_Occlusion = 0.5 ;
+	Shininess = 0.148644 ;
+	Reflection = 0.5 ;
+	}

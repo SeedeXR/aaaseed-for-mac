@@ -1,0 +1,5 @@
+compute_master ( Version 0 )
+	{
+	compute_task_max_nb = 24 ;
+	use_parallel = ON ;
+	}

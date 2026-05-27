@@ -1,0 +1,8 @@
+lights ( Version 0 )
+	{
+	intensity_factor = 2.25004 ;
+	ambient_global_grey = 0.314568 ;
+	flag_atte = ON ;
+	local_viewer = ON ;
+	two_side = ON ;
+	}

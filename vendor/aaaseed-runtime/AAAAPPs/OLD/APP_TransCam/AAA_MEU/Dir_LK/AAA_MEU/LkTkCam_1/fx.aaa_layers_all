@@ -1,0 +1,28 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "NAME_REAL_SET" ;
+	Name = "tk_grab_size" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = 1 TraxLoc01In ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	tra_z = -2.03104 ;
+	}

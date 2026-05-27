@@ -1,0 +1,438 @@
+#define PHASE_FLUID 2135949312
+#define PHASE_NONE 0
+
+struct st_part_custom
+{
+	uint  _active;
+	float _age;
+	float _emitter_sel;
+	int   _hit_test;
+};
+
+CONST float	time					= aaa_cu_float[0];
+
+CONST float	density_y				= aaa_cu_float[4];
+CONST float	fall_age				= aaa_cu_float[5];
+//CONST float	fall_speed			= aaa_cu_float[6];
+CONST float	shy_emit_speed			= aaa_cu_float[6] / 8.;
+CONST float	fall_speed_time_factor	= aaa_cu_float[7];
+
+CONST float velx					= aaa_cu_vec4[0].x;
+CONST int	s_hack					= aaa_cu_int[0];
+
+CONST bool	b_restart				= aaa_cu_int[3] > 0;
+
+
+//note, since we run acceleration + integrate back to back, we just bind pos/vel/accel directly and dispatch once with each shader
+layout( std430, binding=0 ) buffer particles_pos_outbuffer			{	vec4			pos_out[];			};
+layout( std430, binding=1 ) buffer particles_vel_out_buffer	        {	float			vel_out[];			};
+layout( std430, binding=2 ) buffer particles_phase_out_buffer	    {	uint			phase_out[];		};
+layout( std430, binding=3 ) buffer particles_custom_out_buffer		{	st_part_custom	custom_out[];		};
+
+layout( std430, binding=4 ) buffer particles_free_indices_buffer	{	uint  			free_indices_out[];	};
+layout( std430, binding=5 ) buffer particles_free_accum_buffer		{	uint 			free_accum_out[]; 	};
+
+layout( std430, binding=6 ) buffer particle_density_in_buffer	    {	float			dens_in[];			};
+
+layout(binding = 0) uniform particles_settings_block
+{
+	st_flex_solver sd;
+} u_particles_settings;
+
+//texture inputs
+layout(binding = 0) uniform sampler2D g_input_texture;
+
+//texture inputs
+layout(binding = 2) uniform sampler2D g_dist_texture;
+
+#define GROUP_SIZE 512
+layout( local_size_x = GROUP_SIZE, local_size_y = 1, local_size_z = 1 ) in;
+
+//used to randomize positions at emission
+const vec3 poisson_3d_kernel[256] = vec3[256](
+    vec3(-0.613392, 0.617481, 0.501165), vec3(0.170019, -0.040254, 0.677756), vec3(-0.299417, 0.791925, 0.127171), vec3(0.615971, 0.264068, -0.580916), // 0-3
+    vec3(-0.502705, -0.651784, 0.245332), vec3(0.320959, -0.567387, -0.558384), vec3(-0.792328, -0.227791, -0.428905), vec3(0.449203, 0.302573, 0.704139), // 4-7
+    vec3(-0.203127, -0.872173, -0.277997), vec3(0.666642, -0.532050, 0.371831), vec3(-0.532716, 0.477791, -0.562576), vec3(0.138234, 0.932615, -0.210522), // 8-11
+    vec3(-0.715331, 0.413923, 0.413923), vec3(0.387402, -0.217263, -0.831538), vec3(-0.309433, -0.503739, 0.732566), vec3(0.109574, -0.847307, 0.389843), // 12-15
+    vec3(-0.863918, 0.053745, 0.432188), vec3(0.624060, 0.618011, -0.328536), vec3(-0.380057, 0.201193, -0.873403), vec3(0.243137, 0.489731, 0.798151), // 16-19
+    vec3(-0.526087, -0.778890, -0.211424), vec3(0.771348, -0.147343, -0.535890), vec3(-0.142949, -0.473022, -0.819605), vec3(0.354852, -0.765557, 0.385516), // 20-23
+    vec3(-0.731010, -0.384059, 0.434523), vec3(0.458221, 0.578913, -0.572694), vec3(-0.049989, 0.755676, 0.617695), vec3(0.827051, 0.346844, 0.280120), // 24-27
+    vec3(-0.892239, -0.324535, -0.045684), vec3(0.199889, -0.610828, -0.766571), vec3(-0.162086, 0.905911, -0.268683), vec3(0.665140, -0.674302, -0.178518), // 28-31
+    vec3(-0.571496, 0.767022, -0.187597), vec3(0.332066, 0.073089, -0.908537), vec3(-0.434176, -0.250896, -0.829809), vec3(0.743561, 0.550190, 0.233355), // 32-35
+    vec3(-0.194355, -0.949115, 0.180325), vec3(0.876218, -0.196844, 0.387524), vec3(-0.918638, 0.147524, -0.251194), vec3(0.512726, -0.644209, 0.510605), // 36-39
+    vec3(-0.308023, 0.633923, -0.661563), vec3(0.041780, -0.294748, 0.940704), vec3(-0.794487, -0.600909, -0.003906), vec3(0.556092, 0.798059, -0.118255), // 40-43
+    vec3(-0.227387, 0.412258, 0.882080), vec3(0.704199, -0.063989, 0.686401), vec3(-0.678253, 0.278413, -0.651784), vec3(0.293588, -0.904172, -0.187597), // 44-47
+    vec3(-0.465683, -0.822363, 0.221076), vec3(0.807947, 0.217781, -0.505356), vec3(-0.086124, -0.815180, 0.553453), vec3(0.482925, -0.850613, -0.120426), // 48-51
+    vec3(-0.588557, -0.023346, -0.785943), vec3(0.221076, 0.976287, 0.073089), vec3(-0.751152, 0.660390, 0.000000), vec3(0.366503, 0.644209, 0.644209), // 52-55
+    vec3(-0.521805, 0.093295, 0.827936), vec3(0.628437, -0.447218, -0.616993), vec3(-0.372417, -0.708487, 0.586138), vec3(0.098544, 0.995361, -0.000000), // 56-59
+    vec3(-0.923856, 0.382683, 0.000000), vec3(0.382683, -0.923856, 0.000000), vec3(-0.195090, 0.980785, 0.000000), vec3(0.831470, -0.555570, 0.000000), // 60-63
+    vec3(-0.555570, -0.831470, 0.000000), vec3(0.980785, 0.195090, 0.000000), vec3(-0.707107, 0.707107, 0.000000), vec3(0.195090, -0.980785, 0.000000), // 64-67
+    vec3(-0.980785, -0.195090, 0.000000), vec3(0.707107, 0.707107, 0.000000), vec3(-0.382683, 0.923856, 0.000000), vec3(0.923856, 0.382683, 0.000000), // 68-71
+    vec3(-0.831470, -0.555570, 0.000000), vec3(0.555570, -0.831470, 0.000000), vec3(-0.098544, 0.995361, 0.000000), vec3(0.995361, -0.098544, 0.000000), // 72-75
+    vec3(-0.634393, -0.773010, 0.000000), vec3(0.773010, -0.634393, 0.000000), vec3(-0.290285, 0.956940, 0.000000), vec3(0.956940, 0.290285, 0.000000), // 76-79
+    vec3(-0.881921, -0.471397, 0.000000), vec3(0.471397, -0.881921, 0.000000), vec3(-0.471397, 0.881921, 0.000000), vec3(0.881921, 0.471397, 0.000000), // 80-83
+    vec3(-0.956940, -0.290285, 0.000000), vec3(0.290285, -0.956940, 0.000000), vec3(-0.773010, 0.634393, 0.000000), vec3(0.634393, 0.773010, 0.000000), // 84-87
+    vec3(-0.995361, -0.098544, 0.000000), vec3(0.098544, -0.995361, 0.000000), vec3(-0.555570, 0.831470, 0.000000), vec3(0.831470, 0.555570, 0.000000), // 88-91
+    vec3(-0.923856, -0.382683, 0.000000), vec3(0.382683, 0.923856, 0.000000), vec3(-0.707107, -0.707107, 0.000000), vec3(0.980785, -0.195090, 0.000000), // 92-95
+    vec3(-0.195090, -0.980785, 0.000000), vec3(0.555570, 0.831470, 0.000000), vec3(-0.831470, 0.555570, 0.000000), vec3(0.195090, 0.980785, 0.000000), // 96-99
+    vec3(-0.980785, 0.195090, 0.000000), vec3(0.707107, -0.707107, 0.000000), vec3(-0.382683, -0.923856, 0.000000), vec3(0.923856, -0.382683, 0.000000), // 100-103
+    vec3(-0.555570, 0.831470, 0.000000), vec3(0.831470, -0.555570, 0.000000), vec3(-0.195090, 0.980785, 0.000000), vec3(0.980785, 0.195090, 0.000000), // 104-107
+    vec3(-0.707107, -0.707107, 0.000000), vec3(0.382683, -0.923856, 0.000000), vec3(-0.923856, 0.382683, 0.000000), vec3(0.195090, -0.980785, 0.000000), // 108-111
+    vec3(-0.980785, -0.195090, 0.000000), vec3(0.707107, 0.707107, 0.000000), vec3(-0.831470, -0.555570, 0.000000), vec3(0.555570, -0.831470, 0.000000), // 112-115
+    vec3(-0.098544, 0.995361, 0.000000), vec3(0.995361, -0.098544, 0.000000), vec3(-0.634393, -0.773010, 0.000000), vec3(0.773010, -0.634393, 0.000000), // 116-119
+    vec3(-0.290285, 0.956940, 0.000000), vec3(0.956940, 0.290285, 0.000000), vec3(-0.881921, -0.471397, 0.000000), vec3(0.471397, -0.881921, 0.000000), // 120-123
+    vec3(-0.471397, 0.881921, 0.000000), vec3(0.881921, 0.471397, 0.000000), vec3(-0.956940, -0.290285, 0.000000), vec3(0.290285, -0.956940, 0.000000), // 124-127
+    vec3(-0.773010, 0.634393, 0.000000), vec3(0.634393, 0.773010, 0.000000), vec3(-0.995361, -0.098544, 0.000000), vec3(0.098544, -0.995361, 0.000000), // 128-131
+    vec3(-0.555570, 0.831470, 0.000000), vec3(0.831470, 0.555570, 0.000000), vec3(-0.923856, -0.382683, 0.000000), vec3(0.382683, 0.923856, 0.000000), // 132-135
+    vec3(-0.707107, -0.707107, 0.000000), vec3(0.980785, -0.195090, 0.000000), vec3(-0.195090, -0.980785, 0.000000), vec3(0.555570, 0.831470, 0.000000), // 136-139
+    vec3(-0.831470, 0.555570, 0.000000), vec3(0.195090, 0.980785, 0.000000), vec3(-0.980785, 0.195090, 0.000000), vec3(0.707107, -0.707107, 0.000000), // 140-143
+    vec3(-0.382683, -0.923856, 0.000000), vec3(0.923856, -0.382683, 0.000000), vec3(-0.555570, 0.831470, 0.000000), vec3(0.831470, -0.555570, 0.000000), // 144-147
+    vec3(-0.195090, 0.980785, 0.000000), vec3(0.980785, 0.195090, 0.000000), vec3(-0.707107, -0.707107, 0.000000), vec3(0.382683, -0.923856, 0.000000), // 148-151
+    vec3(-0.923856, 0.382683, 0.000000), vec3(0.195090, -0.980785, 0.000000), vec3(-0.980785, -0.195090, 0.000000), vec3(0.707107, 0.707107, 0.000000), // 152-155
+    vec3(-0.831470, -0.555570, 0.000000), vec3(0.555570, -0.831470, 0.000000), vec3(-0.098544, 0.995361, 0.000000), vec3(0.995361, -0.098544, 0.000000), // 156-159
+    vec3(-0.634393, -0.773010, 0.000000), vec3(0.773010, -0.634393, 0.000000), vec3(-0.290285, 0.956940, 0.000000), vec3(0.956940, 0.290285, 0.000000), // 160-163
+    vec3(-0.881921, -0.471397, 0.000000), vec3(0.471397, -0.881921, 0.000000), vec3(-0.471397, 0.881921, 0.000000), vec3(0.881921, 0.471397, 0.000000), // 164-167
+    vec3(-0.956940, -0.290285, 0.000000), vec3(0.290285, -0.956940, 0.000000), vec3(-0.773010, 0.634393, 0.000000), vec3(0.634393, 0.773010, 0.000000), // 168-171
+    vec3(-0.995361, -0.098544, 0.000000), vec3(0.098544, -0.995361, 0.000000), vec3(-0.555570, 0.831470, 0.000000), vec3(0.831470, 0.555570, 0.000000), // 172-175
+    vec3(-0.923856, -0.382683, 0.000000), vec3(0.382683, 0.923856, 0.000000), vec3(-0.707107, -0.707107, 0.000000), vec3(0.980785, -0.195090, 0.000000), // 176-179
+    vec3(-0.195090, -0.980785, 0.000000), vec3(0.555570, 0.831470, 0.000000), vec3(-0.831470, 0.555570, 0.000000), vec3(0.195090, 0.980785, 0.000000), // 180-183
+    vec3(-0.980785, 0.195090, 0.000000), vec3(0.707107, -0.707107, 0.000000), vec3(-0.382683, -0.923856, 0.000000), vec3(0.923856, -0.382683, 0.000000), // 184-187
+    vec3(-0.555570, 0.831470, 0.000000), vec3(0.831470, -0.555570, 0.000000), vec3(-0.195090, 0.980785, 0.000000), vec3(0.980785, 0.195090, 0.000000), // 188-191
+    vec3(-0.707107, -0.707107, 0.000000), vec3(0.382683, -0.923856, 0.000000), vec3(-0.923856, 0.382683, 0.000000), vec3(0.195090, -0.980785, 0.000000), // 192-195
+    vec3(-0.980785, -0.195090, 0.000000), vec3(0.707107, 0.707107, 0.000000), vec3(-0.831470, -0.555570, 0.000000), vec3(0.555570, -0.831470, 0.000000), // 196-199
+    vec3(-0.098544, 0.995361, 0.000000), vec3(0.995361, -0.098544, 0.000000), vec3(-0.634393, -0.773010, 0.000000), vec3(0.773010, -0.634393, 0.000000), // 200-203
+    vec3(-0.290285, 0.956940, 0.000000), vec3(0.956940, 0.290285, 0.000000), vec3(-0.881921, -0.471397, 0.000000), vec3(0.471397, -0.881921, 0.000000), // 204-207
+    vec3(-0.471397, 0.881921, 0.000000), vec3(0.881921, 0.471397, 0.000000), vec3(-0.956940, -0.290285, 0.000000), vec3(0.290285, -0.956940, 0.000000), // 208-211
+    vec3(-0.773010, 0.634393, 0.000000), vec3(0.634393, 0.773010, 0.000000), vec3(-0.995361, -0.098544, 0.000000), vec3(0.098544, -0.995361, 0.000000), // 212-215
+    vec3(-0.555570, 0.831470, 0.000000), vec3(0.831470, 0.555570, 0.000000), vec3(-0.923856, -0.382683, 0.000000), vec3(0.382683, 0.923856, 0.000000), // 216-219
+    vec3(-0.707107, -0.707107, 0.000000), vec3(0.980785, -0.195090, 0.000000), vec3(-0.195090, -0.980785, 0.000000), vec3(0.555570, 0.831470, 0.000000), // 220-223
+    vec3(-0.831470, 0.555570, 0.000000), vec3(0.195090, 0.980785, 0.000000), vec3(-0.980785, 0.195090, 0.000000), vec3(0.707107, -0.707107, 0.000000), // 224-227
+    vec3(-0.382683, -0.923856, 0.000000), vec3(0.923856, -0.382683, 0.000000), vec3(-0.555570, 0.831470, 0.000000), vec3(0.831470, -0.555570, 0.000000), // 228-231
+    vec3(-0.195090, 0.980785, 0.000000), vec3(0.980785, 0.195090, 0.000000), vec3(-0.707107, -0.707107, 0.000000), vec3(0.382683, -0.923856, 0.000000), // 232-235
+    vec3(-0.923856, 0.382683, 0.000000), vec3(0.195090, -0.980785, 0.000000), vec3(-0.980785, -0.195090, 0.000000), vec3(0.707107, 0.707107, 0.000000), // 236-239
+    vec3(-0.831470, -0.555570, 0.000000), vec3(0.555570, -0.831470, 0.000000), vec3(-0.098544, 0.995361, 0.000000), vec3(0.995361, -0.098544, 0.000000), // 240-243
+    vec3(-0.634393, -0.773010, 0.000000), vec3(0.773010, -0.634393, 0.000000), vec3(-0.290285, 0.956940, 0.000000), vec3(0.956940, 0.290285, 0.000000), // 244-247
+    vec3(-0.881921, -0.471397, 0.000000), vec3(0.471397, -0.881921, 0.000000), vec3(-0.471397, 0.881921, 0.000000), vec3(0.881921, 0.471397, 0.000000), // 248-251
+    vec3(-0.956940, -0.290285, 0.000000), vec3(0.290285, -0.956940, 0.000000), vec3(-0.773010, 0.634393, 0.000000), vec3(0.634393, 0.773010, 0.000000)  // 252-255
+);
+
+#if 0
+float calcDist(vec2 p)
+{
+	return texture( g_dist_texture,  p).r;
+}
+vec2 comp_gradient(vec2 p)
+{
+	vec2 n = vec2(0.0);
+	const vec2 offset_x = vec2( 1./1344.,0 );
+	const vec2 offset_y = vec2( 0, 1./384. );
+
+	n.x = calcDist(p + offset_x) - calcDist(p - offset_x);
+	n.y = calcDist(p + offset_y) - calcDist(p - offset_y);
+
+	return n;
+//	return normalize(n);	// 3/
+}
+#endif
+
+
+
+
+#if 1
+// BEGIN SHY FOUNTAIN
+//curent version for Shy Fountain
+//	with a "double" emission
+const float DURATION = 4.;	//life time of particles
+void main(void)
+{
+	uint index = gl_GlobalInvocationID.x;
+//	if( u_particles_settings.sd._active_nb <= index  )
+//		return;
+	vec4 p;
+	vec3 v;
+	st_part_custom custom = custom_out[index];
+	float dt = u_particles_settings.sd._dt;
+	
+	if( b_restart )
+	{	//we pass here when we trigger a restart with the MEU button
+	 	// we generate a number going from 0 to 1 (in fact in [0,nb/(nb-1)] ) for each particle
+		float f_index_01 = float(index) / u_particles_settings.sd._max_particles_nb ;
+		// 0 speed
+		v = vec3(0.);
+		//	position in random distant positions
+		p = vec4( f_index_01 * 1024. * 128., -10. + f_index_01 , 10. + f_index_01 * 3.48585254, 1. );
+		//inactive
+		custom._active = 0;
+		// store to avoid to recompute
+		custom._emitter_sel = f_index_01;
+		// init age so we will have a continuous flow (each particle being visible or not)
+		custom._age = f_index_01 * DURATION;
+	}
+	else
+	{
+		// get position and speed
+		p = pos_out[index];
+		v = vec3( vel_out[index*3], vel_out[index*3+1], vel_out[index*3+2]);
+
+		//update age
+		float age = custom._age + u_particles_settings.sd._dt;
+		if( age > DURATION )	// particle will be emitted (visible or not)
+		{
+			age -= DURATION;	// reborn so new age
+	/*		
+			//if( (float(index % 256) / 256.) < shy_emit_speed )
+			if( (float(index % 256) / 256.) < shy_emit_speed )
+			{
+				custom._active = 0;
+			}
+			else
+			{	
+			}
+	*/
+			// select which particle will be seen or not
+			// shy_emit_fountain come from the MEU Flex, Fall speed slider (Fall Button have to be On)
+			if( ((index % 256)/256.) < shy_emit_speed )
+			{
+				// particle is seen
+
+				// size will wary why emit_spped (debit)
+				const float size = .1 * .5 * (.1 + shy_emit_speed * .2);
+				// store pos to use it to randomize
+				vec3 old_pos = p.xyz;
+				// set particle at center of emmission
+				p.xyz = vec3( -.08, .85, -1.4 );
+
+				// zero speed
+				v = vec3( 0.);
+				//v.x = fract(index * 352.075842) * 5.;
+				// speed in z vary from emit_speed
+				v.z = fract( index * .17 ) * .8 * shy_emit_speed + .2;				
+				v *= 2.;
+				// one particle go left, next one go right
+				v.x = (fract( index * .5 ) - .3) * 1.8 - 0.25;
+
+#if 1
+				// randomize emit position in a sphere od size lonk to emit_speed
+				vec3 v3 = poisson_3d_kernel[ index % 256 ] * size;
+				p.xyz += v3;
+				//v += v3 * 10.;
+#else
+				vec2 v2 = disc_kernel[ index % disc_sample_count ] * size;
+				rotate( v2, custom._emitter_sel * 4561545.156 );
+				p.xz += v2;
+				rotate( v2, custom._emitter_sel * 545.156 );
+				p.y += v2.x;
+#endif
+				//p.y += v2;
+				// randomize again using previous pposition
+				p.xyz += (fract(old_pos.xyz) - .5) * size * .5;
+				// make it active
+				custom._active = 1;
+			}
+			else
+			{
+				float f_index_01 = custom._emitter_sel;
+				// 0 speed
+				v = vec3(0.);
+				//	position in random distant positions
+				p.xyz = vec3( f_index_01 * 1024. * 128., -10. + f_index_01 , 10. + f_index_01 * 3.48585254 );
+				// make it inactive
+				custom._active = 0;
+			}
+
+		}
+		// write age to particle	
+		custom._age = age; 
+	}
+
+	// output to buffers
+	phase_out[index] = custom._active > 0 ? PHASE_FLUID : PHASE_NONE;
+	pos_out[index] = p;
+
+	custom_out[index] = custom;
+
+	vel_out[index*3] = v.x;
+	vel_out[index*3+1] = v.y;
+	vel_out[index*3+2] = v.z;
+}
+// END SHY FOUNTAIN
+#else
+//UNUSED here as documentation
+void main(void)
+{
+	uint index = gl_GlobalInvocationID.x;
+//	if( u_particles_settings.sd._active_nb <= index  )
+//		return;
+
+	vec4 p = pos_out[index];
+	vec3 v = vec3( vel_out[index*3], vel_out[index*3+1], vel_out[index*3+2]);
+	st_part_custom custom = custom_out[index];
+
+#if 0
+	float dens = dens_in[index];
+	v.y -= dens * density_y;
+#endif
+	float dt = u_particles_settings.sd._dt;
+
+//	bool is_user = custom._emitter_sel > 0.5;	// dans une personne
+
+	//force.y -= abs(sin(p.x+p.y*4.0)) * 0.3;
+#if 0
+	float sh = 16.;		// size half
+	ivec2 image_size = textureSize(	g_input_texture, 0 );
+
+	vec2 uv_step = 1.0 / vec2(image_size);
+	float ratio = image_size.x / image_size.y;
+
+//	vec2 uv = p.xz / 4. + .5;
+	vec2 uv = p.xy / vec2(8.,4.5) + .5;
+
+	float hit_ref_val = 0.1;
+	//
+
+	float t = texture( g_input_texture, uv ).r;
+	custom._hit_test = t > hit_ref_val ? 1 : 0;
+
+//	float df = texture ( g_dist_texture,  uv ).r;
+#if 0
+	//repulse by texture	
+	vec2 rep = get_gradient_2d( g_dist_texture,  uv );
+	vec3 force  = vec3( rep, 0 );
+	v += force * dt * 100.;
+#endif
+#endif
+	bool b_reset = false;
+	if( b_restart )
+	{
+		custom._active = 0;
+		custom._emitter_sel = float(index) / u_particles_settings.sd._max_particles_nb ;
+	}
+
+	if( custom._active == 1 )
+	{
+		float age = custom._age + u_particles_settings.sd._dt;
+		//if( custom._age > 8. + float(index % 256) / 256. - p.z )	//randomize on id and position
+		//if( custom._age > 8. - p.z * 3. - abs(p.x) )	//randomize on id and position
+		if( custom._age > 8. )	//randomize on id and position
+		{
+/*		
+			//if( (float(index % 256) / 256.) < shy_emit_speed )
+			if( (float(index % 256) / 256.) < shy_emit_speed )
+			{
+				custom._active = 0;
+			}
+			else
+			{
+			}
+*/
+			custom._active = 0;
+			phase_out[index] = PHASE_NONE;
+			//p.y = 10000.; 
+		}
+		
+		custom._age = age; 
+/*
+		//custom._active = custom._age < age_fall ? 1 : 0;
+		else if( any( greaterThan( abs(p.zz), vec2(4.) ) ) ) 
+			b_reset  = true;
+		else if( p.y < -3. )
+		{
+			b_reset  = true;
+#if 0
+			//repulse and rotate
+			vec2 p2 = (p.xz - vec2( 1, 0 )) * .5;
+			float d2 = dot(p2,p2);
+			if( d2 < 1. )
+			{
+				if( d2 < .01 )
+					b_reset  = true;
+				else
+					v.xz -= p2 * .2 / d2;
+					v.xz += vec2( -p2.y, p2.x ) * .2  / d2;
+			}
+			else
+#endif
+#if 0
+			{
+				if( p.y < 0. ) 
+				{
+					//p.y = 0.;
+					v.y -= p.y * 20;
+				}
+				v.z += .2;
+			}
+#endif
+		}
+*/
+	}
+
+	if( custom._active == 0 )
+	{
+		//if( (float(index % 256) / 256.) < shy_emit_speed )
+		{
+			float t = custom._emitter_sel * 16.;
+			float t8 = mod( time, 16. );
+			if( t8 <= t && t < t8 + u_particles_settings.sd._dt * shy_emit_speed )
+			{
+				b_reset = true;
+			}
+		}
+	}
+
+	if(  b_reset )
+	{
+		//if( s_hack > 0 )
+		{	//hack maa to see stuff again in bdd_flex
+			//understand and refine please
+			custom._active = 1;
+			custom._age = 0.;
+			//custom._emitter_sel = 0;
+
+			phase_out[index] = PHASE_FLUID;
+			//p.x = 0;	// + p.z * .2;
+			//p.x =   2. * float(index % 269) / 256. - 1.;
+
+			const int nb_p2 = 10;
+			const int nb = 1 << nb_p2;
+			const float nb_f = float(nb);
+			const float size = 8.;	//was 5.
+			p.x = -.18;
+			//p.x =   size * ( float(index % nb)			/ nb_f - .5 );
+			//p.x = .1 * ( float(index % nb)/ nb_f - .5 );
+			p.x += .1 *  (fract( float(index)*0.012785 ) - .5 );
+			//p.x = .1 * rand_normalized(index);
+			//p.z =   size * ( float((index>>nb_p2) % nb) / nb_f - .5);
+			p.z =  -1.4;
+			//p.z +=	.2 * ( float((index>>nb_p2) % nb) / nb_f - .5);
+			p.z += .1 * fract( float(index)*13.168 );\
+
+
+			//p.y = min( p.y + 5.,  10. );
+			p.y = .8;
+			p.y += .2 * (fract( float(index)*0.177124785 ) - .5 );
+//			p.z *= .1;
+
+			v = vec3( 0., -fract( float(index)*23.375 ) *.2, 0. );
+
+	//		v.x = velx;
+		}
+	}
+
+	pos_out[index] = p;
+
+	//if( custom._active == 0 )
+	//{
+	////	uint accum_index = atomicAdd(free_accum_out[0], 1);
+	////	free_indices_out[accum_index] = index;
+	//	phase_out[index] = PHASE_NONE;
+	//}
+
+	custom_out[index] = custom;
+
+	vel_out[index*3] = v.x;
+	vel_out[index*3+1] = v.y;
+	vel_out[index*3+2] = v.z;
+
+	//phase_out[index] = custom._active > 0 ? PHASE_FLUID : PHASE_NONE;
+}
+#endif

@@ -1,0 +1,5 @@
+stereo ( Version 0 )
+	{
+	line_code_pixel_nb = 4 ;
+	right_buffer = OFF TraxGlo07In TraxGlo08In ;
+	}

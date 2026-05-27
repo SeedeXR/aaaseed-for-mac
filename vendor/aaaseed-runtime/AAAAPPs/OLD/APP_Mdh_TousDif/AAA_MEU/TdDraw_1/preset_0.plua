@@ -1,0 +1,15 @@
+-- preset v0 for MEU|TdDraw_1
+tab["back"] = true
+tab["body"] = false
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["circle"] = false
+tab["conformity"] = false
+tab["flip"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["model"] = false
+tab["photo"] = false
+tab["score"] = true
+tab["video"] = false

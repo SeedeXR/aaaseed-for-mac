@@ -1,0 +1,218 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "Facade_opencl.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	stereo = "field_update" ;
+	lua = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = -1.3006 ;
+	rot_x = -0.0055 ;
+	rot_y = 0.00349999 ;
+	tra_z = -4.83425 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 9.26 ;
+	rot_x = -0.00349952 ;
+	rot_y = 0.0154999 ;
+	tra_z = -1.5814 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -0.67665 ;
+	translate_y = -0.248678 ;
+	translate_z = 0.199689 ;
+	rotate = ON ;
+	rotate_x = -0.00763158 ;
+	rotate_y = 0.213015 ;
+	scale_y = 0.990998 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = 1 ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	center_x = 1.16621 ;
+	nb_u = 48 ;
+	nb_v = 48 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	point_size = 0.25 ;
+	point_mode = "POINT_SPRITE" ;
+	point_sprite_tex = ON ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_axe = "Z" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.005 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_blue = 2 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_use_color_face = "FRONT" ;
+	material_use_color_dst = "Diffuse" ;
+	}
+//AAA::filename fx_b.bdd_opencl_part
+bdd_opencl_part ( Version 0 )
+	{
+	name_symbo = "opencl_facade" ;
+	active = ON ;
+	device_type = "GPU" ;
+	point_nb = 1048576 ;
+	point_nb_used = 131072 ;
+	placer_type = "GREEN" ;
+	placer_bind = 20 ;
+	placer_min = 0.5 ;
+	placer_use_min_max = ON ;
+	dum1_forced = ON ;
+	texture_1_use = ON ;
+	texture_1_bind = 32 ;
+	texture_2_use = ON ;
+	texture_2_bind = 27 ;
+	filename = "facade.cl" ;
+	kernel_name = "facade1" ;
+	color = 1 ;
+	nb_by_set = 2097152 ;
+	mouse_offset_x = -0.5 ;
+	mouse_offset_y = -0.5 ;
+	param_01 = 1 ;
+	param_02 = 1 ;
+	param_04 = -0.060088 ;
+	param_05 = -1 ;
+	param_06 = -8 ;
+	param_07 = 15.967 ;
+	param_09 = 0.9848 ;
+	param_10 = 8 ;
+	}
+//AAA::filename fx_b.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 48 ;
+	nb_v = 48 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	point_size = 0.5 ;
+	point_mode = "POINT_SPRITE" ;
+	point_sprite_tex = ON ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_factor = 8 ;
+	blend_equation = "MAX" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.016 ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vu_float_01 = -1.19642 ;
+	vu_float_02 = 119.152 ;
+	vu_float_03 = 1.86169 ;
+	vu_float_04 = 24.6817 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_v = 0.69 ;
+	size_factor = 8 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_opencl_part" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 1 ;
+	bind_2d = 31 ;
+	material_use_color = ON ;
+	material_use_color_face = "FRONT" ;
+	material_use_color_dst = "Diffuse" ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 21 ;
+	}

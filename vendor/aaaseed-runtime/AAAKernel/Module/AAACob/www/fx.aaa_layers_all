@@ -1,0 +1,41 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 8.03 ;
+	tra_x = 12.048 ;
+	tra_y = -12.136 ;
+	tra_z = -23.264 ;
+	}
+//AAA::filename fx_a.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	font = 0 ;
+	align_horizontal = 0.5 ;
+	text = "www.LaGraine.com" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.268424 ;
+	global_blue = 0.30336 ;
+	global_alpha = 0.177986 TraxLoc03Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	}

@@ -1,0 +1,12 @@
+bind ( Version 0 )
+	{
+	Bind_01 = "BaseBis/fx" ;
+	Bind_02 = "BlastAway/fx" ;
+	Bind_03 = "Text/fx" ;
+	Bind_04 = "Fond/fx" ;
+	Bind_05 = "Anal/fx" ;
+	Bind_06 = "Gridef/fx" ;
+	Bind_07 = "Process/fx" ;
+	Bind_08 = "Boid/fx" ;
+	Bind_09 = "FBO_Out/fx" ;
+	}

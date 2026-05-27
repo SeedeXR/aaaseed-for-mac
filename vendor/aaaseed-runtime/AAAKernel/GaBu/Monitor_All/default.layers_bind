@@ -1,0 +1,13 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "MonitorOne/fx" ;
+	Bind_01 = "Monitor/fx" ;
+	Bind_03 = "VideoOne/fx" ;
+	Bind_04 = "Video/fx" ;
+	Bind_06 = "BandOne/fx" ;
+	Bind_07 = "BandMonitor/fx" ;
+	Bind_09 = "Gradient_Cam/fx" ;
+	Bind_10 = "Gradient_draw/fx" ;
+	Bind_12 = "Light/fx" ;
+	Bind_14 = "TBuf/fx" ;
+	}

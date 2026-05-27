@@ -1,0 +1,1 @@
+aaa.obj.update_then_draw( "module.drop" )

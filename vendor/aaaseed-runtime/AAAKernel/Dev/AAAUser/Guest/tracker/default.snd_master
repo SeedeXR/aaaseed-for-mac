@@ -1,0 +1,6 @@
+snd_master ( Version 0 )
+	{
+	active = ON ;
+	lib_asked = "DirectSound" ;
+	volume = 0.898227 ;
+	}

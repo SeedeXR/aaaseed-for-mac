@@ -1,0 +1,20 @@
+-- preset v0 for MEU|Example_1
+tab["cam_axe_show"] = 1
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["render.back"] = 0
+tab["render.cull"] = 1
+tab["render.depth"] = true
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 0.97080111503601
+tab["render.normal"] = 0.020814022049308
+tab["render.normal active"] = false
+tab["render.point"] = 1
+tab["shader"] = true
+tab["size"] = 0
+tab["tex_bank"] = 1
+tab["tex_bind"] = 1
+tab["tex_dim"] = 2

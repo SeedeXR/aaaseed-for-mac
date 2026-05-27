@@ -1,0 +1,44 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "img_send.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.bdd_img_send
+bdd_img_send ( Version 0 )
+	{
+	active = ON ;
+	image_src = 72 ;
+	image_dst_base = 75 ;
+	mono = ON ;
+	crop_left = 0.5 ;
+	crop_right = 0.189114 ;
+	crop_bottom = 0.25 ;
+	crop_top = 0.25 ;
+	rotate_angle = "90" ;
+	link_index = 12 ;
+	channel_id = 5 ;
+	out_bind_dst = 130 ;
+	crop_left = 128 ;
+	crop_right = 64 ;
+	crop_bottom = 128 ;
+	crop_top = 64 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_send" ;
+	bank_2d = 2 ;
+	}

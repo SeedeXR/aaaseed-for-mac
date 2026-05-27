@@ -1,0 +1,53 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 1 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend = OFF ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 119 ;
+	fragment_file_location = "AAA path" ;
+	fragment_fname_asked = "AAA_PROTO/MEU_PROTO_2/NdcMerge/ndc_merge.frag" ;
+	fragment_file_check_change = ON ;
+	compute_reload_trig = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_rendering = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bank_2d = "CURRENT" ;
+	bind_2d = "CURRENT" ;
+	}

@@ -1,0 +1,16 @@
+-- preset v0 for MEU|DepthDisplace_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["angle"] = 0.50180581102791
+tab["cam_axe_show"] = 1
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["camera dist thres"] = 100
+tab["rotation x"] = -8
+tab["rotation y"] = -8
+tab["rotation z"] = -8
+tab["translation x"] = -8
+tab["translation y"] = -8
+tab["translation z"] = -8
+tab["triangle dist thres"] = 0.18684255619816
+tab["y"] = 2.4385303885311

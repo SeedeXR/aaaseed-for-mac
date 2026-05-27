@@ -1,0 +1,186 @@
+#define PHASE_FLUID 2135949312
+#define PHASE_NONE 0
+
+struct st_part_custom
+{
+	uint  _active;
+	float _age;
+	float _emitter_sel;
+	int   _hit_test;
+};
+
+CONST float	time				= aaa_cu_float[0];
+//CONST float	dt					= aaa_cu_float[1];
+
+CONST float	pullback_distance		= aaa_cu_float[9];
+CONST float	df_min					= aaa_cu_float[10];
+CONST float	df_max					= aaa_cu_float[11];
+CONST float	field_str				= aaa_cu_float[12];
+CONST float	field_gamma				= aaa_cu_float[13];
+
+CONST float velx					= aaa_cu_vec4[0].x;
+
+struct st_rigid_size_tag
+{
+	vec3 _size;
+	int  _tag;
+};
+
+
+//note, since we run acceleration + integrate back to back, we just bind pos/vel/accel directly and dispatch once with each shader
+layout( std430, binding=0 ) buffer particles_pos_outbuffer			{	vec4			pos_out[];			};
+layout( std430, binding=1 ) buffer particles_vel_out_buffer	        {	float			vel_out[];			};
+layout( std430, binding=2 ) buffer particles_phase_out_buffer	    {	uint			phase_out[];		};
+layout( std430, binding=3 ) buffer particles_custom_out_buffer		{	st_part_custom	custom_out[];		};
+
+layout( std430, binding=4 ) buffer particles_free_indices_buffer	{	uint  			free_indices_out[];	};
+layout( std430, binding=5 ) buffer particles_free_accum_buffer		{	uint 			free_accum_out[]; 	};
+
+layout( std430, binding=6 ) buffer particle_density_in_buffer	    {	float			dens_in[];			};
+
+layout( std430, binding=7 ) buffer particles_pos_init_in_buffer		{	vec4			pos_init_in[];			};
+layout( std430, binding=8 ) buffer particles_acc_out_buffer			{	vec4 			acc_out[];				};
+
+layout( std430, binding=9 ) buffer rigid_pos_out_buffer				{	float			rigid_pos_out[];		};
+layout( std430, binding=10 ) buffer rigid_rot_out_buffer			{	vec4			rigid_rot_out[];		};
+
+layout( std430, binding=11 ) buffer rigid_size_tag_out_buffer		{	st_rigid_size_tag rigid_size_tag_out[];		};
+layout( std430, binding=12 ) buffer rigid_index_in_buffer			{	int				rigid_index_in[];						};
+
+
+layout(binding = 0) uniform particles_settings_block
+{
+	st_flex_solver sd;
+} u_particles_settings;
+
+//texture inputs
+layout(binding = 0) uniform sampler2D g_input_texture;
+
+//texture inputs
+layout(binding = 2) uniform sampler2D TEX_DIST_SRC;
+layout(binding = 3) uniform sampler2D TEX_DIST;
+
+#define GROUP_SIZE 512
+layout( local_size_x = GROUP_SIZE, local_size_y = 1, local_size_z = 1 ) in;
+
+float calcDist( vec2 p )
+{
+#if 1 //signed
+	return texture(TEX_DIST,p).r * (texture(TEX_DIST_SRC,p).r * -2. + 1.);
+#else //unsigned
+	return texture(TEX_DIST,p).r;
+#endif
+}
+
+vec3 uvw_step;
+
+vec2 comp_gradient(vec2 p)
+{
+	vec2 n;
+	n.x = calcDist( p + uvw_step.xz ) - calcDist( p - uvw_step.xz );
+	n.y = calcDist( p + uvw_step.zy ) - calcDist( p - uvw_step.zy );
+
+	return n;
+//	return normalize(n);	// 3/
+}
+
+void main(void)
+{
+	uint index = gl_GlobalInvocationID.x;
+	if( u_particles_settings.sd._active_nb <= index  )
+		return;
+
+	vec4 p = pos_out[index];
+	vec4 ip = pos_init_in[index];
+	vec3 v = vec3( vel_out[index*3], vel_out[index*3+1], vel_out[index*3+2] );
+	st_part_custom custom = custom_out[index];
+
+
+//allow to wrap rigids
+	int rigid_idx = rigid_index_in[index];
+	vec3 rigid_pos = vec3(0.0);
+
+	if (rigid_idx > -1)
+	{
+		rigid_pos = vec3( rigid_pos_out[rigid_idx*3], rigid_pos_out[rigid_idx*3+1], rigid_pos_out[rigid_idx*3+2] );
+		if (rigid_pos.y < -2.0) //todo : param
+		{
+			#if 0
+			p.y += 5.0; //param
+			#endif
+			#if 1
+			p = pos_init_in[index];
+			#endif
+			v = vec3(0.0);
+			//seems we are ok with rigid not set
+			//rigid_pos_out[rigid_idx*3+1] += 5.0;
+		}
+	}
+
+
+	custom._age = 0.0;
+
+	float dt = u_particles_settings.sd._dt;
+
+	float sh = 16.;		// size half
+	ivec2 image_size = textureSize(	g_input_texture, 0 );
+	uvw_step.xy = 1.0 / vec2(image_size);
+	uvw_step.z = 0.;
+
+	float ratio = image_size.x / image_size.y;
+	vec2 uv = p.xy / vec2(16,4) + .5;
+    //uv.y += 0.3;
+	
+
+	float df = calcDist( uv ).r;
+
+	custom._hit_test =  df_min < df && df < df_max ? 1 : 0;
+	//custom._hit_test = uv.y > 0 && uv.y < 1 ? 1 : 0;
+	//custom._hit_test = uv.x > 0 && uv.x < 1 ? 1 : 0;
+
+	vec3 force  = vec3(0);
+	
+	if( custom._hit_test == 1 )
+	{
+		vec2 grad = comp_gradient( uv );
+		float field_dist_factor = field_str * pow( (df-df_max)/(df_min-df_max), field_gamma );
+	#if 0
+		//Maa test
+		//force.z = field_str * pow( (field_max_dist-df)/field_max_dist, field_gamma );
+		//force.z = field_dist_factor * 1000.;
+		force.xy = grad * field_dist_factor;
+		//force.z = calcDist( uv )*1;
+	#else
+		//Julien
+		force.xy = grad * field_dist_factor;
+	#endif
+	}
+	
+
+	vec3 vec_displace =  p.xyz - ip.xyz;
+	float distance_to_initial = length(vec_displace);
+
+	// Maa try
+	if( distance_to_initial > pullback_distance )
+	{
+	 	force -= vec_displace * 1.;
+	}
+
+	/*IMPORTANT : Since Flex does not assume people use external forces too much,
+	we have to ensure that if a particle is fixed, we enforce the velocity to zero ourselves
+	otherwise the constraint solver will take velocity into account for springs,
+	which will give incorrect results */
+	if( p.w == 0.0 )
+	{
+		v = vec3(0.0);
+	}
+	
+	v += force;
+
+	pos_out[index] = p;
+	custom_out[index] = custom;
+
+	vel_out[index*3] = v.x ;
+	vel_out[index*3+1] = v.y;
+	vel_out[index*3+2] = v.z;	// + aaa_cu_float[1] * (1. - (p.x*p.x + p.y*p.y) / 256.);
+}

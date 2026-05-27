@@ -1,0 +1,6 @@
+-- preset for MEU|AAAUpdate_1
+tab["ip_target"] = 234
+tab["ip_target_range"] = { 1, 254 }
+tab["target location"] = 1
+tab["target_ip_type"] = 1
+tab["target_type"] = 1

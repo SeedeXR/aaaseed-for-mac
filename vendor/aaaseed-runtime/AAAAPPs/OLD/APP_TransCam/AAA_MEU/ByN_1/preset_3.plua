@@ -1,0 +1,9 @@
+-- preset for MEU|ByN_1
+tab["angle"] = 0
+tab["cam_index"] = 3
+tab["dim"] = 1
+tab["fade"] = 1
+tab["nb"] = 6
+tab["tex_bank"] = 3
+tab["tex_bind"] = 6
+tab["uv"] = { { 0.4889408768524, 0.51586845513124 } }

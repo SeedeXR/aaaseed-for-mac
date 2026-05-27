@@ -1,0 +1,6 @@
+-- BU position for meduse
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_pos( 0, "FPS 280 /  64", 2, 3.8, 0.25, 0.25, 0 )
+BUS.set_bu_pos( 0, "meduse MAAQUAD", 0.1, 3.9, 0.1, 0.1, 1 )
+BUS.set_bu_pos( 0, "Creature Save", 0.2, 3.38, 0.2, 0.2, 0 )

@@ -1,0 +1,156 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "derviche.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	camera_index_ui = 6 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 1.476 ;
+	rot_y = 0.92 ;
+	tra_z = -10.0993 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.2485 ;
+	rot_y = 0.2505 ;
+	tra_z = -0.132559 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.97 ;
+	rot_x = 1.724 ;
+	rot_y = 0.487 ;
+	tra_z = -3.06539 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.97 ;
+	rot_x = -0.0405002 ;
+	rot_y = 0.4475 ;
+	tra_z = -2.03668 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.024 ;
+	rot_y = 0.491 ;
+	tra_x = -0.016 ;
+	tra_y = 0.002 ;
+	tra_z = -2.70891 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.835 ;
+	orbiting = ON ;
+	rot_x_frequency = 0.0282745 ;
+	rot_y_frequency = 0.027022 ;
+	rot_z_frequency = 0.0401954 ;
+	tra_z = -0.832 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_x_frequency_sin = 0.03125 ;
+	rot_x_amplitude_sin = 0.125 ;
+	rot_y_frequency = 0.0170548 ;
+	tra_z = -0.232479 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	scale_z = 0.3395 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 1 ;
+	nb_v = 6 ;
+	nb_axe = 1024 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	front_mode = "LINE" ;
+	back_mode = "LINE" ;
+	line_size = 3.03193 ;
+	point_size = 6.842 ;
+	point_mode = "POINT_SPRITE" ;
+	primitive = "LINE_STRIP" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_file_location = "Local path" ;
+	vertex_bind = 99 ;
+	vertex_fname_asked = "Derviche.vert" ;
+	vertex_file_check_change = ON ;
+	vu_float_01 = 5.22025 TraxLoc01Out ;
+	vu_float_03 = 0.19533 ;
+	vu_float_04 = 1 ;
+	vu_int_01 = 1 ;
+	vu_01_r_x = 0.2 ;
+	vu_01_g_y = 0.000977517 ;
+	vu_01_a_w = 1 ;
+	vu_02_r_x = 1 ;
+	vu_02_g_y = 1 ;
+	vu_02_b_z = 1 ;
+	vu_02_a_w = 1 ;
+	vu_03_b_z = 1 ;
+	vu_03_a_w = 1 ;
+	vu_04_r_x = 1 ;
+	vu_04_g_y = 1 ;
+	vu_04_b_z = 1 ;
+	vu_04_a_w = 1 ;
+	vu_05_r_x = 1 ;
+	vu_05_g_y = 1 ;
+	vu_05_b_z = 1 ;
+	vu_05_a_w = 1 ;
+	geometry_reload_trig = ON ;
+	fragment_file_location = "Local path" ;
+	fragment_bind = 99 ;
+	fragment_fname_asked = "Derviche.frag" ;
+	fragment_file_check_change = ON ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bind_2d = 1 ;
+	}

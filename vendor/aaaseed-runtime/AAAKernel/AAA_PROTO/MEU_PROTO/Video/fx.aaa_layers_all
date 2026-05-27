@@ -1,0 +1,40 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "PROTO_video.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_video" ;
+	play = ON ;
+	loop = ON ;
+	capture_run = ON ;
+	capture_device_index_asked = 2 ;
+	capture_size = "1920p/i" ;
+	capture_size_x = 1920 ;
+	capture_size_y = 1080 ;
+	incrust_luma = ON ;
+	incrust_min = 0.0889613 ;
+	incrust_max = 0.155925 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_particle" ;
+	bank_2d = 1 ;
+	use_tex_video = ON ;
+	}

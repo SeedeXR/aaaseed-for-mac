@@ -1,0 +1,17 @@
+-- preset for MEU|Video_C("Vin C")
+tab["bank"] = 0
+tab["bias"] = 0.5
+tab["bind"] = 3
+tab["capture"] = 0
+tab["clip"] = 0
+tab["gain"] = 0.62651857607028
+tab["loop"] = 1
+tab["max"] = 0.63506065120162
+tab["min"] = 0.51270081147822
+tab["monitor"] = 1
+tab["on cpu"] = 1
+tab["play"] = 1
+tab["restart"] = 0
+tab["sound"] = 0
+tab["step"] = 15.865208093934
+tab["volume"] = 1

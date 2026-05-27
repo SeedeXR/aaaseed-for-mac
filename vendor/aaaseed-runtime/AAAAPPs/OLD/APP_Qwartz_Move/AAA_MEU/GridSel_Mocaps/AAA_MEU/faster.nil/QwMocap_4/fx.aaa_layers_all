@@ -1,0 +1,67 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "qw_mocap.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_end = "Layer_Z" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 3 ;
+	draw_axe = ON ;
+	rot_x = -0.1625 ;
+	rot_y = 47.2388 ;
+	}
+//AAA::filename fx_a.mocap
+bdd_mocap ( Version 0 )
+	{
+	mocap_filename = "%media%/Qwartz/Move/Mocap/Dance/0018_Moonwalk001.bvh" ;
+	playing = ON ;
+	frame_cur = 812 ;
+	phase = 0.437155 ;
+	origin_y = -0.441867 ;
+	origin_on_node_y = 0 ;
+	origin_on_node_factor = 1 ;
+	interpolate = OFF ;
+	interpolate_rotation = OFF ;
+	tra_scale_factor = 0.0163731 ;
+	draw_node_end = 128 ;
+	draw_segment = ON ;
+	draw_segment_end = 29 ;
+	draw_path = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "CUBE" ;
+	size_factor = 0.03125 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.963313 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	}

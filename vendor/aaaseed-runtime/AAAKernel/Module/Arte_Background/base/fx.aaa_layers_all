@@ -1,0 +1,92 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TURBULENCE" ;
+	Freq = 0.00226099 ;
+	Min = -1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TURBULENCE" ;
+	Freq = 0.00390625 ;
+	Min = -0.746216 ;
+	Max = 0.746216 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TURBULENCE" ;
+	Freq = 0.0078125 ;
+	Min = 0.5 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_E" ;
+	index_cur = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 0.86 ;
+	ui_lock = ON ;
+	axe_visible = OFF ;
+	center_x = -0.966582 TraxLoc01Out ;
+	center_y = -0.700371 TraxLoc02Out ;
+	tra_z = -0.832 ;
+	final_scale_x = 0.531764 TraxLoc06Out ;
+	final_scale_y = 0.531764 TraxLoc06Out ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	tra_x = 2.112 ;
+	tra_y = 1.432 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	}
+//AAA::filename fx_b.image_gradient
+bdd_img_gradient ( Version 0 )
+	{
+	size_asked_x = 64 ;
+	size_asked_y = 64 ;
+	type = "radial" ;
+	factor = 3.39633 ;
+	clamp = 1 ;
+	stop_color_alpha = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_gradient" ;
+	bind_2d = 8 ;
+	}

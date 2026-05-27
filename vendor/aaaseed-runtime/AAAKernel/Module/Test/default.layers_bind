@@ -1,0 +1,18 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "PolygonNb/fx" ;
+	Bind_01 = "SndChannel/fx" ;
+	Bind_02 = "Voronoi_Pianotolli" ;
+	Bind_04 = "Curve/fx" ;
+	Bind_05 = "Tube/fx" ;
+	Bind_06 = "Part/fx" ;
+	Bind_08 = "Part_More_Classic/fx" ;
+	Bind_10 = "HH_ref/fx" ;
+	Bind_11 = "HH_Anamorphose_Plane/fx" ;
+	Bind_12 = "HH_Out/fx" ;
+	Bind_13 = "Voronoi/fx" ;
+	Bind_14 = "Terrain/fx" ;
+	Bind_16 = "Olive/fx" ;
+	Bind_18 = "Text/fx" ;
+	Bind_20 = "Compo/fx.layers" ;
+	}

@@ -1,0 +1,8 @@
+net_link ( Version 0 )
+	{
+	enable = ON ;
+	tcp_no_marker = OFF ;
+	port_nb = 18043 ;
+	dst_ip = "any" ;
+	disable_when_connection_failed = OFF ;
+	}

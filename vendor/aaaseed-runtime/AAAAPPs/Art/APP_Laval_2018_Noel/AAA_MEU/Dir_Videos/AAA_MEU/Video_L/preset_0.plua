@@ -1,0 +1,25 @@
+-- preset v0 for MEU_VIDEO|Vin L("Vin L")
+tab["bank"] = 5
+tab["bias"] = 0.5
+tab["bind"] = 0
+tab["capture"] = false
+tab["clip"] = false
+tab["cpu"] = true
+tab["flip u"] = 0
+tab["flip v"] = 0
+tab["gain"] = 0.5
+tab["gpu"] = true
+tab["incrust"] = true
+tab["inv"] = false
+tab["levels"] = { 0.50809895992279, 0.7000098824501 }
+tab["loop"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["monitor"] = true
+tab["play"] = true
+tab["sound"] = true
+tab["speed"] = 1
+tab["step"] = 10
+tab["timecode_in"] = 0
+tab["timecode_out"] = 32400
+tab["volume"] = 1

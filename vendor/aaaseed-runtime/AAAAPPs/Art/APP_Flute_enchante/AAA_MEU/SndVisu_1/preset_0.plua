@@ -1,0 +1,20 @@
+-- preset v0 for MEU|SndVisu_1
+tab["calib auto"] = 1
+tab["calib left"] = 0
+tab["calib right"] = 0
+tab["cycle"] = 1
+tab["decay"] = 1
+tab["decay_out"] = 0.34030767323751
+tab["doit"] = 1
+tab["factor"] = 0.35216283409142
+tab["input"] = 0.44032226198342
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mode"] = 2
+tab["offset"] = -0.94355206861757
+tab["pulse"] = 1
+tab["release"] = 0.94822261957085
+tab["release_out"] = 0.56513227370088
+tab["releasedecay_out"] = 0.27758800406726
+tab["threshold"] = 0
+tab["trig_out"] = 0.26160926916383

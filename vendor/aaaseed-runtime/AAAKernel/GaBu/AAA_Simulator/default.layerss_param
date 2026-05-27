@@ -1,0 +1,6 @@
+module ( Version 0 )
+	{
+	name_symbo = "gabu_simulator" ;
+	module_traxs = OFF ;
+	layers_index_end = 1 ;
+	}

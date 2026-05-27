@@ -1,0 +1,3 @@
+-- preset v0 for MEU_REF|Ref_Fbo_F2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true

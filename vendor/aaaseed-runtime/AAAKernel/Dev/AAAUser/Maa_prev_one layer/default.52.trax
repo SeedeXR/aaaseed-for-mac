@@ -1,0 +1,8 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_COPY" ;
+	Max = 16 ;
+	Filter = 0.721737 ;
+	out_selector_2 = "-Z" ;
+	}

@@ -1,0 +1,11 @@
+-- preset v0 for MEU|SOAnals_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 1
+tab["coverage_max"] = 1
+tab["coverage_min"] = 0.004
+tab["speed_threshold"] = { 0.25, 0.5 }
+tab["time down"] = 0.5
+tab["time up"] = 0.5

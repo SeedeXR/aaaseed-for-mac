@@ -1,0 +1,12 @@
+-- BU position value for BUS|Dir_Etienne
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.preset proto", 1 )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "a", 0 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos_value( "meshfield_kc", {-0.0125,0.1875, 0.225,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "meshfield_kl", {-0.0125,0.2625, 0.225,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "meshfield_kr", {-0.0125,0.125, 0.225,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "meshfield_so", {-0.0125,0.05, 0.225,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "meshstatic_1", {-0.0125,-0.1625, 0.225,0.05}, { render=0 } )
+BUS.set_bu_value( "restore", 0 )

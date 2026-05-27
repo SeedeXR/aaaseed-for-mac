@@ -1,0 +1,20 @@
+-- preset for MEU|NdcDof_1("proto_NdcDof")
+tab["blur size"] = 18.775255495901
+tab["cam_index"] = 0
+tab["depth_bank"] = 6
+tab["depth_bind"] = 16
+tab["depth_dim"] = 2
+tab["draw"] = true
+tab["far"] = { true, 22.717567443848 }
+tab["far_in_out"] = { 29.685915337548, 33.608210568163 }
+tab["near"] = { false, 3.9565277099609 }
+tab["near_out_in"] = { 20.85632682839, 22.930392375813 }
+tab["shader"] = 1
+tab["src_bank"] = 6
+tab["src_bind"] = 0
+tab["src_dim"] = 2
+tab["tex_bank"] = 5
+tab["tex_bind"] = 29
+tab["tex_dim"] = 2
+tab["use texture"] = 0
+tab["vdebug"] = 0

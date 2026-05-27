@@ -1,0 +1,11 @@
+-- preset v0 for MEU|NdcWorldMapDebug_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["draw"] = true
+tab["shader"] = true
+tab["tex_1_bank"] = 6
+tab["tex_1_bind"] = 0
+tab["tex_1_dim"] = 2
+tab["tex_2_bank"] = 6
+tab["tex_2_bind"] = 16
+tab["tex_2_dim"] = 1

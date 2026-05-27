@@ -1,0 +1,13 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "wone/fx" ;
+	Bind_01 = "Wromb/fx" ;
+	Bind_03 = "VideoFond/fx" ;
+	Bind_04 = "Part/fx" ;
+	Bind_06 = "Rain/fx" ;
+	Bind_10 = "Test/fx" ;
+	Bind_12 = "Wave/fx" ;
+	Bind_14 = "MaaTube/fx" ;
+	Bind_16 = "Turlututu/fx" ;
+	Bind_18 = "TpLua1/fx" ;
+	}

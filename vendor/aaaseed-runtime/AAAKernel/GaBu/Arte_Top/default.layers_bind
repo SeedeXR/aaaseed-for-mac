@@ -1,0 +1,5 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "ArteTrackingOnePoint/fx" ;
+	Bind_01 = "ArteTrackingOnTop/fx" ;
+	}

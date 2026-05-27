@@ -1,0 +1,217 @@
+AAASeed
+THE MANUAL
+
+THE BASICS
+	THE MOUSE
+		Left Button	+ drag :	At the begining Move the Camera around the center
+		Middle Button + drag :	Move Toward/Backward the camera to the center
+		Left Button :			POPUP MENUS
+	THE MENUS
+		POPUP		:	just read
+						keyboard shortcut are sometime in
+
+		PARAMETER	:	TAB	Toggle the visualisation of the PARAMETER MENU
+						ARROWS	move in it
+								
+	THE KEYBOARD
+		SHIFTLOCK	AVoid avoid avoid it will get you lost
+		ESC			double it to save environement (nearly everything)
+						and exit
+		!			recall the last menu
+		\		Toggle 4 views
+		a			Axe
+					Toggle the 3d axis display
+						RED	:	X	0
+						GREEN	:	Y	1
+						BLUE	:	Z	2
+					the Y axe (green) is vertical
+		e		Erase
+					Toggle Screen erase
+		²
+					Focus on Layers
+		&
+					Focus on Layer
+		é
+					Focus on Bdd
+		"
+					Focus on deformer
+		ALT and TAB
+					Toggle the bottom line and frame rate display
+
+	THE KEYBOARD FUNCTION KEYS
+		Voir Excel doc
+		
+	PARAMETER MENUS AND KEYBOARD
+		The principle is more like an Excel grid where each
+			colum correspond to a Parameter Set ( e.g. paticule, deformer, rendering)
+			and each line to a different Parameter.
+		You can move in the Grid with the Arrow Keys
+		You can move in one Colum with the Mouse
+		To change the selected Parameter (Green Color) use the Keyboard
+			or directly the Mouse ( axe Down/Up and/or Left/right).
+		The first and last line when the Parameter Menu is displayed show the
+			Previous Current Next Colums names.
+		The Title bar always reflect the current cell and the last operation done on it.
+		The application switch some time automaticly the current colum.
+		There is some shorcuts to select a colum using the function keys.
+
+		TAB			Toggle the Display
+
+		LEFT_ARROW	Previous Colum
+		RIGHT_ARROW	Next colum
+		UP_ARROW	Previous parameter
+		DOWN_ARROW	Next parameter
+
+		HOME		Default Value
+		END			Inactive Value
+		PAGE_UP		Maximum value
+		PAGE_DOWN	Minimum value
+
+		NUMPAD_/	Half value
+		NUMPAD_*	Double value
+		NUMPAD_-	Decrement value
+		NUMPAD_+	Increment value
+
+		NUMPAD_ENTER	Toggle sign
+		NUMPAD_.	Closest integer value
+
+		CTRL and LEFT_ARROW
+				Previous Modifier
+		CTRL and RIGHT_ARROW
+				Next Modifier
+		ATL and (LEFT_ARROW or RIGHT_ARROW)
+				Toggle deformer active
+
+		ALT and CTRL and UP_ARROW
+				previous Layers
+		ALT and UP_ARROW
+				previous Layer
+		ALT and CTRL and DOWN_ARROW
+				next Layers
+		ALT and DOWN_ARROW
+				next Layer
+
+
+THE	REST
+	THE KEYBOARD LETTERS
+		a		Axe
+					toggle visibility
+		ALT and a	Axe Origin
+					toggle visibility
+		b or B		Back
+					3 state Toggle for the rendering of the backface
+					FILL->LINE->POINT->FILL	
+		c or C		Cull
+					3 state Toggle for culling
+					NONE->BACK->FRONT->NONE
+		ALT and (c or C)
+				Cull
+					force to NONE
+		d or D		Depth
+					Toggle for ZBuffer
+		e		Erase
+					Toggle erase (allow trail)
+		E		Erase
+					Toggle ZBuffer erase
+		CTRL and E	Erase
+					Toggle Screen and ZBuffer erase
+					and put them the same state
+		f or F		Front
+					3 state Toggle for the rendering of the frontface
+					FILL->LINE->POINT->FILL
+		ALT and f		
+					Toggle global force_line
+		g or G		Gouraud
+					Toggle Gouraud
+		h or H		MIDI
+					send test data on MIDI
+		i			3 state Toggle for the Mapping
+						NONE->1D->2D->NONE
+		I			Idem but reverse
+						NONE->2D->1D->NONE
+		ALT and i
+					Toggle implicit texture (see rendering)
+		k			close to i
+					next texture (1D or 2D depending on iI) in Menu Bind
+		K			close to i
+					previous texture (1D or 2D depending on iI) in Menu Bind
+		ALT and k		
+					Toggle global allow_texture
+		
+		l or L		Light
+					Toggle Lighting
+		ALT and k	Light	
+					Toggle global allow_light
+		m		Model
+					next model in Menu BDD
+		M		Model
+					previous model in Menu BDD
+		n		Automap
+					Automap ( Ask michel Bret )
+		N		
+					focus on special
+					focus on MIDI
+					focus on JOY
+		o		
+					Toggle camera perspective
+		O		Optimize
+					Toggle List rendering
+					Infact freeze 3D Objet
+		P		Print
+					print rendering stat for 100 frames
+		p		Pointer (cursor)
+					Toggle pointer visibility
+		ALT and p	Pointer (cursor)
+					Toggle pointer visibility on the video zone
+		q		
+					Next program
+		Q		
+					previous program
+		r		restart
+					restart current Bdd
+		ALT and r		Refesh
+					Read from disk the current 2D texture
+		R
+					flip recording
+		s		Snapshot
+					write the current window image under the filename snapshot.tga
+		ALT and s	Save
+					Save ALL
+		S		Snap
+					focus on Snap
+		ALT and S	Snaphot Toggle
+					the real snapshot
+					ask for the name ( e.g toto )
+					save an animation according to the Snap Parameter Menu
+					under numbered filenames ( e.g. toto0000.tga to toto0040.tga ).
+					Pressing ALT and S during the snapshot, stop it.
+		t		Time
+					Reinitialize time to 0
+		T		Time
+					Toggle Real time
+		v or V
+					toggle draw curve
+		w or W
+					toggle Camera full screen
+		ALT and (w or W)
+					toggle Camera video mode
+		ALT and (v or V)
+					Toggle flying Camera
+					Arrow and Numeric Pad drive the camera
+		
+		x y z		Align Camera on to the corresponding axe
+						looking to the negative side
+		X Y Z		Align Camera on to the corresponding axe
+						looking to the positive side
+		\		
+				Toggle four views
+
+
+					
+					
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	multiple_only = ON ;
+	camera_index_ui = 4 ;
+	used_for_picking = OFF ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0225 ;
+	rot_y = 0.00250006 ;
+	tra_z = -4.7361 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.0113338 ;
+	rot_y = 0.913055 ;
+	tra_z = -4.88135 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_z_frequency = 0.0174663 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0352903 ;
+	rot_y = 0.0945669 ;
+	tra_x = -1.03401 ;
+	tra_y = 0.012 ;
+	tra_z = -40.8496 ;
+	}
+//AAA::filename fx.08.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00199995 ;
+	rot_y = 0.00949996 ;
+	tra_z = -13.7379 ;
+	}
+//AAA::filename fx.11.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00448392 ;
+	rot_y = 0.000500002 ;
+	tra_x = -0.014 ;
+	tra_y = -0.002 ;
+	tra_z = -4.62656 ;
+	}
+//AAA::filename fx.12.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00999992 ;
+	rot_y = 0.0384992 ;
+	tra_z = -5.6703 ;
+	}
+//AAA::filename fx.13.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0235 ;
+	rot_y = -0.0525001 ;
+	tra_z = -3.82205 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	}

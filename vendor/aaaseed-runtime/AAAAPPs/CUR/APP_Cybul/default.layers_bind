@@ -1,0 +1,10 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "CybulOpen/fx" ;
+	Bind_01 = "CybulUI/fx" ;
+	Bind_02 = "CybulMath/fx" ;
+	Bind_03 = "CybulBanne/fx" ;
+	Bind_04 = "CybulPergolaMur/fx" ;
+	Bind_05 = "CybulPergola/fx" ;
+	Bind_06 = "CybulIO/fx" ;
+	}

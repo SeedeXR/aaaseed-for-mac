@@ -1,0 +1,8 @@
+-- preset v0 for MEU|CMire_1
+tab["alpha1"] = true
+tab["alpha2"] = true
+tab["dst"] = 0
+tab["hsv1"] = false
+tab["hsv2"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true

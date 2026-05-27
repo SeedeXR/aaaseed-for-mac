@@ -1,0 +1,59 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "Owner" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	camera_index_ui = 1 ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	ortho_size = 4.40494 ;
+	orbiting = ON ;
+	rot_x_frequency = 0.0929011 ;
+	rot_x = 1.263 ;
+	rot_y = -0.049 ;
+	tra_z = -1.43152 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	size_asked_x = 320 ;
+	size_asked_y = 240 ;
+	channel_nb = 4 ;
+	channel_type = "int16" ;
+	tex_1_bind_2d_asked = 113 ;
+	tex_1_mipmap_generate = ON ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 3 ;
+	bind_2d = 18 ;
+	}

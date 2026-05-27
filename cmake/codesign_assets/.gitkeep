@@ -1,0 +1,11 @@
+# Placeholder so cmake/codesign_assets/ is tracked by git.
+#
+# Future home for :
+#   - Provisioning profile (.provisionprofile) when sandboxed distribution lands.
+#   - Bundled entitlements variants (release vs debug) if the surface diverges.
+#   - notarytool / stapler audit logs captured during release.
+#
+# As of c138-B (2026-05-27) this directory is empty -- the canonical
+# entitlements.plist lives at bundle/macos/entitlements.plist (c136-B)
+# and codesign.cmake references it from there. Drop assets here only
+# when a future signing pipeline needs them as bundled inputs.

@@ -1,0 +1,14 @@
+-- BU position for Fishs
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_pos( 0, "aaaref", -1.9775181304054, 1.0880770441342, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "aaaref", -3, 1, 0.1, 0.1, 0 )
+BUS.set_bu_pos( 0, "A", -1.1360044586027, -1.2442487308136, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "A", -3.2286029989861, -1.3313298527188, 0.1, 0.1, 0 )
+BUS.set_bu_pos( 0, "B", -0.64170874942673, -1.256321040116, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "B", -1.459221176687, -1.6534773504891, 0.1, 0.1, 0 )
+BUS.set_bu_mini( 0, "B", true )
+BUS.set_bu_pos( 0, "C", 1, -1, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "C", 1, -1, 0.1, 0.1, 0 )
+BUS.set_bu_pos( 0, "D", 3, -1, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "D", 3, -1, 0.1, 0.1, 0 )

@@ -1,0 +1,130 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "img_parts.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	camera_index_ui = 4 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 4.63654 ;
+	rot_x = 0.11 ;
+	rot_y = 9.876 ;
+	tra_x = 1.224 ;
+	tra_y = -1.812 ;
+	tra_z = -10.5817 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 2.14613 ;
+	rot_x = 0.25 ;
+	tra_x = -0.016 ;
+	tra_y = -0.064 ;
+	tra_z = -5.17491 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 5.4357 ;
+	rot_x = 0.25 ;
+	tra_x = -0.016 ;
+	tra_y = -0.064 ;
+	tra_z = -5.17491 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0539999 ;
+	rot_y = -4.10951 ;
+	tra_x = 10.54 ;
+	tra_y = -0.697999 ;
+	tra_z = -12.6663 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.188 ;
+	rot_y = -0.0150004 ;
+	tra_x = 0.176 ;
+	tra_y = 3.54201 ;
+	tra_z = -31.0335 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0455 ;
+	rot_y = -0.0375 ;
+	tra_z = -0.746748 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.957 ;
+	rot_y = 0.001 ;
+	tra_x = 0.48 ;
+	tra_y = -2.676 ;
+	tra_z = -2.127 ;
+	}
+//AAA::filename fx_a.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	image_src = 159 ;
+	discrete = ON ;
+	draw_frame_in = OFF ;
+	draw_corosshair = OFF ;
+	draw_center = OFF ;
+	coverage_min = 0.002 ;
+	coverage_max = 0.003 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 8.40488 ;
+	point_size = 8.08656 ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_separate = ON ;
+	blend_alpha_src = "ZERO" ;
+	blend_alpha_dst = "ZERO" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.005 ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	geometry_reload_trig = ON ;
+	fragment_file_location = "Local path" ;
+	fragment_fname_asked = "recit_back.frag" ;
+	fragment_file_check_change = ON ;
+	compute_reload_trig = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_img_analyse" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	comment = "check entry in room" ;
+	}

@@ -1,0 +1,23 @@
+-- preset v0 for MEU|NdcPost_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 5
+tab["cam_use"] = 0
+tab["color_blue"] = 1
+tab["color_green"] = 1
+tab["color_grey"] = 1
+tab["color_red"] = 1
+tab["draw"] = true
+tab["exposure"] = 0
+tab["fade"] = 1
+tab["fade_color_blue"] = 0
+tab["fade_color_green"] = 0
+tab["fade_color_grey"] = 1
+tab["fade_color_red"] = 0
+tab["fade_range"] = 0.06093158975615
+tab["gamma"] = 1
+tab["kelvin"] = 5500
+tab["shader"] = true
+tab["tex_1_bank"] = 6
+tab["tex_1_bind"] = 0

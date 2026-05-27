@@ -1,0 +1,15 @@
+-- preset v0 for MEU|NdcWorldMapDistanceDebug_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["draw"] = true
+tab["multiplier"] = 4.4378690719604
+tab["shader"] = true
+tab["tex_1_bank"] = 6
+tab["tex_1_bind"] = 0
+tab["tex_1_dim"] = 2
+tab["tex_2_bank"] = 6
+tab["tex_2_bind"] = 16
+tab["tex_2_dim"] = 1
+tab["tex_3_bank"] = 5
+tab["tex_3_bind"] = 31
+tab["tex_3_dim"] = 1

@@ -1,0 +1,80 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "mu_begin.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	camera_index_ui = 12 ;
+	used_for_picking = OFF ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0225 ;
+	rot_y = 0.00250006 ;
+	tra_z = -4.7361 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0255 ;
+	rot_y = -0.038 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.1085 ;
+	rot_y = 0.3735 ;
+	tra_z = -4.05925 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0155 ;
+	rot_y = -0.000500009 ;
+	tra_z = -4.48174 ;
+	}
+//AAA::filename fx.08.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00199995 ;
+	rot_y = 0.00949996 ;
+	tra_z = -13.7379 ;
+	}
+//AAA::filename fx.11.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00600001 ;
+	rot_y = -0.0215 ;
+	tra_x = -0.014 ;
+	tra_y = -0.002 ;
+	tra_z = -7.82313 ;
+	}
+//AAA::filename fx.12.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00999992 ;
+	rot_y = 0.0384992 ;
+	tra_z = -5.6703 ;
+	}
+//AAA::filename fx.13.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0235 ;
+	rot_y = -0.0525001 ;
+	tra_z = -3.82205 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	}

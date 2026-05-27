@@ -1,0 +1,17 @@
+-- preset v0 for MEU|PrimalBenGenerator_1
+tab["active"] = true
+tab["amplitude"] = 1
+tab["bu in"] = ""
+tab["bu out"] = ""
+tab["const"] = 0.5
+tab["loop ramp"] = false
+tab["loop sine"] = true
+tab["__meu_bar.draw"] = true
+tab["meu in"] = ""
+tab["meu out"] = ""
+tab["__meu_bar.update"] = true
+tab["period"] = 5
+tab["ramp out"] = 1
+tab["ramp range"] = { 0, 1 }
+tab["ramp time"] = 5
+tab["sine out"] = 0.83048503592062

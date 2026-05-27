@@ -1,0 +1,26 @@
+net ( Version 0 )
+	{
+	active = ON ;
+	master = ON ;
+	host_field_0 = 192 ;
+	host_field_1 = 168 ;
+	host_field_2 = 1 ;
+	host_field_3 = 102 ;
+	host_id = 102 ;
+	mess_hello = "GaBuZo Alive" ;
+	mess_bye = "GaBUZo Out" ;
+	blk_size_max = 8192 ;
+	nb_blk_max = 8000 ;
+	loop_reception_channel_non_0 = ON ;
+	link_base_0 = ON ;
+	link_1 = ON ;
+	link_3 = ON ;
+	link_8 = ON ;
+	link_10 = ON ;
+	link_11 = ON ;
+	link_12 = ON ;
+	link_13 = ON ;
+	link_14 = ON ;
+	link_15 = ON ;
+	link_16 = ON ;
+	}

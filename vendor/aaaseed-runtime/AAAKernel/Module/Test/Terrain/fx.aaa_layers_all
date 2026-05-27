@@ -1,0 +1,125 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_y_frequency = 0.0231421 ;
+	rot_x = 1.031 ;
+	rot_y = 10.1177 ;
+	tra_z = -5.00235 ;
+	}
+//AAA::filename fx_a.bdd_terrain
+bdd_terrain ( Version 0 )
+	{
+	order = 7 ;
+	rand = 5 ;
+	fractal_dim_min = 2.06454 ;
+	fractal_dim_max = 2.7293 ;
+	fractal_dim_freq = 0.965349 ;
+	sea_level = 0 ;
+	addition = OFF ;
+	seed = 572 ;
+	draw_color = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	back_mode = "LINE" ;
+	light = ON ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	normal_point = 0.662253 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_implicit = OFF ;
+	tex_axe = "Z" ;
+	tex_factor = 0.125 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_terrain" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 2 ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 8 ;
+	nb_v = 128 ;
+	nb_axe = 3 ;
+	}
+//AAA::filename fx_b00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	fn = "Turbulence" ;
+	harmonique_nb = 4 ;
+	space_period = 4.46713 ;
+	strenght = 4.4399 ;
+	offset = 0.5 ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_b00.def" def_00 = ON ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	line_size = 0.698142 ;
+	primitive = "LINES" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_axe = 0.290871 ;
+	size_factor = 8 ;
+	}
+//AAA::filename fx_b.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_4 = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}

@@ -1,0 +1,139 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "imgbouquet.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 3.53365 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -2.17432 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0535 ;
+	rot_y = 0.157 ;
+	tra_x = 0.144 ;
+	tra_y = -0.02 ;
+	tra_z = -3.53238 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	line_size = 3.606 ;
+	light = ON ;
+	depth = ON ;
+	normal = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "mapping" ;
+	tex_use = "2D" ;
+	tex_by_side = ON ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.900544 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "dummy" ;
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 8 ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_file_location = "Local path" ;
+	vertex_fname_asked = "imgbouquet.vert" ;
+	vertex_file_check_change = ON ;
+	geometry_file_check_change = ON ;
+	fragment_file_location = "Local path" ;
+	fragment_fname_asked = "imgbouquet.frag" ;
+	fragment_file_check_change = ON ;
+	fu_float_01 = 11860 ;
+	fu_float_02 = 0.0626328 ;
+	fu_float_03 = 1.15543 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_shading = "Owner" ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 128 ;
+	nb_v = 128 ;
+	}
+//AAA::filename fx_c00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	axe = "Z" ;
+	strenght = 2 ;
+	phase_speed = 0.25 ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_c.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_c00.def" def_00 = ON ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_deformer = "Owner" ;
+	bind_1d = 0 TraxLoc01Out ;
+	bind_2d = 1 ;
+	}

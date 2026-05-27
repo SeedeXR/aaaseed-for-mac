@@ -1,0 +1,8 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_RANDOM_GAUSS" ;
+	Freq = 0.25 ;
+	Min = -4 ;
+	Max = 4 ;
+	}

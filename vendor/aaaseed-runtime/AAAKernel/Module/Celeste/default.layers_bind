@@ -1,0 +1,12 @@
+bind ( Version 0 )
+	{
+	Bind_01 = "TouchCo/fx" ;
+	Bind_02 = "Fluid/fx" ;
+	Bind_03 = "Camera/fx" ;
+	Bind_04 = "Visu_Interaction/fx" ;
+	Bind_06 = "Boid/fx" ;
+	Bind_08 = "Facade/fx" ;
+	Bind_10 = "Texture_Front/fx" ;
+	Bind_11 = "Texture_Back/fx" ;
+	Bind_12 = "Texture_Top/fx" ;
+	}

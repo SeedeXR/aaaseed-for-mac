@@ -1,0 +1,8 @@
+-- preset v0 for MEU|FPVanGogh_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["draw"] = 2
+tab["field"] = false

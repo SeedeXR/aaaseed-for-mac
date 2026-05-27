@@ -1,0 +1,12 @@
+//AAA::set_filename_relative
+//AAA::filename Ex_Luafx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "meu_app.lua" ;
+	}
+//AAA::filename Ex_Luafx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	}

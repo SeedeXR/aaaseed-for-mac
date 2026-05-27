@@ -1,0 +1,30 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_MULTIPLE_POS" ;
+	Max = 6.78947 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.circle
+bdd_circle ( Version 0 )
+	{
+	point_nb = 6 ;
+	center_x = 27.1579 TraxLoc01Out ;
+	center_y = 20.3684 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_circle" ;
+	use_model = ON ;
+	}

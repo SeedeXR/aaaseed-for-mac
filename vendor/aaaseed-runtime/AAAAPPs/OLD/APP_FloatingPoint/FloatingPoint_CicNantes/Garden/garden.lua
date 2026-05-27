@@ -1,0 +1,8 @@
+APP.DECLARE( "FP_CIC_NANTES", APP_GP )
+
+local L_APP = FP_CIC_NANTES
+
+if IS_BUSS_OPEN() then
+	APP.CREATE_INST( L_APP )
+end
+

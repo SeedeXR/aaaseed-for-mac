@@ -1,0 +1,7 @@
+curve_info ( Version 0 )
+{
+	curve_type = "Catmull Rom" ;
+	curve_loop = OFF ;
+	curve_lod = 8 ;
+	curve_tightness = 0.796269 ;
+}

@@ -1,0 +1,8 @@
+-- preset for MEU|Liberty_1
+tab["cam_index"] = 0
+tab["dim"] = 2
+tab["f1"] = 0.72471965800973
+tab["f2"] = 0.89245184830351
+tab["tex_bank"] = 1
+tab["tex_bind"] = 2
+tab["type"] = 2

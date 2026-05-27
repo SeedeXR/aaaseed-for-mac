@@ -1,0 +1,4 @@
+-- preset for MEU_DIR|Clari("Clari")
+tab["a"] = 1
+tab["b"] = 0
+tab["restore"] = 1

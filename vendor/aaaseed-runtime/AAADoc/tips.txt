@@ -1,0 +1,11 @@
+Pour lancer AAASeed automatique au démarrage :
+WIN10:
+- au clavier faire WIN + R
+- un dialogue apparait : y taper shell:startup puis return
+- une fenetre du dossier de demarage apparait
+- y creer un raccourci sur AAASeed_WatchDog.exe ( drag and drop avec Alt )
+
+pour virer le mot de passe : Setting (en bas a gauche) -> accounts -> sign in options
+
+if a file ir durectory end with "nil" it will be ignored
+

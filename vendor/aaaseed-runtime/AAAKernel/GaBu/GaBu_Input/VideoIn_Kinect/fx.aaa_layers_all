@@ -1,0 +1,149 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "kinect.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "Left_Right" ;
+	lua = ON ;
+	use_camera = "Owner" ;
+	name_symbo = "GaBuIn_kinect_layers" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0425 ;
+	rot_y = 0.0265001 ;
+	tra_z = -5.22848 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	depth_write = OFF ;
+	top_line = ON ;
+	top_red = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabuin_texvideo_kinect_1" ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_open = ON ;
+	capture_run = ON ;
+	capture_device_id_asked = "USB\VID_045E&PID_02C2\5&23F5E648&0&6" ;
+	remanence_time = 4096 ;
+	remanence_diff_min = 0.0487483 ;
+	remanence_diff_factor = 3.62812 ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	motor_active = ON ;
+	motor_position = 0.245565 ;
+	depth_start_with_near_mode = ON ;
+	depth_start_640_480 = ON ;
+	depth_render_type = "Grey" ;
+	depth_raw_min = 0.288263 ;
+	depth_raw_max = 0.752937 ;
+	depth_meter_central = 2.28752 ;
+	depth_erase_3_y = 0.288263 ;
+	depth_erase_3_sx = 0.752937 ;
+	rgb_asked = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	use_tex_video = ON ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	top_line = ON ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.101618 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 0.325269 ;
+	translate_y = 0.802361 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 12 ;
+	}

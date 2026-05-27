@@ -1,0 +1,4 @@
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	}

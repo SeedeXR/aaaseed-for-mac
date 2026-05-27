@@ -1,0 +1,16 @@
+-- preset for MEU|MonacoCam_1
+tab["fill"] = false
+tab["line size"] = 4.8483103793504
+tab["monaco"] = true
+tab["monaco color_alpha"] = 1
+tab["monaco color_blue"] = 1
+tab["monaco color_green"] = 1
+tab["monaco color_grey"] = 1
+tab["monaco color_red"] = 1
+tab["poc"] = true
+tab["poc color_alpha"] = 1
+tab["poc color_blue"] = 1
+tab["poc color_green"] = 1
+tab["poc color_grey"] = 1
+tab["poc color_red"] = 0
+tab["screen"] = 4

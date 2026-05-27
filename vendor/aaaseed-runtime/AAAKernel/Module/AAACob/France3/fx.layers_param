@@ -1,0 +1,9 @@
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	index_cur = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}

@@ -1,0 +1,281 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_DISTANCE" ;
+	Limit = "ABSOLUTE_THEN_CLAMP" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Min = 1 ;
+	Max = 0 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON TraxLoc02Out ;
+	Fn = "RANDOM_LINEAR" ;
+	Freq = 2048 ;
+	Max = 32 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON TraxLoc02Out ;
+	Fn = "RANDOM_LINEAR" ;
+	Freq = 64 ;
+	Min = 1 ;
+	Max = 16 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.08.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "CONTROL" ;
+	Channel = 5 ;
+	Control_id = 7 TraxLoc04Out ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "SLIDE_INDEX" ;
+	Limit = "WRAP" ;
+	Limit_max = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_01 = -0 TraxLoc01In ;
+	value_05 = 0 TraxLoc01Out TraxLoc02In ;
+	value_10 = 0 TraxGlo42Out TraxLoc01In ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_G" ;
+	index_end = "Layer_G" ;
+	camera_index_ui = 4 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.48 ;
+	rot_y = 0.113 ;
+	tra_z = -29.4591 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.5 ;
+	tra_z = -3.5798 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.276 ;
+	rot_y = 0.02 ;
+	tra_z = -4.22932 ;
+	}
+//AAA::filename fx_a.cone
+bdd_cone ( Version 0 )
+	{
+	radius_top = 26.2079 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	gouraud = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_mode = "SPHERE" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 0.0625 ;
+	size_v = 0.0625 ;
+	size_axe = 2.6 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_grey = 0 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	rotate = ON ;
+	rotate_order = "YXZ" ;
+	rotate_x = -0 TraxGlo41Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 4 ;
+	bind_2d = 7 ;
+	use_lights_switch = ON ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_alpha = 0 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 0 TraxGlo42Out ;
+	rotate = ON ;
+	rotate_order = "YXZ" ;
+	rotate_x = 0 TraxGlo43Out ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cone" ;
+	use_color = ON ;
+	bind_1d = 9 ;
+	bind_2d = 8 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	texture_feedback = ON ;
+	tex_flip_uv = ON ;
+	}
+//AAA::filename fx_d.model
+model ( Version 0 )
+	{
+	size_v = 1.41424 ;
+	size_factor = 0.221068 ;
+	}
+//AAA::filename fx_d.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_z = -2.38086 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	bind_2d = 29 ;
+	bind_2d_offset = 20 TraxLoc03Out ;
+	trs_1 = "CURRENT" ;
+	trs_2 = "Owner" ;
+	}
+//AAA::filename fx_e.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	align_horizontal = 0.5 ;
+	text = "" TraxLoc08Out ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	front_mode = "POINT" ;
+	}
+//AAA::filename fx_e.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_z = -3.33358 ;
+	rotate = ON ;
+	rotate_x = -0.25 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	trs_1 = "CURRENT" ;
+	trs_2 = "Owner" ;
+	}
+//AAA::filename fx_g.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 7.42528 ;
+	translation_x = -0.369128 ;
+	translation_y = -2.49538 ;
+	translation_z = -0.0861083 ;
+	draw_file_normal = ON ;
+	model_filename = "Geo3d\CarmenCarrying.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_g.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_g.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_x = -0.25 ;
+	rotate_y = -0.25 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON TraxLoc10Out ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	trs_1 = "Owner" ;
+	}

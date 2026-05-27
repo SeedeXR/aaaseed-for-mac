@@ -1,0 +1,24 @@
+-- preset v0 for MEU|ShaSkinTapestry_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 5
+tab["cam_use"] = 0
+tab["curve"] = false
+tab["deform"] = false
+tab["draw line"] = true
+tab["draw point"] = false
+tab["fish size"] = 1.6606485843658
+tab["heigth"] = 0.35014047116672
+tab["maa orientation"] = false
+tab["radius"] = 4.0582588033664
+tab["render.back"] = 0
+tab["render.cull"] = 2
+tab["render.depth"] = false
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 1
+tab["render.normal"] = 8
+tab["render.normal active"] = false
+tab["render.point"] = 1
+tab["shader"] = true

@@ -1,0 +1,6 @@
+module ( Version 0 )
+	{
+	name_symbo = "MEU_OUT" ;
+	layers_index_cur = 2 ;
+	load_all = OFF ;
+	}

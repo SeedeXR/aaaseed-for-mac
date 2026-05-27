@@ -1,0 +1,43 @@
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+
+void main( void )
+{
+
+	vec2 position = gl_TexCoord[0].st;
+
+	float a = pow(1.0-abs(position.y+cos(position.x*6.0+aaa_fu_float[0])/10.0-0.75),50.0);
+	float b = pow(1.0-abs(position.y-cos(position.x*5.0+aaa_fu_float[0])/10.0-0.5),50.0);
+	float c = pow(1.0-abs(position.y+cos(position.x*7.0+aaa_fu_float[0])/10.0-0.25),50.0);
+
+	float f = pow(1.0-abs(position.y+sin( position.x*2.0+aaa_fu_float[0] )/1.0-0.25), 0.5);
+
+	vec3 col = vec3(a,b,c);
+	col += .5 * vec3(f/sin(aaa_fu_float[0]*0.3),f/sin(aaa_fu_float[0]*0.2),f/cos(aaa_fu_float[0]*0.1) );
+	col += b;
+	col -= a;
+	gl_FragColor = vec4( col, 0.2 );
+
+}

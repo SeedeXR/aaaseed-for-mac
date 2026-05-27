@@ -1,0 +1,17 @@
+flatland ( Version 0 )
+	{
+	character_size_x = 8 ;
+	character_size_y = 24 ;
+	draw_info_lua = ON ;
+	Draw_Logo = OFF ;
+	character_comment_scale_x = 0.746215 ;
+	character_comment_trax_scale_x = 0.8 ;
+	character_Line_Size = 2 ;
+	message_character_size_factor_y = 1.5 ;
+	message_line_nb = 12 ;
+	OFF_Blue = 0.25 ;
+	Back_Color_High_red = 0.5 ;
+	Back_Color_High_green = 0.5 ;
+	Back_Color_Low_blue = 0 ;
+	Back_Color_Low_alpha = 0.5 ;
+	}

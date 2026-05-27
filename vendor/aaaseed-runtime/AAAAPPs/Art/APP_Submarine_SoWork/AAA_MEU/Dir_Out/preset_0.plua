@@ -1,0 +1,13 @@
+-- preset for MEU_DIR|OUT("OUT")
+tab["a"] = 0
+tab["b"] = 0
+tab["out_1"] = 1
+tab["out_2"] = 0
+tab["out_3"] = 0
+tab["out_4"] = 0
+tab["out_fpl"] = 1
+tab["out_fpr"] = 1
+tab["out_fuzzy2screensl"] = 1
+tab["out_fuzzy2screensr"] = 1
+tab["restore"] = 0
+tab["signature_1"] = 0

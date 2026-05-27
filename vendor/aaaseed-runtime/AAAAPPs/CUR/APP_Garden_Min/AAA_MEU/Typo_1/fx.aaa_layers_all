@@ -1,0 +1,114 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	multiple_only = ON ;
+	camera_index_ui = 7 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	stereo_frustum_eye_interval = 0.075 ;
+	stereo_eye_active = OFF ;
+	stereo_eye_interval = 0.075 ;
+	stereo_eye_angle_degree = -1 ;
+	focal = 30 ;
+	orbiting = ON ;
+	orbiting_play = OFF ;
+	rot_y_frequency = 0.0739137 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.002 ;
+	tra_z = -1.54538 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 2.41469 ;
+	rot_x = 9.49949e-11 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.0095 ;
+	rot_y = -0.01 ;
+	tra_x = -0.408 ;
+	tra_y = 0.478 ;
+	tra_z = -2.83191 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_z = 0.755818 ;
+	}
+//AAA::filename fx_a.text
+bdd_text ( Version 0 )
+	{
+	origin_x = 0.00922571 ;
+	origin_y = -0.644609 ;
+	axe = "Z" ;
+	font = 20 ;
+	alignment = "Center" ;
+	alignment_vertical = "middle" ;
+	interline = 1.15762 ;
+	line_length = 64 ;
+	face_size = 192 ;
+	text = "FANTOM ta mère" ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_env_mode = "ADD" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_axe = 4 ;
+	size_factor = 0.24519 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_text" ;
+	use_model = ON ;
+	use_multiple = "CURRENT" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 5 ;
+	bind_2d = 1 ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_use_color_dst = "Diffuse" ;
+	material_front = 84 ;
+	material_back = 84 ;
+	}

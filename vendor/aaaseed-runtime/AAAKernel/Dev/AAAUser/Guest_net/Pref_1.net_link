@@ -1,0 +1,11 @@
+net_link ( Version 0 )
+	{
+	active = ON ;
+	enable = ON ;
+	watchdog_enable = ON ;
+	tcp_no_marker = OFF ;
+	port_nb = 18042 ;
+	dst_ip = "210" ;
+	port_nb_udp_dst = 18042 ;
+	disable_when_connection_failed = OFF ;
+	}

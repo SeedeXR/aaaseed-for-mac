@@ -1,0 +1,67 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.5895 ;
+	rot_y = -0.000500092 ;
+	tra_z = -2.22733 ;
+	clip_close_perspective = 0.16 ;
+	clip_far_perspective = 6.25 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 1024 ;
+	nb_by_sec = 16 ;
+	flow_continuous = ON ;
+	life_time = 16 ;
+	emission_box_size_factor = 4 ;
+	emission_mask_sphere = ON ;
+	jitter_speed_abs = 0 ;
+	clipping = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	depth = ON ;
+	top_line = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYERS_NAME" ;
+	axe = "Z" ;
+	size_v = 2.10366 ;
+	size_factor = 0.2063 ;
+	target_name = "wone" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_grey = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

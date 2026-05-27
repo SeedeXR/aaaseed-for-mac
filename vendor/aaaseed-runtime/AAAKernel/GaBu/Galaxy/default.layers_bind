@@ -1,0 +1,7 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "BlackBack/fx" ;
+	Bind_01 = "test/fx" ;
+	Bind_02 = "FrameBlack/fx" ;
+	Bind_03 = "Galaxy_Mask/fx" ;
+	}

@@ -1,0 +1,366 @@
+#define PHASE_FLUID 2135949312
+#define PHASE_NONE 0
+
+struct st_part_custom
+{
+	uint  _active;
+	float _age;
+	float _emitter_sel;
+	int   _hit_test;
+};
+
+CONST float	phase					= aaa_cu_float[0];
+
+CONST float	density_y				= aaa_cu_float[4];
+CONST float	fall_age				= aaa_cu_float[5];
+CONST float	fall_speed				= aaa_cu_float[6];
+CONST float	fall_speed_time_factor	= aaa_cu_float[7];
+
+CONST float velx					= aaa_cu_vec4[0].x;
+CONST int	s_fx					= aaa_cu_int[0];
+CONST float	s_fx_force_1			= aaa_cu_float[23];
+CONST float	s_fx_force_2			= aaa_cu_float[22];
+CONST float	s_fx_rnd_2				= aaa_cu_float[21];
+CONST float	s_fx_rnd_1				= aaa_cu_float[20];
+CONST float	f_field_grad			= aaa_cu_float[19];
+
+
+//note, since we run acceleration + integrate back to back, we just bind pos/vel/accel directly and dispatch once with each shader
+layout( std430, binding=0 ) buffer particles_pos_outbuffer			{	vec4			pos_out[];			};
+layout( std430, binding=1 ) buffer particles_vel_out_buffer	        {	float			vel_out[];			};
+layout( std430, binding=2 ) buffer particles_phase_out_buffer	    {	uint			phase_out[];		};
+layout( std430, binding=3 ) buffer particles_custom_out_buffer		{	st_part_custom	custom_out[];		};
+
+layout( std430, binding=4 ) buffer particles_free_indices_buffer	{	uint  			free_indices_out[];	};
+layout( std430, binding=5 ) buffer particles_free_accum_buffer		{	uint 			free_accum_out[]; 	};
+
+layout( std430, binding=6 ) buffer particle_density_in_buffer	    {	float			dens_in[];			};
+layout( std430, binding=8 ) buffer particle_acc_buffer	    		{	float			acc[];				};
+
+layout(binding = 0) uniform particles_settings_block
+{
+	st_flex_solver sd;
+} u_particles_settings;
+
+//texture inputs
+layout(binding = 0) uniform sampler2D g_input_texture;
+
+//texture inputs
+layout(binding = 2) uniform sampler2D g_dist_texture;
+
+#define GROUP_SIZE 512
+layout( local_size_x = GROUP_SIZE, local_size_y = 1, local_size_z = 1 ) in;
+
+
+void main(void)
+{
+	uint index = gl_GlobalInvocationID.x;
+	if( u_particles_settings.sd._active_nb <= index  )
+		return;
+
+	// position and velocity
+	vec4 p = pos_out[index];
+	vec3 v = vec3( vel_out[index*3], vel_out[index*3+1], vel_out[index*3+2] );
+
+	st_part_custom custom = custom_out[index];
+
+	float dens = dens_in[index];
+	//v.y -= dens * density_y;
+
+	float dt = u_particles_settings.sd._dt;
+
+//	bool is_user = custom._emitter_sel > 0.5;	// dans une personne
+
+	//force.y -= abs(sin(p.x+p.y*4.0)) * 0.3;
+
+#if 0	//unused
+	float sh = 16.;		// size half
+	ivec2 image_size = textureSize(	g_input_texture, 0 );
+	vec2 uv_step = 1.0 / vec2(image_size);
+	float ratio = image_size.x / image_size.y;
+#endif
+
+	//	vec2 uv = p.xz * vec2( 1./8., 1./5.) + .5;
+//	vec2 uv = p.xz * vec2( 1./4., -1./4.) + vec2(.5, .6);
+	vec2 uv = p.xz * vec2(1./8.,-1./5.) + .5;
+
+//	float hit_ref_val = 0.1;
+	//
+
+//	float t = texture( g_input_texture, uv ).r;
+//	custom._hit_test = t > hit_ref_val ? 1 : 0;
+
+//	float df = texture ( g_dist_texture,  uv ).r;
+
+
+
+	vec3 box = vec3(4., 1., 2.5);
+
+	bool b_reset = false;
+	if( s_fx < 0 )
+	{
+		b_reset  = true;
+	}
+	else if( custom._active==1 )
+	{
+#if 0
+		custom._age += u_particles_settings.sd._dt;
+		if( custom._age > 8. )
+			b_reset  = true;
+#endif
+		//custom._active = custom._age < age_fall ? 1 : 0;
+//		else
+		if( p.y < .1 )
+		{
+			if( any( greaterThan( abs(p.xz), box.xz) ) )
+			{
+				if( p.z < -box.z )
+					p.z += box.z * 2;
+				else if( box.z < p.z )
+					p.z -= box.z * 2;
+				if( p.x < -box.x )
+					p.x += box.x * 2;
+				else if( box.x < p.x )
+					p.x -= box.x * 2;
+				//b_reset = true;
+			}
+		}
+	}
+	else
+		b_reset = true;
+
+	uint index3 = index*3;
+	uint state = index;
+
+	if(  b_reset )
+	{	
+		custom._active = 1;
+		custom._age = 0.;
+
+		custom._emitter_sel = random_float_01_wang(state);
+		phase_out[index] = PHASE_FLUID;
+
+		acc[index3] = 0.;
+		acc[index3+1] = 0.;
+		acc[index3+2] = 0.;
+//		if( s_fx < 0 )
+// 		{	//hack maa to see stuff again in bdd_flex
+// 			//understand and refine please
+
+// 			//p.x = 0;	// + p.z * .2;
+// 			//p.x =   2. * float(index % 269) / 256. - 1.;
+// 			const int nb_p2 = 10;
+// 			const int nb = 1 << nb_p2;
+// 			const float nb_f = float(nb);
+// 			const float size = 8.;	//was 5.
+// 			p.x =   size * ( float(index % nb) / nb_f - .5 );
+// 			p.z = 0.;
+// 		//	p.z =   size * ( float((index>>nb_p2) % nb) / nb_f - .5);
+// 			//p.y = min( p.y + 5.,  10. );
+// 			p.y = -0.5;
+// 			p.y +=  .5 * float(free_indices_out % 256) / 256.;
+// //			p.z *= .1;
+// 			v = vec3(0);
+// 			v.x = velx;
+
+// 		}
+// 		else
+		{
+			//const int nb_p2 = 10;
+			//const int nbx = 1 << nb_p2;
+			//const float nbx_f = float(nbx);
+
+//			p.xyz = vec3( float(index % nbx)/nbx_f - .5, 2, ((index >> nb_p2) % 256)/256. - .5 );
+			//p.xyz = vec3( random_float_01_wang(state) - .5, 2+random_float_01_wang(state)*.1,  random_float_01_wang(state) - .5 );
+			//p.xz = random_unit_disk( state ).xy * 4.;
+			//p.y = .5 + random_float_01_wang(state) * .1; 
+
+			state += uint( phase * 145412 );
+			p.x = random_float_01_wang(state) - .5;
+			p.y = .2;
+			p.z = random_float_01_wang(state) - .5;
+
+			p.xyz *= box.xyz * 2.;
+			v.xyz = vec3(0);
+		}
+	}
+	else
+	{
+#if 1
+		// force field
+		const float mid = .15;
+
+#if 1
+		//if( all( lessThan( abs(uv-.5), vec2(.5)) ) )
+		if( f_field_grad != 0. )
+		{
+			//repulse by texture	
+			vec2 rep = get_gradient_2d( g_dist_texture, uv, 1. );
+			vec3 force  = vec3( rep.x, 0, rep.y );
+			v += force * dt * f_field_grad;
+		}
+#endif
+/*
+		if( s_fx == 1 )
+		{
+			float f;
+			if( phase < mid )
+			{
+				f = 4.;
+				f += ( sin( ((p.z + box.z) * .5 ) * 3.1416  ) + 1. ) * 2.5;
+				f -= ( iqFbm3d( vec3( p.x, phase+s_fx_rnd_1, p.z) * .2 ) ) * 4.;
+			}
+			else
+			{
+				f = -(phase - .3) * 5.;
+				f *= .3 + (p.z/box.z + 2) * .5;
+			}
+			v.z += dt*f;
+		}
+		else if( s_fx == 2 )
+		{
+			float f;
+			if( phase < mid )
+			{
+				f = 5.;
+				f += ( sin( ((p.z + box.z) * .5 ) * 3.1416  ) + 1. ) * 2.5;
+				f -= ( iqFbm3d( vec3( p.x, phase+s_fx_rnd_1, p.z ) * .2 ) ) * 4.;
+			}
+			else
+			{
+				f = -(phase - mid) * 5.;
+				f *= .3 + (p.z/box.z + 2) * .5 + ((custom._emitter_sel-s_fx_rnd_2*.5) * s_fx_force_1 );
+			}
+			v.z += dt*f;
+		}
+		else if( s_fx == 3 )
+		{
+			float f;
+			if( phase < mid )
+			{
+				f = 5.;
+				f += ( sin( ((p.z + box.z) * .5 ) * 3.1416  ) + 1. ) * 2.5;
+				f -= ( iqFbm3d( vec3( p.x, phase+s_fx_rnd_1, p.z) * .2 ) ) * 4.;
+			}
+			else
+			{
+				f = -(phase - .3) * 5.;
+				f *= .3 + (p.z/box.z + 2) * .5;
+				v.x += dt * (random_float_01_wang(state) - .5) * s_fx_force_1;
+			}
+			v.z += dt*f;
+		}
+		else if( s_fx == 4 )
+		{
+			float f;
+			if( phase < mid )
+			{
+				f = 5.;
+				f += ( sin( ((p.z + box.z) * .5 ) * 3.1416  ) + 1. ) * 2.5;
+				f -= ( iqFbm3d( vec3( p.x, phase+s_fx_rnd_1, p.z) * .2 ) ) * 4.;
+			}
+			else
+			{
+				f = -(phase - .3) * 5.;
+				f *= .3 + (p.z/box.z + 2) * .5;
+				f += (random_float_01_wang(state) - .5) * s_fx_force_1;
+				v.x += dt 	* (random_float_01_wang(state) - .5) * s_fx_force_1;
+			}
+			v.z += dt*f;
+		}
+		else if( s_fx == 5 )
+		{
+			float f;
+			if( phase < mid )
+			{
+				f = 5.;
+				f += ( sin( ((p.z + box.z) * .5 ) * 3.1416  ) + 1. ) * 2.5;
+				f -= ( iqFbm3d( vec3( p.x, phase+s_fx_rnd_1, p.z) * .2 ) ) * 4.;
+			}
+			else
+			{
+				f = -(phase - .3) * 5.;
+				f *= .3 + (p.z/box.z + 2) * .5;			
+				f += ( iqFbm3d( vec3( p.x, phase+s_fx_rnd_1, p.z) * 4. ) ) * s_fx_force_1;
+				v.x += dt * (iqFbm3d(vec3( p.x, phase-s_fx_rnd_1, p.z)*4.)  ) * s_fx_force_1;
+				//v.y += dt * 15.;
+			}
+			v.z += dt*f;
+		}
+		else if( s_fx == 6 )
+		{
+			float f;
+			if( phase < mid )
+			{
+				f = 5.;
+				f += ( sin( ((p.z + box.z) * .5 ) * 3.1416  ) + 1. ) * 2.5;
+				f -= ( iqFbm3d( vec3( p.x, phase+s_fx_rnd_1, p.z) * .2 ) ) * 4.;
+			}
+			else
+			{
+				f = -(phase - .3) * 5.;
+				f *= .3 + (p.z/box.z + 2) * .5;
+				//f += ( iqFbm3d( vec3( p.x, phase+s_fx_rnd_1, p.z) * 4. ) ) * s_fx_force_1;
+				//v.x += dt * (iqFbm3d(vec3( p.x, phase-s_fx_rnd_1, p.z)*4.)  ) * s_fx_force_1;
+				v.y += dt * (iqFbm3d(vec3( p.x, phase*5.-s_fx_rnd_1, p.z)*8.)  ) * s_fx_force_1;
+			}
+			v.z += dt*f;
+		}
+		else if( s_fx == 7)
+*/
+		{
+			float f;
+			f = 0.;
+			//f *= .3 + (p.z/box.z + 2) * .5;
+			float size = s_fx_force_2;
+			//s_fx_force_1 *= .005;
+			f += ( iqFbm3d( vec3( p.x, phase+s_fx_rnd_1, p.z) * s_fx_force_2 ) ) * s_fx_force_1;
+			v.z += dt * f;
+			f += ( iqFbm3d( vec3( p.x, phase-s_fx_rnd_1, p.z) * s_fx_force_2 ) ) * s_fx_force_1;
+			v.x += dt * f;
+		}	
+#if 0
+		if( p.y < .1 )
+		{		//repulse and rotate
+			vec2 p2 = (p.xz - vec2( 0, 0 )) * .5;
+			float d2 = dot(p2,p2);
+			if( d2 < 1. )
+			{
+					if( d2 < .01 )
+					b_reset  = true;
+				else
+					v.xz -= p2 * .2 / d2;
+					v.xz += vec2( -p2.y, p2.x ) * .2  / d2;
+			}
+#if 0
+			else
+			{
+				if( p.y < 0. ) 
+				{
+					//p.y = 0.;
+					v.y -= p.y * 20;
+				}
+				v.z += .2;
+			}
+#endif
+		}
+#endif
+#endif
+	}
+	pos_out[index] = p;
+
+	if( custom._active==0 )
+	{
+		uint accum_index = atomicAdd(free_accum_out[0], 1);
+		free_indices_out[accum_index] = index;
+		phase_out[index] = PHASE_NONE;
+	}
+
+	custom_out[index] = custom;
+
+	vel_out[index3] = v.x;
+	vel_out[index3+1] = v.y;
+	vel_out[index3+2] = v.z;
+
+	//phase_out[index] = custom._active > 0 ? PHASE_FLUID : PHASE_NONE;
+}

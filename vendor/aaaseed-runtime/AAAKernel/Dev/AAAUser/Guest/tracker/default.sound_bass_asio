@@ -1,0 +1,7 @@
+sound_bass_asio ( Version 0 )
+	{
+	in_device = 1 ;
+	in_channel_nb = 4 ;
+	in_sample_rate = "44.1 kHz" ;
+	in_bits = "16 bits" ;
+	}

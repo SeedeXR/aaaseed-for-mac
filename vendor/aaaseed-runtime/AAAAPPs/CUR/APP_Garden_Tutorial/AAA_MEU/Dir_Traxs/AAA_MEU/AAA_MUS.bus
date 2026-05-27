@@ -1,0 +1,10 @@
+-- BU position value for BUS|Dir_Traxs
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.preset proto", 1 )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "a", 0 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_value( "restore", 0 )
+BUS.set_bu_pos_value( "trax_1", {-0.053125,0.3859375, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "trax_2", {-0.153125,0.2609375, 0.21875,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "trax_frescorot", {-0.078125,0.1234375, 0.21875,0.05}, { render=1 } )

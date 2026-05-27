@@ -1,0 +1,65 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	name_symbo = "BU_top_example" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 7 ;
+	}
+//AAA::filename fx_b.text
+bdd_text ( Version 0 )
+	{
+	name_symbo = "BU_ex_bdd_text" ;
+	origin_x = -0.5 ;
+	axe = "Z" ;
+	font = 0 ;
+	line_length = 29.2788 ;
+	face_size = 64 ;
+	face_dpi = 144 ;
+	text = "iiilll bu-4- Jojo la frite qui pue la graisse de veille cuisson aleatoire Jojo la frite qui pue la graisse de veille cuisson aleatoire   " ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 0.125 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_text" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	}

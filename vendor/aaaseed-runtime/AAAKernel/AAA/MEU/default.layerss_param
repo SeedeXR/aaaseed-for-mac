@@ -1,0 +1,7 @@
+module ( Version 0 )
+	{
+	name_symbo = "MEU" ;
+	layers_index_cur = 2 ;
+	layers_index_end = 2 ;
+	load_all = OFF ;
+	}

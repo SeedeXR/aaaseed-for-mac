@@ -1,0 +1,503 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 6 ;
+	Name = "Volume" ;
+	Max = 8 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Comment = "Position" ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 6 ;
+	Min = -4 ;
+	Max = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Comment = "Epaisseur" ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 5 ;
+	Bias = 0.125 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 9 ;
+	Control_id = 6 ;
+	Freq = 0.0625 ;
+	Min = -1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 4 ;
+	Control_id = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 2 ;
+	Max = 32 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.07.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.08.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 6 ;
+	Offset = -1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.09.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Min = 1 ;
+	Max = 16 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 4 ;
+	Limit = "CLAMP" ;
+	Limit_max = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.11.trax
+trax ( Version 0 )
+	{
+	Fn = "NAME_REAL" ;
+	Name = "tk_grab_size" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.12.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 8 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.13.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.14.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.15.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 3 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.16.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.17.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0.03125 ;
+	Min = -4 ;
+	Max = 8 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.18.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 3 ;
+	Min = 2 ;
+	Max = 256 ;
+	Limit = "CLAMP" ;
+	Limit_min = 2 ;
+	Limit_max = 1024 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.19.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 7 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.20.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 8 ;
+	Min = 1 ;
+	Max = 0 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.21.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 4 ;
+	Limit = "CLAMP" ;
+	Limit_max = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.22.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 7 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.23.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 9 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.24.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 9 ;
+	Control_id = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.25.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 9 ;
+	Control_id = 3 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.26.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 9 ;
+	Control_id = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.27.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 9 ;
+	Control_id = 5 ;
+	Max = 8 ;
+	Format = "%.2f" ;
+	out_0 = 0 TraxLoc28In ;
+	}
+//AAA::filename fx.28.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "NOT_EQUAL_FREQ" ;
+	Freq = 0 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.29.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 5 ;
+	Min = 2 ;
+	Max = 32 ;
+	Limit = "CLAMP" ;
+	Limit_min = 2 ;
+	Limit_max = 32 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.30.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 5 ;
+	Min = 2 ;
+	Max = 32 ;
+	Limit = "CLAMP" ;
+	Limit_min = 2 ;
+	Limit_max = 32 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.31.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 5 ;
+	Offset = -1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.32.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 4 ;
+	Control_id = 8 ;
+	Max = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = OFF TraxMod01Out ;
+	viewport = "Left_Right" ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_z = -72.0749 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = -0.530699 TraxLoc17Out ;
+	nb_u = 78 TraxLoc18Out ;
+	nb_v = 4 TraxLoc29Out ;
+	}
+//AAA::filename fx_a00.def
+def_data ( Version 0 )
+	{
+	active = ON ;
+	scale = 0.03125 TraxLoc10Out ;
+	strenght = 1310.45 TraxLoc01Out ;
+	offset = -1 TraxLoc04Out ;
+	sound_process = "Max with decay" TraxLoc08Out ;
+	interval = 32 TraxLoc09Out ;
+	strobe = 12 TraxLoc06Out ;
+	abs = ON TraxLoc07Out ;
+	origin_x = 8 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "FILL" TraxLoc31Out ;
+	line_size = 0.001 TraxLoc27Out ;
+	point_size = 8 ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_v = 0.869524 ;
+	size_factor = 3.55805 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" TraxLoc32Out ;
+	tex_implicit = OFF ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_flip_uv = ON ;
+	tex_factor = 0.0625 TraxLoc11Out ;
+	tex_env_mode = "REPLACE" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 1.00476 TraxLoc03Out ;
+	size_axe = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.667969 TraxLoc13Out ;
+	global_green = 0.540086 TraxLoc14Out ;
+	global_blue = 1 TraxLoc15Out ;
+	global_grey = 0.898611 TraxLoc16Out ;
+	global_alpha = 0 TraxLoc12Out ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -4 TraxLoc02Out ;
+	rotate = ON ;
+	rotate_first = ON ;
+	rotate_x = -0.0078125 TraxLoc19Out ;
+	rotate_z = 0.662117 TraxLoc20Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 5 ;
+	bank_2d = 6 ;
+	bind_2d = 6 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	line_size = 0.001 TraxLoc27Out ;
+	primitive = "LINES" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0 TraxLoc23Out ;
+	global_green = 0 TraxLoc24Out ;
+	global_blue = 0 TraxLoc25Out ;
+	global_grey = 0 TraxLoc26Out ;
+	global_alpha = 0.715278 TraxLoc22Out ;
+	}
+//AAA::filename fx_b.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	translate = ON ;
+	translate_y = 0.235236 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = OFF TraxLoc28Out ;
+	use_bdd = "CURRENT_draw" ;
+	use_deformer = "CURRENT" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	trs_1 = "CURRENT" ;
+	trs_2 = "Owner" ;
+	}
+//AAA::filename fx_c.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 4096 ;
+	nb_max = 4096 ;
+	nb_by_sec = 719.97 ;
+	flow_continuous = ON ;
+	regular = ON ;
+	life_time = 0.25 ;
+	emission_box_size_u = 0 ;
+	emission_box_size_axe = 0.0421698 TraxLoc03Out ;
+	emission_box_size_factor = 2 ;
+	jitter_speed_abs = 0.125 ;
+	field_speed = ON ;
+	viscosity = 0.125 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	front_mode = "POINT" ;
+	}
+//AAA::filename fx_c.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.521613 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Quake" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	bind_2d = 9 ;
+	trs_1 = "CURRENT" ;
+	}

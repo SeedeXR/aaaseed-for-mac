@@ -1,0 +1,101 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 22.28 ;
+	rot_x = 0.110764 ;
+	rot_y = -2.159 ;
+	tra_x = -0.052 ;
+	tra_z = -17.6494 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	point_size = 8 ;
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	comment = "Just Attrib" ;
+	}
+//AAA::filename fx_b.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	draw_all_curves = ON ;
+	draw_selected = ON ;
+	ui_u = 13 ;
+	}
+//AAA::filename fx_b00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = 1 ;
+	offset = 0.5 ;
+	phase_speed = 1 ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_b00.def" def_00 = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_3d" ;
+	use_deformer = "Owner" ;
+	}
+//AAA::filename fx_c.tube_path
+bdd_tube_path ( Version 0 )
+	{
+	b_curve = ON ;
+	s_begin = 0.108002 ;
+	len_after = 1 ;
+	s_end = 0.231884 ;
+	draw = "TUBE" ;
+	loop = OFF ;
+	ring_nb = 1280 ;
+	ring_segment_nb = 64 ;
+	}
+//AAA::filename fx_c.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	size_axe = -8.4 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tube_path" ;
+	use_deformer = "Owner" ;
+	}

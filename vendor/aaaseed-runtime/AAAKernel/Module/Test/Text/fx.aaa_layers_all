@@ -1,0 +1,135 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 0.014 ;
+	rot_y = 0.00950071 ;
+	tra_x = -0.012 ;
+	tra_y = 0.006 ;
+	tra_z = -10.1683 ;
+	}
+//AAA::filename fx_a.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	type = "FONT_FILL_THEN_OUTLINE" ;
+	font = 3 ;
+	align_horizontal = 0.5 ;
+	text = "508" ;
+	}
+//AAA::filename fx_a.text
+bdd_text ( Version 0 )
+	{
+	axe = "Z" ;
+	type = "GLUT_LINE" ;
+	font = 0 ;
+	alignment = "Left" ;
+	line_length = 256 ;
+	depth = 2 ;
+	outset = 1 ;
+	use_display_list = OFF ;
+	face_size = 64 ;
+	face_dpi = 32 ;
+	text = "CUDA� is a parallel computing platform and programming model invented by NVIDIA. It enables dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU).
+With millions of CUDA-enabled GPUs sold to date, software developers, scientists and researchers are finding broad-ranging uses for GPU computing with CUDA. Here are a few examples:
+
+Identify hidden plaque in arteries: Heart attacks are the leading cause of death worldwide. Harvard Engineering, Harvard Medical School and Brigham & Women's Hospital have teamed up to use GPUs to simulate blood flow and identify hidden arterial plaque without invasive imaging techniques or exploratory surgery.
+
+Analyze air traffic flow: The National Airspace System manages the nationwide coordination of air traffic flow. Computer models help identify new ways to alleviate congestion and keep airplane traffic moving efficiently. Using the computational power of GPUs, a team at NASA obtained a large performance gain, reducing analysis time from ten minutes to three seconds.
+
+Visualize molecules: A molecular simulation called NAMD (nanoscale molecular dynamics) gets a large performance boost with GPUs. The speed-up is a result of the parallel architecture of GPUs, which enables NAMD developers to port compute-intensive portions of the application to the GPU using the CUDA Toolkit.
+
+BACKGROUND
+
+GPU COMPUTING: THE REVOLUTION
+You're faced with imperatives: Improve performance. Solve a problem more quickly. Parallel processing would be faster, but the learning curve is steep � isn't it?
+
+Not anymore. With CUDA, you can send C, C++ and Fortran code straight to GPU, no assembly language required.
+
+Developers at companies such as Adobe, ANSYS, Autodesk, MathWorks and Wolfram Research are waking that sleeping giant � the GPU -- to do general-purpose scientific and engineering computing across a range of platforms.
+
+Using high-level languages, GPU-accelerated applications run the sequential part of their workload on the CPU � which is optimized for single-threaded performance � while accelerating parallel processing on the GPU. This is called \"GPU computing.\"
+
+GPU computing is possible because today's GPU does much more than render graphics: It sizzles with a teraflop of floating point performance and crunches application tasks designed for anything from finance to medicine.
+
+CUDA is widely deployed through thousands of applications and published research papers and supported by an installed base of over 375 million CUDA-enabled GPUs in notebooks, workstations, compute clusters and supercomputers.
+
+Visit CUDA Zone for examples of applications in diverse vertical markets� " ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_implicit = OFF ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_axe = 64 ;
+	size_factor = 0.125 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_text" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 2 ;
+	}
+//AAA::filename fx_b.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	type = "FONT_FILL_THEN_OUTLINE" ;
+	font = 2 ;
+	text = "CUDA� is a parallel computing platform and programming model invented by NVIDIA. It enables dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU).
+With millions of CUDA-enabled GPUs sold to date, software developers, scientists and researchers are finding broad-ranging uses for GPU computing with CUDA. Here are a few examples:
+
+Identify hidden plaque in arteries: Heart attacks are the leading cause of death worldwide. Harvard Engineering, Harvard Medical School and Brigham & Women's Hospital have teamed up to use GPUs to simulate blood flow and identify hidden arterial plaque without invasive imaging techniques or exploratory surgery.
+
+Analyze air traffic flow: The National Airspace System manages the nationwide coordination of air traffic flow. Computer models help identify new ways to alleviate congestion and keep airplane traffic moving efficiently. Using the computational power of GPUs, a team at NASA obtained a large performance gain, reducing analysis time from ten minutes to three seconds.
+
+Visualize molecules: A molecular simulation called NAMD (nanoscale molecular dynamics) gets a large performance boost with GPUs. The speed-up is a result of the parallel architecture of GPUs, which enables NAMD developers to port compute-intensive portions of the application to the GPU using the CUDA Toolkit.
+
+BACKGROUND
+
+GPU COMPUTING: THE REVOLUTION
+You're faced with imperatives: Improve performance. Solve a problem more quickly. Parallel processing would be faster, but the learning curve is steep � isn't it?
+
+Not anymore. With CUDA, you can send C, C++ and Fortran code straight to GPU, no assembly language required.
+
+Developers at companies such as Adobe, ANSYS, Autodesk, MathWorks and Wolfram Research are waking that sleeping giant � the GPU -- to do general-purpose scientific and engineering computing across a range of platforms.
+
+Using high-level languages, GPU-accelerated applications run the sequential part of their workload on the CPU � which is optimized for single-threaded performance � while accelerating parallel processing on the GPU. This is called \"GPU computing.\"
+
+GPU computing is possible because today's GPU does much more than render graphics: It sizzles with a teraflop of floating point performance and crunches application tasks designed for anything from finance to medicine.
+
+CUDA is widely deployed through thousands of applications and published research papers and supported by an installed base of over 375 million CUDA-enabled GPUs in notebooks, workstations, compute clusters and supercomputers.
+
+Visit CUDA Zone for examples of applications in diverse vertical markets� " ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	}

@@ -1,0 +1,107 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "mess.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	name_symbo = "gabu_mess" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	tra_z = -9.91199 ;
+	m00 = 0.999903 ;
+	m02 = 0.0139622 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	rot_x = -0.0125116 ;
+	rot_y = -0.00182528 ;
+	tra_z = -3.33103 ;
+	m30 = -1.94252e-09 ;
+	m31 = 4.25375e-09 ;
+	m32 = -2 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	tra_z = -6.8272 ;
+	}
+//AAA::filename fx_a.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	text = "Toto is turlutu" ;
+	}
+//AAA::filename fx_a.text
+bdd_text ( Version 0 )
+	{
+	name_symbo = "mess_text1" ;
+	origin_x = -4.23051 ;
+	origin_y = 2.23424 ;
+	axe = "Z" ;
+	font = 0 ;
+	alignment = "Left" ;
+	line_length = 64 ;
+	face_size = 72 ;
+	face_dpi = 36 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	top_red = 0.0512081 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	resolution = 0.5 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0 ;
+	use_hsv = ON ;
+	hue = 0.857132 TraxLoc01Out ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	bdd = "bdd_text" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	name_symbo = "mess_layer1" ;
+	}

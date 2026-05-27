@@ -1,0 +1,104 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "NAME_REAL" ;
+	Name = "stereo" ;
+	Max = -0.0270988 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport_bottom = 0.751495 ;
+	ortho_size = 3.89 ;
+	rot_x_frequency = 0.185095 ;
+	rot_y_frequency = 0.116637 ;
+	rot_z_frequency = 0.0422307 ;
+	rot_x = 6.2205 ;
+	rot_y = 0.920999 ;
+	tra_z = -3.45488 ;
+	tra_offset_x = 0 TraxLoc01Out ;
+	}
+//AAA::filename fx_a.algo_maa
+bdd_algo_maa ( Version 0 )
+	{
+	point_allocated = 2097152 ;
+	point_nb = 152184 ;
+	step_factor = 0.0078125 ;
+	}
+//AAA::filename fx_a.cone
+bdd_cone ( Version 0 )
+	{
+	center_y = 1 ;
+	nb_u = 96 ;
+	u_range = 0.855477 ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 48 ;
+	nb_v = 24 ;
+	v_range = 0.99345 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.0144667 ;
+	translation_x = -0.00083982 ;
+	translation_y = -0.499766 ;
+	translation_z = 0.000162843 ;
+	model_filename = "M:/AAAData/Geo3d/NoSkirtPoly.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	point_size = 4 ;
+	point_sprite_origin = "UPPER_LEFT" ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_axe = "Z" ;
+	tex_factor = 0.332689 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	resolution = 2 ;
+	size_factor = 2 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_algo_maa" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 1 ;
+	bind_2d = 1 ;
+	use_lights_switch = ON ;
+	material_back = 1 ;
+	}

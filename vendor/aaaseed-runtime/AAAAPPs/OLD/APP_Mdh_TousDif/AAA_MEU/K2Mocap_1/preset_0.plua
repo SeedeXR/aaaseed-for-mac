@@ -1,0 +1,12 @@
+-- preset v0 for MEU|K2Mocap_1
+tab["cam_axe_show"] = 1
+tab["cam_index"] = 7
+tab["cam_use"] = 2
+tab["dist"] = 0.35407517510699
+tab["draw"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["number"] = true
+tab["x"] = 0.67090017937479
+tab["x off"] = 0
+tab["z"] = 2.6400138510794

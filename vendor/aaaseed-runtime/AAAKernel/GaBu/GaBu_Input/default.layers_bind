@@ -1,0 +1,27 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "VideoIn_FireFly/fx" ;
+	Bind_01 = "VideoIn_PS3Eye/fx" ;
+	Bind_02 = "VideoIn_Dirty/fx" ;
+	Bind_03 = "VideoIn_Kinect/fx" ;
+	Bind_04 = "VideoIn_Kinect2/fx" ;
+	Bind_05 = "VideoIn_Black1/fx" ;
+	Bind_06 = "VideoIn_Black2/fx" ;
+	Bind_08 = "TouchCo/fx" ;
+	Bind_09 = "PQLabs/fx" ;
+	Bind_10 = "Kinect_Skeleton/fx" ;
+	Bind_12 = "Kinect_Record/fx" ;
+	Bind_14 = "Table_Kinect/fx" ;
+	Bind_15 = "Table_Process/fx" ;
+	Bind_17 = "Kinect_Draw_1/fx" ;
+	Bind_19 = "Kinect_Fooling_Around/fx" ;
+	Bind_21 = "CAPTURE/fx" ;
+	Bind_22 = "KINECT/fx" ;
+	Bind_23 = "SKEL/fx" ;
+	Bind_24 = "SKUI/fx" ;
+	Bind_26 = "Deform/fx" ;
+	Bind_27 = "Detection/fx" ;
+	Bind_29 = "Dispatch/fx" ;
+	Bind_30 = "Render_again/fx" ;
+	Bind_31 = "Tracking/fx" ;
+	}

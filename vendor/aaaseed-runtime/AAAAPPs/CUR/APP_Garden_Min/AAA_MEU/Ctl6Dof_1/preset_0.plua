@@ -1,0 +1,6 @@
+-- preset v0 for MEU|Ctl6Dof_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam"] = 1
+tab["control"] = 0
+tab["use"] = false

@@ -1,0 +1,5 @@
+rendering ( Version 1 )
+	{
+	light = OFF ;
+	depth = OFF ;
+	}

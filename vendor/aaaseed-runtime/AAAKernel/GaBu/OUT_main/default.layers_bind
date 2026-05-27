@@ -1,0 +1,5 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "OUT_all_FBO_main/fx" ;
+	Bind_02 = "OUT_1_SIMPLE/fx" ;
+	}

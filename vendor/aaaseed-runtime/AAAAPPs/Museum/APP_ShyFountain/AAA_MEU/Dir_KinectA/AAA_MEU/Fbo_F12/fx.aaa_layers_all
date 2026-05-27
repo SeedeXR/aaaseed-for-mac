@@ -1,0 +1,26 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "Owner" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x_frequency = 0.0929011 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	size_asked_x = 512 ;
+	size_asked_y = 512 ;
+	channel_nb = 4 ;
+	verbose = OFF ;
+	tex_1_bind_2d_asked = 75 ;
+	tex_1_mipmap_generate = ON ;
+	tex_1_on_cpu = ON ;
+	tex_1_on_cpu_use_pbo = ON ;
+	}

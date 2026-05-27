@@ -1,0 +1,247 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "led3d.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_F" ;
+	camera_index_ui = 7 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = -0.007 ;
+	rot_y = 1.503 ;
+	tra_z = -10.1246 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = -5.3842 ;
+	draw_axe = ON ;
+	rot_x = 0.75 ;
+	rot_y = 0.5 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.092 ;
+	rot_y = 0.4975 ;
+	tra_z = -1.3316 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_z = -9.72488 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_y_frequency = 0.0340285 ;
+	rot_x = -0.026 ;
+	rot_y = 0.1865 ;
+	tra_x = 0.018 ;
+	tra_y = -0.072 ;
+	tra_z = -9.82484 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "trs" ;
+	translate = ON ;
+	translate_z = 91.664 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_factor = 64 ;
+	tex_wrap_u = "MIRRORED_REPEAT" ;
+	tex_wrap_v = "MIRRORED_REPEAT" ;
+	blend = OFF ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.0291463 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	convert = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 16 ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_voxel" ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_texturing = "CURRENT" ;
+	bank_2d = 3 ;
+	bind_2d = 18 ;
+	}
+//AAA::filename fx_d.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_v = 6 ;
+	}
+//AAA::filename fx_d.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_factor = 0.04 ;
+	}
+//AAA::filename fx_d.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	green = 1 ;
+	alpha = 0 ;
+	start = 31.3411 ;
+	end = 71.8342 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	material_front = 80 ;
+	material_back = 80 ;
+	use_fog = "CURRENT" ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	depth_write = OFF ;
+	}
+//AAA::filename fx_e.map
+mapping ( Version 0 )
+	{
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_f.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	back_mode = "LINE" ;
+	line_smooth = ON ;
+	point_size = 3.29081 ;
+	depth = ON ;
+	top_point = ON ;
+	top_red = 0 ;
+	top_green = 0.0197857 ;
+	top_blue = 0.181054 ;
+	}
+//AAA::filename fx_f.map
+mapping ( Version 0 )
+	{
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.001 ;
+	blend_color_red = 0 ;
+	blend_color_green = 0 ;
+	}
+//AAA::filename fx_f.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_alpha = 0.247533 ;
+	use_hsv = ON ;
+	hue = 0.544348 ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_f.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	mode = "EXP2" ;
+	density = 0.00137412 ;
+	red = 0.0119993 ;
+	green = 0.0343296 ;
+	blue = 0.726458 ;
+	grey = 0.204937 ;
+	alpha = 0.674888 ;
+	start = 133.051 ;
+	end = 1192.75 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_fog = "Owner" ;
+	}

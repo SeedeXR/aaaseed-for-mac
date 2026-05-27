@@ -1,0 +1,4 @@
+-- preset v0 for MEU|Kinect1_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["on cpu"] = false

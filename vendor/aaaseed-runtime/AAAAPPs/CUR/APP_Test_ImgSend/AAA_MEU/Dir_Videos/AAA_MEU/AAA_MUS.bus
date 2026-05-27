@@ -1,0 +1,11 @@
+-- BU position value for BUS|Dir_Videos
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 1 )
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "preset proto", 1 )
+BUS.set_bu_value( "restore", 0 )
+BUS.set_bu_pos_value( "video_a", {-0.140625,0.375, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "video_b", {-0.1375,0.2875, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "video_c", {-0.1375,0.225, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "video_d", {-0.1375,0.15, 0.21875,0.05}, { render=0 } )

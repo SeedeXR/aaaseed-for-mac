@@ -1,0 +1,102 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	use_camera = "Owner" ;
+	name_symbo = "aqua_kinect_a_layers" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.1715 ;
+	rot_y = 0.029 ;
+	tra_x = -0.486001 ;
+	tra_y = 0.232 ;
+	tra_z = -1.53144 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 5 ;
+	nb_v = 5 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	top_line = ON ;
+	top_red = 0 ;
+	top_green = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_v = 0.75 ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	image_on_cpu_wanted = ON ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_open = ON ;
+	capture_run = ON ;
+	capture_device_id_asked = "USB\VID_045E&PID_02C2\7&12077E4D&0&2" ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	motor_position = 0.578812 ;
+	depth_start_with_near_mode = ON ;
+	depth_start_640_480 = ON ;
+	depth_render_type = "Grey" ;
+	depth_clip_left = 0.292457 ;
+	depth_clip_right = 0.761704 ;
+	depth_raw_min = 0.69 ;
+	depth_raw_max = 0.795882 ;
+	depth_meter_max = 4 ;
+	depth_erase_3_y = 0.69 ;
+	depth_erase_3_sx = 0.795882 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	use_tex_video = ON ;
+	}
+//AAA::filename fx_b.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 33 ;
+	image_dst_base = 34 ;
+	agitation = ON ;
+	background_reset = ON ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	bank_2d = 32 ;
+	}

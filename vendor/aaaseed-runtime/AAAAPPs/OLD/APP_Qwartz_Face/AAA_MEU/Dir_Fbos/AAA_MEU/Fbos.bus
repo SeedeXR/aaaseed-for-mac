@@ -1,0 +1,14 @@
+-- BU position for Fbos
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos( 0, "f1", 0, 0, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "f2", -0.4, 0.35, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "f3", -0.4, 0.2875, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "f4", -0.4, 0.225, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "f5", -0.4, 0.15, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "f6", -0.4, 0.0875, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "f7", -0.4, 0.0375, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "f8", -0.4, -0.025, 0.2, 0.05, 0, 0 )
+BUS.set_bu_value( "restore", 1 )

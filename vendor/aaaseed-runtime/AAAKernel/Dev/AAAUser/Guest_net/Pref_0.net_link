@@ -1,0 +1,10 @@
+net_link ( Version 0 )
+	{
+	active = ON ;
+	enable = ON ;
+	watchdog_enable = ON ;
+	tcp_no_marker = OFF ;
+	port_nb = 8000 ;
+	dst_ip = "any" ;
+	blk_checksum_skip = ON ;
+	}

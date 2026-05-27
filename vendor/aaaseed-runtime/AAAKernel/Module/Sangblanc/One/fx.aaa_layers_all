@@ -1,0 +1,118 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Fn = "3D_RANDOM_LINEAR" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Fn = "MULTIPLE_REAL" ;
+	Freq = 0.0920798 ;
+	Limit = "WRAP" ;
+	Limit_min = 1 TraxLoc03Out ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Min = 1 ;
+	Max = 0 ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 14 ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_INDEX" ;
+	Max = 0.015625 ;
+	}
+//AAA::filename fx.11.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_INDEX" ;
+	Max = 0.105042 ;
+	}
+//AAA::filename fx.12.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_MULTIPLE_POS" ;
+	}
+//AAA::filename fx.13.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_MULTIPLE_SIZE" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = 4.53187 TraxLoc12Out ;
+	center_y = -7.95198 ;
+	nb_u = 5 ;
+	nb_v = 5 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	space_period = 0.5 ;
+	strenght = 0 TraxLoc04Out ;
+	offset = 0.25 ;
+	bias = 0.158199 ;
+	phase = 16.7031 TraxLoc10Out ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_a01.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	space_period = 0.5 ;
+	strenght = 0 TraxLoc04Out ;
+	offset = 0.25 ;
+	bias = 0.152524 ;
+	phase = 112.29 TraxLoc11Out ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	src_fixed = ON ;
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	AddFileRel "fx_a01.def" def_01 = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 0.218376 TraxLoc13Out ;
+	size_v = 0.218376 ;
+	size_axe = 0.218376 ;
+	size_factor = 0.73894 TraxLoc02Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	bind_2d = 28 ;
+	}

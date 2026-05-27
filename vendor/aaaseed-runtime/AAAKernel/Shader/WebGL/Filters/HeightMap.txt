@@ -1,0 +1,85 @@
+
+#define Resolution 		500.0
+#define LightDir 		normalize( vec3(1.0, 0.0,-1.0) )
+#define Zoom 			0.4
+#define Height 			0.2
+#define Offset 			vec2(0.3, 0.15)
+#define ScanLines 		100 // Should be adjusted depending on Height and Resolution
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+uniform float		aaa_fu_float[6];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+
+float res = 1.0/Resolution;
+
+float terrain(vec2 p)
+{
+	p*=Zoom;
+	return texture2D(aaa_tex2d[0], p).r*Height;
+}
+
+vec3 normal(vec2 p)
+{
+	vec2 eps = vec2(0.0,res*2.0);
+	float d1 = max(0.003, terrain(p+eps.xy)-terrain(p-eps.xy));
+	float d2 = max(0.003, terrain(p+eps.yx)-terrain(p-eps.yx));
+	vec3 n1 = (vec3(0.0, eps.y*2.0, d1));
+	vec3 n2 = (vec3(eps.y*2.0, 0.0, d2));
+	return normalize(cross(n1,n2));
+}
+
+void main(void)
+{
+	vec2 uv = gl_TexCoord[0].st;
+
+
+	vec2 p2 = vec2(0.0, 0.0);
+	float height = 0.0;
+	for (int l=0; l<ScanLines; l++)
+	{
+		float scan = uv.y-float(l)*res;
+		vec2 p = vec2(uv.x,scan*2.0)+Offset/Zoom;
+		float h = terrain(p);
+		if (scan+h>uv.y) {
+			p2=p;
+			height=h;
+		}
+	}
+	vec3 col = texture2D(aaa_tex2d[0], p2*Zoom).rgb;
+		col *= max(0.2,dot(normal(p2),LightDir));
+		col *= 1.0+pow(max(0.0,dot(normal(p2),LightDir)),6.0);
+		col  = mix(col, vec3(0.8), pow(max(0.0,length(vec3(uv.x*0.8-0.4, uv.y, height))), 2.0));
+
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (vec4(col, 1.0) * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}
+
+
+
+
+
+
+

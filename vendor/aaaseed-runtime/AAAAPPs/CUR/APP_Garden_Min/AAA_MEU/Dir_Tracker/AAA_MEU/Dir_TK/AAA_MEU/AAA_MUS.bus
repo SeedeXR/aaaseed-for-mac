@@ -1,0 +1,11 @@
+-- BU position value for BUS|Dir_TK
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.preset proto", 1 )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 1 )
+BUS.set_bu_value( "restore", 0 )
+BUS.set_bu_pos_value( "tk_1", {-0.20000000298023,0.225, 0.21875,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "tk_2", {-0.20000000298023,0.1625, 0.21875,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "tk_3", {-0.012500000186265,-0.1, 0.21875,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "tk_4", {-0.20000000298023,0.0375, 0.21875,0.05}, { render=0 } )

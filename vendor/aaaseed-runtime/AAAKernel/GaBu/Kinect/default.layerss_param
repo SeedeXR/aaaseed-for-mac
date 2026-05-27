@@ -1,0 +1,8 @@
+module ( Version 0 )
+	{
+	name_symbo = "gabu_kinect" ;
+	module_materials = ON ;
+	layers_index_cur = 5 ;
+	layers_index_end = 3 ;
+	load_all = OFF ;
+	}

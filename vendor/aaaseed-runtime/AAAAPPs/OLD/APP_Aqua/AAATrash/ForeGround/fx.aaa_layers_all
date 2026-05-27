@@ -1,0 +1,70 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	FBO = "CURRENT" ;
+	name_symbo = "aqua_foreground_layers" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	index_cur = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 3.24427 ;
+	rot_x = 0.015195 ;
+	tra_x = 0.108 ;
+	tra_y = -0.012 ;
+	tra_z = 2.28615 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 0.172607 ;
+	size_factor = 3.05075 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_grey = 0 ;
+	global_alpha = 0 ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 4.92026 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	bank_2d = 11 ;
+	bind_2d = 31 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -4.90912 ;
+	rotate = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	trs_1 = "Owner" ;
+	}

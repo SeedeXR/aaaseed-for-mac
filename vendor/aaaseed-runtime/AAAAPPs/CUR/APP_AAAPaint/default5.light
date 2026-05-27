@@ -1,0 +1,8 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	Position_x = 8 ;
+	Radius = 1 ;
+	Diffuse_red = 1 ;
+	Diffuse_grey = 1 ;
+	}

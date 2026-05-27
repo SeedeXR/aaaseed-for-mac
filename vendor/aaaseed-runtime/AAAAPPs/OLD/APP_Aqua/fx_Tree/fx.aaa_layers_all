@@ -1,0 +1,169 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 2 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = -7.6999 ;
+	rot_x = 40.0019 ;
+	rot_y = 1.063 ;
+	tra_x = 0.156 ;
+	tra_y = -2.976 ;
+	tra_z = -12.8224 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 8.60901 ;
+	rot_y = 5.01298 ;
+	tra_z = -9.3252 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.929 ;
+	rot_y = 0.1125 ;
+	tra_x = -0.124 ;
+	tra_y = 0.006 ;
+	}
+//AAA::filename fx_a.cone
+bdd_cone ( Version 0 )
+	{
+	nb_v = 4 ;
+	}
+//AAA::filename fx_a.bdd_tree
+bdd_tree ( Version 0 )
+	{
+	origin_y = -4 ;
+	tree_generate_trig = ON ;
+	tree_trunk = ON ;
+	tree_trunk_move_y = 4 ;
+	tree_level = 5 ;
+	tree_seed = 585 ;
+	tree_branch_nb = 4 ;
+	tree_branch_nb_extra = 0.827065 ;
+	tree_level_factor = 0.704901 ;
+	tree_branch_move_v = 1 ;
+	tree_branch_move_factor = 0.566156 ;
+	tree_branch_move_factor = 4 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "CONE" ;
+	alignment = "Normal_with_offset" ;
+	axe = "Z" ;
+	size_u = 0.25 ;
+	size_v = 0.25 ;
+	target_name = "tree_one" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	start = -2.34292 ;
+	end = -2.22079 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_tree" ;
+	use_model = ON ;
+	use_multiple = "CURRENT" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_2d = 7 ;
+	use_lights_switch = ON ;
+	material_front = 0 ;
+	material_back = 1 ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Normal_with_offset" ;
+	axe = "X" ;
+	size_v = 2 ;
+	offset_u = 0.5 ;
+	offset_v = -0.00237903 ;
+	offset_axe = 0.371854 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_grey = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	bdd = "bdd_cone" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 2 ;
+	}

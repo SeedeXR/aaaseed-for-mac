@@ -1,0 +1,197 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	index_cur = "Layer_E" ;
+	index_end = "Layer_E" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 1024 ;
+	}
+//AAA::filename fx_a00.def
+def_data ( Version 0 )
+	{
+	active = ON ;
+	channel = 3 ;
+	scale = 0.125 ;
+	strenght = 1 ;
+	shape_gain = 0.666106 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	size_v = 0.03125 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 512 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_b00.def
+def_data ( Version 0 )
+	{
+	active = ON ;
+	scale = 0.0625 ;
+	strenght = 1 ;
+	offset = 0 ;
+	lissajou_channel = 4 ;
+	lissajou_fake_interval = 64 ;
+	origin_x = -4 ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_b00.def" def_00 = ON ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_deformer = "Owner" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = 1 ;
+	nb_u = 512 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_c00.def
+def_data ( Version 0 )
+	{
+	active = ON ;
+	channel = 2 ;
+	scale = 0.125 ;
+	strenght = 1 ;
+	offset = 0 ;
+	origin_x = 4 ;
+	}
+//AAA::filename fx_c.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_c00.def" def_00 = ON ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_deformer = "Owner" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_d.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = 2 ;
+	nb_u = 512 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_d00.def
+def_data ( Version 0 )
+	{
+	active = ON ;
+	channel = 3 ;
+	scale = 0.125 ;
+	strenght = 1 ;
+	offset = 0 ;
+	origin_x = 4 ;
+	}
+//AAA::filename fx_d.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_d00.def" def_00 = ON ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_green = 0 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_deformer = "Owner" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_e.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = 3 ;
+	nb_u = 512 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_e00.def
+def_data ( Version 0 )
+	{
+	active = ON ;
+	channel = 4 ;
+	scale = 0.125 ;
+	strenght = 1 ;
+	offset = 0 ;
+	origin_x = 4 ;
+	}
+//AAA::filename fx_e.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_e00.def" def_00 = ON ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_deformer = "Owner" ;
+	use_color = ON ;
+	}

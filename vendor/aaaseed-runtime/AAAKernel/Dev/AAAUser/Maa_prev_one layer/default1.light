@@ -1,0 +1,23 @@
+light ( Version 0 )
+	{
+	camera_lock = ON ;
+	Position_x = -2.5 ;
+	Position_y = -0.404951 ;
+	Position_z = 1.40778 ;
+	Radius = 0 ;
+	Ambient_occlusion = 2 ;
+	shadow_bias = 0.0963052 ;
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Ambient_grey = 1 ;
+	Specular_red = 1 ;
+	Specular_green = 1 ;
+	Specular_blue = 1 ;
+	Specular_grey = 1 ;
+	Diffuse_Alpha = 0.847146 ;
+	Spot_exponent = 0.457176 ;
+	attenuation_constant = 1.08 ;
+	attenuation_linear = 0.366 ;
+	attenuation_quadratic = 3.17948 ;
+	}

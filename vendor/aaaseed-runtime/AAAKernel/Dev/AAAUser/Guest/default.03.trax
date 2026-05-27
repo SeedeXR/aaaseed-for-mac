@@ -1,0 +1,6 @@
+trax ( Version 0 )
+	{
+	Fn = "NAME_REAL_SET" ;
+	Output = "FN_TRIGGER_UP" ;
+	Name = "ship_nav_flip" ;
+	}

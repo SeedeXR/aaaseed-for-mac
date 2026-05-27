@@ -1,0 +1,4 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Video/fx" ;
+	}

@@ -1,0 +1,6 @@
+list_fix ( Version 0 )
+	{
+	Bind_00 = "Flexor" ;
+	Bind_01 = "Hedra01" ;
+	Bind_02 = "Box01" ;
+	}

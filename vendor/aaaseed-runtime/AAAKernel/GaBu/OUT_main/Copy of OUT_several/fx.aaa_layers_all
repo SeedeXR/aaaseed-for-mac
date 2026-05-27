@@ -1,0 +1,375 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_G" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	Layer_F = ON ;
+	Layer_G = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = OFF ;
+	depth = OFF ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 3 ;
+	fragment_bind = 39 ;
+	fu_float_01 = 0.0420834 ;
+	fu_float_02 = 0.0649588 ;
+	fu_float_03 = 0.125 ;
+	fu_float_04 = 0.125 ;
+	fu_float_06 = 8 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Z" ;
+	size_u = 2 ;
+	size_v = 1.25 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	hue = 0.756587 ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_out_layer_attrib" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_shading = "Owner" ;
+	use_color = ON ;
+	bind_2d_offset = 44 ;
+	}
+//AAA::filename fx_b.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 33 ;
+	nb_v = 33 ;
+	center_x = -2.2 ;
+	center_y = -2.1 ;
+	ui_draw = ON ;
+	ui_alpha = 1 ;
+	ui_intercept = ON ;
+	ui_index_u = 4 ;
+	ui_index_v = 3 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "X" ;
+	tex_by_side = ON ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 3 ;
+	fragment_bind = 39 ;
+	fu_float_01 = 0.0420834 ;
+	fu_float_02 = 0.0649588 ;
+	fu_float_03 = 0.125 ;
+	fu_float_04 = 0.125 ;
+	fu_float_06 = 8 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_out_layer_1" ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_mapping = ON ;
+	use_shading = "Owner" ;
+	bind_2d_offset = 44 ;
+	}
+//AAA::filename fx_c.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 33 ;
+	nb_v = 33 ;
+	center_x = 2.2 ;
+	center_y = -2.1 ;
+	ui_draw = ON ;
+	ui_alpha = 1 ;
+	ui_intercept = ON ;
+	ui_index_u = 4 ;
+	ui_index_v = 3 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "X" ;
+	tex_by_side = ON ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_c.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 3 ;
+	fragment_bind = 39 ;
+	fu_float_01 = 0.0420834 ;
+	fu_float_02 = 0.0649588 ;
+	fu_float_03 = 0.125 ;
+	fu_float_04 = 0.125 ;
+	fu_float_06 = 8 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_out_layer_2" ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_mapping = ON ;
+	use_shading = "Owner" ;
+	bind_2d_offset = 44 ;
+	}
+//AAA::filename fx_d.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 33 ;
+	nb_v = 33 ;
+	center_x = -2.2 ;
+	ui_draw = ON ;
+	ui_alpha = 1 ;
+	ui_intercept = ON ;
+	ui_index_u = 4 ;
+	ui_index_v = 3 ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "X" ;
+	tex_by_side = ON ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_d.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 3 ;
+	fragment_bind = 39 ;
+	fu_float_01 = 0.0420834 ;
+	fu_float_02 = 0.0649588 ;
+	fu_float_03 = 0.125 ;
+	fu_float_04 = 0.125 ;
+	fu_float_06 = 8 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_out_layer_3" ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_mapping = ON ;
+	use_shading = "Owner" ;
+	bind_2d_offset = 44 ;
+	}
+//AAA::filename fx_e.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 33 ;
+	nb_v = 33 ;
+	center_x = 2.2 ;
+	ui_draw = ON ;
+	ui_alpha = 1 ;
+	ui_intercept = ON ;
+	ui_index_u = 4 ;
+	ui_index_v = 3 ;
+	}
+//AAA::filename fx_e.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "X" ;
+	tex_by_side = ON ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_e.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 3 ;
+	fragment_bind = 39 ;
+	fu_float_01 = 0.0420834 ;
+	fu_float_02 = 0.0649588 ;
+	fu_float_03 = 0.125 ;
+	fu_float_04 = 0.125 ;
+	fu_float_06 = 8 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_out_layer_4" ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_mapping = ON ;
+	use_shading = "Owner" ;
+	bind_2d_offset = 44 ;
+	}
+//AAA::filename fx_f.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 33 ;
+	nb_v = 33 ;
+	center_x = -2.2 ;
+	center_y = 2.1 ;
+	ui_draw = ON ;
+	ui_alpha = 1 ;
+	ui_intercept = ON ;
+	ui_index_u = 4 ;
+	ui_index_v = 3 ;
+	}
+//AAA::filename fx_f.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "X" ;
+	tex_by_side = ON ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_f.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 3 ;
+	fragment_bind = 39 ;
+	fu_float_01 = 0.0420834 ;
+	fu_float_02 = 0.0649588 ;
+	fu_float_03 = 0.125 ;
+	fu_float_04 = 0.125 ;
+	fu_float_06 = 8 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_out_layer_5" ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_mapping = ON ;
+	use_shading = "Owner" ;
+	bind_2d_offset = 44 ;
+	}
+//AAA::filename fx_g.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 33 ;
+	nb_v = 33 ;
+	center_x = 2.2 ;
+	center_y = 2.1 ;
+	ui_draw = ON ;
+	ui_alpha = 1 ;
+	ui_intercept = ON ;
+	ui_index_u = 4 ;
+	ui_index_v = 3 ;
+	}
+//AAA::filename fx_g.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "X" ;
+	tex_by_side = ON ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_g.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 3 ;
+	fragment_bind = 39 ;
+	fu_float_01 = 0.0420834 ;
+	fu_float_02 = 0.0649588 ;
+	fu_float_03 = 0.125 ;
+	fu_float_04 = 0.125 ;
+	fu_float_06 = 8 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_out_layer_6" ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_mapping = ON ;
+	use_shading = "Owner" ;
+	bind_2d_offset = 44 ;
+	}

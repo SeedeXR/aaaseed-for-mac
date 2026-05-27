@@ -1,0 +1,106 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "Left_Right" ;
+	use_camera = "Owner" ;
+	name_symbo = "kinect" ;
+	multiple_only = ON ;
+	index_cur = "Layer_C" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 32.465 ;
+	rot_x = 0.254 ;
+	rot_y = -0.0225 ;
+	tra_x = -7.568 ;
+	tra_y = 5.876 ;
+	tra_z = -6.02784 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.4985 ;
+	rot_y = -0.0005 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 1024 ;
+	tex_1_bind_2d_asked = 33 ;
+	tex_1_on_cpu = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	alpha_test = "GREATER" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "kinect_texvideo" ;
+	image_on_cpu_wanted = ON ;
+	image_keep_nb = 4 ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_open = ON ;
+	capture_run = ON ;
+	capture_run_forced = ON ;
+	incrust_min = -0.041399 ;
+	incrust_max = 0.0590157 ;
+	remanence_time = 4096 ;
+	remanence_diff_min = 0.0487483 ;
+	remanence_diff_factor = 3.62812 ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	name_symbo = "kinect_ui" ;
+	motor_active = ON ;
+	motor_position = 0.39305 ;
+	depth_render_type = "Z_Grey" ;
+	depth_meter_central = 0.750325 ;
+	depth_meter_max = 13.2008 ;
+	skeleton_asked = ON ;
+	skeleton_smooth = ON ;
+	skeleton_x_flip = ON ;
+	skeleton_rot_x = -0.091 ;
+	skeleton_mocap_target_1 = "skel_1" ;
+	skeleton_mocap_target_2 = "skel_2" ;
+	skeleton_select_min_x = -2 ;
+	skeleton_select_max_x = 2 ;
+	skeleton_select_min_y = -10 ;
+	skeleton_select_max_y = 4.6305 ;
+	skeleton_select_min_z = -10 ;
+	skeleton_select_max_z = 3.30921 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 30 ;
+	use_tex_video = ON ;
+	}

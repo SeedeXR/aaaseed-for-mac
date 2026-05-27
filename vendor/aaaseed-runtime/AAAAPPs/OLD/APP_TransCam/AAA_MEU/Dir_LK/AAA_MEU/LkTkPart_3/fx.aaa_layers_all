@@ -1,0 +1,166 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 8 ;
+	out_0 = 0 TraxLoc02In ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "BREAK_EQUAL_ZERO" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 2 ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 3 ;
+	}
+//AAA::filename fx.07.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 4 ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 7 ;
+	Bias = 0.125 ;
+	}
+//AAA::filename fx.11.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Bias = 0.125 ;
+	Max = 1024 ;
+	}
+//AAA::filename fx.12.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 2 ;
+	Bias = 0.25 ;
+	}
+//AAA::filename fx.15.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 5 ;
+	}
+//AAA::filename fx.16.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 3 ;
+	}
+//AAA::filename fx.18.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 4 ;
+	Control_id = 4 ;
+	}
+//AAA::filename fx.20.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 4 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	traxs_control_offset = 80 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 1024 ;
+	nb_max = 1024 ;
+	nb_by_sec = 0 TraxLoc11Out ;
+	flow_continuous = ON ;
+	life_time = 0 TraxLoc12Out ;
+	emission_box_size_u = 0 ;
+	emission_box_size_v = 2 ;
+	emission_box_size_axe = 0 TraxLoc15Out ;
+	emission_box_size_factor = 1 ;
+	jitter_speed_abs = 0 TraxLoc16Out ;
+	Accel_y = 0 TraxLoc20Out ;
+	field_speed = OFF TraxLoc18Out ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0 TraxLoc10Out ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 TraxLoc04Out ;
+	global_green = 0 TraxLoc05Out ;
+	global_blue = 0 TraxLoc06Out ;
+	global_grey = 1 TraxLoc07Out ;
+	global_alpha = 0 TraxLoc01Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 17 ;
+	trs_1 = "CURRENT" ;
+	}

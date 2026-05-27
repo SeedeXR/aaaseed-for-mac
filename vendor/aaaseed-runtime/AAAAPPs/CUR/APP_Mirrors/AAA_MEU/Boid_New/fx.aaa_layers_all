@@ -1,0 +1,218 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Once" ;
+	multiple_only = ON ;
+	camera_index_ui = 2 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	tra_z = -3.80224 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.00686957 ;
+	rot_y = 0.00499779 ;
+	tra_x = 0.0182469 ;
+	tra_y = -0.150296 ;
+	tra_z = -4.23085 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	center_y = -0.391763 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.985 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	tra_x = -0.04 ;
+	tra_y = -1.138 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.003 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00570176 ;
+	rot_y = 0.00165453 ;
+	tra_x = 0.000874529 ;
+	tra_y = -0.0134748 ;
+	tra_z = -4.00281 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	name_symbo = "bdd_boid" ;
+	nb_allocated = 8192 ;
+	nb_alive_min = 8192 ;
+	nb_alive_max = 8192 ;
+	birth_size_factor = 4 ;
+	birth_mask_sphere = ON ;
+	death_target_y = 8 ;
+	death_target_radius = 2 ;
+	dimension = "2D" ;
+	real_time = OFF ;
+	time_interval = 0.04 ;
+	acceleration_max = 3.16443 ;
+	speed_min = 0.249818 ;
+	viscosity = 0.116958 ;
+	cluster_by_unit = 100 ;
+	visibility_angle = 0.949571 ;
+	visibility_max_seen = 4096 ;
+	field_active = ON ;
+	target_active = OFF ;
+	target_influence = 0.125 ;
+	target_axe = "Z" ;
+	box_type = "Bounce" ;
+	box_influence = 0.0625 ;
+	box_x = -0.278934 ;
+	box_size_x = 8.31138 ;
+	box_size_y = 5.00632 ;
+	box_border_size = 0.03125 ;
+	repulse_visibility_use = ON ;
+	repulse_distance = 0.0903968 ;
+	repulse_exponent = 2 ;
+	repulse_draw_factor = 0.00012207 ;
+	repulse_net_color_define = ON ;
+	flocking_distance = 0.0308556 ;
+	steering_distance = 0.25 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 64 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_a00.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 64 ;
+	axe_src = "Z" ;
+	scale_factor = 1.32582 ;
+	clamped = ON ;
+	ellipse = ON ;
+	radius_factor = 0.0625 ;
+	ellipse_point_nb = 6 ;
+	axe_dst = "Z" ;
+	Gradient = ON ;
+	strenght = 32 ;
+	}
+//AAA::filename fx_a01.def
+def_repulsor ( Version 0 )
+	{
+	active = ON ;
+	type = "Cylindrical" ;
+	Axe = "Z" ;
+	bias = 0.983674 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	AddFileRel "fx_a01.def" def_01 = OFF ;
+	}
+//AAA::filename fx_a.anim
+tex_anim ( Version 0 )
+	{
+	start = 64 ;
+	stop = 67 ;
+	several_active = ON ;
+	force_start = 64 ;
+	force_stop = 67 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	alignment = "Random_Axe_Z" ;
+	axe = "Z" ;
+	size_factor = 0.0239608 TraxLoc01Out ;
+	target_name = "Text" ;
+	image_color_bind = 64 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.0407135 ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	size_v = 4.5 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	convert = ON ;
+	hue = 0 TraxLoc11Out ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	blue = 1 ;
+	start = 2.1814 ;
+	end = 3.85993 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 17 ;
+	comment = "boid" ;
+	}

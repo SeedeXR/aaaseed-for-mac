@@ -1,0 +1,9 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "WebCam_in/fx" ;
+	Bind_01 = "NiceBoid/fx" ;
+	Bind_02 = "SexLayerOne/fx" ;
+	Bind_03 = "SexLayer/fx" ;
+	Bind_04 = "Displacement/fx" ;
+	Bind_05 = "Painting_By_Number_v0/fx" ;
+	}

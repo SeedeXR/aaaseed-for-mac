@@ -1,0 +1,86 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "Anchovy" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	birth_origin_x = 7 ;
+	birth_origin_y = 5.5 ;
+	birth_origin_z = -8 ;
+	birth_size_x = 6 ;
+	birth_size_y = 3 ;
+	birth_size_z = 4 ;
+	birth_id = "from_index" ;
+	speed_min = 0.361625 ;
+	speed_max = 2.05215 ;
+	speed_vertical_ratio_max = 0.5 ;
+	viscosity = 0.0719353 ;
+	visibility_angle = 0.25 ;
+	visibility_max_seen = 512 ;
+	target_active = OFF ;
+	target_axe = "Y" ;
+	target_normal = 1 ;
+	target_draw = OFF ;
+	box_type = "Repulse" ;
+	box_size_factor = 2 ;
+	box_border_size = 0.25 ;
+	box_draw = ON ;
+	repulse_by_other = "explicit" ;
+	flocking_influence = 0.5 ;
+	flocking_distance = 0.5 ;
+	steering_influence = 2 ;
+	steering_distance = 0.5 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_axe = 8 ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_null" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

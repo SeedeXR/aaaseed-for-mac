@@ -1,0 +1,8 @@
+// blend two input textures (Tex_1 and Tex_2 in the MEU UI), modulated
+// by a third (Tex_3) used as a noise-like distortion field.
+// Bind any textures via the four Tex_ slots in the MEU panel.
+src(s0)
+  .blend(src(s1), 0.5)
+  .modulate(src(s2), 0.05)
+  .colorama(0.005)
+  .out()

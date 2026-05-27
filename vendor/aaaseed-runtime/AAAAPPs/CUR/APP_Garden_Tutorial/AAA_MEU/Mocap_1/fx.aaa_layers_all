@@ -1,0 +1,136 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "mocap.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	name_symbo = "skeleton" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 0.011 ;
+	rot_y = 0.549 ;
+	tra_z = -0.832 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.044969 ;
+	rot_y = -1.11569 ;
+	tra_z = -0.999054 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.4985 ;
+	rot_y = -0.0005 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	line_size = 2 ;
+	point_size = 4 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "CUBE" ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0.5 ;
+	global_blue = 0.5 ;
+	global_alpha = 0.00704703 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_z = 3 ;
+	rotate = ON ;
+	rotate_y = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.mocap
+bdd_mocap ( Version 0 )
+	{
+	channel_id = 80 ;
+	mocap_filename = "%media%/FAF/3D/LIBERTY02.mocap.maa" ;
+	time_factor = 2 ;
+	frame_cur = 0 ;
+	use_rot = OFF ;
+	use_sca = OFF ;
+	interpolate = OFF ;
+	interpolate_rotation = OFF ;
+	tra_scale_factor = 7.62937e-06 ;
+	draw_node_end = 2 ;
+	draw_origins = ON ;
+	size_origins = 0.125 ;
+	draw_segment = ON ;
+	draw_number = "Billboard" ;
+	size_number = 0.25 ;
+	draw_path = ON ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "CUBE" ;
+	size_factor = 0.00390625 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	}

@@ -1,0 +1,11 @@
+-- preset for MEU_GRIDSEL|GridSel_Jaime
+tab["grid_sel"] = 1
+tab["part_jaimea"] = 1.9558912035662
+tab["part_jaimeb"] = 0
+tab["part_jaimebb"] = 0
+tab["part_jaimec"] = 0
+tab["part_jaimecb"] = 0
+tab["part_jaimed"] = 0
+tab["part_jaimedb"] = 0
+tab["restore"] = 0
+tab["sel"] = false

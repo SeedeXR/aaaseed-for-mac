@@ -1,0 +1,6 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Firework/fx" ;
+	Bind_01 = "Midi_clock/fx" ;
+	Bind_02 = "Nom/fx" ;
+	}

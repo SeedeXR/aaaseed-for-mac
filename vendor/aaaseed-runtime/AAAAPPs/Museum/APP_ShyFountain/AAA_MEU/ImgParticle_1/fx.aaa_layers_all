@@ -1,0 +1,150 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "MEU_ImgParticle.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 9.0093 ;
+	rot_x = 0.141703 ;
+	rot_y = 0.616601 ;
+	tra_x = 0.193422 ;
+	tra_y = -0.160084 ;
+	tra_z = -7.25627 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 3.52165 ;
+	rot_x = 0.0264031 ;
+	rot_y = 0.0165592 ;
+	tra_z = -3.46453 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00305592 ;
+	rot_y = 0.00844039 ;
+	tra_z = -22.0876 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate_x = -1.97384 ;
+	translate_y = -4.25234 ;
+	translate_z = -2.65956 ;
+	}
+//AAA::filename fx_a.bdd_bullet
+bdd_bullet ( Version 0 )
+	{
+	dispatcher = "DISPATCHERMT" ;
+	collision = "SOFT" ;
+	}
+//AAA::filename fx_a.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	draw_all_curves = ON ;
+	draw_selected = ON ;
+	draw_number = ON ;
+	draw_number_scale = 0.25 ;
+	graduation_step = 0.125 ;
+	graduation_scale = 0.0625 ;
+	ui_u = 1 ;
+	}
+//AAA::filename fx_a.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 14 ;
+	ui_draw = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "mapping" ;
+	tex_axe = "Z" ;
+	tex_by_side = ON ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	tex_force_min_mag = ON ;
+	tex_2d_minification = "LINEAR" ;
+	tex_2d_magnification = "LINEAR" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid_adjustable" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 1 ;
+	}
+//AAA::filename fx_b.part
+bdd_particle ( Version 0 )
+	{
+	nb_by_sec = 2 ;
+	flow_continuous = ON ;
+	life_time = 4 ;
+	living_box_size_x = 8 ;
+	living_box_size_y = 8 ;
+	living_box_size_z = 0.015625 ;
+	sort_render = "Distance" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_particle" ;
+	bank_2d = 2 ;
+	}
+//AAA::filename fx_c.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 512 ;
+	nb_alive_max = 128 ;
+	birth_rate = 2 ;
+	birth_nb = 0.664171 ;
+	birth_origin_y = 8 ;
+	dimension = "2D" ;
+	acceleration_z = 0.25 ;
+	box_type_x = "Bounce" ;
+	box_type_z = "Die" ;
+	box_size_x = 2.55256 ;
+	box_size_z = 8 ;
+	box_border_size = 0.25 ;
+	repulse_distance = 0.25 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_boid" ;
+	}

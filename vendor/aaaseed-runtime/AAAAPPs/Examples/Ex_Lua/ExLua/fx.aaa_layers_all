@@ -1,0 +1,42 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "ex_lua.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ui_lock = ON ;
+	rot_x = -5.15251 ;
+	rot_y = -1.2105 ;
+	tra_x = -2.06749 ;
+	tra_y = -0.47662 ;
+	tra_z = -4.92871 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "exlua_color" ;
+	global_green = 0.8073 ;
+	global_alpha = 0.418055 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

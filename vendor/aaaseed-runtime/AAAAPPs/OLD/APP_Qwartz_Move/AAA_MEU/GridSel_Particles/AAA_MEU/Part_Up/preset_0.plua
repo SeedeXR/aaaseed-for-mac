@@ -1,0 +1,24 @@
+-- preset v0 for MEU|Part_Up
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 2
+tab["cam_use"] = 0
+tab["color_blue"] = 1
+tab["color_green"] = 1
+tab["color_grey"] = 1
+tab["color_hue"] = 1
+tab["color_red"] = 1
+tab["color_sat"] = 0
+tab["color_value"] = 0.73760902881622
+tab["mapping_blend"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["ori_u"] = 0
+tab["ori_v"] = 0
+tab["sfactor"] = 0.17677801847458
+tab["su"] = 1
+tab["sv"] = 1
+tab["tex_bank"] = 0
+tab["tex_bind"] = 2
+tab["tex_dim"] = 2
+tab["u"] = 1
+tab["v"] = 1

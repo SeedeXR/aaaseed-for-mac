@@ -1,0 +1,11 @@
+-- preset v0 for MEU|MovieWriter_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["codec"] = 1
+tab["name"] = "MovieTest"
+tab["path"] = "D:/AAA/Media/AAASnapshots"
+tab["quality"] = 70
+tab["record"] = false
+tab["source_bank"] = 3
+tab["source_bind"] = 11
+tab["vert flip"] = false

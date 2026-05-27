@@ -1,0 +1,8 @@
+net_link ( Version 0 )
+	{
+	active = ON ;
+	tcp_no_marker = OFF ;
+	port_nb = 4242 ;
+	dst_ip = "231" ;
+	disable_when_connection_failed = OFF ;
+	}

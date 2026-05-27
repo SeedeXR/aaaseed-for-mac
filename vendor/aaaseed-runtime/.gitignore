@@ -1,0 +1,7 @@
+tmp
+*.bak
+.DS_Store
+/Snapshots/*
+*.ods#
+AAAKernel/aaaseedgraph.grf
+AAAKernel/AAASeed.WinPos

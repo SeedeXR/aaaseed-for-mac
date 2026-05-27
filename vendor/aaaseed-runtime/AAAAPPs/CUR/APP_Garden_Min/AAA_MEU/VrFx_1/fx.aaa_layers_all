@@ -1,0 +1,241 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "VR_FX.lua" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	FBO = "CURRENT" ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_G" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "LuaVive_cam" ;
+	rot_x = 0.053 ;
+	rot_y = 0.0474883 ;
+	tra_z = -23.5139 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "trs" ;
+	translate = ON ;
+	rotate = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	comment = "Attrib" ;
+	}
+//AAA::filename fx_b.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	name_symbo = "LuaVive_curve1" ;
+	draw_all_curves = ON ;
+	draw_dataset_end = 1 ;
+	draw_point = OFF ;
+	draw_curve = OFF ;
+	draw_number_scale = 0.03125 ;
+	dataset_id = 32 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "BACK" ;
+	point_size = 8 ;
+	depth = ON ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 0.508459 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_3d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_c.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	name_symbo = "LuaVive_curve2" ;
+	draw_all_curves = ON ;
+	draw_dataset_begin = 4 ;
+	draw_dataset_end = 7 ;
+	draw_point = OFF ;
+	draw_curve = OFF ;
+	draw_number_scale = 0.033486 ;
+	dataset_id = 2 ;
+	}
+//AAA::filename fx_c.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "LuaVive_curve2" ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_3d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_d.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 65536 ;
+	nb_max = 65536 ;
+	nb_by_sec = 16384 ;
+	flow_continuous = ON ;
+	life_time = 1.01131 ;
+	emission_bdd = "LuaVive_curve2" ;
+	jitter_speed_abs = 0.0625 ;
+	jitter_jitter = 1 ;
+	render_life_color = ON ;
+	render_life_color_ease_out = 0.5 ;
+	}
+//AAA::filename fx_d.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.0078125 ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	bind_2d = 9 ;
+	}
+//AAA::filename fx_e.tube_path
+bdd_tube_path ( Version 0 )
+	{
+	name_symbo = "LuaVive_tube" ;
+	b_curve = ON ;
+	len_before = 0.512 ;
+	center = 0.512 ;
+	len_after = 0.512 ;
+	draw = "TUBE" ;
+	loop = OFF ;
+	ring_nb = 21 ;
+	ring_segment_nb = 22 ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tube_path" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	}
+//AAA::filename fx_f.boid
+bdd_boid ( Version 0 )
+	{
+	name_symbo = "LuaVive_boid" ;
+	universe = 1 ;
+	nb_allocated = 32 ;
+	nb_alive_min = 32 ;
+	nb_alive_max = 32 ;
+	visibility_max_seen = 1 ;
+	target_active = OFF ;
+	box_type = "Repulse" ;
+	box_y = -4 ;
+	box_size_factor = 4 ;
+	box_sphere = ON ;
+	}
+//AAA::filename fx_f.voxel
+bdd_voxel ( Version 0 )
+	{
+	led_as_sphere = ON ;
+	}
+//AAA::filename fx_f.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_f.model
+model ( Version 0 )
+	{
+	resolution = 32 ;
+	}
+//AAA::filename fx_f.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.837016 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_voxel" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_g.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "LuaVive_curve2" ;
+	center_y = 0.980662 ;
+	}
+//AAA::filename fx_g.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = 0.480255 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	}

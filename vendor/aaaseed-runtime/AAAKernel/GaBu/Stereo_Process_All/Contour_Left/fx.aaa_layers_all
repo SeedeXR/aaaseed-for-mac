@@ -1,0 +1,49 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Offset = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	viewport = "Left_Right" ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.5 ;
+	m00 = 1 ;
+	m11 = 1 ;
+	m22 = 1 ;
+	m33 = 1 ;
+	}
+//AAA::filename fx_a.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 38 TraxLoc01In ;
+	draw_in_texture = ON ;
+	contour_dst = 40 TraxLoc01Out ;
+	contour_mode = "External" ;
+	blob_point_nb_filter = ON ;
+	blob_point_nb_min = 8 ;
+	blob_point_nb_max = 12288 ;
+	blob_area_filter = ON ;
+	contour_draw = ON ;
+	bounding_draw = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "Image Contour" ;
+	use_bdd = "update_and_draw" ;
+	}

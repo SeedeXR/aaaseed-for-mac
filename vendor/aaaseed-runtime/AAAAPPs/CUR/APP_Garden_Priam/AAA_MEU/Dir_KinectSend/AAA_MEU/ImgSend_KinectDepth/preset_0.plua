@@ -1,0 +1,12 @@
+-- preset v0 for MEU|ImgSend_KinectDepth
+tab["force"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mono"] = false
+tab["received_bank"] = 1
+tab["received_bind"] = 1
+tab["sent_bank"] = 3
+tab["sent_bind"] = 6
+tab["time"] = 0
+tab["tmp_bank"] = 1
+tab["tmp_bind"] = 1

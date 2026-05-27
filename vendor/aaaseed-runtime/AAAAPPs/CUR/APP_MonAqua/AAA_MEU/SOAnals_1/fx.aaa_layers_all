@@ -1,0 +1,529 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "SO_anals.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Once" ;
+	multiple_only = ON ;
+	index_cur = "Layer_Y" ;
+	index_end = "Layer_Y" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_F = ON ;
+	Layer_G = ON ;
+	Layer_H = ON ;
+	Layer_I = ON ;
+	Layer_J = ON ;
+	Layer_K = ON ;
+	Layer_L = ON ;
+	Layer_M = ON ;
+	Layer_O = ON ;
+	Layer_P = ON ;
+	Layer_Q = ON ;
+	Layer_R = ON ;
+	Layer_S = ON ;
+	Layer_T = ON ;
+	Layer_U = ON ;
+	Layer_W = ON ;
+	Layer_X = ON ;
+	Layer_Y = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ui_lock = ON ;
+	draw_axe = ON ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.074 ;
+	rot_y = 0.115 ;
+	tra_x = -0.012 ;
+	tra_y = 0.044 ;
+	tra_z = -1.16466 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	comment = "ATtr bdd_anal" ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 20.75 ;
+	size_v = 8 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = 0.125 ;
+	nb_u = 22 ;
+	nb_v = 9 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_u = 21 ;
+	size_v = 8 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "CURRENT" ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_f.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_v = 0.85 ;
+	end_u = 0.220747 ;
+	size_u = 0.220747 ;
+	size_v = 0.15 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "KL1" ;
+	}
+//AAA::filename fx_g.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.259388 ;
+	begin_v = 0.8 ;
+	end_u = 0.467227 ;
+	size_u = 0.207839 ;
+	size_v = 0.2 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "KL2" ;
+	}
+//AAA::filename fx_h.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.507689 ;
+	begin_v = 0.75 ;
+	end_u = 0.713732 ;
+	size_u = 0.206043 ;
+	size_v = 0.25 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_h.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "KL3" ;
+	}
+//AAA::filename fx_i.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.752589 ;
+	begin_v = 0.75 ;
+	end_u = 0.958762 ;
+	size_u = 0.206173 ;
+	size_v = 0.25 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_i.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "KL4" ;
+	}
+//AAA::filename fx_j.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	end_u = 0.220304 ;
+	end_v = 0.15 ;
+	size_u = 0.220304 ;
+	size_v = 0.15 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_j.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "KR1" ;
+	}
+//AAA::filename fx_k.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.256702 ;
+	end_u = 0.467227 ;
+	end_v = 0.2 ;
+	size_u = 0.210525 ;
+	size_v = 0.2 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_k.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "KR2" ;
+	}
+//AAA::filename fx_l.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.506562 ;
+	end_u = 0.709987 ;
+	end_v = 0.25 ;
+	size_u = 0.203425 ;
+	size_v = 0.25 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_l.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "KR3" ;
+	}
+//AAA::filename fx_m.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.756108 ;
+	end_u = 0.957815 ;
+	end_v = 0.25 ;
+	size_u = 0.201707 ;
+	size_v = 0.25 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_m.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "KR4" ;
+	}
+//AAA::filename fx_o.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.269487 ;
+	begin_v = 0.48469 ;
+	end_u = 0.309753 ;
+	end_v = 0.599889 ;
+	size_u = 0.040266 ;
+	size_v = 0.115199 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_o.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "G_CLAM_01_A" ;
+	}
+//AAA::filename fx_p.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.434215 ;
+	begin_v = 0.629456 ;
+	end_u = 0.479787 ;
+	end_v = 0.746027 ;
+	size_u = 0.045572 ;
+	size_v = 0.116571 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_p.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "G_CLAM_01_B" ;
+	}
+//AAA::filename fx_q.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.259461 ;
+	begin_v = 0.287084 ;
+	end_u = 0.303528 ;
+	end_v = 0.392761 ;
+	size_u = 0.044067 ;
+	size_v = 0.105677 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_q.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "G_CLAM_02_A" ;
+	}
+//AAA::filename fx_r.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.388196 ;
+	begin_v = 0.331317 ;
+	end_u = 0.436491 ;
+	end_v = 0.454829 ;
+	size_u = 0.048295 ;
+	size_v = 0.123512 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_r.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "G_CLAM_02_B" ;
+	}
+//AAA::filename fx_s.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.35087 ;
+	begin_v = 0.576877 ;
+	end_u = 0.388528 ;
+	end_v = 0.684491 ;
+	size_u = 0.037658 ;
+	size_v = 0.107614 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_s.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "G_CLAM_03" ;
+	}
+//AAA::filename fx_t.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.320047 ;
+	begin_v = 0.172264 ;
+	end_u = 0.361805 ;
+	end_v = 0.266952 ;
+	size_u = 0.041758 ;
+	size_v = 0.094688 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_t.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "G_CLAM_04" ;
+	}
+//AAA::filename fx_u.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.38791 ;
+	begin_v = 0.172688 ;
+	end_u = 0.427326 ;
+	end_v = 0.263457 ;
+	size_u = 0.039416 ;
+	size_v = 0.090769 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_u.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "G_CLAM_05" ;
+	}
+//AAA::filename fx_w.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.370488 ;
+	begin_v = 0.818039 ;
+	end_u = 0.423218 ;
+	size_u = 0.05273 ;
+	size_v = 0.181961 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_w.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "Nemo_KL2" ;
+	}
+//AAA::filename fx_x.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.424354 ;
+	end_u = 0.483721 ;
+	end_v = 0.158671 ;
+	size_u = 0.059367 ;
+	size_v = 0.158671 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_x.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "Nemo_KR2_A" ;
+	}
+//AAA::filename fx_y.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	begin_u = 0.261153 ;
+	end_u = 0.311464 ;
+	end_v = 0.156586 ;
+	size_u = 0.050311 ;
+	size_v = 0.156586 ;
+	draw_frame = ON ;
+	coverage_min = 0.004 ;
+	}
+//AAA::filename fx_y.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	comment = "Nemo_KR2_B" ;
+	}

@@ -1,0 +1,11 @@
+-- preset v0 for MEU|YoctoPuce_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["active"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 0
+tab["open"] = false
+tab["polling interval size"] = 1
+tab["signal inverted"] = false
+tab["verbose"] = false

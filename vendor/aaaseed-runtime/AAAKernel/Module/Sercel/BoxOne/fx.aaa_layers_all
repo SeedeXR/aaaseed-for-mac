@@ -1,0 +1,39 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "sercel_boxone.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	lua = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "sercel_boxone_cam" ;
+	rot_x = 0.1275 ;
+	rot_y = 1.0735 ;
+	tra_z = -8.02634 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	name_symbo = "sercel_boxone_model" ;
+	axe_object = "Y" ;
+	size_u = 0.0957959 ;
+	size_v = 0.0957959 ;
+	size_axe = 0.0222307 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Box" ;
+	use_model = ON ;
+	name_symbo = "sercel_boxone_layer_a" ;
+	}

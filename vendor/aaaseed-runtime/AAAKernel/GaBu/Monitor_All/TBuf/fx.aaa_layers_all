@@ -1,0 +1,186 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_cur = "Layer_H" ;
+	index_end = "Layer_H" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	Layer_F = ON ;
+	Layer_G = ON ;
+	Layer_H = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 2.95408 ;
+	rot_x = -0.0635 ;
+	rot_y = -0.0065 ;
+	tra_x = 2.08812 ;
+	tra_y = -0.311875 ;
+	tra_z = -4.02944 ;
+	}
+//AAA::filename fx_a.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	marker_per_sec = 59.9351 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	gouraud = OFF ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 0.317558 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Callback render" ;
+	size_factor = -0.25 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_green = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_c.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Draw modules ALL" ;
+	size_factor = -0.125 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_d.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "render" ;
+	size_factor = -0.25 ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_green = 0.5 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_e.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "GL Flush" ;
+	size_factor = -0.0625 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_f.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Draw group" ;
+	draw_text = ON ;
+	}
+//AAA::filename fx_f.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_g.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Lua" ;
+	draw_text = ON ;
+	}
+//AAA::filename fx_g.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_h.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Draw Interface" ;
+	draw_box = ON ;
+	}
+//AAA::filename fx_h.colt
+color ( Version 0 )
+	{
+	global_red = 0.481017 ;
+	global_green = 0 ;
+	global_grey = 0.5 ;
+	}
+//AAA::filename fx_h.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}

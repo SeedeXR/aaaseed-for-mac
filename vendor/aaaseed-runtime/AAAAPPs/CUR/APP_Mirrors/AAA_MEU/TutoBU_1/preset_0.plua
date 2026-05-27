@@ -1,0 +1,18 @@
+-- preset v0 for MEU|TutoBU_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 7
+tab["cam_use"] = 2
+tab["check"] = 0
+tab["curve"] = { { 0.125, 0.5, false, 0.073991935483871, 0.2 }, { 0.375, 0.5, false, 0.073991935483871, 0.2 }, { 0.625, 0.5, false, 0.073991935483871, 0.2 }, { 0.875, 0.5, false, 0.073991935483871, 0.2 } }
+tab["mapping_blend"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mode"] = 1
+tab["multi"] = { { 0.125, 0.5, false, 0.12096774193548, 0.32697547683924 }, { 0.375, 0.5, false, 0.12096774193548, 0.32697547683924 }, { 0.625, 0.5, false, 0.12096774193548, 0.32697547683924 }, { 0.875, 0.5, false, 0.12096774193548, 0.32697547683924 } }
+tab["on/off"] = 1
+tab["other"] = { false, false, false, false }
+tab["two"] = { 0.25, 0.75 }
+tab["two linear"] = { 0.25, 0.75 }
+tab["value"] = 1
+tab["what"] = 2
+tab["xy"] = { 0.93028774885295, 0.38218919120775 }

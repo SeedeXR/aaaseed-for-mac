@@ -1,0 +1,26 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "Owner" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x_frequency = 0.0929011 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	size_asked_x = 1920 ;
+	size_asked_y = 1080 ;
+	channel_nb = 4 ;
+	channel_type = "fp16" ;
+	verbose = OFF ;
+	tex_1_bind_2d_asked = 69 ;
+	tex_1_minification = "Nearest" ;
+	tex_1_magnification = "Nearest" ;
+	}

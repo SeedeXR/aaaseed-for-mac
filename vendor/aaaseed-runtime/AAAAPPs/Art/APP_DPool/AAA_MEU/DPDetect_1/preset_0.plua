@@ -1,0 +1,12 @@
+-- preset v0 for MEU|DPDetect_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["anticipation"] = 20.008118574846
+tab["anticipation limit"] = 5
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["draw_blob"] = false
+tab["id"] = true
+tab["phy"] = true
+tab["phy_min"] = 0.022376989926203

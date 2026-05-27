@@ -1,0 +1,14 @@
+-- preset v0 for MEU|Stroke_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["crosshair"] = false
+tab["dataset"] = 6
+tab["intercept"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["phase"] = { 0, 0.50920790433884 }
+tab["record"] = false
+tab["rectangle"] = false
+tab["speed"] = 1
+tab["use phase"] = 2

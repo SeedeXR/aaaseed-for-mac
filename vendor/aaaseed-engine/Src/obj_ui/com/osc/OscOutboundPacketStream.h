@@ -1,0 +1,167 @@
+/*
+	oscpack -- Open Sound Control (OSC) packet manipulation library
+	http://www.rossbencina.com/code/oscpack
+
+	Copyright (c) 2004-2013 Ross Bencina <rossb@audiomulch.com>
+
+	Permission is hereby granted, free of charge, to any person obtaining
+	a copy of this software and associated documentation files
+	(the "Software"), to deal in the Software without restriction,
+	including without limitation the rights to use, copy, modify, merge,
+	publish, distribute, sublicense, and/or sell copies of the Software,
+	and to permit persons to whom the Software is furnished to do so,
+	subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be
+	included in all copies or substantial portions of the Software.
+
+	Any person wishing to distribute modifications to the Software is
+	requested to send the modifications to the original developer so that
+	they can be incorporated into the canonical version.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+	ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+	CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+#ifdef AAA_INCLUDED_OSCOUTBOUNDPACKET_H
+#error "INCLUDED_OSCOUTBOUNDPACKET_H included more than once."
+#endif
+#define AAA_INCLUDED_OSCOUTBOUNDPACKET_H 1
+
+
+#ifndef AAA_INCLUDED_OSCTYPES_H
+#	include "OscTypes.h"
+#endif
+#ifndef AAA_INCLUDED_OSC_EXCEPTION_H
+#	include "OscException.h"
+#endif
+
+
+namespace	osc
+{
+
+/*maa
+class OutOfBufferMemoryException : public Exception{
+public:
+	OutOfBufferMemoryException( const char *w="out of buffer memory" )
+		: Exception( w ) {}
+};
+
+class BundleNotInProgressException : public Exception{
+public:
+	BundleNotInProgressException(
+			const char *w="call to EndBundle when bundle is not in progress" )
+		: Exception( w ) {}
+};
+
+class MessageInProgressException : public Exception{
+public:
+	MessageInProgressException(
+			const char *w="opening or closing bundle or message while message is in progress" )
+		: Exception( w ) {}
+};
+
+class MessageNotInProgressException : public Exception{
+public:
+	MessageNotInProgressException(
+			const char *w="call to EndMessage when message is not in progress" )
+		: Exception( w ) {}
+};
+*/
+
+class	OutboundPacketStream
+{
+public:
+	OutboundPacketStream( char * buffer, unsigned long capacity );
+	~OutboundPacketStream();
+
+	void			clear();
+
+	UINT32			get_capacity() const;
+
+	// invariant: get_size() is valid even while building a message.
+	UINT32			get_size() const;
+
+	const	char*	get_data() const;
+
+	// indicates that all messages have been closed with a matching EndMessage
+	// and all bundles have been closed with a matching EndBundle
+	bool			is_ready() const;
+
+	bool			is_message_in_progress() const;
+	bool			is_bundle_in_progress() const;
+
+	OutboundPacketStream&	operator<<( const BundleInitiator& rhs );
+	OutboundPacketStream&	operator<<( const BundleTerminator& rhs );
+
+	OutboundPacketStream&	operator<<( const BeginMessage& rhs );
+	OutboundPacketStream&	operator<<( const MessageTerminator& rhs );
+
+	OutboundPacketStream&	operator<<( bool rhs );
+	OutboundPacketStream&	operator<<( const NilType& rhs );
+	OutboundPacketStream&	operator<<( const InfinitumType& rhs );
+	OutboundPacketStream&	operator<<( int32 rhs );
+
+#if !(defined(__x86_64__) || defined(_M_X64))
+//maa
+//maa	OutboundPacketStream&	operator<<( int rhs )
+//			 *this << (int32)rhs; return *this; }
+#endif
+
+	OutboundPacketStream&	operator<<( float rhs );
+	OutboundPacketStream&	operator<<( char rhs );
+	OutboundPacketStream&	operator<<( const RgbaColor& rhs );
+	OutboundPacketStream&	operator<<( const MidiMessage& rhs );
+	OutboundPacketStream&	operator<<( int64 rhs );
+	OutboundPacketStream&	operator<<( const TimeTag& rhs );
+	OutboundPacketStream&	operator<<( double rhs );
+	OutboundPacketStream&	operator<<( const char* rhs );
+	OutboundPacketStream&	operator<<( const Symbol& rhs );
+	OutboundPacketStream&	operator<<( const Blob& rhs );
+	OutboundPacketStream&	operator<<( const ArrayInitiator& rhs );
+	OutboundPacketStream&	operator<<( const ArrayTerminator& rhs );
+
+	static	INT32	get_message_space( const char *addressPattern );
+	static	INT32	get_bundle_space();
+	static	INT32	get_nil_space();
+	static	INT32	get_int_space();
+	static	INT32	get_real_space();
+	static	INT32	get_bool_space();
+	static	INT32	get_string_space( C_PCHAR_C str );
+
+public:
+	//todo in 2024 April M�a made it public so caller could check
+	// but a valid flag for the packet should be implemented at some point
+			bool	check_for_available_space( CONST UINT32 asked );
+			bool	check_for_available_argument_space( INT32 argumentLength );
+	static INT32	get_argument_space_size( INT32 arg_nb );
+private:
+	char *	BeginElement( char * beginPtr );
+	void	EndElement(   char * endPtr );
+
+	bool	ElementSizeSlotRequired() const;
+	bool	check_for_available_bundle_space();
+	bool	check_for_available_message_space( const char * addressPattern );
+
+
+	char *	_data;
+	char *	_end;
+
+	char *	typeTagsCurrent_; // stored in reverse order
+	char *	messageCursor_;
+	char *	argumentCurrent_;
+
+	// elementSizePtr_ has two special values: 0 indicates that a bundle
+	// isn't open, and elementSizePtr_==data_ indicates that a bundle is
+	// open but that it doesn't have a size slot (ie the outermost bundle)
+	uint32 * elementSizePtr_;
+
+	bool	_b_message_is_in_progress;
+};
+
+} // namespace osc
+

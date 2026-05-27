@@ -1,0 +1,92 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "grad_draw.lua" ;
+	}
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 3 ;
+	Max = 0 TraxMod01Out ;
+	out_0 = 0 TraxLoc02In ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "BREAK_EQUAL_ZERO" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 3 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	lua = ON ;
+	Traxs = ON ;
+	traxs_control_offset = 32 ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.517 ;
+	rot_y = -0.00400001 ;
+	tra_z = -1.3316 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_by_sec = 8 ;
+	flow_continuous = ON ;
+	life_time = 16 ;
+	emission_box_size_factor = 4 ;
+	jitter_speed_abs = 0.015625 ;
+	living_box_size_factor = 4 ;
+	render_life_color = ON ;
+	render_life_color_ease_in = 0.0802239 ;
+	render_life_color_ease_out = 0.0907072 ;
+	render_life_image_bind = 100 ;
+	render_life_color_map = ON ;
+	color_map_v = 0 TraxLoc03Out ;
+	color_map_dv = 0.0625 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Random_Axe_Z" ;
+	axe = "Z" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0 TraxLoc01Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	bdd = "bdd_particle" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	}

@@ -1,0 +1,12 @@
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "Object" ;
+	use_bdd = "update_and_draw" ;
+	use_deformer = "Owner" ;
+	bank_2d = 5 ;
+	bind_1d = 5 ;
+	material_front = 10 ;
+	material_back = 10 ;
+	use_list = ON ;
+	}

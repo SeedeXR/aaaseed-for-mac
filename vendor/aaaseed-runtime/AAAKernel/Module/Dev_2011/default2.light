@@ -1,0 +1,13 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	type = "SPOT" ;
+	camera_lock = ON ;
+	Position_z = -0.5 ;
+	Diffuse_grey = 1 ;
+	Specular_grey = 1 ;
+	Spot_cutoff = 23.4568 ;
+	Spot_exponent = 0.250862 ;
+	Spot_direction_y = -0.0239105 ;
+	Spot_direction_z = -1 ;
+	}

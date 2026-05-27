@@ -1,0 +1,12 @@
+-- preset v0 for MEU|Dir_KinectA
+tab["a"] = 1
+tab["b"] = 1
+tab["blur_a"] = { render=0 }
+tab["depthpick_a"] = { render=0 }
+tab["fieldgene_a"] = { render=0 }
+tab["kinmoveauto_a"] = { render=1 }
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["ref_fbo_f1"] = { render=1 }
+tab["ref_fbo_f4"] = { render=0 }
+tab["restore"] = 0

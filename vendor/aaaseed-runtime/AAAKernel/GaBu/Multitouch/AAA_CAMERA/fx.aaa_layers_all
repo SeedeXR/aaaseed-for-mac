@@ -1,0 +1,61 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "AAA_CAMERA.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	comment = "define AAACAM object and default cam" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "gabu_cam_default" ;
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -10.2957 ;
+	m32 = -0.2 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	tra_x = -1.52 ;
+	tra_y = -0.452 ;
+	tra_z = -4.2043 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	tra_x = 0.016 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = -0.12 ;
+	tra_x = -1.11401 ;
+	tra_y = -0.156 ;
+	tra_z = -2.8304 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 6.46343 ;
+	tra_x = -0.0404094 ;
+	tra_y = 0.636803 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	tex_1_active = OFF ;
+	}

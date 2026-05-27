@@ -1,0 +1,77 @@
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = samples (from 2.0 to 16.0)
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+vec3 iRot = vec3(0.0, 0.0, 1.7);
+
+
+float noise(float t) {
+	return fract(sin(t)*4397.33);
+}
+
+vec3 rotate(vec3 p) {
+	float angle = aaa_fu_float[0] / 3.;
+	return vec3(p.x*cos(angle) + p.z*sin(angle), p.y, p.x*sin(angle) - p.z*cos(angle));
+}
+
+float field(vec3 p) {
+	float d = 0.;
+	p = abs(rotate(p));
+	for (int i = 0; i < 7; ++i) {
+		d = max(d, exp(-float(i) / 7.) * (length(max(p - .4, vec3(0.))) - .2));
+		p = abs(2.*fract(p) - 1.) + .1;
+	}
+	return d;
+}
+
+void main()
+{
+	vec2 uv = gl_TexCoord[0].st - 0.5;
+	ivec2	tex_suv = textureSize( aaa_tex2d[0], 0 );
+	uv *= tex_suv / max(tex_suv.x, tex_suv.y);
+	vec3 ro = iRot;
+	vec3 rd = normalize(vec3(uv.x, -uv.y, -1.5));
+	float dSum = 0.;
+	float dMax = 0.;
+
+	float variance = mix(3., 1., pow(.5 + .5*sin(aaa_fu_float[0]), 8.));
+	variance -= .05 * log(1.e-6 + noise(aaa_fu_float[0]));
+
+	for (int i = 0; i < 32; ++i) {
+		float d = field(ro);
+		float weight = 1. + .2 * (exp(-10. * abs(2.*fract(abs(4.*ro.y)) - 1.)));
+		float value = exp(-variance * abs(d)) * weight;
+		dSum += value;
+		dMax = max(dMax, value);
+		ro += (d / 8.) * rd;
+	}
+
+	float t = max(dSum / 32., dMax) * mix(.92, 1., noise(uv.x + noise(uv.y + aaa_fu_float[0])));
+	vec4 col = vec4(t * vec3(t*t*1.3, t*1.3, 1.), 1.);
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (col * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}

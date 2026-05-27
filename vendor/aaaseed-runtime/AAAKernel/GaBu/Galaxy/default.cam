@@ -1,0 +1,9 @@
+seedcam ( Version 0 )
+	{
+	ortho_size = 19.1 ;
+	rot_x = -0.629 ;
+	rot_y = 1.041 ;
+	tra_x = 2.028 ;
+	tra_y = 1.104 ;
+	tra_z = -3.14264 ;
+	}

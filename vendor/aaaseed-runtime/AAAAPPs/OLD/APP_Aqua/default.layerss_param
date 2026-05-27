@@ -1,0 +1,8 @@
+module ( Version 0 )
+	{
+	module_materials = ON ;
+	module_lights = ON ;
+	layers_index_cur = 24 ;
+	layers_index_end = 55 ;
+	load_all = OFF ;
+	}

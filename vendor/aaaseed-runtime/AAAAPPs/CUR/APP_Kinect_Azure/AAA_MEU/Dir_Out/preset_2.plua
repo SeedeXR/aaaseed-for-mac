@@ -1,0 +1,6 @@
+-- preset for MEU_DIR|OUT("OUT")
+tab["a"] = 1
+tab["b"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["restore"] = 0

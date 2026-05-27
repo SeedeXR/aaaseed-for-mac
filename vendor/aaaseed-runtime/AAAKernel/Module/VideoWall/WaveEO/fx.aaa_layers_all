@@ -1,0 +1,106 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	rot_x = 0.019 ;
+	rot_y = 0.022 ;
+	tra_z = -4.8288 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	focal = 120 ;
+	focal_horizontal = ON ;
+	rot_x = 2.26 ;
+	rot_y = 1.075 ;
+	tra_x = -0.368 ;
+	tra_y = 2.512 ;
+	tra_z = -4.8288 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 32 ;
+	nb_v = 256 ;
+	}
+//AAA::filename fx_a00.def
+def_wave ( Version 0 )
+	{
+	active = ON ;
+	Len = 2.5 ;
+	Height = 1.20298 ;
+	Shape = 0.661733 ;
+	Wind = 0.741374 ;
+	Angle = 0.25 ;
+	Phase = 1.06427 ;
+	Pertub_State = OFF ;
+	Pertub_X = 0.0625 ;
+	Regul_Max = 40 ;
+	turb_strenght = 2 ;
+	turb_x = 15.1938 ;
+	turb_harm = 5 ;
+	}
+//AAA::filename fx_a01.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = 0.550954 ;
+	phase_speed = -1.11882 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	AddFileRel "fx_a01.def" def_01 = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "BOX" ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_u = 2 ;
+	size_v = 8 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}

@@ -1,0 +1,118 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	Freq = 0.0078125 ;
+	Max = 0.5 ;
+	Limit = "WRAP" ;
+	Limit_max = 32 ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0.03125 ;
+	Max = 16 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	name_symbo = "layers_4" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 4096 ;
+	nb_max = 4096 ;
+	nb_by_sec = 0 ;
+	flow_continuous = ON ;
+	life_time = 0.360248 ;
+	emission_bdd = "gabu_blob_tracker" ;
+	emission_origin_x = -0.5 ;
+	emission_origin_y = -0.5 ;
+	emission_box_size_factor = 0.0139793 ;
+	emission_mask_sphere = ON ;
+	emission_speed_axe = 0 ;
+	emission_speed_factor = 1 ;
+	emission_object_speed_factor = 0.500001 ;
+	emission_object_speed_interval = ON ;
+	jitter_speed_abs = 0.00122148 ;
+	jitter_jitter = 1 ;
+	Speed_x = 0.000787749 ;
+	Speed_y = 0.00314951 ;
+	viscosity = 0.00231525 ;
+	turb_speed = 0.00390625 ;
+	turb_fractal_sum = OFF ;
+	turb_freq = 4 ;
+	turb_gain = 0.897928 ;
+	turb_offset_X = 0.310238 TraxLoc01Out ;
+	turb_offset_Y = 8.90769 TraxLoc02Out ;
+	turb_offset_Z = 2.48191 TraxLoc03Out ;
+	render_life_color = ON ;
+	render_life_color_ease_out = 0.229682 ;
+	clipping = OFF ;
+	render_scale_u = 0.355707 ;
+	render_scale_v = 7.07837 ;
+	render_scale_axe = 3.95478 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 0.5 ;
+	point_size = 16 ;
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	top_red = 0 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Normal" ;
+	axe = "X" ;
+	size_u = 32 ;
+	size_factor = 0.00298245 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	fragment_bind = 64 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0.892084 ;
+	global_blue = 0.5 ;
+	use_hsv = ON ;
+	hue = 0.124366 ;
+	saturation = 0.235388 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 30 ;
+	}

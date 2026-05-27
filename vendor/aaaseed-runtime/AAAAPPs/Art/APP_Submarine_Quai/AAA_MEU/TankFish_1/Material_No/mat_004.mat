@@ -1,0 +1,7 @@
+material ( Version 0 )
+	{
+	Ambient_Green = 0 ;
+	Ambient_Blue = 0 ;
+	Diffuse_Green = 0 ;
+	Diffuse_Blue = 0 ;
+	}

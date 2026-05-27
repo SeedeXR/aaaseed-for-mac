@@ -1,0 +1,278 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "plancton.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_cur = "Layer_E" ;
+	index_end = "Layer_E" ;
+	Layer_E = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.5 ;
+	clip_close_ortho = -60 ;
+	clip_far_ortho = 60 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 12.89 ;
+	rot_x = 0.98 ;
+	rot_y = -0.0735 ;
+	}
+//AAA::filename fx_a.image_gradient
+bdd_img_gradient ( Version 0 )
+	{
+	size_asked_x = 512 ;
+	size_asked_y = 512 ;
+	type = "vertical" ;
+	factor = 8 ;
+	clamp = 4 ;
+	bias = 0.556782 ;
+	stop_offset = 0.176857 ;
+	stop_color_grey = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_gradient" ;
+	use_model = ON ;
+	bank_2d = 1 ;
+	bind_2d = 18 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 18 ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_factor = 3.18193 ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_z = 1 TraxLoc01Out ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	bank_2d = 1 ;
+	bind_2d = 21 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_d.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	center_x = 1 ;
+	center_z = -0.5 ;
+	}
+//AAA::filename fx_d.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = 1 ;
+	}
+//AAA::filename fx_d.sphere
+bdd_sphere ( Version 0 )
+	{
+	center_x = 1.16621 ;
+	nb_u = 48 ;
+	nb_v = 48 ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	line_size = 0.70718 ;
+	point_size = 6.82432 ;
+	point_mode = "POINT_SPRITE" ;
+	point_sprite_tex = ON ;
+	depth = ON ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.005 ;
+	}
+//AAA::filename fx_d.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_green = -0.595301 ;
+	global_alpha = 0.352057 ;
+	}
+//AAA::filename fx_d.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	material_use_color_dst = "Diffuse" ;
+	}
+//AAA::filename fx_e.bdd_opencl_part
+bdd_opencl_part ( Version 0 )
+	{
+	name_symbo = "opencl_plancton" ;
+	active = ON ;
+	device_type = "GPU" ;
+	point_nb = 65536 ;
+	point_nb_used = 65536 ;
+	placer_type = "Origin" ;
+	placer_max = 0.16708 ;
+	placer_use_min_max = ON ;
+	placer_try_always = ON ;
+	placer_scale_u = 3 ;
+	placer_scale_v = 3 ;
+	placer_harmonique_nb = 3 ;
+	texture_1_bind = 50 ;
+	texture_2_bind = 50 ;
+	filename = "plancton.cl" ;
+	kernel_name = "kernel_plancton" ;
+	block_size_u = 32 ;
+	block_size_v = 32 ;
+	do_gol_finish = OFF ;
+	do_gol_flush = ON ;
+	wait_post_acquire = OFF ;
+	wait_post_run = OFF ;
+	wait_post_release = OFF ;
+	do_cl_finish = OFF ;
+	nb_by_set = 262144 ;
+	param_01 = 0.0078125 ;
+	param_02 = 1.49989 ;
+	param_03 = 1.59378 ;
+	param_04 = 1 ;
+	}
+//AAA::filename fx_e.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 48 ;
+	nb_v = 48 ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	point_size = 16 ;
+	point_mode = "POINT_SPRITE" ;
+	point_sprite_tex = ON ;
+	depth = ON ;
+	depth_test = "LESS_OR_EQUAL" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_e.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.008 ;
+	}
+//AAA::filename fx_e.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 63 ;
+	vu_float_01 = 1 ;
+	fragment_bind = 63 ;
+	fu_float_01 = 1 ;
+	}
+//AAA::filename fx_e.model
+model ( Version 0 )
+	{
+	size_u = 3 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_e.colt
+color ( Version 0 )
+	{
+	global_grey = 0 ;
+	global_alpha = 0.125 ;
+	}
+//AAA::filename fx_e.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	hint = "GL_FASTEST" ;
+	red = 2.69 ;
+	start = 9.51154 ;
+	end = 14.8982 ;
+	}
+//AAA::filename fx_e.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale = ON ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_opencl_part" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 17 ;
+	material_use_color_dst = "Diffuse" ;
+	use_stencil = "CURRENT" ;
+	}

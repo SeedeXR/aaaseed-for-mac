@@ -1,0 +1,22 @@
+-- preset for MEU|Galaxy_1
+tab["cam_index"] = 0
+tab["cling"] = 1.189998782516
+tab["coloralpha"] = 1
+tab["colorblue"] = 1
+tab["colorgreen"] = 1
+tab["colorhue"] = 0
+tab["colorred"] = 1
+tab["colorsat"] = 0
+tab["colorvalue"] = 0
+tab["cone size"] = 1
+tab["fade"] = { 0.78338918601402, 0.87686004312664 }
+tab["cam_axe_show"] = 0
+tab["size"] = 4
+tab["size_axe"] = 8.1106606765101
+tab["size_u"] = 3.3978538205179
+tab["size_v"] = 2.2891700256014
+tab["speed"] = 0.37913373357593
+tab["tex_bank"] = 3
+tab["tex_bind"] = 17
+tab["tex_dim"] = 0
+tab["cam_use"] = 2

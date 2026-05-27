@@ -1,0 +1,200 @@
+//AAA::set_filename_relative
+//AAA::filename Celt_A.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	index_end = "Layer_C" ;
+	index_cur = "Layer_B" ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	light = ON ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	normal_red = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "REFLECTION" ;
+	tex_axe = "Z" ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	unit_1 = ON ;
+	unit_2 = ON ;
+	unit_3 = ON ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 14 ;
+	bind_2d = 21 ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_1.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 14 ;
+	bind_2d = 12 ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_2.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 14 ;
+	bind_2d = 1 ;
+	}
+//AAA::filename fx_a.texturing.tex_unit_3.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_factor = 2 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_u = 0.25 ;
+	size_v = 8 ;
+	size_axe = 0.25 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	use_shading = "CURRENT" ;
+	material_use_color_face = "FRONT" ;
+	material_use_color_dst = "Diffuse" ;
+	material_front = 0 ;
+	material_back = 1 ;
+	use_lights_switch = ON ;
+	bank_2d = 14 ;
+	bind_2d = 17 ;
+	use_fog = "CURRENT" ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 132 ;
+	vu_float_01 = 0.099558 ;
+	vu_float_02 = 10.0444 ;
+	vu_float_03 = 0.0985982 ;
+	vu_float_04 = 0.991993 ;
+	vu_float_05 = 19760.1 ;
+	vu_float_08 = 0.8 ;
+	vu_int_01 = 1 ;
+	vu_01_r_x = -2.96969 ;
+	vu_01_g_y = 1.09518 ;
+	vu_01_b_z = 5.74458 ;
+	vu_02_r_x = -3.05962 ;
+	vu_02_g_y = 1.13696 ;
+	vu_02_b_z = 5.75211 ;
+	vu_03_r_x = -3.14928 ;
+	vu_03_g_y = 1.17861 ;
+	vu_03_b_z = 5.74037 ;
+	vu_04_r_x = -3.23438 ;
+	vu_04_g_y = 1.22168 ;
+	vu_04_b_z = 5.71291 ;
+	vu_05_r_x = -3.31398 ;
+	vu_05_g_y = 1.2646 ;
+	vu_05_b_z = 5.6723 ;
+	vu_06_r_x = -3.38675 ;
+	vu_06_g_y = 1.30734 ;
+	vu_06_b_z = 5.62008 ;
+	geometry_reload_trig = ON ;
+	geometry_bind = 3 ;
+	geometry_input_type = "POINTS" ;
+	geometry_output_type = "POINTS" ;
+	geometry_vertices_out = 32 ;
+	gu_float_01 = 1 ;
+	gu_float_02 = 512 ;
+	gu_float_04 = 0.635875 ;
+	fragment_bind = 133 ;
+	fu_float_01 = 1 ;
+	fu_float_02 = 1 ;
+	fu_float_03 = 0.8 ;
+	fu_float_04 = 1 ;
+	fu_float_05 = 1 ;
+	fu_int_01 = 1 ;
+	fu_01_r_x = 0.810964 ;
+	fu_01_g_y = 0.531545 ;
+	fu_02_g_y = 0.580484 ;
+	fu_02_b_z = 0.336524 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "EXTERNAL" ;
+	use_texturing = "CURRENT" ;
+	use_shading = "Owner" ;
+	bank_2d = 14 ;
+	bind_2d = 18 ;
+	use_fog = "CURRENT" ;
+	}
+//AAA::filename fx_c.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.01 ;
+	vbo_use = ON ;
+	draw_file_normal = ON ;
+	draw_uv = ON ;
+	tex_change = "FROM_MTL" ;
+	draw_mtl_offset = 19 ;
+	model_filename = "%media%/SubMarine/maquereau/maquereau_BD.obj" ;
+	object_stop = 0 ;
+	clipping = OFF ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_texturing = "CURRENT" ;
+	use_shading = "CURRENT" ;
+	bank_2d = "CURRENT" ;
+	bind_2d = "CURRENT" ;
+	use_fog = "CURRENT" ;
+	}

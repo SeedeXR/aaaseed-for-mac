@@ -1,0 +1,18 @@
+-- preset v0 for MEU|UI_1
+tab["a"] = 1
+tab["agitation"] = 0
+tab["agitation_raw"] = 0
+tab["agitmixmax"] = { 0, 1 }
+tab["b"] = 0
+tab["hotspot"] = 0
+tab["hotspot_raw"] = 0
+tab["hotspot_time"] = 2.0431917689369
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["pre"] = 0
+tab["premixmax"] = { 0.043333948283609, 0.33679143187111 }
+tab["presence"] = -0.14766687069573
+tab["presence_raw"] = 0
+tab["simul"] = false
+tab["time down"] = 2.390918548559
+tab["time up"] = 4.0113080256816

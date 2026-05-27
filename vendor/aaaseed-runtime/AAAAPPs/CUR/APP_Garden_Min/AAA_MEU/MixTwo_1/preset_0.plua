@@ -1,0 +1,15 @@
+-- preset v0 for MEU|MixTwo_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["a_bank"] = 3
+tab["a_bind"] = 16
+tab["a_dim"] = 2
+tab["b_bank"] = 2
+tab["b_bind"] = 3
+tab["b_dim"] = 1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["inv"] = false
+tab["max"] = 0.7173706406792
+tab["min"] = 0

@@ -1,0 +1,5 @@
+-- preset for MEU|Obj3d_1
+tab["cam_index"] = 0
+tab["dim"] = 2
+tab["tex_bank"] = 1
+tab["tex_bind"] = 2

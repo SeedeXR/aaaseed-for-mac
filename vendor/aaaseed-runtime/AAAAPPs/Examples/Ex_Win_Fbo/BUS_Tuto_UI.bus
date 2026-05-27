@@ -1,0 +1,5 @@
+-- BU position value for BUS BUS_Tuto_UI
+BUS.set_bu_pos_value( "base", {0,0, 2,2} )
+BUS.set_bu_pos_value_mini( "base", {0,0, 0.2,0.2} )
+BUS.set_bu_pos_value( "bis", {0,0, 2,2} )
+BUS.set_bu_pos_value_mini( "bis", {0,0, 0.2,0.2} )

@@ -1,0 +1,6 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Init/fx" ;
+	Bind_01 = "Body/fx" ;
+	Bind_02 = "Main/fx" ;
+	}

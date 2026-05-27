@@ -1,0 +1,6 @@
+material ( Version 0 )
+	{
+	Ambient_grey = 0.603025 ;
+	Diffuse_grey = 0.846653 ;
+	Specular_grey = 0.787531 ;
+	}

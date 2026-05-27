@@ -1,0 +1,18 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "material/mat_000" ;
+	Bind_01 = "material/mat_001" ;
+	Bind_02 = "material/mat_002" ;
+	Bind_04 = "material/mat_004" ;
+	Bind_08 = "material/mat_008" ;
+	Bind_14 = "material/mat_014" ;
+	Bind_15 = "material/mat_015" ;
+	Bind_16 = "material/mat_016" ;
+	Bind_20 = "material/mat_020" ;
+	Bind_27 = "material/mat_027" ;
+	Bind_30 = "material/mat_030" ;
+	Bind_31 = "material/mat_031" ;
+	Bind_32 = "material/mat_032" ;
+	Bind_34 = "material/mat_034" ;
+	Bind_80 = "material/mat_080" ;
+	}

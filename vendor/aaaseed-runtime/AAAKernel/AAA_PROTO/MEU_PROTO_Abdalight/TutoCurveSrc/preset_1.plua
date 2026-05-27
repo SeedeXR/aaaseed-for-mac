@@ -1,0 +1,21 @@
+-- preset for MEU|TutoCurveSrc_1
+tab["cam_index"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["pos"] = { -0.1614682239701, 0.032460604262802 }
+tab["render.back"] = 2
+tab["render.cull"] = 1
+tab["render.depth"] = true
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 12.311395645142
+tab["render.normal"] = 8
+tab["render.normal active"] = false
+tab["render.point"] = 1
+tab["selec curve"] = 1
+tab["x offset"] = 0
+tab["x size"] = 16
+tab["y offset"] = 0
+tab["y size"] = 9
+tab["z offset"] = 1
+tab["z size"] = 1

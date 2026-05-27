@@ -1,0 +1,87 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "DP_detect.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 9 ;
+	tra_z = -10.8474 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 64 ;
+	image_component = "RED" ;
+	blob_point_nb_min = 215 ;
+	blob_point_nb_max = 10240 ;
+	blob_area_filter = ON ;
+	blob_area_min = 22.5136 ;
+	blob_area_max = 262144 ;
+	polygon_approximation = ON ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 14 ;
+	size_v = 9 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_contour" ;
+	use_model = ON ;
+	}
+//AAA::filename fx_c.bdd_blob_tracking
+bdd_blob_tracking ( Version 0 )
+	{
+	active = ON ;
+	blob_max_nb = 256 ;
+	ghost_frame_nb = 8 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_blob_tracking" ;
+	}

@@ -1,0 +1,16 @@
+-- preset for MEU_DIR|KinProcess("KinProcess")
+tab["a"] = 1
+tab["b"] = 1
+tab["blurfp"] = 1
+tab["blurwall"] = 1
+tab["kinflipper_1"] = 0
+tab["loyalwall_1"] = 5
+tab["pip_8"] = 0
+tab["ref_f1"] = 1
+tab["ref_f2"] = 0
+tab["ref_f3"] = 0
+tab["ref_f4"] = 4
+tab["reperes"] = 5
+tab["restore"] = 0
+tab["wleft"] = 1
+tab["wright"] = 1

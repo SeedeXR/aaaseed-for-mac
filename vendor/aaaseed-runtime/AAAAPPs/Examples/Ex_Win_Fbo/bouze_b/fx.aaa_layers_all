@@ -1,0 +1,147 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "bouze_b.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	FBO = "Once" ;
+	use_camera = "Owner" ;
+	name_symbo = "ex_tuto_b" ;
+	multiple_only = ON ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	orbiting = ON ;
+	rot_y_frequency = 0.0813058 ;
+	ui_lock = ON ;
+	rot_x = 0.5 ;
+	tra_x = -0.740001 ;
+	tra_y = 0.180001 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 1024 ;
+	size_asked_y = 512 ;
+	channel_nb = 4 ;
+	depth_use = ON ;
+	tex_1_bind_2d_asked = 33 ;
+	tex_1_mipmap_generate = ON ;
+	}
+//AAA::filename fx.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	color_grey = 0.5 ;
+	color_alpha = 0.5 ;
+	trail_time = 0.125 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_3 = ON ;
+	light_switch_4 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_use_color_face = "BACK" ;
+	material_use_color_dst = "Ambient" ;
+	}
+//AAA::filename fx_b.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "bouzeb_cube" ;
+	center_x = 2.2 ;
+	center_y = 2.2 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 0.148173 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0.967123 ;
+	global_green = 0.293222 ;
+	global_blue = 0.135056 ;
+	global_grey = 0.798026 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}
+//AAA::filename fx_c.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "bouzeb_teapot" ;
+	center_x = -1.0198 TraxLoc05In ;
+	center_y = -0.478016 TraxLoc02Out ;
+	center_z = -1.40401 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0.461148 ;
+	global_green = 0.307281 ;
+	global_blue = 0.501404 ;
+	global_grey = 0.49802 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Teapot" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}
+//AAA::filename fx_d.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 20000 ;
+	nb_max = 8000 ;
+	nb_by_sec = 1009.78 ;
+	flow_continuous = ON ;
+	emission_origin_x = -0.455644 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	}

@@ -1,0 +1,34 @@
+#include "SystemEvent.h"
+
+CONSTEXPR C_PCHAR evt_name[] =
+{
+	"NO_EVENT",
+	"KEY_DOWN",
+	"KEY_UP",
+	"BUTTON_DOWN",
+	"BUTTON_UP",
+	"BUTTON_DOUBLE",
+	"TEXT_INPUT",
+	"WIN_EXPOSE",
+	"MOTION",
+	"PASSIVE_MOTION",
+	"MOUSE_ENTER",
+	"MOUSE_LEAVE",
+	"WIN_MOVE",
+	"WIN_RESIZE",
+	"WIN_CLOSE",
+	"WIN_FOCUS_GOT",
+	"WIN_FOCUS_LOST",
+	"WIN_SHOW",
+	"WIN_HIDE",
+	"MENU",
+	"DISPLAY_CHANGE",
+	"DEVICE_CHANGE",
+	"DROP_FILES",
+	"NATIVE_EVENT"
+};
+
+CHAR CONST & evt::get_name( SYSTEM_EVENT_TYPE type )
+{
+	return *evt_name[type];
+}

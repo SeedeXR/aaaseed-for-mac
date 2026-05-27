@@ -1,0 +1,6 @@
+net_link ( Version 0 )
+	{
+	enable = ON ;
+	tcp = ON ;
+	port_nb = 12345 ;
+	}

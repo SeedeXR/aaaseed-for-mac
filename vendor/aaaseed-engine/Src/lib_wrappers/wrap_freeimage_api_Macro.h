@@ -1,0 +1,23 @@
+
+WRAP_LOADER( FreeImage_GetFormatFromFIF,	const char*,		( FREE_IMAGE_FORMAT fif )							)
+//WRAP_LOADER( FreeImage_GetBits,				BYTE*,				( FIBITMAP *dib )									)
+//WRAP_LOADER( FreeImage_GetWidth,			unsigned,			( FIBITMAP *dib )									)
+//WRAP_LOADER( FreeImage_GetHeight,			unsigned,			( FIBITMAP *dib )									)
+//WRAP_LOADER( FreeImage_GetBPP,				unsigned,			( FIBITMAP *dib )									)
+WRAP_LOADER( FreeImage_GetVersion,			const char *,		( void )											)
+//WRAP_LOADER( FreeImage_GetFileType,			FREE_IMAGE_FORMAT,	( const char *filename, int size )					)
+//WRAP_LOADER( FreeImage_GetFIFFromFilename,	FREE_IMAGE_FORMAT,	( const char *filename )							)
+//WRAP_LOADER( FreeImage_FIFSupportsReading,	BOOL,				( FREE_IMAGE_FORMAT fif )							)
+//WRAP_LOADER( FreeImage_SetOutputMessage,	void,				( FreeImage_OutputMessageFunction omf )				)
+WRAP_LOADER( FreeImage_ConvertFromRawBits,	FIBITMAP*,			(                  BYTE *bits,                       int width, int height, int pitch, unsigned bpp, unsigned red_mask, unsigned green_mask, unsigned blue_mask, BOOL topdown ) )
+WRAP_LOADER( FreeImage_ConvertFromRawBitsEx,FIBITMAP*,			( BOOL copySource, BYTE *bits, FREE_IMAGE_TYPE type, int width, int height, int pitch, unsigned bpp, unsigned red_mask, unsigned green_mask, unsigned blue_mask, BOOL topdown ) );
+//WRAP_LOADER( SwapRedBlue32,					BOOL,				( FIBITMAP* dib )									)
+WRAP_LOADER( FreeImage_ConvertTo24Bits,		FIBITMAP*,			( FIBITMAP *dib )									)
+WRAP_LOADER( FreeImage_Save,				BOOL,				( FREE_IMAGE_FORMAT fif, FIBITMAP *dib, const char *filename, int flags )	)
+//WRAP_LOADER( FreeImage_Load,				FIBITMAP*,			( FREE_IMAGE_FORMAT fif, const char *filename, int flags )					)
+WRAP_LOADER( FreeImage_Unload,				void,				( FIBITMAP *dib )									)
+WRAP_LOADER( FreeImage_GetFIFCount,			int,				( void )											)
+WRAP_LOADER( FreeImage_GetFIFExtensionList,	const char *,		( FREE_IMAGE_FORMAT fif )							)
+WRAP_LOADER( FreeImage_GetFIFDescription,	const char *,		( FREE_IMAGE_FORMAT fif )							)
+//WRAP_LOADER( FreeImage_Allocate,			FIBITMAP*, (int width, int height, int bpp, unsigned red_mask, unsigned green_mask, unsigned blue_mask) )
+

@@ -1,0 +1,6 @@
+/// This file is a part of Awesomium, a Web UI bridge for native apps.
+///
+/// Website: <http://www.awesomium.com>
+///
+/// Copyright (C) 2014 Awesomium Technologies LLC. All rights reserved.
+/// Awesomium is a trademark of Awesomium Technologies LLC.

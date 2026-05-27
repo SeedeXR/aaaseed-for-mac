@@ -1,0 +1,22 @@
+gol_ui ( Version 0 )
+	{
+	flush_allow = OFF ;
+	finish_allow = OFF ;
+	finish_force = OFF ;
+	vsync_asked = OFF ;
+	debug_deprecated = ON ;
+	dither_use = OFF ;
+	stencil_allow = OFF ;
+	multisampling_allow = OFF ;
+	bounding_box_on_current = OFF ;
+	feedback_allow = OFF ;
+	point_smooth_allow = ON ;
+	line_smooth_allow = ON ;
+	polygon_use = OFF ;
+	texture_mono_is_alpha = OFF ;
+	texture_lod = OFF ;
+	texture_sub_image_do_mipmap = ON ;
+	texture_2d_minification = "LINEAR_MIPMAP_LINEAR" ;
+	texture_3d_mipmap_generate = OFF ;
+	opengl_memory_allow = ON ;
+	}

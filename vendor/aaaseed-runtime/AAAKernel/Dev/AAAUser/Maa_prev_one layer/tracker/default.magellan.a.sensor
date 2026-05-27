@@ -1,0 +1,14 @@
+sensor_6dof ( Version 0 )
+	{
+	rotation_factor_global = 128 ;
+	translation_speed_x = 0.0976563 ;
+	translation_speed_y = -0.236328 ;
+	translation_speed_z = 0.1875 ;
+	translation_x = 0.1258 ;
+	translation_y = -0.304436 ;
+	translation_z = 0.241536 ;
+	rotation_speed_x = -29.5 ;
+	rotation_speed_z = 15.25 ;
+	rotation_x = -38.0017 ;
+	rotation_z = 19.6449 ;
+	}

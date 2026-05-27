@@ -1,0 +1,11 @@
+-- BU position value for BUS|Dir_OutKC
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.preset proto", 1 )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "a", 0 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos_value( "out_kca", {-0.125,0.225, 0.225,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "out_kcb", {0.1625,0.225, 0.225,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "out_kcc", {-0.125,0.1, 0.225,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "out_kcd", {0.1625,0.075, 0.225,0.05}, { render=1 } )
+BUS.set_bu_value( "restore", 0 )

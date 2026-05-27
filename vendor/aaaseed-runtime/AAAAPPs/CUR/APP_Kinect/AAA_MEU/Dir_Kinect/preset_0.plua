@@ -1,0 +1,18 @@
+-- preset for MEU_DIR|KinectProcess("KinectProcess")
+tab["a"] = 0
+tab["b"] = 0
+tab["blur_1"] = 0
+tab["depthpick_1"] = 0
+tab["distfield_1"] = 0
+tab["fieldgene_1"] = 0
+tab["imgsend_front_next"] = 1
+tab["imgsend_front_prev"] = 1
+tab["imgsend_kshaded"] = 0
+tab["imgsend_top"] = 1
+tab["kinmoveauto_1"] = 0
+tab["kinmoveauto_front"] = 1
+tab["kinmoveauto_top"] = 1
+tab["ref_f1"] = 1
+tab["ref_f2"] = 1
+tab["ref_f4"] = 0
+tab["restore"] = 0

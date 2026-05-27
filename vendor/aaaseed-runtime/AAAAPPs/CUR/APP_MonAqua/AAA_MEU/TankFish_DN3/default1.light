@@ -1,0 +1,9 @@
+light ( Version 0 )
+	{
+	type = "SPOT" ;
+	Position_y = 2 ;
+	Ambient_grey = 1 ;
+	Diffuse_grey = 0.5 ;
+	Specular_grey = 0.25 ;
+	Spot_direction_y = -1 ;
+	}

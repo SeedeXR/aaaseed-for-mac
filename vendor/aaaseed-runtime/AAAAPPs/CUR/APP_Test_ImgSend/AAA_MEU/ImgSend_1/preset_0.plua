@@ -1,0 +1,15 @@
+-- preset v0 for MEU|ImgSend_1
+tab["active"] = true
+tab["compress"] = true
+tab["constraint"] = 2
+tab["interval"] = 0.04
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mono"] = true
+tab["received_bank"] = 2
+tab["received_bind"] = 1
+tab["run"] = true
+tab["sent_bank"] = 3
+tab["sent_bind"] = 18
+tab["tmp_bank"] = 2
+tab["tmp_bind"] = 0

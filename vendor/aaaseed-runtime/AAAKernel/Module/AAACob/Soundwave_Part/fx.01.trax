@@ -1,0 +1,7 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 8 ;
+	out_0 = 0.920821 TraxLoc02In ;
+	}

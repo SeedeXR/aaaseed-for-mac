@@ -1,0 +1,312 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 3 ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 4 ;
+	Max = 32 ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Output = "FN_TRIGGER_UP_AND_DOWN" ;
+	Channel = 4 ;
+	Control_id = 3 ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 3 ;
+	Filter = 0.913759 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_E" ;
+	index_end = "Layer_D" ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	center_offset_y = -0.291756 ;
+	rot_x = 0.30196 TraxLoc05Out ;
+	rot_y = -0.00299999 ;
+	tra_z = -9.8248 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 15.38 ;
+	focal_horizontal = ON ;
+	tra_z = -14.8208 ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 64 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_b.image_gradient
+bdd_img_gradient ( Version 0 )
+	{
+	size_asked_x = 128 ;
+	size_asked_y = 128 ;
+	type = "radial" ;
+	clamp = 1 ;
+	bias = 0.82262 ;
+	stop_color_alpha = 0 ;
+	}
+//AAA::filename fx_b00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	space_period = 4 ;
+	strenght = 0.63968 ;
+	offset = 0.5 ;
+	gain = 0.805028 ;
+	bias = 0.171453 ;
+	phase_speed = 0.104034 ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_b01.def
+def_wave ( Version 0 )
+	{
+	active = ON ;
+	Len = 2.5 ;
+	Height = 0.5 ;
+	Shape = 0.499447 ;
+	Wind = 0.190037 ;
+	Angle = 0.25 ;
+	Period = 0.395734 ;
+	Phase = 13.1843 ;
+	Pertub_X = 0.0460941 ;
+	Pertub_Z = 0.0828516 ;
+	Regul_Max = 25 ;
+	turb_strenght = 0.25 ;
+	turb_x = 18.2452 ;
+	turb_phase = 3.93172 ;
+	turb_harm = 5 ;
+	Regul_smooth = ON ;
+	Regul_seed = 5554 ;
+	}
+//AAA::filename fx_b02.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	harmonique_nb = 2 ;
+	space_period = 2.04396 ;
+	strenght = 0.550954 ;
+	offset = 0.5 ;
+	phase_speed = 0.0349631 ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_b00.def" def_00 = ON ;
+	AddFileRel "fx_b01.def" def_01 = OFF ;
+	AddFileRel "fx_b02.def" def_02 = ON ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	back_mode = "LINE" ;
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	size_v = 2 ;
+	size_factor = 0.125 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_u = 8 ;
+	size_v = 8 ;
+	}
+//AAA::filename fx_b.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_gradient" ;
+	use_deformer = "Owner" ;
+	use_multiple = "CURRENT" ;
+	bind_2d = 19 ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_c.part
+bdd_particle ( Version 0 )
+	{
+	restart_trig = OFF TraxLoc04Out ;
+	nb_allocated = 65536 ;
+	nb_max = 65536 ;
+	nb_by_sec = 28.7556 TraxLoc03Out ;
+	flow_continuous = ON ;
+	life_time = 64 ;
+	emission_origin_x = -8 ;
+	emission_axe = "X" ;
+	emission_box_size_u = 4 ;
+	emission_box_size_v = 0 ;
+	emission_box_size_factor = 1 ;
+	emission_speed_factor = 0.25 ;
+	emission_object_speed_factor = 0 ;
+	jitter_speed_abs = 0 ;
+	render_life_color = ON ;
+	render_life_image_bind = 64 ;
+	render_life_color_map = ON ;
+	color_map_v = 0.791167 TraxLoc01In ;
+	color_map_dv = 0.0625 ;
+	rotate_freq = 0.203466 ;
+	rotate_space_freq = 14.0691 ;
+	rotate_space_axe = "Z" ;
+	}
+//AAA::filename fx_c.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	alignment = "Random_Axe_Z" ;
+	size_u = 0.25 ;
+	size_v = 16 TraxLoc06Out ;
+	size_factor = 0.238476 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_alpha = 1 TraxLoc02Out ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 19 ;
+	material_use_color = ON ;
+	}
+//AAA::filename fx_d.part
+bdd_particle ( Version 0 )
+	{
+	restart_trig = OFF TraxLoc04Out ;
+	nb_allocated = 65536 ;
+	nb_max = 65536 ;
+	nb_by_sec = 28.7556 TraxLoc03Out ;
+	flow_continuous = ON ;
+	life_time = 64 ;
+	emission_origin_x = -8 ;
+	emission_axe = "X" ;
+	emission_box_size_u = 4 ;
+	emission_box_size_v = 0 ;
+	emission_box_size_factor = 1 ;
+	emission_speed_factor = 0.25 ;
+	emission_object_speed_factor = 0 ;
+	jitter_speed_abs = 0 ;
+	render_life_color = ON ;
+	render_life_image_bind = 64 ;
+	render_life_color_map = ON ;
+	color_map_v = 0.791167 TraxLoc01Out ;
+	color_map_dv = 0.0625 ;
+	sort_render = "Distance" ;
+	rotate_freq = 0.203466 ;
+	rotate_space_freq = 1.75864 ;
+	rotate_space_axe = "Z" ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	depth = ON ;
+	}
+//AAA::filename fx_d.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Random_Axe_Z" ;
+	size_factor = 0.0625 ;
+	image_color_bind = 33 ;
+	image_linear = ON ;
+	image_scale_u = 16 ;
+	image_scale_v = 8 ;
+	image_offset_u = 0.5 ;
+	image_offset_v = 0.5 ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_implicit = OFF ;
+	tex_u = 0.125 ;
+	tex_v = 0.0625 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 1 ;
+	material_use_color = ON ;
+	material_front = 1 ;
+	material_back = 1 ;
+	}

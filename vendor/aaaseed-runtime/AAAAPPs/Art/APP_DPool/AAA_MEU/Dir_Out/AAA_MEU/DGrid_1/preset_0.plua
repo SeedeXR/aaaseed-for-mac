@@ -1,0 +1,8 @@
+-- preset v0 for MEU|DGrid_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["circle"] = true
+tab["cross"] = true
+tab["grid 1"] = true
+tab["grid 2"] = true
+tab["grid overlap"] = true

@@ -1,0 +1,2 @@
+-- BU position for Garden
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )

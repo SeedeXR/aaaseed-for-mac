@@ -1,0 +1,108 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "neand3d_wait.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -2.53064 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_y_frequency_sin = 0.125 ;
+	rot_y_amplitude_sin = 0.03125 ;
+	rot_x = -0.00899998 ;
+	rot_y = 0.146 ;
+	tra_x = -1.294 ;
+	tra_y = 0.0099999 ;
+	tra_z = -2.23088 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 0.002 ;
+	rot_y = -0.029 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0145 ;
+	rot_y = 0.0045 ;
+	tra_z = -0.93192 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.0582574 ;
+	flip_yz_at_read = ON ;
+	vbo_use = ON ;
+	draw_uv = ON ;
+	model_filename = "%media%/MdH/Neand/3d/intro/face_men.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	depth = ON ;
+	top_red = 0 ;
+	top_green = 0 ;
+	top_blue = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 502 ;
+	vu_float_01 = 0.0561469 ;
+	vu_float_04 = 1 ;
+	vu_01_a_w = 1 ;
+	vu_02_a_w = 1 ;
+	geometry_reload_trig = ON ;
+	fragment_bind = 502 ;
+	fu_float_01 = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_a_w = 1 ;
+	compute_reload_trig = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 10 ;
+	use_lights_switch = ON ;
+	}

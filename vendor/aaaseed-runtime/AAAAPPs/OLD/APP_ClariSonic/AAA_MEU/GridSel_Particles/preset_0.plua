@@ -1,0 +1,4 @@
+-- preset for MEU_GRIDSEL|Particles("Particles")
+tab["grid_sel"] = 6
+tab["restore"] = 0
+tab["sel"] = 1

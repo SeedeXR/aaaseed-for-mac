@@ -1,0 +1,22 @@
+-- preset for MEU|SHADOW_2("SHADOW_2")
+tab["active"] = 1
+tab["attachment active"] = { true, false, false, false }
+tab["attachment on cpu"] = { false, false, false, false }
+tab["attachment to save"] = { false, false, false, false }
+tab["cam_index"] = 1
+tab["channel_nb"] = 4
+tab["clear"] = 3
+tab["depth"] = 1
+tab["erase"] = 1
+tab["erase color"] = 2
+tab["erase_depth"] = 1
+tab["erase_stencil"] = 0
+tab["flip u"] = 0
+tab["flip v"] = 0
+tab["channel_type"] = 2
+tab["monitor"] = true
+tab["save"] = false
+tab["see"] = 5
+tab["cam_axe_show"] = 1
+tab["trail"] = 2.5271646976471
+tab["cam_use"] = 2

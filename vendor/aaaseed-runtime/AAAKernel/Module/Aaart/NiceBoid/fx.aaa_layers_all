@@ -1,0 +1,116 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TRIANGLE_INV" ;
+	Freq = 0.125 ;
+	Min = -1 ;
+	Max = 2 ;
+	Limit = "CLAMP" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Bias = 0.0400701 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.365 ;
+	rot_y = 0.088 ;
+	tra_x = 0.02 ;
+	tra_y = 0.552 ;
+	tra_z = -0.207959 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.897499 ;
+	rot_y = 0.042 ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 3072 ;
+	nb_alive_min = 2000 ;
+	nb_alive_max = 128 ;
+	birth_origin_y = -2 ;
+	death_target_y = 4 ;
+	death_target_radius = 2 ;
+	real_time = OFF ;
+	acceleration_max = 8 ;
+	viscosity = 0.656876 ;
+	visibility_use = ON ;
+	visibility_angle = 0.674231 ;
+	visibility_max_seen = 1 ;
+	field_active = ON ;
+	target_influence = 0.25 ;
+	repulse_distance = 0.0733358 ;
+	flocking_active = ON ;
+	flocking_visibility_use = ON ;
+	flocking_distance = 0.125 ;
+	flocking_draw = ON ;
+	steering_active = ON ;
+	steering_influence = 0.0625 ;
+	steering_visibility_use = ON ;
+	steering_distance = 0.0625 ;
+	steering_draw = ON ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	harmonique_nb = 3 ;
+	strenght = 0.0258834 ;
+	offset = 0.5 ;
+	phase_speed = 0.0509543 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	axe = "Z" ;
+	size_factor = 0.0764659 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	}

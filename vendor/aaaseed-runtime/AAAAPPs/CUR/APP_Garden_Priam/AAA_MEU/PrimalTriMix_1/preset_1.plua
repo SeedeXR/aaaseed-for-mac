@@ -1,0 +1,24 @@
+-- preset for MEU|TriMixPriam_1
+tab["a_dim"] = 2
+tab["alpha"] = false
+tab["b_dim"] = 2
+tab["cam_index"] = 0
+tab["choosebdd"] = 112
+tab["inverse"] = false
+tab["mask_dim"] = 2
+tab["max"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["min"] = 0.13757037446517
+tab["mode"] = 2
+tab["rotatex"] = 0
+tab["rotatey"] = 0
+tab["rotatez"] = 0
+tab["scalefactor"] = 1
+tab["scalex"] = 1
+tab["scaley"] = 1
+tab["scalez"] = 1
+tab["shader"] = true
+tab["translatex"] = 0
+tab["translatey"] = 0
+tab["translatez"] = 0

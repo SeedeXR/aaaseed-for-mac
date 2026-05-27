@@ -1,0 +1,102 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "meu_fbo.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	stereo = "field_update" ;
+	FBO = "Owner" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	rot_x_frequency = 0.0929011 ;
+	ui_lock = ON ;
+	tra_z = -9.72487 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	tra_x = 1.006 ;
+	tra_y = -0.466 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_z = -7.72648 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	tra_x = -0.552 ;
+	tra_y = 3.03 ;
+	tra_z = -1.73129 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	focal = 86.7239 ;
+	rot_x = 0.0165 ;
+	rot_y = 0.037 ;
+	tra_x = 0.104 ;
+	tra_y = -0.422 ;
+	tra_z = -4.42912 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	size_asked_x = 1080 ;
+	size_asked_y = 1920 ;
+	channel_nb = 4 ;
+	tex_1_bind_2d_asked = 114 ;
+	tex_1_mipmap_generate = ON ;
+	}
+//AAA::filename fx.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	color_index = "BLUE" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 3 ;
+	bind_2d = 16 ;
+	}

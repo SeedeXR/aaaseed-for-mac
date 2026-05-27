@@ -1,0 +1,5 @@
+-- preset for MEU|CMire_1
+tab["alpha1"] = 1
+tab["alpha2"] = 1
+tab["hsv1"] = 0
+tab["hsv2"] = 1

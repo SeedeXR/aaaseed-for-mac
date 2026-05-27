@@ -1,0 +1,8 @@
+bdd_tri ( Version 0 )
+	{
+	flip_yz_at_read = ON ;
+	draw_file_normal = ON ;
+	draw_uv = ON ;
+	draw_poly = ON ;
+	model_filename = "Env\Benz\Obj\Mercedes_2Faces.obj" ;
+	}

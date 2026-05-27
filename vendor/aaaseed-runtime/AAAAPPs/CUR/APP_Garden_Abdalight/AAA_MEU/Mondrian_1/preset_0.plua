@@ -1,0 +1,24 @@
+-- preset v0 for MEU|Mondrian_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 1
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["frequency"] = 3.0845026224797
+tab["frequency_active"] = true
+tab["gamma"] = 1.1455733337092
+tab["jitter"] = 0
+tab["range"] = { 0.1, 0.2 }
+tab["render.back"] = 1
+tab["render.cull"] = 1
+tab["render.depth"] = true
+tab["render.front"] = 1
+tab["render.light"] = false
+tab["render.line"] = 4.0150895118713
+tab["render.normal"] = 1
+tab["render.normal active"] = false
+tab["render.point"] = 5.8420076370239
+tab["separation"] = 0.13223305487503
+tab["size_u"] = 2.0744823290325
+tab["size_v"] = 3.1831427360176
+tab["what"] = 2

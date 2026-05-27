@@ -1,0 +1,86 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Offset = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "Left_Right" ;
+	Traxs = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	perspective = OFF ;
+	ortho_size = 3.43 ;
+	focal_horizontal = ON ;
+	rot_x = -0.009 ;
+	rot_y = 0.014 ;
+	}
+//AAA::filename fx_a.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 39 TraxLoc01In ;
+	draw_in_texture = ON ;
+	contour_dst = 41 TraxLoc01Out ;
+	contour_mode = "External" ;
+	blob_point_nb_filter = ON ;
+	blob_point_nb_min = 28 ;
+	blob_point_nb_max = 12288 ;
+	blob_area_filter = ON ;
+	blob_area_min = 8 ;
+	blob_area_max = 8192 ;
+	transfer_bdd_target = "blob_r" ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "POLYGON" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_v = 0.0625 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_contour" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.bdd_blob
+bdd_blob ( Version 0 )
+	{
+	name_symbo = "blob_r" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	global_blue = 0 ;
+	global_alpha = 0.5 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_blob" ;
+	use_model = ON ;
+	use_color = ON ;
+	}

@@ -1,0 +1,199 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "PrimalObjectX.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	transfo = ON ;
+	multiple_only = ON ;
+	camera_lock_view_to_ui = OFF ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 1.12 ;
+	rot_y = 1.033 ;
+	tra_x = -0.806001 ;
+	tra_y = 0.91397 ;
+	tra_z = -4.92248 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.257999 ;
+	rot_y = 0.164501 ;
+	tra_x = -0.103999 ;
+	tra_y = 0.174 ;
+	tra_z = -2.22135 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.363197 ;
+	rot_y = -0.5675 ;
+	tra_x = -0.074 ;
+	tra_y = 0.184 ;
+	tra_z = -1.57389 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.189991 ;
+	rot_y = -0.319999 ;
+	tra_x = -0.186 ;
+	tra_y = 0.982962 ;
+	tra_z = 0 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	translate_x = 5.81469e+18 ;
+	}
+//AAA::filename fx_a.bdd_bullet
+bdd_bullet ( Version 0 )
+	{
+	dispatcher = "DISPATCHERMT" ;
+	collision = "SOFT" ;
+	}
+//AAA::filename fx_a.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_a.bdd_img_cv_stereo
+bdd_img_cv_stereo ( Version 0 )
+	{
+	bp_gpu_nb_of_levels = 8 ;
+	}
+//AAA::filename fx_a.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	blur_size_x = 1 ;
+	blur_size_y = 1 ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	center_y = 0.0081697 ;
+	nb_u = 3 ;
+	nb_v = 4 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	name_symbo = "my3dobject" ;
+	draw_uv = ON ;
+	morph_pre_process = OFF ;
+	model_filename = "G:/My Drive/__PRO/__Freelance/_ArtCast_DanielSchutzeDLamp_2023/StrataSharedFolder/AAAStrataMedia/bigHexBeeHive1.obj" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	name_symbo = "rendering" ;
+	light = ON ;
+	draw_using_normal = ON ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "caca" ;
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_mode = "CAMERA" ;
+	camera_use = "BY_NAME" ;
+	camera_name_symbo = "camLentilleX" ;
+	camera_index = 6 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	name_symbo = "mymodel" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.311653 ;
+	global_green = 0.143458 ;
+	global_blue = 0.952381 ;
+	global_alpha = 0.993414 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_y = -0.514198 ;
+	rotate = ON ;
+	scale = ON ;
+	}
+//AAA::filename fx_a.transfo_three
+transfo_three ( Version 0 )
+	{
+	active = ON ;
+	inter = 0.010795 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	use_lights_switch = ON ;
+	material_front = 33 ;
+	material_back = 69 ;
+	trs_1 = "Owner" ;
+	}

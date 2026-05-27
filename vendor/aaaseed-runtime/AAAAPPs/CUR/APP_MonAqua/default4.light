@@ -1,0 +1,27 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	type = "BULB" ;
+	Position_x = 20 ;
+	Position_y = 4 ;
+	Radius = 18 ;
+	Ambient_occlusion = 0 ;
+	shadow_bbox_min_x = -4 ;
+	shadow_bbox_min_z = 4 ;
+	shadow_bbox_max_x = 22 ;
+	shadow_bbox_max_y = 9 ;
+	shadow_bbox_max_z = 16 ;
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Ambient_grey = 1 ;
+	Specular_red = 0.5 ;
+	Specular_green = 1 ;
+	Specular_blue = 0.71572 ;
+	Specular_grey = 1.02029 ;
+	Spot_cutoff = 34.6783 ;
+	Spot_exponent = 0.153293 ;
+	Spot_direction_z = -1 ;
+	attenuation_linear = 1 ;
+	attenuation_quadratic = 1 ;
+	}

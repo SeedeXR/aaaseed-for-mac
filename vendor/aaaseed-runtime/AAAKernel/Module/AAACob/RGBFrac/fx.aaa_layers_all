@@ -1,0 +1,164 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	Freq = 4 ;
+	Max = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.08.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_COPY" ;
+	Filter = 0.930364 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_D" ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 72.2602 ;
+	center_x = -33.9012 TraxLoc08Out ;
+	center_y = -0.296644 ;
+	center_z = 6.42698 ;
+	rot_x = 1.138 ;
+	rot_y = -0.0170001 ;
+	clip_far_perspective = 200 ;
+	clip_close_ortho = -120 ;
+	clip_far_ortho = 240 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 4 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_u_speed = 1 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_3 = ON ;
+	light_switch_4 = ON ;
+	light_switch_6 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.algo_maa
+bdd_algo_maa ( Version 0 )
+	{
+	point_allocated = 1000000 ;
+	point_nb = 296.502 TraxLoc04Out ;
+	stop_x = 0 TraxLoc08In ;
+	box_type = "No" TraxLoc01In ;
+	box_size_factor = 4 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_algo_maa" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_c.algo_maa
+bdd_algo_maa ( Version 0 )
+	{
+	point_allocated = 8192 ;
+	point_nb = 8192 ;
+	seed = 43 ;
+	box_type = "No" TraxLoc01Out ;
+	box_size_factor = 64 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	line_size = 4 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	global_alpha = 0.5 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_algo_maa" ;
+	use_color = ON ;
+	bind_1d = 3 ;
+	}
+//AAA::filename fx_d.algo_maa
+bdd_algo_maa ( Version 0 )
+	{
+	point_allocated = 8192 ;
+	point_nb = 8192 ;
+	seed = 47 ;
+	box_type = "No" TraxLoc01Out ;
+	box_size_factor = 64 ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	line_size = 4 ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_green = 0 ;
+	global_alpha = 0.5 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_algo_maa" ;
+	use_color = ON ;
+	bind_1d = 2 ;
+	}

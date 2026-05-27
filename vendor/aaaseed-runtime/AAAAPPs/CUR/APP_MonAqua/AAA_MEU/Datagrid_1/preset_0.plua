@@ -1,0 +1,20 @@
+-- preset v0 for MEU|Datagrid_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["amp_x"] = 0.072479158226629
+tab["amp_y"] = 0.059509399708702
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 0
+tab["force"] = true
+tab["freq_x"] = 0.13498335043257
+tab["freq_y"] = 0.14744533197421
+tab["loyal"] = 1
+tab["mouth factor"] = 4.1308595971383
+tab["play"] = false
+tab["rot_x"] = 0.015736802292632
+tab["rot_y"] = 0
+tab["sinus"] = false
+tab["time"] = 0
+tab["visual debug"] = false
+tab["volume"] = 9.1844098032182

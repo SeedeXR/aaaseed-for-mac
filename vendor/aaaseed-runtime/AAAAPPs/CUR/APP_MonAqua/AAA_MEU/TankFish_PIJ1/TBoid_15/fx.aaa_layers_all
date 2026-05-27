@@ -1,0 +1,98 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "PARROT_BL_F_KR3" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 15 ;
+	birth_origin_x = 10.75 ;
+	birth_origin_y = 1.25 ;
+	birth_origin_z = 6.15 ;
+	birth_size_x = 22.5 ;
+	birth_size_y = 1.5 ;
+	birth_size_z = 3.7 ;
+	birth_id = "from_index" ;
+	acceleration_max = 2.01148 ;
+	speed_min = 1.64441 ;
+	speed_max = 3.46789 ;
+	speed_vertical_ratio_max = 0.25 ;
+	viscosity = 0.227198 ;
+	curvature_limit = ON ;
+	curvature_turn_by_sec = 0.5 ;
+	internal_radius = 0.713403 ;
+	visibility_angle = 0.258749 ;
+	visibility_max_seen = 118 ;
+	field_active = ON ;
+	target_influence = 0.125 ;
+	target_axe = "Y" ;
+	target_x = 8.2462 ;
+	target_y = 0.8 ;
+	target_z = 7.99884 ;
+	target_radius_internal = 1.04113 ;
+	target_radius_external = 3.49171 ;
+	target_normal = -0.0778888 ;
+	box_active = OFF ;
+	box_type = "Repulse" ;
+	box_x = 10.75 ;
+	box_y = 1.25 ;
+	box_z = 6.15 ;
+	box_size_x = 22.5 ;
+	box_size_y = 1.5 ;
+	box_size_z = 3.7 ;
+	box_border_size = 0.25 ;
+	repulse_visibility_use = ON ;
+	repulse_distance = 0.416801 ;
+	repulse_net_draw = ON ;
+	repulse_net_red = 0.5 ;
+	repulse_net_blue = 0.5 ;
+	repulse_net_alpha = 0.466009 ;
+	repulse_by_other = "like_other" ;
+	flocking_visibility_use = ON ;
+	flocking_distance = 1.33657 ;
+	steering_influence = 2 ;
+	steering_visibility_use = ON ;
+	steering_distance = 1.50444 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_axe = 8 ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	convert = ON ;
+	hue = 0.333333 ;
+	saturation = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}

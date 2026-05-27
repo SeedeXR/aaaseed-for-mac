@@ -1,0 +1,8 @@
+module ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_util" ;
+	layers_index_cur = 15 ;
+	layers_index_end = 68 ;
+	load_all = OFF ;
+	}

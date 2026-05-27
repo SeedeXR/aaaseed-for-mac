@@ -1,0 +1,80 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	skip_rest = ON ;
+	filename = "BU_www.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	FBO = "CURRENT" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 5.98999 ;
+	}
+//AAA::filename fx_a.bdd_web
+bdd_web ( Version 0 )
+	{
+	name_symbo = "gabu_www" ;
+	active = ON ;
+	verbose = ON ;
+	library = "WKE" ;
+	http_address = "www.opengl.org
+" ;
+	bind_dst = 52 ;
+	render_size_x = 2048 ;
+	mouse_x = 0.417751 ;
+	mouse_y = 0.614634 ;
+	mouse_wheel_scroll = 4 ;
+	history_offset = -1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_web" ;
+	bank_2d = 1 ;
+	bind_2d = 20 ;
+	}
+//AAA::filename fx_b.bdd_web
+bdd_web ( Version 0 )
+	{
+	http_address = "www.lagraine.com" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_web" ;
+	bank_2d = 1 ;
+	bind_2d = 11 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 20 ;
+	}

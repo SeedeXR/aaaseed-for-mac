@@ -1,0 +1,12 @@
+-- preset for MEU|NdcLights_1
+tab["aaa_fu_float[1]"] = 2.3410518169403
+tab["aaa_fu_float[2]"] = 1.9723708629608
+tab["aaa_fu_float[3]"] = 1.503760099411
+tab["aaa_fu_float[4]"] = 0.5
+tab["aaa_fu_float[5]"] = 4
+tab["aaa_fu_float[6]"] = 4
+tab["aaa_fu_float[7]"] = 0.5
+tab["aaa_fu_float[8]"] = 0.5
+tab["cam_index"] = 7
+tab["draw"] = true
+tab["shader"] = 1

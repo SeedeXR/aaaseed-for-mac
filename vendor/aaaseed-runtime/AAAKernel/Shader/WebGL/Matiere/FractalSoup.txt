@@ -1,0 +1,86 @@
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+
+vec2 CircleInversion(vec2 vPos, vec2 vOrigin, float fRadius)
+{
+	vec2 vOP = vPos - vOrigin;
+
+	vOrigin = vOrigin - vOP * fRadius * fRadius / dot(vOP, vOP);
+	vOrigin.x += sin(vOrigin.x * 0.01);
+	vOrigin.y -= cos(vOrigin.y* 0.01);
+
+	return vOrigin;
+}
+
+float Parabola( float x, float n )
+{
+	return pow( 2.0*x*(1.0-x), n );
+}
+
+void main(void)
+{
+	vec2 vPos = gl_TexCoord[0].st;
+	vPos = vPos;
+
+	ivec2	tex_suv = textureSize( aaa_tex2d[0], 0 );
+	vPos.x *= tex_suv.x / tex_suv.y;
+
+	vec2 vScale = vec2(1.2);
+	vec2 vOffset = vec2( sin(aaa_fu_float[0] * 0.123), atan(aaa_fu_float[0] * 0.0567)); // apply clamp to limit deformation
+
+	float l = 0.0;
+	float minl = 10000.0;
+
+	for(int i=0; i<48; i++)
+	{
+		vPos.x = abs(vPos.x);
+		vPos = vPos * vScale + vOffset;
+
+		vPos = CircleInversion(vPos, vec2(0.5, 0.5), 0.9);
+
+		l = length(vPos);
+		minl = min(l, minl);
+	}
+
+
+	float t = 4.1 + aaa_fu_float[0] * 0.055;
+	vec3 vBaseColour = normalize(vec3(sin(t * 1.790), sin(t * 1.345), sin(t * 1.123)) * 0.5 + 0.5);
+
+	float fBrightness = 11.0;
+
+	vec3 vColour = vBaseColour * l * l * fBrightness;
+
+	minl = Parabola(minl, 5.0);
+
+	vColour *= minl + 0.1;
+
+	vColour = 1.0 - exp(-vColour);
+	vec4 col = vec4(vColour,1.0);
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (col * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}

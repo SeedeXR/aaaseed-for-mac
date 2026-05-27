@@ -1,0 +1,7 @@
+-- preset v0 for MEU|kinbIS_1
+tab["mapping_blend"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["tex_bank"] = 4
+tab["tex_bind"] = 0
+tab["tex_dim"] = 2

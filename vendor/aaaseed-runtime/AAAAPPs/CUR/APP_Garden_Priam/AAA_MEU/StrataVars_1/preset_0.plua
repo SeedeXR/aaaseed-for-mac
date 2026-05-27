@@ -1,0 +1,15 @@
+-- preset v0 for MEU|StrataVars_1
+tab["datecur"] = 6
+tab["datecursldr"] = 6
+tab["datenew"] = 4
+tab["datenewsldr"] = 4
+tab["loop"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["on"] = false
+tab["timer out"] = 1
+tab["timer range"] = { 0, 1 }
+tab["timer time"] = 5
+tab["trsx"] = 0
+tab["trsy"] = 0
+tab["trsz"] = 0

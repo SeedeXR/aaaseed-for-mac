@@ -1,0 +1,23 @@
+-- preset for MEU|Hexa_2("proto_Hexa")
+tab["Blue"] = 0.99999999988358
+tab["Green"] = 0.99999999988358
+tab["Red"] = 0.99999999988358
+tab["Src"] = 3
+tab["TEX"] = 1
+tab["cam_index"] = 3
+tab["du"] = 0.99999999988358
+tab["dv"] = 0.99999999988358
+tab["hexa"] = 1
+tab["nb_u"] = 79.896984924623
+tab["nb_v"] = 46.731155778894
+tab["offset_2"] = 0
+tab["offset_4"] = 0
+tab["offset_6"] = 0
+tab["ori_u"] = 0
+tab["ori_v"] = 0
+tab["sfactor"] = 14.367300033686
+tab["su"] = 2.303384124924
+tab["sv"] = 1.8093400947768
+tab["top_line"] = 0
+tab["u"] = 0.44395700097084
+tab["v"] = 0.57748997211456

@@ -1,0 +1,5 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Crop/fx" ;
+	Bind_01 = "Extract/fx" ;
+	}

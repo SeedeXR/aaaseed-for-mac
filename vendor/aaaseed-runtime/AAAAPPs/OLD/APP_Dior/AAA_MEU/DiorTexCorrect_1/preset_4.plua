@@ -1,0 +1,22 @@
+-- preset for MEU|DiorTexCorrect_1
+tab["auto"] = 1
+tab["black"] = 0
+tab["cam_index"] = 0
+tab["dim"] = 2
+tab["gain_blue"] = 0.5
+tab["gain_green"] = 0.5
+tab["gain_red"] = 0.5
+tab["gam_blue"] = 1
+tab["gam_green"] = 1.3240002968124
+tab["gam_red"] = 1.2015800290426
+tab["gamma"] = 1.7758028129474
+tab["rot z"] = 0.5
+tab["sfactor"] = 4
+tab["su"] = 0.56249999993451
+tab["sv"] = 0.99999999988358
+tab["tex_bank"] = 3
+tab["tex_bind"] = 0
+tab["tra x"] = 0
+tab["tra y"] = 0
+tab["tra z"] = 0
+tab["white"] = 0.50092171605484

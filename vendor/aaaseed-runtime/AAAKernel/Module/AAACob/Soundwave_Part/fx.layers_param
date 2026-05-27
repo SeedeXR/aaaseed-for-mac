@@ -1,0 +1,8 @@
+layers ( Version 0 )
+	{
+	active = ON TraxMod01Out ;
+	Traxs = ON ;
+	viewport = "Left_Right" ;
+	traxs_control_offset = 64 ;
+	Layer_A = ON ;
+	}

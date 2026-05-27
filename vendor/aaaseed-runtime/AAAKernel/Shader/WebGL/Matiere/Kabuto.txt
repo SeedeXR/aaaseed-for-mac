@@ -1,0 +1,83 @@
+//#version 330 compatibility
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 1 = mouse X
+// 2 = mouse Y
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int		aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+
+vec3 field( in vec3 p )
+{
+	p *= .1;
+	float f = .1;
+	for( int k = 4; k > 0; --k )
+	{
+		p = p.yzx * mat3( .8,.6,0,-.6,.8,0, 0,0,1);
+		p += aaa_fu_vec4[3] * 50.;
+		p = abs( fract(p)-.5 );
+		p *= 2.;
+		f *= 2.;
+	}
+	p *= p;
+	return sqrt(p+p.yzx)/f - (aaa_fu_vec4[2].xyz * .2) + .1;
+}
+
+void main( void )
+{
+	float jit = aaa_fu_float[3] * .3 - .4;
+	//if (mod(aaa_fu_float[0], 1.1) < 0.5) jit = 0.001;
+	vec3 dir = normalize(vec3(	gl_TexCoord[0].st ,aaa_fu_float[5]+2.) );
+	float a = sin(aaa_fu_float[1] * 3.14159 );
+	float b = sin(aaa_fu_float[2] * 3.14159 );
+	vec3 pos = vec3( 0.0, 0.0, aaa_fu_float[0] );
+
+	dir *= mat3( 1,0,0,				0, cos(a),-sin(a),	0,sin(a),cos(a) );
+	dir *= mat3( cos(b),0,-sin(b),	0,1,0,				sin(b),0,cos(b) );
+	vec3 color = vec3(0);
+	for( int i = aaa_fu_int[0]; i > 0 ; --i )
+	{
+		vec3 f2 = field(pos);
+		float f = min( min( f2.x, f2.y) ,f2.z );
+
+		pos += dir*f;
+		color += float(i)/(f2+jit);		//		fog do it other way
+	}
+	vec3 color3 = vec3( 1. -1./(1.+color*(.09/float(aaa_fu_int[0]*aaa_fu_int[0]))) );
+	color3 = pow( color3, vec3(2.) );
+	vec4 col;
+	float f = aaa_fu_float[7] * 20.;
+	float val = color3.r + color3.g + color3.b + aaa_fu_float[6] * .1;
+	if( f > 0. )
+		val = f* val;
+	else
+		val = 1. + f * val;
+	col = vec4( vec3(1.), val  );
+//	vec4 col = vec4( color3.r, color3.g, color3.b, 1. );
+
+//	col = vec4( 1. );
+	vec4 src = ( texture2D(aaa_tex2d[0], (gl_TexCoord[0].st * aaa_fu_vec4[2].wz +aaa_fu_vec4[2].xy)  ) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (col * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor.xyz = src.xyz + fx.xyz ;
+	gl_FragColor.a =  fx.a;
+}
+
+
+
+

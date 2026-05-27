@@ -1,0 +1,7 @@
+-- preset for MEU|LFree_1
+tab["dim"] = 2
+tab["mapping_blend"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["tex_bank"] = 3
+tab["tex_bind"] = 8

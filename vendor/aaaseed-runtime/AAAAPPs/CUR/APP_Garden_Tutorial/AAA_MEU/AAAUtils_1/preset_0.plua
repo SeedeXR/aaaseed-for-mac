@@ -1,0 +1,5 @@
+-- preset v0 for MEU|AAAUtils_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["dst"] = "AAA_MEU"
+tab["src"] = "AAA"

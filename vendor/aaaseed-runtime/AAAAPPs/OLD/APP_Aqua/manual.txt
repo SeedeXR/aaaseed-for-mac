@@ -1,0 +1,2 @@
+to define the race :
+	GaBuData\APP\APP_Aqua_Fish\DEF\def.lua

@@ -1,0 +1,6 @@
+-- preset v0 for MEU|Surface_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["aaa_fu_float_0"] = 0.58332651853561
+tab["aaa_fu_int_0"] = false
+tab["shader"] = true

@@ -1,0 +1,9 @@
+-- preset v0 for MEU|AnalDP_FullR
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["center u"] = 0
+tab["center v"] = 0
+tab["coverage"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true

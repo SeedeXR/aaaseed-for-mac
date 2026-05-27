@@ -1,0 +1,22 @@
+-- preset for MEU|Video_G("Vin G")
+tab["bank"] = 7
+tab["bias"] = 0.80080239748329
+tab["bind"] = 13
+tab["capture"] = 0
+tab["clip"] = 0
+tab["flip u"] = 0
+tab["flip v"] = 0
+tab["focus"] = 0
+tab["gain"] = 0.5
+tab["incrust"] = 0
+tab["inv"] = 0
+tab["loop"] = 1
+tab["max"] = 0.52977700072472
+tab["min"] = 0.46536731105392
+tab["monitor"] = 1
+tab["on cpu"] = 1
+tab["play"] = 1
+tab["restart"] = 0
+tab["sound"] = 0
+tab["step"] = 28.162432178919
+tab["volume"] = 1

@@ -1,0 +1,8 @@
+-- preset v0 for MEU|SequencerStep_New
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["bpm"] = 30
+tab["seq1"] = { false, false, false, true, false, false, false, true, false, false, false, true, false, false, false, true }
+tab["seq2"] = { false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, false }
+tab["seq3"] = { false, true, false, false, false, true, false, false, false, true, false, false, false, true, false, false }
+tab["seq4"] = { true, false, false, false, true, false, false, false, true, false, false, false, true, false, false, false }

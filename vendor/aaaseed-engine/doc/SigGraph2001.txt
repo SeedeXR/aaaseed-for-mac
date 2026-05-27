@@ -1,0 +1,14 @@
+Optimizing code
+
+#pragma optimize('t', on)
+#pragma intrinsic
+OpenGL float base
+be careful with pading of structure -> cache misses
+Book : High performance computing by Dow?.
+Careful with the order in array parsing
+loop unrolling only on thin loop
+keyword restrict
+OpenMP Parrallele stuff adopted by everybody
+use const, mutable, volatile
+
+Dome installation

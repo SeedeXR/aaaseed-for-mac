@@ -1,0 +1,100 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	stereo = "field_update" ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	name_symbo = "GaBuIn_track_layers" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_y_frequency = 2.45465 ;
+	tra_z = -3.67659 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 480 ;
+	size_asked_y = 270 ;
+	tex_1_bind_2d_asked = 96 ;
+	tex_1_on_cpu = ON ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -4 ;
+	translate_y = -2.25 ;
+	scale = ON ;
+	scale_x = 8 ;
+	scale_y = 4.5 ;
+	}
+//AAA::filename fx_a.bdd_blob_tracking
+bdd_blob_tracking ( Version 0 )
+	{
+	name_symbo = "gabu_blob_tracker" ;
+	active = ON ;
+	use_mouse = ON ;
+	use_mouse_when_no_touch = ON ;
+	tuio_in_skip_alive = ON ;
+	tuio_silent_frame_max_nb = 16 ;
+	tuio_in_scale_y = -0.85 ;
+	tuio_in_offset_x = 0.1 ;
+	tuio_in_blob_size_factor = 0.0160337 ;
+	read_bdd_img_contour_as_src = OFF ;
+	read_bdd_blob_as_src = ON ;
+	blob_max_nb = 4 ;
+	use_predicted_pos = ON ;
+	reject_dist = 0.0625 ;
+	ghost_frame_nb = 3 ;
+	branch_try_max = 256 ;
+	filter = 0.1 ;
+	draw_mode = "LAST" ;
+	frames_nb = 128 ;
+	frames_nb_to_draw = 128 ;
+	contour_alpha = 1 ;
+	contour_with_quad = ON ;
+	bounding_alpha = 1.02506 ;
+	bounding_size_factor = 4 ;
+	bounding_as_ellipse = ON ;
+	segment_alpha = 1 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	line_size = 4 ;
+	primitive = "POLYGON" ;
+	depth = ON ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	light_switch_4 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_blob_tracking" ;
+	use_multiple = "CURRENT" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	bind_2d = 4 ;
+	use_stencil = "Owner" ;
+	}

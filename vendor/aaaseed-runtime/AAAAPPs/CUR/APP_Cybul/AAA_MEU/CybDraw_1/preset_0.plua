@@ -1,0 +1,8 @@
+-- preset v0 for MEU|CybDraw_1
+tab["axe line size"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["shader"] = true
+tab["src_bank"] = 2
+tab["src_bind"] = 0
+tab["src_dim"] = 2

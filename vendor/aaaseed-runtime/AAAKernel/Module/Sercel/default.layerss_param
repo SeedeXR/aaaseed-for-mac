@@ -1,0 +1,7 @@
+module ( Version 0 )
+	{
+	name_symbo = "Sercel_Test" ;
+	layers_index_cur = 9 ;
+	layers_index_end = 9 ;
+	load_all = OFF ;
+	}

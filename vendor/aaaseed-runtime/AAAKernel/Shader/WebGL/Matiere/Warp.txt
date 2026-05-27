@@ -1,0 +1,56 @@
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+
+void main(void)
+{
+	float time = (aaa_fu_float[0]+29.) * 60.0;
+
+	float s = 0.0, v = 0.0;
+	vec2 uv = gl_TexCoord[0].st;
+	float t = time*0.005;
+	ivec2 tex_suv = textureSize( aaa_tex2d[0], 0 );
+	uv.x = (uv.x * tex_suv.x / tex_suv.y) + sin(t) * 0.5;
+	float si = sin(t + 2.17); // ...Squiffy rotation matrix!
+	float co = cos(t);
+	uv *= mat2(co, si, -si, co);
+	vec3 col = vec3(0.0);
+	vec3 init = vec3(0.25, 0.25 + sin(time * 0.001) * 0.4, floor(time) * 0.0008);
+
+	for (int r = 0; r < 50; r++)
+	{
+		vec3 p = init + s * vec3(uv, 0.143);
+		p.z = mod(p.z, 2.0);
+		for (int i=0; i < 10; i++)	p = abs(p * 2.04) / dot(p, p) - 0.75;
+		v += length(p * p) * smoothstep(0.0, 0.5, 0.9 - s) * .002;
+
+		// Get a purple and cyan effect by biasing the RGB in different ways...
+		col +=  vec3(v * 0.8, 1.1 - s * 0.5, .7 + v * 0.5) * v * 0.013;
+		s += .01;
+	}
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (vec4( col, 1.0 ) * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}

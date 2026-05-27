@@ -1,0 +1,7 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 4 ;
+	Control_id = 4 ;
+	}

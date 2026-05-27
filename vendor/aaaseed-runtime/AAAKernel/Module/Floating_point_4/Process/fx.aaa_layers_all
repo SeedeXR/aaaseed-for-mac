@@ -1,0 +1,38 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	force_compute = ON ;
+	image_src = 33 ;
+	image_dst_base = 34 ;
+	smooth = ON ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 24 ;
+	smooth_size_y = 24 ;
+	background_reset = ON ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_a.bdd_img_smooth
+bdd_img_smooth ( Version 0 )
+	{
+	active = ON ;
+	image_src = 34 ;
+	image_dst_base = 35 ;
+	smooth_size_x = 9 ;
+	smooth_size_y = 9 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_smooth" ;
+	}

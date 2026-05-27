@@ -1,0 +1,12 @@
+-- preset for MEU_DIR|FP4 Laval("FP4 Laval")
+tab["a"] = 1
+tab["b"] = 0
+tab["fp4_laval2018"] = 0
+tab["fp4_laval2018a"] = 0
+tab["fp4_laval2018b"] = 0
+tab["fp4_laval2018c"] = 0
+tab["fp4_laval2018cb"] = 0
+tab["fp4_laval2018d"] = 0
+tab["fp4_laval2018e"] = 0
+tab["fp4_lavalnoeljeudi"] = 0
+tab["restore"] = 1

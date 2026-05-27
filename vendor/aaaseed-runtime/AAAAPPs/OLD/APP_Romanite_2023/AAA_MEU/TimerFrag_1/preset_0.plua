@@ -1,0 +1,24 @@
+-- preset v0 for MEU|TimerFrag_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["phase"] = 0.011535998433828
+tab["ratio"] = 1
+tab["render.back"] = 2
+tab["render.cull"] = 2
+tab["render.depth"] = false
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 1
+tab["render.normal"] = 1
+tab["render.normal active"] = false
+tab["render.point"] = 1
+tab["sfactor"] = 1.7982596158981
+tab["shader"] = true
+tab["src_bank"] = 54
+tab["src_bind"] = 22
+tab["src_dim"] = 2
+tab["su"] = 1
+tab["sv"] = 1

@@ -1,0 +1,19 @@
+-- preset for MEU|LvKnfOpenCV_1
+tab["bc1"] = { 0.081807121634483, 0.22375097870827 }
+tab["bc1 on"] = 0
+tab["bc2"] = { 0, 0.18930546939373 }
+tab["bc2 on"] = 1
+tab["bc3"] = { 0, 0.099361158907413 }
+tab["bc3 on"] = 0
+tab["blur1"] = 4.7338337779811
+tab["blur2"] = 12.416993359773
+tab["blur3"] = 2.1773716364398
+tab["diff"] = 1
+tab["dilate"] = 1
+tab["dilate_pass"] = 7
+tab["erode"] = 1
+tab["erode_pass"] = 9
+tab["first"] = 0
+tab["method1"] = 3
+tab["method2"] = 2
+tab["method3"] = 1

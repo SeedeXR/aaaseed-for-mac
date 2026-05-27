@@ -1,0 +1,9 @@
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	sub_viewport_right = 0.5 ;
+	perspective = OFF ;
+	ortho_size = 8.83265 ;
+	rot_x = 0.004 ;
+	final_scale_y = 2 ;
+	}

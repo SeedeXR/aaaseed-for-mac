@@ -1,0 +1,139 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "trax.lua" ;
+	}
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	in_active_01 = OFF ;
+	in_active_02 = OFF ;
+	in_active_03 = OFF ;
+	in_active_04 = OFF ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = 0.492959 TraxLoc01Out ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON TraxMod01Out ;
+	viewport = "Left_Right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 1 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	name_symbo = "grid" ;
+	nb_u = 512 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a00.def
+def_data ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "def" ;
+	strenght = 0.340136 ;
+	offset = -0.00106291 ;
+	sound_process = "Max with decay" ;
+	abs = ON ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 0.163275 ;
+	point_size = 1.95924 ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_v = 0.869524 ;
+	size_factor = 3.55805 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_flip_uv = ON ;
+	tex_by_side = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	name_symbo = "model" ;
+	size_factor = 0.492959 TraxLoc01Out ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.868805 ;
+	global_blue = 0.941691 ;
+	global_alpha = 0.905214 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 19 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	name_symbo = "render_edge" ;
+	cull = "FRONT" ;
+	line_size = 5.01459 ;
+	primitive = "LINES" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	name_symbo = "color_edge" ;
+	}
+//AAA::filename fx_b.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	translate = ON ;
+	translate_y = 0.235236 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	use_bdd = "CURRENT_draw" ;
+	use_deformer = "CURRENT" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	trs_1 = "CURRENT" ;
+	trs_2 = "Owner" ;
+	name_symbo = "layer_edge" ;
+	}

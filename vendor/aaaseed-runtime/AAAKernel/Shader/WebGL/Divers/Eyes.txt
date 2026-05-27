@@ -1,0 +1,40 @@
+
+precision mediump float;
+
+
+uniform vec2 iMouse;
+in vec2 iResolution;
+
+float sq(float x) { return x*x; }
+
+float eyeOuter(vec2 v) {
+	vec2 surfacePosition = (gl_FragCoord.xy / iResolution.xy);
+	float sum = sq(surfacePosition.x - v.x) + sq(surfacePosition.y - v.y);
+
+	return (sum < 0.06) ? 1.0 - sum*16.0 : 0.0;
+}
+
+float eyeInner(vec2 v) {
+	vec2 m = vec2(iMouse - 0.5 - v*0.4);
+	float l = length(m);
+
+	m *= 0.1/l;
+	vec2 surfacePosition = (gl_FragCoord.xy / iResolution.xy);
+	float sum = sq(surfacePosition.x-v.x-m.x) + sq(surfacePosition.y-v.y-m.y);
+
+	//return (sum < 0.02) ? 1.0 - eyeOuter(v) : 0.0;
+	return (sum < 0.02) ? 1.0 - sum*50.0 : 0.0;
+}
+
+void main() {
+	vec2 p = (gl_FragCoord.xy / iResolution.xy);
+
+	float val;
+	val += eyeOuter(vec2(-0.3, 0.1));
+	val += eyeOuter(vec2(0.3, 0.1));
+	val -= eyeInner(vec2(-0.3, 0.1));
+	val -= eyeInner(vec2(0.3, 0.1));
+	vec3 clr = vec3(val, val, val);
+
+	gl_FragColor = vec4(clr, 1.0);
+}

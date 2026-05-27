@@ -1,0 +1,11 @@
+-- BU position value for BUS Fbos_MEU
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos_value( "fbo_f1", {-0.2125,0.425, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "fbo_f2", {-0.2,0.35, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "fbo_f3", {-0.2,0.2875, 0.21875,0.05}, { render=0.95186308984937 } )
+BUS.set_bu_pos_value( "fbo_f4", {-0.2,0.225, 0.21875,0.05}, { render=1 } )
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "preset proto", 1 )
+BUS.set_bu_value( "restore", 1 )

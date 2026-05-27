@@ -1,0 +1,60 @@
+// src/shaders/msl/aaa_prelude.metal
+//
+// Mac-side MSL equivalent of the engine's per-frame GLSL prelude
+// helpers. On Windows, `GLSL_shader.cpp` prepends `include_color.glsl`
+// (and platform-specific siblings) to each shader at registration time
+// so calls like `gray( c.rgb )` resolve at compile time. On Mac we
+// follow the same pattern : `tools/glsl_to_msl/glsl_to_msl.py`
+// inline-prepends this file's content to every emitted `.metal` so each
+// generated shader is self-contained for `MTL::Device::newLibrary`.
+//
+// SOURCE OF TRUTH for the engine semantics :
+//   vendor/aaaseed-runtime/AAAKernel/Shader/include/include_color.glsl
+//
+// Keep this file's gray_conv values byte-equivalent to the engine's so
+// pixel-comparable output across Mac / Windows stays plausible.
+// `gray_conv = vec3(0.2989, 0.5870, 0.1140)` are the standard NTSC
+// luminance weights (Rec.601). Engine has used these since forever.
+//
+// Doctrine : pure Apple Metal -- this file is MSL, not GLSL.
+// (memory/feedback_nvidia_to_metal.md / philosophy.md Part 2.86)
+//
+// NOT INCLUDED yet (port on demand as catalog shaders need them) :
+//   - get_gradient_2d / get_gradient_norm_2d : need to pass texture +
+//     sampler explicitly in MSL (no GLSL "in sampler2D" idiom).
+//   - rgb2hsv / hsv2rgb : straightforward port, awaits a catalog
+//     shader that needs them.
+
+#ifndef AAA_MSL_PRELUDE_DEFINED
+#define AAA_MSL_PRELUDE_DEFINED
+
+//	Constant must match the engine include_color.glsl gray_conv. The
+//	`constexpr constant` form is MSL's named-constant pattern.
+constexpr constant float3 aaa_gray_conv = float3( 0.2989, 0.5870, 0.1140 );
+
+//	Two names because the engine has two -- aliases of the same body.
+//	Both have float3 and float4 overloads : engine shaders pass either
+//	`gray( c.xyz )` (post-translation : float3) or `gray( c )` where c
+//	is the full RGBA texture sample (float4). Continuation 33 added the
+//	float4 overload for ps_Maa_edge_sobel.
+static inline float gray( float3 a )
+{
+    return dot( a.xyz, aaa_gray_conv );
+}
+
+static inline float gray( float4 a )
+{
+    return dot( a.xyz, aaa_gray_conv );
+}
+
+static inline float compute_gray( float3 a )
+{
+    return dot( a.xyz, aaa_gray_conv );
+}
+
+static inline float compute_gray( float4 a )
+{
+    return dot( a.xyz, aaa_gray_conv );
+}
+
+#endif // AAA_MSL_PRELUDE_DEFINED

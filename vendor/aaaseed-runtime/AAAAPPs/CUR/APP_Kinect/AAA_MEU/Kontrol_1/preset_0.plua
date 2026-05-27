@@ -1,0 +1,5 @@
+-- preset v0 for MEU|Kontrol_1
+tab["edge_depth"] = 0.5
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["target meu"] = 5

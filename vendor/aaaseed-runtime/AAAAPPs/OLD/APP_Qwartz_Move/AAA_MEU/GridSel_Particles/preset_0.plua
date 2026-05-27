@@ -1,0 +1,12 @@
+-- preset for MEU_GRIDSEL|Particles("Particles")
+tab["boid_1"] = 1
+tab["boid_2"] = 1
+tab["boid_3"] = 0
+tab["boid_4"] = 0
+tab["grid_sel"] = 5
+tab["part_3"] = 1
+tab["part_4"] = 0
+tab["part_down"] = 1
+tab["part_up"] = 1
+tab["restore"] = 0
+tab["sel"] = 1

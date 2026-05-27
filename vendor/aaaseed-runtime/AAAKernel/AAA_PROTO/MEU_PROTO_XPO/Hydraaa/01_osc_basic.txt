@@ -1,0 +1,2 @@
+// basic osc, three RGB sin waves
+osc(40, 0.1, 0.8).out()

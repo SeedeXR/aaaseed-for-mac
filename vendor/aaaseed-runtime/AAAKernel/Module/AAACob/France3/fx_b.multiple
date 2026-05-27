@@ -1,0 +1,9 @@
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYER" ;
+	alignment = "Random_Axe" ;
+	axe = "X" ;
+	start = 0 ;
+	stop = 0 ;
+	}

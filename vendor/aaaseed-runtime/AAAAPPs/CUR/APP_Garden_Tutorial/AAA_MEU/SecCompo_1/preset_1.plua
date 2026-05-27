@@ -1,0 +1,11 @@
+-- preset for MEU|Pavage_1
+tab["angle"] = 0.33333333333333
+tab["cam_index"] = 5
+tab["dim"] = 2
+tab["distance"] = 0.12487751091167
+tab["grid"] = 0
+tab["nb"] = 0
+tab["offset"] = 0
+tab["tex_bank"] = 3
+tab["tex_bind"] = 6
+tab["uv"] = { { 0.55465040388799, 0.4992158951288 } }

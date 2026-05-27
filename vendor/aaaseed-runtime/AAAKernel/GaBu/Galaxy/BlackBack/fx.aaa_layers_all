@@ -1,0 +1,27 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 5.84001 ;
+	rot_x = 0.0459999 ;
+	rot_y = 0.011 ;
+	tra_z = -8.2088 ;
+	}
+//AAA::filename fx_a.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	viewport_only = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_clear_screen" ;
+	}

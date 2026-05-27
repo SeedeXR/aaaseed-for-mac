@@ -1,0 +1,128 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x_frequency = 0.0736093 ;
+	rot_x_frequency_sin = 0.01 ;
+	rot_y_frequency_sin = 0.160381 ;
+	rot_y_amplitude_sin = 0.0612082 ;
+	rot_x = 0.544999 ;
+	rot_y = 0.632 ;
+	tra_z = -12.023 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 8 ;
+	nb_v = 8 ;
+	}
+//AAA::filename fx_a00.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 27 ;
+	axe_src = "Y" ;
+	origin_x = 4 ;
+	origin_z = 4 ;
+	Image_component = "ALPHA" ;
+	strenght = 3.82405 ;
+	}
+//AAA::filename fx_a01.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	axe_src = "Y" ;
+	origin_x = 0.416983 ;
+	Image_component = "GREEN" ;
+	strenght = -0.132969 ;
+	}
+//AAA::filename fx_a02.def
+def_curve ( Version 0 )
+	{
+	active = ON ;
+	Flip_point = 0 ;
+	Space_Frequency = 0.03125 ;
+	Strength = 2 ;
+	src_mode = "Cylinder" ;
+	src_axe = "Y" ;
+	dst_center_y = 0.922696 ;
+	Phase_Offset = 0.230345 ;
+	gain = 0.818242 ;
+	}
+//AAA::filename fx_a03.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = -2 ;
+	offset = 1 ;
+	bias = 0.116244 ;
+	phase_speed = 0.25 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	AddFileRel "fx_a01.def" def_01 = OFF ;
+	AddFileRel "fx_a02.def" def_02 = OFF ;
+	AddFileRel "fx_a03.def" def_03 = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "BOX" ;
+	size_factor = 0.359646 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 64 ;
+	nb_v = 32 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_deformer = "CURRENT" ;
+	use_rendering = ON ;
+	bind_2d = 4 ;
+	}

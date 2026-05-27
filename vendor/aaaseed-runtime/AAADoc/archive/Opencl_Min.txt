@@ -1,0 +1,43 @@
+typedef struct
+{
+	float4 pos, vel;
+	float4 pos_b;
+	float4 dum;
+} Particle;
+typedef struct
+{
+	float4 pos, vel;
+	float4 pos_b;
+	float dum1;
+	float dum2;
+	float dum3;
+	float dum4;
+	float4 accel;
+	float4 pos_c;
+	float mass;
+	float radius;
+	float life;
+	float life_over_one;
+
+} Particle;
+
+typedef struct
+{
+	float	line;		float	color;		float	normal;		float	attrib;
+	float	dt;		uint	i_offset; 	uint	nb_by_set;	uint	float_by_set;
+
+	float2	mouse_pos;
+
+	float	p01;		float	p02;		float	p03;		float	p04;
+	float	p05;		float	p06;		float	p07;		float	p08;
+	float	p09;		float	p10;		float	p11;		float	p12;
+	float	p13;		float	p14;		float	p15;		float	p16;
+	float	p17;		float	p18;
+
+	float4	v01;		float4	v02;		float4	v03;		float4	v04;
+} kernel_param;
+
+typedef struct
+{
+	float	v[200];
+} dataset_param;

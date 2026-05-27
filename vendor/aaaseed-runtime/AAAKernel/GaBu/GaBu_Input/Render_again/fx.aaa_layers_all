@@ -1,0 +1,86 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	stereo = "field_update" ;
+	FBO = "Owner" ;
+	use_camera = "Owner" ;
+	name_symbo = "GaBuIn_render_again_layers" ;
+	time_buffer_value = 1.1025 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 1 ;
+	ui_lock = ON ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.468 ;
+	rot_y = -0.211 ;
+	tra_x = -0.04 ;
+	tra_y = 0.006 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.003 ;
+	rot_y = 0.075 ;
+	tra_x = -87.7721 ;
+	tra_y = 4.036 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "GaBuIn_render_again_fbo" ;
+	size_asked_x = 1920 ;
+	size_asked_y = 1080 ;
+	channel_nb = 4 ;
+	tex_1_bind_2d_asked = 41 ;
+	}
+//AAA::filename fx.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	color_alpha = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUADS" ;
+	normal_point = 0.414062 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	axe = "Z" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "1D" ;
+	tex_axe = "Z" ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.00105 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	saturation = 0.193966 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 31 ;
+	}

@@ -1,0 +1,79 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "dp_hack.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	transfo = ON ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 65536 ;
+	nb_max = 16384 ;
+	nb_by_sec = 0 ;
+	flow_continuous = ON ;
+	life_time = 4 ;
+	life_time_jitter = 0.8 ;
+	emission_box_size_factor = 4.86202 ;
+	emission_mask_sphere = ON ;
+	jitter_speed_abs = 0.25 ;
+	render_life_color = ON ;
+	render_life_color_ease_in = 0.125 ;
+	render_life_color_ease_out = 0.125 ;
+	color_map_alpha_bias = 0.168423 ;
+	render_size_life_bias = 0.256354 ;
+	render_size_end_factor = 0.25 ;
+	render_scale_factor = 0.25 ;
+	}
+//AAA::filename fx_a.anim
+tex_anim ( Version 0 )
+	{
+	start = 24 ;
+	stop = 31 ;
+	several_active = ON ;
+	force_start = 24 ;
+	force_stop = 31 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Random" ;
+	axe = "Z" ;
+	size_factor = 0.25 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_tex_anim = "Owner" ;
+	bind_2d = 30 ;
+	}

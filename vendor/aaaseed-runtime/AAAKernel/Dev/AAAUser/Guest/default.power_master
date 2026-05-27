@@ -1,0 +1,5 @@
+power_master ( Version 0 )
+	{
+	active = ON ;
+	cpu_state_plugged_min_asked = 1 ;
+	}

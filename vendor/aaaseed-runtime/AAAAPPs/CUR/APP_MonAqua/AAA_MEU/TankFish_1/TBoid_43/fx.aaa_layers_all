@@ -1,0 +1,101 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "Titan" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 43 ;
+	birth_size_factor = 8 ;
+	birth_id = "from_index" ;
+	speed_min = 1 ;
+	speed_vertical_ratio_max = 0.5 ;
+	viscosity = 0.1 ;
+	visibility_use = ON ;
+	visibility_angle = 0.217856 ;
+	visibility_max_seen = 64 ;
+	field_active = ON ;
+	acceleration_max_target_box = ON ;
+	target_active = OFF ;
+	target_influence = 0 ;
+	target_shape = "Line" ;
+	target_axe = "Y" ;
+	target_x = 17.0972 ;
+	target_y = 3.49723 ;
+	target_z = -6.1088 ;
+	target_radius_internal = 1.2635 ;
+	target_radius_external = 1.49723 ;
+	target_normal = 0.459183 ;
+	box_type = "Repulse" ;
+	box_x = 17.6 ;
+	box_y = 4 ;
+	box_z = -6.61157 ;
+	box_size_x = 4 ;
+	box_size_y = 4 ;
+	box_size_z = 4 ;
+	box_border_size = 0.25 ;
+	box_draw = ON ;
+	repulse_distance = 0.5 ;
+	repulse_draw = ON ;
+	repulse_net_draw = ON ;
+	repulse_by_other = "like_other" ;
+	flocking_active = ON ;
+	flocking_influence = 0.5 ;
+	flocking_distance = 0.5 ;
+	steering_active = ON ;
+	steering_influence = 2 ;
+	steering_distance = 0.5 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	fn = "Turbulence" ;
+	axe = "Z" ;
+	strenght = 0.015625 ;
+	offset = 0.00390625 ;
+	phase_speed = 1 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_axe = 8 ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}

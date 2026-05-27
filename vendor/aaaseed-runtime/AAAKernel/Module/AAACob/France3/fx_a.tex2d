@@ -1,0 +1,8 @@
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	font = 2 ;
+	align_horizontal = 0.500000 ;
+	text = "Bonjour
+" ;
+	}

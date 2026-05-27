@@ -1,0 +1,4 @@
+multi_screen ( Version 0 )
+	{
+	x_overlap = 0 ;
+	}

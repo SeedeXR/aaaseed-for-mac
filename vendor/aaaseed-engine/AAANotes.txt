@@ -1,0 +1,28 @@
+To solve eventual problem in visual Studio when compiling:
+msbuild AAASeed_Maa.vcxproj /t:Build /p:Configuration=Debug_v143 /p:Platform=x64 /v:diag > build.log
+-----
+
+Solution found when toolset v145 did not function on Insiders 2026:
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_v145|x64'">
+  <EnableStdModules>false</EnableStdModules>
+</PropertyGroup>
+infact we added <EnableStdModules>false</EnableStdModules> to each PropertyGroup of a v145 configuration
+-----
+
+These are the defines we used to compile AAASeed
+/D "_VC80_UPGRADE=0x0710"
+/D "GLM_FORCE_XYZW_ONLY"
+/D "DEBUG" /D "_DEBUG"
+/D "WIN32"
+/D "AAASEED"
+/D "AAA_TRACKER_PRIVATE=1"
+/D "AAA_NEW_DESIGN_PRIVATE=1"
+/D "VC_EXTRALEAN"
+/D "_USE_MATH_DEFINES"
+/D "NOMINMAX" /D "MSA_HOST_AAASEED=1" /D "DPSAPI_VERSION=1"
+/D "UNICODE" /D "_UNICODE"
+/D "GLEW_STATIC" /D "POCO_STATIC" /D "POCO_NO_AUTOMATIC_LIBS"
+/D "XML_NS" /D "XML_DTD" /D "HAVE_EXPAT_CONFIG_H" /D "XML_EXPORTS"
+/D "Util_EXPORTS"
+-----
+

@@ -1,0 +1,8 @@
+-- preset for MEU|TRAX_2("proto_TRAX")
+tab["filter"] = 0.33663600683212
+tab["fn"] = 3
+tab["freq_max"] = 0.78476693398397
+tab["freq_min"] = 0
+tab["max"] = 4
+tab["min"] = 0
+tab["offset"] = 0

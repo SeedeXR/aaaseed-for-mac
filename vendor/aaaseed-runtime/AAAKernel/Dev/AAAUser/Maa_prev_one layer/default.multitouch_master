@@ -1,0 +1,8 @@
+multitouch_master ( Version 0 )
+	{
+	active = ON ;
+	start_non_coalesced = OFF ;
+	start_palm_detection = ON ;
+	disable_win_ui_edge = ON ;
+	orientation = "Landscape" ;
+	}

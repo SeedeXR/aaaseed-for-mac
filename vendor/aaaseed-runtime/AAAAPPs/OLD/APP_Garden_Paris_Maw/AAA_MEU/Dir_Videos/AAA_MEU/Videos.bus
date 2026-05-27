@@ -1,0 +1,14 @@
+-- BU position for Videos
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_value( "restore", 0 )
+BUS.set_bu_pos( 0, "vin a", -0.325, 0.4125, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "vin b", -0.325, 0.3625, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "vin c", -0.325, 0.3, 0.2, 0.05, 0, 1 )
+BUS.set_bu_pos( 0, "vin d", -0.325, 0.225, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "vin e", -0.325, 0.1625, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "vin f", -0.325, 0.1, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "vin g", -0.325, 0.0375, 0.2, 0.05, 0, 0 )
+BUS.set_bu_pos( 0, "vin h", -0.325, -0.025, 0.2, 0.05, 0, 0 )

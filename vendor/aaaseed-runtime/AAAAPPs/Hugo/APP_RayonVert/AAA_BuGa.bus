@@ -1,0 +1,7 @@
+-- BU position value for BUS GAVIZ
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle [,value] )
+-- page 0
+BUS.set_bu_pos( 0, "buiz", -3.5, 1.125, 1, 2.25, 0 )
+BUS.set_bu_pos_mini( 0, "buiz", 1.3877161833449, 0.4588543937258, 0.125, 0.125, 0, true )
+
+

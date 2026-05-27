@@ -1,0 +1,6 @@
+time_buffer_master ( Version 0 )
+	{
+	buffer_time_len = 0.0616823 ;
+	draw_time_len = 0.000976563 ;
+	text_size = 0.105042 ;
+	}

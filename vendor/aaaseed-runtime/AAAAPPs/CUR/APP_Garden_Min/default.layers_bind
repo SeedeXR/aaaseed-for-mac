@@ -1,0 +1,6 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Garden/fx" ;
+	Bind_02 = "Kinect/fx" ;
+	Bind_03 = "Skeleton/fx" ;
+	}

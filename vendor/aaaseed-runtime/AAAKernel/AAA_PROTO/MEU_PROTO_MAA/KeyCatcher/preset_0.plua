@@ -1,0 +1,7 @@
+-- preset v0 for MEU|KeyCatcher_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["ascii"] = 121
+tab["char"] = "y"
+tab["learn"] = false
+tab["out"] = false

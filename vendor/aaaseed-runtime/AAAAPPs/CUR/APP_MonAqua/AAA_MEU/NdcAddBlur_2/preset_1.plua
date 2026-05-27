@@ -1,0 +1,13 @@
+-- preset for MEU|NdcAddBlur_1
+tab["add factor"] = 0.52725923061371
+tab["add intensity"] = 2.4831035137177
+tab["blur size"] = 41.847595214844
+tab["cam_index"] = 0
+tab["draw"] = true
+tab["emissive_bank"] = 6
+tab["emissive_bind"] = 3
+tab["emissive_dim"] = 1
+tab["shader"] = 1
+tab["src_bank"] = 6
+tab["src_bind"] = 0
+tab["src_dim"] = 2

@@ -1,0 +1,160 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "FaceTrak.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 2.2494 ;
+	tra_x = -0.924 ;
+	tra_y = -0.002 ;
+	tra_z = 0.956569 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	focal = 58.9198 ;
+	focal_horizontal = ON ;
+	rot_y = -0.0005 ;
+	tra_z = -5.02864 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.001 ;
+	tra_z = -7.12696 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	tra_x = -0.128 ;
+	tra_y = -0.044 ;
+	tra_z = -1.63136 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 7.33014 ;
+	size_v = 8.6558 ;
+	size_factor = 0.25 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_color = ON ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_u = 0.5 ;
+	tex_by_side = ON ;
+	tex_right = 0.5 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 9 ;
+	size_factor = 0.25 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_z = 0.5 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_c.bdd_img_face_tracker
+bdd_img_face_tracker ( Version 0 )
+	{
+	force_compute = ON ;
+	image_dst_base = 108 ;
+	mono = ON ;
+	crop = ON ;
+	crop_right = 0.5 ;
+	resize = ON ;
+	resize_fx = 0.2 ;
+	resize_fy = 0.2 ;
+	rotate_angle = "180" ;
+	draw_face_number_size = 0.025 ;
+	img_out = OFF ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	line_smooth = ON ;
+	line_size = 2 ;
+	depth = ON ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_by_side = ON ;
+	tex_left = 0.25 ;
+	tex_right = 0.75 ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	size_v = 2 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_img_face_tracker" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

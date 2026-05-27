@@ -1,0 +1,13 @@
+-- BU position value for BUS Garden_MUS
+BUS.set_bu_pos_value( "fbo_dif", {3.275,-1.2, 0.4375,0.09375}, { render=0 } )
+BUS.set_bu_pos_value( "dir_mire", {3.225,-2.025, 0.4375,0.09375}, { render=1 } )
+BUS.set_bu_pos_value( "dir_out", {3.375,-0.640625, 0.4375,0.09375}, { render=1 } )
+BUS.set_bu_pos_value( "fbo_pre", {2.225,-1.175, 0.4375,0.09375}, { render=1 } )
+BUS.set_bu_pos_value_mini( "fbo_pre", {0.60000002384186,-1.56, 0.4375,0.09375} )
+BUS.set_bu_pos_value( "dir_protos", {4.35,0.7, 0.4375,0.09375}, { render=0 } )
+BUS.set_bu_pos_value( "render_1", {3.5,-1.75, 1,1}, 1 )
+BUS.set_bu_pos_value( "render_2", {2.5,-0.84375, 1,0.8125}, 1 )
+BUS.set_bu_pos_value( "render_3", {3.5,-0.84375, 1,0.8125}, 1 )
+BUS.set_bu_pos_value( "textline_1", {2.40625,-0.640625, 0.4375,0.09375}, { render=1 } )
+BUS.set_bu_pos_value( "dir_trash", {4.4,0.85, 0.4375,0.09375}, { render=0 } )
+BUS.set_bu_pos_value( "fbo_viz", {1.0625,0.046875, 0.4375,0.09375}, { render=1 } )

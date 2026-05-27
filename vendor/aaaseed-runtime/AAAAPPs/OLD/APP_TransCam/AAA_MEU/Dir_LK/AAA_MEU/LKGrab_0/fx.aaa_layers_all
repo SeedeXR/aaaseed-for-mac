@@ -1,0 +1,41 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 3.20454 ;
+	orbiting = ON ;
+	center_x = 0 TraxLoc06Out ;
+	rot_x = 0.273 ;
+	rot_y = 0.019 ;
+	tra_z = -3.06749 TraxLoc10In ;
+	tra_offset_z = 3.00229 TraxLoc16Out ;
+	clip_close_perspective = 5e-06 ;
+	clip_far_perspective = 1.5625 ;
+	}
+//AAA::filename fx_a.feedback
+bdd_feedback ( Version 0 )
+	{
+	bind_2d_dst = 0 ;
+	grab_to_tex = ON ;
+	size_x_p2 = "1024" ;
+	size_y_p2 = "1024" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_feedback" ;
+	bind_2d = 14 ;
+	comment = "Grab in default" ;
+	}

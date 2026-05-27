@@ -1,0 +1,9 @@
+module ( Version 0 )
+	{
+	name_symbo = "ref_test" ;
+	comment = "comment_test" ;
+	module_materials = ON ;
+	layers_index_cur = 4 ;
+	layers_index_end = 4 ;
+	load_all = OFF ;
+	}

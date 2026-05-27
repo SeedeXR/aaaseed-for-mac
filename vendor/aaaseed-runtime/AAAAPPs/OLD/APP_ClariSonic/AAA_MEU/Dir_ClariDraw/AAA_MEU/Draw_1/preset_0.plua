@@ -1,0 +1,27 @@
+-- preset v0 for MEU|Draw_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["color_alpha"] = 1
+tab["color_blue"] = 1
+tab["color_green"] = 1
+tab["color_red"] = 1
+tab["connect"] = 0.9745484386974
+tab["cross"] = false
+tab["force elt"] = false
+tab["give"] = 0
+tab["grid"] = false
+tab["img_col_alpha"] = 1
+tab["img_col_blue"] = 1
+tab["img_col_green"] = 1
+tab["img_col_red"] = 1
+tab["imgs"] = 0
+tab["logo"] = 0
+tab["logo_big"] = 1
+tab["logo_c"] = 0
+tab["logo_uplifted"] = 0.97663972584975
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["pilot"] = true
+tab["record"] = 0.57612557910714
+tab["screens"] = false

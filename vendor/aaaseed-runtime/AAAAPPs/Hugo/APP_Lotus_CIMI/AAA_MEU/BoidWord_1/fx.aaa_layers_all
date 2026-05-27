@@ -1,0 +1,149 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "boid_word.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal = 65.7556 ;
+	rot_x = -0.0015 ;
+	rot_y = 0.001 ;
+	tra_z = -2.1057 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.195 ;
+	rot_y = -0.0135 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0345 ;
+	rot_y = 0.049 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	tra_z = 0.57078 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	scale_z = 0.3395 ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 128 ;
+	nb_alive_min = 128 ;
+	nb_alive_max = 128 ;
+	birth_rate = 2 ;
+	birth_nb = 0.659922 ;
+	death_rate = 2 ;
+	death_nb = 0.659922 ;
+	birth_origin_z = -4 ;
+	birth_size_y = 0.027216 ;
+	birth_size_factor = 4 ;
+	death_target_z = 4 ;
+	death_target_radius = 1 ;
+	viscosity = 0.0810524 ;
+	visibility_max_seen = 128 ;
+	target_active = OFF ;
+	box_type = "Repulse" ;
+	box_size_x = 1.23091 ;
+	box_size_z = 0.544506 ;
+	box_size_factor = 2 ;
+	repulse_distance = 0.599002 ;
+	repulse_net_draw = ON ;
+	repulse_net_ease_in = 0.132824 ;
+	repulse_net_red = 0 ;
+	repulse_net_blue = 0 ;
+	repulse_net_image = ON ;
+	repulse_net_image_bind = 2 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	line_size = 2 ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	type = "CUBE" ;
+	size_factor = 0.00997095 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	tex_v = 1.77 ;
+	tex_factor = 0.0653598 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.999998 ;
+	convert = ON ;
+	hue = 0.5 ;
+	saturation = 1.78814e-06 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	start = 3.22305 ;
+	end = 4.19733 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 4 ;
+	use_lights_switch = ON ;
+	}

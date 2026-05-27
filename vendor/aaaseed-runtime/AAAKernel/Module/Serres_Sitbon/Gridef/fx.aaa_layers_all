@@ -1,0 +1,535 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Filter = 0.951924 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 50 ;
+	Bias = 0.865556 ;
+	Min = 11.2505 ;
+	Max = 0.125 ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Fn = "FFT" ;
+	Freq = 0.0625 ;
+	Min = -1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Freq = -0.106466 ;
+	Bias = 0.936925 ;
+	Max = -0.51533 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_D" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 11.2505 TraxLoc03Out ;
+	focal_horizontal = ON ;
+	rot_x = 0.5 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 4.7 ;
+	rot_x = 0.5 ;
+	tra_z = -5.57039 TraxLoc04Out ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 2048 ;
+	nb_alive_min = 1024 ;
+	death_target_y = 8 ;
+	death_target_radius = 2 ;
+	dimension = "1D" ;
+	acceleration_max = 4 ;
+	speed_max = 4 ;
+	viscosity = 0.137196 ;
+	visibility_max_seen = 1 ;
+	field_active = ON ;
+	field_influence = -1 ;
+	target_active = OFF ;
+	target_axe = "Z" ;
+	box_exponent = 4 ;
+	box_size_x = 8 ;
+	box_size_y = 6 ;
+	repulse_influence = 32 ;
+	repulse_visibility_use = ON ;
+	repulse_distance = 0.773689 ;
+	flocking_distance = 0.644474 ;
+	steering_distance = 2 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 96 ;
+	nb_v = 72 ;
+	}
+//AAA::filename fx_a00.def
+def_repulsor ( Version 0 )
+	{
+	active = ON ;
+	type = "Cylindrical" ;
+	Axe = "Z" ;
+	bias = 0.983674 ;
+	}
+//AAA::filename fx_a01.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 34 ;
+	axe_src = "Z" ;
+	axe_dst = "Z" ;
+	Gradient = ON ;
+	Normal = 0.0625 ;
+	strenght = 1 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = OFF ;
+	AddFileRel "fx_a01.def" def_01 = ON ;
+	}
+//AAA::filename fx_a.anim
+tex_anim ( Version 0 )
+	{
+	start = 64 ;
+	stop = 67 ;
+	several_active = ON ;
+	force_start = 64 ;
+	force_stop = 67 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	back_mode = "LINE" ;
+	line_smooth = ON ;
+	point_size = 4 ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	alignment = "Random_Axe_Z" ;
+	axe = "Z" ;
+	size_factor = 0.0262768 TraxLoc06Out ;
+	target_name = "Text" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.0407135 ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 1 TraxLoc02Out ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	blue = 1 ;
+	start = 2.1814 ;
+	end = 3.85993 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 5 ;
+	bank_2d = 1 ;
+	bind_2d = 3 ;
+	comment = "grid" ;
+	}
+//AAA::filename fx_b.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 1024 ;
+	nb_alive_min = 952 ;
+	death_target_y = 8 ;
+	death_target_radius = 2 ;
+	dimension = "1D" ;
+	acceleration_max = 8 ;
+	speed_max = 8 ;
+	viscosity = 0.137196 ;
+	visibility_max_seen = 1 ;
+	field_active = ON ;
+	field_influence = -1 ;
+	target_axe = "Z" ;
+	box_influence = 1.19002 ;
+	box_size_z = 0.25 ;
+	box_size_factor = 3.21608 ;
+	repulse_visibility_use = ON ;
+	repulse_distance = 1.46713 ;
+	flocking_active = ON ;
+	flocking_distance = 1.7214 ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 64 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_b00.def
+def_repulsor ( Version 0 )
+	{
+	active = ON ;
+	type = "Cylindrical" ;
+	Axe = "Z" ;
+	bias = 0.983674 ;
+	}
+//AAA::filename fx_b01.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 35 ;
+	axe_src = "Z" ;
+	scale_u = 8 ;
+	scale_v = 6 ;
+	origin_x = -0.5 ;
+	origin_y = -0.5 ;
+	axe_dst = "Z" ;
+	Gradient = ON ;
+	Normal = 0.0625 ;
+	strenght = 1 ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_b00.def" def_00 = OFF ;
+	AddFileRel "fx_b01.def" def_01 = ON ;
+	}
+//AAA::filename fx_b.anim
+tex_anim ( Version 0 )
+	{
+	start = 64 ;
+	stop = 67 ;
+	several_active = ON ;
+	force_start = 64 ;
+	force_stop = 67 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	line_size = 2 ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.145595 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_alpha = 1 TraxLoc02Out ;
+	}
+//AAA::filename fx_b.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	blue = 1 ;
+	start = 2.1814 ;
+	end = 3.85993 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_multiple = "Owner" ;
+	use_mapping = ON ;
+	bind_2d = 21 ;
+	}
+//AAA::filename fx_c.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 1024 ;
+	nb_alive_min = 476 ;
+	death_target_y = 8 ;
+	death_target_radius = 2 ;
+	dimension = "1D" ;
+	acceleration_max = 8 ;
+	speed_max = 8 ;
+	viscosity = 0.137196 ;
+	visibility_max_seen = 1 ;
+	field_active = ON ;
+	field_influence = -1 ;
+	target_axe = "Z" ;
+	box_influence = 1.19002 ;
+	box_size_z = 0.25 ;
+	box_size_factor = 3.21608 ;
+	repulse_visibility_use = ON ;
+	repulse_distance = 1.46713 ;
+	flocking_active = ON ;
+	flocking_distance = 1.7214 ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 64 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_c00.def
+def_repulsor ( Version 0 )
+	{
+	active = ON ;
+	type = "Cylindrical" ;
+	Axe = "Z" ;
+	bias = 0.983674 ;
+	}
+//AAA::filename fx_c01.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 35 ;
+	axe_src = "Z" ;
+	scale_u = 8 ;
+	scale_v = 6 ;
+	origin_x = -0.5 ;
+	origin_y = -0.5 ;
+	axe_dst = "Z" ;
+	Gradient = ON ;
+	Normal = 0.0625 ;
+	strenght = 1 ;
+	}
+//AAA::filename fx_c.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_c00.def" def_00 = OFF ;
+	AddFileRel "fx_c01.def" def_01 = ON ;
+	}
+//AAA::filename fx_c.anim
+tex_anim ( Version 0 )
+	{
+	start = 64 ;
+	stop = 67 ;
+	several_active = ON ;
+	force_start = 64 ;
+	force_stop = 67 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	line_size = 2 ;
+	}
+//AAA::filename fx_c.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.187248 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.0747723 ;
+	}
+//AAA::filename fx_c.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_alpha = 1 TraxLoc02Out ;
+	}
+//AAA::filename fx_c.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	blue = 1 ;
+	start = 2.1814 ;
+	end = 3.85993 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_1d = 11 ;
+	bind_2d = 21 ;
+	}
+//AAA::filename fx_d.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 512 ;
+	nb_alive_min = 32 ;
+	birth_origin_y = 4 ;
+	acceleration_max = 0.5 ;
+	speed_max = 8 ;
+	speed_noise = 0.724037 ;
+	viscosity = 0.03125 ;
+	visibility_max_seen = 1 ;
+	field_active = ON ;
+	field_influence = -1 ;
+	target_axe = "Z" ;
+	box_size_factor = 8 ;
+	repulse_influence = 2 ;
+	}
+//AAA::filename fx_d.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 9 ;
+	nb_v = 4 ;
+	}
+//AAA::filename fx_d00.def
+def_repulsor ( Version 0 )
+	{
+	active = ON ;
+	type = "Cylindrical" ;
+	Axe = "Z" ;
+	bias = 0.983674 ;
+	}
+//AAA::filename fx_d01.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 34 ;
+	axe_src = "Z" ;
+	scale_u = 8 ;
+	scale_v = 6 ;
+	origin_x = -0.5 ;
+	origin_y = -0.5 ;
+	axe_dst = "Z" ;
+	Gradient = ON ;
+	Normal = 0.0625 ;
+	strenght = 1 ;
+	}
+//AAA::filename fx_d.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_d00.def" def_00 = OFF ;
+	AddFileRel "fx_d01.def" def_01 = ON ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_src = "DST_COLOR" ;
+	blend_dst = "ONE_MINUS_DST_COLOR" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.03125 ;
+	}
+//AAA::filename fx_d.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_d.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_alpha = 1 TraxLoc01Out ;
+	}
+//AAA::filename fx_d.fog
+fog ( Version 0 )
+	{
+	start = 10.4679 ;
+	end = -12.9813 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 15 ;
+	comment = "retour" ;
+	}

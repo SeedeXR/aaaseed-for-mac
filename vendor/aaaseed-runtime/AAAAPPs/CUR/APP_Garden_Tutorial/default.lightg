@@ -1,0 +1,8 @@
+lights ( Version 0 )
+	{
+	ambient_global_alpha = 0.468704 ;
+	flag_atte = ON ;
+	local_viewer = ON ;
+	two_side = ON ;
+	psy_frequency = 2 ;
+	}

@@ -1,0 +1,87 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "lotus.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.262278 ;
+	translation_x = 0.000106269 ;
+	translation_y = 0.254955 ;
+	translation_z = 0.000494016 ;
+	vbo_use = ON ;
+	draw_file_normal = ON ;
+	morph_pre_process = OFF ;
+	model_filename = "%media%/Lotus/Petal_smooth.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	point_size = 16 ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_1 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "lotus_trs1" ;
+	translate = ON ;
+	rotate = ON ;
+	rotate_first = ON ;
+	rotate_order = "YXZ" ;
+	rotate_y = 1.08333 ;
+	}
+//AAA::filename fx_a.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "lotus_trs2" ;
+	translate = ON ;
+	translate_y = 0.03 ;
+	translate_z = -0.25 ;
+	rotate = ON ;
+	rotate_x = -0.166667 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_tri" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "CURRENT" ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 9 ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_use_color_face = "FRONT" ;
+	material_use_color_dst = "Diffuse" ;
+	trs_1 = "Owner" ;
+	trs_2 = "Owner" ;
+	}

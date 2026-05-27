@@ -1,0 +1,8 @@
+-- preset v0 for MEU|FP4_Laval2018e
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["draw"] = 2
+tab["field"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true

@@ -1,0 +1,84 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "PROTO_img_anal.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx_a.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	image_src = 159 ;
+	discrete = ON ;
+	draw_frame_in = OFF ;
+	draw_corosshair = OFF ;
+	draw_center = OFF ;
+	find_rect = ON ;
+	threshold = 0.189153 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	}
+//AAA::filename fx_b.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	image_src = 156 ;
+	begin_u = 0.45 ;
+	end_u = 0.55 ;
+	size_u = 0.1 ;
+	discrete = ON ;
+	draw_frame_in = OFF ;
+	draw_corosshair = OFF ;
+	draw_center = OFF ;
+	threshold = 0.335024 ;
+	threshold_max = 0.415521 ;
+	coverage_max = 0.5 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	}
+//AAA::filename fx_c.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	image_src = 156 ;
+	begin_u = 0.73 ;
+	end_u = 0.83 ;
+	size_u = 0.1 ;
+	discrete = ON ;
+	draw_frame_in = OFF ;
+	draw_corosshair = OFF ;
+	draw_center = OFF ;
+	threshold = 0.25 ;
+	threshold_max = 0.5 ;
+	coverage_min = 0.002 ;
+	coverage_max = 0.5 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	}

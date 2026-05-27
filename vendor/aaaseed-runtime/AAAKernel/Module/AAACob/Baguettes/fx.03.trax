@@ -1,0 +1,7 @@
+trax ( Version 0 )
+	{
+	Active = OFF TraxLoc02Out ;
+	Fn = "RANDOM_LINEAR" ;
+	Freq = 2048 ;
+	Max = 32 ;
+	}

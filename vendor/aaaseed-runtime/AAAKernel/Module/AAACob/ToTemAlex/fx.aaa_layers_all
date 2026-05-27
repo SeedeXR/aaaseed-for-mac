@@ -1,0 +1,239 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "RANDOM_LINEAR" ;
+	Freq = 1224.09 TraxLoc03Out ;
+	Min = 0.052969 ;
+	Max = -0.0625 ;
+	Format = "%.2f" ;
+	out_0 = 0 TraxLoc02In ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Phase = 0.00441 ;
+	Max = -1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.08.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Min = -0.545718 ;
+	Max = -1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.09.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "RANDOM_LINEAR" ;
+	Freq = 16 ;
+	Min = -0.25 ;
+	Max = 0.25 ;
+	Filter = 0.900758 ;
+	Format = "%.2f" ;
+	out_selector_1 = "No" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = 1224.09 TraxLoc03In ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "Left_Right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 1.94 ;
+	orbiting = ON ;
+	rot_x_frequency = 0.25 ;
+	rot_y_frequency_sin = 0.25 ;
+	rot_y_amplitude_sin = 0.125 ;
+	rot_x = 0.2515 ;
+	rot_y = 0.25 ;
+	tra_x = 0.552 ;
+	tra_y = 0.0480004 ;
+	tra_z = -4.72888 ;
+	m00 = -0.060279 ;
+	m01 = -0.047995 ;
+	m02 = -0.997033 ;
+	m10 = 0.11532 ;
+	m11 = 0.991827 ;
+	m12 = -0.054717 ;
+	m20 = 0.991507 ;
+	m21 = -0.118275 ;
+	m22 = -0.054248 ;
+	m30 = -0.277044 ;
+	m31 = -0.025745 ;
+	m32 = -0.819829 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	draw_file_normal = ON ;
+	draw_uv = ON ;
+	draw_poly = ON ;
+	model_filename = "Geo3d\Reduce\CorpsPoly.obj" ;
+	draw_by_object = ON ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a00.def
+def_repulsor ( Version 0 )
+	{
+	active = ON ;
+	origin_x = -0.0501756 TraxLoc09Out ;
+	origin_y = -0.546178 TraxLoc08Out ;
+	origin_z = 0.06457 ;
+	src_ext_factor = 0.435435 ;
+	gain = 0.335 ;
+	bias = 0.72615 ;
+	}
+//AAA::filename fx_a01.def
+def_curve ( Version 0 )
+	{
+	active = ON ;
+	Time_Factor = 1 ;
+	Space_Frequency = 1 ;
+	Strength = 0.0625 ;
+	src_axe = "Z" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = OFF ;
+	AddFileRel "fx_a01.def" def_01 = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	alignment = "Normal" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	texture_feedback = ON ;
+	tex_factor = 0.9078 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	light_switch_4 = ON ;
+	light_switch_5 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 8 ;
+	bank_2d = 7 ;
+	bind_2d = 22 ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = 0.555992 ;
+	}
+//AAA::filename fx_b.tri
+bdd_tri ( Version 0 )
+	{
+	draw_file_normal = ON ;
+	model_filename = "Geo3d\Reduce\AilesPoly.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0.806896 ;
+	global_green = 0.786533 ;
+	global_alpha = 0.31584 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_z = -0.0277181 TraxLoc01Out ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	bind_2d = 1 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_order = "XYZ" ;
+	rotate_z = 0.0277181 TraxLoc02Out ;
+	scale = ON ;
+	scale_x = -1 ;
+	}
+//AAA::filename fx_c.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale_x = -1 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	use_rendering = ON ;
+	bind_2d = 1 ;
+	trs_1 = "Owner" ;
+	}

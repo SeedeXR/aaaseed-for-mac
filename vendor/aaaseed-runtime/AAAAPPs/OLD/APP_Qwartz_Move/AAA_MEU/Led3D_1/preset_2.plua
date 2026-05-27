@@ -1,0 +1,13 @@
+-- preset for MEU|Led3D_1
+tab["cam_index"] = 0
+tab["cam_axe_show"] = 0
+tab["test__rgb_viz"] = 1
+tab["test_alpha"] = 0.99999999988358
+tab["test_blue"] = 0.27772243151686
+tab["test_green"] = 0.62049804906451
+tab["test_grey"] = 0.22875362179494
+tab["test_hue"] = 0.60441202112518
+tab["test_red"] = 1
+tab["test_saturation"] = 0.45523072305656
+tab["test_value"] = 0.20427031528467
+tab["cam_use"] = 2

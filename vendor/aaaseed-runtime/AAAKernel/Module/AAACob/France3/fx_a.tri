@@ -1,0 +1,7 @@
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.087669 ;
+	draw_file_normal = ON ;
+	draw_poly = ON ;
+	model_filename = "C:\AAAData\AAAEvents\AAABle\Geo3D\Feuiile1Smooth.obj" ;
+	}

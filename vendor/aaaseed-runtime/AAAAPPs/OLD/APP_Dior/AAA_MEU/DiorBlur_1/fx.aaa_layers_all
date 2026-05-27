@@ -1,0 +1,41 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "dior_blur.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	image_src = 69 ;
+	image_dst_base = 71 ;
+	use_cuda = ON ;
+	use_opencl = ON ;
+	use_opengl_tex = ON ;
+	resize_fx = 0.25 ;
+	resize_fy = 0.25 ;
+	blur_enable = ON ;
+	blur_img_dst = "base" ;
+	blur_size_x = 3 ;
+	blur_size_y = 3 ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	}

@@ -1,0 +1,7 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "SLIDE_INDEX" ;
+	Limit = "WRAP" ;
+	Limit_max = 2 ;
+	}

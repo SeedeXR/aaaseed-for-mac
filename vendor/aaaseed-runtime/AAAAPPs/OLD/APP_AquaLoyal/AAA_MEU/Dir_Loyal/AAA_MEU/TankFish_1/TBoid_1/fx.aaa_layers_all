@@ -1,0 +1,102 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "Loyal" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	nb_alive_min = 1 ;
+	nb_alive_max = 1 ;
+	birth_id = "from_index" ;
+	acceleration_max = 2 ;
+	speed_min = 0.242288 ;
+	speed_max = 2 ;
+	speed_vertical_ratio_max = 0.5 ;
+	viscosity = 0.9 ;
+	draw_force = ON ;
+	visibility_angle = 0.25 ;
+	visibility_max_seen = 1 ;
+	target_axe = "Y" ;
+	target_x = -2.5 ;
+	target_z = 1.2 ;
+	target_radius_internal = 0.134913 ;
+	target_radius_external = 0.566626 ;
+	target_normal = -0.0544954 ;
+	box_active = OFF ;
+	box_type = "Repulse" ;
+	box_exponent = 3 ;
+	box_x = 0 TraxLoc01In ;
+	box_y = -0.0259178 ;
+	box_z = 1.07725 ;
+	box_size_y = 0.162393 ;
+	box_size_factor = 1.75538 ;
+	box_border_size = 0.5 ;
+	box_sphere = ON ;
+	box_draw = ON ;
+	repulse_active = OFF ;
+	repulse_distance = 0.5 ;
+	repulse_net_draw = ON ;
+	repulse_net_green = 0 ;
+	repulse_net_blue = 0 ;
+	repulse_net_alpha = 0.466009 ;
+	repulse_by_other = "like_other" ;
+	flocking_influence = 0.5 ;
+	flocking_distance = 0.5 ;
+	steering_influence = 2 ;
+	steering_distance = 0.5 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_axe = 8 ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	global_blue = 0 ;
+	convert = ON ;
+	hue = 0 ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_null" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

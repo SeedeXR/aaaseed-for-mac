@@ -1,0 +1,11 @@
+-- preset for MEU|NdcReactDif_1
+tab["cam_index"] = 2
+tab["diffusion a"] = 1.0000001192093
+tab["difussion b"] = 0.50000005960464
+tab["feed kill"] = { { 0.77898355453243, 0.66438490491582, false, 0.12096774193548, 0.12096774193548 }, { 0.71425494840066, 0.74894310023358, false, 0.12096774193548, 0.12096774193548 }, { 0.68742432132842, 0.83752803902531, false, 0.12096774193548, 0.12096774193548 } }
+tab["how"] = 0
+tab["iteration"] = 39
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mul"] = 0
+tab["shader"] = 1

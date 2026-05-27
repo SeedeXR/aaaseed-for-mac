@@ -1,0 +1,5 @@
+-- preset for MEU|TankFish_0
+tab["draw fish"] = 0
+tab["draw line"] = 1
+tab["draw point"] = 0
+tab["draw symbo"] = 0

@@ -1,0 +1,161 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Fn = "FFT" ;
+	Freq = 0.922708 ;
+	Max = 256 ;
+	Filter = 0.452133 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TRIANGLE" ;
+	Freq = 0.0625 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 37.94 ;
+	rot_x = -2.00101 ;
+	rot_y = 1.995 ;
+	tra_x = -0.796 ;
+	tra_y = -2.436 ;
+	tra_z = -4.64767 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	sub_viewport_right = 1.00956 ;
+	ortho_size = 28.235 ;
+	rot_x = 1.001 ;
+	rot_y = 0.00799965 ;
+	tra_x = -0.47725 ;
+	tra_y = -2.47325 ;
+	tra_z = -11.0363 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 32 ;
+	nb_v = 32 ;
+	}
+//AAA::filename fx_a.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	curve_nb_u = 8 ;
+	curve_nb_v = 8 ;
+	curve_nb_u_new = 8 ;
+	curve_nb_v_new = 8 ;
+	nb_u = 128 ;
+	nb_v = 128 ;
+	ui_draw = ON ;
+	ui_intercept = ON ;
+	force_compute = OFF ;
+	ui_index_v = 2 ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 26 ;
+	nb_v = 13 ;
+	}
+//AAA::filename fx_a.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	font = 0 ;
+	align_horizontal = 0.5 ;
+	text = "Text
+" ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	model_filename = "C:\Documents and Settings\Maa\Desktop\test.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = 1 TraxLoc01Out ;
+	offset = 0.5 ;
+	phase_speed = 0.60514 ;
+	phase_axe = "Y" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	top_line = ON ;
+	top_red = -0.921582 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	type = "BOX" ;
+	alignment = "Normal" ;
+	size_axe = 0.142476 ;
+	size_factor = 0.308614 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_axe = "Z" ;
+	tex_wrap_u = "MIRRORED_REPEAT" ;
+	tex_wrap_v = "MIRRORED_REPEAT" ;
+	blend_color_blue = 1.0037 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	resolution = 2 ;
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	use_hsv = ON ;
+	hue = 0.175215 TraxLoc02Out ;
+	saturation = 1 ;
+	value = 0.5 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 1 ;
+	use_lights_switch = ON ;
+	}

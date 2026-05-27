@@ -1,0 +1,24 @@
+-- preset v0 for MEU|Part_JaimeDB
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 5
+tab["cam_use"] = 0
+tab["color_blue"] = 0.73760902881622
+tab["color_green"] = 0.73760902881622
+tab["color_grey"] = 1
+tab["color_hue"] = 0
+tab["color_red"] = 0.73760902881622
+tab["color_sat"] = 0
+tab["color_value"] = 0.73760902881622
+tab["mapping_blend"] = 2
+tab["origin_u"] = 0
+tab["origin_v"] = 0
+tab["sfactor"] = 0.17758899927139
+tab["su"] = 1
+tab["sv"] = 1
+tab["tex_bank"] = 2
+tab["tex_bind"] = 15
+tab["tex_dim"] = 2
+tab["u"] = 1
+tab["v"] = 1

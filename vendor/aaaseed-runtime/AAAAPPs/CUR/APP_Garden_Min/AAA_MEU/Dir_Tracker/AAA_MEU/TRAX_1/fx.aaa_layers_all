@@ -1,0 +1,57 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	in_active_01 = OFF ;
+	in_active_02 = OFF ;
+	in_active_03 = OFF ;
+	in_active_04 = OFF ;
+	in_active_05 = OFF ;
+	in_active_06 = OFF ;
+	in_active_07 = OFF ;
+	in_active_08 = OFF ;
+	Fn = "TRIANGLE_UP_THEN_DOWN" ;
+	Channel = 4 ;
+	Threshold = 0.450937 ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = 0.544833 TraxLoc01In ;
+	value_01 = 0 TraxLoc01In ;
+	value_02 = 0 TraxLoc01In ;
+	value_03 = 0 TraxLoc01In ;
+	value_08 = 0.535551 TraxLoc01Out ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	camera_index_ui = 1 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.008 ;
+	tra_z = -1.85205 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

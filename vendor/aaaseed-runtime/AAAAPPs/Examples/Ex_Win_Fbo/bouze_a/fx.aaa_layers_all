@@ -1,0 +1,157 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0.0444518 ;
+	Min = -10 ;
+	Max = 10 ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "SQUARE" ;
+	Freq = 1.00685 ;
+	Min = -1 ;
+	Filter = 0.87985 ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_DISTANCE" ;
+	Max = 512 ;
+	draw = "ALL" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "Once" ;
+	use_camera = "Owner" ;
+	name_symbo = "ex_tuto_a" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00650003 ;
+	rot_y = -0.1625 ;
+	tra_x = -0.012 ;
+	tra_y = 0.012 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 1024 ;
+	size_asked_y = 512 ;
+	channel_nb = 4 ;
+	depth_use = ON ;
+	tex_1_bind_2d_asked = 32 ;
+	tex_1_mipmap_generate = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_3 = ON ;
+	light_switch_4 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_use_color_face = "BACK" ;
+	material_use_color_dst = "Ambient" ;
+	}
+//AAA::filename fx_b.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	center_x = 8.38591 TraxLoc01Out TraxLoc02In ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0.967123 ;
+	global_green = 0.293222 ;
+	global_blue = 0.135056 ;
+	global_grey = 0.798026 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	name_symbo = "cube" ;
+	}
+//AAA::filename fx_c.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	center_x = -1.62396 TraxLoc05In ;
+	center_y = 8.38591 TraxLoc02Out ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0.461148 ;
+	global_green = 0.307281 ;
+	global_blue = 0.501404 ;
+	global_grey = 0.49802 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Teapot" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}
+//AAA::filename fx_d.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 20000 ;
+	nb_max = 8000 ;
+	nb_by_sec = 4373.35 TraxLoc05Out ;
+	flow_continuous = ON ;
+	emission_origin_x = 0.99998 TraxLoc03Out ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	}

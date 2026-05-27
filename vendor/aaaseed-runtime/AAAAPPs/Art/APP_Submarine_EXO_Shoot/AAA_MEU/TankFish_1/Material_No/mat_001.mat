@@ -1,0 +1,5 @@
+material ( Version 0 )
+	{
+	Ambient_Grey = 0.5 ;
+	Diffuse_Grey = 0.25 ;
+	}

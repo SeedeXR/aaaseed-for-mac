@@ -1,0 +1,5 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "interact/fx" ;
+	Bind_01 = "draw/fx" ;
+	}

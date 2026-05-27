@@ -1,0 +1,237 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "qw_face_mask.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_I" ;
+	index_end = "Layer_L" ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	Layer_G = ON ;
+	Layer_H = ON ;
+	Layer_I = ON ;
+	Layer_L = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 3 ;
+	draw_axe = ON ;
+	rot_x = -0.1625 ;
+	rot_y = 47.2388 ;
+	}
+//AAA::filename fx_a.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 104 ;
+	image_dst_base = 105 ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 6 ;
+	smooth_size_y = 6 ;
+	background_reset = ON ;
+	bc_min = 0.000244141 ;
+	bc_max = 0 ;
+	dilate = ON ;
+	dilate_pass = 8 ;
+	optical_flow_poly_n = "7" ;
+	smooth2 = ON ;
+	smooth2_size_x = 24 ;
+	smooth2_size_y = 12 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 10 ;
+	}
+//AAA::filename fx_b.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 106 ;
+	image_dst_base = 107 ;
+	background_reset = ON ;
+	sobel = ON ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}
+//AAA::filename fx_d.bdd_img_cv_stereo
+bdd_img_cv_stereo ( Version 0 )
+	{
+	bp_gpu_nb_of_levels = 8 ;
+	}
+//AAA::filename fx_d.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	image_src = 96 ;
+	image_dst_base = 104 ;
+	mono = ON ;
+	image_component = "GREEN" ;
+	crop = ON ;
+	crop_left = 0.089 ;
+	crop_right = 0.103 ;
+	crop_bottom = 0.13258 ;
+	crop_top = 0.291769 ;
+	resize_fx = 0.5 ;
+	resize_fy = 0.5 ;
+	blur_enable = ON ;
+	blur_size_x = 16 ;
+	blur_size_y = 16 ;
+	bc_min = 0.216317 ;
+	erode_enable = ON ;
+	erode_type = "Ellipse" ;
+	erode_size_x = 1 ;
+	erode_size_y = 1 ;
+	erode_iteration = 6 ;
+	dilate_enable = ON ;
+	dilate_type = "Ellipse" ;
+	dilate_size_x = 1 ;
+	dilate_size_y = 1 ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	}
+//AAA::filename fx_e.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	image_src = 104 ;
+	image_dst_base = 105 ;
+	mono = ON ;
+	resize_fx = 0.5 ;
+	resize_fy = 0.5 ;
+	blur_enable = ON ;
+	blur_size_x = 8 ;
+	blur_size_y = 8 ;
+	bc_enable = ON ;
+	bc_img_dst = 105 ;
+	bc_min = 0.125 ;
+	bc_max = 0.427585 ;
+	erode_type = "Ellipse" ;
+	erode_size_x = 4 ;
+	erode_size_y = 4 ;
+	dilate_size_x = 1 ;
+	dilate_size_y = 1 ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	}
+//AAA::filename fx_g.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	name_symbo = "qw_face_anal_left" ;
+	active = ON ;
+	image_src = 105 ;
+	end_u = 0.25 ;
+	size_u = 0.25 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_img_analyse" ;
+	}
+//AAA::filename fx_h.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	name_symbo = "qw_face_anal_center" ;
+	active = ON ;
+	image_src = 105 ;
+	begin_u = 0.25 ;
+	end_u = 0.75 ;
+	size_u = 0.5 ;
+	}
+//AAA::filename fx_h.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_img_analyse" ;
+	}
+//AAA::filename fx_i.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	name_symbo = "qw_face_anal_right" ;
+	active = ON ;
+	image_src = 105 ;
+	begin_u = 0.75 ;
+	size_u = 0.25 ;
+	}
+//AAA::filename fx_i.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_img_analyse" ;
+	}
+//AAA::filename fx_l.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	image_src = 97 ;
+	image_dst_base = 107 ;
+	crop = ON ;
+	crop_left = 0.133333 ;
+	crop_right = 0.133333 ;
+	crop_bottom = 0.1 ;
+	crop_top = 0.35 ;
+	blur_size_x = 1 ;
+	blur_size_y = 1 ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_l.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	comment = "Crop rgb image" ;
+	}

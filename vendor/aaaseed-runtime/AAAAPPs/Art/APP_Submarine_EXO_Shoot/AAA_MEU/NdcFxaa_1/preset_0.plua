@@ -1,0 +1,10 @@
+-- preset v0 for MEU|NdcFxaa_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 7
+tab["cam_use"] = 0
+tab["draw"] = true
+tab["shader"] = true
+tab["tex_1_bank"] = 6
+tab["tex_1_bind"] = 0

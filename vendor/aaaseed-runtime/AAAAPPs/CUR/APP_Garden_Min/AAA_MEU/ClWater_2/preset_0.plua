@@ -1,0 +1,25 @@
+-- preset v0 for MEU|ClWater_2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 0
+tab["color_1_alpha"] = 0.036616129697272
+tab["color_1_blue"] = 1
+tab["color_1_green"] = 1
+tab["color_1_red"] = 1
+tab["fade"] = { 0, 1 }
+tab["image_repulse"] = 0.33258473873138
+tab["part_size"] = { 0, 10.475695610046 }
+tab["shader"] = true
+tab["speed_factor"] = 0.21928265690804
+tab["speed_x"] = 0
+tab["speed_y"] = -0.5
+tab["speed_z"] = -0.0017976897129437
+tab["texa_bank"] = 3
+tab["texa_bind"] = 18
+tab["texb_bank"] = 2
+tab["texb_bind"] = 0
+tab["texc_bank"] = 1
+tab["texc_bind"] = 1
+tab["viscosity"] = 0.30658814311028

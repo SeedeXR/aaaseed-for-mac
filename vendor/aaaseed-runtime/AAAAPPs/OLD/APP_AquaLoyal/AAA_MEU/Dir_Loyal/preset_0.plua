@@ -1,0 +1,15 @@
+-- preset for MEU_DIR|Loyal("Loyal")
+tab["a"] = 1
+tab["b"] = 0
+tab["gameboid_1"] = 1
+tab["pip_fp"] = 1
+tab["pip_loyal1"] = 1
+tab["pip_loyal2"] = 1
+tab["pip_loyal3"] = 1
+tab["pip_loyal4"] = 1
+tab["pip_loyal5"] = 0.87404178981688
+tab["pip_loyal6"] = 0.87404178981688
+tab["pip_loyal7"] = 1
+tab["restore"] = 0
+tab["tankcams_1"] = 1
+tab["tankfish_1"] = 1

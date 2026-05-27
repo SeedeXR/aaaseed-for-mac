@@ -1,0 +1,18 @@
+-- preset v0 for MEU|LionelDplane_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["dplane -1_1"] = 0
+tab["dplane -2_1"] = 0
+tab["dplane 0_1"] = 0
+tab["dplane 0_2"] = 0
+tab["dplane 0_3"] = 0
+tab["dplane 1_2"] = 0
+tab["dplane 1_3"] = 0
+tab["dplane 1_4"] = 0
+tab["dplane 1_5"] = 0
+tab["dplane 1_6"] = 0
+tab["dplane 1_7"] = 0
+tab["dplane 1_8"] = 0
+tab["dplane 1_9"] = 0
+tab["dplane 2_2"] = 0
+tab["dplane 5_1"] = 0

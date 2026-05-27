@@ -1,0 +1,9 @@
+-- preset v0 for MEU|Shoot_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 5
+tab["cam_use"] = 2
+tab["src_bank"] = 1
+tab["src_bind"] = 9
+tab["src_dim"] = 2

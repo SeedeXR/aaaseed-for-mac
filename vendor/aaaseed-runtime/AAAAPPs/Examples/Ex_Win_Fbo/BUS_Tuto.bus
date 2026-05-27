@@ -1,0 +1,4 @@
+-- BU position value for BUS BUS_Tuto
+BUS.set_bu_pos_value( "a", {-2,1, 2,1} )
+BUS.set_bu_pos_value( "b", {-2,-1, 2,1} )
+BUS.set_bu_pos_value( "final", {2,0, 2,1} )

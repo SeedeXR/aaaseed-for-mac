@@ -1,0 +1,16 @@
+-- preset for MEU_DIR|Fbos("Fbos")
+tab["a"] = 1
+tab["b"] = 0
+tab["f1"] = 0
+tab["f10"] = 0
+tab["f11"] = 0
+tab["f12"] = 0
+tab["f2"] = 0
+tab["f3"] = 0
+tab["f4"] = 0
+tab["f5"] = 0
+tab["f6"] = 0
+tab["f7"] = 0
+tab["f8"] = 0
+tab["f9"] = 0
+tab["restore"] = 1

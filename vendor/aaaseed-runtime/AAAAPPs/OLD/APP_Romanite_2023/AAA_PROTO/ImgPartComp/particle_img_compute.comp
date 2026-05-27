@@ -1,0 +1,547 @@
+
+
+
+CONST float du					= aaa_cu_float[0];
+CONST float dv					= aaa_cu_float[1];
+CONST float displace_z			= aaa_cu_float[2];
+CONST float displace_gamma		= aaa_cu_float[3];
+
+CONST float dt					= aaa_cu_float[4];
+CONST float time				= aaa_cu_float[5];
+CONST float demolition_inter	= aaa_cu_float[6];
+CONST float demolition_range	= aaa_cu_float[7];
+CONST float demolition_factor	= 1. / (1. + demolition_range);
+
+CONST float target_inter		= aaa_cu_float[8];
+
+CONST float magnet				= aaa_cu_float[9];
+CONST float viscosity_as_factor	= aaa_cu_float[10];
+CONST float accel_max			= aaa_cu_float[11];
+CONST float accel_factor		= aaa_cu_float[12];
+
+CONST float mass_jitter			= aaa_cu_float[13];
+CONST float field_inf			= aaa_cu_float[14];
+CONST float field_dist			= aaa_cu_float[15];
+CONST float field_see			= aaa_cu_float[16];
+
+CONST vec3	world_center		= aaa_cu_vec4[0].xyz;
+CONST float z_for_rot			= aaa_cu_vec4[0].w;
+CONST vec3	world_size	 		= aaa_cu_vec4[1].xyz;
+CONST float rot_y		 		= aaa_cu_vec4[1].w;
+CONST vec3	target_offset		= aaa_cu_vec4[2].xyz;
+CONST vec3	target_factor		= aaa_cu_vec4[3].xyz;
+
+CONST int	s_test				= aaa_cu_int[0] & 0xff;
+CONST int	s_touch_type		= (aaa_cu_int[0] >> 8) & 0xff;
+CONST bool	b_reset				= (aaa_cu_int[0] & (1<<16)) != 0;
+CONST int	s_how				= aaa_cu_int[1] & 0xff;
+CONST int	s_phy				= (aaa_cu_int[1]>>8) & 0xff;
+CONST int	nb_u				= aaa_cu_int[2];
+CONST int	nb_v				= aaa_cu_int[3];
+
+layout(binding = 1) uniform sampler2D TEX_DEPTH;
+layout(binding = 2) uniform sampler2D TEX_TOUCHED;
+layout(binding = 4) uniform sampler2D TEX_FIELD;
+
+layout(binding = 0) uniform particles_settings_block		{	uint nb;
+//todo add														uint type;
+															} u_particles_settings;
+#define particle_nb  		u_particles_settings.nb
+//#define PARTICLE_TYPE  		1	//u_particles_settings.type		// 0 is full
+
+#define PARTICLE particle_compact
+// struct particle_compact
+// {
+// 	vec4	pos;	//	xyz used for positiion, w used touch info 
+// 	vec4	vel;	//	xyz used, w free
+// 	vec4	pos_b;	//	unused
+// 	vec4	dum;	//	xyz used for noise, w unused for now
+// };
+//#define PARTICLE particle_full
+
+layout( std430, binding=0 ) buffer particles_buffer			{	PARTICLE particles[];	};
+
+layout( std430, binding=4 ) buffer particle_pos_out_buffer	{	vec4 pos_out[];			};
+layout( std430, binding=5 ) buffer particle_col_out_buffer	{	vec4 col_out[];			};
+layout( std430, binding=6 ) buffer particle_norm_out_buffer	{	vec4 norm_out[];		};
+layout( std430, binding=7 ) buffer particle_attr_out_buffer	{	vec4 attr_out[];		};
+
+#define GROUP_SIZE 512
+layout( local_size_x = GROUP_SIZE, local_size_y = 1, local_size_z = 1 ) in;
+//layout( local_size_variable ) in;
+
+CONST vec2 ts_over = 1. / textureSize( TEX_FIELD, 0 );
+CONST vec2 dtx = vec2(ts_over.x,.0);
+CONST vec2 dty = vec2(.0,ts_over.y);
+
+vec2 get_field_gradient( in vec2 at )
+ {
+ 	return vec2(	texture( TEX_FIELD, at + dtx ).r - texture( TEX_FIELD, at - dtx ).r,
+	 				texture( TEX_FIELD, at + dty ).r - texture( TEX_FIELD, at - dty ).r
+				);
+ }
+
+// did by Maa in the train to try to have partcile do the loading icon
+//#define RECIT_NEW 12
+void main(void)
+{
+	uint index = gl_GlobalInvocationID.x;
+//	if( u_particles_settings.particle_count <= index  )
+//		return;
+
+// GET PARTICLE
+	PARTICLE part = particles[index];
+
+// BUILD GRID INDEXES
+	int iu = int(index) % nb_u;
+	int iv = int(index) / nb_u;
+
+	//todoopt precompute divider as multiplier
+	float part_demolition = demolition_inter + (index*du*dv + part.dum.x * demolition_range ) * demolition_factor - 1.;
+#ifdef RECIT_NEW
+	if( s_how==4 ) // recit
+		part_demolition *= 8.;
+#endif	//#ifdef RECIT_NEW
+	part_demolition = clamp_01( part_demolition );
+
+	//inter_part = pow( inter_part, 1.5 );
+
+// build uv for the center of the sub rectangles of the grid
+	vec2 uv = (vec2(iu,iv) + .5) * vec2(du,dv);
+
+// position of particle in "building state" (inter=0) 
+	// same for a centered unit size grid
+	vec3 pos = vec3( uv-.5, 0.);
+	// scale it to fit asked size
+	pos.xyz *= world_size;
+	// displace
+	float depth = texture( TEX_DEPTH, uv ).r;
+	float displace = pow( depth, displace_gamma ) * displace_z;
+	//displace *= 1 - part_demolition;
+	pos.z = displace;
+
+	// rotate it
+//	rotate( pos.xz, rot_y*(1-part_demolition) );
+	pos.z -= z_for_rot;
+	rotate( pos.xz, rot_y );
+	pos.z += z_for_rot;
+	// place it
+	//pos.xyz += world_center;
+
+	float part_field_inf = field_inf;
+
+	vec3 pos_in_place = pos + world_center;
+
+// RESET
+	vec4 color = vec4(1);
+	if( b_reset )
+	{
+		pos.y = 0.;
+		part.pos.xyz = world_center;
+		part.vel.xyz = vec3(0.);
+		part.pos.w = 0;
+	}
+	else
+	{
+#define DO_SOMETHING 1
+#if DO_SOMETHING
+		float touched = part.pos.w;
+		switch( s_how )
+		//switch( 1 )
+		{		
+		case 1:	// test
+			{
+				pos.xyz += world_center;
+				vec3 pos_test = pos.xyz;
+				if( part_demolition <= 0.0 )
+					color.rgb = vec3(1); 
+				else
+				{
+					pos_test.y += target_inter * 5.;
+					if( part_demolition < 1. )
+						color.rgb = mix( vec3(1,0,0), vec3(0,1,0), part_demolition );
+					else
+						color.rgb = vec3( part_demolition, part_demolition, part_demolition);
+				}
+				//pos_src = target_factor;
+				//pos_src.xy += part.dum.xy * .2;
+				col_out[index] = color;
+				norm_out[index] = vec4( 0,0,1, 0 );
+				pos_out[index] = vec4( pos_test, displace );
+				attr_out[index] = vec4( 0,0,0,1 );
+				
+				particles[index] = part;
+				return;
+			}
+			break;
+		case 2:	// In Building
+			{
+#if 1	// In validated
+				pos.xyz = mix(		
+					pos,
+					vec3( pos.x*.5, -world_center.y, pos.z*.5) + (vec3(part.dum.x,.5,part.dum.z)-.5) * 1.,
+					part_demolition
+					);
+				pos += world_center;
+				color.a = 1. - smoothstep( .2, 1., part_demolition );
+#else	// In experimenral
+				float radius; 
+#	if 0
+				radius = max( .5, abs(pos.x) );	//radius
+				radius = clamp_01( target_inter * .5 );
+				//r *= pow( part.dum.z , 1-clamp_01(r*10)) * 2.;
+#	else
+				//radius = clamp_01(1. - pow( target_inter, 1 )) * (5. + part.dum.z * .2);
+				radius = mix( .2, .1, target_inter ) + part.dum.z * .2 * (1 - target_inter);
+#	endif
+				float ph = time * 3 + part.dum.y * 10.;
+				float inter = target_inter * part_demolition;
+				pos.xyz = mix(	pos,
+//								target_offset.xyz + vec3( radius*sin(ph), radius*cos(ph), part.dum.z*.0 ),	// * target_factor,
+								world_center + vec3( radius*sin(ph), radius*cos(ph), part.dum.z*.5 ),	// * target_factor,
+								part_demolition
+								);
+				color.a = 1. - smoothstep( .9, 1., inter );
+				//pos_src = target_factor;
+				//pos_src.xy += part.dum.xy * .2;
+#endif	// In experimenral
+			}
+			break;
+		case 3:	// Out validated
+			{	
+				color.a = 1. - smoothstep( .4, .5, part_demolition );
+
+				//float inter = target_inter * part_demolition;
+				//loat ph = target_inter * 10. + part.dum.y * 6.;
+
+				vec3 target_b = pos*target_offset.y + vec3( target_offset.x, 5, target_offset.z );
+				target_b += (part.dum.xyz - .5) * 2.; 
+				//target_b += vec3( r*sin(ph)/2.3, part.dum.z*.2, r*cos(ph) );
+				//target_b.x += noise_simplex( part.pos.xy * 2. + vec2(time*.12,5.23) ) * .4;
+				//target_b.y += noise_simplex( part.pos.yx * 2. + vec2(5.12+time*.15,56.23) ) * .4;
+				pos.xyz = mix( pos, target_b, part_demolition );
+				pos.xyz += world_center;
+			}
+			break;
+		case 4:	// Recit
+			//make sure recit is unaffected by field
+			part_field_inf = 0.;
+			touched = 0.;	
+			{
+			
+#ifdef RECIT_NEW
+				//float radius = mix( .2, .1, target_inter ) + part.dum.z * .2 * (1 - target_inter);
+				float f = (part.dum.z - .5) * 2.;
+				float v = sign(f) * pow( abs(f), .5 ) * .35;
+				float radius = (.5 + v*v*v* 1) * target_offset.x;
+				float ph = time * 2 + part.dum.y * 100.;
+				
+				ph = mod( ph, demolition_inter+.001 );
+				ph *= PI2;
+
+				pos.xyz = mix(	pos,
+								vec3( radius*sin(ph), radius*cos(ph), part.dum.z*0 ),	// * target_factor,
+								part_demolition
+								);
+				pos.xyz += world_center;
+				//color.rgb = mix( color.rgb, vec3(1), part_demolition );
+				pos.x += world_center.x * .05 * part_demolition;
+				//float inter = target_inter * part_demolition;
+				//color.a = 1. - smoothstep( .9, 1., inter );
+				//pos_src = target_factor;
+				//pos_src.xy += part.dum.xy * .2;
+#else
+				pos.xyz += world_center;
+				float radius = mix( .2, .1, target_inter ) + part.dum.z * .2 * (1 - target_inter);
+				float ph = time * 3 + part.dum.y * 10.;
+				float inter = target_inter * part_demolition;
+				pos.xyz = mix(	pos,
+								world_center + vec3( radius*sin(ph), radius*cos(ph), part.dum.z*.5 ),	// * target_factor,
+								part_demolition
+								);
+				color.a = 1. - smoothstep( .9, 1., inter );
+				//pos_src = target_factor;
+				//pos_src.xy += part.dum.xy * .2;
+#endif	//#ifdef RECIT_NEW
+			}
+			break;
+/*
+		case 4:	// 4 asked
+			{
+				inter_part = clamp_01( -1.1 + inter_demo * 2 + index*du*dv*.5 + part.dum.x * inter_range );
+				inter_part = pow( inter_part, 1. );
+				float ph = inter_part * 10. + part.dum.y * 6.;
+		
+				float r = max( .5, abs(pos.x) );	//radius
+				r = (linearstep( 0, .5, inter_part ) + part.dum.z * .5) * 0. ;
+				r *= pow( part.dum.z , 1-clamp_01(r*10)) * 4.;
+				vec3 target_b = world_center + target_offset.xyz + vec3( r*sin(ph)/2.3, part.dum.z*.2, r*cos(ph) + part.pos_b.xyz * vec3(.1,.2,.1) );
+				//vec3 target_b = vec3( -smoothstep( .4, .8, inter_part) * 0, 8*inter_part, 0 ) ;
+				//vec3 target_b = pos + target_offset.xyz ;
+				target_b += vec3( part.dum.x*2., part.dum.y*.2, part.dum.y * 2. ); // r*cos(ph) );
+				target_b += vec3( r*sin(ph)/2.3, part.dum.z*.2, r*cos(ph) );
+				//target_b.x += noise_simplex( part.pos.xy * 2. + vec2(time*.12,5.23) ) * .4;
+				//target_b.y += noise_simplex( part.pos.yx * 2. + vec2(5.12+time*.15,56.23) ) * .4;
+				pos.xyz = mix( pos, target_b, inter_part );
+			}
+			break;
+		case 5:	// 5 asked
+			{
+				inter_part = clamp_01( -1.1 + inter_demo * 2 + index*du*dv*.5 + part.dum.x * inter_range );
+				inter_part = pow( inter_part, 1. );
+
+				float ph = index * .01 * (1.+part.dum.x) + time * 5.;
+
+				float r = mix( 0, 3 + part.dum.y, inter_part );
+				//r = (linearstep( 0, .5, inter_part ) + part.dum.z * .5) * 0. ;
+				//r *= pow( part.dum.z , 1-clamp_01(r*10)) * 4.;
+
+				vec3 target_b = world_center + target_offset.xyz;
+				target_b += vec3( r*sin(ph), -part.dum.z*10., r*cos(ph) );
+				pos.xyz = mix( pos, target_b, inter_part );
+			}
+			break;
+		case 6:	// 6 asked
+			{
+				inter_part = clamp_01( -1.1 + inter_demo * 2 + index*du*dv*.5 + part.dum.x * inter_range );
+				inter_part = pow( inter_part, 1. );
+
+				float d = mix( 0,1, inter_part );
+				vec3 target_b = pos;
+				target_b.x += (part.dum.x - .5) * d;
+				target_b.y = target_offset.y;
+				target_b.z += (part.dum.y - .5) * d;
+				pos.xyz = mix( pos, target_b, inter_part );
+			}
+			break;
+*/
+		}
+
+// FIELD
+		if( part_field_inf != 0. )
+		{
+			part_field_inf *= dt;
+
+			vec4 coor;
+#if 1	// compute_field coor
+			// compute texture coor in field texture
+			coor = vec4( part.pos.xyz, 1. );	// this the position on the previous frame
+			coor = vec4( pos_in_place, 1. );
+			// this is the way to do inter_demo 
+			coor = aaa_cam.view_projection * coor;
+			//coor = aaa_cam.view * coor;
+			//coor = aaa_cam.projection * coor;
+			coor.xy = coor.xy/coor.w * .5 + .5;
+#else
+			//hack to adjust and understand
+			coor.x = (coor.x * .125 * .5) + .5;
+			coor.y = (coor.y * .5) + .0;
+#endif	// compute_field coor
+
+			vec4 color_field = texture2D( TEX_TOUCHED, coor.xy );
+
+#if 1	//field version
+			//float field = color_field.r;
+			float field = color_field.r * 3.;
+
+			// sensibility with distance of the building
+			// field *= clamp_01( 1. - (-world_center.z/20.) );
+			//if( field_see != 0. )
+			//	color.rgb = vec3( 1. - field) ; 
+
+			float f = .3 + .7 * part.dum.x;
+			if( field > 0.01 + part.dum.x * .19 )
+			{
+				field = ((field * .333333)*.8+.2)*2;
+				f *= field * max( touched * .5, .05 );	// * .05 
+			}
+			else
+				f *= - max( touched, .01 );
+
+			touched += part_field_inf * f;
+			touched = clamp( touched, 0 , 20 );
+			part.pos.w = touched;
+		
+			if( touched > 0. )
+			{
+				touched - clamp_01( touched );
+				//float t2 = touched * touched;
+				//if( field_see != 0. )
+				// 	color.rgb = vec3( 1. - field) ; 
+				float radius = (.5 + part.dum.x * .5) * 4.;
+				//radius = 1.;
+
+				//radius *= radius;
+				// pos.xyz = mix(	pos,
+				// 			vec3( .0, 1., 9. ),	// pos cam 11.28
+				// 			touched * .85
+				// 			);
+				//color.rgb = vec3( touched ) ;
+				float ph;
+				switch( s_touch_type )
+				{
+				case 0:	// tree
+					ph = index * .071665 - (part.dum.y + .5) * time * .4;
+					radius *= .25;
+					pos.xyz =  mix(	pos,
+									vec3( pos.x + radius*sin(ph), radius*cos(ph), pos.z ) + (world_center - pos) * .25,
+									//pos_in_place + vec3( .0, 2., .0 ),
+									touched
+									);
+									//vec3( radius*sin(ph), radius*cos(ph) + 3., 0 ) * touched;
+					break;
+				case 1:	// building
+					ph = index * .071665 + (part.dum.y + .5) * time * 1.2;
+					radius *= 1.2;
+					pos.xyz = mix(	pos,
+									pos + vec3( radius*sin(ph) , radius*cos(ph), 2 ),	// + (world_center - pos) * .25,
+									//pos_in_place + vec3( .0, 2., .0 ),
+									touched
+									);
+					break;
+				case 2: // arenes
+					ph = index * .071665 + (part.dum.y + .5) * time * .2;
+					radius *= .25;
+					pos.xyz += vec3( radius*sin(ph), radius*cos(ph)*.5, 0. ) * touched;
+					break;
+				}
+
+				//if( field < 0.5 )
+				{
+					// vec2 field_grad = get_field_gradient( coor.xy );
+					// pos.xy += field_grad.xy * part_field_inf * touched;
+
+					// if( field_see != 0. )
+					// {
+					// 	if( field_see > .0 )
+					// 		color.rg = abs( field_grad.xy * field * field_see );
+					// 	else
+					// 		color.rgb = vec3( 1. - field); 
+					// }
+				}
+			}
+		}
+#else	//was Maa had when he tried from the distance field arranged from raw capture
+		// compute field
+		// red is the distance to the edge, green the proximity, alpha the silhouette to do inside/ouside  
+#	if 0
+		field *= float(color_field.a > 0.) * 2. - 1.;
+#	else
+		field *= ( (color_field.a > 0.) ? 1. : 0 );
+#	endif
+		field *= color_field.a;		
+		field /= field_dist;
+			//field = smoothstep( field_dist, field ) * smoothstep( 0., .01, field );
+
+		//	color.g = field;
+		vec2 field_grad = get_field_gradient( coor.xy );
+		if( field_see != 0. )
+		{
+			if( field_see > .0 )
+				color.rg = abs( field_grad.xy * field * field_see );
+			else
+				color.rgb = vec3( 1. - field); 
+		}
+		if( field_inf != 0. )
+			acc.xy += field_grad.xy * field_inf * field * 320.;
+#endif	//field version
+
+
+#define DO_PHYSICS 1
+	//	alpha_factor = (1.2-inter_part*inter_part*inter_part);
+#if DO_PHYSICS
+		vec3 acc = pos - part.pos.xyz;
+	
+		//acc *= 10 / max( length(acc), 1 );
+		float dist = length( acc );
+
+		if( dist < magnet )
+		{
+			part.pos.xyz = pos;
+			part.vel.xyz = vec3(0);
+		}
+		else
+		{
+//PHYSICS
+			const float mass = 1.;
+			acc *= mass * (1. + mass_jitter * part.dum.z);
+
+			switch( s_phy )
+			{
+			case 1:
+				{
+				const float acc_min = .3;
+				float acc_ph = smoothstep( acc_min, accel_max, dist );
+
+				float fdt = 12. - 4. * acc_ph - part.dum.z * 2.;
+				//float fdt = 12. + part.dum.z * 5.;
+			
+				float gammma = 1. + acc_ph;
+				float acc_norm_new = pow( dist, gammma ); 
+				acc *= acc_norm_new / max( dist, .0001 );	//max avoid losing particle
+				}
+				break;
+			case 2:
+				{			
+					float acc_norm = length(acc);
+					if( acc_norm > accel_max )
+						acc *= accel_max / acc_norm;
+				}
+				break;
+			}
+
+
+			part.vel.xyz = part.vel.xyz * viscosity_as_factor + acc * accel_factor * dt;
+
+			part.pos.xyz += part.vel.xyz * dt;
+		}
+#else	//	#if DO_PHYSICS
+		part.pos.xyz = pos;
+		part_demolition = 0;
+#endif	//	#if DO_PHYSICS
+
+#else	//	#if DO_SOMETHING
+		part.pos.xyz = pos;
+		part_demolition = 0;
+#endif	//	#if DO_SOMETHING
+	}
+
+	particles[index] = part;
+	
+// 	//	vec4 texture = texture2D( TEX_PART, part.pos.xz + .5 );
+// 	//	vec4 texture = texture2D( TEX_PART, part.pos.xy );
+// 		vec3 speed = speed_axe_min + part.dum.xyz * speed_axe_factor;
+// 		vec2 grad = get_gradient_2d( TEX_GRAD, part.pos.xy + .5 );
+// 		speed *= speed_factor * dt;
+// 		speed.xy += grad * dt * 2. * field_inf;
+// 		vec3 pos = part.pos.xyz;
+// 		pos += speed;
+// 		pos = mod( pos + .5, vec3(1.) ) - .5;
+// 		part.pos.xyz = pos;
+
+
+// 		particles[index] = part;
+
+// 		pos_out[index] = vec4( part.pos.xyz, 1. );
+// 	}
+// 	else if( s_test == 1 )
+// 		pos_out[index] = vec4( part.pos.xyz, 1. );
+// 	else if( s_test == 2 )
+// 		pos_out[index] = vec4( part.pos_b.xyz, 1. );
+// #if PARTICLE_TYPE==0
+// 	else if( s_test == 3 )
+// 		pos_out[index] = vec4( part.pos_c.xyz, 1. );
+// #endif
+// 	else if( s_test == 4 )
+// 		pos_out[index] = vec4( part.dum.xyz, 1. );
+
+//	pos_out[index].y = dot( texture.xyz, vec3(1) ) * .3 - .5;
+	pos_out[index] = vec4( part.pos.xyz, displace );
+	col_out[index] = color;
+//	col_out[index].rgb *= part_demolition ;
+//	col_out[index].r = 0;
+//	col_out[index].rgb *= texture.rgb;
+//	col_out[index] = texture * aaa_cu_vec4[0];
+	norm_out[index] = vec4( 0,0,1, 0 );
+	attr_out[index] = vec4( part.dum.xyz, 1.-part_demolition );
+}

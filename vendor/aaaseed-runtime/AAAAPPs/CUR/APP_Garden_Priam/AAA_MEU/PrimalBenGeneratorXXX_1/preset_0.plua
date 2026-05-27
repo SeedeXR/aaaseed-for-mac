@@ -1,0 +1,8 @@
+-- preset v0 for MEU|PrimalBenGeneratorXXX_1
+tab["loop ramp"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["ramp out"] = 0
+tab["ramp range"] = { 0, 1 }
+tab["ramp time"] = 5
+tab["start"] = false

@@ -1,0 +1,136 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_D" ;
+	camera_index_ui = 7 ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	bank_2d = 2 ;
+	bind_2d = 4 ;
+	}
+//AAA::filename fx_b.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 114 ;
+	image_dst_base = 64 ;
+	smooth = ON ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 12 ;
+	smooth_size_y = 12 ;
+	background_reset = ON ;
+	bc = ON ;
+	bc_min = 0.0818071 ;
+	bc_max = 0.99132 ;
+	diff_method = "No" ;
+	dilate_pass = 2 ;
+	erode_pass = 72 ;
+	optical_flow_poly_n = "7" ;
+	smooth2_method = "BLUR" ;
+	smooth2_size_x = 41 ;
+	smooth2_size_y = 41 ;
+	highpass_image_dst = 67 ;
+	highpass_simple_smooth_size = 2 ;
+	highpass_simple_noise_size = 1 ;
+	highpass_erode_dilate = ON ;
+	highpass_filter = 256 ;
+	highpass_scale = 4 ;
+	bc_out_max = 0.189305 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	use_model = ON ;
+	}
+//AAA::filename fx_c.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	force_compute = ON ;
+	image_src = 64 ;
+	image_dst_base = 65 ;
+	use_cuda = ON ;
+	use_opencl = ON ;
+	smooth_image_dst = 67 ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 32 ;
+	smooth_size_y = 32 ;
+	background_reset = ON ;
+	bc = ON ;
+	diff_method = "No" ;
+	dilate_pass = 44 ;
+	optical_flow_poly_n = "7" ;
+	smooth2 = ON ;
+	smooth2_method = "BLUR" ;
+	smooth2_size_x = 55 ;
+	smooth2_size_y = 55 ;
+	highpass_image_dst = 67 ;
+	highpass_simple_smooth_size = 2 ;
+	highpass_simple_noise_size = 1 ;
+	highpass_erode_dilate = ON ;
+	highpass_filter = 256 ;
+	highpass_scale = 4 ;
+	bc_out = ON ;
+	bc_out_image_dst = 68 ;
+	bc_out_max = 0.217879 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	use_model = ON ;
+	}
+//AAA::filename fx_d.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	force_compute = ON ;
+	image_src = 64 ;
+	image_dst_base = 68 ;
+	float = ON ;
+	smooth_image_dst = 67 ;
+	smooth_method = "BLUR" ;
+	smooth_size_x = 26 ;
+	smooth_size_y = 26 ;
+	background_reset = ON ;
+	bc = ON ;
+	bc_image_dst = 67 ;
+	bc_min = 0.0940769 ;
+	bc_max = 0.466331 ;
+	diff_method = "No" ;
+	dilate_pass = 44 ;
+	optical_flow_poly_n = "7" ;
+	smooth2_method = "BLUR" ;
+	smooth2_size_x = 21 ;
+	smooth2_size_y = 21 ;
+	highpass_image_dst = 67 ;
+	highpass_simple_smooth_size = 2 ;
+	highpass_simple_noise_size = 1 ;
+	highpass_erode_dilate = ON ;
+	highpass_filter = 256 ;
+	highpass_scale = 4 ;
+	bc_out = ON ;
+	bc_out_max = 0.130405 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}

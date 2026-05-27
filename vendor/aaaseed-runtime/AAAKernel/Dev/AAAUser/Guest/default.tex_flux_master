@@ -1,0 +1,13 @@
+texture_flux_master ( Version 0 )
+	{
+	pbo_use = ON ;
+	pbo_requested_nb = 80 ;
+	pbo_unique_by_tex_video = OFF ;
+	pbo_free_dealloc = ON ;
+	convert_use_SSE = ON ;
+	convert_use_SSE2 = ON ;
+	convert_use_SSE3 = ON ;
+	convert_use_AVX2 = ON ;
+	move_from_gpu_use_pbo = ON ;
+	move_from_gpu_bgr = OFF ;
+	}

@@ -1,0 +1,86 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 5 ;
+	ui_lock = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 7 ;
+	nb_v = 1 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_u = 1.54808 ;
+	size_factor = 5.06007 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_u_ori = -0.0616134 ;
+	tex_v_ori = -0.0327328 ;
+	tex_u = 0.938387 ;
+	tex_v = 0.913097 ;
+	tex_by_side = ON ;
+	tex_left = 0.0616134 ;
+	tex_bottom = 0.0327328 ;
+	tex_top = 0.94583 ;
+	tex_wrap_u = "CLAMP_TO_BORDER" ;
+	tex_wrap_v = "CLAMP_TO_BORDER" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 46.3405 ;
+	size_v = 5 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.715278 TraxLoc01Out ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	capture = ON ;
+	incrust_luma = ON ;
+	incrust_min = 0.007813 ;
+	incrust_max = 0.007813 ;
+	}
+//AAA::filename fx_a.cap_directshow
+ds_cap_ui ( Version 0 )
+	{
+	ds_use_format_index = ON ;
+	ds_format_index = 9 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 9 ;
+	use_tex_video = ON ;
+	}

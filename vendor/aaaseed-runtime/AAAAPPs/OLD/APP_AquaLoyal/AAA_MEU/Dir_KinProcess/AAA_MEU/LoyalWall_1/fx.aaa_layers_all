@@ -1,0 +1,60 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "loyal_wall.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx_a.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 66 ;
+	image_dst_base = 67 ;
+	contour_dst_clear = OFF ;
+	blob_point_nb_max = 20 ;
+	blob_area_max = 1024 ;
+	blob_size_x_min = 0.015625 ;
+	blob_size_x_max = 0.25 ;
+	contour_wanted = OFF ;
+	polygon_approximation_factor = 0.08 ;
+	bounding_draw = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_contour" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	active = ON ;
+	image_src = 64 ;
+	image_component = "GREEN" ;
+	coverage_min = 4.88281e-07 ;
+	coverage_max = 0.0025 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	}

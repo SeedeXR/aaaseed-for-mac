@@ -1,0 +1,12 @@
+sensor_6dof ( Version 0 )
+	{
+	camera_influence = ON ;
+	sensibility_tra = 0.0625 ;
+	translation_factor_x = -1 ;
+	translation_factor_y = -1 ;
+	translation_filter = 0.907021 ;
+	rotation_factor_pitch = -1 ;
+	rotation_factor_yaw = -1 ;
+	rotation_factor_global = 256 ;
+	rotation_filter = 0.45351 ;
+	}

@@ -1,0 +1,12 @@
+- fine tune on vpot
+- name on slider touch
+- second vpot line
+- global but
+- pop/push slide to move individual slice
+
+FX
+rotating feedback cube 
+Turbule
+Spe (cone)
+erase ON/OFF in feed back
+erase beforen Kale sperate from on/off

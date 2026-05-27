@@ -1,0 +1,16 @@
+-- preset for MEU|LotusPetal_1
+tab["diaext"] = 1.1
+tab["diaint"] = 0.6002799726829
+tab["dx"] = 0.14
+tab["gdebug"] = false
+tab["line"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["nb"] = 16
+tab["point"] = false
+tab["quad"] = true
+tab["rot"] = 0.13559463889392
+tab["rotext"] = 0
+tab["rotint"] = 0
+tab["side"] = false
+tab["y"] = 0.74392830623872

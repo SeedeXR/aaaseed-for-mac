@@ -1,0 +1,127 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "mesh_field.lua" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	transfo = ON ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 6 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 2.21 ;
+	draw_axe = ON ;
+	rot_x = 3.0635 ;
+	rot_y = 4.67651 ;
+	tra_x = -0.226 ;
+	tra_y = 0.22 ;
+	tra_z = -3.2479 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 0.001 ;
+	rot_y = 0.003 ;
+	tra_z = -2 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	name_symbo = "bunny" ;
+	vbo_use = ON ;
+	vbo_stream = ON ;
+	model_filename = "%media%/3D/bunny_with_normals.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_implicit = OFF ;
+	tex_mode = "SPHERE" ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	translate = ON ;
+	translate_z = 0.5 ;
+	rotate = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	material_use_color = ON ;
+	material_front = 0 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.field_generator
+bdd_field_gene ( Version 0 )
+	{
+	name_symbo = "field_gene" ;
+	max_threshold = 0.8 ;
+	decay_factor = 3 ;
+	precision = 0.2 ;
+	draw_steps = 15.2789 ;
+	bdd_src = "Etienne" ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 202 ;
+	geometry_reload_trig = ON ;
+	fragment_bind = 202 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_field_gene" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

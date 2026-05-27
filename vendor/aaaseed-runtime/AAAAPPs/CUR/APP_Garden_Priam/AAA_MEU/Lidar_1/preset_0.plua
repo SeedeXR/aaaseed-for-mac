@@ -1,0 +1,17 @@
+-- preset v0 for MEU|Lidar_1
+tab["control next"] = true
+tab["depth"] = 32
+tab["dist"] = { 0, 0.88999998569489 }
+tab["flip"] = 0
+tab["ir"] = 1
+tab["ir cpu"] = false
+tab["ir gpu"] = true
+tab["irasked"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["open"] = true
+tab["rgb"] = 33
+tab["rgb cpu"] = true
+tab["rgb gpu"] = true
+tab["rgb_asked"] = false
+tab["run"] = true

@@ -1,0 +1,5 @@
+// pull the bound input texture (Tex_1 unit 1) and post-process
+src(s0)
+  .modulateScale(noise(2, 0.1), 0.3, 1.0)
+  .colorama(0.02)
+  .out()

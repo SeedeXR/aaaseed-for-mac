@@ -1,0 +1,183 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	multiple_only = ON ;
+	index_cur = "Layer_D" ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	center_x = -1.23314 ;
+	center_z = 2.56547 ;
+	nb_u = 24 ;
+	nb_v = 24 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 3 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0.817996 ;
+	global_green = 0.690828 ;
+	global_blue = 0.470386 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_3 = ON ;
+	light_switch_4 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	translate = ON ;
+	translate_x = 2.74944 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 1 ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_front = 0 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.sphere
+bdd_sphere ( Version 0 )
+	{
+	center_x = 0.85862 ;
+	center_z = 2.31039 ;
+	nb_u = 24 ;
+	nb_v = 24 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	}
+//AAA::filename fx_c.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	center_z = -3.60899 ;
+	}
+//AAA::filename fx_c.sphere
+bdd_sphere ( Version 0 )
+	{
+	center_z = -2.34758 ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_factor = 2.27147 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	}
+//AAA::filename fx_d.bdd_terrain
+bdd_terrain ( Version 0 )
+	{
+	order = 6 ;
+	rand = 2 ;
+	fractal_dim_min = 2.68971 ;
+	fractal_dim_max = 3.01512 ;
+	fractal_dim_freq = 1.34218e+08 ;
+	sea_level = 0 ;
+	addition = OFF ;
+	}
+//AAA::filename fx_d.tub
+bdd_tube ( Version 0 )
+	{
+	Phase_increment = 1.05 ;
+	Tube_flat = OFF ;
+	Rayon = 1 ;
+	Rayon_Space_Freq = 8 ;
+	Rayon_Shape = 0.078125 ;
+	Rayon_Shape_Time_influence = 0.512 ;
+	Length = 4 ;
+	Lego_Nb = 8 ;
+	Section_Modulo = 0 ;
+	Section_Nb = 128 ;
+	Map_U_Nb = 31.25 ;
+	Map_V_Nb = 0.5 ;
+	Map_U_speed = 0.008 ;
+	Map_V_speed = 0.001 ;
+	}
+//AAA::filename fx_d00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = 1.18303 ;
+	phase_speed = 0.102216 ;
+	}
+//AAA::filename fx_d.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_d00.def" def_00 = ON ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_d.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "SPHERE" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	tex_u = 0.125 ;
+	tex_v = 0.125 ;
+	}
+//AAA::filename fx_d.model
+model ( Version 0 )
+	{
+	resolution = 10 ;
+	size_axe = 0.790174 ;
+	size_factor = 8 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tube" ;
+	use_model = ON ;
+	bind_1d = 2 ;
+	bind_2d = 1 ;
+	}

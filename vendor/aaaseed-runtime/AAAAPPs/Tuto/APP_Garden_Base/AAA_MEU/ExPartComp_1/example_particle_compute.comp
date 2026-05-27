@@ -1,0 +1,201 @@
+
+#define dt					aaa_cu_float[0]
+#define stability			aaa_cu_float[1]
+
+#define speed_factor		aaa_cu_float[2]
+#define field_dist_pixel	aaa_cu_float[3]
+#define field_inf			aaa_cu_float[4]
+#define alpha_inf			aaa_cu_float[5]
+
+#define	speed_axe_min		aaa_cu_vec4[0].xyz
+#define	speed_axe_factor	aaa_cu_vec4[1].xyz
+
+#define	s_comp_test			aaa_cu_int[0]
+
+uniform sampler2D			aaa_samp1;
+#define TEX_GRAD			aaa_samp1
+uniform sampler2D			aaa_samp2;
+#define TEX_COLOR			aaa_samp2
+
+layout(binding = 0) uniform particles_settings_block		{	uint nb;
+//todo add														uint type;
+															} u_particles_settings;
+#define particle_nb  		u_particles_settings.nb
+#define PARTICLE_TYPE_FULL  0	//u_particles_settings.type
+
+#define PARTICLE particle_compact
+
+layout( std430, binding=0 ) buffer particles_buffer			{	PARTICLE particles[];	};
+
+layout( std430, binding=4 ) buffer particle_pos_out_buffer	{	vec4 pos_out[];			};
+layout( std430, binding=5 ) buffer particle_col_out_buffer	{	vec4 col_out[];			};
+layout( std430, binding=6 ) buffer particle_norm_out_buffer	{	vec4 norm_out[];		};
+layout( std430, binding=7 ) buffer particle_attr_out_buffer	{	vec4 attr_out[];		};
+
+
+
+#define GROUP_SIZE 512
+layout( local_size_x = GROUP_SIZE, local_size_y = 1, local_size_z = 1 ) in;
+//layout( local_size_variable ) in;
+
+
+vec2 get_gradient_2d_3x3( in sampler2D samp, in vec2 at, in float size )
+{
+ 	vec4 ots;
+	ots.xyz = vec3( vec2(size/textureSize( samp, 0 )), 0. );
+	ots.w = -ots.y;
+	vec3 r = texture( samp, at+ots.xz ).rgb;
+	vec3 l = texture( samp, at-ots.xz ).rgb;
+	vec3 t = texture( samp, at+ots.zy ).rgb;
+	vec3 b = texture( samp, at-ots.zy ).rgb;
+
+	vec3 lb = texture( samp, at-ots.xy ).rgb;
+	vec3 rb = texture( samp, at+ots.xw ).rgb;
+	vec3 lt = texture( samp, at-ots.xw ).rgb;
+	vec3 rt = texture( samp, at+ots.xy ).rgb;
+
+ 	return vec2( 	compute_gray( rb-lb + 2.*(r-l) + rt-lt ),
+					compute_gray( lt-lb + 2.*(t-b) + rt-rb )
+				) * .25;
+}
+
+vec2 get_gradient_2d_5x5(in sampler2D samp, in vec2 at, in float size)
+{
+    vec2 texel = size / textureSize(samp, 0);
+
+    // Row -2
+    vec3 c00 = texture(samp, at + texel * vec2(-2.0, -2.0)).rgb;
+    vec3 c01 = texture(samp, at + texel * vec2(-1.0, -2.0)).rgb;
+    vec3 c02 = texture(samp, at + texel * vec2( 0.0, -2.0)).rgb;
+    vec3 c03 = texture(samp, at + texel * vec2( 1.0, -2.0)).rgb;
+    vec3 c04 = texture(samp, at + texel * vec2( 2.0, -2.0)).rgb;
+
+    // Row -1
+    vec3 c10 = texture(samp, at + texel * vec2(-2.0, -1.0)).rgb;
+    vec3 c11 = texture(samp, at + texel * vec2(-1.0, -1.0)).rgb;
+    vec3 c12 = texture(samp, at + texel * vec2( 0.0, -1.0)).rgb;
+    vec3 c13 = texture(samp, at + texel * vec2( 1.0, -1.0)).rgb;
+    vec3 c14 = texture(samp, at + texel * vec2( 2.0, -1.0)).rgb;
+
+    // Row 0
+    vec3 c20 = texture(samp, at + texel * vec2(-2.0,  0.0)).rgb;
+    vec3 c21 = texture(samp, at + texel * vec2(-1.0,  0.0)).rgb;
+    vec3 c22 = texture(samp, at + texel * vec2( 0.0,  0.0)).rgb;
+    vec3 c23 = texture(samp, at + texel * vec2( 1.0,  0.0)).rgb;
+    vec3 c24 = texture(samp, at + texel * vec2( 2.0,  0.0)).rgb;
+
+    // Row +1
+    vec3 c30 = texture(samp, at + texel * vec2(-2.0,  1.0)).rgb;
+    vec3 c31 = texture(samp, at + texel * vec2(-1.0,  1.0)).rgb;
+    vec3 c32 = texture(samp, at + texel * vec2( 0.0,  1.0)).rgb;
+    vec3 c33 = texture(samp, at + texel * vec2( 1.0,  1.0)).rgb;
+    vec3 c34 = texture(samp, at + texel * vec2( 2.0,  1.0)).rgb;
+
+    // Row +2
+    vec3 c40 = texture(samp, at + texel * vec2(-2.0,  2.0)).rgb;
+    vec3 c41 = texture(samp, at + texel * vec2(-1.0,  2.0)).rgb;
+    vec3 c42 = texture(samp, at + texel * vec2( 0.0,  2.0)).rgb;
+    vec3 c43 = texture(samp, at + texel * vec2( 1.0,  2.0)).rgb;
+    vec3 c44 = texture(samp, at + texel * vec2( 2.0,  2.0)).rgb;
+
+    // Sobel 5×5 in X
+    vec3 gx = 
+        (-2.0)*c00 + (-1.0)*c01 + ( 1.0)*c03 + ( 2.0)*c04 +
+        (-3.0)*c10 + (-2.0)*c11 + ( 2.0)*c13 + ( 3.0)*c14 +
+        (-4.0)*c20 + (-3.0)*c21 + ( 3.0)*c23 + ( 4.0)*c24 +
+        (-3.0)*c30 + (-2.0)*c31 + ( 2.0)*c33 + ( 3.0)*c34 +
+        (-2.0)*c40 + (-1.0)*c41 + ( 1.0)*c43 + ( 2.0)*c44;
+
+    // Sobel 5×5 in Y
+    vec3 gy =
+        (-2.0)*c00 + (-3.0)*c01 + (-4.0)*c02 + (-3.0)*c03 + (-2.0)*c04 +
+        (-1.0)*c10 + (-2.0)*c11 + (-3.0)*c12 + (-2.0)*c13 + (-1.0)*c14 +
+        ( 1.0)*c30 + ( 2.0)*c31 + ( 3.0)*c32 + ( 2.0)*c33 + ( 1.0)*c34 +
+        ( 2.0)*c40 + ( 3.0)*c41 + ( 4.0)*c42 + ( 3.0)*c43 + ( 2.0)*c44;
+
+    // Convert to grayscale at the very end
+    return vec2(
+        compute_gray(gx),
+        compute_gray(gy)
+    ) / 23.0;
+}
+
+void main(void)
+{
+	uint index = gl_GlobalInvocationID.x;
+//	if( u_particles_settings.particle_count <= index  )
+//		return;
+
+	PARTICLE p = particles[index];
+	vec3 pos = p.pos.xyz;
+
+	vec3 grad;
+	grad.xy = get_gradient_2d_3x3( TEX_GRAD, pos.xy + .5, field_dist_pixel );
+	grad.xy = mix( grad.xy, p.pos_b.xy, stability );
+	p.pos_b.xy = grad.xy;
+
+	float d = length(grad.xy);
+	//d /= sqrt(2);
+	//d = 0.1;
+	if( d > .0001 )
+	{
+		grad.xy /= d;	
+	}
+#if 0
+	else
+	{
+		grad.xy = vec2(0);
+		d = 0.;
+	}
+#endif
+	//grad.x = 0;
+	//grad.y = 0;
+	//grad.xy = abs(grad.xy);
+	grad.z = d;
+	
+	
+	//particles[index].pos_b.xy = grad.xy;
+
+	if( s_comp_test == 0 )
+	{
+	//	vec4 texture = texture2D( TEX_PART, p.pos.xz + .5 );
+	//	vec4 texture = texture2D( TEX_PART, p.pos.xy );
+ 
+		vec3 speed = speed_axe_min + p.dum.xyz * speed_axe_factor;
+		speed *= speed_factor * dt;
+		speed.xy += grad.xy * dt * 2. * field_inf;
+		pos.xyz += speed.xyz;
+		// wrap in a unit cube
+		pos.xyz = mod( pos.xyz  + .5, vec3(1.) ) - .5;
+		p.pos.xyz = pos.xyz;
+
+	//	p.pos.z 	= clamp( position_world.xyz, vec3(-1), vec3(1.) );
+
+	//	vec4 texture = texture2D( TEX_COLOR, pos.xy+.5 );
+
+		particles[index] = p;
+	}
+	else if( s_comp_test == 1 )
+		pos.xyz = p.pos.xyz;
+	else if( s_comp_test == 2 )
+		pos.xyz = p.pos_b.xyz;
+#if PARTICLE_TYPE_FULL==1
+	else if( s_comp_test == 3 )
+		pos.xyz = p.pos_c.xyz;
+#endif
+	else if( s_comp_test == 4 )
+		pos.xyz = p.dum.xyz;
+
+
+	vec4 color = texture2D( TEX_COLOR, pos.xy + .5 );
+	color.a = mix( color.a, 1, alpha_inf );
+
+	pos_out[index] = vec4( pos.xyz, 1. );
+//	pos_out[index].y = dot( texture.xyz, vec3(1) ) * .3 - .5;
+	col_out[index] = color;
+//	col_out[index].rgb *= texture.rgb;
+//	col_out[index] = texture * aaa_cu_vec4[0];
+	norm_out[index] = vec4( grad.xyz, 0 );
+	attr_out[index] = p.dum;
+	//attr_out[index] = vec4(1);
+}

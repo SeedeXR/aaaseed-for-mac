@@ -1,0 +1,17 @@
+dev setup process
+Install Visual Studio 2022 Preview  (tested preview 7.0)
+Add env variables to windows
+	myPC right button / menu properties
+		advanced system setting
+			Environement variables
+				set AAAOut to where it should compile : C:\AAAOut for me
+				set AAAGaBuZo to the running dir : M:\AAA\AAAGaBuZo for me
+Open the solution with VS : all the newdesign v143 x64 version should be able to compile and link
+	Debug as the name say Debug (edit and continue)
+	Release have the symbols but faster code
+	MetalTuned the ultimate optimisation but no Debug
+	WoodTuned as MetalTuned but non Avx 2 so it can run on older/cheaper machines (e.g. the one just for Kinect)
+At this point you should be abble on compile AAASeed but running it from VS would trigger dialog about missing dll.
+	Usually I set a diretory with all the dll and then add it the system path (in my case M:\AAA\AAAGaBuZo_Dll\Main_x64 )
+		using the same dialog  Environement variables mentionned previously
+

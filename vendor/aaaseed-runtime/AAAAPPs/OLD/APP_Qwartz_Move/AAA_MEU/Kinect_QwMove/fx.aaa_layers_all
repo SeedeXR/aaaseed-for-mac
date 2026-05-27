@@ -1,0 +1,70 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "Kinect.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_video" ;
+	bind_dst = 97 ;
+	play = ON ;
+	loop = ON ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_open = ON ;
+	capture_run = ON ;
+	capture_device_id_asked = "USB\VID_045E&PID_02C2\5&3F3D1BC&0&3" ;
+	capture_size = "1920p/i" ;
+	capture_size_x = 1920 ;
+	capture_size_y = 1080 ;
+	incrust_max = 1 ;
+	incrust_gain = 0.354756 ;
+	remanence_time = 0.25 ;
+	remanence_diff_factor = 8 ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	motor_active = ON ;
+	motor_position = 0.55125 ;
+	skeleton_asked = ON ;
+	skeleton_full_body = ON ;
+	skeleton_rot_x = 0.00873274 ;
+	skeleton_mocap_target_1 = "qwmove_skel_1" ;
+	skeleton_mocap_target_2 = "qwmove_skel_2" ;
+	skeleton_select_circle = ON ;
+	skeleton_select_circle_z = 2.2 ;
+	skeleton_select_circle_radius = 0.5 ;
+	skeleton_select_min_x = -0.45 ;
+	skeleton_select_max_x = 0.45 ;
+	skeleton_select_min_z = 1.70616 ;
+	skeleton_select_max_z = 2.75311 ;
+	depth_render_type = "Grey" ;
+	depth_raw_min = -1 ;
+	depth_raw_max = 0.89 ;
+	rgb_asked = ON ;
+	rgb_bind = 97 ;
+	rgb_cpu = ON ;
+	rgb_gpu = OFF ;
+	rgb_aligned_bind = 108 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_particle" ;
+	bank_2d = 3 ;
+	use_tex_video = ON ;
+	}

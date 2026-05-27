@@ -1,0 +1,9 @@
+module ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "Module_GaBuIn" ;
+	module_lua = ON ;
+	layers_index_cur = 31 ;
+	layers_index_end = 31 ;
+	load_all = OFF ;
+	}

@@ -1,0 +1,4 @@
+-- BU position value for BUS|Dir_Protos
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "preset proto", 1 )

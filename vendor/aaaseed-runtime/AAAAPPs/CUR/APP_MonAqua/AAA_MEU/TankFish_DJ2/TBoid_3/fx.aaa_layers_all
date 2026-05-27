@@ -1,0 +1,107 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "BAT_KR" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 3 ;
+	birth_origin_x = 10.25 ;
+	birth_origin_y = 2.75 ;
+	birth_origin_z = 6.75 ;
+	birth_size_x = 23.5 ;
+	birth_size_y = 4.5 ;
+	birth_size_z = 4.5 ;
+	birth_id = "from_index" ;
+	acceleration_max = 2.19799 ;
+	speed_min = 0.7 ;
+	speed_max = 2.96309 ;
+	speed_vertical_ratio_max = 0.597797 ;
+	viscosity = 0.114014 ;
+	curvature_limit = ON ;
+	curvature_turn_by_sec = 0.5 ;
+	internal_radius = 0.338623 ;
+	visibility_use = ON ;
+	visibility_angle = 0.45715 ;
+	visibility_max_seen = 512 ;
+	field_active = ON ;
+	target_active = OFF ;
+	target_axe = "Y" ;
+	target_x = 1.47148 ;
+	target_y = 1.97148 ;
+	target_z = 5.97148 ;
+	target_radius_internal = 0.557586 ;
+	target_radius_external = 1.47148 ;
+	target_normal = 0.150051 ;
+	box_type = "Repulse" ;
+	box_x = 10.25 ;
+	box_y = 2.75 ;
+	box_z = 6.75 ;
+	box_size_x = 23.5 ;
+	box_size_y = 4.5 ;
+	box_size_z = 4.5 ;
+	box_border_size = 0.25 ;
+	box_draw = ON ;
+	repulse_visibility_use = ON ;
+	repulse_distance = 1.05268 ;
+	repulse_distance_field = ON ;
+	repulse_net_draw = ON ;
+	repulse_net_green = 0 ;
+	repulse_net_blue = 0.219489 ;
+	flocking_influence = 0.5 ;
+	steering_influence = 0 ;
+	steering_distance = 0 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a00.def
+def_distance_field ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 4 ;
+	size_v = 4 ;
+	size_factor = 0.00359818 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	convert = ON ;
+	hue = 0.333333 ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}

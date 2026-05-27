@@ -1,0 +1,18 @@
+stages:
+  - package
+
+package_zip:
+  stage: package
+  image: ruby:3.1
+  script:
+    - apt-get update -y && apt-get install -y zip  # Install zip
+    - VERSION=$(cat version.txt)
+    - mkdir -p release
+    - zip -r "release/AAASeed-${VERSION}.zip" AAADoc AAAKernel AAAUser APP lua AAASeed_Metal.exe AAASeed_Wood.exe README.md ReleaseNotes.md
+  only:
+    changes:
+      - version.txt   # Only run this job when version.txt changes
+  artifacts:
+    paths:
+      - release/*.zip   # Store the zip as an artifact for easy download
+    

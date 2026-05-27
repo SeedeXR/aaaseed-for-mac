@@ -1,0 +1,131 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	name_symbo = "CCOne" ;
+	multiple_only = ON ;
+	index_cur = "Layer_E" ;
+	index_end = "Layer_F" ;
+	Layer_A = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	Layer_F = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 0.125 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_null" ;
+	use_model = ON ;
+	use_color = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	}
+//AAA::filename fx_d.circle
+bdd_circle ( Version 0 )
+	{
+	draw = "POLYGON" ;
+	normal_x = 0 ;
+	normal_z = 1 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_circle" ;
+	use_model = ON ;
+	}
+//AAA::filename fx_e.circle
+bdd_circle ( Version 0 )
+	{
+	draw = "POLYGON" ;
+	normal_x = 0 ;
+	normal_z = 1 ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	primitive = "POLYGON" ;
+	}
+//AAA::filename fx_e.map
+mapping ( Version 0 )
+	{
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_e.model
+model ( Version 0 )
+	{
+	size_factor = 0.705143 ;
+	}
+//AAA::filename fx_e.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.25 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_circle" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_f.circle
+bdd_circle ( Version 0 )
+	{
+	normal_x = 0 ;
+	normal_z = 1 ;
+	}
+//AAA::filename fx_f.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 0.5 ;
+	translate_y = 0.5 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_circle" ;
+	trs_1 = "Owner" ;
+	}

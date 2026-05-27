@@ -1,0 +1,141 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "skel.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	lua = ON ;
+	use_camera = "Owner" ;
+	name_symbo = "skeleton" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 52.805 ;
+	rot_x = 0.1855 ;
+	rot_y = 0.288 ;
+	tra_x = -7.756 ;
+	tra_y = 6.112 ;
+	tra_z = -6.02784 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.4985 ;
+	rot_y = -0.0005 ;
+	}
+//AAA::filename fx_a.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "skel_1" ;
+	nb_node = 12 ;
+	playing = ON ;
+	live = ON ;
+	frame_cur = 0 ;
+	draw_node_end = 20 ;
+	size_origins = 0.25 ;
+	draw_segment = ON ;
+	draw_segment_end = 11 ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "CUBE" ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_z = 3 ;
+	rotate = ON ;
+	rotate_y = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	name_symbo = "skel_layer_1" ;
+	}
+//AAA::filename fx_b.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "skel_2" ;
+	channel_id = 2 ;
+	nb_node = 12 ;
+	live = ON ;
+	frame_cur = 0 ;
+	draw_node_end = 20 ;
+	size_origins = 0.25 ;
+	draw_segment = ON ;
+	draw_segment_end = 19 ;
+	draw_number = "Billboard" ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "CUBE" ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_b.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	name_symbo = "skel_layer_2" ;
+	}

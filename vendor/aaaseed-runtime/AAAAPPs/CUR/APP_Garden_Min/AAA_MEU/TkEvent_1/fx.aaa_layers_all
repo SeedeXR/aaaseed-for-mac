@@ -1,0 +1,33 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "tk_event.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	camera_index_ui = 7 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.bdd_serial
+bdd_serial ( Version 0 )
+	{
+	active = ON ;
+	com_port_nb = 3 ;
+	line_received_split = ON ;
+	line_received_total = 18354854 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_serial" ;
+	}

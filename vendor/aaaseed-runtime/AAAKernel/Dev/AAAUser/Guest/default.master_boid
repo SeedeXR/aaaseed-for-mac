@@ -1,0 +1,6 @@
+master_boid ( Version 0 )
+	{
+	parallel_min_nb_force = ON ;
+	parallel_min_nb_alive = 512 ;
+	parallel_lock_method = "No" ;
+	}

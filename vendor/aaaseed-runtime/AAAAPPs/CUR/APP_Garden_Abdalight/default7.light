@@ -1,0 +1,6 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	Position_z = 8 ;
+	Radius = 1 ;
+	}

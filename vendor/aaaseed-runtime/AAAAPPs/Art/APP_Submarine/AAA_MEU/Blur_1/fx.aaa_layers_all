@@ -1,0 +1,112 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 1 ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale = ON ;
+	scale_z = 0.3395 ;
+	}
+//AAA::filename fx_a.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	verbose = ON ;
+	image_src = 97 ;
+	image_dst_base = 106 ;
+	smooth = ON ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 19 ;
+	smooth_size_y = 19 ;
+	background_reset = ON ;
+	laplace_size = 4 ;
+	bc_max = 0.215042 ;
+	dilate_pass = 12 ;
+	erode_pass = 6 ;
+	optical_flow_poly_n = "7" ;
+	smooth2_method = "GAUSSIAN" ;
+	smooth2_size_x = 44 ;
+	smooth2_size_y = 45 ;
+	highpass_simple_smooth_method = "BLUR" ;
+	highpass_simple_smooth_size = 12 ;
+	highpass_simple_noise_size = 13 ;
+	bc_out_min = 0.43673 ;
+	rectify_level = 0.0813862 ;
+	}
+//AAA::filename fx_a.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	image_src = 97 ;
+	image_dst_base = 66 ;
+	use_cuda = ON ;
+	mono = ON ;
+	resize_fx = 0.25 ;
+	resize_fy = 0.25 ;
+	convert_img_dst = "base" ;
+	blur_enable = ON ;
+	blur_img_dst = "base" ;
+	blur_size_x = 6 ;
+	blur_size_y = 6 ;
+	bc_img_dst = "base" ;
+	denoise_img_dst = "base" ;
+	bilateral_img_dst = "base" ;
+	edge_img_dst = "base" ;
+	edge_laplacian = ON ;
+	edge_scale = 128 ;
+	canny_img_dst = "base" ;
+	canny_threshold_min = 0.597994 ;
+	canny_threshold_max = 0.26988 ;
+	canny_size = "5" ;
+	canny_l2gradient = ON ;
+	erode_size_x = 3 ;
+	erode_size_y = 3 ;
+	dilate_type = "Ellipse" ;
+	dilate_size_x = 3 ;
+	dilate_size_y = 3 ;
+	dilate_iteration = 3 ;
+	optical_flow_poly_n = "7" ;
+	dist_type = "L2" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	}
+//AAA::filename fx_b.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 64 ;
+	image_dst_base = 66 ;
+	image_component = "RED" ;
+	smooth = ON ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 6 ;
+	smooth_size_y = 6 ;
+	background_reset = ON ;
+	bc_min = 0.2 ;
+	bc_max = 0.45493 ;
+	diff_method = "No" ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}

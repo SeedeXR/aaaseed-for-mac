@@ -1,0 +1,5 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "ImageCreate/fx" ;
+	Bind_01 = "bob/fx" ;
+	}

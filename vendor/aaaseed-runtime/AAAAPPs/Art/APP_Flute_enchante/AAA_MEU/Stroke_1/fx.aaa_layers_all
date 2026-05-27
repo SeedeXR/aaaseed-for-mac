@@ -1,0 +1,157 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "stroke.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal = 33.6447 ;
+	ortho_size = 4.18939 ;
+	focal_link_to_target_dist = ON ;
+	rot_z_frequency = -0.126786 ;
+	tra_x = -0.131999 ;
+	tra_y = -0.146003 ;
+	tra_z = -6.9282 ;
+	clip_far_perspective = 36.3059 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal = 59.643 ;
+	ortho_size = 7.94254 ;
+	focal_link_to_target_dist = ON ;
+	rot_z_frequency = -0.126786 ;
+	tra_x = -0.131999 ;
+	tra_y = -0.146003 ;
+	tra_z = -6.9282 ;
+	clip_far_perspective = 36.3059 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 1.82001 ;
+	orbiting = ON ;
+	rot_z_frequency = 0.02035 ;
+	rot_x = -0.0675 ;
+	rot_y = -0.1345 ;
+	rot_offset_x = 0.5 ;
+	tra_z = -0.132559 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	rot_y = -0.0005 ;
+	tra_z = -0.93192 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = -0.219 ;
+	rot_y = 0.00300003 ;
+	tra_x = 1.674 ;
+	tra_y = 0.186 ;
+	tra_z = -2.15594 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal = 154.166 ;
+	ortho_size = 60.4169 ;
+	focal_link_to_target_dist = ON ;
+	rot_z_frequency = -0.126786 ;
+	draw_axe = ON ;
+	tra_x = -0.131999 ;
+	tra_y = -0.146003 ;
+	tra_z = -6.92809 ;
+	clip_far_perspective = 36.3059 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	name_symbo = "grid" ;
+	nb_u = 24 ;
+	nb_v = 17 ;
+	}
+//AAA::filename fx_a.bdd_stroke
+bdd_stroke ( Version 0 )
+	{
+	dataset_dir = "%media%/Archipel/FluteEnchante/Strokes" ;
+	dataset_id = 10 ;
+	primitive_size_min = 1 ;
+	primitive_size_max = 5 ;
+	move_color_red = 0 ;
+	move_color_alpha = 2 ;
+	draw_method = "by_time" ;
+	draw_phase_end = 0.923867 ;
+	ui_intercept = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	line_smooth = ON ;
+	line_size = 3 ;
+	point_size = 8 ;
+	primitive = "LINE_STRIP" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 5 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_stroke" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}

@@ -1,0 +1,148 @@
+GA	Global Action
+BU	Box User
+BUI	a BU storing Value or Values ( eg a slider )
+BUS	where you put the BU
+ZO	a Zone (where you put BUSses
+
+BUP is a BU Placer
+
+
+Attach a BUS to a BU (Put a BUS in a BU )
+Bus_down / bu_up
+	use bu:attach_bus_down( bus ) to attach a bus to a bu
+	bus_down	=	bu:get_bus_down()	return a bus_down if one is attached
+	bu_up		=	bu:get_bu_up()		return a bu_up if bu is in a bus attached to a bu	
+
+GaBu Drawing strategy (the cascade)
+	ga:draw() at the top level trigger it :
+		ga:fn_draw_before() is called if it exist
+			zo:draw()
+			perlinpin is drawn
+			the finger are drawn
+		ga:fn_draw_after() is called if it exist
+	zo:draw() deal with several BUS
+		zo:fn_draw_before() is called if it exist
+			The Bus are drawn one by one
+				bus_cur:draw()
+		zo:fn_draw_after() is called if it exist
+	bus_cur:draw()
+		bus_cur:fn_draw_before() is called if it exist
+			bus_cur:private_draw()	is called if the bus is active
+		bus_cur:fn_draw_after() is called if it exist
+	bus_cur:private_draw()
+		it update is camera ( self.cam:update() but this have to be reworked )
+		then from back to front
+			visible bu only are
+				bu:video_update() if they are video
+				bu:transfo_and_draw() according to the current page of the BUS and the ga strategy
+	bu:transfo_and_draw()
+		bu.fn_transfo_before() is called if it exist
+		aaa.gol.push_matrix() push the opengl matrix
+			opengl transformation is set to the bu
+				so the coordonate system is centered on the bu
+			and the bu have a size of 1 in all axes ( warning x and y change ratio )
+				aaa.gol.translate(	self:get_draw_pos()		)
+				aaa.gol.rotate_z(	self:get_angle()		)
+				aaa.gol.scale(		self:get_draw_size()	)
+			bu:draw_edit() is called if needed (edit mode)
+
+			bu:fn_draw_custom() is called if defined
+			or
+			bu:draw() if no fn_draw_custom defined
+
+		aaa.gol.pop_matrix() pop the opengl matrix
+		bu.fn_transfo_after() is called if it exist	
+
+GaBu blobs strategy
+	GA:update() call
+		ZO:deal_with_touch( blobs ) which for each blob in blobs call for each bus
+			BUS:deal_with_touch( blobs ) which eventually call itself in case of bu with a bus_down
+			
+				
+
+GaBu Objects
+
+GaBu base attrib
+	is_inertia()
+	set_inertia( b )
+
+	is_rot()
+	set_rot( b )
+
+	get_grid_x()
+	set_grid_x( x )
+
+	get_grid_y()
+	set_grid_y( y )
+
+GaBu fns
+BU
+	you should nou access to the cur field but use the corresponding set/get fns
+	BU:get_ratio_x()
+	BU:get_ratio_y()
+
+	BU:get_pos_cur()
+	BU:get_pos_x_cur()
+	BU:get_pos_y_cur()
+
+	BU:get_pos_orig()
+	BU:get_pos_x_orig()
+	BU:get_pos_y_orig()
+
+	BU:get_size_cur()
+	BU:get_size_x_cur()
+	BU:get_size_y_cur()
+
+	BU:set_angle_cur( a )
+	BU:set_pos_cur( x, y )
+	BU:set_size_cur( sx, sy )
+
+BU:assign_video( video, sx, sy )
+
+BUTTON
+	set_toogle()
+		default behavior of a button : click it is on, click it is off
+	set_push()
+		click down it is on, release it is off
+		
+
+GP / MUS / MU / MEU / MUS ...
+	GP hold a MUS
+	MUS hold MUs
+	MU are the smallest exposed part
+		they contain a MEU (eventually several)
+	MEU
+		can hold a MUS ( dir for example )
+	
+	:get_dir()
+		go up until it reach GP and build dir name 
+GP
+	:attach_mus( mus )
+		private
+			.__mus_down store top MUS
+MUS
+	.__gp_up	only on the top MUS
+	.__meu_up	only on the dir one for now
+	:attach_mu( mu )
+	:deattach_mu( mu )
+		private
+			.__mu_down	table qui contient les MUs
+
+MU
+	:get_mus_up()
+		return the MUS owning it
+		private
+			.__mus_up store it
+			:__set_mus_up( mus )
+	:get_meu_direct()
+	:get_meu_used()
+	:attach_meu( meu )
+		private
+			.__meu	store meu owned
+MEU
+	:get_mu()
+		return the MU owning it
+		private
+			.__mu	store it privately
+	.__mus_down	contained MUS
+			

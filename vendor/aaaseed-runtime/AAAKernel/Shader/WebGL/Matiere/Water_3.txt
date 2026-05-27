@@ -1,0 +1,73 @@
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = size
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+// for some reason you get slowdowns the closer to 32 you set MAX_ITER (64 seems a lot faster than 32)?
+#define MAX_ITER 25
+
+float check(vec2 p)
+{
+	p = p * aaa_fu_float[3];
+	float c = ceil(sin(p.x)*cos(p.y))*1.0;
+	return smoothstep(c, 1.5, 1.5);
+}
+
+void main( void ) {
+
+	vec2 p = gl_TexCoord[0].st - 0.5;
+	vec2 i = p;
+	vec2 it = i;
+	float c = 0.3;
+	float inten = 0.2;
+	vec2 sc = vec2(sin(2.0+aaa_fu_float[0]*1.1), cos(2.0+aaa_fu_float[0]*0.9))*vec2(2.5);
+
+
+	for (int n = 0; n < MAX_ITER; n++) {
+		float t = aaa_fu_float[0] * (1.0 - (1.0 / float(n+1)));
+		i = p + vec2(
+			cos(t - i.x) + sin(t + i.y),
+			sin(t - i.y) + cos(t + i.x)
+		);
+		// lighting plane
+		it = vec2(i.x * sin(i.x + t)/inten, i.y * cos(i.y + t)/inten);
+	}
+	c = 0.5/(check(p)  * length(p+sc) * check(i) * length(it+sc));
+	vec4 effect = vec4(vec3(pow(c, 1.9))*vec3(0.95, 0.97, 2.0), 1.0);
+
+
+
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st)) * aaa_fu_vec4[0]  * aaa_fu_src;
+	vec4 fx  = (effect * aaa_fu_vec4[1])  * aaa_fu_out;
+
+	gl_FragColor = vec4( (src + fx) * 0.5 );
+}
+
+
+
+
+
+
+
+

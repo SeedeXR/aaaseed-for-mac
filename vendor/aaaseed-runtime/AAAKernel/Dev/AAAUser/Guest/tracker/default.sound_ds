@@ -1,0 +1,4 @@
+sound_directsound ( Version 0 )
+	{
+	in_sample_rate = "44.1 kHz" ;
+	}

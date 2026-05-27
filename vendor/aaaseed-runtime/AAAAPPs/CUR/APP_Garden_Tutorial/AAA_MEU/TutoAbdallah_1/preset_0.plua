@@ -1,0 +1,24 @@
+-- preset v0 for MEU|TutoAbdallah_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["hand points"] = { { 0.2611719639874, 0.53063708006767, false, 0.17479838709677, 0.2 }, { 0.5913558658012, 0.54978553245227, false, 0.17479838709677, 0.2 }, { 0.80183108687729, 0.37362139758882, false, 0.17479838709677, 0.2 } }
+tab["just pump it"] = false
+tab["render.back"] = 0
+tab["render.cull"] = 2
+tab["render.depth"] = true
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 15.241097450256
+tab["render.normal"] = 8
+tab["render.normal active"] = false
+tab["render.point"] = 3.614177942276
+tab["s_beak"] = 7.1037081913253
+tab["s_eye"] = 0.8893506395421
+tab["s_hair"] = 2.8132719139893
+tab["s_hand"] = 2.3862929065717
+tab["s_head"] = 3.3152177606171
+tab["s_leg"] = 6.6308988173529
+tab["shadoko"] = 1

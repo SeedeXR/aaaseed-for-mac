@@ -1,0 +1,14 @@
+-- preset v0 for MEU|Nemo_Tapestry
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["inverse"] = false
+tab["loop"] = false
+tab["play"] = true
+tab["position_x"] = 0
+tab["position_y"] = 0
+tab["position_z"] = 0
+tab["rotation_x"] = 0
+tab["rotation_y"] = 0
+tab["rotation_z"] = 0
+tab["speed"] = 0.5
+tab["time_factor"] = 4

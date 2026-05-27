@@ -1,0 +1,9 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Init/fx" ;
+	Bind_01 = "Media/fx" ;
+	Bind_02 = "Lang/fx" ;
+	Bind_03 = "Experience/fx" ;
+	Bind_04 = "Customer/fx" ;
+	Bind_05 = "Main/fx" ;
+	}

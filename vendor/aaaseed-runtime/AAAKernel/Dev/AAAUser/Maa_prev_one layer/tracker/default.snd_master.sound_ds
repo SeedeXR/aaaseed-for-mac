@@ -1,0 +1,5 @@
+sound_directsound ( Version 0 )
+	{
+	in_device = 1 ;
+	out_device = 7 ;
+	}

@@ -1,0 +1,38 @@
+
+this is a comment area
+TYPE name comment value c_name properties
+TYPE name comment value c_name
+    properties
+
+anything can be type here until we have a BEGIN at start of line like below
+
+BEGIN
+BOOL    Active      ""                      true
+or
+BOOL_ON    Active
+or
+BOOL Active "" on
+GROUP   "Big toto"  "Regroup Size stuff" 
+    FP32 {Size,Radius} "Taille du cercle" {1,0} c_name=_size_ui
+ or
+    FP32_ZERO {Size,Radius} doc="Taille du cercle" def={1} c_name=_size_ui
+
+    # need declaration of str in C for symbolic value
+    # also deal with C Macro or CONSTANT
+    SYMBO mode "control the math used" {Current,2} save=off
+    INT16    dataset    "choose the data used" 0 min=0 max=2048 
+    GROUP Size
+        FP32   { "Factor U", "F_U" }    "" (1,2} _factor_u
+            save=false
+        FP32   {"Factor V", F_V}        "" {1,2} _factor_v  save=off
+        FP32   "Factor"                 "" 1 _factor   save=off
+        FP32(u,v,f) {"size","si"} "size" 1 defaults={0,2}
+        #or
+        FP32(_u,_v,_f) {"size","si"} "size" 1 defaults={0,2}
+        #or
+        FP32_UVF    {"size","si"} "size" 1 defaults={0,2}
+    GROUP "More info" {"size","si"} "size" 1 defaults={0,2}
+        FLOAT32 Volume "" 1 c_name=_volume_out edit=off
+        #or
+        FP32_ONE Volume "" c_name=_volume_out lock=on
+

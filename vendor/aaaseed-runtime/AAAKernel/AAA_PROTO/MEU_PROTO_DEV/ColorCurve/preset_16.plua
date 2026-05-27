@@ -1,0 +1,18 @@
+-- preset for MEU|ColorCurve_1
+tab["curve_1"] = { { 0.079484574915657, 0, { 1, 0, 1 } }, { 0.1380522888767, 0.11077266732311, { 0, 1, 0 } }, { 0.24472884197971, 0.62737119317202, { 1, 1, 0 } }, { 0.35768070082408, 1, { 1, 0, 0 } } }
+tab["curve_2"] = { { 0, 0, { 1, 1, 1 } }, { 0.050200803212851, 0, { 1, 1, 1 } } }
+tab["edit_1blue"] = 0
+tab["edit_1green"] = 0
+tab["edit_1hue"] = 0
+tab["edit_1red"] = 1
+tab["edit_1sat"] = 0
+tab["edit_1value"] = 0
+tab["edit_2blue"] = 1
+tab["edit_2green"] = 1
+tab["edit_2hue"] = 0
+tab["edit_2red"] = 1
+tab["edit_2sat"] = 0
+tab["edit_2value"] = 0
+tab["flash"] = { 0, 0.25 }
+tab["hsv1"] = 0
+tab["hsv2"] = 0

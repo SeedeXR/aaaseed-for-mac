@@ -1,0 +1,63 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 11.495 ;
+	rot_x = -0.00150003 ;
+	rot_y = 0.0495002 ;
+	tra_z = -11.3236 ;
+	}
+//AAA::filename fx_a.bdd_curve_edit
+bdd_curve_edit ( Version 0 )
+	{
+	name_symbo = "Sercel_test_curve_bdd" ;
+	stop_on_phase = OFF ;
+	default_type = "Catmull_test" ;
+	control_nb = 2 ;
+	control_id = 2 ;
+	draw_u_min = -8 ;
+	draw_u_max = 8 ;
+	draw_v_min = -1 ;
+	ui_draw = ON ;
+	ui_draw_axe = ON ;
+	ui_draw_phase_cur = ON ;
+	crosshair_u = 0.00484785 ;
+	crosshair_v = 0.445584 ;
+	}
+//AAA::filename fx_a.001.control_key
+control_key ( Version 0 )
+	{
+	phase_stop = 8 ;
+	key_phase = 4.18001 ;
+	key_u = -0.255 ;
+	}
+//AAA::filename fx_a.002.control_key
+control_key ( Version 0 )
+	{
+	phase_start = -8 ;
+	phase_stop = 8 ;
+	control_type = "Catmull" ;
+	key_nb = 521 ;
+	key_id = 520 ;
+	key_phase = 4.82501 ;
+	key_u = -0.5925 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "Sercel_test_curve" ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_edit" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	}

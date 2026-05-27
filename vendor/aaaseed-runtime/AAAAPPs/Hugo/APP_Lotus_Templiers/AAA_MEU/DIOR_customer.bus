@@ -1,0 +1,12 @@
+-- BU position for DIOR_customer
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_pos( 0, "auto", -3.85, -0.5, 0.3, 0.3, 0, 1 )
+BUS.set_bu_value( "black", 0.077 )
+BUS.set_bu_value( "gain_blue", 1 )
+BUS.set_bu_value( "gain_green", 0.98 )
+BUS.set_bu_value( "gain_red", 1.24 )
+BUS.set_bu_value( "language", 1 )
+BUS.set_bu_pos( 0, "load language", 2.5, -0.82, 2.4, 0.28, 0 )
+BUS.set_bu_pos( 0, "used", -2.4883181232886, 2.7939825027652, 3.0018270024537, 6.0036540049074, 0 )
+BUS.set_bu_value( "white", 0.52384337620201 )

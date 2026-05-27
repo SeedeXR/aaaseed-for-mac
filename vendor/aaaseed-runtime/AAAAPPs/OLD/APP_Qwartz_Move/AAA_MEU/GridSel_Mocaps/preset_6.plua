@@ -1,0 +1,5 @@
+-- preset for MEU_DIR|Dir_Mocap("Mocap")
+tab["a"] = 1
+tab["b"] = 0
+tab["master_alpha"] = 0.99761563538857
+tab["restore"] = 0

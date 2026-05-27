@@ -1,0 +1,23 @@
+-- preset for MEU|TankFish_0
+tab["cacha"] = 0
+tab["catmull"] = 0
+tab["caustic play"] = 1
+tab["curve rt"] = 0
+tab["curve see"] = 0
+tab["curvetest"] = 0
+tab["draw boid"] = 0
+tab["edit"] = 0
+tab["fish"] = 1
+tab["fish symbo"] = 0
+tab["fish_color"] = 0
+tab["hippo"] = 0
+tab["line"] = 0
+tab["lune"] = 0
+tab["lune_rare"] = 0
+tab["picasso"] = 0
+tab["point"] = 0
+tab["point rt"] = 0
+tab["rascasse"] = 0
+tab["set"] = 0
+tab["test"] = 1
+tab["ui race"] = 1

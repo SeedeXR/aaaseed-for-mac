@@ -1,0 +1,17 @@
+-- preset v0 for MEU|SOOpenCV_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["bc"] = { 0.10721191763878, 0.69202268123627 }
+tab["bc on"] = true
+tab["bc out"] = { 0.025794763118029, 0.3489351272583 }
+tab["bc out on"] = true
+tab["blur"] = 8.6146391482594
+tab["blur2"] = 77.265785143248
+tab["diff"] = 6
+tab["dilate"] = false
+tab["dilate_pass"] = 44
+tab["erode"] = false
+tab["erode first"] = false
+tab["erode_pass"] = 1
+tab["method"] = 3
+tab["method2"] = 3

@@ -1,0 +1,33 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Fonts\arial.ttf" ;
+	Bind_01 = "Fonts\dungeon.TTF" ;
+	Bind_02 = "Fonts\neosans.ttf" ;
+	Bind_03 = "Fonts\GOTHIC.TTF" ;
+	Bind_04 = "Fonts\Helvetica.ttf" ;
+	Bind_05 = "Fonts\Helvetica.json" ;
+	Bind_06 = "Fonts\Roboto-Regular.json" ;
+	Bind_12 = "Fonts\QUINTLY.TTF" ;
+	Bind_16 = "Fonts\DINBol.ttf" ;
+	Bind_18 = "Fonts\NeoSans.otf" ;
+	Bind_19 = "Fonts\NeoTech.otf" ;
+	Bind_20 = "Fonts\MyriadPro-Black.otf" ;
+	Bind_21 = "Fonts\MyriadPro-BlackCond.otf" ;
+	Bind_22 = "Fonts\MyriadPro-Bold.otf" ;
+	Bind_23 = "Fonts\MyriadPro-BoldCond.otf" ;
+	Bind_24 = "Fonts\MyriadPro-SemiExt.otf" ;
+	Bind_25 = "Fonts\MyriadPro-Regular.otf" ;
+	Bind_26 = "Fonts\MyriadPro-SemiCn.otf" ;
+	Bind_27 = "Fonts\MyriadPro-SemiCnIt.otf" ;
+	Bind_28 = "Fonts\DINPro-Black.otf" ;
+	Bind_32 = "%media%/Qwartz/Move/Fonts/04B_03__.ttf" ;
+	Bind_33 = "%media%/Qwartz/Move/Fonts/8bitoperator.ttf" ;
+	Bind_34 = "%media%/Qwartz/Move/Fonts/HelveticaNeueLTStdHvCn.otf" ;
+	Bind_35 = "%media%/Qwartz/Move/Fonts/Impact.ttf" ;
+	Bind_36 = "%media%/Qwartz/Move/Fonts/m20.ttf" ;
+	Bind_37 = "%media%/Qwartz/Move/Fonts/Miracode.ttf" ;
+	Bind_60 = "%media%/Priam/Fonts/Banto1.8-Light.otf" ;
+	Bind_61 = "%media%/Priam/Fonts/Banto1.8-Regular.otf" ;
+	Bind_62 = "%media%/Priam/Fonts/Banto1.8-Medium.otf" ;
+	Bind_63 = "%media%/Priam/Fonts/Banto1.8-Bold.otf" ;
+	}

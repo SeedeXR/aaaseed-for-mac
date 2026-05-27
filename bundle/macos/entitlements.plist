@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  bundle/macos/entitlements.plist
+  Phase 8 distribution beachhead (c136-B, 2026-05-27).
+
+  Hardened runtime entitlements consumed by `codesign --entitlements ...`
+  at signing time (todo.md L377-L378).
+
+  v1 doctrine :
+    - app-sandbox = false : sandboxing is deferred until Spout/Syphon IPC
+      paths + Lua filesystem semantics are audited (sandbox would block
+      raw Mach port + arbitrary file access ; both are core).
+    - network client + server : luasocket today, Syphon advertise + OSC
+      server roles tomorrow.
+    - cs.allow-jit : Lua execution path (LuaJIT-style JIT off in vendored
+      5.1.5, but engine may invoke writable+executable pages elsewhere).
+    - device.audio-input + device.camera : matches Info.plist usage
+      descriptions ; required when AVCaptureSession actually fires.
+    - files.user-selected.read-write : NSOpenPanel / NSSavePanel paths
+      (already plumbed via aaaseed_ui_file_dialog_mac, c132).
+
+  Not signed yet -- this plist is dormant until c137+ Developer ID
+  becomes available. See bundle/macos/README.md.
+-->
+<plist version="1.0">
+<dict>
+    <key>com.apple.security.app-sandbox</key>
+    <false/>
+    <key>com.apple.security.network.client</key>
+    <true/>
+    <key>com.apple.security.network.server</key>
+    <true/>
+    <key>com.apple.security.cs.allow-jit</key>
+    <true/>
+    <key>com.apple.security.device.audio-input</key>
+    <true/>
+    <key>com.apple.security.device.camera</key>
+    <true/>
+    <key>com.apple.security.files.user-selected.read-write</key>
+    <true/>
+</dict>
+</plist>

@@ -1,0 +1,4 @@
+file_master ( Version 0 )
+	{
+	file_fast = ON ;
+	}

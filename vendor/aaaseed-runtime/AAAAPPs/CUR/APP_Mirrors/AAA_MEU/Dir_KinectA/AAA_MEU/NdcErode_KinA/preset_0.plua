@@ -1,0 +1,9 @@
+-- preset v0 for MEU|NdcErode_KinA
+tab["a_bank"] = 2
+tab["a_bind"] = 0
+tab["draw"] = 1
+tab["iteration"] = 18
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["shader"] = true
+tab["threshold"] = 0.66876244544983

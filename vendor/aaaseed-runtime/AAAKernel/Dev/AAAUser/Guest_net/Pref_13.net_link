@@ -1,0 +1,9 @@
+net_link ( Version 0 )
+	{
+	active = ON ;
+	enable = ON ;
+	port_nb = 18030 ;
+	dst_ip = "230" ;
+	port_nb_udp_dst = 18030 ;
+	disable_when_connection_failed = OFF ;
+	}

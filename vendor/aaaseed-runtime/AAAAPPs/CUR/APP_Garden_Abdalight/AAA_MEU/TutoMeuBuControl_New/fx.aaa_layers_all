@@ -1,0 +1,74 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 9.0093 ;
+	rot_x = 0.0189622 ;
+	rot_y = 0.0612537 ;
+	tra_x = 0.280837 ;
+	tra_y = -0.179363 ;
+	tra_z = -1.68215 ;
+	}
+//AAA::filename fx_a.bdd_bullet
+bdd_bullet ( Version 0 )
+	{
+	dispatcher = "DISPATCHERMT" ;
+	collision = "SOFT" ;
+	}
+//AAA::filename fx_a.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	draw_all_curves = ON ;
+	draw_selected = ON ;
+	draw_number = ON ;
+	draw_number_scale = 0.25 ;
+	graduation_step = 0.125 ;
+	graduation_scale = 0.0625 ;
+	ui_u = 1 ;
+	}
+//AAA::filename fx_a.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 14 ;
+	ui_draw = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "mapping" ;
+	tex_axe = "X" ;
+	tex_by_side = ON ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	tex_force_min_mag = ON ;
+	tex_2d_minification = "LINEAR" ;
+	tex_2d_magnification = "LINEAR" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	bind_2d = 4 ;
+	}

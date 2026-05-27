@@ -1,0 +1,15 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	camera_lock = ON ;
+	Position_x = 1 ;
+	Position_y = 1 ;
+	Position_z = 1 ;
+	Ambient_green = 0.197574 ;
+	Ambient_grey = 0.603526 ;
+	Diffuse_grey = 1 ;
+	Specular_grey = 1 ;
+	Spot_direction_x = 0.819116 ;
+	Spot_direction_y = -1 ;
+	Spot_direction_z = -1 ;
+	}

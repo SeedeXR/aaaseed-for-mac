@@ -1,0 +1,15 @@
+-- preset v0 for MEU|TrainAnimation_Turtle
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["angle"] = 0.4975907134911
+tab["draw curve current"] = false
+tab["draw graph"] = false
+tab["inverse"] = false
+tab["loop"] = false
+tab["play"] = false
+tab["pos_x"] = -2.4026592190172
+tab["pos_y"] = 5.6788738928664
+tab["pos_z"] = -4.8300974612282
+tab["speed"] = 1
+tab["time_factor"] = 4
+tab["verbose"] = true

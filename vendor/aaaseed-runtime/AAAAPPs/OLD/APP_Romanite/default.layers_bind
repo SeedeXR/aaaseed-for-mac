@@ -1,0 +1,6 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Roma_init/fx" ;
+	Bind_01 = "Roma_draw/fx" ;
+	Bind_02 = "Roma_main/fx" ;
+	}

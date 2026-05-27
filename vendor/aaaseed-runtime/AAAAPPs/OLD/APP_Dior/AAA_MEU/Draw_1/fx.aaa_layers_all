@@ -1,0 +1,152 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "dior_draw.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport_left = 0.646916 ;
+	perspective = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	bind_2d = 6 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.texturing
+texturing ( Version 0 )
+	{
+	unit_1 = ON ;
+	unit_2 = ON ;
+	unit_3 = ON ;
+	}
+//AAA::filename fx_b.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "dior_tex1" ;
+	bank_2d = 2 ;
+	bind_2d = 7 ;
+	}
+//AAA::filename fx_b.texturing.tex_unit_1.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "dior_tex2" ;
+	bank_2d = 20 ;
+	bind_2d = 3 ;
+	}
+//AAA::filename fx_b.texturing.tex_unit_2.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "dior_tex3" ;
+	bank_2d = 3 ;
+	bind_2d = 16 ;
+	}
+//AAA::filename fx_b.texturing.tex_unit_3.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 505 ;
+	geometry_reload_trig = ON ;
+	fragment_bind = 505 ;
+	fu_src = 0.248869 ;
+	fu_out = 0.125 ;
+	fu_float_01 = 1 ;
+	fu_float_04 = 0.516818 ;
+	fu_float_06 = 1.2 ;
+	fu_int_01 = 1 ;
+	fu_int_02 = 3 ;
+	fu_03_r_x = 1.2 ;
+	fu_03_g_y = 1.2 ;
+	fu_03_a_w = -0.022133 ;
+	fu_04_r_x = 0.726902 ;
+	fu_04_g_y = 0.605882 ;
+	fu_04_b_z = 0.476608 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 0.0625 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	name_symbo = "dummy" ;
+	global_alpha = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 2 ;
+	bind_2d = 6 ;
+	name_symbo = "dior_tex0" ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_mapping = ON ;
+	use_texturing = "CURRENT" ;
+	bank_2d = 3 ;
+	bind_2d = 3 ;
+	}

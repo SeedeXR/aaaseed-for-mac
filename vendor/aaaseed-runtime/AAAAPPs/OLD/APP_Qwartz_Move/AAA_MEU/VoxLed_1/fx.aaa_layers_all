@@ -1,0 +1,198 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "VoxLed.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_C" ;
+	camera_index_ui = 7 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0095 ;
+	rot_y = 1.0835 ;
+	tra_z = -11.4236 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = -10.8442 ;
+	rot_x = 0.75 ;
+	rot_y = 0.5 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0285 ;
+	rot_y = 1.053 ;
+	tra_z = -9.72487 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0320002 ;
+	rot_y = 2.98899 ;
+	tra_z = -10.5242 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.00849999 ;
+	rot_y = 0.248 ;
+	tra_z = -10.824 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_y_frequency = 0.0340285 ;
+	rot_x = 0.031 ;
+	rot_y = 0.0710003 ;
+	tra_x = 0.018 ;
+	tra_y = -0.072 ;
+	tra_z = -10.4244 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "trs" ;
+	translate = ON ;
+	translate_z = 91.664 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "BACK" ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_factor = 64 ;
+	tex_wrap_u = "MIRRORED_REPEAT" ;
+	tex_wrap_v = "MIRRORED_REPEAT" ;
+	blend = OFF ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.0291463 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 16 ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.voxel
+bdd_voxel ( Version 0 )
+	{
+	color_base_grey = 0.25 ;
+	render_color_offset_grey = -1 ;
+	render_color_offset_alpha = 0 ;
+	render_color_factor_grey = 4 ;
+	led_size = 0.08 ;
+	led_as_sphere = ON ;
+	led_arc_segment_nb = 6 ;
+	image_compute = ON ;
+	image_size_x = 324 ;
+	image_size_y = 32 ;
+	box_center_x = 0.5 ;
+	box_center_y = 0.5 ;
+	box_center_z = 0.5 ;
+	box_range_x = 0.5 ;
+	box_range_y = 0.5 ;
+	box_range_z = 0.5 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	depth = ON ;
+	top_green = 0 ;
+	top_blue = 0 ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "BOX" ;
+	size_factor = 0.08 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_voxel" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 7 ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = -4.51976 ;
+	nb_u = 9 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 2 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 8 ;
+	}

@@ -1,0 +1,4 @@
+-- preset v0 for MEU|KinFlipper_1
+tab["do flip"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true

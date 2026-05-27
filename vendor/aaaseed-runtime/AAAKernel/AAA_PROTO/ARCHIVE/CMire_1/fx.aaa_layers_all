@@ -1,0 +1,253 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "cmire.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_N" ;
+	index_end = "Layer_O" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -4.7975 ;
+	rot_y = -0.782493 ;
+	tra_z = -15.4203 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	nb_axe = 220 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 8192 ;
+	nb_max = 2048 ;
+	nb_by_sec = 512 ;
+	flow_continuous = ON ;
+	life_time = 4 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	point_size = 2 ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.0625 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "3D" ;
+	tex_implicit = OFF ;
+	tex_axe = "Z" ;
+	tex_factor = 1.00968 ;
+	tex_offset_2 = 0 ;
+	tex_offset_4 = 0 ;
+	tex_offset_6 = 0 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	blend_src = "SRC_COLOR" ;
+	blend_dst = "ONE_MINUS_SRC_COLOR" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_axe = 0.974349 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "color" ;
+	convert = ON ;
+	hue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 5 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	line_smooth = ON ;
+	line_size = 2 ;
+	depth = ON ;
+	top_line = ON ;
+	}
+//AAA::filename fx_b.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_2d = 5 ;
+	}
+//AAA::filename fx_n.bdd_curve_edit
+bdd_curve_edit ( Version 0 )
+	{
+	stop_on_phase = OFF ;
+	default_type = "Catmull" ;
+	control_nb = 4 ;
+	control_id = 3 ;
+	ui_draw = ON ;
+	ui_draw_axe = ON ;
+	ui_draw_phase_cur = ON ;
+	ui_color_auto = ON ;
+	crosshair_u = 0.62678 ;
+	crosshair_v = 0.649651 ;
+	ui_marker_size_u = 0.25 ;
+	}
+//AAA::filename fx_n.000.control_key
+control_key ( Version 0 )
+	{
+	key_phase = -0.164999 ;
+	key_u = 1.205 ;
+	}
+//AAA::filename fx_n.001.control_key
+control_key ( Version 0 )
+	{
+	key_phase = 0.00748879 ;
+	key_u = 0.999998 ;
+	}
+//AAA::filename fx_n.002.control_key
+control_key ( Version 0 )
+	{
+	key_phase = 0.03 ;
+	key_u = 0.0350002 ;
+	}
+//AAA::filename fx_n.003.control_key
+control_key ( Version 0 )
+	{
+	key_phase = 0.0324986 ;
+	key_u = 0.1725 ;
+	}
+//AAA::filename fx_n.004.control_key
+control_key ( Version 0 )
+	{
+	key_phase = -0.164999 ;
+	key_u = 1.205 ;
+	}
+//AAA::filename fx_n.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_edit" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_o.bdd_curve_edit
+bdd_curve_edit ( Version 0 )
+	{
+	stop_on_phase = OFF ;
+	control_nb = 4 ;
+	control_id = 3 ;
+	ui_draw = ON ;
+	ui_draw_axe = ON ;
+	ui_draw_phase_cur = ON ;
+	ui_draw_phase = OFF ;
+	ui_color_auto = ON ;
+	crosshair_u = 0.0424429 ;
+	crosshair_v = 0.399603 ;
+	grid_draw = ON ;
+	grid_nb_u_sub = 16 ;
+	grid_nb_v_sub = 8 ;
+	ui_marker_size_u = 0.25 ;
+	}
+//AAA::filename fx_o.000.control_key
+control_key ( Version 0 )
+	{
+	key_phase = -0.0325016 ;
+	key_u = -0.00250111 ;
+	}
+//AAA::filename fx_o.001.control_key
+control_key ( Version 0 )
+	{
+	key_phase = -0.0300112 ;
+	key_u = -0.247501 ;
+	}
+//AAA::filename fx_o.002.control_key
+control_key ( Version 0 )
+	{
+	key_phase = -4.93601e-08 ;
+	key_u = 0.0175 ;
+	}
+//AAA::filename fx_o.003.control_key
+control_key ( Version 0 )
+	{
+	key_phase = -0.0675 ;
+	key_u = 1.02 ;
+	}
+//AAA::filename fx_o.004.control_key
+control_key ( Version 0 )
+	{
+	key_phase = -0.0325016 ;
+	key_u = -0.00250111 ;
+	}
+//AAA::filename fx_o.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_edit" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

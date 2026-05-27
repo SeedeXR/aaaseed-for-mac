@@ -1,0 +1,17 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "AAASeed
+Can use Sdf Font now
+Say Mâa" ;
+	Bind_01 = "How do you define immersion ?" ;
+	Bind_02 = "And in the context of creative cultural industriy" ;
+	Bind_03 = "Ceci est juste" ;
+	Bind_04 = "http://www.visitvar.fr/provence-cote-azur/default.aspx" ;
+	Bind_05 = "have you heard about the shadoks ?" ;
+	Bind_06 = "any between ArtCast4d and the shadoks ?" ;
+	Bind_07 = "Where are we ?" ;
+	Bind_08 = "AAASeed
+Can use Sdf Font now
+Say Mâa" ;
+	Bind_255 = "last" ;
+	}

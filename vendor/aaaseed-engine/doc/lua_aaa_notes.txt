@@ -1,0 +1,52 @@
+when compiling the lua lib the includeluaconf.h should be changed
+
+add ".\\lua\\?.lua to the define #define LUA_PATH_DEFAULT
+
+this was tried with version 2.0.6 beta it solve the strating problem
+
+but a random crash after made maa drop the update
+
+also this version try to load lua51.dll and we are using (atlas and mysql) lua5.1.dll
+
+
+in luaconf.h we also defines (see below and adapt at least lua.h to these
+
+but this done on the AAASeed side
+
+
+#if defined(LUA_BUILD_AS_DLL)
+
+	#if defined(LUA_CORE) || defined(LUA_LIB)
+
+		#define LUA_API __declspec(dllexport)
+
+	#else
+
+		#define LUA_API __declspec(dllimport)
+
+	#endif
+
+#else
+
+	#define LUA_API		extern __declspec(dllexport)
+
+#endif
+
+
+#ifndef MAACAPI
+
+	#define	MAACAPI	__cdecl
+
+#endif
+
+
+#ifndef MAAAPIENTRY
+
+	#define	MAAAPIENTRY	__cdecl
+
+#endif
+
+	/* more often than not the libs go together with the core */
+
+
+#define LUALIB_API	LUA_API

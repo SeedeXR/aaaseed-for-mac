@@ -1,0 +1,15 @@
+
+
+void main(void)
+{
+	vec3  transformedNormal;
+
+	// Eye-coordinate position of vertex, needed in various calculations
+	vec4 ecPosition = gl_ModelViewMatrix * gl_Vertex;
+
+	// Do fixed functionality vertex transform
+	gl_Position = ftransform();
+	transformedNormal = fnormal();
+	gl_FrontColor = flight( transformedNormal, ecPosition );
+	ftexgen( transformedNormal, ecPosition );
+}

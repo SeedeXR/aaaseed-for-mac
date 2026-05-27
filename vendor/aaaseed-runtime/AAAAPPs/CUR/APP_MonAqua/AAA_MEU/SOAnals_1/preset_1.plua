@@ -1,0 +1,15 @@
+-- preset for MEU|LVOpenCV_1
+tab["bc"] = { 0.043589640408754, 0.10924161970615 }
+tab["bc on"] = 1
+tab["bc out"] = { 0, 0.31636348366737 }
+tab["bc out on"] = 0
+tab["blur"] = 15.840340251916
+tab["blur2"] = 73.251282116697
+tab["diff"] = 2
+tab["dilate"] = 0
+tab["dilate_pass"] = 7
+tab["erode"] = 0
+tab["erode first"] = 0
+tab["erode_pass"] = 11
+tab["method"] = 3
+tab["method2"] = 1

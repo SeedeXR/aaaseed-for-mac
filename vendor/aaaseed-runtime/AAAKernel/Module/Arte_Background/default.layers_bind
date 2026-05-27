@@ -1,0 +1,14 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "base/fx" ;
+	Bind_01 = "Cercle_A/fx" ;
+	Bind_02 = "Cercle_B/fx" ;
+	Bind_03 = "Cercle_C/fx" ;
+	Bind_04 = "Cercle_Plein_A/fx" ;
+	Bind_05 = "Cercle_Plein_B/fx" ;
+	Bind_07 = "Cercle_Growing/fx" ;
+	Bind_08 = "Cercle_Growing_B/fx" ;
+	Bind_10 = "Part/fx" ;
+	Bind_12 = "Terre_Cache/fx" ;
+	Bind_13 = "Sphere/fx" ;
+	}

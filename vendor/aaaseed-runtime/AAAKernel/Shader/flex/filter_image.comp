@@ -1,0 +1,71 @@
+// we go thru a complete image and if pixel satisfy a test
+//		
+
+//texture inputs
+layout(binding = 0) uniform sampler2D g_input_texture;
+
+//note, since we run acceleration + integrate back to back, we just bind pos/vel/accel directly and dispatch once with each shader
+layout( std430, binding=0 ) coherent buffer particles_accum_buffer	{	uint accum_out[];  };
+layout( std430, binding=1 ) buffer particles_pos_out_buffer			{	vec4 pos_out[];	 };
+layout( std430, binding=2 ) buffer particles_vel_out_buffer			{	vec4 vel_out[];	 };
+
+layout(binding = 0) uniform particles_global_block
+{
+	st_flex_solver sd;
+} part_settings;
+
+layout(binding = 1) uniform emitter_settings_block
+{	
+	st_img_filter	img;
+	st_emitter		emitter[EMITTER_NB_MAX];
+} emit_settings;
+
+#define GROUP_SIZE 16
+layout( local_size_x = GROUP_SIZE, local_size_y = GROUP_SIZE, local_size_z = 1 ) in;
+void main(void)
+{
+	ivec3 index = ivec3( gl_GlobalInvocationID );
+
+	//ivec2 image_size = textureSize(	g_input_texture, 0);
+	uvec2 image_size = uvec2( emit_settings.img._image_sx, emit_settings.img._image_sy );
+
+	// test outside
+	if( any( greaterThanEqual( index.xy, image_size ) ) )
+		return;
+
+	vec3 col = texelFetch( g_input_texture, index.xy, 0 ).rgb ;
+
+	// test inside [min, max]
+	if(		all(greaterThanEqual(	col, emit_settings.img._color_min.rgb ))
+		&&	all(lessThanEqual(		col, emit_settings.img._color_max.rgb ))
+	)
+	{
+		int idx = col.r <= emit_settings.img._color_selector.r ? 0 : 1;
+
+		uint frame = part_settings.sd._frame_index;
+		uint ra = emit_settings.emitter[idx]._rate;
+	    if( frame % ra == 0 )
+		{
+			uint accum_index = atomicAdd( accum_out[0], 1 );
+
+			vec2 image_size_f = vec2(image_size.xy);
+			float ratio = image_size_f.x / image_size_f.y;
+			//uv in [0,1[
+			vec2 uv = vec2(index.xy) / image_size_f;
+			uv -= 0.5;
+			uv.x *= ratio; 
+			//uv.x in [-.5*ratio,	.5*ratio]
+			//uv.y in [-.5,			.5]			
+			vec4 p = vec4( uv.xy, 0., idx );
+			
+			//todo we should stop this pass here and store position or positiion/color
+			//	or refine
+		
+			p.xyz *= emit_settings.emitter[idx]._size.xyz;
+			p.xyz += emit_settings.emitter[idx]._pos.xyz;
+
+			pos_out[accum_index] = p;
+			vel_out[accum_index] = vec4( emit_settings.emitter[idx]._vel.xyz, 1. );
+		}
+	}
+}

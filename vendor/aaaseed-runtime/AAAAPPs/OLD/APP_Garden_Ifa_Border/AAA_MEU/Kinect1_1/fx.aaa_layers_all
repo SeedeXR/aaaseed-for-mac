@@ -1,0 +1,60 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "Kinect1.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_video" ;
+	play = ON ;
+	loop = ON ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_run = ON ;
+	capture_device_id_asked = "USB\VID_0409&PID_005A\5&109970AE&0&1" ;
+	capture_size = "1920p/i" ;
+	capture_size_x = 1920 ;
+	capture_size_y = 1080 ;
+	incrust_max = 1 ;
+	incrust_gain = 1e-05 ;
+	incrust_bias = 1e-05 ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	motor_active = ON ;
+	motor_position = 0.125 ;
+	depth_range_extended = ON ;
+	depth_render_type = "Z_Grey8" ;
+	depth_clip_bottom = 0.259845 ;
+	depth_skew_vert = 5.93461 ;
+	depth_raw_min = 0.021624 ;
+	depth_raw_max = 0.446129 ;
+	depth_raw_clamp = ON ;
+	depth_meter_central = 16 ;
+	depth_meter_max = 32 ;
+	rgb_bind = 107 ;
+	rgb_cpu = ON ;
+	rgb_gpu = OFF ;
+	rgb_aligned_bind = 111 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 3 ;
+	bind_2d = 8 ;
+	use_tex_video = ON ;
+	}

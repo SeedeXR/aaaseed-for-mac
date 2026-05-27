@@ -1,0 +1,8 @@
+module ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabu_perlinpinpin_white_module" ;
+	layers_index_cur = 1 ;
+	layers_index_end = 8 ;
+	load_all = OFF ;
+	}

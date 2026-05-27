@@ -1,0 +1,28 @@
+Introduction to AAASeed Immersive Realtime Software
+Workshop 1: AAASeed Concept and Interface
+AAASeed has been used for 25 years by Mâa and his teams to produce
+massive immersive environments and a variety of different real-time applications (AAASeed.org).
+Today, as part of the ArtCast4d European project (artcast4d.eu),
+AAASeed is on its way to becoming the only free and open-source software (MIT license) in its category.
+
+This 3-hour hands-on workshop
+will help beginners master the interface,
+introduce the basic concepts,
+allow you to conduct your first experiments by combining basic blocks,
+and let you play with real-time images, videos, and processes.
+
+Introduction to Coding in AAASeed Immersive Realtime Software
+Workshop 2: AAASeed Coding Workflows
+AAASeed has been used for 25 years by Mâa and his teams to produce
+massive immersive environments and a variety of different real-time applications (AAASeed.org).
+Today, as part of the ArtCast4d European project (artcast4d.eu),
+AAASeed is on its way to becoming the only free and open-source software (MIT license) in its category.
+
+This 3-hour hands-on workshop
+is a continuation of the first workshop (AAASeed Concept and Interface)
+and is designed for people who want to write graphic or real-time applications or at least experiment with shaders.
+It will cover Lua scripting for drawing and handling basic interface elements (buttons, sliders, selectors, etc.),
+how to write and modify shaders while they are running,
+and provide you with the tools to manipulate existing blocks and add new ones.
+Knowledge of Lua and/or GLSL will be helpful but is not mandatory.
+

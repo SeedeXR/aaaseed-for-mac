@@ -1,0 +1,5 @@
+bdd_datagrid ( Version 0 )
+	{
+	active = ON ;
+	comma_is_separator = ON ;
+	}

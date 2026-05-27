@@ -1,0 +1,9 @@
+-- BU position for chanel
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_pos( 0, "win maa1", -1.473140001297, 2.3041781663895, 1, 0.5625, 0 )
+BUS.set_bu_pos_mini( 0, "win maa1", 0, 0, 0.1, 0.05625, 0 )
+BUS.set_bu_pos( 0, "win maa2", 0.62185966968536, -1.0352120757103, 1, 0.5625, 0 )
+BUS.set_bu_pos_mini( 0, "win maa2", 0, 0, 0.1, 0.05625, 0 )
+BUS.set_bu_pos( 0, "win maa3", -1.2377619743347, 0.7948428273201, 1, 0.5625, 0 )
+BUS.set_bu_pos_mini( 0, "win maa3", 0, 0, 0.1, 0.05625, 0 )

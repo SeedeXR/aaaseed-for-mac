@@ -1,0 +1,15 @@
+seedcam ( Version 0 )
+	{
+	ortho_size = 10.535 ;
+	tra_x_sin_frequency = 0.016 ;
+	tra_x_sin_amplitude = 1.024 ;
+	tra_z_sin_frequency = 0.032 ;
+	tra_z_sin_amplitude = 1.024 ;
+	center_offset_y = 0.0955156 ;
+	center_offset_z = -0.427186 ;
+	rot_x = -0.910999 ;
+	rot_y = 4.11806 ;
+	tra_x = 0.601392 ;
+	tra_y = 0.49 ;
+	tra_z = -7.18942 ;
+	}

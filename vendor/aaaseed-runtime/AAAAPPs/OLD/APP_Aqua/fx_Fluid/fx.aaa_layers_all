@@ -1,0 +1,314 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	run_only_when_compiled = ON ;
+	filename = "%app%/OLD/APP_Aqua/fx_Fluid/fx.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 15.2984 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_x = -0.288 ;
+	tra_y = 0.652 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 256 ;
+	nb_v = 256 ;
+	}
+//AAA::filename fx_a00.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 33 ;
+	axe_src = "Z" ;
+	scale_u = 8 ;
+	scale_v = 6 ;
+	origin_x = -0.5 ;
+	origin_y = -0.5 ;
+	axe_dst = "Z" ;
+	strenght = 1 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	back_mode = "POINT" ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 10.0551 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 5 ;
+	bank_2d = 1 ;
+	bind_2d = 17 ;
+	}
+//AAA::filename fx_b.bdd_fluid
+bdd_fluid ( Version 0 )
+	{
+	image_dst_bind = 49 ;
+	size_x = 45 ;
+	size_y = 60 ;
+	alpha_flip = OFF ;
+	fade_speed = 0.0330234 ;
+	color_diffusion = 1.44065e-05 ;
+	viscosity = 5.96047e-08 ;
+	vorticity_confinement = ON ;
+	solver_iteration_nb = 8 ;
+	inject_blob = ON ;
+	inject_size_mouse = 0.1 ;
+	inject_size_blob = 0.5 ;
+	inject_color_factor = 16 ;
+	image_src = OFF ;
+	image_src_bind = 33 ;
+	image_use_mouse_color = ON ;
+	image_color_factor = 1.28921 ;
+	gradient_src = OFF ;
+	gradient_src_bind = 33 ;
+	gradient_factor = 2 ;
+	justify_u = -0.5 ;
+	justify_v = -0.5 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	size_v = 6 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_fluid" ;
+	use_model = ON ;
+	bank_2d = 1 ;
+	bind_2d = 16 ;
+	}
+//AAA::filename fx_c.bdd_boxes
+bdd_boxes ( Version 0 )
+	{
+	stop = 16 ;
+	ui_intercept = ON ;
+	Box01_active = ON ;
+	Box01_enabled = ON ;
+	Box01_type = "VERTICAL" ;
+	Box01_position_x = -0.46875 ;
+	Box01_size_x = 0.8 ;
+	Box01_size_y = 0.4 ;
+	Box01_size_factor = 0.0625 ;
+	Box02_active = ON ;
+	Box02_enabled = ON ;
+	Box02_type = "VERTICAL" ;
+	Box02_control_id = 2 ;
+	Box02_position_x = -0.40625 ;
+	Box02_size_x = 0.8 ;
+	Box02_size_y = 0.4 ;
+	Box02_size_factor = 0.0625 ;
+	Box03_active = ON ;
+	Box03_enabled = ON ;
+	Box03_type = "VERTICAL" ;
+	Box03_control_id = 3 ;
+	Box03_position_x = -0.34375 ;
+	Box03_position_y = 0.104532 ;
+	Box03_size_x = 0.8 ;
+	Box03_size_y = 0.4 ;
+	Box03_size_factor = 0.0625 ;
+	Box04_active = ON ;
+	Box04_enabled = ON ;
+	Box04_type = "VERTICAL" ;
+	Box04_control_id = 4 ;
+	Box04_position_x = -0.28125 ;
+	Box04_size_x = 0.8 ;
+	Box04_size_y = 0.4 ;
+	Box04_size_factor = 0.0625 ;
+	Box05_active = ON ;
+	Box05_enabled = ON ;
+	Box05_type = "VERTICAL" ;
+	Box05_control_id = 5 ;
+	Box05_position_x = -0.21875 ;
+	Box05_position_y = 0.0497076 ;
+	Box05_size_x = 0.8 ;
+	Box05_size_y = 0.4 ;
+	Box05_size_factor = 0.0625 ;
+	Box06_active = ON ;
+	Box06_enabled = ON ;
+	Box06_type = "VERTICAL" ;
+	Box06_control_id = 6 ;
+	Box06_position_x = -0.15625 ;
+	Box06_position_y = 0.133041 ;
+	Box06_size_x = 0.8 ;
+	Box06_size_y = 0.4 ;
+	Box06_size_factor = 0.0625 ;
+	Box07_active = ON ;
+	Box07_enabled = ON ;
+	Box07_type = "VERTICAL" ;
+	Box07_control_id = 7 ;
+	Box07_position_x = -0.09375 ;
+	Box07_position_y = 0.22807 ;
+	Box07_size_x = 0.8 ;
+	Box07_size_y = 0.4 ;
+	Box07_size_factor = 0.0625 ;
+	Box08_active = ON ;
+	Box08_enabled = ON ;
+	Box08_type = "VERTICAL" ;
+	Box08_control_id = 8 ;
+	Box08_position_x = -0.03125 ;
+	Box08_position_y = 0.154971 ;
+	Box08_size_x = 0.8 ;
+	Box08_size_y = 0.4 ;
+	Box08_size_factor = 0.0625 ;
+	Box09_active = ON ;
+	Box09_enabled = ON ;
+	Box09_type = "VERTICAL" ;
+	Box09_control_id = 9 ;
+	Box09_position_x = 0.03125 ;
+	Box09_position_y = 0.160819 ;
+	Box09_size_x = 0.8 ;
+	Box09_size_y = 0.4 ;
+	Box09_size_factor = 0.0625 ;
+	Box10_active = ON ;
+	Box10_enabled = ON ;
+	Box10_type = "VERTICAL" ;
+	Box10_control_id = 10 ;
+	Box10_position_x = 0.09375 ;
+	Box10_size_x = 0.8 ;
+	Box10_size_y = 0.4 ;
+	Box10_size_factor = 0.0625 ;
+	Box11_active = ON ;
+	Box11_enabled = ON ;
+	Box11_type = "VERTICAL" ;
+	Box11_control_id = 11 ;
+	Box11_position_x = 0.15625 ;
+	Box11_size_x = 0.8 ;
+	Box11_size_y = 0.4 ;
+	Box11_size_factor = 0.0625 ;
+	Box12_active = ON ;
+	Box12_enabled = ON ;
+	Box12_type = "VERTICAL" ;
+	Box12_control_id = 12 ;
+	Box12_position_x = 0.21875 ;
+	Box12_size_x = 0.8 ;
+	Box12_size_y = 0.4 ;
+	Box12_size_factor = 0.0625 ;
+	Box13_active = ON ;
+	Box13_enabled = ON ;
+	Box13_type = "VERTICAL" ;
+	Box13_control_id = 13 ;
+	Box13_position_x = 0.28125 ;
+	Box13_size_x = 0.8 ;
+	Box13_size_y = 0.4 ;
+	Box13_size_factor = 0.0625 ;
+	Box14_active = ON ;
+	Box14_enabled = ON ;
+	Box14_type = "VERTICAL" ;
+	Box14_control_id = 14 ;
+	Box14_position_x = 0.34375 ;
+	Box14_size_x = 0.8 ;
+	Box14_size_y = 0.4 ;
+	Box14_size_factor = 0.0625 ;
+	Box15_active = ON ;
+	Box15_enabled = ON ;
+	Box15_type = "VERTICAL" ;
+	Box15_control_id = 15 ;
+	Box15_position_x = 0.40625 ;
+	Box15_size_x = 0.8 ;
+	Box15_size_y = 0.4 ;
+	Box15_size_factor = 0.0625 ;
+	Box16_active = ON ;
+	Box16_enabled = ON ;
+	Box16_type = "VERTICAL" ;
+	Box16_control_id = 16 ;
+	Box16_position_x = 0.46875 ;
+	Box16_size_x = 0.8 ;
+	Box16_size_y = 0.4 ;
+	Box16_size_factor = 0.0625 ;
+	}
+//AAA::filename fx_c.bdd_snd_synth_spectrum
+bdd_snd_synth_spectrum ( Version 0 )
+	{
+	active = ON ;
+	band_nb = 16 ;
+	use_image = ON ;
+	component = "GREY" ;
+	freq_u = 0.25 ;
+	volume = 1 ;
+	freq_start = 0.2302 ;
+	freq_stop = 0.594802 ;
+	band_01 = 0.411765 ;
+	band_02 = 0.478431 ;
+	band_03 = 0.576471 ;
+	band_04 = 0.701961 ;
+	band_05 = 0.792157 ;
+	band_06 = 0.878431 ;
+	band_07 = 0.780392 ;
+	band_08 = 0.698039 ;
+	band_09 = 0.631373 ;
+	band_10 = 0.596078 ;
+	band_11 = 0.537255 ;
+	band_12 = 0.407843 ;
+	band_13 = 0.27451 ;
+	band_14 = 0.219608 ;
+	band_15 = 0.227451 ;
+	band_16 = 0.345098 ;
+	band_17 = 0.0104575 ;
+	band_18 = 0.00915033 ;
+	band_19 = 0.0117647 ;
+	band_20 = 0.0143791 ;
+	band_21 = 0.0117647 ;
+	band_22 = 0.00653595 ;
+	band_23 = 0.00261438 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_snd_synth_spectrum" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 8 ;
+	}

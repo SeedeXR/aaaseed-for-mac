@@ -1,0 +1,11 @@
+-- preset v0 for MEU|AAAUpdate_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["app.target app"] = 1
+tab["exe.target exe"] = 1
+tab["interface net id"] = 1
+tab["list.ip_target_list"] = 1
+tab["range.ip_target_range"] = { 229, 254 }
+tab["single.ip_target"] = 1
+tab["target type"] = 1
+tab["target_ip_type"] = 2

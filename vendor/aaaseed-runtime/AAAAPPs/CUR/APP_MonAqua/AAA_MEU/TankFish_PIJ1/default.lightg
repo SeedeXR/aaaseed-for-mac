@@ -1,0 +1,4 @@
+lights ( Version 0 )
+	{
+	ambient_global_grey = 0 ;
+	}

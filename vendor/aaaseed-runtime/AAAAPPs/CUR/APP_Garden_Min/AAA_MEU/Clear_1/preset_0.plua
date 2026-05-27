@@ -1,0 +1,5 @@
+-- preset v0 for MEU|Clear_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["color"] = true
+tab["depth"] = true

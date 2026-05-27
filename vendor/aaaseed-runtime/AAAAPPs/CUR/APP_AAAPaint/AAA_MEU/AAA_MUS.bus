@@ -1,0 +1,6 @@
+-- BU position value for BUS|Garden
+BUS.set_bu_pos_value( "fbo_dif", {4.40625,1.578125, 0.4375,0.09375}, { b_hidden=false, render=1 } )
+BUS.set_bu_pos_value( "out_1", {4.3125,2.265625, 0.4375,0.09375}, { render=1 } )
+BUS.set_bu_pos_value( "render_1", {4.40625,1.9375, 0.6875,1}, 1 )
+BUS.set_bu_pos_value( "tutocurve3d_1", {4.34375,2.078125, 0.4375,0.09375}, { render=1 } )
+BUS.set_bu_pos_value( "tutocurvesrc_1", {4.34375,1.828125, 0.4375,0.09375}, { render=1 } )

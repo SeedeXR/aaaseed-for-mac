@@ -1,0 +1,11 @@
+-- preset for MEU_DIR|Dir_Kinect
+tab["a"] = 1
+tab["b"] = 1
+tab["blur_1"] = 1
+tab["depthpick_1"] = 1
+tab["fieldgene_1"] = 1
+tab["kinbis_1"] = 0
+tab["kinmoveauto_1"] = 1
+tab["ref_f1"] = 1
+tab["ref_f4"] = 1
+tab["restore"] = 1

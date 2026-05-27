@@ -1,0 +1,111 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 9.05 ;
+	rot_x = -0.0324999 ;
+	rot_y = -0.0894997 ;
+	tra_z = -4.02944 ;
+	}
+//AAA::filename fx_a.bdd_img_smooth
+bdd_img_smooth ( Version 0 )
+	{
+	active = ON ;
+	image_src = 33 ;
+	image_dst_base = 34 ;
+	mono = ON ;
+	smooth_size_x = 16 ;
+	smooth_size_y = 16 ;
+	bc = ON ;
+	bc_image_dst = 34 ;
+	bc_min = 0.468026 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_smooth" ;
+	}
+//AAA::filename fx_b.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 34 ;
+	image_dst_base = 35 ;
+	draw_in_texture = ON ;
+	contour_dst = 35 ;
+	contour_mode = "External" ;
+	blob_area_min = 512 ;
+	blob_area_max = 1.30479e+06 ;
+	polygon_approximation_factor = 0.0018121 ;
+	contour_draw = ON ;
+	bounding_draw_alpha = 0.25 ;
+	bounding_draw_ellipse = ON ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	primitive = "POLYGON" ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_contour" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_d.face
+bdd_face ( Version 0 )
+	{
+	bdd_dimension = "3D" ;
+	bdd_nb_v = 1 ;
+	bdd_nb_axe = 1 ;
+	lock_u = "SPACE_RELATIVE" ;
+	lock_v = "SPACE_RELATIVE" ;
+	face_axe = "AXE" ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 3 ;
+	}

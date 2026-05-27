@@ -1,0 +1,21 @@
+-- preset v0 for MEU|MdhGrid_1
+tab["back_alpha"] = 1
+tab["back_blue"] = 1
+tab["back_green"] = 1
+tab["back_grey"] = 1
+tab["back_red"] = 1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 0
+tab["grid 1_alpha"] = 1
+tab["grid 1_blue"] = 1
+tab["grid 1_green"] = 1
+tab["grid 1_grey"] = 1
+tab["grid 1_red"] = 1
+tab["grid 2_alpha"] = 1
+tab["grid 2_blue"] = 1
+tab["grid 2_green"] = 1
+tab["grid 2_grey"] = 1
+tab["grid 2_red"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true

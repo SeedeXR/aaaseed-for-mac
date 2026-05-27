@@ -1,0 +1,24 @@
+midi ( Version 0 )
+	{
+	in_active = ON ;
+	in_device = 2 ;
+	out_active = ON ;
+	out_device = 2 ;
+	bank_cur = 19 ;
+	bank_direct = ON ;
+	mackie_mess = "AAATK 3" ;
+	control_offset = 24 ;
+	but_global_a = ON ;
+	verbose_velocity_master = ON ;
+	verbose_noteon = ON ;
+	verbose_velocity = ON ;
+	verbose_noteoff = ON ;
+	verbose_program_change = ON ;
+	verbose_control_change = ON ;
+	verbose_aftertouch_poly = ON ;
+	verbose_aftertouch_channel = ON ;
+	verbose_pitchbend = ON ;
+	verbose_system = ON ;
+	verbose_midi_clock = ON ;
+	verbose_read_bank = ON ;
+	}

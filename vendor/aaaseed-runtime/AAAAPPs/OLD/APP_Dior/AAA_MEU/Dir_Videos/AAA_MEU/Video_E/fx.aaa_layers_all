@@ -1,0 +1,66 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_video" ;
+	image_keep_nb = 2 ;
+	video_src = 21 ;
+	loop = ON ;
+	time_asked = 2502.94 ;
+	direct_show_ffdshow = ON ;
+	video_preroll = 8 ;
+	capture_device_index_asked = 2 ;
+	capture_device_id_asked = "\\?\decklink#avstream#6&37d03b81&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\decklinkcapture1" ;
+	capture_size_x = 1920 ;
+	capture_size_y = 1080 ;
+	capture_luma_max = 1.01246 ;
+	incrust_min = 0.32693 ;
+	incrust_max = 0.499058 ;
+	threshold = 0 ;
+	remanence_time = 128 ;
+	remanence_color = ON ;
+	remanence_diff = ON ;
+	remanence_diff_min = 0.0013401 ;
+	remanence_diff_factor = 2 ;
+	mipmap_generate = ON ;
+	}
+//AAA::filename fx_a.cap_flycapture
+flycap_ui ( Version 0 )
+	{
+	resolution = "Custom" ;
+	framerate = "30 fps" ;
+	x_res = 752 ;
+	brightness_auto = OFF ;
+	brightness_value = 25 ;
+	exposure_auto = OFF ;
+	exposure_value = 12 ;
+	gamma = ON ;
+	pan_auto = OFF ;
+	pan_value = 0 ;
+	shutter_auto = OFF ;
+	shutter_value = 151 ;
+	gain_auto = OFF ;
+	gain_value = 34 ;
+	}
+//AAA::filename fx_a.cap_directshow
+ds_cap_ui ( Version 0 )
+	{
+	ds_use_format_index = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 3 ;
+	bind_2d = 4 ;
+	use_tex_video = ON ;
+	}

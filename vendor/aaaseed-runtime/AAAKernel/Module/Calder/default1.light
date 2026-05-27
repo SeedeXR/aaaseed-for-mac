@@ -1,0 +1,7 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	Intensity = 0.0330241 ;
+	Ambient_grey = 1 ;
+	Diffuse_grey = 1 ;
+	}

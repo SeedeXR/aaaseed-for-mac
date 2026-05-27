@@ -1,0 +1,7 @@
+model ( Version 0 )
+	{
+	axe_object = "Z" ;
+	size_u = 2.000000 ;
+	size_v = 2.000000 ;
+	size_axe = 2.000000 ;
+	}

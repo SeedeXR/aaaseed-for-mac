@@ -1,0 +1,6 @@
+-- BU position for BUS_Tuto
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_pos( 0, "a", -1.543371879681, 1.536364050021, 2.9600867808444, 1.4800433904222, 0 )
+BUS.set_bu_pos( 0, "b", -1.6501282905925, -0.95072850202537, 1.3376562249159, 1.3376562249159, 0 )
+BUS.set_bu_pos( 0, "final", 2, 0, 2, 1, 0 )

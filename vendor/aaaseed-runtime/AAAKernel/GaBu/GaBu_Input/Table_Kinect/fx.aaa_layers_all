@@ -1,0 +1,91 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "table_kinect.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "Left_Right" ;
+	lua = ON ;
+	FBO = "Once" ;
+	use_camera = "Owner" ;
+	name_symbo = "table_kinect_layers" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 1 ;
+	rot_x = 0.5 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 512 ;
+	size_asked_y = 512 ;
+	tex_1_bind_2d_asked = 33 ;
+	tex_1_on_cpu = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_u_ori = -0.252471 ;
+	tex_v_ori = -0.343412 ;
+	tex_u = 0.539664 ;
+	tex_v = 0.465596 ;
+	tex_by_side = ON ;
+	tex_left = 0.252471 ;
+	tex_right = 0.792135 ;
+	tex_bottom = 0.343412 ;
+	tex_top = 0.809008 ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "table_texvideo_kinect_1" ;
+	image_on_cpu_wanted = ON ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_open = ON ;
+	capture_run = ON ;
+	incrust_luma = ON ;
+	incrust_min = 0.0350058 ;
+	incrust_max = 0.416343 ;
+	remanence_time = 4096 ;
+	remanence_diff_min = 0.0487483 ;
+	remanence_diff_factor = 3.62812 ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	motor_position = 0.536695 ;
+	depth_render_type = "Z_Blue_Green" ;
+	depth_raw_min = 0.323449 ;
+	depth_raw_max = 0.61175 ;
+	depth_meter_min = 1.30229 ;
+	depth_meter_central = 1.50065 ;
+	depth_meter_max = 0.598259 ;
+	depth_erase_3_y = 0.323449 ;
+	depth_erase_3_sx = 0.61175 ;
+	depth_erase_3_sy = 1.30229 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	use_tex_video = ON ;
+	}

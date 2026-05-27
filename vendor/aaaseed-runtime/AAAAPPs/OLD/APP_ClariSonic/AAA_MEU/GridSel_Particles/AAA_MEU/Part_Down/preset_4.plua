@@ -1,0 +1,18 @@
+-- preset for MEU|Part_Down("proto_Part")
+tab["blue"] = 1
+tab["cam_index"] = 1
+tab["green"] = 0
+tab["hue"] = 1.0490499736043
+tab["mapping_blend"] = 2
+tab["ori_u"] = 0
+tab["ori_v"] = 0
+tab["red"] = 0
+tab["sfactor"] = 0.6904169779588
+tab["su"] = 2
+tab["sv"] = 0.039452115058437
+tab["tex_bank"] = 0
+tab["tex_bind"] = 8
+tab["tex_dim"] = 2
+tab["u"] = 0.99999999988358
+tab["v"] = 0.99999999988358
+tab["value"] = 0.73760902869981

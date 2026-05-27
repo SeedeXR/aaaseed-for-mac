@@ -1,0 +1,265 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "pavona_tapestry.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	camera_index_ui = 15 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_x = -1.112 ;
+	tra_y = -35.544 ;
+	tra_z = -119.658 ;
+	clip_close_perspective = 16 ;
+	clip_far_perspective = 200 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_y = 0.25 ;
+	tra_x = 1.138 ;
+	tra_y = -19.526 ;
+	tra_z = -94.2938 ;
+	clip_close_perspective = 16 ;
+	clip_far_perspective = 200 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_x = -1.112 ;
+	tra_y = -35.544 ;
+	tra_z = -119.658 ;
+	clip_close_perspective = 16 ;
+	clip_far_perspective = 200 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = 0.029 ;
+	rot_y = -8.03266e-09 ;
+	tra_x = -0.0820005 ;
+	tra_y = -24.924 ;
+	tra_z = -97.3214 ;
+	clip_close_perspective = 16 ;
+	clip_far_perspective = 200 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_x = -1.112 ;
+	tra_y = -35.544 ;
+	tra_z = -119.658 ;
+	clip_close_perspective = 16 ;
+	clip_far_perspective = 200 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = -0.0374999 ;
+	rot_y = -0.809499 ;
+	tra_x = 0.234 ;
+	tra_y = -1.344 ;
+	tra_z = -7.2086 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 1.0255 ;
+	rot_y = 3.7255 ;
+	tra_x = 0.108 ;
+	tra_y = -0.108 ;
+	tra_z = -0.297495 ;
+	clip_close_perspective = 0.25 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = -0.0304999 ;
+	rot_y = -0.717499 ;
+	tra_x = 0.03 ;
+	tra_y = -1.226 ;
+	tra_z = -11.1354 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.08.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = -0.0374999 ;
+	rot_y = -0.809499 ;
+	tra_x = 0.234 ;
+	tra_y = -1.344 ;
+	tra_z = -7.2086 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.09.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = -0.0374999 ;
+	rot_y = -0.809499 ;
+	tra_x = 0.234 ;
+	tra_y = -1.344 ;
+	tra_z = -7.2086 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.10.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = -0.0374999 ;
+	rot_y = -0.809499 ;
+	tra_x = 0.234 ;
+	tra_y = -1.344 ;
+	tra_z = -7.2086 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.11.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = -0.0374999 ;
+	rot_y = -0.809499 ;
+	tra_x = 0.234 ;
+	tra_y = -1.344 ;
+	tra_z = -7.2086 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.12.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = -0.0374999 ;
+	rot_y = -0.809499 ;
+	tra_x = 0.234 ;
+	tra_y = -1.344 ;
+	tra_z = -7.2086 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.13.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = -0.0374999 ;
+	rot_y = -0.809499 ;
+	tra_x = 0.234 ;
+	tra_y = -1.344 ;
+	tra_z = -7.2086 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.14.cam
+seedcam ( Version 0 )
+	{
+	center_x = 9.945 ;
+	center_y = 1.4 ;
+	rot_x = -0.0374999 ;
+	rot_y = -0.809499 ;
+	tra_x = 0.234 ;
+	tra_y = -1.344 ;
+	tra_z = -7.2086 ;
+	clip_close_perspective = 1 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.134221 ;
+	}
+//AAA::filename fx.15.cam
+seedcam ( Version 0 )
+	{
+	focal = 24.403 ;
+	focal_horizontal = ON ;
+	draw_axe = ON ;
+	center_x = 1.46 ;
+	center_y = 1.4 ;
+	rot_y = 0.25 ;
+	tra_z = 0 ;
+	pitch = -0.03 ;
+	clip_close_perspective = 18 ;
+	clip_far_perspective = 100 ;
+	frustum_offset_y = -0.0645 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	front_mode = "LINE" ;
+	back_mode = "LINE" ;
+	line_size = 3.89329 ;
+	point_size = 0.001 ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 5 ;
+	bind_3d = 10 ;
+	}

@@ -1,0 +1,91 @@
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = samples (from 2.0 to 16.0)
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+mat3 rotm;
+
+mat3 rot(vec3 v, float angle)
+{
+	float c = cos(angle);
+	float s = sin(angle);
+
+	return mat3(c + (1.0 - c) * v.x * v.x, (1.0 - c) * v.x * v.y - s * v.z, (1.0 - c) * v.x * v.z + s * v.y,
+		(1.0 - c) * v.x * v.y + s * v.z, c + (1.0 - c) * v.y * v.y, (1.0 - c) * v.y * v.z - s * v.x,
+		(1.0 - c) * v.x * v.z - s * v.y, (1.0 - c) * v.y * v.z + s * v.x, c + (1.0 - c) * v.z * v.z
+		);
+}
+
+
+vec2 dragonkifs(vec3 p)
+{
+	float otrap=1000.;
+	float l=0.;
+	for (int i=0; i<20; i++)
+	{
+		p.y*=-sign(p.x);
+		p.x=abs(p.x);
+		p=p*rotm*1.18-vec3(1.2);
+		l=length(p);
+		if (l>100.) otrap=0.;
+		otrap=min(otrap,l);
+	}
+	return vec2(l*pow(1.18, -20.0)*.15,clamp(otrap*.3,0.,1.));
+}
+
+
+void main(void)
+{
+	float time 	 = aaa_fu_float[0]*.5;
+	ivec2	tex_suv = textureSize( aaa_tex2d[0], 0 );
+	vec2 coord 	 = gl_TexCoord[0].st-0.5; //gl_FragCoord.xy / tex_suv *2. - vec2(1.);
+	coord.y 	*= tex_suv.y / tex_suv.x;
+	vec3 from 	 = 16.0*normalize(vec3(sin(time),cos(time), 0.5+sin(time)));
+	vec3 up		 = vec3(1,sin(time*2.)*.5,1);
+    vec3 edir 	 = normalize(-from);
+    vec3 udir 	 = normalize(up-dot(edir,up)*edir);
+    vec3 rdir 	 = normalize(cross(edir,udir));
+	vec3 dir	 = normalize((coord.x*rdir+coord.y*udir)*.9+edir);
+	vec3 col	 = vec3(0.0);
+	float dist	 = 0.0;
+	rotm		 = rot(normalize(vec3(1.0)),time*3.);
+
+	for (int r=0; r<aaa_fu_int[0]; r++)
+	{
+		vec3 p=from+dist*dir;
+		vec2 d=dragonkifs(p);
+		dist+=max(0.02,abs(d.x));
+		if (dist>20.) break;
+		//col+=vec3(1.+d.y*1.8,.5+d.y,d.y*.5)*.125*sign(d.y);
+		col += vec3(d.y, d.y, d.y ) * 0.5 * sign(d.y); // 0.5 -> param !!!
+
+	}
+	col = col*length(col)*0.001;
+	gl_FragColor = vec4(col,1.0) * aaa_fu_vec4[1];
+
+}
+
+
+
+
+

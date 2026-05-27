@@ -1,0 +1,8 @@
+layers ( Version 0 )
+	{
+	active = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_Z" ;
+	used_for_picking = OFF ;
+	Layer_A = ON ;
+	}

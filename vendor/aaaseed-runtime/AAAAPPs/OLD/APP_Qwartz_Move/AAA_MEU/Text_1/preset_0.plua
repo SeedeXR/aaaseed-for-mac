@@ -1,0 +1,14 @@
+-- preset v0 for MEU|Text_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["text__blue"] = 1
+tab["text__green"] = 1
+tab["text__grey"] = 1
+tab["text__hue"] = 0
+tab["text__red"] = 1
+tab["text__sat"] = 0
+tab["text__value"] = 1
+tab["text_speed"] = 0.20581844555257

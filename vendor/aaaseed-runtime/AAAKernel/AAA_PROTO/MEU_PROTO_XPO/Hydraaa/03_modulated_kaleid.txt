@@ -1,0 +1,6 @@
+// kaleidoscope of an oscillator modulated by simplex noise
+osc(20, 0.1, 1.0)
+  .modulate(noise(3, 0.5), 0.2)
+  .kaleid(6)
+  .colorama(0.005)
+  .out()

@@ -1,0 +1,19 @@
+-- preset for MEU|NdcReactDif_1
+tab["cam_index"] = 2
+tab["diffusion a"] = 1.0000001192093
+tab["difussion b"] = 0.50000005960464
+tab["feed kill"] = { { 0.82224788019283, 0.59734263279946, false, 0.12096774193548, 0.12096774193548 }, { 0.6779349297248, 0.75840587701405, false, 0.12096774193548, 0.12096774193548 } }
+tab["grey gamma"] = 3.29527759552
+tab["how"] = 0
+tab["iteration"] = 40
+tab["kf grey inv"] = false
+tab["kf grey range"] = { 0, 1 }
+tab["laplacian"] = 1
+tab["laplacian size"] = true
+tab["laplacian size gamma"] = 3.3221858775363
+tab["laplacian size inv"] = true
+tab["laplacian size range"] = { 0.2, 0.91112343051997 }
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mul"] = 0
+tab["shader"] = 1

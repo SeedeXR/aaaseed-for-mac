@@ -1,0 +1,7 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "CONTROL" ;
+	Channel = 5 ;
+	Control_id = 5 TraxLoc04Out ;
+	}

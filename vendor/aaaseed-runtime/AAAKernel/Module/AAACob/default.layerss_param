@@ -1,0 +1,10 @@
+module ( Version 0 )
+	{
+	name_symbo = "cobaye_module" ;
+	multiple_only = ON ;
+	module_materials = ON ;
+	module_lights = ON ;
+	layers_index_cur = 59 ;
+	layers_index_end = 63 ;
+	load_all = OFF ;
+	}

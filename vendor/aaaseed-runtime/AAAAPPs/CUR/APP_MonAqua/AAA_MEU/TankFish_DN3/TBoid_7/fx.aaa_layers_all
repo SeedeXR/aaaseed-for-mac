@@ -1,0 +1,114 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	comment = "EAGLE_KL" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	universe = 4 ;
+	id = 7 ;
+	birth_origin_x = -8 ;
+	birth_origin_y = 2.5 ;
+	birth_size_x = 19.9 ;
+	birth_size_y = 2.4 ;
+	birth_size_z = 8 ;
+	birth_id = "from_index" ;
+	birth_mask_type = "Origin" ;
+	acceleration_max = 1.5 ;
+	speed_min = 1.5 ;
+	speed_max = 2.55677 ;
+	speed_vertical_ratio_max = 0.550167 ;
+	speed_noise = 0.5 ;
+	viscosity = 0.406799 ;
+	visibility_max_seen = 1 ;
+	field_active = ON ;
+	target_active = OFF ;
+	target_influence = 1.00193 ;
+	target_x = 4.27225 ;
+	target_y = -4.27225 ;
+	target_z = 0.17225 ;
+	target_radius_internal = 1 ;
+	target_radius_external = 4.17225 ;
+	target_normal = -1 ;
+	box_type = "Repulse" ;
+	box_type_x = "Wrap" ;
+	box_type_y = "Bounce" ;
+	box_type_z = "Bounce" ;
+	box_exponent = 3 ;
+	box_x = -4.54431 ;
+	box_y = 3.5 ;
+	box_z = -6.5 ;
+	box_size_x = 3.13915 ;
+	box_size_y = 3.30803 ;
+	box_size_z = 1.37718 ;
+	box_border_size = 0.596445 ;
+	box_sphere = ON ;
+	box_draw = ON ;
+	repulse_influence = 0.330425 ;
+	repulse_visibility_use = ON ;
+	repulse_distance = 1.6 ;
+	repulse_draw = ON ;
+	repulse_draw_factor = 2 ;
+	repulse_net_draw = ON ;
+	repulse_net_green = 0.5 ;
+	repulse_net_blue = 0 ;
+	flocking_active = ON ;
+	flocking_influence = 0.5 ;
+	flocking_visibility_use = ON ;
+	flocking_distance = 0.8 ;
+	steering_active = ON ;
+	steering_visibility_use = ON ;
+	steering_distance = 0.8 ;
+	mocap_feed_channel = 64 ;
+	}
+//AAA::filename fx_a00.def
+def_distance_field ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 5.70204 ;
+	size_axe = 8 ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = 0.5 ;
+	global_blue = 0 ;
+	convert = ON ;
+	hue = 0.0833333 ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_boid" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_color = ON ;
+	material_use_color = ON ;
+	}

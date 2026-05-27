@@ -1,0 +1,88 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	Max = 0.03125 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.487373 ;
+	rot_y = -974.631 ;
+	tra_x = -0.224 ;
+	tra_y = 0.152 ;
+	tra_z = -2.6739 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 1 ;
+	nb_v = 1024 ;
+	nb_axe = 1024 ;
+	}
+//AAA::filename fx_a.torus
+bdd_torus ( Version 0 )
+	{
+	radius_int = 0.331757 ;
+	nb_u = 2048 ;
+	nb_v = 2048 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	front_mode = "LINE" ;
+	back_mode = "LINE" ;
+	line_smooth = ON ;
+	line_size = 2 ;
+	point_size = 4 ;
+	point_mode = "POINT_SPRITE" ;
+	primitive = "LINE_STRIP" ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 99 ;
+	vertex_fname_asked = "Derviche1.vert" ;
+	vertex_file_check_change = ON ;
+	vu_float_01 = 0.474851 TraxLoc01Out ;
+	vu_float_03 = 0.0220966 ;
+	vu_float_04 = 8 ;
+	vu_01_r_x = 1 ;
+	vu_01_g_y = 1 ;
+	vu_01_b_z = 1 ;
+	vu_01_a_w = 1 ;
+	vu_02_b_z = 1 ;
+	vu_02_a_w = 1 ;
+	geometry_reload_trig = ON ;
+	fragment_bind = 99 ;
+	fragment_fname_asked = "Derviche1.frag" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 8 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bind_2d = 1 ;
+	}

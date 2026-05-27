@@ -1,0 +1,21 @@
+-- preset for MEU|NdcFog_1
+tab["cam_index"] = 0
+tab["color b"] = 0.5
+tab["color g"] = 0.017878010869026
+tab["color r"] = 0.054934080690145
+tab["density"] = 7.8724122047424
+tab["draw"] = true
+tab["shader"] = 1
+tab["start"] = 14.422988891602
+tab["tex_1_bank"] = 5
+tab["tex_1_bind"] = 26
+tab["tex_1_dim"] = 2
+tab["tex_2_bank"] = 5
+tab["tex_2_bind"] = 27
+tab["tex_2_dim"] = 2
+tab["tex_3_bank"] = 5
+tab["tex_3_bind"] = 30
+tab["tex_3_dim"] = 2
+tab["tex_4_bank"] = 5
+tab["tex_4_bind"] = 27
+tab["tex_4_dim"] = 2

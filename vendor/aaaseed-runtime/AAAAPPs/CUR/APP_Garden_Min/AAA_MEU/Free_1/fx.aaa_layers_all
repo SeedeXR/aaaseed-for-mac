@@ -1,0 +1,173 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "free.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 4 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	tra_z = -1.35658 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	tra_x = -0.56 ;
+	tra_y = -0.032 ;
+	tra_z = -2.31987 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	rot_x = 0.0005 ;
+	tra_z = -2.56499 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	tra_x = 0.696 ;
+	tra_y = 0.004 ;
+	tra_z = -2.56968 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	rot_x = -0.0025 ;
+	rot_y = 0.118 ;
+	tra_x = -0.56 ;
+	tra_y = -0.032 ;
+	tra_z = -1.82027 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	rot_x = -0.0075 ;
+	rot_y = -0.125 ;
+	tra_x = 0.695125 ;
+	tra_y = 0.020625 ;
+	tra_z = -2.06539 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	rot_x = 0.003 ;
+	rot_y = -0.0005 ;
+	tra_z = -0.521316 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	rot_x = 0.003 ;
+	rot_y = -0.0005 ;
+	tra_z = -1.34878 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "trs" ;
+	translate = ON ;
+	rotate = ON ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 54 ;
+	nb_v = 86 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	fn = "FractalSum_Improved" ;
+	harmonique_nb = 2 ;
+	axe = "Z" ;
+	factor_x = 0.5 ;
+	space_period = 0.5 ;
+	strenght = 0.25 ;
+	offset = 0.5 ;
+	phase_speed = 0.266159 ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	light = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "mapping" ;
+	tex_use = "2D" ;
+	tex_by_side = ON ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "dummy" ;
+	convert = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 8 ;
+	bind_2d = 17 ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_use_color_dst = "Diffuse" ;
+	material_front = 32 ;
+	material_back = 32 ;
+	}
+//AAA::filename fx_b.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	color = OFF ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_clear_screen" ;
+	}

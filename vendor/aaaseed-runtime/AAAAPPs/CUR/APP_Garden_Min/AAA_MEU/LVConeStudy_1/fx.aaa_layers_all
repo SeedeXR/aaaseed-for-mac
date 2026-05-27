@@ -1,0 +1,138 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "lv_wall_cameras.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_E" ;
+	index_end = "Layer_E" ;
+	camera_index_ui = 7 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_E = ON ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 8.41357 ;
+	rot_x = 0.752 ;
+	rot_y = 0.75 ;
+	tra_y = 0.002 ;
+	tra_z = -5.45885 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = 1.54 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 9 ;
+	size_v = 2.5 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	center_z = 2 ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_u = 4 ;
+	size_v = 9 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_grey = 0.25 ;
+	}
+//AAA::filename fx_c.clip
+clip ( Version 0 )
+	{
+	active = "Owner" ;
+	equation_y = 1 ;
+	equation_w = 0.015625 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_color = ON ;
+	clip_plane = "Owner" ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_e.cone
+bdd_cone ( Version 0 )
+	{
+	nb_u = 96 ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	line_size = 4 ;
+	depth = ON ;
+	}
+//AAA::filename fx_e.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 16 ;
+	size_axe = 4 ;
+	}
+//AAA::filename fx_e.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cone" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	}

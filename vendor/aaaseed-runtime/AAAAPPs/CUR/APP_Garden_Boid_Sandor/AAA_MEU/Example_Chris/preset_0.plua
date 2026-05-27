@@ -1,0 +1,18 @@
+-- preset v0 for MEU|Example_Chris
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["center"] = true
+tab["lines"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["render.back"] = 0
+tab["render.cull"] = 1
+tab["render.depth"] = false
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 17.799530029297
+tab["render.normal"] = 8
+tab["render.normal active"] = false
+tab["render.point"] = 6.3839311599731
+tab["size"] = 0.98576539778357

@@ -1,0 +1,41 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	camera_index_ui = 1 ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	viewport = "CURVE" ;
+	focal = 45 ;
+	ortho_size = 62.0096 ;
+	rot_x = -0.642001 ;
+	rot_y = 0.237 ;
+	tra_x = -1.968 ;
+	tra_y = 3.392 ;
+	tra_z = -24.1347 ;
+	clip_far_perspective = 800 ;
+	clip_close_ortho = -240 ;
+	clip_far_ortho = 240 ;
+	m00 = 0.784393 ;
+	m01 = 0.317064 ;
+	m02 = -0.533103 ;
+	m10 = -0.384525 ;
+	m11 = 0.922962 ;
+	m12 = -0.016846 ;
+	m20 = 0.486692 ;
+	m21 = 0.218205 ;
+	m22 = 0.845883 ;
+	m30 = -1.97786 ;
+	m31 = -2.38865 ;
+	m32 = -3.0874 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.354 ;
+	rot_y = 0.038 ;
+	tra_z = -28.8096 ;
+	}

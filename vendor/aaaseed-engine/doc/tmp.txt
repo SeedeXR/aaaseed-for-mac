@@ -1,0 +1,40 @@
+extern	c_bdd_mocap*		g_bdd_mocap_cur;
+extern	c_def_node*			g_deformer_cur;
+extern	c_feedback*			feedback_cur_;	//todo get rid of
+extern	c_clip*				g_clip_cur;
+extern	c_texturing*		g_texturing_cur;
+extern	c_shading*			g_shading_cur;
+extern	c_shading*			shading_last_;
+extern	c_stencil*			g_stencil_cur;
+extern	c_tex_video*		g_tex_video_cur;
+extern	c_tex_anim*			g_tex_anim_cur;
+extern	c_transfo_three*	g_transfo_three_cur;
+extern	c_transfo_trs*		g_transfo1_cur;
+extern	c_transfo_trs*		g_transfo2_cur;
+extern	c_bdd_curve_edit*	bdd_curve_edit_cur_;
+
+au cas ou
+float ConvertDepth1( float d )
+{
+	float clipZ = ( d - 0.5 ) * 2.0;
+	return -(2.0 * farPlane * nearPlane ) / ( clipZ * ( farPlane - nearPlane ) - ( farPlane + nearPlane ));
+}
+
+float ConvertDepth2( float d )
+{
+	float a = farPlane / ( farPlane - nearPlane );
+	float b = ( farPlane * nearPlane ) / ( nearPlane - farPlane );
+	return b / ( d - a );
+}
+
+float ConvertDepth3(float d)
+{
+	return (nearPlane*farPlane)/(farPlane-d*(farPlane-nearPlane));
+}
+
+// transform range in world-z to 0-1 for near-far
+float DepthRange( float d )
+{
+	return ( d - nearPlane ) / ( farPlane - nearPlane );
+}
+

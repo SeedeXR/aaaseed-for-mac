@@ -1,0 +1,13 @@
+-- preset for MEU|Lionel_1
+tab["alpha"] = 0.33195582031731
+tab["blue"] = 1
+tab["cam_index"] = 0
+tab["green"] = 1
+tab["grey"] = 1
+tab["hue"] = 0.16666667163372
+tab["red"] = 1
+tab["sat"] = 0.87851333618164
+tab["tex_bank"] = 3
+tab["tex_bind"] = 0
+tab["tex_dim"] = 0
+tab["value"] = 1

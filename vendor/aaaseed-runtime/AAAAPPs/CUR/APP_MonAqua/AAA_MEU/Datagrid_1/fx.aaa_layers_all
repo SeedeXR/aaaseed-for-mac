@@ -1,0 +1,108 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	file_check_always = ON ;
+	filename = "data_grid.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	index_end = "Layer_C" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal_horizontal = ON ;
+	tra_z = -7.49983 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = -0.000459366 ;
+	rot_y = -0.000372336 ;
+	tra_x = -0.72 ;
+	tra_y = -0.23 ;
+	tra_z = -3.32988 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	scale_z = 0.3395 ;
+	}
+//AAA::filename fx_a.bdd_datagrid
+bdd_datagrid ( Version 0 )
+	{
+	active = ON ;
+	comma_is_separator = ON ;
+	data_filename = "%media%/AquaLoyal/Stories/Story_1/anim_1.csv" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_datagrid" ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_c.text
+bdd_text ( Version 0 )
+	{
+	origin_x = 1 ;
+	origin_y = 2.84982 ;
+	axe = "Z" ;
+	font = 22 ;
+	alignment = "Left" ;
+	interline = 1.2 ;
+	line_length = 64 ;
+	outset = 0.5 ;
+	render_front = OFF ;
+	face_size = 64 ;
+	face_dpi = 144 ;
+	text = "H_pirate
+Image 2 " ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_factor = 0.5 ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	scale = ON ;
+	scale_factor = 0.5 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_text" ;
+	use_model = ON ;
+	trs_1 = "Owner" ;
+	}

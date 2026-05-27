@@ -1,0 +1,52 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	comment = "N'importe qubjhvhgvghv" ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 128 ;
+	nb_alive_min = 64 ;
+	nb_alive_max = 128 ;
+	mass = 32.0001 ;
+	visibility_max_seen = 1 ;
+	}
+//AAA::filename fx_a.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	type = "FONT_OUTLINE" ;
+	font = 12 ;
+	text = "Lorem ipsum et caetera
+et caetera ..." ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYERS_PREV" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_axe = -1 ;
+	size_factor = 0.128 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

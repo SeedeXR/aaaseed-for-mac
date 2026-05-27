@@ -1,0 +1,48 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	skip_rest = ON ;
+	filename = "VIDEO.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	lua = ON ;
+	FBO = "CURRENT" ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	image_keep_nb = 2 ;
+	video_src = 33 ;
+	play = ON ;
+	direct_show_ffdshow = ON ;
+	sound_active = ON ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	depth_raw_max = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	bind_1d = 1 ;
+	bank_2d = 59 ;
+	bind_2d = 31 ;
+	bind_2d_offset = 128 ;
+	use_tex_video = ON ;
+	name_symbo = "gabu_video_layer" ;
+	}

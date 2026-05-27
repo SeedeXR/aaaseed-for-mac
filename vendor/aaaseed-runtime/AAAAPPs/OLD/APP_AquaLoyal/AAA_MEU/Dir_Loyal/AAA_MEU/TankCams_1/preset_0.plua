@@ -1,0 +1,26 @@
+-- preset v0 for MEU|TankCams_1
+tab["angler"] = 1
+tab["background"] = 0.26019071059015
+tab["bonjour"] = 1
+tab["cachalot"] = 0.9495322550005
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["clip"] = true
+tab["dauphin"] = 1
+tab["debug click"] = false
+tab["force"] = false
+tab["medusor"] = 2.0670661491868
+tab["menu_1"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["personne"] = 1
+tab["picasso"] = 1
+tab["plancton_begin"] = 1
+tab["raie"] = 1
+tab["rascasse"] = 0.90574196876318
+tab["requin"] = 1.4185429698698
+tab["see touch"] = false
+tab["slurp"] = 1
+tab["sunfish"] = 1
+tab["wall"] = true

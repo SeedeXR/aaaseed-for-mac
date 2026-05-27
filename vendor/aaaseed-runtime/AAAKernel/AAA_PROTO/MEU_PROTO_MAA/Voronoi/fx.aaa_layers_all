@@ -1,0 +1,92 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "voronoi.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	}
+//AAA::filename fx_a.bdd_voronoi
+bdd_voronoi ( Version 0 )
+	{
+	bdd_src = "prev" ;
+	index_end = 8192 ;
+	scale_axe = 3.60502 ;
+	draw_site_size = 0.0461128 ;
+	delaunay_draw_line_size = 2.05103 ;
+	delaunay_draw_color_red = 0 ;
+	voronoi = ON ;
+	voronoi_draw_poly_size = 0.747553 ;
+	voronoi_draw_poly_as_triangle = ON ;
+	image_color_use = ON ;
+	image_color_alpha_thereshold = 0 ;
+	image_color_by_triangle = ON ;
+	image_color_bind = 33 ;
+	image_color_size_u = 8 ;
+	image_color_size_v = 8 ;
+	site_index_end = 1073741824 ;
+	precision = 1.86265e-09 ;
+	escape_nb_site = 89 ;
+	escape_nb_half_edge = 12 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{	
+	line_size = 3.53495 ;
+	point_size = 10.3356 ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 0.00390625 ;
+	size_v = 0.015625 ;
+	size_axe = 0.5 ;
+	offset_axe = 524288 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_4 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_voronoi" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 8 ;
+	use_lights_switch = ON ;
+	}

@@ -1,0 +1,6 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	Freq = 0.125 ;
+	}

@@ -1,0 +1,25 @@
+-- preset v0 for MEU_VIDEO|Sound 1("Sound 1")
+tab["bank"] = 8
+tab["bias"] = 0.5
+tab["bind"] = 8
+tab["capture"] = false
+tab["clip"] = false
+tab["cpu"] = true
+tab["flip u"] = 0
+tab["flip v"] = 0
+tab["gain"] = 0.46204501390457
+tab["gpu"] = true
+tab["incrust"] = false
+tab["inv"] = false
+tab["levels"] = { 0, 1 }
+tab["loop"] = true
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["monitor"] = true
+tab["play"] = true
+tab["sound"] = true
+tab["speed"] = 1
+tab["step"] = 33.266375414364
+tab["timecode_in"] = 0
+tab["timecode_out"] = 32400
+tab["volume"] = 0.30000001192093

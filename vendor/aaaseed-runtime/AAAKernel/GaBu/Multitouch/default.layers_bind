@@ -1,0 +1,19 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "init/fx" ;
+	Bind_02 = "AAA_CAMERA/fx" ;
+	Bind_03 = "AAA_CAMERA_perlinpinpin/fx" ;
+	Bind_06 = "Transfo_Push/fx" ;
+	Bind_07 = "Transfo_Pop/fx" ;
+	Bind_09 = "BU_top_example/fx" ;
+	Bind_11 = "rest_dec/fx" ;
+	Bind_12 = "rest_exe/fx" ;
+	Bind_14 = "Info/fx" ;
+	Bind_16 = "Finger/fx" ;
+	Bind_17 = "Fingers/fx" ;
+	Bind_19 = "Ligne/fx" ;
+	Bind_20 = "Lignes/fx" ;
+	Bind_23 = "Blob_fbo_out/fx" ;
+	Bind_25 = "GridRef/fx" ;
+	Bind_26 = "Mess/fx" ;
+	}

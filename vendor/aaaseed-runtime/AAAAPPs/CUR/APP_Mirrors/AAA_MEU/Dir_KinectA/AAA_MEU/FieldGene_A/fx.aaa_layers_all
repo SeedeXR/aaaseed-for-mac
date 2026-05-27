@@ -1,0 +1,164 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_I" ;
+	index_end = "Layer_I" ;
+	Layer_A = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	Layer_E = ON ;
+	Layer_F = ON ;
+	Layer_G = ON ;
+	Layer_I = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_equation = "MAX" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 5 ;
+	bind_2d = 1 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	back_mode = "POINT" ;
+	line_smooth = ON ;
+	line_size = 3 ;
+	primitive = "QUAD_STRIP" ;
+	depth_write = OFF ;
+	top_line_cull = "FRONT" ;
+	top_red = 0 ;
+	top_blue = 0 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_equation = "MAX" ;
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_u = 7.35 ;
+	size_v = 6.08 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_d.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	center_x = -3.75 ;
+	center_y = 2 ;
+	curve_nb_u = 4 ;
+	curve_nb_v = 4 ;
+	ui_index_u = 2 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	bank_2d = 3 ;
+	comment = "KIN A" ;
+	}
+//AAA::filename fx_e.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	center_x = -3.75 ;
+	center_y = -2 ;
+	curve_nb_u = 4 ;
+	curve_nb_v = 4 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	comment = "KIN B" ;
+	}
+//AAA::filename fx_f.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	center_x = -3.75 ;
+	center_y = -2 ;
+	curve_nb_u = 4 ;
+	curve_nb_v = 4 ;
+	ui_index_v = 2 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	bank_2d = 3 ;
+	bind_2d = 2 ;
+	comment = "Kin C" ;
+	}
+//AAA::filename fx_g.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	center_x = 3.75 ;
+	center_y = -2 ;
+	curve_nb_u = 4 ;
+	curve_nb_v = 4 ;
+	ui_index_v = 2 ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	bank_2d = 3 ;
+	bind_2d = 3 ;
+	comment = "Kin D" ;
+	}
+//AAA::filename fx_i.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_mapping = ON ;
+	}

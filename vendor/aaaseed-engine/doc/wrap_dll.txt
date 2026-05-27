@@ -1,0 +1,127 @@
+                                                                    // sr@26-apr-2010
+                                                                    // sr@09-may-2010
+                                                                    // sr@10-may-2010 (new version)
+
+            HOW TO make a DLL wrapper using the "wrap_dll"
+            ==============================================
+            
+0. Not yet resolved: 
+    0.1 linked dependencies of wrapped DLLs
+    0.2 cpp exported classes or methods
+    0.3 NOTE: __stdcall stack issue for unresolved links (OpenCL.dll)
+    0.4 DLL versioning
+    0.5 real wrappers number against declarations verification
+    0.6 DLL load/search path
+    0.7 DLL load counter and function to get the load count
+    0.8 Perhaps, print the name of unresolved fucntion call
+
+1. The "wrap_dll" is implemented by "platform/win32/wrap_dll.cpp" and some macros
+
+2. The wrap_dll.h defines prototypes, macros to be used in wrapper and in callers code
+
+3. The DLL wrapper is (normally) based on:
+    3.1 DLL exported functions - to get a list of finctions and decoration
+    3.2 the .h file with DLL interface declaration
+    
+4. Application caller code should be modified:
+    4.1 add *one* wrap_XXXXX_Init function (to load and wrap the DLL)
+    4.2 [optionaly, if needed] add one wrap_XXXXX_Term function
+
+5. Each DLL wrapper, normally placed on wrap_XXXXX.cpp should have following parts:
+    5.1 Wrapper name (just C-like identifier), will be used in many places
+          #define WRAPPER_NAME        the_good_C_like_name      
+          
+    5.2 Pragma "lib" and faked implementation of Init/Term functions for the linked form of use.
+        Example:
+            #pragma comment( lib, "OpenCL.lib" )
+            
+            UINT32 wrap_OpenCL_Init ( void )
+            {
+                return( WRAP_DLL_LINKED( WRAPPER_NAME ) );         // just give a printout
+            }//wrap_OpenCL_init
+            UINT32 wrap_OpenCL_Term ( void )
+            {
+                return( UNWRAP_DLL_LINKED( WRAPPER_NAME ) );         // just give a printout
+            }//wrap_OpenCL_Term
+
+    5.3 substitution of linkage (ritual dance part 1) __cdecl, __stdcall and  __fastcall) by naked 
+        Note, we use __naked functions in wrapper for the performance matter.
+        In this form of wrappers every DLL-function call will be surcharged by only
+        one instruction
+            JMP [dll_function_address]
+            
+        Example:
+            #define  MYDLL_API         __declspec(naked)
+    
+    5.4 Wrapper declaration begin record(wrapper ritual dance part 2), which has:
+        5.4.1 Wrapper data section declaraion and an association of the wrapper with a DLL-filename to load.
+            Note: it has to be BEFORE ANY function wrappers
+            Example:
+                #pragma section(".wrap_info",read,write)
+                DECL_WRAPPER_DLL( WRAPPER_NAME, "my-dll-name.dll" );
+
+        5.4.2 A list of functions wrappers (implementations).
+            This list is normally done using a copy of the .H of the DLL.
+            Just take the function declaration from the H-file and
+            add the implemenation body as WRAP_CALL2JUMP( function_name )
+            Note, the function name is used *twice*, as a function name AND
+                as a parameter of macro WRAP_CALL2JUMP.
+                
+            Example:
+                PS3EYEMULTICAM_API bool STATIC_MAAAPIENTRY_PS3	
+                PS3EyeMulticamSaveSettings( char* fileName /*="settings.xml"*/ )
+                    WRAP_CALL2JUMP( PS3EyeMulticamSaveSettings );
+    
+        
+        5.4.3 wrapper closing record (wrapper ritual dance part 3) and
+            implementation of the wrap_dll-infrastaructure functions
+            NOTE: this part has to be placed AFTER ALL function wrappers
+
+            Example:
+                DECL_WRAPPER_END( WRAPPER_NAME );
+    
+            5.4.3.1 wrap_XXXXX_Init(void) - DLL loader and  wrappers linker for the DLL function
+                Macro to use in the body: WRAP_DLL( WRAPPER_NAME ). 
+            Example:
+            UINT32  wrap_censys_Init ( void )
+            {
+                return( WRAP_DLL( WRAPPER_NAME ) );
+            }
+    
+            5.4.3.2 wrap_XXXXX_Term(void) - unload the DLL and relink functions to UNDEFINED
+                Macro to use in the body: UNWRAP_DLL( WRAPPER_NAME ). 
+            Example:
+                UINT32  wrap_censys_Init ( void )
+                {
+                    return( WRAP_DLL( WRAPPER_NAME ) );
+                }
+    
+            5.4.3.3 static _unresolved_call() - this function will be called for every
+                unresolved call for the wrapped DLL (if any).   
+                Macro to use in the body: WRAP_UNRESOLVED( WRAPPER_NAME ).
+                Note, the return code (int) has to have a DLL-meaning.
+            Example:
+                int     //CENSYS_ERROR 
+                _unresolved_call ( void )
+                {
+                    WRAP_UNRESOLVED( WRAPPER_NAME );
+                return( (int) censyserrorSYSTEM_INIT_ERROR );
+                }
+            
+6. General note on the __stdcall/__cdecl exported functions:
+    Functions declared as __stdcall balance their stack by callee.
+    This make the stack frame (parameters size) unknown in the wrapper.
+    (Note, remember our wrapers are __naked for the efficiency reason)
+    So, any "unresolved" call to such (__stdcall) a function will crash the
+    application, with an error message and the DLL name, however, as a "last adieu".
+    The information about function name is not available (in this implementation)
+    
+7. More real examples:
+    Search for the wrap_*.cpp and wrap_*.h files in AAASeed sources.
+    (wrap_censys, wrap_isence etc.)
+
+8. In order to be sure, everything is good generated - cearch the mapfile for
+    _w_beg_* and _w_end_* globals. All _p_* and _n_* wrappers have to be placed in between.
+    All wrappers data is placed into the ".wrap_info" segment(section).
+
+=== end ===

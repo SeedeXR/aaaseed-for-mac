@@ -1,0 +1,8 @@
+-- preset v0 for MEU|MantaControl_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["inverse"] = false
+tab["loop"] = false
+tab["play"] = true
+tab["speed"] = 1
+tab["time_factor"] = 4

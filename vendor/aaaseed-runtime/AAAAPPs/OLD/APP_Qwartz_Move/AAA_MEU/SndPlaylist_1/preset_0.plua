@@ -1,0 +1,5 @@
+-- preset v0 for MEU|SndPlaylist_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["vol_max"] = 0.16681895613484
+tab["vol_min"] = 0.27950229750639

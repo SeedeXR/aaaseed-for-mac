@@ -1,0 +1,14 @@
+-- preset v0 for MEU|TdSkel_1
+tab["3d"] = false
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 0
+tab["color"] = false
+tab["dot"] = true
+tab["inter"] = 0.63881065415838
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["null"] = false
+tab["number"] = false
+tab["resize"] = 3.8032654938451
+tab["segment"] = true

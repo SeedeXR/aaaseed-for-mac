@@ -1,0 +1,10 @@
+-- preset for MEU|NdcFog_1
+tab["cam_index"] = 0
+tab["color b"] = 0.5
+tab["color g"] = 0.017878010869026
+tab["color r"] = 0.054934080690145
+tab["density"] = 37.416278839111
+tab["draw"] = true
+tab["shader"] = 1
+tab["start"] = 14.422988891602
+

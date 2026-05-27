@@ -1,0 +1,7 @@
+-- preset for MEU_DIR|Dir_Fbos("Fbos")
+tab["a"] = 1
+tab["alpha"] = 0
+tab["b"] = 0
+tab["master_alpha"] = 0.98683040023108
+tab["restore"] = 1
+tab["save"] = 0

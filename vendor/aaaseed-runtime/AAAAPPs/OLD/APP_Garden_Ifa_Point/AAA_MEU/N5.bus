@@ -1,0 +1,5 @@
+-- BU position for N5
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle  )
+-- page 0
+BUS.set_bu_pos( 0, "n5", -3, 0, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "n5", -3, 0, 0.2, 0.2, 0 )

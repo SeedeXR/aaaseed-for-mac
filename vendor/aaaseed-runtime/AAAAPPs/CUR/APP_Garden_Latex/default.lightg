@@ -1,0 +1,4 @@
+lights ( Version 0 )
+	{
+	two_side = ON ;
+	}

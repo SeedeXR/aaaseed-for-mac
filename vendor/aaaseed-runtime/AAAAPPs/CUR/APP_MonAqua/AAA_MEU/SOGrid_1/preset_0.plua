@@ -1,0 +1,12 @@
+-- preset v0 for MEU|SOGrid_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["circle"] = false
+tab["circles"] = true
+tab["circles nb u"] = 5
+tab["circles nb v"] = 5
+tab["cross"] = false
+tab["grid 1"] = false
+tab["grid 2"] = false
+tab["grid 3"] = false
+tab["grid overlap"] = false

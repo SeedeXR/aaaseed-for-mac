@@ -1,0 +1,27 @@
+-- preset for MEU|ShaderTest_1
+tab["blue"] = 1
+tab["bottom"] = 0
+tab["cam_index"] = 0
+tab["dim"] = 0
+tab["du"] = 0
+tab["dv"] = 0
+tab["green"] = 1
+tab["grey"] = 1
+tab["hexa"] = 0
+tab["hue"] = 1
+tab["left"] = 0
+tab["mapping_blend"] = 1
+tab["nb_u"] = 2
+tab["nb_v"] = 2
+tab["offset_2"] = 0
+tab["offset_4"] = 0
+tab["offset_6"] = 0
+tab["red"] = 1
+tab["right"] = 1
+tab["sat"] = 0
+tab["speed"] = 3.2826971008908
+tab["tex_bank"] = 2
+tab["tex_bind"] = 4
+tab["top"] = 1
+tab["top_line"] = 0
+tab["value"] = 1

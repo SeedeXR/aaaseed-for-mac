@@ -1,0 +1,17 @@
+# Issue template chooser configuration.
+# Disables the "Open a blank issue" escape hatch so every issue is routed
+# through one of the structured templates (bug / feature / question).
+blank_issues_enabled: false
+
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/SeedeXR/aaaseed-for-mac/discussions
+    about: For open-ended conversations, design-review chatter, or v2+ planning topics that are not yet a concrete proposal.
+
+  - name: Documentation site
+    url: https://seedexr.github.io/aaaseed-for-mac/
+    about: Designer + developer guides (MkDocs). Most build / install / Lua-API questions are answered here.
+
+  - name: Ship checklist (install + verify runbook)
+    url: https://github.com/SeedeXR/aaaseed-for-mac/blob/main/SHIP_CHECKLIST.md
+    about: Step-by-step install, quarantine clear, verify-dmg, and known-limitations notes for the v1 universal DMG.

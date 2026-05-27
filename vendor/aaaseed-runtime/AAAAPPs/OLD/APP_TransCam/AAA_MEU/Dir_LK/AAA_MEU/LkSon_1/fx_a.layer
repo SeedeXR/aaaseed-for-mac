@@ -1,0 +1,15 @@
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sound" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	material_front = 8 ;
+	material_back = 8 ;
+	use_lights_switch = ON ;
+	bind_2d = 1 ;
+	}

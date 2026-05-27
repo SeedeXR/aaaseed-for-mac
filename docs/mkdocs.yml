@@ -1,0 +1,92 @@
+site_name: AAASeed for Mac
+site_description: Mac-native port of the AAASeed VJ / generative-art engine.
+site_url: https://seedexr.github.io/aaaseed-for-mac/
+repo_name: SeedeXR/aaaseed-for-mac
+repo_url: https://github.com/SeedeXR/aaaseed-for-mac
+edit_uri: edit/main/docs/
+
+#  mkdocs.yml lives INSIDE docs/ so docs_dir = '.' so MkDocs reads
+#  markdown sources from the same directory as this config file
+#  (not the default `docs` sub-dir which would resolve to docs/docs/).
+docs_dir: '.'
+#  Site output goes to repo-root/site/ so it doesn't get picked up
+#  as a doc source by the previous setting.
+site_dir: ../site
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - search.highlight
+    - search.suggest
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+  - footnotes
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Designer Guide:
+    - Getting Started: designer/getting-started.md
+    - Installation: designer/installation.md
+    - MEU Authoring: designer/meu-authoring.md
+    - Lua API:
+      - Core (aaa.*): designer/lua-api/core.md
+      - Widgets (aaa.ui.*): designer/lua-api/ui.md
+      - File I/O (aaa.io.*): designer/lua-api/io.md
+      - IME (aaa.ime.*): designer/lua-api/ime.md
+    - Sample MEUs: designer/samples.md
+    - Shader Catalog: designer/shader-catalog.md
+  - Developer Guide:
+    - Architecture: developer/architecture.md
+    - Building from source: developer/building.md
+    - Running tests: developer/testing.md
+    - Ship script: developer/ship-script.md
+    - Memory doctrine index: developer/memory-doctrine.md
+    - Path A catalog: developer/path-a-catalog.md
+    - MEU runner: developer/meu-runner.md
+    - Widget system: developer/widget-system.md
+    - NSTextInputClient + IME: developer/nstextinputclient.md
+    - Windows backend (v2+): developer/windows-backend.md
+  - Authoring MEUs (legacy guide): AUTHORING_MEUS_ON_MAC.md
+  - Windows backend runbook: windows-backend-howto.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/SeedeXR/aaaseed-for-mac

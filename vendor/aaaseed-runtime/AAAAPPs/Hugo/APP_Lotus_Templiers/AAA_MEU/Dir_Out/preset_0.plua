@@ -1,0 +1,17 @@
+-- preset for MEU_DIR|OUT("OUT")
+tab["a"] = 1
+tab["b"] = 1
+tab["lotusout_b1"] = 1
+tab["lotusout_b2"] = 1
+tab["lotusout_b3"] = 1
+tab["lotusout_b4"] = 1
+tab["lotusout_b5"] = 1
+tab["lotusout_b6"] = 1
+tab["lotusout_cam"] = 1
+tab["lotusout_f1"] = 1
+tab["lotusout_f2"] = 1
+tab["lotusout_f3"] = 1
+tab["lotusout_f4"] = 1
+tab["lotusout_f5"] = 1
+tab["lotusout_f6"] = 1
+tab["restore"] = 1

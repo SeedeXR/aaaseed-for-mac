@@ -1,0 +1,39 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": { "major": 3, "minor": 21, "patch": 0 },
+
+    "configurePresets": [
+        {
+            "name": "vs2026-v145",
+            "displayName": "Visual Studio 2026 (toolset v145)",
+            "description": "Default. Matches Maa's local setup. Multi-config sln supports Debug, Metal, Release, Wood.",
+            "generator": "Visual Studio 18 2026",
+            "binaryDir": "${sourceDir}/out/cmake-build-v145",
+            "cacheVariables": {
+                "AAA_VSTOOL": "145"
+            }
+        },
+        {
+            "name": "vs2022-v143",
+            "displayName": "Visual Studio 2022 (toolset v143)",
+            "description": "Fallback for machines without VS 2026 Insiders.",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/out/cmake-build-v143",
+            "cacheVariables": {
+                "AAA_VSTOOL": "143"
+            }
+        }
+    ],
+
+    "buildPresets": [
+        { "name": "metal-v145",   "configurePreset": "vs2026-v145", "configuration": "Metal"   },
+        { "name": "release-v145", "configurePreset": "vs2026-v145", "configuration": "Release" },
+        { "name": "wood-v145",    "configurePreset": "vs2026-v145", "configuration": "Wood"    },
+        { "name": "debug-v145",   "configurePreset": "vs2026-v145", "configuration": "Debug"   },
+
+        { "name": "metal-v143",   "configurePreset": "vs2022-v143", "configuration": "Metal"   },
+        { "name": "release-v143", "configurePreset": "vs2022-v143", "configuration": "Release" },
+        { "name": "wood-v143",    "configurePreset": "vs2022-v143", "configuration": "Wood"    },
+        { "name": "debug-v143",   "configurePreset": "vs2022-v143", "configuration": "Debug"   }
+    ]
+}

@@ -1,0 +1,99 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	name_symbo = "fish_camera_display_layers" ;
+	multiple_only = ON ;
+	camera_index_ui = 5 ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	focal = 15.5524 ;
+	ui_lock = ON ;
+	tra_z = -13 ;
+	clip_close_perspective = 6 ;
+	clip_far_perspective = 30 ;
+	frustum_offset_x = -2.2479 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	focal = 14.537 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -13 ;
+	clip_close_perspective = 6 ;
+	clip_far_perspective = 30 ;
+	frustum_offset_x = -1.61192 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	focal = 15.5524 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -13 ;
+	clip_close_perspective = 6 ;
+	clip_far_perspective = 30 ;
+	frustum_offset_x = -0.985761 ;
+	frustum_offset_y = -0.204427 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	focal = 14.537 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -13 ;
+	clip_close_perspective = 6 ;
+	clip_far_perspective = 30 ;
+	frustum_offset_x = -0.260568 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	focal = 14.537 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -13 ;
+	clip_close_perspective = 6 ;
+	clip_far_perspective = 30 ;
+	frustum_offset_x = 0.260568 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	focal = 14.537 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -13 ;
+	clip_close_perspective = 6 ;
+	clip_far_perspective = 30 ;
+	frustum_offset_x = 1.09078 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	focal = 14.537 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -13 ;
+	clip_close_perspective = 6 ;
+	clip_far_perspective = 30 ;
+	frustum_offset_x = 1.61192 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	focal = 14.537 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	tra_z = -13 ;
+	clip_close_perspective = 6 ;
+	clip_far_perspective = 30 ;
+	frustum_offset_x = 2.44213 ;
+	}

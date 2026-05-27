@@ -1,0 +1,86 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "FILE" ;
+	Control_id = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_01 = 0 TraxLoc01Out ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.982998 ;
+	rot_y = 1.99701 ;
+	tra_z = -28.0102 ;
+	m00 = 0.999977 ;
+	m01 = -0.00112435 ;
+	m02 = 0.0066992 ;
+	m10 = 0.000394966 ;
+	m11 = 0.994162 ;
+	m12 = 0.107898 ;
+	m20 = -0.0067814 ;
+	m21 = -0.107893 ;
+	m22 = 0.99414 ;
+	}
+//AAA::filename fx_a.bdd_terrain
+bdd_terrain ( Version 0 )
+	{
+	order = 8 ;
+	show_random = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_terrain" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	axe = "Z" ;
+	align_horizontal = 0 ;
+	text = "toto" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	use_color = ON ;
+	}

@@ -1,0 +1,162 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "neand3d_morph.lua" ;
+	}
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TRIANGLE" ;
+	Freq = -0.125 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport = ON ;
+	sub_viewport_left = 1 ;
+	sub_viewport_right = 2 ;
+	tra_z = -2.53064 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_y_frequency_sin = 0.125 ;
+	rot_y_amplitude_sin = 0.03125 ;
+	rot_x = -0.00899998 ;
+	rot_y = 0.146 ;
+	tra_x = -2.324 ;
+	tra_y = -0.0540001 ;
+	tra_z = -3.92952 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 0.002 ;
+	rot_y = -0.029 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0145 ;
+	rot_y = 0.0045 ;
+	tra_z = -0.93192 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	}
+//AAA::filename fx_a.cone
+bdd_cone ( Version 0 )
+	{
+	center_y = -1 ;
+	u_center = -0.5 ;
+	u_range = 0.703506 ;
+	radius_top = 0.768857 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_smooth = ON ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "Y" ;
+	size_axe = 0 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_grey = 0.125 ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	rotate = ON ;
+	rotate_y = 0.854675 TraxLoc01Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cone" ;
+	use_model = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 14 ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.tri
+bdd_tri ( Version 0 )
+	{
+	flip_yz_at_read = ON ;
+	vbo_use = ON ;
+	draw_uv = ON ;
+	model_filename = "%media%/MdH/Neand/3d/face_men.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	depth = ON ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 502 ;
+	vu_01_a_w = 1 ;
+	vu_02_a_w = 1 ;
+	geometry_reload_trig = ON ;
+	fragment_bind = 502 ;
+	fu_float_01 = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_a_w = 1 ;
+	compute_reload_trig = ON ;
+	}
+//AAA::filename fx_b.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 14 ;
+	use_lights_switch = ON ;
+	}

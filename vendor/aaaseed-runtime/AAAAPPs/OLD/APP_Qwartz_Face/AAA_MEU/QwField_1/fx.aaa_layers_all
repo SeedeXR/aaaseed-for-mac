@@ -1,0 +1,121 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "free.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_end = "Layer_F" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 3 ;
+	}
+//AAA::filename fx_a.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	force_compute = ON ;
+	image_src = 108 ;
+	image_dst_base = 109 ;
+	mono = ON ;
+	resize_fx = 0.5 ;
+	resize_fy = 0.5 ;
+	blur_enable = ON ;
+	blur_size_x = 5 ;
+	blur_size_y = 5 ;
+	bilateral_size = 7 ;
+	bilateral_sigma_color = 0.5 ;
+	edge_enable = ON ;
+	edge_img_dst = 110 ;
+	edge_laplacian = ON ;
+	edge_offset = -1.07449 ;
+	edge_scale = 64 ;
+	sobel_order_x = 2 ;
+	sobel_order_y = 2 ;
+	canny_threshold_min = 0 ;
+	canny_threshold_max = 0.0429036 ;
+	canny_size = "5" ;
+	canny_l2gradient = ON ;
+	erode_img_dst = 110 ;
+	erode_size_x = 1 ;
+	erode_size_y = 1 ;
+	erode_iteration = 3 ;
+	dilate_enable = ON ;
+	dilate_img_dst = 110 ;
+	dilate_size_x = 1 ;
+	dilate_size_y = 1 ;
+	invert_enable = ON ;
+	invert_img_dst = "base" ;
+	optical_flow_poly_n = "7" ;
+	dist_enable = ON ;
+	dist_type = "L2" ;
+	dist_size = "Precise" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	}
+//AAA::filename fx_b.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	force_compute = ON ;
+	image_src = 109 ;
+	image_dst_base = 111 ;
+	resize_fx = 0.5 ;
+	resize_fy = 0.5 ;
+	blur_enable = ON ;
+	blur_size_x = 8 ;
+	blur_size_y = 8 ;
+	erode_size_x = 1 ;
+	erode_size_y = 1 ;
+	dilate_size_x = 1 ;
+	dilate_size_y = 1 ;
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "EXTERNAL" ;
+	}
+//AAA::filename fx_f.bdd_img_cv_mix
+bdd_img_cv_mix ( Version 0 )
+	{
+	active = ON ;
+	force_compute = ON ;
+	image_src = 110 ;
+	image_dst_base = 106 ;
+	image_b = 105 ;
+	mix_method = "MUL" ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_mix" ;
+	}

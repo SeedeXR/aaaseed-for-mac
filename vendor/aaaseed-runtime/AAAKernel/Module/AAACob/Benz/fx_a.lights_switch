@@ -1,0 +1,5 @@
+lights_switch ( Version 0 )
+	{
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	}

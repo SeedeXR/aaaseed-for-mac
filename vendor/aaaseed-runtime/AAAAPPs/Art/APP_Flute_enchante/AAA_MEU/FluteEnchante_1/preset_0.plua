@@ -1,0 +1,9 @@
+-- preset v0 for MEU|FluteEnchante_1
+tab["capteur"] = false
+tab["max threshold"] = 850.13166137548
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["phase"] = 0.50920791999997
+tab["presence"] = 1
+tab["simul"] = true
+tab["story"] = 1

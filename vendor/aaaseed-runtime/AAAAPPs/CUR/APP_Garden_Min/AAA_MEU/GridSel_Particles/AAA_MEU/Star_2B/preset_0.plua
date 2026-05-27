@@ -1,0 +1,14 @@
+-- preset v0 for MEU|Star_2B
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 7
+tab["cam_use"] = 2
+tab["color_blue"] = 0
+tab["color_green"] = 0
+tab["color_grey"] = 1
+tab["color_hue"] = 0
+tab["color_red"] = 1
+tab["color_sat"] = 0
+tab["color_value"] = 1
+tab["mapping_blend"] = 2

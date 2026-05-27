@@ -1,0 +1,74 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.5 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0320002 ;
+	rot_y = 0.0425 ;
+	tra_z = -3.8296 ;
+	}
+//AAA::filename fx_a.bdd_polygon
+bdd_polygon ( Version 0 )
+	{
+	point_nb = 10 ;
+	draw_polygon = OFF ;
+	draw_polyline = ON ;
+	polyline_width = 0.0733128 ;
+	point_02_u = 1 ;
+	point_03_u = 1 ;
+	point_03_v = 1 ;
+	point_04_v = 1.61121 ;
+	point_05_u = -1 ;
+	point_05_v = 1 ;
+	point_06_u = -0.269878 ;
+	point_06_v = 1.32217 ;
+	point_06_axe = 0.792955 ;
+	point_07_u = -0.55786 ;
+	point_07_v = 1.00798 ;
+	point_08_u = -0.571175 ;
+	point_08_v = 0.468999 ;
+	point_09_u = 0.288604 ;
+	point_09_v = 0.684613 ;
+	point_10_u = 0.244251 ;
+	point_10_v = 0.239554 ;
+	point_10_axe = 0.972789 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	type = "NUMBER" ;
+	axe = "X" ;
+	size_factor = 0.189877 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_u_ori = 0.5 ;
+	tex_u = 0.000244141 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_polygon" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_2d = 7 ;
+	use_lights_switch = ON ;
+	}

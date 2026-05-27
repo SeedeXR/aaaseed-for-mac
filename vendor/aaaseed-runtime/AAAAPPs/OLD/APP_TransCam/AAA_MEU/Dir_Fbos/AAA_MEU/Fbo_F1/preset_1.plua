@@ -1,0 +1,16 @@
+-- preset for MEU|F1("F1")
+tab["active"] = 1
+tab["cam_index"] = 0
+tab["chanel"] = 0
+tab["clear"] = 2
+tab["depth"] = 1
+tab["erase"] = 1
+tab["erase_depth"] = 1
+tab["flip u"] = 0
+tab["flip v"] = 0
+tab["channel_type"] = 0
+tab["monitor"] = 1
+tab["save"] = 0
+tab["size"] = 0
+tab["tex1 on cpu"] = 1
+tab["trail"] = 0.050759712095081

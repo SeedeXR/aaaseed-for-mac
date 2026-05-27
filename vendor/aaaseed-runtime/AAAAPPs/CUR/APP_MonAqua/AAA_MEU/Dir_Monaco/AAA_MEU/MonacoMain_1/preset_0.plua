@@ -1,0 +1,6 @@
+-- preset v0 for MEU|MonacoMain_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["dev image resize"] = 2
+tab["load fbx textures"] = true
+tab["monaco image resize"] = 3

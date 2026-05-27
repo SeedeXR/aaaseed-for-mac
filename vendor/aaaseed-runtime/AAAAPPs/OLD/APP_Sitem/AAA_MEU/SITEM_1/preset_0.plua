@@ -1,0 +1,10 @@
+-- preset v0 for MEU|SITEM_1
+tab["chapter"] = 4
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["novation"] = true
+tab["run"] = true
+tab["see table"] = false
+tab["table"] = false
+tab["test"] = false
+tab["video"] = 6

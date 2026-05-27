@@ -1,0 +1,85 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	rot_x = 0.001 ;
+	rot_y = 0.011 ;
+	tra_x = -7.428 ;
+	tra_y = -1.288 ;
+	tra_z = -8.42592 ;
+	}
+//AAA::filename fx_a.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 30 ;
+	image_component = "RED" ;
+	image_dst_base = 31 ;
+	background_reset = ON ;
+	highpass = ON ;
+	highpass_simple = ON ;
+	highpass_simple_smooth_size = 92 ;
+	highpass_simple_noise_size = 28 ;
+	highpass_filter = 17 ;
+	highpass_scale = 22 ;
+	rectify = ON ;
+	rectify_level = 0.630607 ;
+	}
+//AAA::filename fx_a.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	name_symbo = "kinect_process_anal" ;
+	active = ON ;
+	image_src = 0 ;
+	draw_texture = ON ;
+	draw_frame_in = OFF ;
+	find_rect = ON ;
+	threshold = 0.249887 ;
+	find_max = ON ;
+	find_max_skew_y = 0.567 ;
+	find_max_refine_range = 0.14071 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 16 ;
+	gouraud = OFF ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	depth_write = OFF ;
+	top_line = ON ;
+	top_red = 0 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 1.33333 ;
+	size_factor = 4 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "kinect_anal_max" ;
+	use_bdd = "update" ;
+	bdd = "bdd_img_analyse" ;
+	use_model = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	bind_2d = 30 ;
+	}

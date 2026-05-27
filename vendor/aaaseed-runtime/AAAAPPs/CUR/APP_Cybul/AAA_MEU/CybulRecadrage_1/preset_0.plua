@@ -1,0 +1,23 @@
+-- preset v0 for MEU|CybulRecadrage_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["color_blue"] = 1
+tab["color_green"] = 1
+tab["color_grey"] = 1
+tab["color_hue"] = 0
+tab["color_red"] = 1
+tab["color_sat"] = 0
+tab["color_value"] = 1
+tab["mapping_blend"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["ratio"] = 1
+tab["sfactor"] = 1
+tab["su"] = 8
+tab["sv"] = 3.5708334445953
+tab["tex_bank"] = 5
+tab["tex_bind"] = 21
+tab["tex_dim"] = 2
+tab["u min max"] = { 0.30918824672699, 0.77494239807129 }
+tab["v min max"] = { 0.46082642674446, 0.83082628250122 }

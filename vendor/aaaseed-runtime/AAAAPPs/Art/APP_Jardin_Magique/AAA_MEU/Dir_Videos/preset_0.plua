@@ -1,0 +1,16 @@
+-- preset for MEU_DIR|Videos("Videos")
+tab["a"] = 0
+tab["b"] = 0
+tab["restore"] = 0
+tab["vin a"] = 1
+tab["vin b"] = 1
+tab["vin c"] = 1
+tab["vin d"] = 0
+tab["vin e"] = 1
+tab["vin f"] = 1
+tab["vin g"] = 0
+tab["vin h"] = 0
+tab["vin i"] = 1
+tab["vin j"] = 1
+tab["vin k"] = 0
+tab["vin l"] = 0

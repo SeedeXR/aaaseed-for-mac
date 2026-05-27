@@ -1,0 +1,10 @@
+-- preset v0 for MEU|AxiDraw_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["clipping"] = 1
+tab["link"] = true
+tab["offset"] = { -1.5577574408563, 2.6551181834068 }
+tab["pen.position"] = { 0.31346020924471, 0.79637621371848 }
+tab["pos"] = { 0, 1 }
+tab["range"] = { 0, 1 }
+tab["serial port nb"] = 4

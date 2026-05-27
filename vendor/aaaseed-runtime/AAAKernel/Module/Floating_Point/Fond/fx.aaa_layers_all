@@ -1,0 +1,97 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 7 ;
+	Min = 0.0297917 ;
+	Max = 2 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = -9.43 ;
+	orbiting = ON ;
+	rot_x_frequency = 0.113622 ;
+	rot_x = 0.0999999 ;
+	rot_y = 0.094 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 2800 ;
+	size_asked_y = 1050 ;
+	channel_nb = 4 ;
+	tex_1_bind_2d_asked = 48 ;
+	}
+//AAA::filename fx.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	color = OFF TraxLoc02Out ;
+	color_index = "CUSTOM" ;
+	trail_time = 0.786704 TraxLoc01Out ;
+	trail_alpha = -1 TraxLoc02In ;
+	}
+//AAA::filename fx_a.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 32 ;
+	nb_v = 38 ;
+	ui_draw = ON ;
+	ui_intercept = ON ;
+	ui_index_u = 2 ;
+	ui_index_v = 4 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_factor = -1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 2 ;
+	}
+//AAA::filename fx_b.image_gradient
+bdd_img_gradient ( Version 0 )
+	{
+	size_asked_x = 128 ;
+	size_asked_y = 128 ;
+	type = "radial" ;
+	bias = 0.568097 ;
+	stop_color_alpha = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_gradient" ;
+	bind_2d = 17 ;
+	}

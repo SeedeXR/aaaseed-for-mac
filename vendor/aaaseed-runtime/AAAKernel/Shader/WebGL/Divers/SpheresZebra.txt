@@ -1,0 +1,97 @@
+
+#define STEPS 		8
+#define SPHERE_R 	6.0
+#define LINES 		16.0
+
+
+uniform vec2 iResolution;
+uniform float iGlobalTime;
+uniform float iLineSpace; // From 0.1 to 1.0
+
+
+float sphere( vec3 p, float r )
+{
+	return length( p ) - r;
+}
+
+vec3 colorizeDF( vec3 p, vec3 n )
+{
+	float pattern = max( 0.0, abs( pow( sin( ( p.y + n.y ) * LINES + p.x * .0 ), (1.0-iLineSpace) ) ) - 0.85 ) * 4.0;
+	vec3 c = vec3( pattern );
+	return c;
+}
+
+float rm( vec3 p, vec4 s1, vec4 s2, vec4 s3, vec4 s4 )
+{
+	return smin( sphere( p + s1.xyz, s1.w ),
+			 smin( sphere( p + s2.xyz, s2.w ),
+			   smin( sphere( p + s4.xyz, s4.w ), sphere( p + s3.xyz, s3.w )
+				  , 0.5 ), 0.5 ), 0.5 );
+}
+
+vec3 colorize( vec2 uv )
+{
+	float yOff = sin( iGlobalTime ) * 2.0;
+	vec3 ro = vec3( 0.0, yOff, -10.0 );
+	vec3 rd = vec3( uv, 1.0 );
+	rd.y -= yOff * 0.1;
+	rd = normalize( rd );
+
+	vec3 p = ro;
+
+	float time = iGlobalTime;
+
+	float o1 = 3.0, o2 = 2.0, o3 = 3.25, o4 = 2.2;
+	vec3  a1 = vec3(  .1,  .2 , 2.1   );
+	vec3  a2 = vec3(  .5,  .4,  2.5   );
+	vec3  a3 = vec3(  .9,  .6,  2.9   );
+	vec3  a4 = vec3( 1.3,  .8,  2.2   );
+	vec3  i1 = vec3(  .13, .43,  .87  );
+	vec3  i2 = vec3(  .93, .23,  .57  );
+	vec3  i3 = vec3(  .33, .13,  .37  );
+	vec3  i4 = vec3(  .13, .73,  .127 );
+
+	a1 = i1 + time * i2.z;
+	a2 = i2 + time * i1.y;
+	a3 = i3 + time * i1.z;
+	a4 = i4 + time * i2.x;
+
+	vec4 s1 = vec4( vec3( sin( a1.x ), cos( a1.y ), sin( a1.z ) * 0.45 ) * o1, SPHERE_R * 0.6 );
+	vec4 s2 = vec4( vec3( sin( a2.x ), cos( a2.y ), sin( a2.z ) * 0.45 ) * o2, SPHERE_R * 0.7 );
+	vec4 s3 = vec4( vec3( sin( a3.x ), cos( a3.y ), sin( a3.z ) * 0.45 ) * o3, SPHERE_R * 0.8 );
+	vec4 s4 = vec4( vec3( sin( a4.x ), cos( a4.y ), sin( a4.z ) * 0.45 ) * o4, SPHERE_R * 0.9 );
+
+	for( int i = 0; i < STEPS; i++ )
+	{
+		p += rd * rm( p, s1, s2, s3, s4 ) * 0.9;
+	}
+
+	const float nm = 1.0;
+	const vec3 dx = vec3( 1.0, 0.0, 0.0 ) * nm;
+	const vec3 dy = vec3( 0.0, 1.0, 0.0 ) * nm;
+	const vec3 dz = vec3( 0.0, 0.0, 1.0 ) * nm;
+	vec3 n = vec3( rm( p + dx, s1, s2, s3, s4 ) - rm( p - dx, s1, s2, s3, s4 ),
+				   rm( p + dy, s1, s2, s3, s4 ) - rm( p - dy, s1, s2, s3, s4 ),
+				   rm( p + dz, s1, s2, s3, s4 ) - rm( p - dz, s1, s2, s3, s4 ) );
+	n = normalize( n );
+
+	vec3 spC = colorizeDF( p, n );
+
+	vec3 l = vec3( 1.0, 1.0, -1.0 );
+	l = normalize( l );
+	float t = length( p - ro );
+
+	return vec3( max( 0.0, min( 1.0, length( p - ro ) * rm( p + 0.1 * l, s1, s2, s3, s4 ) ) ) ) + spC;
+}
+
+void main(void)
+{
+	vec2 uv = gl_FragCoord.xy / iResolution.xy;
+
+	vec2 uv2 = uv - 0.5;
+	uv2.x *= 1.78;
+	uv2 *= 1.33;
+
+	vec3 color = vec3(1.0, 1.0, 1.0) - colorize( uv2 );
+	gl_FragColor = vec4(color,1.0);
+}

@@ -1,0 +1,17 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "bdd_curve3d/fx" ;
+	Bind_01 = "bdd_tube_path/fx" ;
+	Bind_02 = "bdd_web/fx" ;
+	Bind_03 = "bdd_circle/fx" ;
+	Bind_07 = "Boid/fx" ;
+	Bind_08 = "Mocap/fx" ;
+	Bind_09 = "Curve_from_boid/fx" ;
+	Bind_13 = "Aqua_import/fx" ;
+	Bind_14 = "Aqua_multiple/fx" ;
+	Bind_16 = "Bring_the_noise/fx" ;
+	Bind_18 = "water/fx" ;
+	Bind_20 = "CCOne/fx" ;
+	Bind_21 = "Cercle et Carre/fx" ;
+	Bind_23 = "GP_Auber/fx" ;
+	}

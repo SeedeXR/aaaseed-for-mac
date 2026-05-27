@@ -1,0 +1,24 @@
+pref_start ( Version 0 )
+	{
+	start_with_openvr = ON ;
+	midi_nb = 2 ;
+	kinect_allow = ON ;
+	kinect_azure = ON ;
+	kinect_v2 = ON ;
+	realsense_allow = ON ;
+	start_with_spaceball = ON ;
+	start_with_alpha = ON ;
+	start_window_y = 20 ;
+	start_opengl_major = 3 ;
+	start_opengl_minor = 3 ;
+	opencl_allow = ON ;
+	opencv_opencl_device_wanted = "NVIDIA:GPU|CPU:" ;
+	opencv_start_with_cuda = ON ;
+	bank_2d_nb = 2048 ;
+	bank_3d_nb = 18 ;
+	screen_frequency = 50 ;
+	license_use = OFF ;
+	camera_format = 9 ;
+	camera_format_last = 24 ;
+	file_dialog_path = "..\..\Media\Longuet\VID_20240709_105518.mp4" ;
+	}

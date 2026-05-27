@@ -1,0 +1,472 @@
+// Microsoft Visual C++ generated resource script.
+//
+#pragma code_page(65001)
+
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+#if defined(APSTUDIO_INVOKED) || !defined(DEMO_I2)
+IDI_SEED                ICON                    "seed.ico"
+
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(DEMO_I2)
+#if defined(APSTUDIO_INVOKED)
+IDI_SEED$(DEMO_I2)      ICON                    "3D Exercizer.ico"
+
+#else
+IDI_SEED                ICON                    "3D Exercizer.ico"
+
+#endif
+#endif
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(DEMO_I2)
+#if defined(APSTUDIO_INVOKED)
+VS_VERSION_INFO$(DEMO_I2) VERSIONINFO
+#else
+VS_VERSION_INFO VERSIONINFO
+#endif
+ FILEVERSION 2,0,0,0
+ PRODUCTVERSION 2,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x29L
+#else
+ FILEFLAGS 0x28L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "Comments", "maa@surfgate.org to find Maa"
+            VALUE "CompanyName", "Maa for Intergraph Computer systems"
+            VALUE "FileDescription", "ExerciZe your OpenGL board"
+            VALUE "FileVersion", "2, 0, 0, 0"
+            VALUE "InternalName", "AAASeed v0.69Alpha17 Copyright © 1999-2000 Maa"
+            VALUE "LegalCopyright", "© 1999-2000 Intergraph Computer Systems"
+            VALUE "LegalTrademarks", "3D ExerciZer © 1999-2000 Intergraph Computer Systems"
+            VALUE "OriginalFilename", "3D ExerciZer.exe"
+            VALUE "ProductName", "3D ExerciZer 2.0"
+            VALUE "ProductVersion", "2, 0, 0, 0"
+            VALUE "SpecialBuild", "Final1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200
+    END
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || !defined(DEMO_I2)
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,88,0,74
+ PRODUCTVERSION 0,88,0,74
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x2bL
+#else
+ FILEFLAGS 0x2aL
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "Comments", "maa.berriet@gmail.com to find Mâa"
+            VALUE "CompanyName", "Mâa"
+            VALUE "FileDescription", "AAASeed Version 0.88 Alpha 74"
+            VALUE "FileVersion", "0.88.0.74"
+            VALUE "InternalName", "AAASeed"
+            VALUE "LegalCopyright", "© 1996-2026 Mâa and Franz Hildgen"
+            VALUE "LegalTrademarks", "AAASeed © 1996-2026 Mâa and Franz Hildgen, license MIT"
+            VALUE "OriginalFilename", "AAASeed.exe"
+            VALUE "PrivateBuild", "img_copy clean. DPI AWARENESS, refine GOL blend_equation_advanced , c_bind_img locking changed, remove update_implicit, correct wrap fn by going always thru fns (no cache and compare)"
+            VALUE "ProductName", "AAASeed"
+            VALUE "ProductVersion", "0.88.0.74"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200
+    END
+END
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_GENERATE DIALOG 0, 0, 406, 145
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,295,108,50,14
+    EDITTEXT        IDE_EDITLANGROUP,67,7,150,14,ES_AUTOHSCROLL
+    LTEXT           "Lan Group",IDC_STATIC,7,11,42,8
+    CONTROL         IDB_LOGOMAA,IDC_LOGO,"Static",SS_BITMAP,273,26,85,61
+    EDITTEXT        IDE_EDITMACHINE,67,21,150,14,ES_AUTOHSCROLL
+    LTEXT           "Machine",IDC_STATIC,7,25,37,8
+    EDITTEXT        IDE_EDITVERSION,67,35,150,14,ES_AUTOHSCROLL
+    LTEXT           "AAASeed User",IDC_STATIC,7,53,53,8
+    EDITTEXT        IDE_EDITUSER,67,49,150,14,ES_AUTOHSCROLL
+    LTEXT           "Year",IDC_STATIC,7,67,34,8
+    EDITTEXT        IDE_EDITYEAR,67,64,150,14,ES_AUTOHSCROLL
+    LTEXT           "Month",IDC_STATIC,7,81,34,8
+    EDITTEXT        IDE_EDITMONTH,67,78,150,14,ES_AUTOHSCROLL
+    LTEXT           "Day",IDC_STATIC,7,96,34,8
+    EDITTEXT        IDE_EDITDAY,68,92,149,14,ES_AUTOHSCROLL
+    LTEXT           "Version",IDC_STATIC,7,39,37,8
+    LTEXT           "License",IDC_STATIC,7,127,34,8
+    DEFPUSHBUTTON   "Generate",ID_GENERATEKEY,167,108,50,14
+    EDITTEXT        IDE_EDITLICENSE,52,124,344,14,ES_AUTOHSCROLL
+    EDITTEXT        IDE_EDITPASSWORD,7,108,99,14,ES_AUTOHSCROLL
+END
+
+IDD_TYPEIN DIALOGEX 0, 0, 206, 338
+STYLE DS_SETFONT | DS_3DLOOK | DS_CENTERMOUSE | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOPMOST
+CAPTION "Zobi pas Mouche"
+FONT 8, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_TYPEIN_LINE_ONE,5,41,194,26,ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_BORDER | NOT WS_TABSTOP
+    DEFPUSHBUTTON   "Ok",IDOK,155,5,44,11
+    PUSHBUTTON      "Revert",IDC_REVERT,5,17,44,11
+    CONTROL         "real time",IDC_DIRECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,110,18,42,10
+    PUSHBUTTON      "Apply",IDC_APPLY,155,18,44,11
+    PUSHBUTTON      "Cancel",IDCANCEL,5,5,44,11
+    PUSHBUTTON      "Generate",IDC_GENE,58,5,44,11
+    PUSHBUTTON      "Execute",IDC_EXEC,58,17,44,11
+    LISTBOX         IDC_LIST,5,220,194,105,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    CONTROL         "List sync",IDC_SYNC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,203,43,10
+    EDITTEXT        IDC_TYPEIN,5,41,194,154,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_BORDER | WS_VSCROLL | WS_HSCROLL | NOT WS_TABSTOP
+END
+
+IDD_PASSWORD DIALOGEX 0, 0, 212, 54
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter Password"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDITPASS,128,6,77,12,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,60,33,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,155,33,50,14
+    CONTROL         IDB_LOGOMAA,IDC_LOGO,"Static",SS_BITMAP | SS_REALSIZEIMAGE | WS_DISABLED,7,6,52,41,WS_EX_STATICEDGE
+    LTEXT           "Hello",IDC_HELLO,74,12,17,8,WS_DISABLED
+END
+
+IDD_REALIN DIALOGEX 0, 0, 153, 81
+STYLE DS_SETFONT | DS_CENTERMOUSE | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOPMOST
+CAPTION "Zobi La Mouche"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_REALIN,5,33,143,12,ES_WANTRETURN | NOT WS_BORDER
+    DEFPUSHBUTTON   "Ok",IDOK,104,65,44,11
+    PUSHBUTTON      "Revert",IDC_REVERT,5,49,44,11
+    CONTROL         "sync to",IDC_SYNC_TO,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,54,66,39,10
+    PUSHBUTTON      "Apply",IDC_APPLY,104,49,44,11
+    PUSHBUTTON      "Cancel",IDCANCEL,5,65,44,11
+    PUSHBUTTON      "Inactive",IDC_INA,5,5,44,11,0,0,HIDC_INA
+    PUSHBUTTON      "Default",IDC_DEF,104,5,44,11
+    PUSHBUTTON      "Min",IDC_MIN,5,19,44,11,0,0,HIDC_MIN
+    PUSHBUTTON      "Middle",IDC_MIDDLE,54,5,44,11,0,0,HIDC_MIDDLE
+    PUSHBUTTON      "Max",IDC_MAX,104,19,44,11,0,0,HIDC_MAX
+    CONTROL         "sync from",IDC_SYNC_FROM,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,54,65,46,10
+END
+
+IDD_DEV DIALOGEX 0, 0, 316, 168
+STYLE DS_SYSMODAL | DS_SETFONT | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dev test mess"
+FONT 14, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,11,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,11,26,50,14
+    CONTROL         IDB_FINGER,IDC_DEVIMAGE,"Static",SS_BITMAP | SS_CENTERIMAGE,3,64,68,100
+    DEFPUSHBUTTON   "Other",IDOTHER,11,46,50,14
+    EDITTEXT        IDC_DEV_MESSAGE_EDIT,75,0,241,149,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_REALIN_SIMPLE DIALOGEX 0, 0, 152, 34
+STYLE DS_SYSMODAL | DS_SETFONT | DS_3DLOOK | DS_CENTERMOUSE | WS_MINIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_REALIN,3,5,146,12,ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_BORDER
+    DEFPUSHBUTTON   "Ok",IDOK,76,17,76,11
+    PUSHBUTTON      "Cancel",IDCANCEL,0,17,75,11
+END
+
+IDD_TYPEIN_SIMPLE DIALOGEX 0, 0, 124, 76
+STYLE DS_SETFONT | DS_CENTERMOUSE | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOPMOST
+CAPTION "Zobi pas Mouche"
+FONT 14, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_TYPEIN_LINE_ONE,0,0,124,12,ES_AUTOHSCROLL | ES_WANTRETURN | NOT WS_BORDER
+    DEFPUSHBUTTON   "Ok",IDOK,80,24,44,11
+    PUSHBUTTON      "Revert",IDC_REVERT,0,12,44,11
+    CONTROL         "real time",IDC_DIRECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,45,11,37,10
+    PUSHBUTTON      "Apply",IDC_APPLY,80,12,44,11
+    PUSHBUTTON      "Cancel",IDCANCEL,0,24,44,11
+    LISTBOX         IDC_LIST,0,35,124,41,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    CONTROL         "List sync",IDC_SYNC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,44,25,36,10
+END
+
+IDD_LUA DIALOGEX 0, 0, 434, 264
+STYLE DS_SYSMODAL | DS_SETFONT | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dev test mess"
+FONT 14, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,11,7,50,14
+    PUSHBUTTON      "No More Error",IDCANCEL,9,244,50,14
+    CONTROL         IDB_LUA_POWERED,IDC_DEVIMAGE,"Static",SS_BITMAP | SS_CENTERIMAGE,0,44,68,113
+    DEFPUSHBUTTON   "Other",IDOTHER,11,26,50,14
+    EDITTEXT        IDC_DEV_MESSAGE_EDIT,69,0,365,264,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL | WS_HSCROLL
+END
+
+IDD_SHOW DIALOGEX 0, 0, 393, 201
+STYLE DS_SYSMODAL | DS_SETFONT | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dev test mess"
+FONT 14, "MS Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Ok",IDOK,5,3,50,14
+    CONTROL         IDB_FINGER,IDC_DEVIMAGE,"Static",SS_BITMAP | SS_CENTERIMAGE,60,0,58,37
+    DEFPUSHBUTTON   "Other",IDOTHER,5,20,50,14
+    EDITTEXT        IDC_DEV_MESSAGE_EDIT,0,36,393,165,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_GENERATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 396
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_TYPEIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 199
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 325
+    END
+
+    IDD_PASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 205
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 47
+    END
+
+    IDD_REALIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 148
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 76
+    END
+
+    IDD_DEV, DIALOG
+    BEGIN
+    END
+
+    IDD_REALIN_SIMPLE, DIALOG
+    BEGIN
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 28
+    END
+
+    IDD_TYPEIN_SIMPLE, DIALOG
+    BEGIN
+    END
+
+    IDD_LUA, DIALOG
+    BEGIN
+        RIGHTMARGIN, 320
+    END
+
+    IDD_SHOW, DIALOG
+    BEGIN
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_TYPEIN AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_REALIN AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PASSWORD AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DEV AFX_DIALOG_LAYOUT
+BEGIN
+    0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 100, 100
+END
+
+IDD_REALIN_SIMPLE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_TYPEIN_SIMPLE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_LUA AFX_DIALOG_LAYOUT
+BEGIN
+    0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 100, 100
+END
+
+IDD_SHOW AFX_DIALOG_LAYOUT
+BEGIN
+    0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 100, 100
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_FINGER              BITMAP                  "finger.bmp"
+
+IDB_LUA_POWERED         BITMAP                  "bitmap4.bmp"
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// French (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOMAA             BITMAP                  "logomaa.bmp"
+
+#endif    // French (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

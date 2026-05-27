@@ -1,0 +1,7 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "SCREEN_INDEX" ;
+	Max = 0.125 ;
+	Format = "%.2f" ;
+	}

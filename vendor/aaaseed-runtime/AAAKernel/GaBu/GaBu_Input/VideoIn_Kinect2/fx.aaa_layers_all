@@ -1,0 +1,67 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "kinect.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 6.55588 ;
+	rot_x = 0.0224998 ;
+	rot_y = 0.0985 ;
+	tra_x = 0.17 ;
+	tra_y = 0.0379998 ;
+	tra_z = -12.2842 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "gabuin_texvideo_kinect_2" ;
+	flip_vertical = ON ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_device_index_asked = 1 ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	motor_position = 0 ;
+	depth_render_type = "Z_Grey" ;
+	depth_raw_max = 0 ;
+	depth_meter_min = 1.2 ;
+	depth_meter_central = 2 ;
+	depth_meter_max = 10 ;
+	depth_erase_3_sy = 1.2 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 28 ;
+	use_tex_video = ON ;
+	}

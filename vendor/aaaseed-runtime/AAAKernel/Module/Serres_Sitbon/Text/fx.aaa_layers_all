@@ -1,0 +1,186 @@
+//AAA::set_filename_relative
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_INDEX" ;
+	Limit = "WRAP" ;
+	Limit_max = 256 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "CONTROL" ;
+	Channel = 2 ;
+	Control_id = 12 TraxLoc03Out TraxLoc08In ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "CONTROL" ;
+	Channel = 2 ;
+	Control_id = 12 TraxLoc03Out ;
+	Control_id_bis = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.08.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MULTIPLE_INDEX" ;
+	Output = "RECORDER_FN" ;
+	Limit = "WRAP" ;
+	Limit_max = 38 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.14.trax
+trax ( Version 0 )
+	{
+	Freq = 3.75415 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_01 = 12 TraxLoc02Out TraxLoc03In ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	multiple_only = ON ;
+	index_end = "Layer_C" ;
+	camera_index_ui = 3 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.117 ;
+	rot_y = 0.045 ;
+	tra_z = -13.322 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.187 ;
+	rot_y = 0.032 ;
+	tra_z = -29.3592 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	rotate = ON ;
+	rotate_x = -0.25 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = -0.287327 ;
+	}
+//AAA::filename fx_a.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	font = 0 ;
+	align_horizontal = 0.5 ;
+	text = "Yannick " TraxLoc05Out ;
+	}
+//AAA::filename fx_a.anim
+tex_anim ( Version 0 )
+	{
+	start = 64 ;
+	stop = 116 ;
+	force_start = 64 ;
+	force_stop = 116 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_flip_uv = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	axe_object = "X" ;
+	size_factor = 2 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_tex_anim = "Owner" ;
+	bank_2d = 2 ;
+	bind_2d_offset = 2 TraxLoc08Out ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	font = 0 ;
+	align_horizontal = 0.5 ;
+	text = "Yannick " TraxLoc05Out ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_grey = 1 TraxLoc14Out ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_c.tex2d
+bdd_tex2d ( Version 0 )
+	{
+	origin_z = -1 ;
+	font = 3 ;
+	align_horizontal = 0.5 ;
+	text = "Chagnon" TraxLoc06Out ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tex2d" ;
+	}

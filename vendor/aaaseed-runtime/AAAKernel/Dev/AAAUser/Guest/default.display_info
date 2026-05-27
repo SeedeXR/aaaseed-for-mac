@@ -1,0 +1,5 @@
+display_info ( Version 0 )
+	{
+	update_trig = OFF ;
+	sort = "BY_X" ;
+	}

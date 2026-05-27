@@ -1,0 +1,3 @@
+-- preset for MEU|Fbo_DIF("DIF")
+tab["erase"] = 1
+tab["trail"] = 0.7482990026474

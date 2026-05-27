@@ -1,0 +1,532 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Fn = "FFT" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_K" ;
+	index_end = "Layer_M" ;
+	Layer_D = ON ;
+	Layer_K = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	sub_viewport_left = 0.5 ;
+	rot_x = -0.0015 ;
+	rot_y = 0.0055 ;
+	tra_z = -4.6235 ;
+	}
+//AAA::filename fx_a.image_gradient
+bdd_img_gradient ( Version 0 )
+	{
+	factor = 8 ;
+	bias = 0.72181 ;
+	start_color_grey = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_gradient" ;
+	}
+//AAA::filename fx_b.algo_maa
+bdd_algo_maa ( Version 0 )
+	{
+	point_allocated = 127946 ;
+	point_nb = 7505.68 ;
+	seed = 39808 ;
+	step_y = 0.926952 ;
+	step_factor = -0.113647 ;
+	box_type = "Wrap" ;
+	box_size_factor = 4 ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	axe = "Z" ;
+	size_factor = 0.00751612 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_algo_maa" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_c.bdd_tree
+bdd_tree ( Version 0 )
+	{
+	tree_generate_trig = ON ;
+	tree_level = 4 ;
+	tree_branch_nb = 6 ;
+	tree_branch_nb_extra = 0.241515 ;
+	tree_level_factor = 0.280553 ;
+	tree_branch_move_v = 1 ;
+	tree_branch_move_axe = 0.318564 ;
+	tree_branch_move_factor = 1.72079 ;
+	tree_branch_move_factor = 1.88666 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tree" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_d.boid
+bdd_boid ( Version 0 )
+	{
+	name_symbo = "test_boid_for_voronoi" ;
+	nb_allocated = 8192 ;
+	nb_alive_min = 2048 ;
+	nb_alive_max = 2048 ;
+	birth_size_factor = 8 ;
+	death_target_radius = 0.177826 ;
+	dimension = "2D" ;
+	time_interval = 0.04 ;
+	acceleration_max = 4 ;
+	speed_min = 0.125 ;
+	viscosity = 0.0189503 ;
+	visibility_max_seen = 1 ;
+	field_active = ON ;
+	field_influence = -1 ;
+	target_active = OFF ;
+	target_influence = 0.087204 ;
+	target_shape = "Line" ;
+	box_type = "Repulse" ;
+	box_size_z = 0.162786 ;
+	box_size_factor = 7.40768 ;
+	repulse_distance = 0.155479 ;
+	repulse_net_ease_in = 0.362666 ;
+	repulse_net_green = 0.46778 ;
+	repulse_net_image = ON ;
+	repulse_net_image_bind = 2 ;
+	repulse_net_image_u_begin = 0 ;
+	repulse_net_image_u_factor = 2.37617 ;
+	repulse_net_image_v_begin = 0.5 ;
+	flocking_influence = 0.0318955 ;
+	flocking_distance = 0.353694 ;
+	steering_distance = 0.154932 ;
+	}
+//AAA::filename fx_d.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 65 ;
+	nb_v = 65 ;
+	}
+//AAA::filename fx_d00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	fn = "Turbulence" ;
+	harmonique_nb = 2 ;
+	strenght = 4 ;
+	offset = 0.410031 ;
+	phase_speed = 0.581849 ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_d01.def
+def_image ( Version 0 )
+	{
+	active = ON ;
+	Image_src = 33 ;
+	axe_src = "Z" ;
+	scale_by_model = OFF ;
+	scale_factor = 6.34936 ;
+	clamped = ON ;
+	linear = ON ;
+	radius_u = 0.25 ;
+	radius_v = 0.25 ;
+	radius_factor = 0.125 ;
+	axe_dst = "Z" ;
+	Image_component = "GREEN" ;
+	Gradient = ON ;
+	strenght = -1 ;
+	white_multiply = ON ;
+	}
+//AAA::filename fx_d.dfl
+def_node ( Version 0 )
+	{
+	src_fixed = ON ;
+	AddFileRel "fx_d00.def" def_00 = OFF ;
+	AddFileRel "fx_d01.def" def_01 = ON ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	cull = "BACK" ;
+	front_mode = "LINE" ;
+	back_mode = "POINT" ;
+	line_size = 2 ;
+	light = ON ;
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_d.multiple
+multiple ( Version 0 )
+	{
+	axe = "Z" ;
+	size_factor = 0.0625 ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "1D" ;
+	tex_implicit = OFF ;
+	}
+//AAA::filename fx_d.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_alpha = 0 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_tex_anim = "CURRENT" ;
+	}
+//AAA::filename fx_e.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 6 ;
+	nb_v = 5 ;
+	u_center = 1 ;
+	u_range = 0.5 ;
+	v_center = 0.5 ;
+	v_range = 0.5 ;
+	}
+//AAA::filename fx_e00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = 1 ;
+	offset = 0.5 ;
+	phase_speed = 1.17749 ;
+	}
+//AAA::filename fx_e.dfl
+def_node ( Version 0 )
+	{
+	src_fixed = ON ;
+	AddFileRel "fx_e00.def" def_00 = ON ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	front_mode = "LINE" ;
+	back_mode = "LINE" ;
+	light = ON ;
+	}
+//AAA::filename fx_e.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_f.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 1024 ;
+	nb_max = 1024 ;
+	flow_continuous = ON ;
+	life_time = 4 ;
+	emission_axe = "Z" ;
+	emission_speed_factor = 1 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	}
+//AAA::filename fx_h.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 33 ;
+	image_dst_base = 34 ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 10 ;
+	smooth_size_y = 10 ;
+	background_reset = ON ;
+	laplace_size = 4 ;
+	optical_flow_poly_n = "7" ;
+	bc_out_min = 0.31736 ;
+	bc_out_max = 0.414974 ;
+	rectify_level = 0.996098 ;
+	}
+//AAA::filename fx_h.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	use_texturing = "CURRENT" ;
+	bank_2d = 1 ;
+	bind_2d = 2 ;
+	}
+//AAA::filename fx_i.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 33 ;
+	threshold = 0.562137 ;
+	contour_mode = "External" ;
+	blob_point_nb_min = 128 ;
+	blob_point_nb_max = 163840 ;
+	blob_area_filter = ON ;
+	blob_area_min = 16 ;
+	blob_area_max = 8.38861e+06 ;
+	blob_size_x_min = 0.125 ;
+	blob_size_x_max = 0.5 ;
+	blob_size_y_min = 0.125 ;
+	blob_size_y_max = 0.5 ;
+	polygon_approximation_factor = 0.00132371 ;
+	contour_draw = ON ;
+	}
+//AAA::filename fx_i.ren
+rendering ( Version 1 )
+	{
+	front_mode = "POINT" ;
+	}
+//AAA::filename fx_i.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_i.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_contour" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_k.bdd_voronoi
+bdd_voronoi ( Version 0 )
+	{
+	bdd_src = "prev" ;
+	index_end = 4096 ;
+	delaunay_draw_edge_orientation = ON ;
+	delaunay_draw_line_size = 2 ;
+	delaunay_draw_color_red = 0 ;
+	delaunay_draw_color_green = 0.5 ;
+	voronoi = ON ;
+	voronoi_draw_poly_size = 0.325788 TraxLoc10Out ;
+	voronoi_draw_poly_as_triangle = ON ;
+	voronoi_draw_poly_line_size = 1.92418 ;
+	image_color_bind = 33 ;
+	image_color_size_u = 8 ;
+	image_color_size_v = 8 ;
+	site_index_end = 1073741824 ;
+	precision = 1.86265e-09 ;
+	escape_nb_site = 89 ;
+	escape_nb_half_edge = 12 ;
+	}
+//AAA::filename fx_k.ren
+rendering ( Version 1 )
+	{
+	point_size = 8 ;
+	depth = ON ;
+	}
+//AAA::filename fx_k.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "BOX" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 0.00390625 ;
+	size_v = 0.015625 ;
+	size_axe = 0.5 ;
+	offset_axe = 524288 ;
+	}
+//AAA::filename fx_k.map
+mapping ( Version 0 )
+	{
+	tex_implicit = OFF ;
+	tex_axe = "Z" ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	}
+//AAA::filename fx_k.model
+model ( Version 0 )
+	{
+	size_factor = 7.99379 ;
+	}
+//AAA::filename fx_k.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	}
+//AAA::filename fx_k.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_4 = ON ;
+	light_switch_5 = ON ;
+	light_switch_6 = ON ;
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_k.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	rotate = ON ;
+	rotate_x = 0.25 ;
+	rotate_y = 0.25 ;
+	scale = ON ;
+	scale_x = -1 ;
+	}
+//AAA::filename fx_k.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_voronoi" ;
+	use_model = ON ;
+	use_deformer = "CURRENT" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_l.bdd_voronoi
+bdd_voronoi ( Version 0 )
+	{
+	bdd_src = "prev" ;
+	delaunay_draw_color_red = 1.19292 ;
+	delaunay_draw_color_green = 0.33667 ;
+	delaunay_draw_color_blue = 0.240343 ;
+	voronoi = ON ;
+	voronoi_draw_edge = OFF ;
+	voronoi_draw_poly_size = 0.513922 ;
+	voronoi_draw_poly_as_triangle = ON ;
+	image_color_use = ON ;
+	image_color_bind = 33 ;
+	image_color_size_u = 8 ;
+	image_color_size_v = 8 ;
+	}
+//AAA::filename fx_l.ren
+rendering ( Version 1 )
+	{
+	back_mode = "LINE" ;
+	}
+//AAA::filename fx_l.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_l.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_l.colt
+color ( Version 0 )
+	{
+	global_blue = 0 ;
+	}
+//AAA::filename fx_l.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_voronoi" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	comment = "3th" ;
+	}
+//AAA::filename fx_m.bdd_voronoi
+bdd_voronoi ( Version 0 )
+	{
+	bdd_src = "prev" ;
+	voronoi = ON ;
+	voronoi_draw_edge = OFF ;
+	voronoi_draw_poly_size = 0.803428 ;
+	voronoi_draw_poly_as_triangle = ON ;
+	image_color_use = ON ;
+	image_color_bind = 33 ;
+	image_color_size_u = 8 ;
+	image_color_size_v = 8 ;
+	}
+//AAA::filename fx_m.ren
+rendering ( Version 1 )
+	{
+	back_mode = "LINE" ;
+	}
+//AAA::filename fx_m.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_m.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_m.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_voronoi" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	comment = "4th" ;
+	}

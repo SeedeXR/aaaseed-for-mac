@@ -1,0 +1,16 @@
+-- preset v0 for MEU|OscSendLab_1
+tab["3 dots"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["b"] = false
+tab["c"] = false
+tab["channel"] = 1
+tab["control"] = 1
+tab["fp32 value"] = 0
+tab["frame"] = false
+tab["int32 value"] = 1
+tab["midi"] = false
+tab["random"] = true
+tab["send"] = true
+tab["text value"] = "Text Value"
+tab["verbose"] = false

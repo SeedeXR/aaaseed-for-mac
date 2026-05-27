@@ -1,0 +1,73 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 3.12 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	}
+//AAA::filename fx_a.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	nb_u = 33 ;
+	nb_v = 33 ;
+	ui_draw = ON ;
+	ui_index_u = 4 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_axe = "X" ;
+	tex_by_side = ON ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	vertex_bind = 3 ;
+	fragment_bind = 39 ;
+	fu_float_01 = 0.0420834 ;
+	fu_float_02 = 0.0649588 ;
+	fu_float_03 = 0.125 ;
+	fu_float_04 = 0.125 ;
+	fu_float_06 = 8 ;
+	fu_int_01 = 1 ;
+	fu_01_r_x = 1 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 3.12 ;
+	size_v = 1.2 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	hue = 0.756587 ;
+	saturation = 1 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bind_2d = 31 ;
+	}

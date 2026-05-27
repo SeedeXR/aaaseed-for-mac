@@ -1,0 +1,4 @@
+-- preset v0 for MEU|Main_1
+tab["display all"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true

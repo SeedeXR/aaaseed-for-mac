@@ -1,0 +1,12 @@
+-- preset v0 for MEU|Morph3d_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["dim"] = 1
+tab["inter"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["size"] = 0
+tab["tex_bank"] = 3
+tab["tex_bind"] = 10
+tab["top"] = false

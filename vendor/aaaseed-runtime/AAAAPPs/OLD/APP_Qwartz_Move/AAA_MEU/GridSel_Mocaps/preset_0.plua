@@ -1,0 +1,4 @@
+-- preset for MEU_GRIDSEL|Mocaps("Mocaps")
+tab["grid_sel"] = 3
+tab["restore"] = 0
+tab["sel"] = 1

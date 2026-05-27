@@ -1,0 +1,54 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_video" ;
+	image_on_cpu_wanted = ON ;
+	image_keep_nb = 2 ;
+	flip_bgr = ON ;
+	video_src = 232 ;
+	loop = ON ;
+	time_asked = 573.902 ;
+	direct_show_ffdshow = ON ;
+	video_preroll = 8 ;
+	capture_open = ON ;
+	capture_run = ON ;
+	capture_crossbar_index = 1 ;
+	capture_size_x = 352 ;
+	capture_size_y = 288 ;
+	capture_luma_max = 1.01246 ;
+	incrust_max = 1 ;
+	threshold = 0 ;
+	remanence_time = 128 ;
+	remanence_color = ON ;
+	remanence_diff = ON ;
+	remanence_diff_min = 0.0013401 ;
+	remanence_diff_factor = 2 ;
+	move_to_texture = OFF ;
+	mipmap_generate = ON ;
+	}
+//AAA::filename fx_a.cap_flycapture2
+flycap2_ui ( Version 0 )
+	{
+	resolution = "640x480 Y8" ;
+	framerate = "30 fps" ;
+	color_processing = "Edge sensing" ;
+	SerialNumber = 8060026 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 3 ;
+	bind_2d = 2 ;
+	use_tex_video = ON ;
+	}

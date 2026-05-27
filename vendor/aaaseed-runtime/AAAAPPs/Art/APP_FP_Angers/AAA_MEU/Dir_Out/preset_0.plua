@@ -1,0 +1,7 @@
+-- preset for MEU_DIR|OUT("OUT")
+tab["a"] = 0
+tab["b"] = 0
+tab["out_dif"] = 0
+tab["out_l"] = 1
+tab["out_r"] = 1
+tab["restore"] = 1

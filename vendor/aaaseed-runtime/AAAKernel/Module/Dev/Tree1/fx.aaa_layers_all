@@ -1,0 +1,124 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Min = 1 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	camera_index_ui = 2 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = -7.6999 ;
+	rot_x = 40.0019 ;
+	rot_y = 1.063 ;
+	tra_x = 0.156 ;
+	tra_y = -2.976 ;
+	tra_z = -12.8224 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 8.60901 ;
+	rot_y = 5.01298 ;
+	tra_z = -9.3252 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	flying = ON ;
+	rot_x = 0.488007 ;
+	rot_y = -0.997513 ;
+	tra_x = -0.22 ;
+	tra_y = -4.28 ;
+	tra_z = -3.41246 ;
+	m00 = 0.952612 ;
+	m01 = -0.175527 ;
+	m02 = -0.248431 ;
+	m10 = 0.0915182 ;
+	m11 = 0.944257 ;
+	m12 = -0.316233 ;
+	m20 = 0.290091 ;
+	m21 = 0.278511 ;
+	m22 = 0.915575 ;
+	m30 = 1.32802 ;
+	m31 = -2.46378 ;
+	m32 = -2.27604 ;
+	}
+//AAA::filename fx_a.bdd_tree
+bdd_tree ( Version 0 )
+	{
+	origin_y = -4 ;
+	tree_generate_trig = ON ;
+	tree_trunk = ON ;
+	tree_trunk_move_y = 4 ;
+	tree_level = 7 ;
+	tree_seed = 584 ;
+	tree_branch_nb_extra = 4.91392 ;
+	tree_level_factor = 0.678443 ;
+	tree_branch_move_v = 1.01502 ;
+	tree_branch_move_factor = 1.55133 ;
+	tree_branch_move_v = 0 ;
+	tree_branch_move_factor = 5.11906 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	primitive = "QUAD_STRIP" ;
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	type = "LAYERS_NAME" ;
+	alignment = "Normal" ;
+	axe = "Z" ;
+	size_u = 0.5 ;
+	size_v = 0.5 ;
+	target_name = "tree_one" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_u = 2 ;
+	tex_wrap_u = "REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	start = -2.34292 ;
+	end = -2.22079 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tree" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_2d = 20 ;
+	use_lights_switch = ON ;
+	material_front = 0 ;
+	material_back = 1 ;
+	}

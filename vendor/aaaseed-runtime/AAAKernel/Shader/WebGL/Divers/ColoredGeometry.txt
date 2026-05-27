@@ -1,0 +1,47 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform float iGlobalTime;
+uniform vec2 iMouse;
+uniform vec2 iResolution;
+
+/* Circle distances
+ * 22/12/13 -hektor
+*/
+
+float circle(float x, float y, float r) {
+	return 1.0/sqrt(0.25*y*y + x*x - r);
+}
+
+float dist(float circle1, float circle2) {
+	return 0.0075/sqrt(circle1 - circle2);
+}
+
+void main( void ) {
+
+	float zoom = 100.0;
+	vec2 pos = ( gl_FragCoord.xy / iResolution.xy ) * zoom;
+
+	float color = 0.0;
+	float x = pos.x - zoom/2.0;
+	float y = pos.y - zoom/2.0;
+
+	float mc = circle(pos.x - zoom*iMouse.x, pos.y - zoom*iMouse.y, 10.0);
+	float c = circle(x, y, 30.0);
+	float c2 = circle(x - sin(iGlobalTime)*30.0, y + cos(iGlobalTime)*20.0, 100.0);
+	float c3 = circle(x - sin(iGlobalTime/3.5)*50.0, y + cos(iGlobalTime)*50.0, 55.0);
+	color += mc;
+	color += c;
+	color += c2;
+	color += c3;
+	float line, mcline;
+	mcline = dist(c, mc);
+	line = dist(c, c2);
+	mcline+= dist(c2, mc);
+	line+= dist(c, c3);
+	line+= dist(c2, c3);
+	mcline+= dist(c3, mc);
+	gl_FragColor = vec4( color, line + mcline, mcline*2.0, 1.0 );
+
+}

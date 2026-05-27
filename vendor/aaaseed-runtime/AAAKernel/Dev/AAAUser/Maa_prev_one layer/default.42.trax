@@ -1,0 +1,10 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_COPY" ;
+	Max = 8 ;
+	Filter = 0.82277 ;
+	out_selector_0 = "Y" ;
+	out_selector_1 = "Z" ;
+	out_selector_2 = "X" ;
+	}

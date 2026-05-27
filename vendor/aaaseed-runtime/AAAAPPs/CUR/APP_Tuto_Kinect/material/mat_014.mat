@@ -1,0 +1,6 @@
+material ( Version 0 )
+	{
+	Diffuse_red = 0 ;
+	Diffuse_green = 0 ;
+	Shininess = 0.0272968 ;
+	}

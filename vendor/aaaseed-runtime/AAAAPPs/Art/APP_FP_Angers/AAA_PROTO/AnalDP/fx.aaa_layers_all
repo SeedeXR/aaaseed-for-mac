@@ -1,0 +1,55 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "anal_dp.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.image_analyse
+bdd_img_analyse ( Version 0 )
+	{
+	name_symbo = "Anal" ;
+	active = ON ;
+	begin_u = 0.1 ;
+	begin_v = 0.166783 ;
+	end_u = 0.5 ;
+	end_v = 0.83117 ;
+	size_u = 0.4 ;
+	size_v = 0.664387 ;
+	draw_texture = ON ;
+	draw_frame = ON ;
+	coverage_min = 8.26602e-05 ;
+	coverage_max = 0.00284721 ;
+	}
+//AAA::filename fx_a.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	optical_flow_poly_n = "7" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 6.26821 ;
+	size_v = 2 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_analyse" ;
+	use_model = ON ;
+	bank_2d = 2 ;
+	bind_2d = 2 ;
+	}

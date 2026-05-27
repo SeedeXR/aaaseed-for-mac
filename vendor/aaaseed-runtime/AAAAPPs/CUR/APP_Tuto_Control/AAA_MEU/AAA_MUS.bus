@@ -1,0 +1,7 @@
+-- BU position value for BUS|Garden
+BUS.set_bu_pos_value( "dir_out", {2.90625,0.296875, 0.4375,0.09375}, { b_hidden=false, render=0 } )
+BUS.set_bu_pos_value( "fbo_dif", {2.9375,-0.703125, 0.4375,0.09375}, { render=1 } )
+BUS.set_bu_pos_value( "geouv_new", {3.59375,-0.234375, 0.4375,0.09375}, { render=0 } )
+BUS.set_bu_pos_value( "maalaba_1", {3,-0.046875, 0.4375,0.09375}, { render=1 } )
+BUS.set_bu_pos_value( "render_1", {3,-0.28125, 2,1.9375}, 1 )
+BUS.set_bu_pos_value( "tutomeubucontrol_1", {3.25,-0.484375, 0.4375,0.09375}, { render=0 } )

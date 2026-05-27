@@ -1,0 +1,304 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "kinect_skeleton.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "Left_Right" ;
+	lua = ON ;
+	use_camera = "Owner" ;
+	name_symbo = "kinect_skeleton_layers" ;
+	index_end = "Layer_E" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.044 ;
+	rot_y = 0.0655 ;
+	tra_x = -0.044 ;
+	tra_y = 1.078 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 1024 ;
+	tex_1_bind_2d_asked = 33 ;
+	tex_1_on_cpu = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	alpha_test = "GREATER" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "kinect_skeleton_texvideo" ;
+	image_on_cpu_wanted = ON ;
+	image_keep_nb = 4 ;
+	capture_type = "Kinect" ;
+	capture = ON ;
+	capture_open = ON ;
+	capture_run = ON ;
+	capture_device_id_asked = "USB\VID_045E&PID_02C2\5&259B87DC&0&3" ;
+	incrust_min = -0.041399 ;
+	incrust_max = 0.0590157 ;
+	remanence_time = 4096 ;
+	remanence_diff_min = 0.0487483 ;
+	remanence_diff_factor = 3.62812 ;
+	}
+//AAA::filename fx_a.kinect_ui
+kinect_ui ( Version 0 )
+	{
+	motor_active = ON ;
+	motor_position = 0.863838 ;
+	depth_render_type = "Grey" ;
+	depth_raw_max = 0 ;
+	depth_meter_central = 1.50065 ;
+	depth_meter_max = 1.65 ;
+	skeleton_asked = ON ;
+	skeleton_smooth = ON ;
+	skeleton_full_body = ON ;
+	skeleton_x_flip = ON ;
+	skeleton_mocap_target_1 = "skeleton_1" ;
+	skeleton_mocap_target_2 = "skeleton_2" ;
+	skeleton_select_min_x = -4 ;
+	skeleton_select_max_x = 4 ;
+	skeleton_select_min_y = -4 ;
+	skeleton_select_max_y = 8 ;
+	skeleton_select_min_z = -4 ;
+	skeleton_select_max_z = 4 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	use_tex_video = ON ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	}
+//AAA::filename fx_c.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "skeleton_1" ;
+	nb_node = 20 ;
+	live = ON ;
+	frame_cur = 0 ;
+	draw_node_end = 64 ;
+	size_origins = 0.25 ;
+	draw_segment = ON ;
+	draw_segment_end = 19 ;
+	draw_number = "Billboard" ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_c.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "CUBE" ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_green = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_c.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_z = 3 ;
+	rotate = ON ;
+	rotate_y = 0.5 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_d.mocap
+bdd_mocap ( Version 0 )
+	{
+	name_symbo = "skeleton_2" ;
+	channel_id = 2 ;
+	nb_node = 12 ;
+	live = ON ;
+	frame_cur = 0 ;
+	draw_node_end = 20 ;
+	size_origins = 0.25 ;
+	draw_segment = ON ;
+	draw_segment_end = 19 ;
+	draw_number = "Billboard" ;
+	size_number = 0.0625 ;
+	draw_path_resolution = 1 ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	depth = ON ;
+	}
+//AAA::filename fx_d.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	type = "CUBE" ;
+	size_factor = 0.015625 ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_red = 0.5 ;
+	global_blue = 0.5 ;
+	}
+//AAA::filename fx_d.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	trs_1 = "CURRENT" ;
+	}
+//AAA::filename fx_e.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 16384 ;
+	nb_max = 16384 ;
+	nb_by_sec = 8192 ;
+	flow_continuous = ON ;
+	regular = ON ;
+	life_time = 4 ;
+	emission_bdd = "skeleton_1" ;
+	emission_object_speed_factor = 0.25 ;
+	emission_object_speed_interval = ON ;
+	emission_object_speed_interval_min = 1.14601 ;
+	emission_object_speed_interval_max = 512 ;
+	jitter_speed_abs = 0 ;
+	}
+//AAA::filename fx_e.anim
+tex_anim ( Version 0 )
+	{
+	start = 144 ;
+	stop = 149 ;
+	several_active = ON ;
+	force_start = 144 ;
+	force_stop = 149 ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	}
+//AAA::filename fx_e.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Random" ;
+	axe = "Z" ;
+	size_axe = 0.125 ;
+	size_factor = 0.125 ;
+	}
+//AAA::filename fx_e.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE" ;
+	}
+//AAA::filename fx_e.colt
+color ( Version 0 )
+	{
+	global_red = 0.466619 ;
+	global_alpha = 0.333412 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 9 ;
+	trs_1 = "CURRENT" ;
+	}

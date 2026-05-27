@@ -1,0 +1,7 @@
+-- preset v0 for MEU|TouchCo_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["active"] = true
+tab["tex_bank"] = 3
+tab["tex_bind"] = 11
+tab["tex_dim"] = 1

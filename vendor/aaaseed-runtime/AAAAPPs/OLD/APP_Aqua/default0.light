@@ -1,0 +1,10 @@
+light ( Version 0 )
+	{
+	Intensity = 0.125 ;
+	Position_x = -4 ;
+	Position_y = 4 ;
+	Position_z = 1 ;
+	Ambient_grey = 1 ;
+	Diffuse_grey = 1 ;
+	Specular_grey = 1 ;
+	}

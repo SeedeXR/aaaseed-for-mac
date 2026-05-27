@@ -1,0 +1,1 @@
+MU.label_next = "CUTTLE_HYPNO"

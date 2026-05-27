@@ -1,0 +1,2 @@
+-- BU position value for BUS MediaBrowser inside
+BUS.set_bu_pos_value( "bu_def_1321", {0,-2, 10000,1} )

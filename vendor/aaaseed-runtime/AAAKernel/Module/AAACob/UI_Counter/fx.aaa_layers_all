@@ -1,0 +1,79 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TRIANGLE" ;
+	Freq = 0.0625 ;
+	Min = -4 ;
+	Max = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "3D_MOCAP_FEED" ;
+	Channel = 127 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = -3.35809 TraxLoc05Out TraxLoc06In ;
+	value_01 = 41.7553 TraxLoc01Out ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 1.4 ;
+	tra_x = -0.156 ;
+	tra_y = -1.292 ;
+	tra_z = -4.37916 ;
+	}
+//AAA::filename fx_a.mocap
+bdd_mocap ( Version 0 )
+	{
+	channel_id = 127 ;
+	nb_frame = 200 ;
+	frame_cur = 0 ;
+	use_rot = OFF ;
+	use_sca = OFF ;
+	interpolate = OFF ;
+	interpolate_rotation = OFF ;
+	draw_path = ON ;
+	draw_path_resolution = 2 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_stencil = "CURRENT" ;
+	}

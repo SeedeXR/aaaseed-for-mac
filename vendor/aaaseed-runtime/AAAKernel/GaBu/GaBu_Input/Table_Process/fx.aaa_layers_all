@@ -1,0 +1,148 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_cur = "Layer_D" ;
+	index_end = "Layer_D" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -1.73128 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = 0.5 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 1 ;
+	}
+//AAA::filename fx_b.bdd_img_cv_multitouch
+bdd_img_cv_multitouch ( Version 0 )
+	{
+	active = ON ;
+	image_src = 33 ;
+	image_dst_base = 34 ;
+	image_component = "GREEN" ;
+	smooth_method = "GAUSSIAN" ;
+	smooth_size_x = 5 ;
+	smooth_size_y = 5 ;
+	remanence = ON ;
+	remanence_image_dst = 35 ;
+	remanence_accumulate = OFF ;
+	remanence_time = 0 ;
+	remanence_diff = ON ;
+	remanence_diff_method = "Difference" ;
+	remanence_diff_min = 0.00390625 ;
+	remanence_diff_factor = 4 ;
+	background_reset = ON ;
+	laplace_size = 1 ;
+	optical_flow_poly_n = "7" ;
+	highpass_simple = ON ;
+	highpass_simple_smooth_size = 16 ;
+	highpass_simple_noise_size = 9 ;
+	highpass_erode_dilate = ON ;
+	highpass_filter = 5 ;
+	rectify_image_dst = 35 ;
+	rectify_level = 0.428711 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_multitouch" ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = -0.5 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 3 ;
+	}
+//AAA::filename fx_d.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 35 ;
+	image_component = "GREEN" ;
+	contour_mode = "External" ;
+	blob_point_nb_filter = ON ;
+	blob_point_nb_min = 128 ;
+	blob_point_nb_max = 10240 ;
+	blob_area_min = 2048 ;
+	blob_area_max = 1.56493e+06 ;
+	contour_wanted = OFF ;
+	polygon_approximation_factor = 0.0025 ;
+	bounding_find_y_max_distance = 0.4 ;
+	center_y = 0.5 ;
+	contour_draw = ON ;
+	bounding_draw = ON ;
+	bounding_draw_alpha = 0.5 ;
+	transfer_bdd_target = "GaBuIn_blob_dispatch" ;
+	transfer_center_x = 0.493362 ;
+	transfer_center_y = -0.952381 ;
+	transfer_size_y = 16 ;
+	transfer_size_factor = 0.25 ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	primitive = "TRIANGLE_FAN" ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_contour" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	}

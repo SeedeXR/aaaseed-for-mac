@@ -1,0 +1,4 @@
+bdd_datagrid ( Version 0 )
+	{
+	data_filename = "pref/traxfile06.csv" ;
+	}

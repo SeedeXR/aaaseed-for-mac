@@ -1,0 +1,104 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	stereo = "field_update" ;
+	use_camera = "Owner" ;
+	name_symbo = "GaBuIn_dispatch_layers" ;
+	comment = "Collect Send / Receive" ;
+	index_end = "Layer_B" ;
+	camera_index_view = 7 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 1 ;
+	ui_lock = ON ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	draw_axe = ON ;
+	rot_x = 0.052 ;
+	rot_y = 0.0559999 ;
+	tra_z = -1.93112 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "GaBuIn_dispatch_fbo" ;
+	size_asked_x = 2048 ;
+	size_asked_y = 1024 ;
+	channel_nb = 4 ;
+	tex_1_bind_2d_asked = 40 ;
+	}
+//AAA::filename fx.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	trail_time = 0.0656372 ;
+	}
+//AAA::filename fx_a.bdd_blob
+bdd_blob ( Version 0 )
+	{
+	name_symbo = "GaBuIn_blob_dispatch" ;
+	multiply_unstable = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	back_mode = "LINE" ;
+	primitive = "TRIANGLE_FAN" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	axe = "Z" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	texture_feedback = ON ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.00105 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	name_symbo = "GaBuIn_blob_dispatch_model" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_blob" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 31 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	comment = "Test" ;
+	}

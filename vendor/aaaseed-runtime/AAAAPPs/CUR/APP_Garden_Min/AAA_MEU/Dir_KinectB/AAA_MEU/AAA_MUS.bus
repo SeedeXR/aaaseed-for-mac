@@ -1,0 +1,12 @@
+-- BU position value for BUS|Dir_KinectB
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.preset proto", 1 )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "a", 0 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos_value( "blur_b", {-0.0875,0.3375, 0.225,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "depthpick_b", {0.125,0.1375, 0.225,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "fieldgene_b", {-0.075,-0.0875, 0.225,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "kinmoveauto_b", {0.125,0.025, 0.225,0.05}, { render=1 } )
+BUS.set_bu_pos_value( "ref_fbo_f4", {-0.125,-0.2, 0.225,0.05}, { render=1 } )
+BUS.set_bu_value( "restore", 0 )

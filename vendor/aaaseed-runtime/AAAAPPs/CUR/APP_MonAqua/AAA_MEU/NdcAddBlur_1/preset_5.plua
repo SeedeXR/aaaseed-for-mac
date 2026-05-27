@@ -1,0 +1,19 @@
+-- preset for MEU|NdcDof_1
+tab["blur size"] = 71.829329484509
+tab["cam_index"] = 0
+tab["coc far in"] = 100
+tab["coc far out"] = 100
+tab["coc near in"] = -100
+tab["coc near out"] = -100
+tab["depth_bank"] = 6
+tab["depth_bind"] = 16
+tab["depth_dim"] = 2
+tab["draw"] = true
+tab["shader"] = 1
+tab["src_bank"] = 6
+tab["src_bind"] = 0
+tab["src_dim"] = 2
+tab["tex_bank"] = 5
+tab["tex_bind"] = 29
+tab["tex_dim"] = 1
+tab["use texture"] = 1

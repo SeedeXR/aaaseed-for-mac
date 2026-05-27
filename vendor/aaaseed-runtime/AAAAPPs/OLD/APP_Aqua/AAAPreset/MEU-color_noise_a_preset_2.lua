@@ -1,0 +1,19 @@
+-- preset for MEU-color_noise_a
+tab["sz"] = 1
+tab["ox"] = 0
+tab["oy"] = 0
+tab["bx"] = 0.75664160882725
+tab["alpha"] = 0
+tab["ax"] = 0.38070080327053
+tab["oz"] = 0
+tab["a_sy"] = 1
+tab["ay"] = 0.20589030677151
+tab["a_sz"] = 1
+tab["sx"] = 1
+tab["a_oy"] = 0
+tab["by"] = 0.77425397132003
+tab["a_sx"] = 1
+tab["sy"] = 1
+tab["a_oz"] = 0
+tab["grey"] = 0.62399890364431
+tab["a_ox"] = 0

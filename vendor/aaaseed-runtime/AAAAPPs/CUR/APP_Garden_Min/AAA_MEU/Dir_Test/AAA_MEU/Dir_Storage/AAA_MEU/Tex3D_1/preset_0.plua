@@ -1,0 +1,14 @@
+-- preset v0 for MEU|Tex3D_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["alpha_factor"] = 2.0720462799072
+tab["cam_axe_show"] = 1
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["dst"] = 0
+tab["mapping_blend"] = 2
+tab["origin_u"] = 0
+tab["origin_v"] = 0
+tab["toto"] = 0
+tab["u"] = 1
+tab["v"] = 1

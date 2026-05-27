@@ -1,0 +1,6 @@
+-- preset for MEU|DIF("DIF")
+tab["active"] = 1
+tab["cam_index"] = 0
+tab["fbo.erase"] = 1
+tab["fbo.trail"] = 3.1332094244102
+tab["monitor"] = 1

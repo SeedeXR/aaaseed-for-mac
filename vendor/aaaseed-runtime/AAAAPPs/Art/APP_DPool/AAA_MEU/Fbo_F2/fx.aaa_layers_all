@@ -1,0 +1,33 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "Owner" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 4.40494 ;
+	rot_x_frequency = 0.0929011 ;
+	rot_x = 0.0485 ;
+	rot_y = 0.0880001 ;
+	tra_x = -0.072 ;
+	tra_y = 0.308 ;
+	tra_z = -8.33089 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	size_asked_x = 700 ;
+	size_asked_y = 450 ;
+	channel_nb = 4 ;
+	verbose = OFF ;
+	tex_1_bind_2d_asked = 65 ;
+	}
+//AAA::filename fx.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	color_index = "Grey50" ;
+	}

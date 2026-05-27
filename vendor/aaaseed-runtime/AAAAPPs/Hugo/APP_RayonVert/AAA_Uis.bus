@@ -1,0 +1,15 @@
+-- BU position value for BUS Back Ui
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle [,value] )
+-- page 0
+BUS.set_bu_pos( 0, "ui1", -3, -1.25, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "ui1", 1.375, 0.25, 0.25, 0.25, 0, true )
+BUS.set_bu_pos( 0, "ui2", -2, -1.25, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "ui2", 1.625, 0.25, 0.25, 0.25, 0, true )
+BUS.set_bu_pos( 0, "ui3", -3, -1.25, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "ui3", -1, -1.2, 0.25, 0.25, 0 )
+BUS.set_bu_pos( 0, "ui4", -1, -1.25, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "ui4", 0, -1.2, 0.25, 0.25, 0 )
+BUS.set_bu_pos( 0, "ui5", 1, -1.25, 2, 2, 0 )
+BUS.set_bu_pos_mini( 0, "ui5", 1, -1.2, 0.25, 0.25, 0 )
+BUS.set_bu_pos( 0, "ui6", 2.5, -1.75, 1, 1, 0 )
+BUS.set_bu_pos_mini( 0, "ui6", 2, -1.2, 0.25, 0.25, 0 )

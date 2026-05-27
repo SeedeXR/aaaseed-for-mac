@@ -1,0 +1,142 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 15 ;
+	Min = 1 ;
+	Max = 128 ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 13 ;
+	Max = 4 ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 22 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	flying = ON ;
+	rot_x_frequency = 0.0078125 ;
+	rot_x = 0.5 ;
+	rot_y = 0.00650001 ;
+	m00 = 0.999795 ;
+	m01 = -0.00308996 ;
+	m02 = -0.0199777 ;
+	m10 = 0.00301227 ;
+	m11 = 0.999987 ;
+	m12 = -0.0039172 ;
+	m20 = 0.0199895 ;
+	m21 = 0.00385613 ;
+	m22 = 0.999792 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 1024 ;
+	size_asked_y = 1024 ;
+	channel_nb = 4 ;
+	tex_1_bind_2d_asked = 33 ;
+	tex_1_on_cpu = ON ;
+	}
+//AAA::filename fx.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	color_index = "WHITE" ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 1 TraxLoc01Out ;
+	nb_v = 1 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	offset_x = 1 ;
+	strenght = 0.789202 TraxLoc03Out ;
+	offset = 0.5 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.anim
+tex_anim ( Version 0 )
+	{
+	start = 288 ;
+	stop = 288 ;
+	several_active = ON ;
+	force_start = 288 ;
+	force_stop = 288 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYERS_NAME" ;
+	alignment = "Random_Axe_Y" ;
+	axe = "X" ;
+	size_u = 4 ;
+	size_v = 4 ;
+	size_axe = 3.23325 ;
+	target_name = "SexLayerOne" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_equation = "MIN" ;
+	blend_src = "ZERO" ;
+	blend_dst = "ONE" ;
+	blend_color_red = 1.0361 ;
+	blend_color_green = 0.483065 ;
+	blend_color_alpha = 1.00267 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 0 TraxLoc02Out ;
+	size_v = 0 ;
+	size_axe = 0 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.306345 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 9 ;
+	bind_2d = 8 ;
+	}

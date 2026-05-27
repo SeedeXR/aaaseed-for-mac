@@ -1,0 +1,69 @@
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = Thickness
+// 4 = PI factor
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+float f(vec3 o)
+{
+	float a=cos(o.x*8.)+sin(o.y*8.)+sin(o.z*1.)*12.5-(aaa_fu_float[0]*1.1);
+	float b=length(sin(o.xy)+sin(o.yz)+sin(o.zx));
+	o=vec3(cos(a)+o.x,1.-sin(a)*o.y,sin(a)*o.z)*.5;
+	return mix(dot(cos(o)*cos(o),vec3(1.75))-2.0,b,.5);
+}
+
+vec3 s(vec3 o,vec3 d)
+{
+	float t=0.,a,b;
+	for(int i=0;i<128;i++){
+		if(f(o+d*t)<.1){
+			a=t+1.0;
+			b=t;
+			t=a+b;
+			if(f(o+d*t)<0.0)
+				b=t;
+			else
+				a=t;
+
+			return vec3(mix(vec3(1.0),vec3(0.1,0.15,0.2),vec3(pow(t/64.,1.0))));
+
+		}
+		t+=1.;
+	}
+	return vec3(0.1,0.25,0.23);
+}
+
+void main()
+{
+	gl_FragColor = vec4( s(vec3(cos(1.6+cos(aaa_fu_float[0]*.1))
+					   , sin(.25+sin(aaa_fu_float[0]*.1))
+					   , -5.*sin(aaa_fu_float[0]*.01)*2.0)
+					   , normalize( vec3(gl_TexCoord[0].st,1.0) ));
+}
+
+
+
+
+
+
+

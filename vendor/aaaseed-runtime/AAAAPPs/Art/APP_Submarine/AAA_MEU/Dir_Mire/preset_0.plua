@@ -1,0 +1,12 @@
+-- preset for MEU_DIR|MIRE("MIRE")
+tab["a"] = 1
+tab["b"] = 0
+tab["mire_1"] = 1
+tab["mire_2"] = 0
+tab["mire_3"] = 0
+tab["mire_4"] = 0
+tab["mire_5"] = 0
+tab["mire_6"] = 0
+tab["mire_7"] = 0
+tab["mire_8"] = 0
+tab["restore"] = 0

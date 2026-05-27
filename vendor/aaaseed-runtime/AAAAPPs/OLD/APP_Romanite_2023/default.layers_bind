@@ -1,0 +1,5 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Romanite/fx" ;
+	Bind_01 = "OSC/fx" ;
+	}

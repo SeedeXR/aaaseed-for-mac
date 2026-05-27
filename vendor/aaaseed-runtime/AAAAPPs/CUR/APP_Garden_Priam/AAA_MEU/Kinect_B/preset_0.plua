@@ -1,0 +1,26 @@
+-- preset v0 for MEU|Kinect_B
+tab["agitation"] = false
+tab["clamp"] = true
+tab["clip"] = false
+tab["control next"] = true
+tab["deform"] = 30
+tab["depth"] = 28
+tab["depth cpu"] = false
+tab["depth gpu"] = true
+tab["depth_asked"] = true
+tab["dist"] = { -1.2419631481171, 0.88999998569489 }
+tab["gesture"] = false
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["open"] = true
+tab["rgb"] = 29
+tab["rgb cpu"] = true
+tab["rgb gpu"] = true
+tab["rgb_aligned"] = 31
+tab["rgb_aligned cpu"] = true
+tab["rgb_aligned gpu"] = true
+tab["rgb_alignedasked"] = false
+tab["rgb_asked"] = false
+tab["run"] = true
+tab["skel"] = false
+tab["skew_vert"] = 0

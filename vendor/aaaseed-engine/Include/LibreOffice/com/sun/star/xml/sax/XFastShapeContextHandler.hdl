@@ -1,0 +1,64 @@
+#ifndef INCLUDED_COM_SUN_STAR_XML_SAX_XFASTSHAPECONTEXTHANDLER_HDL
+#define INCLUDED_COM_SUN_STAR_XML_SAX_XFASTSHAPECONTEXTHANDLER_HDL
+
+#include "sal/config.h"
+
+#include "com/sun/star/awt/Point.hdl"
+#include "com/sun/star/beans/PropertyValue.hdl"
+namespace com { namespace sun { namespace star { namespace document { class XDocumentProperties; } } } }
+namespace com { namespace sun { namespace star { namespace drawing { class XDrawPage; } } } }
+namespace com { namespace sun { namespace star { namespace drawing { class XShape; } } } }
+namespace com { namespace sun { namespace star { namespace frame { class XModel; } } } }
+#include "com/sun/star/xml/sax/XFastContextHandler.hdl"
+#include "com/sun/star/uno/Reference.h"
+#include "com/sun/star/uno/Sequence.h"
+#include "cppu/macros.hxx"
+#include "rtl/ustring.hxx"
+#include "sal/types.h"
+
+namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
+
+namespace com { namespace sun { namespace star { namespace xml { namespace sax {
+
+class SAL_NO_VTABLE SAL_DLLPUBLIC_RTTI XFastShapeContextHandler : public ::css::xml::sax::XFastContextHandler
+{
+public:
+#if defined LIBO_INTERNAL_ONLY
+    XFastShapeContextHandler() = default;
+    XFastShapeContextHandler(XFastShapeContextHandler const &) = default;
+    XFastShapeContextHandler(XFastShapeContextHandler &&) = default;
+    XFastShapeContextHandler & operator =(XFastShapeContextHandler const &) = default;
+    XFastShapeContextHandler & operator =(XFastShapeContextHandler &&) = default;
+#endif
+
+
+    // Attributes
+    virtual ::css::uno::Reference< ::css::drawing::XShape > SAL_CALL getShape() = 0;
+    virtual ::css::uno::Reference< ::css::drawing::XDrawPage > SAL_CALL getDrawPage() = 0;
+    virtual void SAL_CALL setDrawPage( const ::css::uno::Reference< ::css::drawing::XDrawPage >& _drawpage ) = 0;
+    virtual ::css::uno::Reference< ::css::frame::XModel > SAL_CALL getModel() = 0;
+    virtual void SAL_CALL setModel( const ::css::uno::Reference< ::css::frame::XModel >& _model ) = 0;
+    virtual ::rtl::OUString SAL_CALL getRelationFragmentPath() = 0;
+    virtual void SAL_CALL setRelationFragmentPath( const ::rtl::OUString& _relationfragmentpath ) = 0;
+    virtual ::sal_Int32 SAL_CALL getStartToken() = 0;
+    virtual void SAL_CALL setStartToken( ::sal_Int32 _starttoken ) = 0;
+    virtual ::css::awt::Point SAL_CALL getPosition() = 0;
+    virtual void SAL_CALL setPosition( const ::css::awt::Point& _position ) = 0;
+    virtual ::css::uno::Reference< ::css::document::XDocumentProperties > SAL_CALL getDocumentProperties() = 0;
+    virtual void SAL_CALL setDocumentProperties( const ::css::uno::Reference< ::css::document::XDocumentProperties >& _documentproperties ) = 0;
+    virtual ::css::uno::Sequence< ::css::beans::PropertyValue > SAL_CALL getMediaDescriptor() = 0;
+    virtual void SAL_CALL setMediaDescriptor( const ::css::uno::Sequence< ::css::beans::PropertyValue >& _mediadescriptor ) = 0;
+
+    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+
+protected:
+    ~XFastShapeContextHandler() throw () {} // avoid warnings about virtual members and non-virtual dtor
+};
+
+
+inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::xml::sax::XFastShapeContextHandler const *);
+} } } } }
+
+SAL_DEPRECATED("use cppu::UnoType") inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::xml::sax::XFastShapeContextHandler > *);
+
+#endif

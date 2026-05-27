@@ -1,0 +1,11 @@
+-- BU position value for BUS|TANK
+BUS.set_bu_pos_value( "win_maquereau_bleu", {3,2, 2,2} )
+BUS.set_bu_pos_value_mini( "win_maquereau_bleu", {0.0121,0.364, 0.055,0.055}, true )
+BUS.set_bu_pos_value( "win_maquereau_mix", {3,2, 2,2} )
+BUS.set_bu_pos_value_mini( "win_maquereau_mix", {0.0121,0.298, 0.055,0.055}, true )
+BUS.set_bu_pos_value( "win_poissonlune", {3,2, 2,2} )
+BUS.set_bu_pos_value_mini( "win_poissonlune", {0.0121,0.232, 0.055,0.055}, true )
+BUS.set_bu_pos_value( "win_poissonlune_rare", {3,2, 2,2} )
+BUS.set_bu_pos_value_mini( "win_poissonlune_rare", {0.0121,0.43, 0.055,0.055}, true )
+BUS.set_bu_pos_value( "win_thon", {3,2, 2,2} )
+BUS.set_bu_pos_value_mini( "win_thon", {0.0121,0.166, 0.055,0.055}, true )

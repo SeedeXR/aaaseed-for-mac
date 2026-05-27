@@ -1,0 +1,8 @@
+APP.DECLARE( "FP_NUIT_NUM", APP_GP )
+
+local L_APP = FP_NUIT_NUM
+
+if IS_BUSS_OPEN() then
+	APP.CREATE_INST( L_APP )
+end
+

@@ -1,0 +1,7 @@
+bind ( Version 0 )
+	{
+	Bind_01 = "Data/fx" ;
+	Bind_02 = "Main/fx" ;
+	Bind_04 = "bouze_a/fx" ;
+	Bind_05 = "bouze_b/fx" ;
+	}

@@ -1,0 +1,83 @@
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = line weight
+uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+const float MIN		= 0.0;
+const float MAX		= 100.0;
+const float DELTA	= 0.01;
+
+
+float sphere(vec3 p, float r) {
+	p = mod(p,2.0)-0.5*2.0;
+	return length(p)-r;
+}
+
+float sdBox( vec3 p, vec3 b )
+{
+	p = mod(p,2.0)-0.5*2.0;
+	vec3 d = abs(p) - b;
+	return min(max(d.x,max(d.y,d.z)),0.0) + length(max(d,0.0));
+}
+
+float castRay(vec3 o,vec3 d) {
+	float delta = MAX;
+	float t = MIN;
+	for (int i = 0;i <= 96;i += 1) {
+		vec3 p = o+d*t;
+		delta = sdBox(p,vec3((sin(aaa_fu_float[0])+1.0)/16.0, (sin(aaa_fu_float[0])+1.0)/2.0, 0.5));
+		t += delta;
+		if (t > MAX) {return MAX;}
+		if (delta-DELTA <= 0.0) {return float(i);}
+	}
+	return MAX;
+}
+
+void main()
+{
+	vec2 p = gl_TexCoord[0].st-0.5;
+	vec3 o = vec3(sin(aaa_fu_float[0]/2.0)*2.0,0.0, aaa_fu_float[0]*8.0);
+	vec3 d = normalize(vec3(p.x,p.y,1.0));
+
+	float t = castRay(o,d);
+	vec3 rp = o+d*t;
+
+	vec4 col = vec4(0.0, 0.0, 0.0, 1.0);
+	if (t < MAX) {
+		t = 1.0-t/float(MAX);
+		col = vec4(t,t,t,1.0) * texture2D(aaa_tex2d[0], gl_TexCoord[0].st);
+	}
+	else {
+		col = vec4(0.0,0.0,0.0,1.0) * texture2D(aaa_tex2d[0], gl_TexCoord[0].st);
+	}
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (col * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}
+
+
+
+

@@ -1,0 +1,11 @@
+-- preset v0 for MEU|Normal_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["shader"] = true
+tab["speed"] = 1
+tab["tex_bank"] = 2
+tab["tex_bind"] = 8
+tab["tex_dim"] = 2

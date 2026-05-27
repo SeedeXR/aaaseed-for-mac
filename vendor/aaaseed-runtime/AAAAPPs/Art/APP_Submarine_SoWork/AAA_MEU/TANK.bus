@@ -1,0 +1,13 @@
+-- BU position value for BUS TANK
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle [,value] )
+-- page 0
+BUS.set_bu_pos( 0, "win_maquereau_bleu", 3,2, 2,2, 0 )
+BUS.set_bu_pos_mini( 0, "win_maquereau_bleu", 0.29741684174885, 0.48734518284391, 0.045294117647059, 0.045294117647059, 0, true )
+BUS.set_bu_pos( 0, "win_maquereau_mix", 3,2, 2,2, 0 )
+BUS.set_bu_pos_mini( 0, "win_maquereau_mix", 0.0082062283737024, 0.64352941176471, 0.045294117647059, 0.045294117647059, 0, true )
+BUS.set_bu_pos( 0, "win_poissonlune", 3,2, 2,2, 0 )
+BUS.set_bu_pos_mini( 0, "win_poissonlune", 0.0082059005836043, 0.86311292672571, 0.045294117647039, 0.045294117647041, 0, true )
+BUS.set_bu_pos( 0, "win_poissonlune_rare", 3,2, 2,2, 0 )
+BUS.set_bu_pos_mini( 0, "win_poissonlune_rare", 0.0082062283737024, 0.31741176470588, 0.045294117647059, 0.045294117647059, 0, true )
+BUS.set_bu_pos( 0, "win_thon", 3,2, 2,2, 0 )
+BUS.set_bu_pos_mini( 0, "win_thon", 0.0082242929520992, 0.5891245934125, 0.045294141964241, 0.045294111090344, 0, true )

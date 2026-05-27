@@ -1,0 +1,25 @@
+-- preset for MEU|MultiTrack_1
+tab["active1"] = 0
+tab["active2"] = 0
+tab["active3"] = 0
+tab["active4"] = 0
+tab["active5"] = 0
+tab["active6"] = 0
+tab["active7"] = 0
+tab["active8"] = 1
+tab["pan1"] = 0
+tab["pan2"] = 0
+tab["pan3"] = 0
+tab["pan4"] = 0
+tab["pan5"] = 0
+tab["pan6"] = 0
+tab["pan7"] = 0
+tab["pan8"] = -0.36403856424399
+tab["vol1"] = 1
+tab["vol2"] = 0.87093706419772
+tab["vol3"] = 1
+tab["vol4"] = 1
+tab["vol5"] = 1
+tab["vol6"] = 0.92657267044808
+tab["vol7"] = 1
+tab["vol8"] = 1

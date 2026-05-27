@@ -1,0 +1,15 @@
+-- preset v0 for MEU|Signature_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 0
+tab["grid"] = true
+tab["grid_line_width"] = 3
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["mode"] = 3
+tab["rot z"] = 0
+tab["sca"] = 1
+tab["text_line_width"] = 3
+tab["tra x"] = 0
+tab["tra y"] = 0
+tab["tra z"] = 0

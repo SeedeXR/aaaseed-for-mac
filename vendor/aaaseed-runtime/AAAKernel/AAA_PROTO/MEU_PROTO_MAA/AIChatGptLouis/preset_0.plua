@@ -1,0 +1,5 @@
+-- preset v0 for MEU|TutoLuaNetRequest
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["payload"] = "{\"input\":[[44,43,44],[90,83,82],\"N\",\"N\",\"N\"],\"model\":\"default\"}"
+tab["url"] = "http://colormind.io/api/"

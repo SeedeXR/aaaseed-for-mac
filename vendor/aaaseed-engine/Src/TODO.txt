@@ -1,0 +1,324 @@
+
+Done
+	deal seriously with several cameras
+	C-	Lock flag on param
+
+Partly done
+A-	img become obj
+
+ToDo
+virtual destructor everywhere
+use ( x + SIN_RAD( y * loc_time), y + SIN_RAD( z * loc_time), z + SIN_RAD( x * loc_time)) on dust
+show texture in mem
+add a global tmp_str to replace err_str in most places
+
+
+A-	Autobackup
+AAAAAAAAAAAAAAAAAAAA-	Objects deal with file extention
+AAAAAAAAAAAAAAAAAAAA-	Save/load to stream in obj_ui
+B-	Fog in rendering
+
+C-	Tex_2d_switch and 1d move to a texture file
+C-	move tex_2d_adjust
+
+C-	deal with Signature (erase)
+
+D-	Anisotropic filtering (see Maa/libray/opengl/performerTricks
+B-	Use proxy on texture
+*/
+
+// Haiku
+//	flexibility
+//	code : 4f020e0f1b120d0c
+
+
+AAAAAAA- check existence of file before creating object
+	very important to speed loading of layers
+AAA- serious fn for error message similar to printf with variable number of arguments
+AA-	Normal from file in bdd_tri bug save/load
+AA- check rayon_var ok in bdd_tube
+AA-	hack for miguel to clean up in camera (search for dummy)
+AA- PB of camera and light on camera and light_update
+AA- change Neat support to deal cleanly with THG2
+AA- NEAT AND PEAVEY done better in trax
+AA- full feedback in layer 
+AA- deal with multiple thg box
+AA- deal seriouly with file extention
+AA-	vn or vt first in bddtri
+AA_ b_verbose like b_active
+AAA-	parent and child done with list in param
+AAA-	param is obj
+AA-	add messageBox fn like BOX_ERR
+AA- check param_init virtual or not
+AA- go thru "effective C++" (the book) rules, sum up, and check
+AA- do a color_object for simple rgba value (see averager
+
+
+// Dec 18th
+//	A	-	Time fn in clock object for c_app
+
+
+Before Herve/Franck
+	Editeur courbe
+	passage d'une app a l'autre
+	sphere geodesique
+	gestion camera
+	executable AAASeed
+	vitesse boid
+
+November 2001
+	A- height map in deformer
+	A- check if %f in sprinf require float and deal with the double case we have thru REAL
+	A- bug bdd_tri don't have draw_single and draw_multiple so we can draw multiple and regular at the same time
+	A- 6toto donne 6 quand lu dans le fichier csv
+	*
+December 20001
+	AA-	trax keyboard
+	AAA_ Bug feedback et bind_texture to move in GOL
+	AAA- deal with current in bind_2d
+Janvier 2002
+	trax image size, video size
+	use len received when net receive
+		will solve the dangerous *pt = 0;
+		will solve raw block passing by luck thrru ?
+OK	left right dont work with double screen
+	deal with several web cam
+	deal with all web cam
+February 2002
+	interpolation dans les materiaux
+	un group de param "id" pour regrouper les infos d'un obj
+	bug current dans les bins
+March 2002
+	init font preload option
+April 2002
+	option half space sur tex2d
+	trax add concatenate str
+	trax ascii_code with freq to choose
+	color_bind
+	texture generator ramp, noise
+	trax send/receive on name
+	use texture without its alpha ?
+	execute trig in bdd_tex2d
+	add a comment field to do a mini help
+August 2002
+	c_fn1d as a c_obj ?
+	refine the connection display in Cell
+	bind_text_init() and the other bind should be regrouped
+	deal with different keyboard
+		assign key should solve this
+	get rid of 'q' key
+	web flash window ?
+
+	Do the new Perlin Noise from SigGraph 2002
+	read obj file even when vertices don't have a constant format thru the file
+		make a bdd_obj or a 3d_obj class ???
+	correct lcp bug of reading datagrid
+	what to do with ourlist ???
+	deal with several cam/webcam and the choice of it
+		deal with firewire/DV cam
+	finish to deal with the direct sound trouble (Release)
+		not any more ?
+	feedback in all mode
+	add a dist constraint on the particle
+		good for writing with particle
+	use other bdd for part emission
+		make it in more case and better
+	line obj
+	deal with close box of text dialog
+	bug in particule and sort/no sort
+	make periodic trax continuous trhu no update
+		phase traxs ?
+		need update counter mecanism
+			store it in Traxs ?
+		trax activate desactivate
+	check delete on layer forget (root/branch in particular)
+	finish viewport
+		debug full 4 view
+	global trax with camera cur ???
+	bug avi
+	Extraction info de la video rgba, tache/manorine, video bank, flag-transfert texture
+		diff with clean plate
+	no_save flag (on object or layer/layers) use tree
+	name on param at least for values
+	slider box
+//d	name trax
+	introduce beat (with a tap)
+	stencil_cur
+	check depth possibility
+	bug multipleLoop color and map
+	gl_bind and set_changed should be regroup
+		the whole bind thing should be cleaned
+	FINLINE instead of defines in err.h
+	go back at circle opt
+	multiple should be check (all obj, list...) and opt
+
+  bug on center on grid
+  real stereo
+  inversion stereo ?
+  go on checking snapshot and memory release
+  add save_alpha flag
+Dec 2002
+	add choice of ratio for camera
+	missing 3D cam trax
+	missing output of camera
+		matrix in def mode
+		orbiting stuff
+	bug in trax
+		trax have a plug out already
+			we plug in the same from the trax
+			infact look like connection should not be made from connection seen in trax
+//d	deal with abs with trax
+	add 3D proximity too
+	picking bug (freeze) ?
+		nvidia bug ?
+	refine preload flag (see //try for one example of where needed
+	read and write param in memory with no fscanf and fprintf
+		read done
+//d redo strcasecmp ...
+	no version 0 in file ??
+	get layer;h out of .h (err strategy)
+//d move layers
+	do a gl object to get things like GL_POINT_SIZE_RANGE 
+	bug on up and down with arrow when multiple line param
+	c_file_io should be a sub class of c_stream_io
+		to ne used in network scan of blocks
+
+suggestions from AAALab
+	reorganizer menu bdd
+		pb check_mark
+//d	orthographe WRApping warp
+//d		ou ???
+
+suggestions Thierry
+	Freeze projection on Camera pos
+		valid on Eye and object
+	crop dans les textures
+	bord alpha
+	rendu des edges a la multiple
+
+AAATraining
+	cut off projo 180 ?
+	menu material just focus ....
+	degager alpha inutile dans la lumiere
+	load background
+//d	tex_env_color should move in mapping
+//d	no more modifier (deformer ?)
+
+//	bug double window no param
+	axe dans text2d ?
+	generate Text 2d
+
+	refresh traxs in multiple layers only once
+
+	bug time code sur increment see snap obj
+
+	add IN_IS_CHANGED_BY_FREQ
+//d	add flag to control drawing fix or mobile
+	deal with the datagrid channel_id offset of 1
+	trax net is inactive in 3D
+	extend turbulence emission in particle to 3D params
+	deal with the locale stuff
+
+	multiple layers index relative
+
+	calage centre/lowleft/lowright...(all the corner and center
+		just for grid or generic ?
+
+AAAAUrgent
+	bug video in screen multiple
+	add sceen_x/y_index in trax doc
+	add layerss object and deal up to 1 2 3 4 5
+
+	show only selected param in a layers
+	boid Map life as part
+
+Dec 2003
+//d	add a our_thread file
+//		to centralize begin/end thread fns
+//		check return code of beginthread()
+	bug: can't pick in curve viewport
+
+Feb 2004
+//d	add dst channel in MIDI to reorganize easily
+
+May 2004
+	Lecture alpha for video
+	Multitexture
+	fix img->get_color()
+	procedural texture
+	placement interface
+		context switch cam/obj/trans/....
+	Keys
+		phase curve
+		multidim curve
+	Automatic Multimachine
+	Remote control
+		language
+		obj name and variable
+		the background launcher net driven
+	sub interface
+	finish multiple viewport
+		ui_no flag ?
+		ui-only flag ?
+
+Octobre 2004
+	deal better with open and close in c_midi
+//d	feedback object don't deal with multiple render
+//d	feedback should be a bdd to skip previous
+	optimize render viewport selector in layers
+November 2004
+	add
+		#define glBlendColor GLEW_GET_FUN(__glewBlendColor)
+		#define glBlendEquation GLEW_GET_FUN(__glewBlendEquation)
+		#define glBlendFuncSeparate GLEW_GET_FUN(__glewBlendFuncSeparate)
+December 2004
+	use texture max_size to display error message when trying to use bigger texture
+	finish OSC stuff
+//d	put midi_net_destination in pref with patches
+	locking mecanism when sending osc/midi (because of callback)
+	bdd_feedback grab in multiple render only work with 0 overlap correct this
+//d		add a min tex flag to resize dst texture when too big
+	check genrate mipmap present in tex_video
+
+Aichi
+//d	add a lock on dot accesss
+	secu overflow taille des paquets reseaux
+	contact bug to solve
+	draw contact
+	add a bdd_clear
+	add generic naming convention for remote control
+
+April 2005
+	rethink tex_2d_adjust smooth in feedback..
+
+Mai 2005
+	tout dans les binds, particule img, snd, mocap
+Mars 2006
+finish factory
+refine
+	c_list_fix construction
+
+	c_traxs	alloc dealloc bien
+	c_datagrid_2d
+c_glove
+c_nvision
+c_analog_way
+c_doremi
+c_joy
+c_spaceball
+	infact all the c_tracker
+	make port choices dynamic
+	generalizes struct (open close set_port...)
+switch to cameras_ui
+	see the status upper in the hierarchy
+switch to traxs_ui ?
+Bug when saving an empty deformer (all default values)
+	nothing save for the one
+		then can't load it'
+		
+get_poinr don't work on bdd_part
+boids null with ON/OFF erasme
+speed_refresh ON point_network
+
+	where remanenscence should be ?
+do comment file with "//" or "--" corefull with save 

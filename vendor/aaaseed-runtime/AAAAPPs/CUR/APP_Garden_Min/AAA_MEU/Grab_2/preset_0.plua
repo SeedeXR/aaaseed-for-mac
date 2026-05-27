@@ -1,0 +1,7 @@
+-- preset v0 for MEU|Grab_2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["dst_bank"] = 1
+tab["dst_bind"] = 1
+tab["grab_alpha"] = true
+tab["smooth"] = false

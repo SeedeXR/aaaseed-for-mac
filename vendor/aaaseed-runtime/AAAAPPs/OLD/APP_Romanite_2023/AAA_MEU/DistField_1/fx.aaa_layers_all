@@ -1,0 +1,116 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	camera_index_ui = 7 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 5.17316 ;
+	rot_x = 0.0600003 ;
+	rot_y = 46.0688 ;
+	tra_x = 0.006 ;
+	tra_y = 0.002 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.156 ;
+	rot_y = 0.594 ;
+	tra_x = -0.012 ;
+	tra_y = 0.044 ;
+	tra_z = -1.16419 ;
+	}
+//AAA::filename fx_a.bdd_img_contour
+bdd_img_contour ( Version 0 )
+	{
+	active = ON ;
+	image_src = 96 ;
+	contour_dst_clear = OFF ;
+	band_nb = 3 ;
+	contour_mode = "All_then_full_hierarchy" ;
+	blob_point_nb_max = 2560 ;
+	blob_area_max = 16384 ;
+	blob_size_x_max = 8 ;
+	polygon_approximation = ON ;
+	polygon_approximation_factor = 0.00015625 ;
+	bounding_find_y_max_distance = 0.2 ;
+	contour_draw = ON ;
+	bounding_draw_alpha = 0.5 ;
+	bounding_draw_ellipse = ON ;
+	}
+//AAA::filename fx_a.bdd_img_opencv
+bdd_img_opencv ( Version 0 )
+	{
+	active = ON ;
+	force_compute = ON ;
+	image_src = 159 ;
+	image_dst_base = 158 ;
+	mono = ON ;
+	resize_fx = 0.5 ;
+	resize_fy = 0.5 ;
+	blur_size_x = 112 ;
+	blur_size_y = 112 ;
+	bc_max = 0.739731 ;
+	bilateral_img_dst = 65 ;
+	bilateral_size = 3 ;
+	bilateral_sigma_color = 10 ;
+	bilateral_sigma_space = 4 ;
+	edge_enable = ON ;
+	edge_laplacian = ON ;
+	sobel_order_x = 5 ;
+	sobel_order_y = 5 ;
+	erode_size_x = 4 ;
+	erode_size_y = 4 ;
+	dilate_type = "Ellipse" ;
+	dilate_size_x = 3 ;
+	dilate_size_y = 3 ;
+	bc_enable = ON ;
+	bc_min = 0.03125 ;
+	bc_max = 0 ;
+	optical_flow_poly_n = "7" ;
+	dist_enable = ON ;
+	dist_img_dst = "base" ;
+	dist_type = "L12" ;
+	dist_size = "Precise" ;
+	dist_out_type = "fp16" ;
+	dist_factor = 0.015625 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	back_mode = "POINT" ;
+	line_size = 4 ;
+	primitive = "TRIANGLE_FAN" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 4 ;
+	size_v = 3 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_opencv" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 10 ;
+	}

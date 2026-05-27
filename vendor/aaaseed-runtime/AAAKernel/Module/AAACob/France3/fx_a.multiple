@@ -1,0 +1,8 @@
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "BOX" ;
+	alignment = "Random" ;
+	size_axe = 3.163837 ;
+	size_factor = 0.252536 ;
+	}

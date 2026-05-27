@@ -1,0 +1,10 @@
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 1024 ;
+	nb_max = 256 ;
+	nb_by_sec = 512.000000 ;
+	life_time = 128.000000 ;
+	emission_box_size_axe = 0.062500 ;
+	emission_box_size_factor = 8.000000 ;
+	jitter_speed_abs = 0.000000 ;
+	}

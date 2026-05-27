@@ -1,0 +1,37 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 0.198125 ;
+	rot_x = 0.5 ;
+	tra_z = -41.2996 ;
+	}
+//AAA::filename fx_a.bdd_cell_draw
+bdd_cell_draw ( Version 0 )
+	{
+	size = 16 ;
+	distribution = "ON PLANE" ;
+	obj_size = 0.0821875 ;
+	obj_draw_default = "CIRCLE" ;
+	font_outline = OFF ;
+	text_size = 0.125 ;
+	text_red = 0 ;
+	text_blue = 0 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_cell_draw" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}

@@ -1,0 +1,22 @@
+-- preset v0 for MEU|OpenCVBase_SAS
+tab["bc1"] = { 0, 0.28561198711395 }
+tab["bc1 on"] = true
+tab["bc2"] = { 0, 0.83259928226471 }
+tab["bc2 on"] = true
+tab["bc3"] = { 0.41421276330948, 0.66547447443008 }
+tab["bc3 on"] = true
+tab["blur1"] = 38
+tab["blur2"] = 32
+tab["blur3"] = 66
+tab["diff"] = 6
+tab["dilate"] = true
+tab["dilate_pass"] = 5
+tab["erode"] = true
+tab["erode_pass"] = 4
+tab["first"] = true
+tab["method1"] = 3
+tab["method2"] = 3
+tab["method3"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["pass 2"] = false

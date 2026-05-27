@@ -1,0 +1,7 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Contour_Left/fx" ;
+	Bind_01 = "Contour_Right/fx" ;
+	Bind_03 = "Lua_Stereo/fx" ;
+	Bind_05 = "Calibration/fx" ;
+	}

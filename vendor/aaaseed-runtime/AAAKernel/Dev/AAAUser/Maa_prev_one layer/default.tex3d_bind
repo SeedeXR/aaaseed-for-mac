@@ -1,0 +1,26 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "%media%/BioEmergences/141108aF_t341_ch01.vtk" ;
+	Bind_01 = "%media%/BioEmergences/141108aF_t000_ch01.vtk" ;
+	Bind_02 = "%media%/BioEmergences/141108aF_t341_ch00.vtk" ;
+	Bind_03 = "%media%/BioEmergences/141108aF_t341_ch01.vtk" ;
+	Bind_04 = "%media%/BioEmergences/aneurism.raw" ;
+	Bind_05 = "%media%/BioEmergences/bonsai.raw" ;
+	Bind_06 = "%media%/BioEmergences/BostonTeapot.raw" ;
+	Bind_07 = "%media%/BioEmergences/engine.raw" ;
+	Bind_08 = "%media%/BioEmergences/foot.raw" ;
+	Bind_09 = "%media%/BioEmergences/Backpack.raw" ;
+	Bind_10 = "%media%/BioEmergences/Kiwi.raw" ;
+	Bind_11 = "%media%/BioEmergences/skull.raw" ;
+	Bind_12 = "%media%/BioEmergences/Frog.raw" ;
+	Bind_13 = "%media%/BioEmergences/MRI-Head.raw" ;
+	Bind_14 = "%media%/BioEmergences/Artischocke.raw" ;
+	Bind_15 = "%media%/BioEmergences/Subclavia.raw" ;
+	Bind_16 = "%media%/BioEmergences/Carp.pvm" ;
+	Bind_17 = "%media%/BioEmergences/Daisy.vtk" ;
+	Bind_18 = "%media%/BioEmergences/Knee.pvm" ;
+	Bind_19 = "%media%/BioEmergences/XMasTree-LO.pvm" ;
+	Bind_20 = "%media%/BioEmergences/Virgo.pvm" ;
+	Bind_26 = "%media%/BioEmergences/Daisy.pvm" ;
+	Bind_30 = "%media%/BioEmergences/Daisy.vtk" ;
+	}

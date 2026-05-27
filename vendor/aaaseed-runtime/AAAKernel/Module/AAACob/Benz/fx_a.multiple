@@ -1,0 +1,6 @@
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "NUMBER" ;
+	axe = "Z" ;
+	}

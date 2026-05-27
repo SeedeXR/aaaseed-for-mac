@@ -1,0 +1,25 @@
+-- preset v0 for MEU|PlanctonMona_White
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 1
+tab["cam_index"] = 7
+tab["cam_use"] = 0
+tab["color_1_alpha"] = 1
+tab["color_1_blue"] = 1
+tab["color_1_green"] = 1
+tab["color_1_red"] = 1
+tab["color_2_alpha"] = 0.24637645998884
+tab["color_2_blue"] = 0
+tab["color_2_green"] = 0
+tab["color_2_red"] = 1
+tab["density"] = 1
+tab["hardness"] = 2
+tab["shader"] = true
+tab["size"] = { 1, 3 }
+tab["speed"] = 0.078000329434872
+tab["speed_range"] = { 0.051336009055376, 0.66876661777496 }
+tab["speed_x"] = 0.0625
+tab["speed_y"] = 0.25
+tab["speed_z"] = 0.25
+tab["texa_bank"] = 0
+tab["texa_bind"] = 1

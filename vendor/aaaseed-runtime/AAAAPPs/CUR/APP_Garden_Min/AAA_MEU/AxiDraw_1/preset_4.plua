@@ -1,0 +1,6 @@
+-- preset for MEU|AxiDraw_1
+tab["link"] = 1
+tab["offset"] = { 0, 0 }
+tab["pen.position"] = { 0, 0 }
+tab["pos"] = { -0.23035328562601, 1.2815625939219 }
+tab["serial port nb"] = 8

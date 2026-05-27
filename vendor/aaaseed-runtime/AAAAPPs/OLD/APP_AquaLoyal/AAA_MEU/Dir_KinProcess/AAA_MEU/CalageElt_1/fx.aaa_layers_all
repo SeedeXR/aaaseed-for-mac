@@ -1,0 +1,147 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "calage_elt.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 5.68767 ;
+	focal_horizontal = ON ;
+	rot_x_frequency = 0.0929011 ;
+	ui_lock = ON ;
+	center_y = 1.43 ;
+	tra_z = -2.25736 ;
+	clip_close_ortho = 5 ;
+	clip_far_ortho = 0 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 6.64867 ;
+	center_z = 2 ;
+	rot_x = 0.25 ;
+	tra_z = -5.65966 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -1 ;
+	rot_y = -0.9695 ;
+	tra_x = -1.416 ;
+	tra_y = -0.824 ;
+	tra_z = -4.47995 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.113 ;
+	rot_y = -0.00200001 ;
+	tra_x = -0.014 ;
+	tra_z = -7.49683 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -11.817 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 2.66862 ;
+	center_y = 1 ;
+	center_z = 2 ;
+	rot_y = 0.75 ;
+	tra_x = -0.002 ;
+	tra_y = 0.002 ;
+	tra_z = -3.45346 ;
+	}
+//AAA::filename fx.06.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 4.46805 ;
+	center_z = 2 ;
+	rot_x = 0.25 ;
+	tra_z = -5.65966 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 4.84464 ;
+	center_y = 1.82395 ;
+	tra_x = 0.002 ;
+	tra_y = -0.002 ;
+	tra_z = -5.35609 ;
+	}
+//AAA::filename fx.08.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 1.0185 ;
+	rot_y = -139.854 ;
+	tra_x = 0.498 ;
+	tra_y = -1.172 ;
+	tra_z = -4.18371 ;
+	}
+//AAA::filename fx.09.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 9.83369 ;
+	focal_horizontal = ON ;
+	rot_x_frequency = 0.0929011 ;
+	ui_lock = ON ;
+	center_y = 1.43 ;
+	tra_z = -2.25736 ;
+	clip_close_ortho = 5 ;
+	clip_far_ortho = 0 ;
+	}
+//AAA::filename fx.11.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.012 ;
+	rot_y = 0.0265 ;
+	tra_z = -3.97966 ;
+	}
+//AAA::filename fx.12.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 8.31987 ;
+	rot_x = 0.946 ;
+	rot_y = 0.4015 ;
+	tra_x = 0.088 ;
+	tra_y = 0.248 ;
+	}
+//AAA::filename fx.14.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 32 ;
+	center_offset_z = -8 ;
+	rot_x = 0.25 ;
+	tra_z = 3.10682 ;
+	}
+//AAA::filename fx.15.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 7.95532 ;
+	ui_lock = ON ;
+	center_offset_z = -3 ;
+	rot_x = 0.25 ;
+	}

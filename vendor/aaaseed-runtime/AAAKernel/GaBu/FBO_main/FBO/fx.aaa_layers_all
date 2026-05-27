@@ -1,0 +1,23 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	FBO = "Owner" ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 5260 ;
+	size_asked_y = 1920 ;
+	channel_nb = 4 ;
+	depth_format = "32 bits" ;
+	tex_1_bind_2d_asked = 31 ;
+	tex_1_mipmap_generate = ON ;
+	}
+//AAA::filename fx.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	color_grey = 1 ;
+	trail_time = 0.0625 ;
+	}

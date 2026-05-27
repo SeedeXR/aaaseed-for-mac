@@ -1,0 +1,111 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "PROTO_sha_mosaic.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_D = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 9 ;
+	focal_horizontal = ON ;
+	ui_lock = ON ;
+	center_y = 1.25 ;
+	tra_z = -7.34976 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.004 ;
+	tra_z = -3.42384 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.004 ;
+	tra_z = -2.0924 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	back_mode = "POINT" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_alpha_src = "ZERO" ;
+	blend_alpha_dst = "ONE" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 3 ;
+	bind_2d = 11 ;
+	name_symbo = "attr" ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	geometry_reload_trig = ON ;
+	fragment_file_location = "AAA path" ;
+	fragment_fname_asked = "AAA_PROTO/MEU_PROTO_2/ShaMosaic/mosaic.frag" ;
+	fragment_file_check_change = ON ;
+	fu_float_01 = 1 ;
+	fu_float_02 = 10 ;
+	fu_float_03 = 1 ;
+	fu_float_04 = 0.407046 ;
+	fu_float_05 = 1 ;
+	fu_int_01 = 3 ;
+	fu_01_r_x = 0.914328 ;
+	fu_01_g_y = 1 ;
+	fu_01_b_z = 8.84752 ;
+	fu_01_a_w = 8.84752 ;
+	fu_02_r_x = 0.377638 ;
+	fu_02_g_y = 0.377638 ;
+	fu_02_b_z = 1 ;
+	fu_02_a_w = 1 ;
+	compute_reload_trig = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_shading = "Owner" ;
+	bank_2d = "CURRENT" ;
+	bind_2d = "CURRENT" ;
+	}

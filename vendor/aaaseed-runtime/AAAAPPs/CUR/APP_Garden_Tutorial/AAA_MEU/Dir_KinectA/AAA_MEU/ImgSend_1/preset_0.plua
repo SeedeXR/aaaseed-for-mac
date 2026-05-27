@@ -1,0 +1,18 @@
+-- preset v0 for MEU|ImgSend_1
+tab[":"] = ":"
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["active link"] = false
+tab["compress"] = true
+tab["constraint"] = 1
+tab["dst ip"] = "Dst ip"
+tab["interval"] = 0.04
+tab["mono"] = false
+tab["port nb"] = "Port nb"
+tab["received_bank"] = 1
+tab["received_bind"] = 1
+tab["run"] = false
+tab["sent_bank"] = 4
+tab["sent_bind"] = 0
+tab["tmp_bank"] = 1
+tab["tmp_bind"] = 1

@@ -1,0 +1,12 @@
+-- BU position value for BUS|Dir_AnimCondition
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.preset proto", 1 )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 0 )
+BUS.set_bu_pos_value( "dolph_ca", {-0.075,0.2625, 0.225,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "mrayc_ca", {-0.075,0.125, 0.225,0.05}, { render=0 } )
+BUS.set_bu_value( "restore", 1 )
+BUS.set_bu_pos_value( "titan_ca", {-0.075,0.375, 0.225,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "whale_ca", {-0.05,-0.0375, 0.225,0.05}, { render=0 } )
+BUS.set_bu_pos_value( "whalekc_ca", {-0.0375,0.0375, 0.225,0.05}, { render=0 } )

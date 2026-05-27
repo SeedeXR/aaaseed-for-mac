@@ -1,0 +1,39 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "cybul_photo.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_file_location = "Local path" ;
+	vertex_fname_asked = "cybul_photo.vert" ;
+	vertex_file_check_change = ON ;
+	geometry_reload_trig = ON ;
+	fragment_file_location = "Local path" ;
+	fragment_fname_asked = "cybul_photo.frag" ;
+	fragment_file_check_change = ON ;
+	compute_reload_trig = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_rendering = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	}

@@ -1,0 +1,120 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	run_only_when_compiled = ON ;
+	filename = "%app%/OLD/APP_Aqua/fx_Plancton/fx.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	transfo = ON ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.4895 ;
+	rot_y = 0.043 ;
+	tra_x = 2.246 ;
+	tra_y = 0.87 ;
+	tra_z = -7.52664 ;
+	}
+//AAA::filename fx.transfo
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = 0.247876 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 65536 ;
+	nb_max = 65536 ;
+	nb_by_sec = 512 ;
+	flow_continuous = ON ;
+	life_time = 128 ;
+	emission_origin_x = -8 ;
+	emission_axe = "X" ;
+	emission_box_size_axe = 0.03125 ;
+	emission_box_size_factor = 6.57678 ;
+	emission_speed_factor = 0.25 ;
+	jitter_speed_abs = 0 ;
+	turb_speed = 0.0201376 ;
+	turb_factor_y = 0 ;
+	turb_factor_z = 0 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = 0.928681 ;
+	offset = 0.5 ;
+	phase_speed = 0.0622479 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.015318 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	blend_dst = "ONE_MINUS_SRC_COLOR" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	green = 0.262954 ;
+	blue = 0.308524 ;
+	grey = 0 ;
+	start = 2.89343 ;
+	end = 7.13093 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_2d = 16 ;
+	use_fog = "Owner" ;
+	}

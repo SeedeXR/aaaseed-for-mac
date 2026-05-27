@@ -1,0 +1,8 @@
+-- preset for MEU_DIR|OUT("OUT")
+tab["a"] = 0
+tab["b"] = 1
+tab["out_1"] = 1
+tab["out_2"] = 0
+tab["out_3"] = 0
+tab["out_4"] = 0
+tab["restore"] = 0

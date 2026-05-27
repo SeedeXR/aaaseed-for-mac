@@ -1,0 +1,13 @@
+layer ( Version 0 )
+	{
+	active = ON ;
+	bdd = "Particle" ;
+	use_bdd = "update_and_draw" ;
+	use_rendering = ON ;
+	use_multiple = "Owner" ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	bank_2d = 5 ;
+	material_front = 10 ;
+	material_back = 10 ;
+	}

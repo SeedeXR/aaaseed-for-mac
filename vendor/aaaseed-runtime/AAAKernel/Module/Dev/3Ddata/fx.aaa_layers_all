@@ -1,0 +1,210 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "M:/AAA/AAAGaBuZo/GaBuData/Module/Dev/3Ddata/fx.lua" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TRIANGLE" ;
+	Freq = 0.187963 ;
+	Min = 0.437849 ;
+	Max = 1.17113 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.12.trax
+trax ( Version 0 )
+	{
+	Freq = 0.125 ;
+	Min = -2 ;
+	Max = -1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	camera_index_ui = 7 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_x_frequency = 0.00327346 ;
+	rot_x = 17.821 ;
+	rot_y = 0.028 ;
+	tra_z = -2.08101 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 1.501 ;
+	rot_y = -0.524001 ;
+	tra_z = -0.27514 ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.112 ;
+	rot_y = -0.481 ;
+	tra_x = -0.016 ;
+	tra_y = -0.108 ;
+	tra_z = -2.18404 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -3.929 ;
+	rot_y = 0.488002 ;
+	tra_x = -0.0519999 ;
+	tra_y = 5.26197e-08 ;
+	tra_z = -2.2515 TraxLoc12Out ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 1024 ;
+	size_asked_y = 1024 ;
+	tex_1_bind_2d_asked = 32 ;
+	tex_1_mipmap_generate = ON ;
+	}
+//AAA::filename fx.bdd_clear_screen
+bdd_clear_screen ( Version 0 )
+	{
+	color = OFF ;
+	trail_time = 0.125 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 48 ;
+	nb_v = 48 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	scale_factor = 0.0478249 ;
+	scale_by_object = ON ;
+	scale_object = 0.735279 TraxLoc06Out ;
+	translation_x = -0.199163 ;
+	translation_y = 0.279087 ;
+	flip_yz_at_read = ON ;
+	draw_poly = ON ;
+	tex_change = "FROM_TEX_ANIM" ;
+	model_filename = "M:\Eana\CartesSteven\test.obj" ;
+	draw_by_object = ON ;
+	draw_by_id = ON ;
+	object_start = 11 ;
+	object_stop = 2176 ;
+	random_color_by_id = ON ;
+	clipping = OFF ;
+	cluster_nb_x = 4 ;
+	cluster_nb_y = 4 ;
+	cluster_nb_z = 4 ;
+	}
+//AAA::filename fx_a00.def
+def_to_sphere ( Version 0 )
+	{
+	active = ON ;
+	axe = "Z" ;
+	u_factor = -1.07379 ;
+	v_offset = 1 ;
+	v_factor = 0.784465 ;
+	axe_offset = 1 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.anim
+tex_anim ( Version 0 )
+	{
+	stop = 12 ;
+	several_active = ON ;
+	force_stop = 12 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	point_size = 2 ;
+	primitive = "QUAD_STRIP" ;
+	random_on_color = "RANDOM_MAA_ALPHA" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 0.5 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tri" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_tex_anim = "Owner" ;
+	}
+//AAA::filename fx_b.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 8192 ;
+	nb_max = 4096 ;
+	nb_by_sec = 8 ;
+	flow_continuous = ON ;
+	regular = ON ;
+	life_time = 32 ;
+	emission_origin_x = -0.743315 ;
+	emission_box_size_u = 0 ;
+	emission_box_size_v = 0 ;
+	emission_box_size_factor = 1 ;
+	emission_speed_v = 1 ;
+	emission_speed_axe = 0 ;
+	emission_speed_factor = 0.125 ;
+	jitter_speed_abs = 0 ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Both" ;
+	alignment = "Billboard" ;
+	axe = "X" ;
+	size_factor = 0.664854 ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.361923 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_deformer = "CURRENT" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	use_tex_anim = "Owner" ;
+	bind_2d = 19 ;
+	}

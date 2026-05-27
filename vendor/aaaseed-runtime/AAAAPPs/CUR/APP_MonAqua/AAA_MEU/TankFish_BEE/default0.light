@@ -1,0 +1,8 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	Position_y = 1 ;
+	Diffuse_grey = 0.8 ;
+	Specular_grey = 8 ;
+	Spot_direction_z = 1 ;
+	}

@@ -1,0 +1,4 @@
+-- preset for MEU_DIR|Dir_Ref("REF")
+tab["a"] = 1
+tab["b"] = 1
+tab["restore"] = 0

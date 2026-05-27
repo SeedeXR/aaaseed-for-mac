@@ -1,0 +1,171 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "INSIDE_FREQ_PHASE_LINEAR" ;
+	Ease_before = 4 ;
+	Freq = 4 ;
+	Phase = 32 ;
+	Ease_after = 1 ;
+	Min = -10.9543 ;
+	Max = 0 ;
+	Limit_min = -1.4044 ;
+	Limit_max = 0 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "INSIDE_FREQ_PHASE_LINEAR" ;
+	Ease_before = 4 ;
+	Freq = 10 ;
+	Phase = 64 ;
+	Ease_after = 1 ;
+	Min = 3.5 ;
+	Max = -2.5 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "INSIDE_FREQ_PHASE_LINEAR" ;
+	Ease_before = 2 ;
+	Freq = 16 ;
+	Phase = 22 ;
+	Ease_after = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.08.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "INSIDE_FREQ_PHASE_LINEAR" ;
+	Ease_before = 2 ;
+	Freq = 20 ;
+	Phase = 128 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "INSIDE_FREQ_PHASE_LINEAR" ;
+	Ease_before = 2 ;
+	Freq = 0 ;
+	Phase = 22 ;
+	Ease_after = 2 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_01 = 2.27042 TraxLoc01Out TraxLoc03In TraxLoc04In TraxLoc06In TraxLoc08In TraxLoc10In ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_C" ;
+	camera_lock_view_to_ui = OFF ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	tra_z = -11.3736 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = -1 ;
+	center_z = -1 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 4 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0 TraxLoc08Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.grid
+bdd_grid ( Version 0 )
+	{
+	center_x = 3.5 TraxLoc04Out ;
+	center_z = -4.73659 TraxLoc03Out ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 8 ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_alpha = 1 TraxLoc10Out ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	center_z = 0.5 ;
+	}
+//AAA::filename fx_c.model
+model ( Version 0 )
+	{
+	size_v = 8 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_alpha = 0 TraxLoc06Out ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_color = ON ;
+	}

@@ -1,0 +1,3 @@
+-- BU position value for BUS MediaBrowser
+BUS.set_bu_pos_value( "win mediabrowser", {0.67534280004395,0.24415882017541, 8,4.5} )
+BUS.set_bu_pos_value_mini( "win mediabrowser", {0,0, 0.8,0.45} )

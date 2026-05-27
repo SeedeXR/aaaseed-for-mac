@@ -1,0 +1,18 @@
+-- preset v0 for MEU|PrimalTutoLuaHello_2
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 0
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["obj"] = true
+tab["priamb"] = true
+tab["priams"] = 1.5416582361441
+tab["render.back"] = 0
+tab["render.cull"] = 2
+tab["render.depth"] = true
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 1
+tab["render.normal"] = 1
+tab["render.normal active"] = false
+tab["render.point"] = 1

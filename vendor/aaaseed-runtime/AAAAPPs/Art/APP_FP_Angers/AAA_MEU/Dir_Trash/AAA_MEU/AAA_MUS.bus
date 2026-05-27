@@ -1,0 +1,5 @@
+-- BU position value for BUS of Dir_Trash
+BUS.set_bu_pos_value( "empty", {0.0145,0.477, 0.146,0.046} )
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "preset proto", 1 )

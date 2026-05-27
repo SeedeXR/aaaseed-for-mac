@@ -1,0 +1,52 @@
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+// 3 = displace factor (0.1 was original one)
+uniform float		aaa_fu_float[6];
+
+// 0 = iterations
+uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+uniform vec4		aaa_fu_vec4[8];
+
+
+void main(void)
+{
+
+	float displace = clamp(aaa_fu_float[3], -2.0, 2.0) * 0.5;
+
+	vec2 uv = gl_TexCoord[0].st;
+
+	vec4 col = texture2D(aaa_tex2d[0], uv+(texture2D(aaa_tex2d[0], uv).rb)*displace);
+
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (col * aaa_fu_out) * aaa_fu_vec4[1];
+
+
+	gl_FragColor = vec4( (src + fx) );
+}
+
+
+
+
+
+
+
+
+
+

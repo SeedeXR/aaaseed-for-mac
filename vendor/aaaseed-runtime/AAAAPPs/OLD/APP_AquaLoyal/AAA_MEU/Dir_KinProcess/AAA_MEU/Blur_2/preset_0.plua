@@ -1,0 +1,6 @@
+-- preset v0 for MEU|BlurFP("BlurFP")
+tab["blur"] = 7.7658920832788
+tab["diff"] = 1
+tab["method"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true

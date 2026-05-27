@@ -1,0 +1,7 @@
+-- BU position value for BUS REF_MEU
+BUS.set_bu_value( "a", 1 )
+BUS.set_bu_value( "b", 1 )
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "preset proto", 1 )
+BUS.set_bu_value( "restore", 0 )

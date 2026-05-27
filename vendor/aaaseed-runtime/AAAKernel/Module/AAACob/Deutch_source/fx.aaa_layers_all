@@ -1,0 +1,92 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 31.715 ;
+	rot_x_frequency = 0.00994137 ;
+	rot_y_frequency_sin = 0.047795 ;
+	rot_y_amplitude_sin = 0.20382 ;
+	rot_x = 0.462 ;
+	rot_y = 0.065 ;
+	tra_z = -3.8296 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 7.52 ;
+	orbiting = ON ;
+	rot_x = -1.203 ;
+	rot_y = 0.013001 ;
+	tra_x = 0.112 ;
+	tra_y = -0.316 ;
+	tra_z = -101.031 ;
+	m32 = -0.4457 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_by_sec = 0.913833 TraxLoc07Out ;
+	flow_continuous = ON ;
+	regular = ON ;
+	life_time = 8 ;
+	jitter_speed_abs = 9.93242 ;
+	living_box_size_factor = 16.4733 ;
+	render_life_color = ON ;
+	render_life_color_ease_in = 0.157584 ;
+	render_life_color_ease_out = 0.188724 ;
+	clipping = OFF ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	line_size = 8 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYERS_PREV" ;
+	Translation = "No" ;
+	size_factor = 4 ;
+	target_name = "Deutch_Mandala" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.629726 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_3 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_1d = 10 ;
+	bank_2d = 1 ;
+	bind_2d = 16 ;
+	use_lights_switch = ON ;
+	}

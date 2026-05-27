@@ -1,0 +1,11 @@
+-- BU position value for BUS|Back Ui
+BUS.set_bu_pos_value( "ui1", {-3,-1.25, 2,2} )
+BUS.set_bu_pos_value_mini( "ui1", {1.75,1.75, 0.25,0.25}, true )
+BUS.set_bu_pos_value( "ui2", {-2,-1.25, 2,2} )
+BUS.set_bu_pos_value_mini( "ui2", {1.75,1.375, 0.25,0.25}, true )
+BUS.set_bu_pos_value( "ui3", {-3,-1.25, 2,2} )
+BUS.set_bu_pos_value_mini( "ui3", {-1,-1.2, 0.25,0.25} )
+BUS.do_bu_method( "Ui3", "attach_meu_mu", "Out_1", "Out_1", 3 )
+BUS.set_bu_pos_value( "ui4", {-1,-1.25, 2,2} )
+BUS.set_bu_pos_value_mini( "ui4", {0,-1.2, 0.25,0.25} )
+BUS.do_bu_method( "Ui4", "attach_meu_mu", "Dir_Out", "Dir_Out", 4 )

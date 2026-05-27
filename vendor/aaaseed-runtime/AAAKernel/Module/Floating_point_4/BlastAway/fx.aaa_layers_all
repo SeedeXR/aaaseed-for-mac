@@ -1,0 +1,93 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -0.489 ;
+	rot_y = 0.00100004 ;
+	tra_x = 0.0440001 ;
+	tra_y = 0.008 ;
+	tra_z = -4.96931 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 4096 ;
+	nb_max = 536 ;
+	nb_by_sec = 2 ;
+	life_time = 64 ;
+	life_time_jitter_gain = 0.50136 ;
+	emission_axe = "Z" ;
+	emission_box_size_factor = 8 ;
+	emission_speed_v = 2 ;
+	emission_speed_axe = 0 ;
+	jitter_speed_abs = 0.0183271 ;
+	render_life_color = ON ;
+	render_life_color_ease_in = 0.139972 ;
+	render_life_color_ease_out = 0.0982208 ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	}
+//AAA::filename fx_a.anim
+tex_anim ( Version 0 )
+	{
+	start = 234 ;
+	stop = 254 ;
+	several_active = ON ;
+	force_start = 234 ;
+	force_stop = 254 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Billboard" ;
+	axe = "X" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_alpha = 0.409209 ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	red = 1 ;
+	green = 1 ;
+	blue = 1 ;
+	grey = 0 ;
+	start = 2.79312 ;
+	end = 11.4364 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_tex_anim = "Owner" ;
+	bank_2d = 7 ;
+	bind_2d = 14 ;
+	use_fog = "Owner" ;
+	}

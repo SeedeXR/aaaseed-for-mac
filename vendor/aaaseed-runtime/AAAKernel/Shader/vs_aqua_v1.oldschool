@@ -1,0 +1,218 @@
+
+
+#define TEX_UNIT_NB		4
+#define TEX_COOR_DIM	2
+
+#if (TEX_COOR_DIM == 2)
+	#define TEX_COOR_VEC	vec2
+#else
+	#define TEX_COOR_VEC	vec4
+#endif
+
+out VS_out
+{
+	TEX_COOR_VEC	tex_coor[TEX_UNIT_NB];
+	vec4			color;
+	vec3			normal;
+	float			fall_off;
+	float			z_to_eye;
+} vs_out;
+
+
+//	AAAseed uniform vertex shader
+uniform float	aaa_vu_float[6];
+uniform int		aaa_vu_int[6];
+uniform vec4	aaa_vu_vec4[8];
+
+//	Global
+vec4 Ambient;
+vec4 Diffuse;
+vec4 Specular;
+
+
+//	in vec4	gl_TexCoord[4];	//	this is GLSL special case
+							//	work in 420 perhaps
+							//	dont't work in 330
+//	generate texture coordonate
+void ftexgen( const in vec3 normal, const in vec4 ecPosition )
+{
+	for( int i=0; i<TEX_UNIT_NB; ++i )
+	{
+		if( aaa_tex_dim[i] > 0 )	//	dim is negative when unit unused, dim 0 don't need mapping
+		{
+			int	tex_gen	= aaa_tex_gen[i];
+			// Compute texture coordinate
+			TEX_COOR_VEC tex_coor;
+			if( tex_gen == 0 )	//	implicit
+			{
+				#if (TEX_COOR_DIM == 4)
+					tex_coor = gl_TextureMatrix[i] * gl_MultiTexCoord0;	//	gl_TexCoord[i] would be better but dont work for now
+				#else
+					tex_coor = (gl_TextureMatrix[i] * gl_MultiTexCoord0 ).st;	//	gl_TexCoord[i] would be better but dont work for now
+				#endif
+			}
+			else if( tex_gen == 1 )	//	Object
+			{
+				tex_coor.s = dot( gl_Vertex, gl_ObjectPlaneS[i] );
+				tex_coor.t = dot( gl_Vertex, gl_ObjectPlaneT[i] );
+				#if (TEX_COOR_DIM == 4)
+					//	ok but unused for now
+					tex_coor.p = dot( gl_Vertex, gl_ObjectPlaneR[i] );
+					tex_coor.q = dot( gl_Vertex, gl_ObjectPlaneQ[i] );
+				#endif
+			}
+			else if( tex_gen == 2 )	//	Eye
+			{
+				tex_coor.s = dot( ecPosition, gl_EyePlaneS[i] );
+				tex_coor.t = dot( ecPosition, gl_EyePlaneT[i] );
+				#if (TEX_COOR_DIM == 4)
+					//	ok but unused for now
+					tex_coor.p = dot( ecPosition, gl_EyePlaneR[i] );
+					tex_coor.q = dot( ecPosition, gl_EyePlaneQ[i] );
+				#endif
+			}
+			else if( tex_gen == 3 )	//	Sphere
+			{
+				vec3 ecPosition3;
+				ecPosition3 = (vec3(ecPosition)) / ecPosition.w;
+				vec2 sphereMap;
+				sphereMap = SphereMap( ecPosition3, normal );
+				#if (TEX_COOR_DIM == 4)
+					tex_coor = vec4( sphereMap, 0.0, 1.0 );
+				#else
+					tex_coor = sphereMap;
+				#endif
+			}
+			else if( tex_gen == 4 )	//	Reflection ?
+			{
+				vec3 ecPosition3;
+				ecPosition3 = (vec3(ecPosition)) / ecPosition.w;
+				vec3 reflection;
+					reflection = ReflectionMap( ecPosition3, normal );
+				#if (TEX_COOR_DIM == 4)
+					tex_coor = vec4( reflection, 1.0 );
+				#else
+					tex_coor = reflection.xy;
+				#endif
+			}
+			else if( tex_gen == 5 )	//	Normal ?
+			{
+				#if (TEX_COOR_DIM == 4)
+					tex_coor = vec4( normal, 1.0 );
+				#else
+					tex_coor = normal.xy;
+				#endif
+			}
+			else	//			PROJ_CAMERA and PROJ_CAMERA_MODELVIEW
+					//			check it
+			{
+				tex_coor.s = dot( gl_Vertex, gl_ObjectPlaneS[i] );
+				tex_coor.t = dot( gl_Vertex, gl_ObjectPlaneT[i] );
+				#if (TEX_COOR_DIM == 4)
+					//	ok but unused for now
+					tex_coor.p = dot( gl_Vertex, gl_ObjectPlaneR[i] );
+					tex_coor.q = dot( gl_Vertex, gl_ObjectPlaneQ[i] );
+				#endif
+			}
+			//gl_TexCoord[i] = tex_coor;
+			//if ( i  == 0 )
+			vs_out.tex_coor[i] = tex_coor;
+		}
+	}
+}
+
+void main()
+{
+	vec3	transformedNormal;
+	vec4	ecPosition;
+//	transformedNormal = fnormal();
+
+//	float id = gl_InstanceID + InstanceOffset;
+//	float xstep = InverseWidth;
+//	float ystep = InverseHeight;
+//	float xoffset = 0.5 * xstep;
+//	float yoffset = 0.5 * ystep;
+
+	// Look up the current and previous centerline positions:
+//	vec2 texCoord;
+//	texCoord.x = PathScale * Position.x + PathOffset + xoffset;
+//	texCoord.y = 2.0 * id / TextureHeight + yoffset;
+
+//	vec3 currentCenter = texture2D(Sampler, texCoord).rgb;
+//	vec3 previousCenter = texture2D(Sampler, texCoord - vec2(xstep, 0)).rgb;
+//	vec3 pathDirection = normalize(currentCenter - previousCenter);
+
+	// Look up the current orientation vector:
+//	texCoord.x = PathOffset + xoffset;
+//	texCoord.y = texCoord.y + ystep;
+//	vec3 pathNormal = texture2D(Sampler, texCoord).rgb;
+
+	// Form the change-of-basis matrix:
+//	vec3 a = pathDirection;
+//	vec3 b = pathNormal;
+//	vec3 c = cross(a, b);
+//	mat3 basis = mat3(a, b, c);
+
+	// Transform the normal vector and positions:
+//	vNormal = NormalMatrix * (basis * Normal);
+//	vec3 position = currentCenter + (basis * vec3(0, Position.yz));
+//	gl_Position = ModelviewProjection * vec4(position, 1);
+
+
+	//vec4
+	vec4 vertex = gl_Vertex;
+	vec3 normal = gl_Normal;
+
+	if( aaa_vu_int[0] >= 0. )
+		deform_catmull( vertex.xyz, normal );
+	//	COMPUTE COOR IN DIFFERENT REFERENCE
+	// Eye-coordinate position of vertex, needed in various calculations
+	ecPosition = gl_ModelViewMatrix * vertex;
+
+	// Do fixed functionality vertex transform
+	//	ok but outdated in 4.2
+	//		gl_Position = ftransform();
+	//	ok but we already have ecPosition
+	//		gl_Position = gl_ModelViewProjectionMatrix * vertex;
+	gl_Position = gl_ProjectionMatrix * ecPosition;
+//	gl_Position = projection_matrix * modelview_matrix * vec4(vertex, 1.0);
+//	gl_Position = ModelviewProjection * vec4(position, 1);
+
+
+	//	ok but dead now (4.2 ?), now in fix.glsl
+	normal = fnormal();
+
+	transformedNormal = normal;
+	vs_out.normal = normal;
+
+	//compute the fall_off
+	//	this is needed for light computation
+	vec3 ecPosition3 = (vec3 (ecPosition)) / ecPosition.w;
+	// Compute vector from surface to eye
+	vec3 VP = vec3 (0.0, 0.0, 1.0) - ecPosition3;	// direction from surface to eye
+	// Normalize the vector
+	VP = normalize( VP );
+	vs_out.fall_off = clamp( dot( VP, normal ), 0, 1 );
+
+	if( aaa_lights!=0u )	//todo really use aaa_lights info
+	{
+		vec4 color = flight( transformedNormal, ecPosition3 );
+		gl_FrontColor = color;
+		vs_out.color = color;
+	}
+	else
+	{
+	//	gl_BackColor = gl_Color;
+		gl_FrontColor = gl_Color ;
+		vs_out.color = gl_Color;
+	}
+	//gl_FrontColor.a = 1.0;	//counter bug ?
+
+#if 0
+//	gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+#else
+	ftexgen( transformedNormal, ecPosition );
+#endif
+	//	for fog and other
+	vs_out.z_to_eye = abs(ecPosition.z);
+}

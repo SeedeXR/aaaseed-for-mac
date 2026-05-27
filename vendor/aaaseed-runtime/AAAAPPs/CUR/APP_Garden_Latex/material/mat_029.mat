@@ -1,0 +1,13 @@
+material ( Version 0 )
+	{
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Ambient_grey = 0.373267 ;
+	Diffuse_grey = 0.00296509 ;
+	Specular_red = 1 ;
+	Specular_green = 1 ;
+	Specular_blue = 1 ;
+	Specular_grey = 1 ;
+	Shininess = 0.0864137 ;
+	}

@@ -1,0 +1,3 @@
+// diagnostic : flat red. tests that the rendering pipeline actually
+// reaches the layer (vert linked, frag bound, draw call dispatched).
+solid(1, 0, 0, 1).out()

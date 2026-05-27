@@ -1,0 +1,11 @@
+-- preset v0 for MEU|FPlancton_SO
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 1
+tab["cam_use"] = 2
+tab["doors"] = 0
+tab["draw"] = 2
+tab["draw_force"] = false
+tab["field"] = true
+tab["floor"] = 0

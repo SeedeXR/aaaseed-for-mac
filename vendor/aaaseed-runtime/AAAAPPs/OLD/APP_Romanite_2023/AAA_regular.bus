@@ -1,0 +1,6 @@
+-- BU position value for BUS|Garden_base_ui
+BUS.set_bu_pos_value( "debug", {1.7809508911143,-1.4872782664396, 0.44999976158142,0.18333335009714} )
+BUS.set_bu_pos_value( "hidden", {2.6666666666667,2.0625, 0.33333333333333,0.125}, true )
+BUS.set_bu_pos_value( "save all", {0.064580038252186,1.2198488049252, 0.64374995826485,0.2562502613911} )
+BUS.set_bu_pos_value( "unused", {3,2.0625, 0.33333333333333,0.125}, true )
+BUS.set_bu_pos_value( "used", {3.3333333333333,2.0625, 0.33333333333333,0.125}, true )

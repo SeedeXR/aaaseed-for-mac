@@ -1,0 +1,6 @@
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 0.424467 TraxLoc10Out ;
+	}

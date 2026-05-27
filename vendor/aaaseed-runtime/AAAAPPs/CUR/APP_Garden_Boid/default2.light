@@ -1,0 +1,7 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	type = "BULB" ;
+	Position_x = 10 ;
+	Position_y = 2.5 ;
+	}

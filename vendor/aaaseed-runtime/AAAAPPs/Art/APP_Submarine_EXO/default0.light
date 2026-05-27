@@ -1,0 +1,30 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	camera_lock = ON ;
+	Position_x = 2 ;
+	Position_y = 2.5 ;
+	Position_z = 2.90491 ;
+	Radius = 5.10542 ;
+	Ambient_occlusion = 0.603851 ;
+	shadow_active = ON ;
+	shadow_size_x = 2048 ;
+	shadow_size_y = 2048 ;
+	shadow_filter_width = 0.541787 ;
+	shadow_bias = 0.00324509 ;
+	shadow_bbox_min_x = -5 ;
+	shadow_bbox_min_y = -5 ;
+	shadow_bbox_min_z = -5 ;
+	shadow_bbox_max_x = 5 ;
+	shadow_bbox_max_y = 5 ;
+	shadow_bbox_max_z = 5 ;
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Ambient_grey = 0.25 ;
+	Specular_red = 0.525971 ;
+	Specular_green = 0.739632 ;
+	Spot_direction_x = 11.5649 ;
+	Spot_direction_y = 17.3243 ;
+	Spot_direction_z = -15.1297 ;
+	}

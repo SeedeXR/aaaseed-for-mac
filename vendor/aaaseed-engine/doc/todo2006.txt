@@ -1,0 +1,13 @@
+add a g-map_symbo in obj to seach fast fro symbolic name
+	redo the param_update code
+deal with min and max of param which change because they depend on something else
+	flags and pointer to another param ?
+		hidden param ?
+double click on bind item works
+	check that image even works now
+trax return value
+	aaa_error for error
+add help
+cleanup
+	load/save nvidia_cpl ?
+

@@ -1,0 +1,8 @@
+color ( Version 0 )
+	{
+	global_red = 1 TraxLoc04Out ;
+	global_green = 1 TraxLoc05Out ;
+	global_blue = 1 TraxLoc06Out ;
+	global_grey = 1 TraxLoc07Out ;
+	global_alpha = 0.920821 TraxLoc01Out ;
+	}

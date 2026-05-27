@@ -1,0 +1,8 @@
+bind ( Version 0 )
+	{
+	Bind_01 = "Terrain/fx" ;
+	Bind_03 = "Million/fx" ;
+	Bind_04 = "BoxOne/fx" ;
+	Bind_08 = "DemoCurve1/fx" ;
+	Bind_09 = "DemoCurve2/fx" ;
+	}

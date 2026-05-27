@@ -1,0 +1,21 @@
+param name
+	use only a-b,A-B,0-9,'-','_'
+		check it for every object
+		param::check_name
+	les comparaisons se font toujours sans majuscules
+2 types of params
+	fixed memory
+		they are ready when we create/init object
+		don't need param_update
+		offset link to obj or direct adress like now ?
+			param_update strategy
+				by name
+				by order
+	changeable
+		correspond to an access of a "matrix" of data
+		need param_update when "changed"
+		what we connect to
+			fix memory spot
+			reference thru "changed"
+		create a changeale array pointeur type ?
+			create 1D 2D 3D data type

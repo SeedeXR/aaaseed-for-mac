@@ -1,0 +1,27 @@
+-- preset for MEU|ShaderFrag_1
+tab["cam_index"] = 1
+tab["how"] = 3
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["render.back"] = 2
+tab["render.cull"] = 2
+tab["render.depth"] = false
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 1
+tab["render.normal"] = 8
+tab["render.normal active"] = false
+tab["render.point"] = 1
+tab["rotate"] = 1.7614117860794
+tab["scale"] = false
+tab["scale u"] = 12.849692344666
+tab["scale v"] = 0.8491832613945
+tab["shader"] = true
+tab["src_dim"] = 2
+tab["step"] = false
+tab["step u"] = { 0.0022551298607141, 0.91830712556839 }
+tab["step v"] = { 0.56281834840775, 1 }
+tab["strenght"] = true
+tab["strenght u"] = 1
+tab["strenght v"] = 1
+

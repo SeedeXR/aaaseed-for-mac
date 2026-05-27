@@ -1,0 +1,3 @@
+-- preset for MEU|Clear_1
+tab["color"] = 0
+tab["depth"] = 1

@@ -1,0 +1,25 @@
+key version(0)
+{
+	phase = -0.164999 ;
+	pos_u = 1.205 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 0 ;
+	include = TRUE ;
+}
+{
+	phase = 0 ;
+	pos_u = 0 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 0 ;
+	include = TRUE ;
+}
+{
+	phase = 1.04 ;
+	pos_u = 1.215 ;
+	pos_v = 0 ;
+	pos_axe = 0 ;
+	after = 0 ;
+	include = TRUE ;
+}

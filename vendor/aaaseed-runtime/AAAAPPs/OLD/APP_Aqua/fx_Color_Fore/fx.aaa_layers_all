@@ -1,0 +1,177 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "color.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	index_cur = "Layer_C" ;
+	index_end = "Layer_C" ;
+	Layer_C = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 3 ;
+	ui_lock = ON ;
+	tra_x = -0.01 ;
+	tra_y = -0.002 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 8 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_green = -0.168005 ;
+	use_hsv = ON ;
+	hue = 0.741988 ;
+	saturation = 1.00277 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	}
+//AAA::filename fx_b.image_gradient
+bdd_img_gradient ( Version 0 )
+	{
+	type = "radial" ;
+	clamp = 1 ;
+	stop_color_alpha = 0 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_gradient" ;
+	bank_2d = 4 ;
+	}
+//AAA::filename fx_c.part
+bdd_particle ( Version 0 )
+	{
+	name_symbo = "aqua_color_part_b" ;
+	nb_allocated = 1024 ;
+	nb_max = 1024 ;
+	nb_by_sec = 2 ;
+	flow_continuous = ON ;
+	regular = ON ;
+	life_time = 64 ;
+	emission_axe = "Z" ;
+	emission_box_size_u = 16 ;
+	emission_box_size_v = 4 ;
+	emission_box_size_axe = 0 ;
+	emission_box_size_factor = 1 ;
+	emission_speed_factor = 0.125 ;
+	jitter_speed_abs = 0 ;
+	render_life_color = ON ;
+	render_life_image_bind = 385 ;
+	render_life_color_map = ON ;
+	color_map_v = 0.355003 ;
+	color_map_dv = 0.313639 ;
+	sort_render = "Depth_front_to_back" ;
+	}
+//AAA::filename fx_c00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	strenght = 1 ;
+	offset = 0.5 ;
+	phase_speed = 0.109678 ;
+	}
+//AAA::filename fx_c.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_c00.def" def_00 = ON ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	depth_write = OFF ;
+	}
+//AAA::filename fx_c.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	axe = "Z" ;
+	size_factor = 3 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_c.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_grey = 0.58407 TraxLoc01Out ;
+	global_alpha = 0.746216 ;
+	}
+//AAA::filename fx_c.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	light_switch_4 = ON ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "CURRENT" ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 4 ;
+	use_lights_switch = ON ;
+	}

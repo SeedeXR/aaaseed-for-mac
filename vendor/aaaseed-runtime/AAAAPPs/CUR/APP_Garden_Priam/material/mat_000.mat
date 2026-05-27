@@ -1,0 +1,9 @@
+material ( Version 0 )
+	{
+	Diffuse_red = 0.5 ;
+	Diffuse_blue = 0.5 ;
+	Diffuse_alpha = 1.10459 ;
+	Specular_green = 0.425276 ;
+	Specular_grey = 1 ;
+	Shininess = 0.0625 ;
+	}

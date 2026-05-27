@@ -1,0 +1,37 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "NAME_REAL_SET" ;
+	Name = "feed_grab_size" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	viewport = "Left_Right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.feedback
+bdd_feedback ( Version 0 )
+	{
+	name_symbo = "Grab in 0" ;
+	bind_2d_dst = 1 ;
+	grab_to_tex = ON ;
+	size_x_p2 = "1024" ;
+	size_y_p2 = "1024" ;
+	size_x = "VIEW_WIDTH" ;
+	size_y = "VIEW_HEIGHT" ;
+	tex_size_u = 1 TraxLoc01In ;
+	grab_alpha = OFF ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_feedback" ;
+	}

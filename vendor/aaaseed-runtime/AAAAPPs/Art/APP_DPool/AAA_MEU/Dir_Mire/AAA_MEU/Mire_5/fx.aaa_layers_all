@@ -1,0 +1,24 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.image_gradient
+bdd_img_gradient ( Version 0 )
+	{
+	size_asked_x = 1024 ;
+	size_asked_y = 1024 ;
+	type = "radial" ;
+	rounded_u = 0.327862 ;
+	rounded_v = 0.33454 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_gradient" ;
+	bind_2d = 4 ;
+	}

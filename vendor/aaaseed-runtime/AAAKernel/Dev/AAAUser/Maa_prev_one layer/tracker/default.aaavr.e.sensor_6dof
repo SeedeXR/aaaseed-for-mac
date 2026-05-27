@@ -1,0 +1,33 @@
+sensor_6dof ( Version 0 )
+	{
+	m00 = -0.853245 ;
+	m01 = 0.056586 ;
+	m02 = 0.518432 ;
+	m10 = 0.378679 ;
+	m11 = 0.750733 ;
+	m12 = 0.541296 ;
+	m20 = -0.358574 ;
+	m21 = 0.658177 ;
+	m22 = -0.661987 ;
+	m30 = -1.35711 ;
+	m31 = 2.28523 ;
+	m32 = -1.11179 ;
+	translation_in_x = -1.35711 ;
+	translation_in_y = 2.28523 ;
+	translation_in_z = -1.11179 ;
+	rotation_in_yaw = -0.375459 ;
+	rotation_in_pitch = -0.0583685 ;
+	rotation_in_roll = -0.433522 ;
+	translation_speed_x = -69.4839 ;
+	translation_speed_y = 117.004 ;
+	translation_speed_z = -56.9238 ;
+	translation_x = -1.35711 ;
+	translation_y = 2.28523 ;
+	translation_z = -1.11179 ;
+	rotation_speed_x = -19.2235 ;
+	rotation_speed_y = -2.98847 ;
+	rotation_speed_z = -22.1963 ;
+	rotation_x = -0.375459 ;
+	rotation_y = -0.0583685 ;
+	rotation_z = -0.433522 ;
+	}

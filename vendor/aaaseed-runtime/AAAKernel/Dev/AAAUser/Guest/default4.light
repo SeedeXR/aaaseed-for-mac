@@ -1,0 +1,27 @@
+light ( Version 0 )
+	{
+	camera_lock = ON ;
+	Position_x = 0.83912 ;
+	Position_y = 4 ;
+	Position_z = 4 ;
+	Ambient_occlusion = 0.754492 ;
+	shadow_active = ON ;
+	shadow_size_x = 1024 ;
+	shadow_size_y = 1024 ;
+	shadow_filter_width = 0.753322 ;
+	shadow_bias = 0.00687653 ;
+	shadow_bbox_min_x = -8 ;
+	shadow_bbox_min_y = -8 ;
+	shadow_bbox_min_z = -8 ;
+	shadow_bbox_max_x = 8 ;
+	shadow_bbox_max_y = 8 ;
+	shadow_bbox_max_z = 8 ;
+	intensity_map_mode = "PURE_ADD" ;
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Ambient_grey = 0.25 ;
+	Specular_red = 0.525971 ;
+	Specular_green = 0.739632 ;
+	Spot_direction_z = 12.8964 ;
+	}

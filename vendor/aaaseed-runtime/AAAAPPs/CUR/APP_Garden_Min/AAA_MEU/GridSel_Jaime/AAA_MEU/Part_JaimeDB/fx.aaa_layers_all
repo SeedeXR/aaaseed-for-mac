@@ -1,0 +1,116 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	camera_index_ui = 5 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = -15.865 ;
+	rot_x = -0.0175 ;
+	rot_y = 0.0164998 ;
+	tra_z = -1.85766 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 1.91443 ;
+	rot_x_frequency = 0.0856421 ;
+	rot_y_frequency = 0.119625 ;
+	draw_axe = ON ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.0135 ;
+	rot_y = 0.0989999 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 32768 ;
+	nb_max = 32768 ;
+	nb_by_sec = 64 ;
+	flow_continuous = ON ;
+	life_time = 16 ;
+	emission_origin_y = -4.5 ;
+	emission_box_size_axe = 0 ;
+	emission_box_size_factor = 4.60057 ;
+	emission_speed_factor = 1 ;
+	jitter_cone_angle = 0.492465 ;
+	jitter_speed_abs = 0.635742 ;
+	jitter_jitter = 1 ;
+	living_box_type = "Die" ;
+	living_box_size_factor = 10 ;
+	Speed_y = 0.03125 ;
+	turb_fractal_sum = OFF ;
+	turb_offset_X = 54.4754 ;
+	render_life_color = ON ;
+	render_life_color_ease_in = 0.210084 ;
+	render_life_color_ease_out = 0.124892 ;
+	sort_render = "Distance" ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	alignment = "Random_Axe_Z" ;
+	axe = "Z" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_offset_2 = 0 ;
+	tex_offset_4 = 0 ;
+	tex_offset_6 = 0 ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	name_symbo = "color" ;
+	convert = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_shading = "CURRENT" ;
+	use_mapping = ON ;
+	bank_2d = 2 ;
+	bind_2d = 15 ;
+	}

@@ -1,0 +1,338 @@
+Presentations US
+	Mâa father of AAASeed
+
+	Louis Montagne
+		helping me with the AAA Foundation
+		in charge also of the installer/updater
+			that we will not use today !
+		Chat Gpt tool
+			feed with AAASeed Corpus
+
+	Abdallah Meskine
+		AAAPadawan
+		direct your first level questions to him
+		Abdallah.meskine@gmail.com
+	
+Presentations YOU
+	Jaime
+		jaimitocdm@free.fr
+	Tendayi
+		tendayi.vine@gmail.com
+
+	Tom Dale 1
+		tom@tomdale.org.uk
+	Tom Dale 2
+		tom@tomdale.org.uk
+
+	Pawel Janicki
+		pawel@wrocenter.pl
+
+	Giannis Dimitriadis
+		johndim@iti.gr
+
+Today program
+	Install AAASeed manually fromn scratch
+	Basic manipulation
+	some computer graphics
+	Using MEU
+	FBO Frame buffer Object
+	First APPs
+
+---------------------------
+
+What is AAASeed
+	a generic toolkit to build realtime process
+	oriented mainly in 3 contexts
+		- Video Jockey
+		- Open data
+		- interactive Art installation
+	Soon OpenSource (MIT license) and free
+
+	Brainchild of Mâa
+	Used and refined in production for 25 years
+	Cleaned and stabilized during the ArtCast4d Project
+
+What is AAASeed ( Artist point of view )
+	a place where I can assemble and compose blocks on the fly
+	most of these block deal with graphics process
+	and some of the blocks
+		deal with inputs (cameras, captors )
+		analyse images
+		connect elements
+	so I can produce live graphic and or interactive processes
+
+What is AAASeed ( Developer point of view )
+	On the base of an old school robust C++ rendering Graph
+	using the very fast and flexible Lua scripting language
+	you access the low level functionnality
+		system, opengl, C++ objects
+		you have a rich lua virtual machine
+		you use an interface to edit and customize realtime processes
+			most of it happen live while processes are runing
+		you can extend and edit on the fly the interface
+
+What is AAASeed ( User point of view )
+	This a PC window application for now
+	tested all the time Under window 10 and 11
+		should work on Window 8,7 even XP. : 
+	It can run on low end machine
+		even and executable for non Avx2 Processor (Wood version)
+	But it likes fast machines and use the Gpu a lot
+		Graphic Processor Unit
+		Love NVidia but finction with integrated Intel
+		support Amd most of the time
+			getting better on this every month
+
+What is AAASeed ( Shadoks point of view )
+	talking with the GA
+		Global Action: the top level
+	using BU
+		Box User: element of interface
+		BU regrouped in BUS
+			BUS assembled in BUSS ...
+	you manipulate a bunch of MEU
+		Module Editable Unit: functionnal editable blocks
+		sometime represented in their short form the MU
+			Module Unit
+	We lost the ZO
+	
+Install 1/4
+	Create Folders
+	AAA : where your AAASeed stuff and work will be
+		Media : where you put content as videos, images, sounds...
+			with sub folder by projects
+		Install : where you put associated installers, drivers...  
+		Dll : where we will store Dlls associated with AAASeed
+
+Install 2/4		
+	https://78.193.202.92:7001/index.cgi
+	but here faster https://192.168.1.42:5001/webman/index.cgi
+		yes trust it
+	look it
+	FileStation
+	Dita / Teraland / AAA / AAASeed_Latest
+	Download and store in the AAA/Install
+		AAAGaBUZo.7z : AAASeed with environements
+		Main_x64_2024.7z : Dll associated
+		VC_redist_2015_2022 ... .exe : needed installer for bricks used by AAASeed
+		https://www.codecguide.com/download_kl.htm
+			klite Mega : handle decompression of video
+		https://www.7-zip.org/
+			Windows	64-bit x64 version : handle compression and decompression of 7z files
+		https://code.visualstudio.com/
+			Dowmload for windows : text editor
+
+Install 3/4
+	7z ... -x64.exe : execute
+	decompress AAAGaBUZo.7z in AAA
+	launch AAASeed_Metal.exe in it
+		Error because AAASeed need some stuff from the system
+		Place it in the TaskBar
+	Install system stuff
+		Execute VC_redist_2015_2022 ... .exe
+		decompress AAAGaBUZo.7z in AAA/Dll and check inside
+			Copy Dll path
+			This PC / Properties / Advanced system settings / Environement Variables
+			User variable / Edit... / New
+			Paste path and eventually change order then validate
+	Launch AAASeed_Metal.exe
+		should work
+	double esc to save and exit
+
+Install 4/4
+	install
+		KLite codec
+			default options all the way
+		VSCode
+
+	Configure graphics output
+		resolution
+		position
+		set scale at 100% on every screen
+
+AAASeed Repositories
+	Mâa's NAS we used
+	Installer / Updater done by Louis Montagne
+		will go back to it
+		but wanted you to be free and have no dependency on anything
+			now you put all the install Folder on a key (except VScode)
+	Developer access
+		git
+			AAAGaBuZo
+			Apps
+			Lua
+		Svn
+			AAASeed exe and dll 
+			C++
+			will move to git at some point
+		request Mâa if you want it
+
+AAASeed Basic 
+	keyboard first step
+	w	like (w)indow
+		switch between window and full screen Module
+	Tab
+		switch Flatland on and Off
+		Ctrl e like (e)dit
+			switch edit mode (more later om this)
+			see at the top of Flatland
+				Red LOCK vs green Edit
+	Ctrl W and Shift Ctrl W
+		go through all the possibility full screen on different Screen
+		Shift go the other way
+
+AAASeed Basic
+	Don't be scared
+		need to get used but efficient
+	Careful with shift lock
+		Dangerous
+
+	Ctrl F2
+		Force the GaBuZoMeu interface On and move it from screen to screen
+	F2
+		Only flip the GaBuZoMeu interface
+	F3
+		Switch On/Off the rendering
+		BU_Alive 
+	F1 or Ctrl h like (h)elp
+		switch the help system
+	m like (m)essage
+		pop the terminal window
+	Shift Tab
+		Change the UI Scale
+
+
+-----------------------
+
+BU Box User
+	every UI element is a BU
+	BU can contain BU
+		BUS / BU / BUS / BU ....
+	click left
+		simple with left button
+		double
+		triple
+		long
+	Star Menu
+
+BU resize
+	Alt click move resize
+		keyboard Too
+	Mini State
+		Double click in top 10%
+	keyboard
+		Space
+		Ctrl Space
+
+
+Flatland
+	precedence
+	traditionnal Menu
+		Flatland
+		Main
+			Lua part at the top 
+
+Basic BU
+	Click on invaders_1 icon
+	BUTTON
+	SLIDER
+	SELECTOR
+	current BU
+	use of arrow
+
+Basic BU : BUTTON
+	On/Off
+		2 versions
+		green / Red
+		checkbox (large click zone)
+	Trig
+	Multiple
+	Menu
+	Access to Star Menu
+		Go out quick
+
+Basic BU : SLIDER
+	Slide
+	Min / Max
+	keys
+		+-*/
+		Enter
+	SLIDER_TWO
+		depend where youb click
+	SLIDER_XY
+	SLIDER_MULTI
+	
+Basic BU : SELECTOR
+	Access to Star Menu
+		Go out quick
+	Change with mouse
+	Keys too
+
+MU / MEU
+	Icon + Slider
+	UI 1-6
+		UI5 default
+		UI6 dir
+		links
+		Star Menu and slot
+	BU_MEU back
+	MEU drawing change with distance
+
+Rendering Chain
+	Synchronous rendering
+	rendering order
+	BU_RECT order
+		order CTRL Up | Down
+		insert CTRL Insert
+		delete CTRL delete
+		glue / unglue
+	bottom to top
+	then left to right
+	rendering Chain
+	
+Manipulation of a MEU
+   MEU Bar
+   	Tab 
+	rendering order
+	rendering Chain
+
+camera owner/once/cur
+camera manipulation
+
+transformation 
+
+BU_RECT
+
+Fbo
+	Z depth
+	Cpu/Gpu
+
+Monitor
+
+File system
+
+PIP
+
+Multiscreen
+	100 % on all
+	W et ctrl w (shift)
+	CTRL F2
+	MEU Out
+		screen choice
+		deformation Fuzy
+
+inside the MEU
+	update_ui() / update() / draw() / 
+	define_ui()
+
+
+----------------------------
+
+
+define words
+	rendering chain and how it works 
+	NDC
+	maps/texture vs image
+	cpu/gpu
+
+Edit Mode

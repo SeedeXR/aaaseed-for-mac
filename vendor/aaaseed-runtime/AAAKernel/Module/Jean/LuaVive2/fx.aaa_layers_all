@@ -1,0 +1,126 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "LuaVive2.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	lua = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	name_symbo = "LuaVive2_cam" ;
+	draw = OFF ;
+	draw_axe = ON ;
+	rot_x = 0.514999 ;
+	rot_y = 0.2265 ;
+	tra_x = -0.468 ;
+	tra_y = -1.662 ;
+	tra_z = -4.77884 ;
+	}
+//AAA::filename fx_a.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "Vive_box_ctrlr1" ;
+	center_z = -0.5 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 0.125 ;
+	size_v = 0.0625 ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "transfo1" ;
+	translate = ON ;
+	translate_x = -0.64795 ;
+	translate_y = -0.041647 ;
+	translate_z = -0.0521803 ;
+	rotate = ON ;
+	rotate_order = "XYZ" ;
+	rotate_x = -0.453593 ;
+	rotate_y = -0.0494299 ;
+	rotate_z = -0.446342 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	trs_1 = "Owner" ;
+	}
+//AAA::filename fx_b.bdd_gene
+bdd_gene ( Version 0 )
+	{
+	name_symbo = "Vive_box_ctrlr2" ;
+	center_z = -0.5 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	depth = ON ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_u = 0.125 ;
+	size_v = 0.0625 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "transfo2" ;
+	translate = ON ;
+	translate_x = -1.06983 ;
+	translate_y = -0.0162241 ;
+	translate_z = 0.148911 ;
+	rotate = ON ;
+	rotate_order = "XYZ" ;
+	rotate_x = -0.448953 ;
+	rotate_y = -0.0844815 ;
+	rotate_z = -0.462288 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "Box" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	trs_1 = "Owner" ;
+	}

@@ -1,0 +1,108 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_video" ;
+	image_on_cpu_wanted = ON ;
+	image_keep_nb = 2 ;
+	video_src = 6 ;
+	loop = ON ;
+	time_asked = 18.1888 ;
+	video_preroll = 8 ;
+	capture = ON ;
+	capture_open = ON ;
+	capture_run = ON ;
+	capture_run_forced = ON ;
+	capture_device_id_asked = "\\?\usb#vid_0c45&pid_649d&mi_00#7&16910012&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global" ;
+	capture_size_x = 352 ;
+	capture_size_y = 288 ;
+	capture_luma_max = 1.01246 ;
+	incrust_max = 0.0655134 ;
+	threshold = 0 ;
+	remanence_time = 128 ;
+	remanence_color = ON ;
+	remanence_diff = ON ;
+	remanence_diff_min = 0.0013401 ;
+	remanence_diff_factor = 2 ;
+	move_to_texture = OFF ;
+	mipmap_generate = ON ;
+	}
+//AAA::filename fx_a.cap_flycapture
+flycap_ui ( Version 0 )
+	{
+	resolution = "Custom" ;
+	framerate = "30 fps" ;
+	x_res = 752 ;
+	brightness_auto = OFF ;
+	brightness_value = 25 ;
+	exposure_auto = OFF ;
+	exposure_value = 12 ;
+	gamma = ON ;
+	pan_auto = OFF ;
+	pan_value = 0 ;
+	shutter_auto = OFF ;
+	shutter_value = 151 ;
+	gain_auto = OFF ;
+	gain_value = 34 ;
+	}
+//AAA::filename fx_a.cap_directshow
+ds_cap_ui ( Version 0 )
+	{
+	ds_use_format_index = ON ;
+	ds_format_index = 1 ;
+	brightness_auto = OFF ;
+	contrast_auto = OFF ;
+	hue_auto = OFF ;
+	saturation = 0.5 ;
+	saturation_auto = OFF ;
+	sharpness = 1 ;
+	sharpness_auto = OFF ;
+	gamma = 1 ;
+	gamma_auto = OFF ;
+	color_enable = 1 ;
+	color_enable_auto = OFF ;
+	white_balance = 0.578812 ;
+	white_balance_auto = OFF ;
+	blacklight_compensation_auto = OFF ;
+	gain_auto = OFF ;
+	}
+//AAA::filename fx_a.cap_ueye
+ueye_ui ( Version 0 )
+	{
+	size_max = OFF ;
+	pixel_format = "RGBA 8" ;
+	size_x = 1920 ;
+	size_y = 1080 ;
+	offset_x = 64 ;
+	offset_y = 4 ;
+	framerate = 1e-05 ;
+	exposure_time_use = ON ;
+	color_temperature_use = ON ;
+	hardware_use = ON ;
+	gain_boost = ON ;
+	hardware_gamma = ON ;
+	open_mp = ON ;
+	gamma_use = ON ;
+	rgb_color_model_use = ON ;
+	rbg_color_model_mode = "SRGB D50" ;
+	src_gain_use = ON ;
+	auto_shutter_ref = 89 ;
+	auto_shutter_speed = 39 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	bank_2d = 3 ;
+	bind_2d = 1 ;
+	use_tex_video = ON ;
+	}

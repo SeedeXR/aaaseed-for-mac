@@ -1,0 +1,56 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": { "major": 3, "minor": 27, "patch": 0 },
+    "configurePresets": [
+        {
+            "name": "macos-arm64-debug",
+            "displayName": "macOS arm64 Debug",
+            "description": "Apple Silicon, Debug build, GoogleTest unit tests enabled",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/macos-arm64-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_OSX_ARCHITECTURES": "arm64",
+                "CMAKE_OSX_DEPLOYMENT_TARGET": "13.0"
+            }
+        },
+        {
+            "name": "macos-arm64-release",
+            "displayName": "macOS arm64 Release",
+            "description": "Apple Silicon, Release with debug info — mirrors Windows 'Release' config",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/macos-arm64-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "CMAKE_OSX_ARCHITECTURES": "arm64",
+                "CMAKE_OSX_DEPLOYMENT_TARGET": "13.0"
+            }
+        },
+        {
+            "name": "macos-arm64-metal",
+            "displayName": "macOS arm64 Metal (shipping)",
+            "description": "Apple Silicon, max optim + LTO — mirrors Windows 'Metal' config",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/macos-arm64-metal",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_OSX_ARCHITECTURES": "arm64",
+                "CMAKE_OSX_DEPLOYMENT_TARGET": "13.0",
+                "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        { "name": "macos-arm64-debug",   "configurePreset": "macos-arm64-debug"   },
+        { "name": "macos-arm64-release", "configurePreset": "macos-arm64-release" },
+        { "name": "macos-arm64-metal",   "configurePreset": "macos-arm64-metal"   }
+    ],
+    "testPresets": [
+        {
+            "name": "macos-arm64-debug",
+            "configurePreset": "macos-arm64-debug",
+            "output": { "outputOnFailure": true },
+            "execution": { "stopOnFailure": false }
+        }
+    ]
+}

@@ -1,0 +1,170 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "drop.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	lua = ON ;
+	name_symbo = "module.drop" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 3.0523 ;
+	tra_z = 0.0524504 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	depth_write = OFF ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_mode = "SPHERE" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_axe = 0.5 ;
+	size_factor = 0.3 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_4 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_deformer = "CURRENT" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 28 ;
+	material_back = 0 ;
+	name_symbo = "drop.layer_att" ;
+	}
+//AAA::filename fx_b.sphere
+bdd_sphere ( Version 0 )
+	{
+	name_symbo = "drop.sphere" ;
+	nb_u = 25 ;
+	nb_v = 13 ;
+	v_center = 0.25 ;
+	v_range = 0.5 ;
+	}
+//AAA::filename fx_b00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "drop.turb1" ;
+	space_period = 0.5 ;
+	strenght = 0.0125086 ;
+	offset = 0.5 ;
+	}
+//AAA::filename fx_b01.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "drop.turb2" ;
+	space_period = 0.5 ;
+	strenght = 0.0125086 ;
+	offset = 0.5 ;
+	phase_axe = "Z" ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_b00.def" def_00 = ON ;
+	AddFileRel "fx_b01.def" def_01 = ON ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_mode = "SPHERE" ;
+	}
+//AAA::filename fx_b.texturing
+texturing ( Version 0 )
+	{
+	unit_1 = ON ;
+	}
+//AAA::filename fx_b.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_b.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	name_symbo = "drop.shader" ;
+	active = ON ;
+	vertex_bind = 40 ;
+	geometry_input_type = "POINTS" ;
+	geometry_output_type = "POINTS" ;
+	geometry_vertices_out = 4096 ;
+	fragment_bind = 40 ;
+	fu_float_01 = 3.83735 ;
+	fu_float_02 = 2.15851 ;
+	fu_float_03 = -0.08 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	name_symbo = "drop.model" ;
+	size_axe = 0.5 ;
+	size_factor = 0.125086 ;
+	}
+//AAA::filename fx_b.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "drop.transfo" ;
+	translate = ON ;
+	translate_x = 3.44558 ;
+	translate_y = -0.968841 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_sphere" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_shading = "Owner" ;
+	use_texturing = "Owner" ;
+	bind_2d = 29 ;
+	trs_2 = "Owner" ;
+	name_symbo = "drop.layer" ;
+	}

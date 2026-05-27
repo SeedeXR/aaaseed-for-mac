@@ -1,0 +1,8 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	type = "BULB" ;
+	Position_x = 20 ;
+	Position_y = 4 ;
+	Radius = 18 ;
+	}

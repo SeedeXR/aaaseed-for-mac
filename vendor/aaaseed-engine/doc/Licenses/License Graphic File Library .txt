@@ -1,0 +1,10 @@
+ Graphics File Library
+ 
+For Windows & Unix
+
+GFL library Copyright (c) 1991-2003 Pierre-e Gougelet
+All rights reserved
+
+Commercial use is not authorized without agreement
+
+Pierre-e Gougelet allow use in the frame of AAASeed Open Source

@@ -1,0 +1,13 @@
+-- preset for MEU_DIR|KinProcess("KinProcess")
+tab["a"] = 1
+tab["b"] = 1
+tab["blur_1"] = 0
+tab["kinflipper_1"] = 1
+tab["kinmove_1"] = 1
+tab["pip_8"] = 0
+tab["piphack"] = 0
+tab["ref_f1"] = 1
+tab["ref_f2"] = 1
+tab["ref_f3"] = 0
+tab["ref_f4"] = 0
+tab["restore"] = 1

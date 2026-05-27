@@ -1,0 +1,7 @@
+bind ( Version 0 )
+	{
+	Bind_00 = "Detection/fx" ;
+	Bind_01 = "Blob_Dispatch/fx" ;
+	Bind_02 = "Blob_render/fx" ;
+	Bind_03 = "Tracking/fx" ;
+	}

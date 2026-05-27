@@ -1,0 +1,34 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx_a.bdd_artnet
+bdd_artnet ( Version 0 )
+	{
+	net_link = 4 ;
+	active = ON ;
+	open_asked = ON ;
+	test = ON ;
+	test_universe_end = 4 ;
+	amplitude = 2 ;
+	offset = 1 ;
+	freq_space = 64 ;
+	freq_time = 0.125 ;
+	phase_shift = 0.334841 ;
+	}
+//AAA::filename fx_a.bdd_serial
+bdd_serial ( Version 0 )
+	{
+	active = ON ;
+	network = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_serial" ;
+	}

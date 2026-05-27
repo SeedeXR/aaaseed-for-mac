@@ -1,0 +1,216 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 11 ;
+	Max = 512 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 12 ;
+	Max = 4 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 9 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.07.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 10 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.08.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Max = -1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.09.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0 TraxLoc06Out ;
+	Min = 0 TraxLoc08Out ;
+	Max = 0 TraxLoc07Out TraxLoc08In ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0 TraxLoc06Out ;
+	Phase = 0.25 ;
+	Min = 0 TraxLoc08Out ;
+	Max = 0 TraxLoc07Out ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_D" ;
+	camera_index_ui = 1 ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -1.002 ;
+	rot_y = -0.995999 ;
+	tra_z = -2.13071 ;
+	m00 = 0.881214 ;
+	m01 = -0.47225 ;
+	m02 = -0.020975 ;
+	m10 = 0.023641 ;
+	m11 = -0.000286 ;
+	m12 = 0.999718 ;
+	m20 = -0.472123 ;
+	m21 = -0.881462 ;
+	m22 = 0.010913 ;
+	m30 = -0.516627 ;
+	m31 = 0.980674 ;
+	m32 = -3.19699 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	flying = ON ;
+	rot_x = 0.5 ;
+	}
+//AAA::filename fx_a.bdd_curve_edit
+bdd_curve_edit ( Version 0 )
+	{
+	control_nb = 2 ;
+	ui_draw = ON ;
+	ui_draw_axe = ON ;
+	ui_color_auto = ON ;
+	ui_draw_follow_phase = ON ;
+	ui_grid_lock_u = ON ;
+	ui_grid_lock_u_size = 0.25 ;
+	ui_grid_lock_v_size = 0.25 ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	name_symbo = "part" ;
+	nb_allocated = 2048 ;
+	nb_max = 512 ;
+	nb_by_sec = 128 TraxLoc01Out ;
+	emission_origin_x = 0 TraxLoc09Out ;
+	emission_origin_z = 0 TraxLoc10Out ;
+	emission_box_size_factor = 0 TraxLoc02Out ;
+	emission_mask_sphere = ON ;
+	emission_speed_axe = 0 ;
+	emission_speed_factor = 1 ;
+	render_life_color = ON ;
+	}
+//AAA::filename fx_a.bdd_proj_cone
+bdd_proj_cone ( Version 0 )
+	{
+	src_z = -1 ;
+	dst_x = 1 ;
+	dst_y = 0.0360998 ;
+	dst_z = -1 ;
+	dst_size_x = 1.01924 ;
+	dst_size_y = 0.961489 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	top_blue = 0 ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	size_factor = 0.5 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_mirror_u = ON ;
+	tex_mirror_v = ON ;
+	blend_dst = "ONE" ;
+	alpha_test = "GREATER" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 0.550424 ;
+	size_v = -0.0229063 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_2 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_edit" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 20 ;
+	use_lights_switch = ON ;
+	}
+//AAA::filename fx_b.bdd_curve_edit
+bdd_curve_edit ( Version 0 )
+	{
+	phase_control = OFF ;
+	next_trig = ON ;
+	ui_draw = ON ;
+	ui_draw_axe = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_curve_edit" ;
+	}
+//AAA::filename fx_d.grid_adjustable
+bdd_grid_adjustable ( Version 0 )
+	{
+	curve_nb_u = 4 ;
+	curve_nb_v = 4 ;
+	ui_draw = ON ;
+	ui_intercept = ON ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	point_size = 8 ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid_adjustable" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	}

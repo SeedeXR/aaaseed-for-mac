@@ -1,0 +1,114 @@
+
+#define pi 3.141592653589793238462643383279
+#define pi_inv 0.318309886183790671537767526745
+#define pi2_inv 0.159154943091895335768883763372
+
+
+// Uniform variables for texturing
+uniform sampler2D 	aaa_tex2d[4];
+
+// 0 = time
+// 1 = mouse X
+// 2 = mouse Y
+//uniform float		aaa_fu_float[8];
+
+// 0 = iterations
+//uniform int			aaa_fu_int[4];
+
+
+// balance between texture and effect
+uniform float		aaa_fu_src;
+uniform float		aaa_fu_out;
+
+
+// Colors factors
+// 0 = src colors
+// 1 = out color
+//uniform vec4		aaa_fu_vec4[8];
+
+
+vec2 complex_mul(vec2 factorA, vec2 factorB){
+  return vec2( factorA.x*factorB.x - factorA.y*factorB.y, factorA.x*factorB.y + factorA.y*factorB.x);
+}
+
+vec2 complex_div(vec2 numerator, vec2 denominator){
+   return vec2( numerator.x*denominator.x + numerator.y*denominator.y,
+                numerator.y*denominator.x - numerator.x*denominator.y)/
+          vec2(denominator.x*denominator.x + denominator.y*denominator.y);
+}
+
+vec2 wrap_flip(vec2 uv){
+	return vec2(1.)-abs(fract(uv*.5)*2.-1.);
+}
+
+float border(vec2 domain, float thickness){
+   vec2 uv = fract(domain-vec2(0.5));
+   uv = min(uv,1.-uv)*2.;
+   return clamp(max(uv.x,uv.y)-1.+thickness,0.,1.)/(thickness);
+}
+
+float circle(vec2 uv, vec2 aspect, float scale){
+	return clamp( 1. - length((uv-0.5)*aspect*scale), 0., 1.);
+}
+
+float sigmoid(float x) {
+	return 2./(1. + exp2(-x)) - 1.;
+}
+
+float smoothcircle(vec2 uv, vec2 center, vec2 aspect, float radius, float sharpness){
+	return 0.5 - sigmoid( ( length( (uv - center) * aspect) - radius) * sharpness) * 0.5;
+}
+
+float lum(vec3 color){
+	return dot(vec3(0.30, 0.59, 0.11), color);
+}
+
+vec2 spiralzoom(vec2 domain, vec2 center, float n, float spiral_factor, float zoom_factor, vec2 pos){
+	vec2 uv = domain - center;
+	float angle = atan(uv.y, uv.x);
+	float d = length(uv);
+	return vec2( angle*n*pi2_inv + log(d)*spiral_factor, -log(d)*zoom_factor + n*angle*pi2_inv) + pos;
+}
+
+vec2 mobius(vec2 domain, vec2 zero_pos, vec2 asymptote_pos){
+	return complex_div( domain - zero_pos, domain - asymptote_pos);
+}
+
+vec3 tracerline(vec2 uv)
+{
+	float thick = 0.5 - (0.5 + sin(uv.x*8.*pi - sin(aaa_fu_float[0])*0.)*0.5)*0.25;
+	float line = clamp( 1.- abs(uv.y - 0.5)/thick ,  0., 1.);
+
+	// try draw in this domain! ;)
+
+	return line*vec3(1.);
+}
+
+void main(void)
+{
+	vec2 iMouse = vec2( sin(aaa_fu_float[0]), cos(aaa_fu_float[0]) ) * 0.1;
+
+	// domain map
+	vec2 uv = gl_TexCoord[0].st + .5;
+
+	// aspect-ratio correction
+	ivec2 tex_suv = textureSize( aaa_tex2d[0], 0 );
+	uv.y = (uv.y - 0.5) * tex_suv.y/tex_suv.x + .5;
+
+	float dist = 0.5;
+	vec2 uv_bipolar = mobius( uv, vec2(0.5 - dist*0.5, 0.5), vec2(0.5 + dist*0.5, 0.5));
+	uv_bipolar = spiralzoom(uv_bipolar, vec2(0.), 4., pi/4., pi/2., -iMouse.y*vec2(4.,0.) + iMouse.x*vec2(-1,1)*20.);
+	uv_bipolar = vec2(-uv_bipolar.y,uv_bipolar.x); // 90° rotation
+
+	vec2 uv_trace = fract(uv_bipolar);
+	uv_trace.x -= (uv_trace.y - 0.5)*1.;
+
+	vec4 col = vec4(0.0, 0.0, 0.0, 1.0);
+	col.xyz = tracerline(uv_trace)*vec3(1);
+	col.xyz += border(uv_trace, 0.025)*vec3(1);
+
+	vec4 src = (texture2D(aaa_tex2d[0], gl_TexCoord[0].st) * aaa_fu_src) * aaa_fu_vec4[0];
+	vec4 fx  = (col * aaa_fu_out) * aaa_fu_vec4[1];
+
+	gl_FragColor = vec4( (src + fx) );
+}

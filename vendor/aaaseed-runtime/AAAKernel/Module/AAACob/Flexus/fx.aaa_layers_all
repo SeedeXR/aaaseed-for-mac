@@ -1,0 +1,405 @@
+//AAA::set_filename_relative
+//AAA::filename fx.08.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Channel = 16 ;
+	Freq = 0.125 ;
+	Max = 4 ;
+	Format = "%%.2f" ;
+	}
+//AAA::filename fx.16.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Limit = "WRAP" ;
+	Limit_max = 0.015625 ;
+	Format = "%.2f" ;
+	draw = "ALL" ;
+	draw_fixed = ON ;
+	draw_factor = 64 ;
+	}
+//AAA::filename fx.26.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 16 ;
+	Control_id = 3 ;
+	Freq = 256 ;
+	Max = 32 ;
+	Format = "%%.2f" ;
+	}
+//AAA::filename fx.27.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 16 ;
+	Control_id = 10 ;
+	Freq = 16 ;
+	Max = 8 ;
+	Format = "%%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	transfo = ON ;
+	index_cur = "Layer_B" ;
+	index_end = "Layer_F" ;
+	used_for_picking = OFF ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 6.3125 ;
+	lookat = ON ;
+	tra_x_sin_amplitude = 1 ;
+	tra_y_sin_amplitude = 1 ;
+	tra_z_sin_amplitude = 1 ;
+	rot_x_frequency = 0.031562 ;
+	center_x = -11.2686 ;
+	center_y = 12.7982 ;
+	center_z = -4.44625 ;
+	rot_x = 0.154321 ;
+	rot_y = 0.210924 ;
+	tra_x = -11.0354 ;
+	tra_y = 12.4062 ;
+	tra_z = -5.17772 ;
+	pitch = -0.013351 ;
+	roll = -0.02533 ;
+	clip_far_perspective = 100 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	active = ON ;
+	size_asked_x = 1024 ;
+	size_asked_y = 1024 ;
+	channel_nb = 4 ;
+	depth_use = ON ;
+	tex_1_bind_2d_asked = 32 ;
+	tex_2_bind_2d_asked = 33 ;
+	}
+//AAA::filename fx_a.mocap
+bdd_mocap ( Version 0 )
+	{
+	mocap_filename = "Module\AAACob\Flexus\Flexus.mocap.maa" ;
+	frame_cur = 0 ;
+	draw_path = ON ;
+	draw_path_resolution = 0.062504 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	model_filename = "none" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	primitive = "QUAD_STRIP" ;
+	top_green = 0 ;
+	normal_point = 0.125 ;
+	normal_face = 0.125 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_axe = "X" ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_3 = ON ;
+	light_switch_4 = ON ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_mocap" ;
+	use_model = ON ;
+	use_color = ON ;
+	use_tex_anim = "Owner" ;
+	bind_1d = 3 ;
+	}
+//AAA::filename fx_b.mocap
+bdd_mocap ( Version 0 )
+	{
+	mocap_filename = "none" ;
+	}
+//AAA::filename fx_b.tri
+bdd_tri ( Version 0 )
+	{
+	model_filename = "none" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_b.tube_path
+bdd_tube_path ( Version 0 )
+	{
+	node = 1 TraxGlo14In ;
+	len_before = 0.0999999 TraxGlo17Out ;
+	center = 0 TraxGlo25Out ;
+	len_after = 7.52509e-07 TraxGlo18Out ;
+	draw = "TUBE" ;
+	loop = OFF ;
+	}
+//AAA::filename fx_b.anim
+tex_anim ( Version 0 )
+	{
+	start = 255 ;
+	stop = 240 ;
+	force_start = 255 ;
+	force_stop = 240 ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	line_size = 1.98 ;
+	point_size = 8 ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_mode = "CAMERA" ;
+	tex_axe = "Z" ;
+	camera_use = "BY_NAME" ;
+	camera_name_symbo = "tube_in_0" ;
+	}
+//AAA::filename fx_b.shading
+shading ( Version 0 )
+	{
+	vu_float_01 = -1 ;
+	vu_float_02 = 1.07374e+09 ;
+	vu_float_03 = 1 ;
+	vu_float_04 = 0.00290124 ;
+	vu_float_05 = 1 ;
+	vu_int_01 = -2 ;
+	vu_int_02 = 1 ;
+	vu_int_03 = -1 ;
+	vu_int_04 = -1 ;
+	vu_01_g_y = 2.31493e-09 ;
+	vu_01_a_w = -1 ;
+	vu_02_b_z = 1 ;
+	vu_02_a_w = 1 ;
+	vu_03_a_w = -1 ;
+	vu_04_g_y = 1 ;
+	vu_04_b_z = -1.07374e+09 ;
+	vu_04_a_w = 0.350604 ;
+	vu_05_a_w = 1 ;
+	vu_06_r_x = -1 ;
+	fragment_bind = 6 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 0.5 ;
+	}
+//AAA::filename fx_b.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_1 = ON ;
+	}
+//AAA::filename fx_b.fog
+fog ( Version 0 )
+	{
+	mode = "EXP2" ;
+	density = 0.117258 ;
+	red = 0.5 ;
+	green = 0.5 ;
+	blue = 0.5 ;
+	start = 6.43617 ;
+	end = 15.2952 ;
+	}
+//AAA::filename fx_b.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	translate = ON ;
+	rotate = ON ;
+	scale = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_tube_path" ;
+	use_model = ON ;
+	use_multiple = "Owner" ;
+	use_tex_anim = "Owner" ;
+	bind_1d = 1 ;
+	bank_2d = 2 TraxLoc27Out ;
+	bind_2d = 0 TraxLoc26Out ;
+	use_fog = "CURRENT" ;
+	}
+//AAA::filename fx_c.circle
+bdd_circle ( Version 0 )
+	{
+	point_nb = 28 ;
+	draw = "POLYGON" ;
+	}
+//AAA::filename fx_c.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 64 ;
+	nb_v = 64 ;
+	}
+//AAA::filename fx_c.tri
+bdd_tri ( Version 0 )
+	{
+	model_filename = "Geo3d\Ship.obj" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_c00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	axe = "Z" ;
+	space_period = 4 ;
+	strenght = 1 ;
+	offset = 1 ;
+	phase_speed = 1 ;
+	}
+//AAA::filename fx_c.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_c00.def" def_00 = ON ;
+	}
+//AAA::filename fx_c.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	primitive = "QUAD_STRIP" ;
+	top_offset_factor = -0.314944 ;
+	top_offset_units = -131072 ;
+	}
+//AAA::filename fx_c.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_implicit = OFF ;
+	tex_mode = "CAMERA" ;
+	tex_axe = "Z" ;
+	camera_use = "BY_NAME" ;
+	camera_name_symbo = "tube_in_0" ;
+	}
+//AAA::filename fx_c.texturing
+texturing ( Version 0 )
+	{
+	unit_1 = ON ;
+	}
+//AAA::filename fx_c.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	active = ON ;
+	}
+//AAA::filename fx_c.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_c.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	translate_x = -11.5266 ;
+	translate_y = 13.9615 ;
+	translate_z = -0.894783 ;
+	rotate = ON ;
+	rotate_billboard = ON ;
+	rotate_x = 0.057433 ;
+	rotate_y = -0.126454 ;
+	rotate_z = -0.041316 ;
+	}
+//AAA::filename fx_c.transfo_trs2
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate = ON ;
+	rotate = ON ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "CURRENT_draw" ;
+	bdd = "bdd_null" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bind_1d = 1 ;
+	bank_2d = 3 ;
+	bind_2d = 14 ;
+	trs_1 = "CURRENT" ;
+	trs_2 = "CURRENT" ;
+	}
+//AAA::filename fx_d.bdd_snd_wave
+bdd_snd_wave ( Version 0 )
+	{
+	play = ON ;
+	trig_start = ON ;
+	loop = ON ;
+	volume = 0.715854 ;
+	freq = 1 TraxGlo19Out ;
+	position = 32 ;
+	time = 18.1939 ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_snd_wave" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	bind_1d = 10 ;
+	bank_2d = 6 ;
+	bind_2d = 1 ;
+	}
+//AAA::filename fx_f.null
+bdd_null ( Version 0 )
+	{
+	origin_x = 0 TraxGlo27Out ;
+	}
+//AAA::filename fx_f.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_null" ;
+	use_color = ON ;
+	bind_2d = 1 ;
+	}

@@ -1,0 +1,177 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	index_end = "Layer_B" ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	rot_x_frequency = 0.020386 ;
+	rot_x = 0.5 ;
+	tra_x = 3.688 ;
+	tra_y = 2.312 ;
+	tra_offset_x = -3.65911 ;
+	tra_offset_y = -2.53811 ;
+	clip_far_perspective = 400 ;
+	}
+//AAA::filename fx_a.circle
+bdd_circle ( Version 0 )
+	{
+	point_nb = 100 ;
+	draw = "LINE" ;
+	spirograph = ON ;
+	radius_1 = 0.124705 ;
+	freq_1 = 6 ;
+	freq_2 = 0 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 2 ;
+	nb_v = 2 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	harmonique_nb = 2 ;
+	space_period = 0.439392 ;
+	strenght = 0.043361 ;
+	offset = -0.5 ;
+	phase = 0 TraxLoc08Out ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_factor = 1.79442 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_1 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	}
+//AAA::filename fx_a.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	start = 10.485 ;
+	end = 13.4588 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_circle" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 16 ;
+	use_lights_switch = ON ;
+	use_fog = "Owner" ;
+	}
+//AAA::filename fx_b.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 2000 ;
+	nb_max = 1000 ;
+	nb_by_sec = 15.625 ;
+	flow_continuous = ON ;
+	life_time = 8 ;
+	emission_box_size_factor = 4 ;
+	emission_mask_sphere = ON ;
+	jitter_jitter = 1 ;
+	jitter_jitter_bias = 0.2048 ;
+	render_size_end_factor = 0 ;
+	}
+//AAA::filename fx_b.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 16 ;
+	nb_v = 16 ;
+	u_range = 0.993279 ;
+	v_range = 0.863661 ;
+	}
+//AAA::filename fx_b.tri
+bdd_tri ( Version 0 )
+	{
+	model_filename = "none" ;
+	object_stop = 0 ;
+	}
+//AAA::filename fx_b00.def
+def_curve ( Version 0 )
+	{
+	active = ON ;
+	Time_Factor = 0.04228 ;
+	Space_Frequency = 13.0505 ;
+	Strength = 0.191969 ;
+	src_axe = "Y" ;
+	dst_mode = "Cylinder" ;
+	}
+//AAA::filename fx_b.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	AddFileRel "fx_b00.def" def_00 = ON ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	line_size = 0.001 ;
+	primitive = "QUAD_STRIP" ;
+	}
+//AAA::filename fx_b.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYER" ;
+	alignment = "Random" ;
+	axe = "X" ;
+	size_factor = 0.375583 ;
+	start = 0 ;
+	}
+//AAA::filename fx_b.model
+model ( Version 0 )
+	{
+	size_factor = 5.07022 ;
+	}
+//AAA::filename fx_b.fog
+fog ( Version 0 )
+	{
+	active = ON ;
+	mode = "EXP" ;
+	density = 1.79053 ;
+	red = 0.279363 ;
+	green = 1 ;
+	blue = 0.118585 ;
+	start = 47.3196 ;
+	end = 31.165 ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_particle" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	material_front = 1 ;
+	}

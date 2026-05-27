@@ -1,0 +1,198 @@
+
+	
+on __down
+implemented in GABU_OBJ
+
+GABU is global stuff not aware of GaBuZoMeu
+	done before even GA or even GABu_OBJ was used
+	should be cleaned and party depreciated slowly (2024 July)
+	
+
+document GA:add_ui() GA:add_top
+
+rest.lua
+	create a single GA object if ga don't exist
+	ga:update()
+		buss open/close dance
+		update_before() -- empty ?
+			-- deal with blob and touch/untouch
+			buss_app():update()
+				app:update()
+		update_after() -- empty ?
+		GABU.process_key()
+	ga:draw()
+		self:reset_draw()
+		draw_before() -- empty ?
+		self:draw_perlinpinpin_before()
+			self:reset_draw( true )
+			buss_app:draw()
+				app:draw()
+			loop bu:draw_uif()
+		self:draw_perlinpinpin_after()
+		- draw help
+		- draw fingers
+		draw_after() -- empty ?
+		- draw grid on top
+		- updraw calage
+	if ga have no buss (AAASeed just launched)
+		GABU.env_init()
+
+
+BUSS regrouped un BUSS_APP
+	regular 	: all done in BUS:init_begin() or GP:define_mus()
+	top 		: Menu
+	top_top		: unused for now
+
+	bus in have the BUSS in __up 
+
+GA
+	ui_group use to control active/inactive
+
+
+GP:render()
+	MUS:do_render()
+		loop on RECTs
+			MUS:do_render_pass_rect()
+				loop on MU
+					if MU:is_render() -- by default if MU slider is > 0
+										-- slider can be get by MU:get_slider()
+					MU:render( alpha )
+						MEU:render( alpha )
+							MEU:__begin_meu_render( alpha )
+								set self.__alpha_meu
+								can be retrieve using MEU:get_alpha()
+							MEU:update()
+							MEU:draw()
+				end loop
+		end loop
+
+
+APP
+	APP:update()
+		self:update_before()
+		self:update_after()
+
+	APP:draw()
+		APP:draw_before()
+		APP:draw_after()
+
+APP_GP
+	APP_GP:update_before()
+		gp:update_before()
+
+	APP_GP:draw_after()
+		gp:render()		
+
+MUS:create_mu( meu_type, inst_key, label )
+	meu = MEU:create( obj, meu_type, inst_key, label, inst_dir )
+	mu = self:create_mu_from_meu( meu )
+		mu = MU:create( {x,y, sx,sy}, meu )
+		meu:__define_bus( true ) 
+function MEU.__load_proto( dir, meu_type )
+	proto = MEU:create( layers_or_module, meu_type, "proto", "proto_"..meu_type, dirname )
+	proto:__define_bus(true)
+function MEU:redefine_bus( b_init )
+	self:define_bus( b_init )
+
+function MUS:create_mu_from_meu( meu, sx,sy )
+
+BU:set_cur
+
+dealer avec draw_focus_offset_x
+seperate V2 et V3 and make it symetric
+separate (ui stuff) from BU.lua to make it lighter
+
+tab\["(.*)_bank"\] = (.*)
+tab\[".*_bind"\] = (.*)
+to
+tab["$1"] = { $2, $3 }
+	
+
+doc donc forget to call super when doing ipdate and draw in particular for BU subclass
+doc uif chapter
+
+TEXS:get_bind_by_name()
+
+aaa.img.make_tex_index()
+aaa.img.make_bank_bind_2d( bind )
+aaa.img.make_bind_2d( bank, bind )
+
+MEU
+document ref and ui
+and then ui.tex in particular
+
+get_table_always() document
+
+iq
+graphtoy
+sun + sky light
+gamma .4545
+use of step
+bounce light
+
+start with extreme colors then tine down
+Pythagorean Triples
+smin
+pow( f(x), a-f(x))
+
+MEU tags:
+2d
+3D
+Art
+Camera
+Core / infrastructure / AAASeed
+CoreGraphic
+Depreciated
+Device
+Draw / Graphic
+Experimental
+Generator
+Geometry
+ImageProcessing
+Input
+Interoperability
+Output
+Point
+Procedural
+Proprietary
+RenderPass / NDC (light)
+Sound
+Surface
+Text / Font / Typo
+Texture
+Tutorial
+Unfinished
+Utility
+VJ
+
+c_deformer: deform most of the 3d objects
+camera
+Texture
+light
+
+
+
+
+c_deformer: deform most of the 3d objects
+camera
+Texture
+light
+shader
+	vertex
+	geometry
+	fragment
+	compute
+OpenCl
+
+
+
+
+
+Meu: Techno
+Shader
+flex
+OpenCl
+OpenCV
+
+
+

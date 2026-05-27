@@ -1,0 +1,9 @@
+-- preset for MEU|MdhSkel_1
+tab["3d"] = 0
+tab["cam_index"] = 0
+tab["dot"] = 0
+tab["null"] = 1
+tab["number"] = 1
+tab["segment"] = 1
+tab["cam_use"] = 2
+tab["z"] = 0

@@ -1,0 +1,9 @@
+-- BU position value for BUS|Dir_Out
+BUS.set_bu_value( "__meu_bar.draw", true )
+BUS.set_bu_value( "__meu_bar.preset proto", 1 )
+BUS.set_bu_value( "__meu_bar.update", true )
+BUS.set_bu_value( "a", 0 )
+BUS.set_bu_value( "b", 1 )
+BUS.set_bu_pos_value( "out_1", {0.084375,0.025, 0.21875,0.05}, { render=0.49911938729247 } )
+BUS.set_bu_pos_value( "out_2", {-0.015625,0.2375, 0.21875,0.05}, { render=0 } )
+BUS.set_bu_value( "restore", 1 )

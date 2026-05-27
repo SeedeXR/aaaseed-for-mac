@@ -1,0 +1,621 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "SCREEN_INDEX" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "BREAK_NOT_EQUAL_FREQ" ;
+	Freq = 0 ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Fn = "FFT" ;
+	Max = 8 ;
+	Filter = 0.997347 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "SORT_VALUE_INDEX_FROM_MAX" ;
+	Control_id_bis = 11 ;
+	Freq = 3.06325 ;
+	Offset = 1 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.10.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Max = 1024 ;
+	}
+//AAA::filename fx.11.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "FFT" ;
+	Freq = 0.925461 ;
+	Max = 795.359 TraxLoc10Out ;
+	Offset = -128 ;
+	}
+//AAA::filename fx.16.trax
+trax ( Version 0 )
+	{
+	Fn = "TIME" ;
+	Restart_trig = ON ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.20.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "TIME" ;
+	Max = 0.015625 ;
+	}
+//AAA::filename fx.21.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "COPY" ;
+	Max = 2 ;
+	}
+//AAA::filename fx.22.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0.0625 TraxLoc21In ;
+	Min = -2 ;
+	Max = 2 ;
+	}
+//AAA::filename fx.23.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0.125 TraxLoc21Out ;
+	Min = -1 ;
+	}
+//AAA::filename fx.values
+values ( Version 0 )
+	{
+	value_00 = 6 TraxLoc06Out ;
+	value_01 = 0 TraxLoc01Out TraxLoc02In ;
+	value_02 = 0.5 ;
+	value_03 = 0.5 ;
+	value_04 = 0.032584 ;
+	value_05 = -0.019143 ;
+	value_06 = 0.031189 ;
+	value_07 = 0.012643 ;
+	value_08 = 0.020595 ;
+	value_09 = -0.160526 ;
+	value_10 = 0.01 ;
+	value_11 = 0.019085 ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	use_camera = "Owner" ;
+	index_end = "Layer_Z" ;
+	index_cur = "Layer_C" ;
+	used_for_picking = OFF ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	Layer_C = ON ;
+	Layer_E = ON ;
+	Layer_H = ON ;
+	Layer_I = ON ;
+	Layer_J = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	viewport = "WINDOW" ;
+	perspective = OFF ;
+	ortho_size = 9.38746 ;
+	rot_x = 0.25 ;
+	tra_x = 0.264 ;
+	tra_y = -1.024 ;
+	tra_z = -4.86627 ;
+	rot_x_frequency = 0.03125 ;
+	clip_close_perspective = 0.0025 ;
+	clip_far_perspective = 3.125 ;
+	}
+//AAA::filename fx_a.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	size_factor = -2 ;
+	draw_line = OFF ;
+	draw_marker = ON ;
+	marker_space_offset = -0.583276 ;
+	marker_space_size = 2.929 ;
+	marker_green = 0 ;
+	marker_blue = 0 ;
+	}
+//AAA::filename fx_a.face
+bdd_face ( Version 0 )
+	{
+	bdd_dimension = "3D" ;
+	bdd_nb_u = 5 ;
+	bdd_nb_v = 5 ;
+	bdd_nb_axe = 5 ;
+	face_axe = "AXE" ;
+	face_size_factor = 0.657779 ;
+	rotation_speed_z = 1 ;
+	rotation_speed_factor = 0.0625 ;
+	rotation_origin_z = 0.323414 ;
+	rotation_offset_z = 0.53462 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	nb_u = 3 ;
+	nb_v = 3 ;
+	}
+//AAA::filename fx_a.sphere
+bdd_sphere ( Version 0 )
+	{
+	nb_u = 48 ;
+	nb_v = 48 ;
+	}
+//AAA::filename fx_a.tri
+bdd_tri ( Version 0 )
+	{
+	model_filename = "none" ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_max = 512 ;
+	nb_by_sec = 0 TraxLoc11Out ;
+	flow_continuous = ON ;
+	life_time = 4 ;
+	emission_box_size_factor = 2 ;
+	}
+//AAA::filename fx_a00.def
+def_turb ( Version 0 )
+	{
+	active = ON ;
+	axe = "Y" ;
+	space_period = 0.952612 ;
+	strenght = 0.70481 TraxLoc05Out ;
+	phase = 18.8308 ;
+	phase_speed = 1.29899 ;
+	phase_axe = "Y" ;
+	}
+//AAA::filename fx_a.dfl
+def_node ( Version 0 )
+	{
+	active = OFF ;
+	AddFileRel "fx_a00.def" def_00 = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	front_mode = "POINT" ;
+	point_size = 4 ;
+	light = OFF ;
+	depth = OFF ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	axe = "Z" ;
+	size_factor = 0.125 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_mode = "SPHERE" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.04 ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 16 ;
+	size_v = 0 ;
+	size_axe = 0.5 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	global_grey = 0.431919 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_2 = ON ;
+	light_switch_3 = ON ;
+	light_switch_6 = ON ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	duration = 70 ;
+	play = ON ;
+	loop = ON ;
+	time = 18.8171 TraxLoc16Out ;
+	}
+//AAA::filename fx_a.transfo_trs1
+transfo_trs ( Version 0 )
+	{
+	active = ON ;
+	translate_x = 1.69468 TraxLoc22Out ;
+	translate_y = 0.89993 TraxLoc23Out ;
+	rotate = ON ;
+	rotate_y = 15.7902 TraxLoc20Out ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_model = ON ;
+	use_deformer = "Owner" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_mapping = ON ;
+	use_color = ON ;
+	bank_2d = 1 ;
+	bind_2d = 7 ;
+	}
+//AAA::filename fx_b.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Video Move Frame" ;
+	size_factor = 2 ;
+	draw_point = ON ;
+	}
+//AAA::filename fx_b.ren
+rendering ( Version 1 )
+	{
+	cull = "BACK" ;
+	light = OFF ;
+	}
+//AAA::filename fx_b.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_b.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_b.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	video_src = 1 ;
+	duration = 18.52 ;
+	play = ON ;
+	loop = ON ;
+	time = 1.15026 ;
+	capture = ON ;
+	}
+//AAA::filename fx_b.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_deformer = "CURRENT" ;
+	use_color = ON ;
+	use_logic_op = ON ;
+	}
+//AAA::filename fx_c.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Move to GPU" ;
+	size_factor = 2 ;
+	draw_point = ON ;
+	marker_space_offset = -1.09872 ;
+	marker_space_size = 2.23136 ;
+	}
+//AAA::filename fx_c.colt
+color ( Version 0 )
+	{
+	global_red = 0 ;
+	global_green = 0 ;
+	global_alpha = 0.25 ;
+	}
+//AAA::filename fx_c.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_deformer = "CURRENT" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_d.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Video Process" ;
+	size_factor = -1.40319 ;
+	draw_point = ON ;
+	}
+//AAA::filename fx_d.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	light = OFF ;
+	depth = OFF ;
+	}
+//AAA::filename fx_d.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_d.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	}
+//AAA::filename fx_d.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	video_src = 1 ;
+	duration = 18.52 ;
+	play = ON ;
+	loop = ON ;
+	time = 1.15026 ;
+	capture = ON ;
+	}
+//AAA::filename fx_d.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_e.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Capture Convert" ;
+	size_factor = -1.21578 ;
+	draw_point = ON ;
+	}
+//AAA::filename fx_e.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	light = OFF ;
+	depth = OFF ;
+	}
+//AAA::filename fx_e.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	global_grey = 0.5 ;
+	}
+//AAA::filename fx_e.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_f.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Video Process" ;
+	size_factor = -1.40319 ;
+	draw_point = ON ;
+	}
+//AAA::filename fx_f.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	light = OFF ;
+	depth = OFF ;
+	}
+//AAA::filename fx_f.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_f.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	}
+//AAA::filename fx_f.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	video_src = 1 ;
+	duration = 18.52 ;
+	play = ON ;
+	loop = ON ;
+	time = 1.15026 ;
+	capture = ON ;
+	}
+//AAA::filename fx_f.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_g.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Video Process" ;
+	size_factor = -1.40319 ;
+	draw_point = ON ;
+	}
+//AAA::filename fx_g.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	light = OFF ;
+	depth = OFF ;
+	}
+//AAA::filename fx_g.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_g.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	}
+//AAA::filename fx_g.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	video_src = 1 ;
+	duration = 18.52 ;
+	play = ON ;
+	loop = ON ;
+	time = 1.15026 ;
+	capture = ON ;
+	}
+//AAA::filename fx_g.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_h.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "Video Process" ;
+	size_factor = -1.40319 ;
+	draw_point = ON ;
+	}
+//AAA::filename fx_h.ren
+rendering ( Version 1 )
+	{
+	line_size = 2 ;
+	light = OFF ;
+	depth = OFF ;
+	}
+//AAA::filename fx_h.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_h.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	}
+//AAA::filename fx_h.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	video_src = 1 ;
+	duration = 18.52 ;
+	play = ON ;
+	loop = ON ;
+	time = 1.15026 ;
+	capture = ON ;
+	}
+//AAA::filename fx_h.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}
+//AAA::filename fx_i.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	draw_point = ON ;
+	}
+//AAA::filename fx_i.ren
+rendering ( Version 1 )
+	{
+	cull = "BACK" ;
+	point_size = 6 ;
+	light = OFF ;
+	}
+//AAA::filename fx_i.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	tex_mode = "EYE" ;
+	tex_axe = "Z" ;
+	}
+//AAA::filename fx_i.colt
+color ( Version 0 )
+	{
+	global_green = 0 ;
+	global_blue = 0 ;
+	}
+//AAA::filename fx_i.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	video_src = 1 ;
+	duration = 18.52 ;
+	play = ON ;
+	loop = ON ;
+	time = 1.15026 ;
+	capture = ON ;
+	}
+//AAA::filename fx_i.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_deformer = "CURRENT" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_logic_op = ON ;
+	}
+//AAA::filename fx_j.bdd_time_watcher
+bdd_time_watcher ( Version 0 )
+	{
+	channel = "OpenGl Move Texture" ;
+	size_factor = -1 ;
+	draw_point = ON ;
+	}
+//AAA::filename fx_j.colt
+color ( Version 0 )
+	{
+	global_blue = 0 ;
+	}
+//AAA::filename fx_j.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_time_watcher" ;
+	use_color = ON ;
+	}

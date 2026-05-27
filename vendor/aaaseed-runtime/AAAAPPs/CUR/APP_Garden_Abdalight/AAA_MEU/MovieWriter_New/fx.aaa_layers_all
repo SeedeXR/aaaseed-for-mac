@@ -1,0 +1,37 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	use_camera = "Owner" ;
+	camera_index_ui = 2 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.02.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.25 ;
+	rot_y = 0.25 ;
+	}
+//AAA::filename fx_a.bdd_img_cv_writer
+bdd_img_cv_writer ( Version 0 )
+	{
+	name_symbo = "gp_bdd_img_cv_writer" ;
+	active = ON ;
+	image_src = 114 ;
+	image_dst_base = 99 ;
+	filename = "%media%/AAASnapshots/MovieTest" ;
+	codec = "MJPEG" ;
+	quality = 30.0957 ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_img_cv_writer" ;
+	bank_2d = 3 ;
+	bind_2d = 18 ;
+	}

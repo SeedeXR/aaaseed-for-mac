@@ -1,0 +1,19 @@
+-- preset v0 for MEU|TexCorrect_1
+tab["black"] = 0.25349817350374
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["dim"] = 2
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["ratio"] = 1
+tab["rot z"] = 0
+tab["sfactor"] = 4
+tab["su"] = 1.7777777910233
+tab["sv"] = 1
+tab["tex_bank"] = 3
+tab["tex_bind"] = 1
+tab["tra x"] = 0
+tab["tra y"] = 0
+tab["tra z"] = 0
+tab["white"] = 1

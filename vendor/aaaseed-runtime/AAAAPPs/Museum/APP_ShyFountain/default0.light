@@ -1,0 +1,34 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	Intensity = 0.360621 ;
+	type = "BULB" ;
+	camera_lock = ON ;
+	Position_y = 4 ;
+	Radius = 1 ;
+	shadow_active = ON ;
+	shadow_filter_width = 0.196466 ;
+	shadow_bias = 0.00206291 ;
+	shadow_bbox_min_x = -5 ;
+	shadow_bbox_min_y = -3 ;
+	shadow_bbox_min_z = -4 ;
+	shadow_bbox_max_x = 5 ;
+	shadow_bbox_max_y = 3 ;
+	intensity_map_mode = "ADD" ;
+	intensity_map_factor = 1.5 ;
+	intensity_map_scale_x = -10 ;
+	intensity_map_scale_y = -10 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Ambient_grey = 1 ;
+	Diffuse_red = 1 ;
+	Diffuse_green = 1 ;
+	Diffuse_blue = 1 ;
+	Diffuse_grey = 1 ;
+	Spot_cutoff = 16.372 ;
+	Spot_exponent = 3.07576 ;
+	Spot_direction_z = -1 ;
+	attenuation_constant = 0.5 ;
+	attenuation_linear = 32 ;
+	attenuation_quadratic = 16 ;
+	}

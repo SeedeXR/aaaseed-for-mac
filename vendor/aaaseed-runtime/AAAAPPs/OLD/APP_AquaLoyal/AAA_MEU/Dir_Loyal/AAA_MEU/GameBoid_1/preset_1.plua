@@ -1,0 +1,11 @@
+-- preset for MEU|GameBoid_1
+tab["bias"] = 0.34244738709999
+tab["boid"] = 0
+tab["cam_index"] = 0
+tab["draw debug"] = 0
+tab["gain"] = 0.5
+tab["size"] = { 0.028618353380637, 0.099458328682441 }
+tab["vol_back"] = 1
+tab["vol_pop"] = 0.78550003257988
+tab["volume_on"] = 1
+tab["volune"] = 0.60112812982088

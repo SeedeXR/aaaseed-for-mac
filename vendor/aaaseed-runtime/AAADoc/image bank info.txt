@@ -1,0 +1,12 @@
+	Bind image Map
+
+bank 1	: multitouch
+bank 2 	: Aaart
+	64 webcam in
+	65 idem on CPU
+	80 FBO
+	81-82 AAAWelcome
+bank 3  : 0 	a 15 : button
+bank 3  : 17 a 31 : frame
+bank 4  : videos
+bank 5- : Images ++

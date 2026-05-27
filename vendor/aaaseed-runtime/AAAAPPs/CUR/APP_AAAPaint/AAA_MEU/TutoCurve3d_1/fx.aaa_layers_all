@@ -1,0 +1,66 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	Traxs = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 9.0093 ;
+	rot_x = 0.0311723 ;
+	rot_y = -0.346854 ;
+	tra_x = 0.280837 ;
+	tra_y = -0.179363 ;
+	tra_z = -8.29862 ;
+	}
+//AAA::filename fx_a.bdd_curve_3d
+bdd_curve_3d ( Version 0 )
+	{
+	draw_all_curves = ON ;
+	draw_selected = ON ;
+	draw_force_color = ON ;
+	draw_number = ON ;
+	draw_number_scale = 0.25 ;
+	graduation_step = 0.125 ;
+	graduation_scale = 0.0625 ;
+	dataset_id = 21 ;
+	ui_u = 141 ;
+	coor_to_world_use_z = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	back_mode = "LINE" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	name_symbo = "mapping" ;
+	tex_use = "2D" ;
+	tex_axe = "Z" ;
+	tex_w_ori = 1 ;
+	tex_factor = 0.5 ;
+	tex_v_speed = 1 ;
+	tex_wrap_u = "MIRRORED_REPEAT" ;
+	tex_wrap_v = "REPEAT" ;
+	tex_wrap_w = "REPEAT" ;
+	tex_force_min_mag = ON ;
+	tex_2d_minification = "LINEAR" ;
+	tex_2d_magnification = "LINEAR" ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update" ;
+	bdd = "bdd_curve_3d" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bind_2d = 1 ;
+	}

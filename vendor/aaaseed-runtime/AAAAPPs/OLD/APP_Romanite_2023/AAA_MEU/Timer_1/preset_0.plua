@@ -1,0 +1,20 @@
+-- preset v0 for MEU|Timer_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["duration"] = 4
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["phase"] = 0.99079753345671
+tab["play"] = false
+tab["render.back"] = 0
+tab["render.cull"] = 1
+tab["render.depth"] = false
+tab["render.front"] = 0
+tab["render.light"] = false
+tab["render.line"] = 1
+tab["render.normal"] = 1
+tab["render.normal active"] = false
+tab["render.point"] = 1
+tab["size"] = 16
+tab["wrap"] = false

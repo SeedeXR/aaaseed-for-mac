@@ -1,0 +1,12 @@
+-- preset v0 for MEU|SitemAnal_1
+tab["cam_axe_show"] = 0
+tab["cam_index"] = 0
+tab["cam_use"] = 2
+tab["chapter"] = 0
+tab["dim"] = 1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["run"] = false
+tab["tex_bank"] = 2
+tab["tex_bind"] = 0
+tab["video"] = 0

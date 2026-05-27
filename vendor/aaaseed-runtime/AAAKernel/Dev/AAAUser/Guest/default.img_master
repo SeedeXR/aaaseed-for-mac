@@ -1,0 +1,15 @@
+img_master ( Version 0 )
+	{
+	free_when_on_board = ON ;
+	tga_read_custom = ON ;
+	read_rgb_add_alpha = ON ;
+	reader_2d_thread_nb = 3 ;
+	reader_3d_thread_nb = 3 ;
+	scale_on_load_factor = 0.5 ;
+	scale_on_load_size_min = 1024 ;
+	scale_on_load_save = ON ;
+	scale_on_load_path = "HALF" ;
+	net_out_blk_size_max = 32689 ;
+	unimplemented_break = ON ;
+	opencv_opencl_allow = ON ;
+	}

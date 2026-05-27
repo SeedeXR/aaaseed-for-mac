@@ -1,0 +1,21 @@
+-- preset for MEU|NdcCaustic_1
+tab["cam_index"] = 0
+tab["color_blue"] = 0.36472677503432
+tab["color_green"] = 1
+tab["color_grey"] = 1.4914989125125
+tab["color_red"] = 1
+tab["draw"] = true
+tab["intensity"] = 0.54660004377365
+tab["iteration nb"] = 12.204386977948
+tab["normal factor"] = 0.5
+tab["ratio"] = 1.2028916098677
+tab["scale"] = 0.086771327395036
+tab["shader"] = 1
+tab["speed"] = 0.28692866680589
+tab["speed active"] = true
+tab["tex_bank"] = 6
+tab["tex_bind"] = 0
+tab["depth_bank"] = 6
+tab["depth_bind"] = 16
+tab["normal_bank"] = 6
+tab["normal_bind"] = 1

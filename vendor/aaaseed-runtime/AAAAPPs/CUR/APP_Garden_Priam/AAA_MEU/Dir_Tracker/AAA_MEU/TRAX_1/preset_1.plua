@@ -1,0 +1,20 @@
+-- preset for MEU|TRAX_1("proto_TRAX")
+tab["channel in"] = 4
+tab["channel out"] = 3
+tab["controller in"] = 9
+tab["controller out"] = 1
+tab["factor"] = 1.5929753488574
+tab["fft freq min max"] = { 0, 1 }
+tab["fn"] = 5
+tab["inter down"] = 0.1016232889956
+tab["inter up"] = 0.16944186691788
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["min max"] = { 0, 1 }
+tab["offset"] = 0
+tab["th_max"] = 1
+tab["th_min"] = 0
+tab["th_min_max"] = false
+tab["th_on"] = false
+tab["threshold"] = 0.33049897237545
+tab["trax out"] = 0

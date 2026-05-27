@@ -1,0 +1,16 @@
+light ( Version 0 )
+	{
+	Intensity = 0.571243 ;
+	Position_x = 2 ;
+	Position_z = -2.5 ;
+	Radius = 0 ;
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Specular_red = 1 ;
+	Specular_green = 1 ;
+	Specular_blue = 1 ;
+	Ambient_Alpha = 0.0674932 ;
+	Spot_cutoff = 36.6561 ;
+	Spot_exponent = 0.184542 ;
+	}

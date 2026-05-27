@@ -1,0 +1,7 @@
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Freq = 0.036399 ;
+	Min = -8 ;
+	Max = -16 ;
+	}

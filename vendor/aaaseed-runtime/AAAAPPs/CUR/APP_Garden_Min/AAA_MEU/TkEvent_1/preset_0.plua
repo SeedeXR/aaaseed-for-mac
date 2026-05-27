@@ -1,0 +1,26 @@
+-- preset v0 for MEU|TkEvent_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["direction"] = 3
+tab["force"] = false
+tab["force on1"] = 0
+tab["force on2"] = 0
+tab["force on3"] = 1
+tab["force on4"] = 1
+tab["force on5"] = 0
+tab["force on6"] = 0
+tab["force on7"] = 0
+tab["force on8"] = 0
+tab["force on9"] = 1
+tab["on1"] = 0
+tab["on2"] = 0
+tab["on3"] = 0
+tab["on4"] = 0
+tab["on5"] = 0
+tab["on6"] = 0
+tab["on7"] = 0
+tab["on8"] = 0
+tab["on9"] = 0
+tab["open"] = false
+tab["osc"] = false
+tab["serial port nb"] = 3

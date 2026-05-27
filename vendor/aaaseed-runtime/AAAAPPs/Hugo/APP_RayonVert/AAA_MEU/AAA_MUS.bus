@@ -1,0 +1,16 @@
+-- BU position value for BUS Garden_MUS
+-- BUS.set_bu_pos( page, index, s, y, size_x, size_y, angle [,value] )
+-- page 0
+BUS.set_bu_pos( 0, "fbo_dif", 3.275, -1.2, nil, nil, 0, 1 )
+BUS.set_bu_pos( 0, "dir_fbos", 3.225, -1.45, nil, nil, 0, 0 )
+BUS.set_bu_pos( 0, "fp4_1", 2.45, -0.4, nil, nil, 0, 1 )
+BUS.set_bu_pos( 0, "kinect_2", 3.8, -1.675, nil, nil, 0, 1 )
+BUS.set_bu_pos( 0, "dir_kinprocess", 3.8, -1.575, nil, nil, 0, 1 )
+BUS.set_bu_pos( 0, "dir_mire", 3.225, -2.025, nil, nil, 0, 1 )
+BUS.set_bu_pos( 0, "dir_out", 3.35, -0.575, nil, nil, 0, 1 )
+BUS.set_bu_pos( 0, "fbo_pre", 2.2, -1.2, nil, nil, 0, 1 )
+BUS.set_bu_pos_mini( 0, "fbo_pre", 0.60000002384186, -1.56, 0.04, 0.01, 0 )
+BUS.set_bu_pos( 0, "dir_protos", -1.2999999523163, 2.475, nil, nil, 0, 0 )
+BUS.set_bu_pos( 0, "signature_1", 1.8, 0.55, nil, nil, 0, 0 )
+BUS.set_bu_pos( 0, "dir_trash", -1.2999999523163, 2.6, nil, nil, 0, 0 )
+BUS.set_bu_value( "fbo_viz", 1 )

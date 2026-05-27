@@ -1,0 +1,8 @@
+-- preset v0 for MEU|ShyFountain_1
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["allow fountain mod"] = false
+tab["atmo sound volume"] = 0.8
+tab["fountain amp"] = 1
+tab["fountain max"] = 8
+tab["fountain time out (sec)"] = 20

@@ -1,0 +1,1890 @@
+
+------------------
+ver 0.69 Alpha 6894
+2008 
+
+Many undocument changes
+Now 3 versions Debug / Release / Metal_tuned
+
+known bugs
+	INTERNAL
+		loading a texture don't update channel_nb or size
+	if you disable generate mimap in the texture pref
+		set force_linear to ON
+		exit and restart AAASeed so you don't get white instead of texture
+	if video is deinterlaced the video will not be transfered on the cpu side
+	fbo update of gnerate mipmap or stuff on cpu can be bogus in multiple screen
+		
+bbd_boid
+	Changed a lot, extended a lot
+	Physics corrected
+	now handle several boid interacting in the same universe
+cpu
+	detect multimedia extension : MMX to SSE4
+ftd2
+	this objet in tracker can control external relay thru a fred mauclere built interface
+	used to pilot stroboscope for now 
+def_bdd_uv
+	added, transform xyz space in the uv space 
+	very useful in particular to refine locally an adjustable grid	
+snapshot
+	can now save texture
+print_master
+	printing is now an print_master object, can print from texture
+	there is now a print_trig to print a snapshot on the default printer
+def_spiral
+	refined interface was changed and extended
+bdd_ftdi
+	new tracker to control fred usb In/Out ftdi box
+bdd_ui_pref
+	now as a full bdd, there was only a master before
+bdd_analyse
+	change the definition of the active rect
+pref_ui
+	cpu info
+	OpenGL info
+	dll info
+	mem stats for alloc, realloc and free
+	new Print master object in others
+	Save can now save from a texture instead of a snapshot
+trax
+	added CURVE_BY_NAME
+	added ASCII_EQUAL_CONTROL
+bdd_tri
+	svg import : path and polygon supported, others types or elements are ignored
+	svg import : tesselation
+	obj export
+	draw contours for svg imports
+	transform points is now a param bool, to optimize display
+tex_video
+	support wmv3 playback with directshow
+	force enum added to force to "mono 8" "RGB 24" or "RGB 32"
+		will work for capture and video
+	capture fly included
+		also with firefly color and grasshopper color
+	restart_trig now set on first image even if not playing
+	now incrust is done also in yuyv and uyvy mode
+	the cpu copy had red and blue swapped
+map
+	there is now a minification magnification group instead od lod
+		lod is inside
+		minification/magnification can now be force there so locally this can change
+	add tex_by_side do use a pinpoint strategy
+	add a restart_trig for the mapping speed
+state
+	introduced in module
+		state of module cur accessible thru 's' key
+		's' key again switch to snapshot
+		save states (only the layers) in "toto.state.xxx" where www is the state index
+		the directory module ("toto") have state 0 and the module objects which are absent from the others
+	there is a state_sensible flag in group (layers)
+bdd_image
+	a lot done for multitouch
+	bdd_image_gradient refined and extended to radial and color bar
+multitouch
+	bdd_contour
+	bdd_tracking
+	send tracking info as string ( -> LopArt Multitouch )
+render
+	add new color mode
+group
+	fbo can now be set to "Once"
+sound_input
+	param got reorganized
+	setting enable on/off work now
+bdd_curve_edit
+	is now back to "usable" in 1D
+	and save curves correctly
+bdd_part
+	can now ease alpha on sorted values
+	redid color stuff
+Bdd
+	more object support multiple mode	
+layer
+	feedback removed now only bdd_
+shader
+	all uniform are now aaa_ (eg aaa_tex_size)
+	uniform for texture size now in
+	uniform for ligths on added
+	documentation on uniform created : shader_uniform.txt
+aka remote added
+	iphone aka remote program supported
+	http://akamatsu.org/repo.xml
+bdd_adjustable_grid
+	alpha for grid
+	cleaned debugged
+	now you can change the resolution of the control point
+		and keep the deformation
+	if grid inherit last it now inherit the u v numbers too
+lua
+	get app directory
+	load images from script, does not replace names in bind
+	set video time
+	get image pixel color from xy and uv
+camera
+	alignments are back
+	cup in the interface
+		
+INTERFACE
+	key 's' now switch from Snapshot to State control of the current module		
+	non edit mode now more ^protected (F3 and F4 now out)
+INTERNAL
+	fbo
+		floating point texture are back fp16 and fp32
+		option to grab color attachement to cpu when fbo render is done
+		now support up to 8 color attachment, check against nb from videocard driver
+	boid
+		redone and refined
+	nvcpl stop if driver number can't be read
+		this way AAASeed don't stop with recent Nvidia driver on vista e.g. 169.25 
+	tex_video
+		now support monochrome flux
+		direct show improved (force_32bit for rgba)
+		try to avoid locking flux in directshow
+		grab first image when starting aaaseed
+		force format in for directshow videos ( No, Mono, RGB 24, RGB 32 )
+		graph filters are now properly destroyed when rebuilding graph when changing force in format
+	shader
+		uniforms cleanup
+		multitexture done better
+	tex
+		add glGetTexImage to grab a full texture, could be use when grabbing fbo ( same as read_pixels but for a whole texture )
+	tex_anim
+		corrected a phase bug for multiple
+	texture switch
+		cleaned, optimized, size kept at tex:: level
+		tex and bind_image cleaner faster and better
+		minification magnification cleaned
+	multitexture
+		map::cur only on texture 0
+	vfile naming redone to be relative
+		fx.aaa_layers_all can now be moved with no renaming inside the file
+	mutiple now have a default process in bdd_multiple base on get_point() fn
+	src tree redone
+	passing texture size now ok for shader
+		at least for the standard texture
+	adapted to visual 2008
+	debug version can run separated
+	using SVN instead of source safe
+	project cleaned
+	state
+		state_sensitive added at param level
+	net
+		better osc support
+			most osc infact is out (lemur, kronde...)
+		avoid crash when switching net to off
+		options to open udp socket to send only
+	action
+		more things doine thru the action mecanism
+	cpu
+		Multimedia extension detection redone using code from Microsoft and intrinsic cpuid()
+		cpu is now a namespace n_cpu
+
+------------------
+
+ver 0.69 Alpha 6893
+2007 September 14
+
+snap
+	add image index
+multitouch
+	introduced
+		bdd_open_cv
+		bdd_multitouch
+bdd_gene
+	tetrahedre rewrote and rotated
+
+UI
+	mouse wheel is now used
+
+INTERNAL
+	Clean basic struct
+	and init
+
+------------------
+ver 0.69 Alpha 6892
+
+bdd_gradient
+	is expanded and deal now with radial radial_squared and radial_losange type
+bdd_boid
+	add flock_dist_interior
+	make it way faster (x10)
+	separate visibility and extend it to all behavior
+	add a time_interval_max to avoid irregularities
+	INTERNAL
+		change the internal parsing structure
+			no more heavy stl
+		use clustering
+	flock vector now drawn ok
+trax
+	add VIDEO_IS_CHANGED type
+fbo
+	generate_mipmap now is functionnal
+	bdd_feedback can now grab in fbo
+	internal
+		less unusual binding at low level
+		go thru the tex fns now
+	deal now with erase and trail
+map
+	introduce blendEquation
+	new src and dst factor
+xps
+	disconnect itself for the session when it fail
+		so no message every frame on non xps machine
+snd_synth_spectrum
+	is better but not tottally debugged
+feedback
+	work also when no erase
+	non power of 2 size when npot
+	interface cleanup
+tex_video
+	small cleanup in the interface
+	reorganize internally for pbo
+	pbo
+		is back
+		with a pbo_several choice now
+net
+	extend osc for lemur
+pref_ui
+	add a trig to save image as Alt-s
+app
+	use a bdd_clear_screen instead of special code
+midi
+	extend to 512 CONTROL
+	now 64 slices too
+		filename change _01,_02... instead of _a,_b....
+	mackie
+		add button to offset midi_control by 0/128/256
+bdd_part
+	sorting and deforming at the same time now work
+color
+	hsv introduced
+pref_ui
+	texture
+		add a global flag texture_sub_image_do_mipmap to control if sub_image generate mipmap in image_flux
+
+INTERFACE
+	move deformer on '(' (5 key) to '�' (7 key)
+	on '(' we have now the shader
+	left click with no move on param open/close like middle button
+	a lot on left click
+LUA
+	add osc fns osc_send and osc_flush	 
+	
+INTERNAL
+	use FREE_AND_NULL and obj_delete more
+	redid the calculation of next power of 2
+	texture
+		cleanup the tex low level binding
+		cleanup the minification magnification of texture NEAREST is really back
+	small change on img
+	mapping GL_SPHEREE when implicfit don't provoque error message anymore
+	introduce bdd object with no model and multiple param
+	osc_flush all done now but an async fns added
+
+
+------------------
+ver 0.69 Alpha 6891
+2007 April 21st
+
+def_image
+	make mapping more easy by changing order of size/origin
+	correct typo by replacing param b_clamped by clamped
+def_water
+	correct typo by replacing param b_clamped by clamped
+bdd_img_water
+	correct typo by replacing param b_clamped by clamped
+camera
+	focal_forced_height is now back and functionnal
+modules
+	now 4 flag to save/load module/layers in one film	
+
+INTERNAL
+	shader cleanup
+	image gradient out and on border of clamped image corrected
+	don't try anymore to build a directshow graph if the file don't exist
+	
+
+------------------
+ver 0.69 Beta 6889
+2007 April 23rd
+version liberty of the seas
+
+wheel mouse scroll param
+
+FBO
+	Franz introduce it
+NPOT
+	texture don't need power of two size anymore
+ui
+	param locked have an out mark
+	support for Apple French keyboard
+	non edit mode lock better ( no more mouse ) 
+bdd_null
+	now do it in 2d too
+pref_ui
+	output from the ui is present
+		to add ui interface in module
+	output from the keybo�ard now there
+net
+	move machine and langroup to net
+trax
+	add Machine and Langroup traxs
+lua
+	extend lua vocabulary
+app
+	add a date section with a simulation to accelerate date and test
+menu
+	extend clipboard menu
+adjustable grid
+	grid was erased at load now fix
+midi
+	the "dynamic" parameter are now lua accessible
+	midi in is now disabled if "start_with_dmx" (windows bug avoided ???) 
+bdd_updtream
+	the "dynamic" parameter are now lua accessible
+dmx
+	init hacked for "liberty of the seas"
+	midi patcing extended
+tex_video
+	protect remanence from long refresh interval
+render
+	hack but top_color and normal_color now react to color_mod  in app
+
+INTERNAL
+	supresss a crash bug in debug
+	param 
+		now split in param_data and param_more
+		load rewrote to faster, more secure
+			deal with no space
+			deal with comment (// or --) only at load
+	file_io extended
+	BIG cleanup in global name and namespace
+		GOL is a namespace
+		global start by g_ or got static in a class
+	more namespace and rewrite
+		ui/mouse/stop
+	param_swap redid
+		now move trax/layer/groupe/module should work
+	net
+		checksum was bad
+	supress crashing bug link with disconnet of trax
+	refine list_pt operation
+	saving add a serious memory leak	
+	avoid crash on all model (m key)
+	avoid crash on empty fifo (-> or <- at start)
+	no more huge memory leak on save
+	rewrote date
+	better dealloc in shader
+	net
+		a very bad memory leak suppressed
+		partial non blocking connection
+	ui clean up and prepared for gizmos
+	really strong lock now when no edit mode (ctrl e)
+	refine serial com
+
+------------------
+ver 0.69 Beta 686
+2007
+
+bass is back for sound
+arrow left and rigth go thru the past focus objects
+
+render
+	add culling to top_line and top_point
+bdd_sound
+	no more linear flag now in data type
+	correct crashing bug
+def_data
+	refined
+bdd_clear_screen
+	deal with the different planes
+pref
+	now display the number of bits of graphic planes
+bdd_adjustable_grid
+	now react better to change to nb of u v control point 
+pref
+	can now save tga in grey (the red channel is used)
+	xnview is now the default lib
+
+
+INTERNAL
+	optimize a little top_line and top_point start and stop
+	bug on replace extension corrected
+	reset the depth write state at every rendering pass
+	uv_clamp for img was buggy
+	bug in data_line::insert() dead
+	bug in mackie
+	file dialog for folder now in there
+	find duplicate debuged for small files
+	no side bug with ch_dir for "." or ".." dir
+	supresss a crash bug in debug
+
+------------------
+ver 0.69 Beta 685 "Official Lua release"
+18 Janvier 2007
+"Post Upstream Nuit Blanche Post Heavent Post Beyrouth Post Bucarest post Unesco Post Toyota"
+
+ADDED
+bdd_kramer
+	new object to control video switch matrix (Kramer VS-606)
+bdd_pjlink
+	control PJLINK protocol (PANASONIC projector for example)
+bdd_dll
+	to plug external code
+bdd_watchdog
+	deal with watchdog hardware
+bdd_img_waterw
+	water for toyota still tmp
+bdd_clear_screen
+	to erase a screen very fast
+bdd_polygon
+	to specify a polygon point by point
+bdd_pref_ui
+	to define ui stuff 
+bdd_img_analyse
+	raw basic analysis (position / coverage )
+lua
+	in pref
+	in traxs
+	LUA trax
+	stable fast and usable
+	
+net
+	introduce net_link in different files
+	add a calling flag	avoid dynamic allocation so block are now reused
+	reworked error message
+	not finished yet
+tex_video
+	introduce remanence processing bw and color
+		difference processing
+	capture config can now be forced
+	capture running can be forced too
+map
+	introduce texture3D
+	correct lod name
+shader
+	correct various bugs on names of params
+	introduce texture3D for noise (out for now)
+file_dialog
+	avoid crash on Cancel
+feedback
+	correct grab in changing bind
+	add a loas_img_no_texture to avoid reloas when grabing to image
+tex_anim
+	change the way it work with bdd_uv
+	correct crashing bug when bad bind index
+text dialog
+	extend the text buffer to 256K
+param
+	limit the number of line for text param
+picking
+	is back	and extended
+	curve_edit and grid_adjust&ble use it
+curve_edit
+	first pass at catmull
+	linked curve for upstream
+mess_viewport
+	move to the left of param
+	multiline
+	param for char_zine
+ui
+	dialog now appear in window taskbar
+midi
+	the date param is now in "Out" chapter
+	AAASeed read now Midi Timecode
+camera
+	add focal_forced_height to deal with fixed pixel size setting
+	deal better with camera_ui and multi_render
+bdd_part
+	introduce random or successive id
+bdd_boid
+	physics extended
+	introduce random or successive id
+exit
+	if force_shutdown On shift + double ESC don't shutdown
+render
+	add depth_write
+app
+	redid and debug trail, now work with color too
+def_data
+	extended with lissajou and spectrum	
+xps
+	add xps_out to set the led when leaving AAASeed
+
+INTERNAL
+	param and connection redid again
+	deal with object with no param
+	add more check in debug
+	refine computation of line position for param
+	img_bind more defensive 
+	correct lot of crashing bug
+	optimize and secure from overwrite param print_ui
+	split keys from curve_edit
+	add mapping update when shading 
+	tex_video compacted and cleaned a little
+	o_str extended and cleaned
+	add cases for fname on file starting with . or ..
+
+------------------
+ver 0.69 Beta 683 "c'est printemps ca va bourgonner"
+
+shader
+	glsl shader are supported, fixed funtionality can be done by shaders
+texture_master
+	pbo_use flag switch on Pixel Buffer Object and should be useb
+video
+	directshow support for avi and mpeg, wmv is supported but it is not reliable
+	deinterlacing rewritten using classes, MMX optimized kernel method at double frame rate
+	Franz will finish and document perhaps one days
+	more fucking direct show (Beuuuurk)
+	the Video menu is now active
+	the incrust simple chage sligtly (only when min = max)
+Toaster
+	kroonde box (La kitchen paris) osc protocol redone
+upstream
+	add special upstream obj and bdd_upstream
+	door flag added to bdd_grid and def_skew (this is a hack)
+	boid hacked to pass dot to bdd_point like particle
+comment
+	display now comment for trax at the obj level (Franck you wanted it, you got it)
+	add comment and display for Group
+deformer
+	add def_image, def_tra and def_warp
+bdd_cell_automata
+	first empty version
+bdd_boid
+	now each new boid get a new id (in an incremental way)
+	speed noise refined
+	change multiple normal calculation
+	optimized 3d computation : at least 2 times faster
+	2d redone
+	physics redone
+	interface refined and extented	
+bdd_part
+	refine net sync
+	change multiple normal calculation
+	add speed_max
+	add scaling factor on jitter at emission
+	refine rotation in Geo
+	sorting is working fine again
+bdd_gradient
+	refined
+bdd_grid
+	the field option added
+bdd_tube_path
+	crashing bug when changing tesselation supressed
+multiple
+	rotation random on different axis added
+image
+	read 8 bits rle tga file now
+	use now glf lib from Nview as an alternate to ImageMagick
+		there is lib_image_name in pref
+trax
+	display of offsets in trax name
+	autoconnect now really works (the offsets don't fuck it up) 
+mapping
+	implicit now work on all texture
+bdd_text_2d
+	new mode FILL + OUTLINE for antialiasing
+net
+	main active can stop and restart the net now
+	add call flag to deal with pjlink
+module
+	multiple_screen
+		is now a separate object from app
+		ans there is one by module multiple_render
+	module_material introduced
+	module_lights introduced
+pref
+	add a scale factor for custom format in video
+midi
+	deal specificly with CS32 now 
+layer
+	correct how bdd_use = CURRENT is dealt with
+		the bdd is now updated
+sound
+	several lib supported
+		but only direct sound these days
+mocap
+	rewrote time_factor stuff to avoid crashing bug
+camera
+	refine camera interface works now when CURRENT
+xps
+	can now control the leds
+mackie
+	update fader only when off for an interval to avoid fader blockage
+		feeling touch is better
+	interval in ui now 
+
+	
+INTERNAL
+	redone LAYERS_NAME with stl map (a lot faster)
+	no more bbox drawing in multiple (no slowdown for layer_ui drawn multiple)
+	param
+		name field in ST_PARAM is now made with a o_str and data belongs to param
+		split param and param_data
+	net
+		should be more stable and protected
+		osc reception refined
+	save tga optimized
+	refresh of image not done anymore when using 3D_COLOR TRAX (was too slow).
+	MEMCPY not crashing amymore on certain addresses/sizes 
+	datacube is now an object
+	texturing
+		is now loaded correctly 
+		implicit mapping is done roughly (same as unit 0)
+			no array rendering
+	bdd_tri draw() optimized
+	redid part of the move_to_gpu bind_2d... to avoid bugs and optimize 
+	get rid of most crashing dialog
+		add a locking mecanism
+	change how bind_2d is computed in layer obj
+		the bind message is correct now
+	add message when load file decide to delte object
+	avoid intempestive double_click after time restart
+	refine net start and stop message
+	PARAM_FLOAT change to PARAM_REAL and version double should compile ok 
+	all param update thru paran_set_pt...() now
+	introduction of c_param
+		ST_PARAM are know used only for init
+		unitialized variable are checked
+	erase and just draw param now ok
+	bdd_uv now draw if nb_u or nb_v is 1
+	a lot of objets have now private members instead of protected
+	free fns and variables have been reduced
+	all the error fns are noz periadic fns
+	factory introduced
+		used for deformer
+		abstract and concrete
+	sound went thru a major rewrite
+		code is more portable
+	refine the sin/cos computation for finer result for bigger number
+	pass phase element of trxs to double
+	make sure global traxs are updates when no modules are on
+	
+	
+------------------
+ver 0.69 Beta 67 "Post Aichi/Pre Scopitone"
+11 Juin 2005
+
+COMPATIBILITY ISSUE
+once saved don't try to use your AAAASeed Env with previous version
+	local traxs are now saved as .trax instead of .traxl
+		so delete .traxl when saved the first time because if they exist .traxl are read instead
+	layers saved before a list in .layers (fx_a, fx_b....)
+		if the .layers file exists it's used to load but save alway do fx_a,fx_b...
+		so delete .layers when saved the first time
+	
+def_interpolate
+	works now with boid particle and null
+bdd_boid
+	have being improved and extended
+bdd_uv
+	can now be interpolated to
+midi
+	param allow_Non_Registered_Parameter_Number added for Behringer BCF2000n and BCR2000
+	mackie control are now in channel 16 controller 1 to 64 
+	double h + a autoconnect the next midi event to the cur parameter thru a free trax
+	double h + b disconnect the current parameter
+mackie
+	add midi patches for the mackie control univesal
+	add store in the param interface
+	start to use the behringer as replacement
+trax
+	DISTANCE_3D can now have only one input 	 
+bdd_synth_spectrum
+	add a sound generator based on spectrum
+bdd_feedback
+	add a grab to image (useful for bdd_synth_spectrum) (now locked on bind 32)
+bdd_mocap
+	correct a bad naming of param (node_start/dtop instead of segment_start/stop)
+def_data
+	some new parameters
+Layers
+	no more filelist in More
+	no more saving bug when we move layer 
+DV in now functionnal
+
+interface
+	Edit en haut a gauche des params se deplace
+	Le FPS est present en premire ligne des params
+	layers now display only the active layer (start/end)
+	number key role changed see manual
+	
+INTERNAL
+	IMOD fonction had a bug on negative multiple of the modulo (it could provoque crashes)
+	Osc implemented twice
+	bug midi cleaned up
+	started to integrate  bass.dll for sound
+	gain/bias fns are now templates
+	move to new version of IMagick (new dll)
+	move to new version of fttw (new dll)
+	move to Franz version of dsvideolib (new dll)
+	MAJOR REWRITE of the structure and load/save (layer, layers, trax, traxs, cameras mainly)
+	
+	
+	
+------------------
+ver 0.69 Beta 65 "Bonne Annee / Tournee Bouyges"
+6 Jan 2005
+
+bdd_curve
+	add phase control point to change timing
+	add and change interface
+bdd_adjustable grid
+	choice of linear or Catmullrom now
+bdd_curve_edit
+	add phase control to it
+bdd_point new
+	used to follow tracking for aichi
+tex_video
+	separate generate mipmap flag now
+midi
+	thousand bank now
+pref
+	add load flag to make ATI board ok
+	add GOL flags
+	add list flag
+texture_flux_master
+	refine memory choice
+dmx
+	now choice of com port in object 
+	
+INTERNAL
+	midi save and load line of zero as carriage return
+	generate mipmap redone
+	move to texture redone (now in tex)
+	
+		
+------------------
+ver 0.69 Beta 64 "Franz in the house"
+6 Dec 2004
+
+Map
+	Use camera projection as texture projection
+Camera
+	add several camera by Layers
+		useful for texture too
+	now CTRL F4 switch orbiting
+	F4 go from cam to cam
+	and SHIFT F4 do it reverse 
+	double F4 go to cam 0
+pref
+	there is now a lib_name
+		at load every file name in bind file starting with %lib% will have the %lib% replace by lib_name
+		the revese process is done when saved
+	in Misc there is now a force_shutdown flag which shut off the whole machine at exit
+	add compute_master
+deformer
+	add interpolate deformer (work only with particle and boid for now)
+bdd
+	add a ref_name to designate bdd by name (see interpolate)
+	bdd_feedback here to replace feedback
+		use the bdd_feedback to grab now
+		don't use the geometric part of feedback or bdd_feedback (should vanish soon)
+		new field to set a grab with a non power of 2
+			object calculate texture size to plug trax to it (like tex_video)
+	bdd_gene now have a center param and are loaded/saved
+	bdd_face now have a center the texture projection have been reworked
+	bdd_line is new
+	bdd_image_gradient have a fisrt try
+	bdd_box now deal with inetrsection of a line
+midi
+	mackie control universal added
+		this is a first version but it is fully operational
+		you can even use several (tested up to 3)
+	Abank only on first 96 controller (lasuite/samsung)
+	midi_device are now in the midi object
+	there is 26 possible midi object
+sound
+	load and save more than 2 sound inputs
+serial
+	now up to 32 com port
+trax
+	added TEST and BREAK relative to 0 and 1 directly
+	added type MIDI CONTROL NO OFFSET which don't use the layers channel and control offset
+	added intersection stuff for trevarez
+map
+	wrappping mode extended 
+		variations on CLAMP and MIRORRED added (need Opengl 1.4)
+		not a BOOL anymore
+	wrapping on w added (correspond to R in OpenGL)
+	add blending mode and options (opengl 1.4)
+	add mipmap lod trick to do blurs		
+texturing
+	add multitexturing see texturing object
+layer
+	some reorganization in the order od params
+layers
+	the comment in layer appear in the layers on the left of the layer
+Pref
+	exit can now trigger machine shutdown
+datagrid
+	corrected bug when reding multiline cell (ther was no more number cell after, only text)
+PARAM
+	print of float param improved
+INTERNAL
+	corrected bug in  perlin improved noise
+	midi out not done with strem anymore because of mackie
+	All bdd started param redone
+	add sym_name to all obj_ui object
+	add vector fn param_set_v.. for param_init_pt
+	add show orphan in menu
+		use it to correct root of some objects
+	use now GLEW to deal with extentions
+
+------------------
+ver 0.69 Beta 63 "Sainte Blanche"
+1 sept 2004
+
+Keyboard
+	add double h (press h twice change the meaning of the next key)
+		'f' switch to French keyboard
+		'e' switch to english keyboard
+	key 5 focus on tex_video
+Menu
+	Tracker Menu reduce the Focus Menu
+	Layers/New now exist (this a way to create a new layers use "fx" as name)
+Tracker
+	polhemus patrot in
+bdd
+	Curve_edit to deal with f(phase) curve
+deformer
+	Data deformer (deformer on sound) to emulate Christian Transcam
+Map
+	Corrected bug in implicit mirror modes 
+Input
+	multiple sound input
+Multiple
+	add LAYERS_NAME	
+Console
+	Add colors
+	Green means "Good News" message,
+	Read means Error,
+	Cyan means "debug" message,
+	Yellow means missing media.
+INTERNAL
+	Ongoing change on capture and video
+	Tracker redone with sensor object (only magellan and polhemus done)
+...
+lot more forgotten
+...
+
+------------------
+ver 0.69 Beta 61
+
+Keyboard
+	Change made to deal with English Keyboard
+		lights now accessed with CTRL-1,CTRL-2...CTRL-0) instead of 1,2...0
+		key 1 focus on current layers
+		key 2 focus on current layer
+		key 3 focus on current bdd
+		key 4 focus on current defomer
+		the other symbol on the Key (shift/Unshift) do the same
+			this imply a param in pref/keyboard to choose the keyboard type (French/UK for now).
+	ALT-T now switch On/Off the Time Buffer activity
+Mouse
+	left and middle button better in curve window
+Midi
+	add s second midi object
+	add a dialog flag to control the appearance of error dialogs on open in/out
+tex_video
+	TWO/THREE VIDEO LIVE SOURCE IN REALTIME	 
+pref
+	add an Image chapter
+		add param to refresh an interval of image when they chenged	
+multiple
+	add LAYERS_PREV
+	add translation_type (translation param
+Layerss
+	add global rotation forf camera
+Bdd
+	the params model and multiple now present the layer value use_model and use_multiple   	
+interface
+	treat ON/OFF with Green/Red on BOOL and TRAX
+trail
+	now work with multiple screen
+Map
+	add rotation in texture mapping (still tmp)
+	consider flip_uv in Object and Eye Mode
+INTERNAL
+	all shared memory by threads now done with critical section
+	add time buffer etc...
+	net lock/unlock have being redone, net::update() optimize for shorter locking
+	bug on snd_input open on the release version
+	open images where never closed, they are closed after reading now
+	microsoft bug corrected in DirectSound, crashing bug supressed
+	add a SAVE_NOT flag to the param object
+	
+------------------
+ver 0.69 Beta 60
+November 12 th 2003
+
+the locale stuff have to be finished (Maa's note)
+
+now compiled only for P4 and with Visual .net
+	Win_DV fns unpluged for this
+time_origin now dealt with correctly
+	multiple rendering ok with particle
+But time_slave still fuck up particles
+
+trax
+	add mocap types to get the scale
+	add network info in the naming of the trax
+	experimental version of 3D_MULTIPLE_POS
+def_turbulence
+	added space_factor_x/y/z (ATTENTION NOT FINAL)
+		this allow to change the effects with the direction
+		it will change to u/v/axe eventually
+		works only with 1 harmonic for now
+Particle
+	the bounce have beeing corrected
+		all the speed are affected when it bounce
+bdd
+	add bdd_point_network for Nuit Blanche
+	add bdd_grid_adjustable for Cartier
+video
+	the object have been redone a lot but it still temporary
+			
+do	add render screen
+
+ui
+do	scrolling change
+------------------
+ver 0.69 Beta 58
+May th 2003
+
+bdd_chat
+	introduce it
+layer
+	correct bug in logic_op (was not disabled)
+	add temporary clipping plane 0
+reactivate procedural texture (Maa's domain for now)
+param character set from 32 to 128 complete and better (also MAA_LINE in bdd_tex2dx)
+	mark shape of comma better in interface font
+	underscore connnect to each other
+pref
+	separate flag for line_smooth in interface : Char_line_smooth 
+bdd_path_tube now ok
+	got rid of a bug dealing with circle orientation being static
+bdd_tex2d
+	deformer act letter by letter now
+	param draw_point show the char limit with Null objects
+bdd_cone
+	cone is not flipped anymore on X
+interface use now the real time clock instead of AAASeed clock
+trax
+	add a draw_fixed param
+	add trax_sample_nb in pref to control number of sample kept for drawing
+	add type ALPHABET_ONE
+	add BREAK trax
+	add SCREEN_X_INDEX and SCREEN_X_INDEX in experimental
+		the global trax are only refreshed once even with multiple screen rendering
+		so no global trax or local trax could deal with the rendering screen index
+
+double window
+	param are now visible
+		initialization of display lists for each window
+	click on main window don't alter anymore param
+		one mouse callback fn by window
+
+INTERNAL
+	first integration of mysql
+	flexus lost some bpi special case
+	logic_op done now thru GOL
+	a big part of net rewrote
+		most block type treated before the frame render instead of immediatly
+	datagrid rewrote
+		datacube/dataline/data_elt
+	extend o_str
+
+------------------
+ver 0.69 Beta 57
+March 25th 2003
+
+tex_video
+	if a video is a jpg or tga file it is reloaded every time it change
+		infact it is considered as video being streamed
+trax
+	Draw was reactivated see trax.doc
+		draw_line_size added param
+	change to follow the documentation
+	OUTPUT_TYPE IN ne crashe plus et fonctionne
+	midi_out was unused and is now removed
+	Output MIN MIDDLE MAX
+		change now the three components for 3D traxs
+	Format
+		when format is empty %f is now used
+	Menu type reorganized
+	Display output_type in the trax name
+	add param phase_internal (output only)
+		to see what happenning
+		to sync trax together		
+snap
+	add message when mode change
+	add Snap indicator close to Edit
+app
+	add timings/system_part
+		for now number of second given back to the system at each frame
+		it allow AAASeed to let other task run.
+The texture generator is back (texture Knobs)
+	only to play, no compatibility garanties
+ATTENTION ATTENTION ATTENTION compatibility issues
+	trax
+		CONTROL, CONTROL_SET, 3D_CONTROL, 3D_CONTROL_SET
+			use now (channel, control_id, control_id_bis)
+			instead of( 1, channel, control_id)
+			see trax.doc
+		CONTROL_SET NAME_REAL_SET
+			before being set the value go thru the whole trax pipeline now
+		TURBULENCE and FRACTALSUM
+			Ease_before is now the harmonic number instead of phase
+			which was used in the calculation when the trax had no input
+		multiple_real..
+			now go from 0 to 1 (instead of (nb-1)/1.)
+		certain trax used the output as input when they had no input
+			this is gone
+		now gain/bias and round have also an effects on 3D traxs
+		the different output type are now used on 3D traxs
+			use phase as offset in all the Time trax
+		MIDI CONTROLLER RELATIVE
+			is now controlled by freq instead of max
+		RANDOM...
+			changes are now done too when the phase decrease
+		FN_TRIGGER is gone use
+		DAY_OF_WEEK start at 0 for sunday now instead of 1
+		the Limit with ABS now apply in 3D
+
+INTERNAL
+	turbulence fns
+		optimize and correct scaling factor for more than 2 harmonics
+	avoid crashing bug in release version due to object initialisation in bdd_tri tex_video sensor6dof
+
+------------------
+ver 0.69 Beta 56
+March 11th 2003
+
+deformer
+	got rid of bug when a deformer is removed
+	corrected bug on name of def_node
+pref
+	add numeric pad flags in interface
+snap
+	get rid of unused params
+particle
+	bug in multiple billboard corrected
+	deformer can now be apply in non multiple mode
+joystick
+	add a factor parameter by channel
+map and color
+	move tex_env in map from color
+		because it deals with the blending
+net
+	param order reworked
+	deal now with tcp connnection
+		interface with Eyesweb ok
+menu
+	deformer is now deformer instead of modifier
+tex_video
+	the red green blue diameter are now active
+interface
+	the up or down arrow in param trigger scroll at the edges
+		still a bug with multiple line param
+	enter flip ON/OFF the boolean param
+trax
+	add absolute value in limit
+	can't plug anymore (in or out) on dummy param (like the Txx in Traxs)
+layer
+	bind/bank 1d/2d CURRENT should work now
+texture
+	when texture_force_nearest or linear where ON in pref
+		texture with non powezr of 2 size where not loaded
+		now there loaded but with Mipmap (fast resizing will come later)
+exit
+	some more messagte on exit to identify exit bugs
+	there is an "Environement saved" message after the environment is saved
+		so you can be sure that everytthing is saved in case of crash
+
+------------------
+ver 0.69 Beta 55
+Jan 27th 2003
+
+Traxs
+	Can now be moved with CTRL + UP or DOWN
+	new CONTROL, CONTROL_SET, 3D_CONTROL, 3D_CONTROL_SET type
+		the data is from the datagrid_0
+			channel_id choose the row (y)
+			control_id choose the colum (x)
+		the ..._SET traxs feed the datagrid from the param plugged in
+	new NAME_REAL, NAME_REAL_SET type
+		let you create variable (SET) and recall it
+		the ..._SET traxs feed the named variable from the param plugged in
+		this should avoid from now on all connection of global trax to local object
+		and made a clearer organization of data flow
+		thr name have to be exactly the same
+		you can use the menu item "print all REAL NAME" to see the names used
+	new INSIDE_FREQ_AND_PHASE_... traxs
+		this is like the test trax but the ease_in and ease_out param
+			determine the interval for a continuous transition (LINEAR or SINUS)
+	new PROXIMITY_ traxs
+		the same but it's one for the frequency and go to zero according to the ease params
+	change the Naming of the traxs in the interface
+	Trax menu reorganized
+		more groups
+		plug out is now first
+Layers
+	Can now move too with CTRL + UP or DOWN
+Layer
+	Can now move too with CTRL + UP or DOWN
+	there is in the more chapter of the layers a file_list param
+		where you can change the file names of the layer
+tex_video
+	a lot of underground work
+	for the capture mode
+		streamed and direct_show should be OFF for the moment
+	the interface for "BLUE_SCREEN" changed
+		you can now select a color (rgb + grey)
+		and a diameter (red and factor only for now)
+		and the colors will be transparent according to the diameter_internal
+			0.: full transition, 1.: direct from opaque to transparent
+	BLUE_SCREEN_RAW mode is nearly like BLUE_SCREEN with diameter_internal to 1 but faster
+	BLUE_SCREEN_ALPHA make you able to see the alpha channel
+		good to do Black and white image too
+Deformer turbulence have now improved perlin noise ( not calibrated yet)
+Menu
+	Add a "Maa" submenu with a command to detect similar file
+	Add a Midi test command to the debug submenu (it send midi controller data) 
+Do the Oz for the FranceTelecom face for Monaco Dance Festival
+Bdd_mocap now have a reference trigger separate from the live switch
+Camera format : change some default formats
+In Layers/Timings can now force the min number of vbl by frame
+	this way we can avoid jumps coming from irregular frame rate
+Datagrid object have been rewrited and extended
+	you can save the csv file now
+	datagrid 0 have now related trax (CONTROL, CONTROL_SET, 3D_CONTROL, 3D_CONTROL_SET) to get/set data
+	 	all input/output should go through this or the new named traxs 
+Values objects extended to 128 items
+Pref
+	add an "Interface" group of param 
+		"edit" can be toggle trhu ctrl+e and will be a main mecanism to switch fro "edit" to" play"
+			for now it act only "anded" with the next flag
+			but can be used by traxs
+		"keyboard_alphabet_for_ui" toggle if the alphabet key (no modifiers) go to the interface
+		"keyboard_alphabet_for_trax" toggle if the alphabet key (no modifiers) go to the trax
+	can now control back drawing on the interface separely for param and curve
+France telecom / Saporta out of the standard version
+	dll from Fance Telecom are not needed anymore
+New chaper in app to deal with multiprojector and overlap
+	screen_?_nb set the number of rendering passes and screens
+	overlap set the amount of overlap between contiguous screens
+Tga: support now uncompressed top to bottom and bottom to top internal format
+pref
+	added a Verbose_image_missing param to switch the message for image missing
+INTERNAL
+	opt perlin noise with inline 
+	aaa_gypsy close to ready to open multiple gypsy suit
+	change name of obj to obj_name
+	add the file_io object
+	rewrote and optimize
+		param reading
+		tga loading 
+	in Map is_implicit() can now be called with a null this
+	RETCODE change to AAA_ERR
+	creation off c_file_io to read file in ram then from ram
+		param reading rewroted with this
+		tga reading rewroted with this
+	optimize all the string compares
+
+
+------------------
+ver 0.69 Beta 53
+Nov 26 th 2002
+
+Timing parameters in app
+	vertical blanking (vbl) can now be counted
+	fps... an be plugged now
+left and right in sound input
+	in trax channel 1 is left 2 is right
+Trax TIME now use freq and can be reset
+circle is optimized and extented
+add a flag in net to deal with 2 formats of udp packet for Max/Msp 	
+INTERNAL
+	more obj fns on c_image, protected member now
+	over1 table more precise
+	optimization in multiple
+	kill violent (lock) bug on mocap; init
+	color bug in particule Nibel
+	add a render_def to avoid crashing bug
+	add a layer_def to avoid crashing bug
+
+------------------
+ver 0.69 Beta 52
+Oct 28 th
+
+Optimize Circle and add direct flag before doing better
+add in Net a MaxMsp swiotch to deal with two cases on the Max side
+ 
+------------------
+ver 0.69 Beta 52
+Oct 28 th
+the Post FCMM 2002 Version
+
+particle: the emission image have now an offset
+lot of cleanup
+4 view is back
+in color tex_env is back but with a flag
+stencil cleaned up now usable
+pref a lot moved to pref_ui to be able to plug trax
+In layers used_for_picking now used, default is on now
+No more flicker with erase
+	now a separate double_buffer flag
+trax for video input (freq and phase_offset are u v)
+trax for image input (freq and phase_offset are u v)
+	control_id is is bind+1
+	if image are freed with image_free_when_on_board no image info to read from
+trax for image size
+trax for interpolate
+trax text read the text_bind
+particle add offset to image _emission
+INTERNAL
+	more FINLINE to optimize multiple
+	killed big bug
+		to focus on something with a long name trashed memory
+	render_font with NULL string was crashing
+
+
+------------------
+ver 0.69 Beta 50
+Sept 25th
+
+viewport introduced
+INTERNAL
+	all image and param are now objects
+
+------------------
+ver 0.69 Beta 49
+Sept
+
+bug and feedback strobe cleaned
+All midi controllers saved and loaded
+grid with nb_u = 1 or nb_v = 1 centered for multiple
+
+
+------------------
+ver 0.69 Beta 48
+Sept 9th
+
+Graph visualisation in progress
+dialog cleaned
+		"sync from" not active yet
+		drag in list done
+
+------------------
+ver 0.69 Beta 47
+Sept 3rd
+
+Specialized dialog for France Telecom FaceEngine
+FaceEngine cleaned up and moved to new lib
+visu rapide des connexions dans le "Cell draw"
+text_bind added and used in text dialog (drag in next version)
+INTERNAL
+	string object now used
+	refine Direct sound opening and message
+	use more recent microsoft libs and include
+
+------------------
+ver 0.69 Beta 45
+July 16th 2002
+
+Corrected License to deal with August and September Bug
+Correcting and refining algo Maa bug	
+Lcp Object close to final
+MD5 checksum on csv file
+ATTENTION some of the recent dll (e.g. FaceEngineLib)
+	have to be in the same directory for now
+
+------------------
+ver 0.69 Beta 35
+June 3rd 2002
+
+cleaned up the exit process
+	no more crash with exit after video
+Evolve the lcp object
+Secure the face_ft talking+5
+
+------------------
+ver 0.69 Beta 34
+Mai 31th 2002
+
+first shoot at blue screen very primary but works ON/OFF
+
+------------------
+ver 0.69 Beta 33
+Mai 30th 2002
+
+introduce time in tex_video
+split preferences with preference_ui to plug trax on interface preference
+datagrid
+	are loaded and saved now, so the name of the csv can be changed now
+	flag to ignore commas
+	extend datagrid to 1024 row
+ATTENTION
+	bug feedback only work when in pref 2d Minification is GL_LINEAR OR GL_NEAREST
+	this go on for a while will be corrected after the french elections
+
+------------------
+ver 0.69 Beta 32
+Mai 26th 2002
+
+bdd_tri add id
+	rewrote draw and draw bounding box
+ALT B
+	to visualize Bounding box
+	work only on bdd_tri for now
+key ! is back (last men called)
+render
+	add a normal group
+	correct inversion of normal textured
+	separate normal color
+new tracker TOASTER for UHF device of la Kitchen
+Trax
+	add CHANGE_LINEAR and CHANGE_SMOOTH
+		plus 3D version
+	BDD_TRI_...
+	SLIDE_INDEX now reset to start on CTRL-SPACE
+	add ALPHABET and ALPHABET_LAST
+	new type TOASTER for UHF device of la Kitchen
+net
+	rewrite code which deal with MAX packet
+	deal with toaster if allowed
+Add France Telecom Faces
+
+------------------
+ver 0.69 Beta 31
+April 28th 2002
+
+Change cursors
+switch (F1,F2,F3) even when left mouse down
+add trax FN_MORE_THAN_VALUE_GLOBAL_INDEX and FN_MORE_THAN_VALUE_INDEX
+ 
+------------------
+ver 0.69 Beta 30
+April 24th 2002
+
+First pass at La Kitchen toaster
+change angle in wave deformer to turn instead of radian
+get center of bbbox by obj in bdd_tri
+	add trax type for it
+read names of obj in bdd_tri
+start working on clipping in bdd_tri
+
+------------------
+ver 0.69 Beta 29
+April 18th 2002
+
+Add CAMERA_FORMAT_CUSTOM and its params in pref/interface/video
+ 
+------------------
+ver 0.69 Beta 28
+April 17th 2002
+
+Trax Added time traxs
+
+------------------
+ver 0.69 Beta 27
+April 16th 2002
+
+Trax Added min_TO_MAX and max_TO_MIN and COPY_BLOCK_REAL
+Trax Add a out_str field to vizualize string output
+Map slip wrap in wrap_u and wrap_v
+DANGER DANGER DANGER
+	in trax and particle the word "warp" was udes instead of "wrap"
+		this has been corrected so you should search for "warp"
+		in all your AAASeed file and replace it by "wrap"
+
+------------------
+ver 0.69 Beta 26
+April 15th 2002
+
+Trax Added FILE_IS_CHANGED
+Add Parameter in multiple and associated trax
+
+------------------
+ver 0.69 Beta 25
+April 12th 2002
+
+Trax Added EQUAL NOT_EQUAL CHANGED
+	EQUAL NOT_EQUAL works also on several and on string
+
+------------------
+ver 0.69 Beta 24
+April 11th 2002
+
+Trax Added SORT_VALUE_INDEX....
+Add depth test in render and clear_depth in app 
+Scroll on PARAM installed
+	Middle click then move vertically move the param opposite to the move
+	There is a sensitivity param in the pref
+	double Middle click reset to the top
+all bdd_uv can now have a nb_u or nb_v of 1
+	this very useful for multiple
+there is now a layerss object dealing with part of the app parameter
+	the param in layers is now saved in default.layrerss_param instead of default.app
+changed some default in app
+
+------------------
+ver 0.69 Beta 23
+April 6th 2002
+
+no more flash with big character when bdd_tex2d used
+Trax type LOG LOG10 EXP and POWER added
+
+------------------
+ver 0.69 Beta 22
+March 22th 2002
+
+Huge optimization done on speed
+	perhaps some bugs introduced
+	tex_env_color disabled for a while
+layer draw() optimized and modified
+	picking touched
+		can pick on origin now
+	draw origin even if no bdd
+	update all even when no bdd
+		transfo are still active
+
+------------------
+ver 0.69 Beta 21
+March 22th 2002
+
+DANGER DANGER DANGER
+before using this and next versions back up your environement
+	because the load/save can be unstable
+app
+	acces to the main cam
+	got rid of exclusive (only used in 3DExercizers and Boulogne)
+INTERNAL
+	move related things to app
+	change load/save of related thing
+
+------------------
+ver 0.69 Beta 20
+March 22th 2002
+
+trax SET_VALUE andf SET_VALUE_GLOBAL added
+INTERNAL
+	trax over and round dealt with DOUBLE
+
+------------------
+ver 0.69 Beta 19
+March 22th 2002
+
+menu trax type have sub menu now
+INTERNAL
+	More call to Glutmenu intercepted
+
+------------------
+ver 0.69 Beta 18
+March 21th 2002
+
+menu trax type have sub menu now
+in Net host_id_set_master is OFF or a number
+add NET_HOST_ID trax type with more test
+
+------------------
+ver 0.69 Beta 17
+March 14th 2002
+
+add midi_channel_offset and midi_control_offset in traxs
+add program selector in app
+in TRAX, MOUSE AND KEYBOARD
+
+------------------
+ver 0.69 Beta 15
+March 12th 2002
+
+auto calibration in snd_input
+do less fft in snd_input
+bdd_part : nb_trig_by_frame
+add TRAX_MIN and TRAX_MAX
+in Particle
+	change mapping of emission_mask now offset is added after scale
+	add flag try_always to allow clean mask when off
+	and a clipping flag
+flip realtime on SHIFT-ALT-t only
+
+------------------
+ver 0.69 Beta 14
+March 8th 2002
+
+inverse effect of tra_offset in cam
+trax SLIDE_INDEX now have restart_trig active
+add more trigger to camera
+
+------------------
+ver 0.69 Beta 13
+March 6th 2002
+
+use actor with live Gyspy too
+add values in app
+add global traxs param in app interface
+add fold deformer
+
+------------------
+ver 0.69 Beta 12
+March 4th 2002
+
+no more crash when trax TRAX use a free trax
+
+------------------
+ver 0.69 Beta 11
+March 2nd 2002
+
+5DT glove first integration
+now 64 values param by Layers
+add trig_align in seedcam
+add trax VALUE and TRAX which select a value or trax with the control_id param
+
+------------------
+ver 0.69 Beta 10
+February 7th 2002
+
+flag reconnect in joy try reconnection every frame
+hack for text generation in text2d for balpe stuff
+move frustum with net in camera
+Adapt to strange Max glich from Coduy
+Add max_out in trax
+Add auto calibration in Joystick
+particle in multiple don't clip anymore
+		
+------------------
+ver 0.69 Beta 6
+Janvier 25th 2002
+
+Read several controller in one net block from Pure Data
+INTERNAL
+	Clean up on multiple
+	Header for PD is now CTRL instead of AAA	
+
+------------------
+ver 0.69 Beta 5
+Janvier 16th 2002
+
+WARNING use now GlutMaa version 3.7.6.1
+deal again with double horizontal screen
+new type of print VERBOSE when controlled by verbose flag
+correct bug with char > 128 in TrueType
+ 
+------------------
+ver 0.69 Beta 4
+Janvier 10th 2002
+
+no more dialog when trax_file.csv can't be locked, print instead
+	(other program is writing the file)
+PD interface OK
+
+------------------
+ver 0.69 Beta 3
+
+first interface with PD
+
+------------------
+ver 0.69 Beta 2
+December 31th 2001
+
+extend to 128 row/colon TRAX_FILE
+could work on 98
+
+------------------
+ver 0.69 Beta 0
+December 18th 2001
+
+New trax type : MULTIPLE_INDEX_...
+				MULTIPLE_REAL_...
+				FILE_LETTER (freq choose the letter)
+Add multiple_only in layers
+Add scale_factor in transfo 
+In trax FILE Extend index from 64 to 128
+First version of video capture
+Add SLIDE_INDEX trax
+Add grey in fog
+
+------------------
+ver 0.69 Alpha 6893
+November 23rd 2001
+
+add a passive text layer_name param to document construction 
+now font bind is saved
+double click on filename and number to ediTRAX
+	can be plugged to PARAM_STR
+	add a format field
+	read also text from csv file
+run with GLUT 3.7.6 modified by Maa (GlutMaa.dll)
+random color extented
+multiple on algo_maa
+multiple debuged, extented and partially redone
+license generator changed
+no more bdd_csv
+objec have model and multiple accessible in their params
+Nibel went final
+add screen deformation to deal with projection on cylinder
+
+INTERNAL
+Visual C++ project reorganisation
+traxs cleanup
+param cleanup (add PARAM_FILENAME, PARAM_STR use fields,..)
+change random generator
+
+
+------------------
+ver 0.69 Alpha 685
+July 23rd 2001
+
+This the Nibelung Beta candidate version
+
+traxs have being cleaned up in particular the net_out functionnality is now fully ok
+the 6dofs (magellan, spaceball...) was redone and extended
+NET:	object extended and secured
+NIBELUNG :	the real roll is there
+new object color_mod affect all the color objects
+
+INTERNAL
+the socket are now objects
+midi more secure
+
+------------------
+ver 0.69 Alpha 685
+July  2001
+
+MULTIPLE : 	files were .us instead of .multiple
+		mapping update strategy redone to correct bug
+NET :	several port_nb and ip available
+DEFORMER :	first move to new architecture
+		expand temporaly Sinus deformer and get rid of nearly identical ones
+		.def saved now with a path relative to the .dfl (we can copy layers directory now)
+		avoid calls one by one
+NIBELUNG :	bug orage
+BDD_TRI :	deal with uv even with draw_elements
+cleanup in interface of fn_3d and img_proc
+tweak drawing interface with sliders
+
+INTERNE
+added PARAM_UINT32_SYMBO_NEG and PARAM_UINT32_SYMBO_ZERO
+add AddFileRel in saving
+start to deal with no pref at start
+cleanup the visual studio project by hand
+cleanup conversion of float number message
+AAASeed with double float close to ready
+
+------------------
+ver 0.69 Alpha 684
+June 25th 2001
+
+multiple separated from rendering and added in layer
+mapping optimized and flip_uv should work everywhere now
+
+
+------------------
+ver 0.69 Alpha 683
+June 25th 2001
+
+Picking now link with left double click 
+	make corresponding layer current in interface
+	you should set the picking width and height to 1 for best result
+	you should set the picking show to "No" or it will not work
+	you should set the picking max to 16	
+the layer objects now switch in the interface when the current layer is changed
+bdd menu now have the right checkmark
+tex_video is again temporaly stabilized
+added a third mode to draw axe (key a,A) and origin (key ALt a,A)
+	which force the drawing for the current ones
+Reorganization of menus
+mutiple extended and optimized again but not finished yet
+no more navigation on left and rigth arrow 
+	no more top and bottom line with param display
+name of layers now "Group" and correspond to layers_index
+
+INTERNE
+stronger window hide treatment
+got rid of caption
+add global <list> of obj with initialization order trick (glist())
+no more transfo in bdd_part
+	
+------------------
+ver 0.69 Alpha 682
+June 22th 2001
+
+object Boxes
+object special strato
+correct mapping bugs with 3d object in implicit
+bad tga compressed give a message and don't crash anymore
+extend trax with round
+PCbird tracker
+NVision tracker
+check and error message display in bdd_snd_wave
+change default value in model_cur
+euler_order in camera
+absolute and rotation order in all 6dof
+allow_broadcast in net
+do_check_heap in pref
+made special object accessible in locked version
+Trax turbulence and fractalsum done (3D data to plug in, Phase_offset is the Harmonique number)
+multiple on obj too
+add number and axe in multiple
+
+INTERNE
+change in sound
+add read_get_nb_ready in serial
+
+------------------
+ver 0.69 Alpha 672
+25 Avril 2001
+
+Introduction de la video dans la texture voir tex_video dans layer
+Gypsy 3 compatibility
+
+INTERNE
+debut multitexture
+
+------------------
+ver 0.69 Alpha 652
+27 Fev 2001
+
+Bug chargement texture courante
+multiple avec layer fonctionnel
+refonte x y z sur multiple_axe
+
+------------------
+ver 0.69 Alpha 651
+15 Fev 2001
+
+trax time
+Clamp deviens limit dans trax avec maintenant warp
+boid
+layer selector
+render multiple
+wave form dans sound vizualisation
+
+INTERNE
+tga toujours lu par code AAASeed (plus rapide)
+refonte reception net
+
+-----------------
+ver 0.69 Alpha 49
+24 Nov2000 
+
+ATTENTION
+refonte repulsor plus efficace plus rapide mais incompatible
+	se servir de gain et bias
+refonte tex_anim incompatible avec precedente
+
+ajout des clusters dans bdd_tri
+gestion usemtl dans fichier .obj
+nombre de bank et taille des bank dans les pref
+flag load all at start dans les prefs
+nouvel objet boid
+ajout close part dans bdd_particle
+ajout de bdd_null
+
+INTERNE
+nombreuses optimisations
+code particle nibel specifique
+utilisation de __fastcall en version release
+refonte couches reseaux
+	pile
+	envoi a des ip en udp
+	envoi block max/msp
+
+-----------------
+ver 0.69 Alpha 35
+14 Sep 2000 
+
+ATTENTION
+refonte totale tout les channels commencent a 1 et non plus a zero
+	idem sur les control_id ou les nodes de mocap
+notion de multiple deplace dans render fonctionne aussi maintenant
+	sur les bdd uv (grid, cone, sphere, torus) et tube_path
+les pistes sont update du moment qu'elles sont connectees et plus
+	seulement si la sortie est connecte
+
+-----------------
+ver 0.69 Alpha 32
+14 Sep 2000 
+
+Neat est active a la creation
+
+-----------------
+ver 0.69 Alpha 31
+14 Sep 2000 
+
+objet sound visualisation
+	le mapping OBJECT Marche vraiment
+	ajout d'un strobe dans le meme object
+	lecture des echantillon de son (SOUND Wave)
+	optimization
+
+INTERNE
+Reecriture complete des fonction de cube de boite
+ajout d'une fonction de face en position
+
+
+-----------------
+ver 0.69 Alpha 30
+11 Sep 2000 
+
+channel_ui permet de choisir les controlleurs visualises
+Orbiting camera et tex_anim active sur les touches de fn (SHIFT F4 et SHIFT F5)
+restart_trig dans les traxs
+
+INTERNE
+bug when deformer was added after individual remove
+
+
+-----------------
+ver 0.69 Alpha 29
+8 Sep 2000 
+
+NOUVEAU (Mortel Bon)
+la touche en dessous d'escape permet maintenant un acces a tout les layers
+	et leur commande globale (Objet App pour l'instant)
+	layers, layers, bdd, et deformer sont donc decal� d'un cran a gauche
+	sur le clavier (Respectivement touche 1 2 3 et 4).
+un double click du bouton de gauche declenche un focus.
+un simple click du bouton de gauche sur un layers ou un layer
+	e passe en current dans l'interface.
+le switch souris des BOOLs est moins sensible 
+
+INTERNE
+need_normal fonctionne vraiment 
+midi out on trax as hack
+
+
+-----------------
+ver 0.69 Alpha 28
+
+ATTENTION
+NOUVEAU
+le rendering a ete separe en rendering et mapping
+	mais cette version lit encore d'anciens environements correctement
+	par contre des que vous sauver ne pas relire avec une ancienne version.
+
+NOUVEAU
+refonte totale des FKEY voir doc Excel
+refonte totale de l'objet cone en bdd_uv
+addition d'un deformer spirale
+Optimisation du grab feedback
+	pas de feedback: pas de grab
+	donc plus besoin de desactiver le grab pour optimiser
+	par contre une frame de retard lors de la commutation du feedback
+erase et trail on disparu du layers pour etre uniquement dans app
+acces a model_cur dans tout les bdd_uv
+
+INTERNE
+Optimisation sur les changements d'etat OpenGl
+refonte interne de la strategie d'update des layer
+optimisation billboard
+plus de if ( ***_cur )
+bdd_multiple sur 8 niveaux
+dead bug de recreation perpetuelle de bdd_tri dans les bdd_mutiple
+

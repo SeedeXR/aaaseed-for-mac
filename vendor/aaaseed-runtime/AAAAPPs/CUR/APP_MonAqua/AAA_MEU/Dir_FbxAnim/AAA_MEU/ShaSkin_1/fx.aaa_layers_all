@@ -1,0 +1,128 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "shader_skinned.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	FBO = "CURRENT" ;
+	multiple_only = ON ;
+	camera_index_ui = 5 ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 3.35457 ;
+	rot_x = 1.097 ;
+	rot_y = -368.66 ;
+	tra_x = -0.008 ;
+	tra_y = 0.004 ;
+	tra_z = -2.22224 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 3.091 ;
+	rot_y = -11.772 ;
+	tra_x = -0.004 ;
+	tra_y = -0.004 ;
+	tra_z = -17.5665 ;
+	clip_close_perspective = 0.32 ;
+	clip_far_perspective = 800 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 1.161 ;
+	rot_y = -1.015 ;
+	tra_x = -0.31 ;
+	tra_y = -0.432 ;
+	tra_z = -10.5016 ;
+	}
+//AAA::filename fx.05.cam
+seedcam ( Version 0 )
+	{
+	rot_x = -3.013 ;
+	rot_y = -0.381 ;
+	tra_x = -0.016 ;
+	tra_y = -0.026 ;
+	tra_z = -11.5946 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	orbiting = ON ;
+	rot_y_frequency = 0.25 ;
+	draw_axe = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	cull = "FRONT" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.shading
+shading ( Version 0 )
+	{
+	active = ON ;
+	vertex_bind = 102 ;
+	vu_float_01 = 0.132837 ;
+	vu_float_02 = 8 ;
+	vu_float_03 = 0.8 ;
+	vu_float_04 = 1 ;
+	vu_float_08 = 1.66065 ;
+	vu_01_r_x = -0.453585 ;
+	vu_01_g_y = 0.0477148 ;
+	vu_01_b_z = 0.457288 ;
+	vu_02_r_x = -0.572694 ;
+	vu_02_g_y = 0.0676013 ;
+	vu_02_b_z = 0.294741 ;
+	vu_03_r_x = -0.635745 ;
+	vu_03_g_y = 0.0317553 ;
+	vu_03_b_z = 0.103343 ;
+	vu_04_r_x = -0.636564 ;
+	vu_04_g_y = -0.0302707 ;
+	vu_04_b_z = -0.0981709 ;
+	vu_05_r_x = -0.575072 ;
+	vu_05_g_y = -0.0673407 ;
+	vu_05_b_z = -0.290075 ;
+	vu_06_r_x = -0.457288 ;
+	vu_06_g_y = -0.048893 ;
+	vu_06_b_z = -0.453585 ;
+	fragment_bind = 101 ;
+	fu_01_b_z = 1 ;
+	fu_01_a_w = 1 ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_0 = ON ;
+	light_switch_2 = ON ;
+	light_switch_4 = ON ;
+	light_switch_6 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_shading = "Owner" ;
+	use_mapping = ON ;
+	bind_2d = 1 ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_front = 36 ;
+	material_back = 36 ;
+	}

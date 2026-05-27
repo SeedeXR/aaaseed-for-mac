@@ -1,0 +1,117 @@
+//AAA::set_filename_relative
+//AAA::filename fx.lua_wrap
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	filename = "meu_fbo.lua" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	stereo = "field_update" ;
+	Traxs = ON ;
+	FBO = "Owner" ;
+	use_camera = "Owner" ;
+	multiple_only = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	focal_horizontal = ON ;
+	rot_x_frequency = 0.0929011 ;
+	ui_lock = ON ;
+	tra_z = -9.72487 ;
+	}
+//AAA::filename fx.01.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 3.11 ;
+	rot_y = -0.2735 ;
+	tra_x = -0.36 ;
+	tra_y = 1.44 ;
+	tra_z = -2.42039 ;
+	}
+//AAA::filename fx.03.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 0.556499 ;
+	rot_y = 7.5805 ;
+	tra_x = -0.084 ;
+	tra_y = 0.088 ;
+	tra_z = -2.91817 ;
+	}
+//AAA::filename fx.04.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 1.093 ;
+	rot_y = 6.2945 ;
+	tra_x = 0.002 ;
+	tra_z = -7.72339 ;
+	}
+//AAA::filename fx.07.cam
+seedcam ( Version 0 )
+	{
+	tra_z = -3.5901 ;
+	m32 = 0.4 ;
+	}
+//AAA::filename fx.15.cam
+seedcam ( Version 0 )
+	{
+	rot_x = 3.963 ;
+	rot_y = 7.3655 ;
+	}
+//AAA::filename fx.fbo
+fbo ( Version 0 )
+	{
+	size_asked_x = 4096 ;
+	size_asked_y = 2048 ;
+	channel_nb = 4 ;
+	channel_type = "fp16" ;
+	depth_as_texture = ON ;
+	depth_bind_2d_asked = 47 ;
+	tex_1_bind_2d_asked = 114 ;
+	tex_1_mipmap_generate = ON ;
+	tex_2_bind_2d_asked = 115 ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	back_mode = "LINE" ;
+	point_smooth = ON ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.texturing
+texturing ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_1
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_2
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.texturing.tex_unit_3
+texture_unit ( Version 0 )
+	{
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	use_bdd = "update_and_draw" ;
+	bdd = "Light Box" ;
+	use_model = ON ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	use_texturing = "Owner" ;
+	bank_2d = 3 ;
+	bind_2d = 16 ;
+	}

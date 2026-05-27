@@ -1,0 +1,19 @@
+-- preset v0 for MEU|TdUI_1
+tab["a"] = 0
+tab["a con"] = 0.63007134202224
+tab["ab"] = 0
+tab["b"] = 0
+tab["b con"] = 0.7073097962112
+tab["conformity"] = 0.95
+tab["game"] = 14.347820764936
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["photo"] = 4.1586173098183
+tab["presence raw a"] = 0
+tab["presence raw b"] = 0
+tab["result"] = 2
+tab["simul"] = false
+tab["simul a"] = 0
+tab["sumil b"] = 0
+tab["time down"] = 10
+tab["time up"] = 2.207643605514

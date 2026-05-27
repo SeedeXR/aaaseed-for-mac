@@ -1,0 +1,7 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	camera_lock = ON ;
+	Position_x = -4 ;
+	Diffuse_grey = 1 ;
+	}

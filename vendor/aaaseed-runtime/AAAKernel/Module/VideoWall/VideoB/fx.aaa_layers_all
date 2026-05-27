@@ -1,0 +1,137 @@
+//AAA::set_filename_relative
+//AAA::filename fx.01.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "NAME_REAL_SET" ;
+	Name = "video_tex_u_ori_1" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.02.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "NAME_REAL_SET" ;
+	Name = "video_tex_v_ori_1" ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.03.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Channel = 2 ;
+	Control_id = 20 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.04.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "NAME_REAL_SET" ;
+	Name = "video_tex_u_1" ;
+	Max = 0.997164 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.05.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "NAME_REAL_SET" ;
+	Name = "video_tex_v_1" ;
+	Max = 0.990305 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.06.trax
+trax ( Version 0 )
+	{
+	Fn = "MIDI CONTROLLER" ;
+	Output = "FN_TRIGGER_UP_AND_DOWN" ;
+	Channel = 3 ;
+	Control_id = 84 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.07.trax
+trax ( Version 0 )
+	{
+	Active = ON ;
+	Fn = "MIDI CONTROLLER" ;
+	Control_id = 19 ;
+	Format = "%.2f" ;
+	}
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	viewport = "right" ;
+	Traxs = ON ;
+	Layer_A = ON ;
+	Layer_B = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	perspective = OFF ;
+	ortho_size = 2.9 ;
+	rot_x = 0.499 ;
+	}
+//AAA::filename fx_a.grid
+bdd_grid ( Version 0 )
+	{
+	center_y = 2 ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	}
+//AAA::filename fx_a.model
+model ( Version 0 )
+	{
+	size_u = 21.4415 ;
+	size_v = 2 ;
+	}
+//AAA::filename fx_a.tex_video
+tex_video ( Version 0 )
+	{
+	active = ON ;
+	name_symbo = "tex_videob" ;
+	image_keep_nb = 7 ;
+	video_src = 37 ;
+	play = ON ;
+	capture_device_index_asked = 1 ;
+	capture_crossbar_index = 2 ;
+	capture_force_default = ON ;
+	capture_format = "YUY2" ;
+	capture_size_x = 352 ;
+	capture_size_y = 288 ;
+	incrust_luma = ON ;
+	incrust_min = 0.039143 ;
+	incrust_max = 0.0607636 ;
+	remanence = OFF TraxLoc03Out ;
+	remanence_restart_trig = OFF TraxLoc06Out ;
+	remanence_time = 2048 ;
+	remanence_diff = ON ;
+	remanence_diff_min = 0.109856 TraxLoc08Out ;
+	remanence_diff_factor = 37.6022 ;
+	texture_def_red = 0 ;
+	texture_def_blue = 0 ;
+	tex_pos_u = 0.5 ;
+	tex_pos_v = 0.5 ;
+	tex_u_origin = 0 TraxLoc01In ;
+	tex_v_origin = 0 TraxLoc02In ;
+	tex_u_size = 1 TraxLoc04In ;
+	tex_v_size = 1 TraxLoc05In ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_grid" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 1 ;
+	bind_2d = 1 ;
+	use_tex_video = ON ;
+	use_lights_switch = ON ;
+	}

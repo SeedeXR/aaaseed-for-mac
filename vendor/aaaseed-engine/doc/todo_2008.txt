@@ -1,0 +1,6 @@
+bdd_blob contour ...
+	solve the coor interface
+Obj
+	add a class unique id to compare faster
+	multiheritance
+		ex bdd_image et bdd_blob

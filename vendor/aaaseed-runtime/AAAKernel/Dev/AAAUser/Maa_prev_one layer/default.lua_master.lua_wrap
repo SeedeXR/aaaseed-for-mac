@@ -1,0 +1,6 @@
+lua_wrap ( Version 0 )
+	{
+	doit = ON ;
+	run_only_when_compiled = ON ;
+	filename = "default.lua_master.lua" ;
+	}

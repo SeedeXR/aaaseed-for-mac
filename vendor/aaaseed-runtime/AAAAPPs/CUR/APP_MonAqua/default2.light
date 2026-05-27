@@ -1,0 +1,20 @@
+light ( Version 0 )
+	{
+	ON = ON ;
+	type = "BULB" ;
+	camera_lock = ON ;
+	Position_x = 10 ;
+	Position_y = 4.5 ;
+	Ambient_occlusion = 0.25 ;
+	Ambient_red = 1 ;
+	Ambient_green = 1 ;
+	Ambient_blue = 1 ;
+	Ambient_grey = 0.0509029 ;
+	Specular_red = 1 ;
+	Specular_green = 1 ;
+	Specular_blue = 1 ;
+	Specular_grey = 1 ;
+	Spot_cutoff = 90 ;
+	Spot_exponent = 0.024973 ;
+	Spot_direction_z = -0.810807 ;
+	}

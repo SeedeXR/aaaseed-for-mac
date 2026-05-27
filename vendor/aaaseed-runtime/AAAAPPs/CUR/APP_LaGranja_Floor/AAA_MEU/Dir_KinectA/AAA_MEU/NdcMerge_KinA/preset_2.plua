@@ -1,0 +1,11 @@
+-- preset for MEU|NdcMerge_1
+tab["a_bank"] = 8
+tab["a_bind"] = 0
+tab["b_bank"] = 8
+tab["b_bind"] = 3
+tab["draw"] = 4
+tab["fbo ask"] = false
+tab["fbo name"] = "KinB"
+tab["__meu_bar.draw"] = true
+tab["__meu_bar.update"] = true
+tab["shader"] = true

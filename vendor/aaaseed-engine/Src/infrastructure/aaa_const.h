@@ -1,0 +1,10 @@
+
+#ifdef AAA_AAA_CONST_H
+#error "AAA_CONST_H included more than once."
+#endif
+#define AAA_AAA_CONST_H 1
+
+
+CONSTEXPR	INT32	CHANNEL_NB_MAX = 128;
+CONSTEXPR	INT32	CONTROL_NB_MAX = 1024;
+

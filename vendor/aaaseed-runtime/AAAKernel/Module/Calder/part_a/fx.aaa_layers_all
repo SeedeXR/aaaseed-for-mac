@@ -1,0 +1,114 @@
+//AAA::set_filename_relative
+//AAA::filename fx.layers_param
+layers ( Version 0 )
+	{
+	active = ON ;
+	use_camera = "Owner" ;
+	Layer_A = ON ;
+	}
+//AAA::filename fx.cam
+seedcam ( Version 0 )
+	{
+	ortho_size = 20.18 ;
+	focal_horizontal = ON ;
+	rot_x = -0.518 ;
+	rot_y = 0.039 ;
+	tra_z = -27.3108 ;
+	}
+//AAA::filename fx_a.boid
+bdd_boid ( Version 0 )
+	{
+	nb_allocated = 32 ;
+	nb_alive_min = 80 ;
+	speed_min = 1 ;
+	viscosity = 0.01 ;
+	visibility_max_seen = 1 ;
+	target_active = OFF ;
+	box_type = "Repulse" ;
+	box_size_x = 15.2381 ;
+	box_size_y = 2 ;
+	box_size_z = 8 ;
+	flocking_active = ON ;
+	steering_active = ON ;
+	}
+//AAA::filename fx_a.part
+bdd_particle ( Version 0 )
+	{
+	nb_allocated = 4096 ;
+	nb_max = 1024 ;
+	nb_by_sec = 32 ;
+	flow_continuous = ON ;
+	life_time = 8 ;
+	emission_origin_z = -4 ;
+	emission_axe = "Z" ;
+	emission_box_size_u = 8 ;
+	emission_box_size_axe = 0 ;
+	emission_box_size_factor = 1 ;
+	emission_speed_factor = 0.5 ;
+	jitter_speed_abs = 0 ;
+	render_life_color = ON ;
+	render_life_color_ease_in = 0.250028 ;
+	render_life_color_ease_out = 0.2 ;
+	render_life_image_bind = 255 ;
+	render_life_color_map = ON ;
+	color_map_dv = 1 ;
+	color_map_alpha_gain = 0.352446 ;
+	sort_render = "Distance" ;
+	render_line_smooth = ON ;
+	render_size_end_axe = 0.289859 ;
+	render_size_end_factor = -0.227903 ;
+	rotate_freq = 0.0209797 ;
+	rotate_space_freq = 0.0625 ;
+	rotate_space_axe = "X" ;
+	rotate_id_factor = 0.552505 ;
+	rotate_direction_x = 0 ;
+	rotate_direction_z = 0 ;
+	net_send = ON ;
+	}
+//AAA::filename fx_a.ren
+rendering ( Version 1 )
+	{
+	light = ON ;
+	}
+//AAA::filename fx_a.multiple
+multiple ( Version 0 )
+	{
+	render = "Multiple" ;
+	type = "LAYERS_PREV" ;
+	axe = "X" ;
+	size_factor = 0.5 ;
+	target_name = "calder_several" ;
+	}
+//AAA::filename fx_a.map
+mapping ( Version 0 )
+	{
+	tex_use = "2D" ;
+	alpha_test = "GREATER" ;
+	alpha_threshold = 0.01 ;
+	}
+//AAA::filename fx_a.colt
+color ( Version 0 )
+	{
+	use_hsv = ON ;
+	}
+//AAA::filename fx_a.lights_switch
+lights_switch ( Version 0 )
+	{
+	light_switch_7 = ON ;
+	}
+//AAA::filename fx_a.layer
+layer ( Version 0 )
+	{
+	active = ON ;
+	use_bdd = "update_and_draw" ;
+	bdd = "bdd_boid" ;
+	use_multiple = "Owner" ;
+	use_rendering = ON ;
+	use_color = ON ;
+	use_mapping = ON ;
+	bank_2d = 7 ;
+	use_lights_switch = ON ;
+	material_use_color = ON ;
+	material_front = 42 ;
+	material_back = 42 ;
+	}
