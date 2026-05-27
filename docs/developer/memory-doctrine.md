@@ -33,7 +33,7 @@ clusters.
 
 #### Upstream patches
 
-- **Path** : [`memory/feedback_upstream_patches.md`](../../memory/feedback_upstream_patches.md)
+- **Path** : `memory/feedback_upstream_patches.md`
 - **Description** : Pre-approves one-line, behavior-preserving cleanups
   in the `aaaseed-windows/` submodule during the Mac port. Avoids the
   ceremony of a fresh PR for trivia like missing newlines or `#endif`
@@ -44,7 +44,7 @@ clusters.
 
 #### Hermetic Mac sub-libs
 
-- **Path** : [`memory/feedback_hermetic_mac_sublibs.md`](../../memory/feedback_hermetic_mac_sublibs.md)
+- **Path** : `memory/feedback_hermetic_mac_sublibs.md`
 - **Description** : When porting tiny Win32-only files, build a
   hermetic Mac sub-lib in `src/` using `std::` primitives, **NOT**
   `o_str` / `aaa_mem.h`. This sidesteps the blocked
@@ -55,7 +55,7 @@ clusters.
 
 #### Shim header shadow
 
-- **Path** : [`memory/feedback_shim_header_shadow.md`](../../memory/feedback_shim_header_shadow.md)
+- **Path** : `memory/feedback_shim_header_shadow.md`
 - **Description** : When a vendor `.cpp`'s includes leak Win32 types
   or MSVC pragmas, **shadow** the offending header in
   `tests/unit/<target>_shim/` with a shim that appears BEFORE the
@@ -65,7 +65,7 @@ clusters.
 
 #### Link-cascade audit
 
-- **Path** : [`memory/feedback_link_cascade_audit.md`](../../memory/feedback_link_cascade_audit.md)
+- **Path** : `memory/feedback_link_cascade_audit.md`
 - **Description** : When `.cpp` files compile-green but the link step
   is multi-session, build an `EXCLUDE_FROM_ALL` audit target listing
   them all + stubs. Group unresolved symbols by subsystem prefix; look
@@ -76,7 +76,7 @@ clusters.
 
 #### Weak-symbol stubs
 
-- **Path** : [`memory/feedback_weak_symbol_stubs.md`](../../memory/feedback_weak_symbol_stubs.md)
+- **Path** : `memory/feedback_weak_symbol_stubs.md`
 - **Description** : When stubbing symbols a future port **will**
   provide, use `__attribute__((weak))`. Strong definitions win at link
   time, so stubs vanish automatically when the real port lands. For
@@ -87,7 +87,7 @@ clusters.
 
 #### Doctrine limits
 
-- **Path** : [`memory/feedback_doctrine_limits.md`](../../memory/feedback_doctrine_limits.md)
+- **Path** : `memory/feedback_doctrine_limits.md`
 - **Description** : The faked-class compile-only technique works for
   **linear transitive cones** (aaalua), but FAILS on fan-out adapter
   layers (the layer subsystem). After 2 iterations where shim count
@@ -100,7 +100,7 @@ clusters.
 
 #### NVIDIA / CUDA -> Apple Metal
 
-- **Path** : [`memory/feedback_nvidia_to_metal.md`](../../memory/feedback_nvidia_to_metal.md)
+- **Path** : `memory/feedback_nvidia_to_metal.md`
 - **Description** : Any NVIDIA / CUDA code in upstream substitutes the
   matching Apple framework on Mac ; never stub when a real native port
   exists. The vendor's GPU rendering vocabulary maps cleanly to
@@ -110,7 +110,7 @@ clusters.
 
 #### Path A revival pattern
 
-- **Path** : [`memory/feedback_path_a_revival_pattern.md`](../../memory/feedback_path_a_revival_pattern.md)
+- **Path** : `memory/feedback_path_a_revival_pattern.md`
 - **Description** : When porting a stubbed Path A shader to the real
   algorithm, create a NEW file `<name>_<algo>.metal`. Original stub is
   PRESERVED ; both coexist in the catalog ; regression baseline intact ;
@@ -122,7 +122,7 @@ clusters.
 
 #### Metal present-per-pass
 
-- **Path** : [`memory/feedback_metal_present_per_pass.md`](../../memory/feedback_metal_present_per_pass.md)
+- **Path** : `memory/feedback_metal_present_per_pass.md`
 - **Description** : Multi-pass Metal pipelines MUST call
   `backend.present()` after EVERY `end_render_pass()`. Skipping a
   present causes silent visual corruption (intermediate reads = cleared
@@ -135,7 +135,7 @@ clusters.
 
 #### Bridge API standardization
 
-- **Path** : [`memory/feedback_bridge_api_standardization.md`](../../memory/feedback_bridge_api_standardization.md)
+- **Path** : `memory/feedback_bridge_api_standardization.md`
 - **Description** : Mac event / IPC bridges expose BOTH
   `handle_ns_event(NSEvent*)` (consumer entry) AND
   `push(EngineEvent)` (synthetic). Land both in the initial commit ;
@@ -147,7 +147,7 @@ clusters.
 
 #### CTest label first-only
 
-- **Path** : [`memory/feedback_ctest_label_first_only.md`](../../memory/feedback_ctest_label_first_only.md)
+- **Path** : `memory/feedback_ctest_label_first_only.md`
 - **Description** : `gtest_discover_tests PROPERTIES LABELS` honors
   ONLY the first label on this toolchain. Put the primary filter key
   (`perf`, `regression`, etc.) FIRST. Subsequent labels are accepted
@@ -157,7 +157,7 @@ clusters.
 
 #### Distnoted dual-center
 
-- **Path** : [`memory/feedback_distnoted_dual_center.md`](../../memory/feedback_distnoted_dual_center.md)
+- **Path** : `memory/feedback_distnoted_dual_center.md`
 - **Description** : Mac `distnoted` drops distributed notifications
   between parallel ctest workers. Post + observe on BOTH
   `CFNotificationCenterGetLocalCenter()` (in-process sync) AND
@@ -167,7 +167,7 @@ clusters.
 
 #### Regression guard tests
 
-- **Path** : [`memory/feedback_regression_guard_tests.md`](../../memory/feedback_regression_guard_tests.md)
+- **Path** : `memory/feedback_regression_guard_tests.md`
 - **Description** : When a beachhead DEFERS a sub-feature (signing,
   sandbox, network) for governance reasons, add a regression-guard
   test asserting the deferred symbol does NOT appear in source.
@@ -179,7 +179,7 @@ clusters.
 
 #### Project phase strategic map
 
-- **Path** : [`memory/project_phase_strategic_map.md`](../../memory/project_phase_strategic_map.md)
+- **Path** : `memory/project_phase_strategic_map.md`
 - **Description** : Phase dependency graph for the Mac port. Phase 3
   (graphics backend exit) gates Phases 6 - 7 ; Phases 4 - 5 are
   prerequisite supply chains. `memcpy.cpp` was the highest-leverage
@@ -189,7 +189,7 @@ clusters.
 
 #### Project v1 ship gate
 
-- **Path** : [`memory/project_v1_ship_gate.md`](../../memory/project_v1_ship_gate.md)
+- **Path** : `memory/project_v1_ship_gate.md`
 - **Description** : c142-C inventory-confirmed v1 gates : engine event
   adapter + sample MEU + `.deproj` round-trip. Layer / BDD / GOL NOT
   v1 blockers -- Path A + MetalBackend cover the rendering surface.
@@ -200,7 +200,7 @@ clusters.
 
 #### Layer subsystem supersession
 
-- **Path** : [`memory/project_layer_supersession.md`](../../memory/project_layer_supersession.md)
+- **Path** : `memory/project_layer_supersession.md`
 - **Description** : Task #31 (Windows layer subsystem port, ~7 files /
   ~6.7 K LOC core) formally SUPERSEDED by c142-B MEU runner + Path A
   catalog + MetalBackend. Includes the mapping table from Windows

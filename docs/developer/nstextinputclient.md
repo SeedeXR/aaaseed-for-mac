@@ -167,10 +167,10 @@ NOT claim coverage of Apple's IME chain itself.
 
 ## Closure references
 
-- **Project closure** : [`memory/project_v4_milestone.md`](../../memory/project_v4_milestone.md)
+- **Project closure** : `memory/project_v4_milestone.md`
   (v4 STATUS : CLOSED footer, 2026-05-27).
 - v1 ship gate "PROJECT CLOSURE" section :
-  [`memory/project_v1_ship_gate.md`](../../memory/project_v1_ship_gate.md).
+  `memory/project_v1_ship_gate.md`.
 - User mandate : "no more versions after v4" -- the Mac port is
   feature-complete. Future work (new shaders, sample MEUs, bug fixes)
   is **maintenance**, not new versions.
@@ -183,5 +183,5 @@ NOT claim coverage of Apple's IME chain itself.
 - [Widget system](widget-system.md)
 - [MEU runner](meu-runner.md)
 - [Memory doctrine index](memory-doctrine.md)
-- [v4 milestone closure](../../memory/project_v4_milestone.md)
+- v4 milestone closure
 - [Authoring MEUs (legacy guide)](../AUTHORING_MEUS_ON_MAC.md)

@@ -70,7 +70,7 @@ cascade.
 
 The vendor engine's **layer subsystem** (`Src/infrastructure/layer/`,
 ~7 files / ~6.7 K LOC) is **NOT** in the Mac build. Per
-[`project_layer_supersession.md`](../../memory/project_layer_supersession.md)
+`project_layer_supersession.md`
 and c142-C the layer subsystem is formally **superseded** by :
 
 - **MEU Runner** (per-frame Lua entry point + shader dispatch).
@@ -182,6 +182,6 @@ keeps the runner buildable without `aaalua`'s reflection chain.
 - [Widget system](widget-system.md)
 - [NSTextInputClient + IME](nstextinputclient.md)
 - [Windows backend](windows-backend.md)
-- [Layer supersession decision](../../memory/project_layer_supersession.md)
-- [v1 ship gate inventory](../../memory/project_v1_ship_gate.md)
-- [v4 milestone closure](../../memory/project_v4_milestone.md)
+- Layer supersession decision
+- v1 ship gate inventory
+- v4 milestone closure

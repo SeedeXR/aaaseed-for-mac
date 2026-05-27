@@ -99,7 +99,7 @@ MIT, matching upstream AAASeed. See `vendor/aaaseed-engine/LICENSE` and `vendor/
 ## Credits
 
 - **AAASeed** — Mâa Berriet (engine, 1996–present), Franz Hildgen (significant contributions), the ArtCast4d.eu European project.
-- **Mac port** — Alex Mkwizu (`alex@bsa.ai`), with AI-assisted research and porting.
+- **Mac port** — Alex Mkwizu (`a.mkwizu@seedexr.com`), with AI-assisted research and porting.
 
 ## Reporting issues
 

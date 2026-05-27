@@ -7,7 +7,7 @@ surface.
 
 It is the **superseding equivalent** of the vendor engine's layer
 subsystem -- see
-[`memory/project_layer_supersession.md`](../../memory/project_layer_supersession.md).
+`memory/project_layer_supersession.md`.
 
 Source : `src/meu/aaa_meu_runner_mac.{h,mm}`.
 
@@ -241,5 +241,5 @@ running .app without ever touching the Finder Open dialog.
 - [NSTextInputClient + IME](nstextinputclient.md)
 - [Path A catalog](path-a-catalog.md)
 - [Memory doctrine index](memory-doctrine.md)
-- [Layer supersession](../../memory/project_layer_supersession.md)
+- Layer supersession
 - [Authoring MEUs (legacy guide)](../AUTHORING_MEUS_ON_MAC.md)

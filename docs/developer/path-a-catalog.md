@@ -154,5 +154,5 @@ stem AND inline the citation block at top.
 - [Architecture](architecture.md)
 - [Memory doctrine index](memory-doctrine.md)
 - [MEU runner](meu-runner.md)
-- [`feedback_path_a_revival_pattern.md`](../../memory/feedback_path_a_revival_pattern.md)
+- `feedback_path_a_revival_pattern.md`
 - [Authoring MEUs (legacy guide)](../AUTHORING_MEUS_ON_MAC.md)

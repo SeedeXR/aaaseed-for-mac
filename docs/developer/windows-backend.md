@@ -47,7 +47,7 @@ beachhead because :
 3. The MEU runner + widget system + Path A catalog turned out to be
    **better** than the vendor's layer subsystem for the rendering
    surface AAASeed actually needs. See
-   [`memory/project_layer_supersession.md`](../../memory/project_layer_supersession.md).
+   `memory/project_layer_supersession.md`.
 
 A Windows-side rebuild on the Mac port's foundation closes the loop --
 Windows users get the new architecture without the layer subsystem's
@@ -100,5 +100,5 @@ runbook is the design spec waiting for an implementor.
 - [MEU runner](meu-runner.md)
 - [Widget system](widget-system.md)
 - [Memory doctrine index](memory-doctrine.md)
-- [Layer supersession](../../memory/project_layer_supersession.md)
-- [v4 milestone closure](../../memory/project_v4_milestone.md)
+- Layer supersession
+- v4 milestone closure
