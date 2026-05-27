@@ -9,8 +9,9 @@ edit_uri: edit/main/docs/
 #  markdown sources from the same directory as this config file
 #  (not the default `docs` sub-dir which would resolve to docs/docs/).
 #  site_dir is intentionally not set here ; the CI workflow passes
-#  --site-dir site (relative to docs/) so output lands at repo-root/site/
-#  outside the docs source tree (MkDocs >=2.0 rejects nested site_dir).
+#  --site-dir ../site (resolved relative to this config file's directory,
+#  i.e. docs/) so output lands at repo-root/site/, outside docs_dir
+#  (MkDocs >=2.0 rejects nested site_dir).
 docs_dir: '.'
 
 theme:

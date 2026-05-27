@@ -73,7 +73,11 @@ jobs:
           fi
 
       - name: Build MkDocs site
-        run: mkdocs build --strict --config-file "${{ steps.cfg.outputs.config }}" --site-dir site
+        # --site-dir is resolved relative to the config file's directory
+        # (docs/) , so '../site' lands the output at repo-root/site/, outside
+        # docs_dir. The Upload step's `path: site` is relative to CWD (repo
+        # root) and picks up the same directory.
+        run: mkdocs build --strict --config-file "${{ steps.cfg.outputs.config }}" --site-dir ../site
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
