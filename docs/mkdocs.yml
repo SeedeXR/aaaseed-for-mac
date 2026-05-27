@@ -8,10 +8,10 @@ edit_uri: edit/main/docs/
 #  mkdocs.yml lives INSIDE docs/ so docs_dir = '.' so MkDocs reads
 #  markdown sources from the same directory as this config file
 #  (not the default `docs` sub-dir which would resolve to docs/docs/).
+#  site_dir is intentionally not set here ; the CI workflow passes
+#  --site-dir site (relative to docs/) so output lands at repo-root/site/
+#  outside the docs source tree (MkDocs >=2.0 rejects nested site_dir).
 docs_dir: '.'
-#  Site output goes to repo-root/site/ so it doesn't get picked up
-#  as a doc source by the previous setting.
-site_dir: ../site
 
 theme:
   name: material
