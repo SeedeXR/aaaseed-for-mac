@@ -71,8 +71,8 @@ aaa.ui.begin_panel( "Controls", 16, 16, 320, 220 )
 aaa.ui.end_panel()
 ```
 
-See also : [`end_panel`](#aaauiend_panel---nil),
-[`begin_collapsing_panel`](#aaauibegin_collapsing_panel-title-x-y-w-h---expanded).
+See also : [`end_panel`](#aaauiend_panel-nil),
+[`begin_collapsing_panel`](#aaauibegin_collapsing_panel-title-x-y-w-h-expanded).
 
 ---
 
@@ -86,7 +86,7 @@ Close the current panel.
   OVER the next `aaa.draw_fullscreen_quad()` call this frame.
 - MUST pair 1:1 with `aaa.ui.begin_panel`.
 
-See also : [`begin_panel`](#aaauibegin_panel-title-x-y-w-h---handle).
+See also : [`begin_panel`](#aaauibegin_panel-title-x-y-w-h-handle).
 
 ---
 
@@ -111,8 +111,8 @@ function aaa.on_frame( w, h, frame )
 end
 ```
 
-See also : [`button`](#aaauibutton-label---clicked),
-[`hsv_color_picker`](#aaauihsv_color_picker-label-r-g-b-a---r-g-b-a).
+See also : [`button`](#aaauibutton-label-clicked),
+[`hsv_color_picker`](#aaauihsv_color_picker-label-r-g-b-a-r-g-b-a).
 
 ---
 
@@ -133,7 +133,7 @@ if aaa.ui.button( "Reset" ) then
 end
 ```
 
-See also : [`hot_reload_button`](#aaauihot_reload_button-label----clicked).
+See also : [`hot_reload_button`](#aaauihot_reload_button-label-clicked).
 
 ---
 
@@ -154,7 +154,7 @@ local r, g, b, a = 1.0, 0.5, 0.2, 1.0
 r, g, b, a = aaa.ui.color_well( "tint", r, g, b, a )
 ```
 
-See also : [`hsv_color_picker`](#aaauihsv_color_picker-label-r-g-b-a---r-g-b-a)
+See also : [`hsv_color_picker`](#aaauihsv_color_picker-label-r-g-b-a-r-g-b-a)
 for the drag-to-hue picker.
 
 ---
@@ -205,7 +205,7 @@ frames.
   automatically when `begin_modal` returns `ok_clicked == true` or
   `cancel_clicked == true`.
 
-See [`begin_modal`](#aaauibegin_modal-id-w-h---open-ok_clicked-cancel_clicked) below for
+See [`begin_modal`](#aaauibegin_modal-id-w-h-open-ok_clicked-cancel_clicked) below for
 the full pattern.
 
 ---
@@ -247,8 +247,8 @@ function aaa.on_frame( w, h, frame )
 end
 ```
 
-See also : [`show_modal`](#aaauishow_modal-id---nil),
-[`end_modal`](#aaauiend_modal---nil),
+See also : [`show_modal`](#aaauishow_modal-id-nil),
+[`end_modal`](#aaauiend_modal-nil),
 [Sample MEU : v2_modal_textinput](../samples.md#v2_modal_textinput).
 
 ---
@@ -260,7 +260,7 @@ Close the current modal block.
 - Returns nothing.
 - MUST pair 1:1 with `begin_modal` calls that returned `open == true`.
 
-See also : [`begin_modal`](#aaauibegin_modal-id-w-h---open-ok_clicked-cancel_clicked).
+See also : [`begin_modal`](#aaauibegin_modal-id-w-h-open-ok_clicked-cancel_clicked).
 
 ---
 
@@ -285,7 +285,7 @@ local name = "untitled"
 name = aaa.ui.text_input( "name", name, 32 )
 ```
 
-See also : [`text_area`](#aaauitext_area-label-value-visible_lines-width_chars-max_length---new_value)
+See also : [`text_area`](#aaauitext_area-label-value-visible_lines-width_chars-max_length-new_value)
 for multi-line, [Lua API : IME](ime.md) for the synthetic injection
 path used in tests.
 
@@ -337,10 +337,10 @@ end
 The click registers BEFORE the reload happens ; the new `lua_State`
 starts with locals at initial values, so any flag set here will be
 lost on the next frame. Use a preset
-([`aaa.io.save_preset`](io.md#aaaiosave_preset-path---bool)) to
+([`aaa.io.save_preset`](io.md#aaaiosave_preset-path-bool)) to
 persist values across reloads.
 
-See also : [`begin_collapsing_panel`](#aaauibegin_collapsing_panel-title-x-y-w-h---expanded),
+See also : [`begin_collapsing_panel`](#aaauibegin_collapsing_panel-title-x-y-w-h-expanded),
 [Sample MEU : v2_collapse_reload](../samples.md#v2_collapse_reload).
 
 ---
@@ -391,7 +391,7 @@ Close the current collapsing block.
 - MUST pair 1:1 with each `begin_collapsing_panel` that returned
   `expanded == true`.
 
-See also : [`begin_collapsing_panel`](#aaauibegin_collapsing_panel-title-x-y-w-h---expanded).
+See also : [`begin_collapsing_panel`](#aaauibegin_collapsing_panel-title-x-y-w-h-expanded).
 
 ---
 

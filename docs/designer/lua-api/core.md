@@ -27,7 +27,7 @@ aaa.use_shader( "aaa_bloom_real" )
 ```
 
 See also : [Shader catalog](../shader-catalog.md),
-[`aaa.draw_fullscreen_quad`](#aaadraw_fullscreen_quad---nil).
+[`aaa.draw_fullscreen_quad`](#aaadraw_fullscreen_quad-nil).
 
 ---
 
@@ -46,8 +46,8 @@ aaa.set_uniform_float( 0, aaa.time() )      -- slot 0 = time
 aaa.set_uniform_float( 1, intensity )       -- slot 1 = intensity
 ```
 
-See also : [`set_uniform_vec4`](#aaaset_uniform_vec4-slot-x-y-z-w---nil),
-[`set_uniform_int`](#aaaset_uniform_int-slot-value---nil).
+See also : [`set_uniform_vec4`](#aaaset_uniform_vec4-slot-x-y-z-w-nil),
+[`set_uniform_int`](#aaaset_uniform_int-slot-value-nil).
 
 ---
 
@@ -68,7 +68,7 @@ local mx, my = aaa.mouse_xy()
 aaa.set_uniform_vec4( 1, mx / w, my / h, math.sin( aaa.time() ), 1.0 )
 ```
 
-See also : [`mouse_xy`](#aaamouse_xy---x-y).
+See also : [`mouse_xy`](#aaamouse_xy-x-y).
 
 ---
 
@@ -128,7 +128,7 @@ aaa.set_uniform_float( 0, aaa.time() )
 aaa.draw_fullscreen_quad()
 ```
 
-See also : [`use_shader`](#aaause_shader-name---nil).
+See also : [`use_shader`](#aaause_shader-name-nil).
 
 ---
 
@@ -149,7 +149,7 @@ aaa.draw_hud_text(
     string.format( "i=%.2f shader=%s", intensity, current_shader ) )
 ```
 
-See also : [`frame_index`](#aaaframe_index---int).
+See also : [`frame_index`](#aaaframe_index-int).
 
 ---
 
@@ -168,7 +168,7 @@ aaa.log( "shader changed to " .. shaders[ idx ] )
 aaa.log( string.format( "mx=%d my=%d frame=%d", mx, my, frame ) )
 ```
 
-See also : [`draw_hud_text`](#aaadraw_hud_text-text---nil) for in-app
+See also : [`draw_hud_text`](#aaadraw_hud_text-text-nil) for in-app
 overlay (preferred over `log` for live tuning).
 
 ---
@@ -188,7 +188,7 @@ In practice the same value is passed as the third argument to
 exists for utility scripts that need the frame index outside of
 `on_frame` scope.
 
-See also : [`time`](#aaatime---seconds).
+See also : [`time`](#aaatime-seconds).
 
 ---
 
@@ -207,7 +207,7 @@ local t = math.sin( aaa.time() ) * 0.5 + 0.5
 aaa.set_uniform_float( 1, t )
 ```
 
-See also : [`frame_index`](#aaaframe_index---int).
+See also : [`frame_index`](#aaaframe_index-int).
 
 ---
 

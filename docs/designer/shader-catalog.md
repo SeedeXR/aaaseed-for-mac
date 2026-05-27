@@ -6,7 +6,7 @@
 > `src/ui/macos/CMakeLists.txt`.
 >
 > Pick a shader stem and pass it to `aaa.use_shader("<stem>")` from
-> any MEU. See [Lua API : core](lua-api/core.md#aaause_shader-name---nil)
+> any MEU. See [Lua API : core](lua-api/core.md#aaause_shader-name-nil)
 > for the binding signature.
 
 ---
@@ -182,10 +182,10 @@ Designer-side workflow for "I need a shader I do not have" :
 
 ## See also
 
-- [Lua API : core](lua-api/core.md#aaause_shader-name---nil) for the
+- [Lua API : core](lua-api/core.md#aaause_shader-name-nil) for the
   binding signature.
 - [Sample MEU : keyboard](samples.md#keyboard) for a 7-shader selector
   driven by digit keys.
 - [Sample MEU : mire](samples.md#mire) for the test-pattern cycler.
-- [MEU authoring](meu-authoring.md#step-by-step--your-first-slider-driven-shader)
+- [MEU authoring](meu-authoring.md#step-by-step-your-first-slider-driven-shader)
   for the canonical "drive a shader from a slider" pattern.

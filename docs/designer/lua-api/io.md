@@ -73,7 +73,7 @@ Common extension lists :
 | `png`     | Texture asset import (v2)         |
 | `txt`     | Plain-text notes export           |
 
-See also : [`save_file_dialog`](#aaaiosave_file_dialog-title-default_name-ext_list---path_or_nil),
+See also : [`save_file_dialog`](#aaaiosave_file_dialog-title-default_name-ext_list-path_or_nil),
 [Sample MEU : v3_drag_drop](../samples.md#v3_drag_drop).
 
 ---
@@ -104,7 +104,7 @@ if aaa.ui.button( "Save preset..." ) then
 end
 ```
 
-See also : [`save_preset`](#aaaiosave_preset-path---bool),
+See also : [`save_preset`](#aaaiosave_preset-path-bool),
 [Sample MEU : v3_preset_save_load](../samples.md#v3_preset_save_load).
 
 ---
@@ -164,7 +164,7 @@ if aaa.ui.button( "Load..." ) then
 end
 ```
 
-See also : [`save_preset`](#aaaiosave_preset-path---bool),
+See also : [`save_preset`](#aaaiosave_preset-path-bool),
 [Sample MEU : v3_preset_save_load](../samples.md#v3_preset_save_load).
 
 ---

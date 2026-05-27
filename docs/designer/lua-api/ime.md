@@ -82,7 +82,7 @@ In the production path -- with a CJK keyboard active -- this happens
 automatically as the user types ; you do not need to call this from
 a normal MEU.
 
-See also : [`commit_marked_text`](#aaaimecommit_marked_text---nil),
+See also : [`commit_marked_text`](#aaaimecommit_marked_text-nil),
 [Sample MEU : v4_ime_text](../samples.md#v4_ime_text).
 
 ---
@@ -112,7 +112,7 @@ romaji `ko`, the IME shows the candidate hiragana `こ` with the
 underline ; press Enter or click the candidate to commit ; the
 widget value updates to `こ`.
 
-See also : [`set_marked_text`](#aaaimeset_marked_text-text-sel_start-sel_len---nil).
+See also : [`set_marked_text`](#aaaimeset_marked_text-text-sel_start-sel_len-nil).
 
 ---
 
@@ -190,9 +190,9 @@ plumbing is end-to-end verified.
 
 ## See also
 
-- [Lua API : UI](ui.md#aaauitext_input-label-value-max_length---new_value)
+- [Lua API : UI](ui.md#aaauitext_input-label-value-max_length-new_value)
   for `aaa.ui.text_input` (single-line, CJK-capable).
-- [Lua API : UI](ui.md#aaauitext_area-label-value-visible_lines-width_chars-max_length---new_value)
+- [Lua API : UI](ui.md#aaauitext_area-label-value-visible_lines-width_chars-max_length-new_value)
   for `aaa.ui.text_area` (multi-line, CJK-capable).
 - [Sample MEU : v4_ime_text](../samples.md#v4_ime_text).
 - [Sample MEU : v4_multiline](../samples.md#v4_multiline).
