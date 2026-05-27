@@ -130,11 +130,13 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # 2. Publish the GitHub Release with both artifacts attached.
+  #    Runs on macos-14 (Apple Silicon) so the entire release pipeline stays
+  #    on Mac hardware -- no Linux runners anywhere in the chain.
   # ---------------------------------------------------------------------------
   publish-release:
     name: publish GitHub Release
     needs: build-dmg
-    runs-on: ubuntu-latest
+    runs-on: macos-14
     timeout-minutes: 10
 
     steps:

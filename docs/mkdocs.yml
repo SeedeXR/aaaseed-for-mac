@@ -86,6 +86,12 @@ nav:
     - Windows backend (v2+): developer/windows-backend.md
   - Authoring MEUs (legacy guide): AUTHORING_MEUS_ON_MAC.md
   - Windows backend runbook: windows-backend-howto.md
+  - Project:
+    - License (MIT): https://github.com/SeedeXR/aaaseed-for-mac/blob/main/LICENSE
+    - Contributing: https://github.com/SeedeXR/aaaseed-for-mac/blob/main/CONTRIBUTING.md
+    - Code of Conduct: https://github.com/SeedeXR/aaaseed-for-mac/blob/main/CODE_OF_CONDUCT.md
+    - Security policy: https://github.com/SeedeXR/aaaseed-for-mac/blob/main/SECURITY.md
+    - Ship checklist: https://github.com/SeedeXR/aaaseed-for-mac/blob/main/SHIP_CHECKLIST.md
 
 extra:
   social:

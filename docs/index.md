@@ -94,5 +94,25 @@ See [Architecture](developer/architecture.md) for the full breakdown.
 
 ## License
 
-See [`LICENSE`](https://github.com/SeedeXR/aaaseed-for-mac/blob/main/LICENSE)
-in the repository root.
+MIT — see [`LICENSE`](https://github.com/SeedeXR/aaaseed-for-mac/blob/main/LICENSE)
+in the repository root. Matches upstream AAASeed.
+
+---
+
+## Contributing
+
+Pull requests welcome. See
+[`CONTRIBUTING.md`](https://github.com/SeedeXR/aaaseed-for-mac/blob/main/CONTRIBUTING.md)
+for the dev setup, code style, and PR flow. Community expectations live
+in [`CODE_OF_CONDUCT.md`](https://github.com/SeedeXR/aaaseed-for-mac/blob/main/CODE_OF_CONDUCT.md).
+Security vulnerabilities should be reported privately per
+[`SECURITY.md`](https://github.com/SeedeXR/aaaseed-for-mac/blob/main/SECURITY.md).
+
+---
+
+## Credits
+
+- **AAASeed** : Mâa Berriet (engine, 1996-present), Franz Hildgen
+  (significant contributions), the ArtCast4d.eu European project.
+- **Mac port** : Alex Mkwizu (`a.mkwizu@seedexr.com`), with
+  AI-assisted research and porting.

@@ -94,7 +94,13 @@ The `memory/` folder is the project's living brain:
 
 ## License
 
-MIT, matching upstream AAASeed. See `vendor/aaaseed-engine/LICENSE` and `vendor/aaaseed-runtime/LICENSE`.
+MIT — see [`LICENSE`](LICENSE) for the full text. This matches upstream AAASeed (`vendor/aaaseed-engine/LICENSE` and `vendor/aaaseed-runtime/LICENSE`).
+
+## Contributing
+
+Bug reports, fixes, sample MEUs and shader revivals are welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the dev-environment setup, code style, PR flow, and testing discipline. By contributing, you agree your work is released under the project's MIT License.
+
+Community expectations are documented in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md). Security vulnerabilities should be reported privately per [`SECURITY.md`](SECURITY.md).
 
 ## Credits
 
@@ -103,4 +109,4 @@ MIT, matching upstream AAASeed. See `vendor/aaaseed-engine/LICENSE` and `vendor/
 
 ## Reporting issues
 
-For Mac-specific issues, open an issue in this repository. For engine-level issues that affect both Windows and Mac, please surface them upstream where Mâa maintains the canonical engine.
+For Mac-specific issues, open an issue in this repository (templates : bug, feature, question). For engine-level issues that affect both Windows and Mac, please surface them upstream where Mâa maintains the canonical engine. For security issues, see [`SECURITY.md`](SECURITY.md).
