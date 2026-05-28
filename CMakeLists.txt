@@ -43,6 +43,8 @@ include(aaa_lua)
 include(aaa_luasocket)
 include(aaa_tinyexr)
 include(aaa_test_png)
+# c148 : Dear ImGui vendor (aaaseed_imgui + aaaseed_imgui_metal_backend).
+include(aaa_imgui)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -69,6 +71,8 @@ add_subdirectory(src/bdd)
 # surface. Sub-lib lives at src/ui/widgets/ ; consumed by aaaseed_app +
 # the MEU runner (aaa.ui.* bindings) + tests/unit/aaa_widgets_mac_test.
 add_subdirectory(src/ui/widgets)
+# c148 : ImGui Studio authoring surface.
+add_subdirectory(src/ui/studio)
 add_subdirectory(src/ui/macos)
 
 # Phase 8 DMG packaging target (c137-B, 2026-05-27, todo.md L379-L380).

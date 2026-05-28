@@ -43,6 +43,7 @@ target_link_libraries(aaaseed_meu_runner_in_app_tests PRIVATE
     GTest::gtest GTest::gtest_main
     aaaseed_gol_metal
     aaaseed_meu_runner
+    aaaseed_ui_studio_mac
     aaaseed_event_bridge
     aaaseed_text
     aaaseed_stb
@@ -106,6 +107,7 @@ target_link_libraries(aaaseed_meu_hud_in_app_tests PRIVATE
     GTest::gtest GTest::gtest_main
     aaaseed_gol_metal
     aaaseed_meu_runner
+    aaaseed_ui_studio_mac
     aaaseed_event_bridge
     aaaseed_text
     aaaseed_stb
@@ -165,6 +167,7 @@ target_link_libraries(aaaseed_widgets_in_app_tests PRIVATE
     GTest::gtest GTest::gtest_main
     aaaseed_gol_metal
     aaaseed_meu_runner
+    aaaseed_ui_studio_mac
     aaaseed_event_bridge
     aaaseed_text
     aaaseed_stb
@@ -220,6 +223,7 @@ target_link_libraries(aaaseed_widgets_v2_in_app_tests PRIVATE
     GTest::gtest GTest::gtest_main
     aaaseed_gol_metal
     aaaseed_meu_runner
+    aaaseed_ui_studio_mac
     aaaseed_event_bridge
     aaaseed_text
     aaaseed_stb
@@ -272,6 +276,7 @@ target_link_libraries(aaaseed_v3_in_app_tests PRIVATE
     GTest::gtest GTest::gtest_main
     aaaseed_gol_metal
     aaaseed_meu_runner
+    aaaseed_ui_studio_mac
     aaaseed_event_bridge
     aaaseed_text
     aaaseed_stb
@@ -294,4 +299,51 @@ target_compile_features(aaaseed_v3_in_app_tests PRIVATE cxx_std_20)
 gtest_discover_tests(aaaseed_v3_in_app_tests
     DISCOVERY_TIMEOUT 30
     PROPERTIES LABELS "integration;ui;v3;phase4"
+)
+
+# c148 : ImGui Studio in-app integration tests.
+# Spins up a real MetalBackend + AAASeedMTKViewDelegate and exercises
+# the Studio via its C++ data model API headlessly.
+add_executable(aaaseed_studio_in_app_tests
+    studio_in_app_test.mm
+    "${CMAKE_SOURCE_DIR}/src/ui/macos/AAASeedMTKView.mm"
+    "${CMAKE_SOURCE_DIR}/src/ui/macos/AAASeedInputView.mm"
+)
+
+set_source_files_properties(
+    studio_in_app_test.mm
+    "${CMAKE_SOURCE_DIR}/src/ui/macos/AAASeedMTKView.mm"
+    "${CMAKE_SOURCE_DIR}/src/ui/macos/AAASeedInputView.mm"
+    PROPERTIES
+    LANGUAGE OBJCXX
+    COMPILE_FLAGS "-fno-objc-arc"
+)
+
+target_include_directories(aaaseed_studio_in_app_tests PRIVATE
+    "${CMAKE_SOURCE_DIR}"
+    "${CMAKE_SOURCE_DIR}/third_party/metal-cpp"
+    "${CMAKE_SOURCE_DIR}/src/ui/macos"
+)
+
+target_link_libraries(aaaseed_studio_in_app_tests PRIVATE
+    GTest::gtest GTest::gtest_main
+    aaaseed_gol_metal
+    aaaseed_meu_runner
+    aaaseed_event_bridge
+    aaaseed_text
+    aaaseed_stb
+    aaaseed_ui_widgets_mac
+    aaaseed_ui_studio_mac
+    "${COCOA_FRAMEWORK_IT}"
+    "${METALKIT_FRAMEWORK_IT}"
+    "${METAL_FRAMEWORK_IT}"
+    "${FOUNDATION_FRAMEWORK_IT}"
+    "${QUARTZCORE_FRAMEWORK_IT}"
+)
+
+target_compile_features(aaaseed_studio_in_app_tests PRIVATE cxx_std_20)
+
+gtest_discover_tests(aaaseed_studio_in_app_tests
+    DISCOVERY_TIMEOUT 30
+    PROPERTIES LABELS "integration;studio"
 )

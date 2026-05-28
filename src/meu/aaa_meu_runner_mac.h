@@ -37,6 +37,7 @@
 #pragma once
 
 #include <cstdint>
+#include <functional>
 #include <memory>
 #include <optional>
 #include <string>
@@ -161,6 +162,19 @@ public:
     //	tolerates being set after load too -- the next render_frame
     //	picks up the pointer.
     void set_widget_system( aaa::ui::widgets::WidgetSystem* ws );
+
+    //	c151-B : Lua-extension hook. Called every time load_script opens
+    //	a fresh lua_State, AFTER the runner's own aaa.* bindings have
+    //	been installed. Lets external subsystems (e.g. the ImGui Studio)
+    //	register their own bindings (e.g. aaa.studio.*) on the runner's
+    //	lua_State without re-entering its init loop.
+    //
+    //	The hook receives the lua_State as a void* (no `lua.h` in this
+    //	header). Cast to `lua_State*` at the call site. Passing an
+    //	empty std::function clears the hook. Hooks do NOT survive across
+    //	Runner destructors -- if the runner is rebuilt, the consumer
+    //	must re-register.
+    void set_lua_extension_hook( std::function< void( void* ) > hook );
 
     //	c149-A v3 Feature 4 : preset save / load. save_preset walks the
     //	WidgetSystem's retained state (per-label slider values / HSV

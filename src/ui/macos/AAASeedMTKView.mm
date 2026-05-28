@@ -32,6 +32,11 @@
 //	(via the MTKView's `view` argument).
 #import "AAASeedInputView.h"
 
+//	c148 : ImGui Studio authoring surface. Owned alongside the widget
+//	system ; driven once per frame (new_frame before the pass,
+//	render inside the pass after the widget system end_frame).
+#include "src/ui/studio/aaa_studio.h"
+
 #include "stb_image.h"
 
 #include <cmath>
@@ -264,6 +269,17 @@ struct AAASeedAaaFuVec4s
     //	on the delegate ; drawInMTKView: consumes them via drain* helpers.
     BOOL _mousePressedEdge;
     BOOL _mouseReleasedEdge;
+    //	c148 : ImGui Studio authoring surface. Owned ; inited lazily on
+    //	the first drawInMTKView: so the MTLDevice and NSView are available.
+    std::unique_ptr< aaa::ui::studio::Studio > _studio;
+    BOOL _studioInitAttempted;
+    //	c151-A : Local NSEvent monitor for the studio. Installed when
+    //	_studio->init() succeeds ; tears down in dealloc. Forwards every
+    //	app-local event to ImGui so the studio panels become interactive.
+    //	Returns nil from the handler when ImGui consumes the event,
+    //	which suppresses normal dispatch to the MTKView (correct when
+    //	the cursor is over an ImGui window).
+    id _studioEventMonitor;
 }
 
 //	Read a .metal file out of the .app bundle's Resources/shaders/
@@ -323,6 +339,8 @@ struct AAASeedAaaFuVec4s
         _meuRenderActive       = NO;
         _mousePressedEdge      = NO;
         _mouseReleasedEdge     = NO;
+        _studioInitAttempted   = NO;
+        _studioEventMonitor    = nil;
 
         if( !_backend )
             return self;
@@ -671,6 +689,12 @@ struct AAASeedAaaFuVec4s
     return _widgetSystem.get();
 }
 
+//	c148 : Studio accessor.
+- (aaa::ui::studio::Studio*)studio
+{
+    return _studio.get();
+}
+
 - (void)queueMousePressed
 {
     _mousePressedEdge = YES;
@@ -701,6 +725,130 @@ struct AAASeedAaaFuVec4s
     //	present_window wait. Sampled from frame 1 onwards ; frame 0 is excluded
     //	from the perf aggregate to avoid warmup skew.
     auto const t_frame_start = std::chrono::steady_clock::now();
+
+    //	---- c148 : Studio lazy init + new_frame ---------------------------
+    //	Lazy init on first drawable so we have an NSView + MTLDevice.
+    //	new_frame must be called BEFORE begin_window_render_pass per
+    //	imgui_impl_osx semantics (NSEvent processing happens here).
+    if( !_studioInitAttempted )
+    {
+        _studioInitAttempted = YES;
+        _studio = std::make_unique< aaa::ui::studio::Studio >( _backend,
+                              _meuRunner ? _meuRunner.get() : nullptr );
+        // MTL::Device* is layout-compatible with id<MTLDevice> per metal-cpp
+        // bridge rules; reinterpret_cast is safe here.
+        id< MTLDevice > dev = (__bridge id< MTLDevice >)
+            reinterpret_cast< void* >( _backend->get_device() );
+        // c151-B : capture the MTKView's static colorPixelFormat (not
+        // currentDrawable.texture.pixelFormat -- that requires a drawable,
+        // which may not be ready on the very first frame). The view's
+        // colorPixelFormat is set when the view is configured, well
+        // before any drawing happens. Passing it lets the studio build
+        // a valid first-frame rpd without a drawable.
+        std::uint64_t const cpf =
+            static_cast< std::uint64_t >( view.colorPixelFormat );
+        if( !_studio->init( (__bridge void*) view,
+                            (__bridge void*) dev,
+                            cpf ) )
+        {
+            NSLog( @"AAASeed: Studio init failed; studio UI disabled." );
+            _studio.reset();
+        }
+        else
+        {
+            //	c151-A : install a local NSEvent monitor so the studio
+            //	actually receives keyboard / mouse / scroll input. Without
+            //	this, ImGui windows draw but consume zero events
+            //	(WantCaptureMouse stays false). The handler returns nil
+            //	when ImGui claimed the event, which suppresses dispatch
+            //	to the rest of the responder chain (the engine input
+            //	bridge), so clicks INSIDE an ImGui panel don't also drive
+            //	the underlying scene.
+            //  -fno-objc-arc : use __unsafe_unretained (MRC-compatible
+            //  spelling) instead of __weak. The monitor block is owned by
+            //  the NSEvent system ; self outlives it (dealloc removes the
+            //  monitor BEFORE the view is freed) so unretained is safe.
+            //  We type the capture explicitly as the delegate class --
+            //  ObjC's `typeof` extension isn't available with this
+            //  -fno-objc-arc + ObjC++ flag combination.
+            __unsafe_unretained AAASeedMTKViewDelegate* weakSelf = self;
+            _studioEventMonitor = [NSEvent
+                addLocalMonitorForEventsMatchingMask:NSEventMaskAny
+                                             handler:^NSEvent*( NSEvent* ev )
+            {
+                AAASeedMTKViewDelegate* strongSelf = weakSelf;
+                if( !strongSelf || !strongSelf->_studio )
+                    return ev;
+                bool const consumed =
+                    strongSelf->_studio->handle_ns_event( (__bridge void*) ev );
+                return consumed ? nil : ev;
+            }];
+
+            //  c151-A : close the "write code -> Run -> see it" loop.
+            //  Studio's Code Editor calls on_run_cb with the buffer when
+            //  the user presses Run / Cmd+R. We write the buffer to a
+            //  temp file, hand it to the MEU runner, and log the result.
+            //  ObjC `typeof` is not usable inside a C++ lambda body, so we
+            //  capture an explicitly-typed raw pointer to self. The
+            //  callback can never outlive `self` -- it's owned by
+            //  `_studio`, which is owned by the AAASeedMTKViewDelegate
+            //  (this object) and torn down in dealloc before the ivars
+            //  are released.
+            aaa::ui::studio::Studio*    studio_raw   = _studio.get();
+            aaa::meu::Runner*           runner_raw   =
+                _meuRunner ? _meuRunner.get() : nullptr;
+            AAASeedMTKViewDelegate*     selfRaw      = self;
+            _studio->on_run_script(
+                [studio_raw, runner_raw, selfRaw]
+                ( std::string const& text )
+                {
+                    using L = aaa::ui::studio::ConsoleEntry;
+                    if( !runner_raw )
+                    {
+                        studio_raw->log( L::ERR,
+                            "No MEU runner attached ; cannot run script." );
+                        return;
+                    }
+                    NSString* tmpDir = NSTemporaryDirectory();
+                    NSString* tmpPath = [tmpDir
+                        stringByAppendingPathComponent:@"aaaseed_studio_run.lua"];
+                    NSData* data = [NSData
+                        dataWithBytes:text.data() length:text.size()];
+                    NSError* werr = nil;
+                    if( ![data writeToFile:tmpPath
+                                   options:NSDataWritingAtomic
+                                     error:&werr] )
+                    {
+                        studio_raw->log( L::ERR,
+                            std::string( "Failed to write temp lua : " ) +
+                            [[werr localizedDescription] UTF8String] );
+                        return;
+                    }
+                    std::string const path =
+                        std::string( [tmpPath fileSystemRepresentation] );
+                    bool const ok = runner_raw->load_script( path );
+                    if( ok )
+                    {
+                        studio_raw->log( L::LUA,
+                            "load_script OK : " + path );
+                        if( selfRaw ) selfRaw->_meuRenderActive = YES;
+                    }
+                    else
+                    {
+                        studio_raw->log( L::ERR,
+                            "load_script failed for " + path );
+                    }
+                } );
+        }
+    }
+
+    if( _studio )
+    {
+        CGSize const pts = view.bounds.size;
+        _studio->new_frame( (std::uint32_t) pts.width,
+                            (std::uint32_t) pts.height,
+                            1.0 / 60.0 );
+    }
 
     GOL::RenderPassDescriptor rpd;
     rpd.load_action      = GOL::LoadAction::Clear;
@@ -809,6 +957,26 @@ struct AAASeedAaaFuVec4s
     if( _widgetSystem )
     {
         _widgetSystem->end_frame();
+    }
+
+    //	---- c148 : Studio render ------------------------------------------
+    //	ImGui draws on top of everything ; sits above widget chrome + HUD.
+    if( _studio )
+    {
+        //  c148 : get_active_encoder() returns MTL::RenderCommandEncoder* as
+        //  void* per c134-A doctrine; reinterpret to the ObjC type for ImGui.
+        //  c151-A : also pass the active command buffer ; imgui's
+        //  RenderDrawData() derefs commandBuffer.device to lazily compile
+        //  its pipeline state. Passing nil there caused a SegFault.
+        id< MTLRenderCommandEncoder > enc = (__bridge id< MTLRenderCommandEncoder >)
+            reinterpret_cast< void* >(
+                static_cast< MTL::RenderCommandEncoder* >(
+                    _backend->get_active_encoder() ) );
+        id< MTLCommandBuffer > cb = (__bridge id< MTLCommandBuffer >)
+            reinterpret_cast< void* >(
+                static_cast< MTL::CommandBuffer* >(
+                    _backend->get_active_command_buffer() ) );
+        _studio->render( (__bridge void*) enc, (__bridge void*) cb );
     }
 
     //	---- Continuation 61 : HUD overlay ---------------------------------
@@ -1027,6 +1195,15 @@ struct AAASeedAaaFuVec4s
     //	c148-A : clear the reload callback BEFORE resetting the runner so
     //	the captured raw Runner* never lingers after Runner destruction.
     if( _widgetSystem ) _widgetSystem->set_reload_callback( std::function< void() >{} );
+    //	c151-A : drop the studio event monitor and the studio itself before
+    //	the backend (ImGui Metal shutdown releases GPU resources via the
+    //	backend's device).
+    if( _studioEventMonitor )
+    {
+        [NSEvent removeMonitor:_studioEventMonitor];
+        _studioEventMonitor = nil;
+    }
+    _studio.reset();
     _meuRunner.reset();
     _widgetSystem.reset();
 

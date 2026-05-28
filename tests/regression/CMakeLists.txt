@@ -50,3 +50,19 @@ gtest_discover_tests(aaaseed_regression_phase3_tests
     DISCOVERY_TIMEOUT 30
     PROPERTIES LABELS "regression;phase3"
 )
+
+# c148 : Studio data-model regression tests.
+# Pure C++ — guards exact id-sequence, camera defaults, perf-ring
+# wrap-around, and editor/node isolation invariants. No GPU required.
+add_executable(aaaseed_regression_studio_tests
+    studio_data_model_regression_test.cpp
+)
+target_link_libraries(aaaseed_regression_studio_tests PRIVATE
+    GTest::gtest GTest::gtest_main
+    aaaseed_ui_studio_mac
+)
+target_compile_features(aaaseed_regression_studio_tests PRIVATE cxx_std_20)
+gtest_discover_tests(aaaseed_regression_studio_tests
+    DISCOVERY_TIMEOUT 30
+    PROPERTIES LABELS "regression;studio"
+)

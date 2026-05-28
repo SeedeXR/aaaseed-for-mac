@@ -1983,3 +1983,24 @@ gtest_discover_tests(aaaseed_v4_samples_tests
     DISCOVERY_TIMEOUT 30
     PROPERTIES LABELS "unit;meu;authoring;v4"
 )
+
+# c148 : ImGui Studio authoring surface unit tests.
+# Pure C++ — no GPU, no NSApplication. Studio is exercised with null
+# backend + runner (null-GPU degraded path must not crash).
+add_executable(aaaseed_studio_tests
+    aaa_studio_test.cpp
+)
+target_link_libraries(aaaseed_studio_tests PRIVATE
+    GTest::gtest GTest::gtest_main
+    aaaseed_ui_studio_mac
+    # c151-B : Lua-binding tests open a local lua_State and call
+    # Studio::install_lua_bindings on it. aaaseed_lua provides the
+    # vendored 5.1 interpreter ; pulled in via aaaseed_ui_studio_mac
+    # transitively but stated explicitly for self-documentation.
+    aaaseed_lua
+)
+target_compile_features(aaaseed_studio_tests PRIVATE cxx_std_20)
+gtest_discover_tests(aaaseed_studio_tests
+    DISCOVERY_TIMEOUT 30
+    PROPERTIES LABELS "unit;studio"
+)

@@ -878,6 +878,22 @@ namespace GOL
         _current_cb = nullptr;
     }
 
+    // c148 : bridge accessor — returns the active MTL::RenderCommandEncoder as
+    // void* per the c134-A doctrine (no ObjC/MTL types in public C++ headers).
+    void* MetalBackend::get_active_encoder() const
+    {
+        return static_cast< void* >( _current_encoder );
+    }
+
+    // c151-A : bridge accessor — returns the active MTL::CommandBuffer as
+    // void* per the c134-A doctrine. ImGui's RenderDrawData() needs this
+    // separately from the encoder so it can lazily compile its pipeline
+    // state using commandBuffer.device.
+    void* MetalBackend::get_active_command_buffer() const
+    {
+        return static_cast< void* >( _current_cb );
+    }
+
     Backend* create_default_backend()
     {
         return new MetalBackend();

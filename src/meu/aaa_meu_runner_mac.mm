@@ -165,6 +165,12 @@ public:
 
         install_aaa_bindings();
 
+        // c151-B : fire the external extension hook so subsystems like
+        // the ImGui Studio can register aaa.studio.* bindings on the
+        // fresh state BEFORE the user script's top-level run.
+        if( _lua_extension_hook )
+            _lua_extension_hook( static_cast< void* >( _L ) );
+
         _script_path = lua_path;
 
         if( !run_loaded_script() )
@@ -304,6 +310,17 @@ public:
     {
         _widget_system = ws;
     }
+
+    //	c151-B : external Lua-extension hook. Fires inside load_script
+    //	after the runner's own bindings are installed and BEFORE the
+    //	user script runs. The hook may register additional C functions
+    //	on the fresh lua_State (e.g. aaa.studio.*) so the user script
+    //	can call them straight away.
+    void set_lua_extension_hook( std::function< void( void* ) > hook )
+    {
+        _lua_extension_hook = std::move( hook );
+    }
+    std::function< void( void* ) > _lua_extension_hook;
 
     std::vector< std::string > list_shaders() const
     {
@@ -1577,6 +1594,11 @@ std::string Runner::get_pending_hud_text() const
 void Runner::set_widget_system( aaa::ui::widgets::WidgetSystem* ws )
 {
     if( _impl ) _impl->set_widget_system( ws );
+}
+
+void Runner::set_lua_extension_hook( std::function< void( void* ) > hook )
+{
+    if( _impl ) _impl->set_lua_extension_hook( std::move( hook ) );
 }
 
 bool Runner::save_preset( std::string const& path ) const

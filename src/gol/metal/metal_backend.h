@@ -86,6 +86,15 @@ namespace GOL
         //	Backend interface — backend-specific.
         MTL::Device*       get_device()        const { return _device; }
         MTL::CommandQueue* get_command_queue() const { return _queue;  }
+        //	c148 : Returns the currently-active MTL::RenderCommandEncoder as
+        //	a void* (c134-A bridge-API doctrine).  Null between frames.
+        void*              get_active_encoder() const;
+        //	c151-A : Returns the currently-active MTL::CommandBuffer as a
+        //	void* (c134-A bridge-API doctrine). Null between frames.
+        //	Needed by ImGui Metal backend's RenderDrawData() which derefs
+        //	commandBuffer.device to compile pipeline state lazily.
+        void*              get_active_command_buffer() const;
+
 
         //	Window-target render-pass entry. The host (src/ui/macos/) calls
         //	this with the drawable acquired from MTKView's currentDrawable.

@@ -199,6 +199,19 @@ add_custom_command(TARGET aaaseed_app POST_BUILD
     VERBATIM
 )
 
+#  c151-A : copy the placeholder AAASeed.icns into Resources/ . The
+#  Info.plist's CFBundleIconFile = "AAASeed" tells macOS to look for
+#  Resources/AAASeed.icns at runtime.
+if(EXISTS "${CMAKE_SOURCE_DIR}/bundle/macos/AAASeed.icns")
+    add_custom_command(TARGET aaaseed_app POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${CMAKE_SOURCE_DIR}/bundle/macos/AAASeed.icns"
+            "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/AAASeed.icns"
+        COMMENT "Copying AAASeed.icns placeholder icon into aaaseed_app bundle"
+        VERBATIM
+    )
+endif()
+
 #  Info.plist singularity collapse (2026-05-27, Phase 8 / todo.md L365-L383).
 #  c136-B originally landed a TWO-plist arrangement (template at
 #  src/ui/macos/Info.plist.in PLUS fully-resolved artefact at
@@ -300,6 +313,9 @@ target_link_libraries(aaaseed_app PRIVATE
     #  brought in by aaaseed_meu_runner (PUBLIC link), restated here
     #  for explicit clarity at the app link line.
     aaaseed_ui_widgets_mac
+    #  c148 : ImGui Studio authoring surface. Brings in aaaseed_imgui +
+    #  aaaseed_imgui_metal_backend transitively.
+    aaaseed_ui_studio_mac
     "${COCOA_FRAMEWORK}"
     "${METALKIT_FRAMEWORK}"
     "${METAL_FRAMEWORK_UI}"

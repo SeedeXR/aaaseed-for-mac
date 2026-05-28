@@ -6,7 +6,9 @@ This repository is the macOS development tree. It is **self-contained**: clone i
 
 ## Status
 
-Work in progress. The math subsystem compiles and tests pass on Apple Silicon. Graphics backend (Metal) and UI host (Cocoa) are upcoming. See `memory/todo.md` for the live roadmap.
+Work in progress. The math subsystem compiles and tests pass on Apple Silicon. Graphics backend (Metal) and UI host (Cocoa) are live. The **Studio** authoring UI (Dear ImGui + Metal, GaBuZoMeu palette) ships in the .app with 10 panels — Node Graph, Code Editor, MEU Inspector, Shader Catalog (auto-enumerated from `src/shaders/msl/*.metal`), Camera pose, Sound (real Core Audio device enumeration), Binary Manager, Console, Performance, Preferences. See `ui/notes/` for architecture, mindmap, philosophy, and the live todo list.
+
+Test suite : **555 / 555** passing (338 unit + 70 regression + integration + perf).
 
 ## Requirements
 
@@ -42,18 +44,27 @@ Output lives under `out/<preset>/bin/` and `out/<preset>/lib/`.
 aaaseed-for-mac/
 ├── CMakeLists.txt              Root build script
 ├── CMakePresets.json           macos-arm64-* presets
-├── cmake/                      Build helpers
-├── src/                        Mac-native engine code (gol/metal/, ui/macos/, etc.)
+├── cmake/                      Build helpers ; aaa_imgui.cmake vendors Dear ImGui
+├── src/                        Mac-native engine code
+│   ├── gol/metal/              GOL OpenGL-isolation backend, Metal target
+│   ├── meu/                    MEU Lua runner (Mac)
+│   ├── ui/macos/               NSApplication / NSWindow / MTKView host
+│   ├── ui/widgets/             c147-A widget chrome
+│   ├── ui/studio/              c148/c151-A Dear ImGui Studio (this session)
+│   └── shaders/msl/            169 Path A .metal shaders
+├── ui/                         Studio UI design docs (no code)
+│   └── notes/                  philosophy.md, mindmap.md, ui-architecture.md, todo.md
 ├── tests/
-│   ├── unit/                   GoogleTest unit tests
-│   ├── integration/            (Coming soon) end-to-end MEU runs
-│   └── regression/golden/      (Coming soon) frame-buffer baselines
+│   ├── unit/                   338 GoogleTest unit tests
+│   ├── integration/            31 in-app end-to-end tests
+│   └── regression/             70 invariant guards (data-model + frame-buffer)
+├── bundle/macos/               Info.plist.in, entitlements.plist, AAASeed.icns
 ├── vendor/
 │   ├── aaaseed-engine/         Snapshot of Mâa's Windows C++ engine source
 │   └── aaaseed-runtime/        Snapshot of the AAASeed Lua runtime content
-├── books/                      Reference reading (Metal, GPU on Apple Silicon, AAASeed intro)
+├── books/                      Reference reading (gitignored, per-contributor)
 ├── instructions/               Human-readable porting instructions
-├── memory/                     Agent-readable project state (philosophy, todo, mindmap, sessions)
+├── memory/                     Agent-readable project state (gitignored, per-contributor)
 └── VENDORING.md                How vendor/ relates to upstream and how to sync
 ```
 
