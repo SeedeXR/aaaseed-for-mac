@@ -33,6 +33,7 @@
 #include <algorithm>
 #include <chrono>
 #include <cstdio>
+#include <cstdlib>
 #include <filesystem>
 #include <fstream>
 #include <sstream>
@@ -86,8 +87,15 @@ TEST( PathACompilePerf, EveryShaderCompilesUnderBudget )
     constexpr double kPerShaderBudgetMs = 250.0;
     //	Whole-sweep budget : 2 s on M4 debug for ~25 shaders. Scales as
     //	the catalog grows -- target is "all shaders compile within a
-    //	dev's coffee-sip wait".
-    constexpr double kTotalSweepBudgetMs = 2000.0;
+    //	dev's coffee-sip wait". GitHub-hosted macos-14 runners are
+    //	~3-4x slower than a local M-series machine (shared CI host,
+    //	virtualized Metal driver), so we relax the sweep budget on CI
+    //	to keep the test meaningful without flapping on hardware noise.
+    //	The per-shader budget (250 ms) stays strict on both : individual
+    //	shaders still compile well under it even on CI (~42 ms avg with
+    //	169 shaders at 7 s sweep).
+    bool   const is_ci               = std::getenv( "GITHUB_ACTIONS" ) != nullptr;
+    double const kTotalSweepBudgetMs = is_ci ? 12000.0 : 2000.0;
 
     auto const metal_files = collect_metal_files();
     ASSERT_GE( metal_files.size(), size_t( 21 ) )
