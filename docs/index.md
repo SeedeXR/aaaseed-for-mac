@@ -2,9 +2,10 @@
 
 A Mac-native port of the **AAASeed** VJ / generative-art engine.
 
-Universal binary (Apple Silicon `arm64` + Intel `x86_64`), Metal-rendered,
-Lua-driven MEU (Modular Effect Unit) authoring surface, ships as a
-notarizable `.dmg` produced by a single `scripts/ship-dmg.sh` run.
+Apple Silicon `arm64`, Metal-rendered, Lua-driven MEU authoring on a
+**Qt 6 + QML Studio** with a separate **engine playback runtime**.
+Ships as a notarizable `.dmg` produced by a single
+`scripts/ship-qt-dmg.sh` run.
 
 [Latest release](https://github.com/SeedeXR/aaaseed-for-mac/releases){ .md-button .md-button--primary }
 [GitHub repository](https://github.com/SeedeXR/aaaseed-for-mac){ .md-button }
@@ -24,11 +25,12 @@ notarizable `.dmg` produced by a single `scripts/ship-dmg.sh` run.
 
 - :material-code-tags: **Developer Guide**
 
-    Build from source, run the 516-test pyramid, ship a fresh DMG, extend
-    the runner / widget / IME subsystems.
+    Build from source, run the 54-case Qt::Test suite, ship a fresh
+    DMG, extend the Studio / runner / IME subsystems.
 
-    [Architecture](developer/architecture.md) -
-    [Building](developer/building.md) -
+    [Architecture](developer/architecture.md) ·
+    [Studio UI](developer/studio.md) ·
+    [Building](developer/building.md) ·
     [Testing](developer/testing.md)
 
 - :material-book-open-variant: **Authoring guide (legacy)**
@@ -51,9 +53,12 @@ notarizable `.dmg` produced by a single `scripts/ship-dmg.sh` run.
 
 ```mermaid
 flowchart TD
-    User[User / Designer] -->|writes .lua| MEU[MEU script]
-    User -->|launches| App[AAASeed.app]
-    App --> View[AAASeedMTKView]
+    User[User / Designer] -->|launches| Studio[AAASeed Studio.app<br/>Qt6 + QML]
+    Studio -->|edits + saves| Proj[(.aaaproj.lua)]
+    Studio -->|▶ Play / Cmd+P<br/>QProcess spawn| Runtime[aaaseed_runtime.app<br/>engine playback]
+    User -->|writes .lua| MEU[MEU script]
+    MEU --> Proj
+    Runtime --> View[AAASeedMTKView]
     View --> Backend[GOL::Backend / Metal]
     View --> Runner[aaa::meu::Runner]
     View --> Widgets[aaa::ui::widgets::WidgetSystem]
@@ -66,28 +71,31 @@ flowchart TD
     Backend --> Metal[(MTLDevice<br/>169 .metal shaders)]
 ```
 
-The render loop runs on the main thread inside `drawInMTKView:`. Per
-frame the view :
+Studio side is pure Qt6 + QML — no Metal device opened in that
+process. Runtime side owns the MTKView and runs the engine loop :
 
-1. Calls `WidgetSystem::begin_frame()` with edge mouse flags.
-2. Calls `Runner::render_frame(width, height, target)` -> Lua's
-   `aaa.on_frame()` -> shader selection + uniforms + full-screen quad.
-3. Calls `WidgetSystem::end_frame()` to emit batched UI quads.
-4. Renders the HUD overlay text from `Runner::get_pending_hud_text()`.
-5. Presents the drawable via `Backend::present()`.
+1. `WidgetSystem::begin_frame()` with edge mouse flags.
+2. `Runner::render_frame(width, height, target)` → Lua's
+   `aaa.on_frame()` → shader selection + uniforms + full-screen quad.
+3. `WidgetSystem::end_frame()` emits batched UI quads.
+4. HUD overlay text from `Runner::get_pending_hud_text()`.
+5. `Backend::present()`.
 
-See [Architecture](developer/architecture.md) for the full breakdown.
+See [Architecture](developer/architecture.md) for the full breakdown
+and [Studio UI](developer/studio.md) for the authoring surface.
 
 ---
 
 ## Project status
 
-- **516 / 516** tests pass.
-- v1 + v2 + v3 + v4 milestones **CLOSED**. No further version bumps per
-  user mandate ; future work is maintenance (new MEU shaders, new sample
-  scripts, bug fixes).
-- Ships as `out/AAASeed-0.0.1.dmg` (~685 KB, universal binary, optional
-  Developer ID code-sign + notarize).
+- **54 / 54** Qt::Test cases pass across 4 binaries (studio data
+  layer · panel adapters · Lua helper · settings).
+- v1 + v2 + v3 + v4 milestones **CLOSED**. No further version bumps
+  per user mandate ; future work is maintenance.
+- Ships as `out/AAASeed-Studio-0.0.1.dmg` (~52 MB ULMO/LZMA-compressed
+  ; macdeployqt bundles QtCore/Gui/Qml/Quick/Multimedia + cocoa
+  platform plugin + the nested runtime app). Optional Developer-ID
+  code-sign + notarize when env vars are set.
 - Source : [github.com/SeedeXR/aaaseed-for-mac](https://github.com/SeedeXR/aaaseed-for-mac).
 
 ---

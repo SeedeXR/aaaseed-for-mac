@@ -38,13 +38,13 @@ What you get out of the box :
 - 33 Lua bindings : 12 core (`aaa.*`) + 14 widgets (`aaa.ui.*`) +
   5 file I/O (`aaa.io.*`) + 2 IME (`aaa.ime.*`).
 - 14 sample MEUs covering every binding, with per-sample READMEs.
-- A universal binary -- runs natively on Apple Silicon AND Intel.
+- Apple Silicon `arm64` build (Intel via Rosetta).
 
 ---
 
 ## Your first MEU in 5 minutes
 
-You will need : an installed `AAASeed.app` (see
+You will need : an installed **AAASeed Studio.app** (see
 [Installation](installation.md)) and any text editor (VS Code, Sublime,
 TextEdit, vim, whatever).
 
@@ -53,7 +53,7 @@ TextEdit, vim, whatever).
 Inside the application bundle the default MEU lives at :
 
 ```
-/Applications/AAASeed.app/Contents/Resources/meu/hello_world.lua
+"/Applications/AAASeed Studio.app"/Contents/Resources/meu/hello_world.lua
 ```
 
 This is the file the runner loads at launch. Open it in your editor
@@ -86,9 +86,12 @@ That is the entire program. The runner :
 
 ### Step 3 -- launch the app
 
-Double-click `AAASeed.app`. You should see a fullscreen window filled
-with the orange-tinted Bridson curl-noise field, and a `frame N` HUD
-counter ticking in the top-left corner.
+Double-click **AAASeed Studio.app**. The Home screen opens ; click
+**Open Sample** (or use one of your recent projects). Then press
+**Cmd+P** (▶ Play) — the Studio spawns the engine runtime which
+opens a fullscreen window filled with the orange-tinted Bridson
+curl-noise field, with a `frame N` HUD counter in the top-left
+corner.
 
 ### Step 4 -- iterate
 
@@ -159,8 +162,8 @@ moving parts, all the same shaders.
 
 ## Where to go next
 
-- [Installation](installation.md) -- DMG verification, Gatekeeper rinse,
-  universal-binary check.
+- [Installation](installation.md) -- DMG verification, Gatekeeper
+  rinse, architecture check.
 - [MEU authoring](meu-authoring.md) -- the canonical tutorial. Anatomy
   of a MEU, hot-reload, presets, what is not supported in v1.
 - [Lua API : core](lua-api/core.md) -- `aaa.use_shader`,

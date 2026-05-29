@@ -1,12 +1,19 @@
 # Architecture
 
-AAASeed for Mac is a Mac-native VJ / generative-art engine. The
-architecture is designed around a small `.app` host that owns a Metal
-backend and routes user input + Lua-script-driven rendering onto a
-catalog of 169 `.metal` shaders.
+AAASeed for Mac is a Mac-native VJ / generative-art engine shipped as
+**two cooperating app bundles** :
 
-This page is the developer's mental map. For history + decisions see the
-[memory doctrine index](memory-doctrine.md).
+- **`AAASeed Studio.app`** — Qt 6 + QML authoring shell. Project I/O,
+  node graph, code editor, panels. Talks to the engine via
+  `.aaaproj.lua` files and spawns `aaaseed_runtime.app` for playback.
+- **`aaaseed_runtime.app`** (nested inside the Studio's
+  `Contents/Resources/runtime/`) — engine playback. Owns the
+  `MTKView`, the `GOL::Backend`, the MEU runner, the 169 `.metal`
+  shader catalog, and the file-watch hot-reload.
+
+This page is the developer's mental map. For history + decisions see
+the [memory doctrine index](memory-doctrine.md). For the Studio
+internals specifically see [Studio UI](studio.md).
 
 ---
 
@@ -14,7 +21,16 @@ This page is the developer's mental map. For history + decisions see the
 
 ```mermaid
 flowchart LR
-    subgraph App["AAASeed.app"]
+    subgraph StudioApp["AAASeed Studio.app  (Qt6 + QML)"]
+        QML[QML scene<br/>Main.qml + panels/]
+        Models[Q_OBJECT bridges<br/>StudioModel · NodeListModel<br/>SoundDeviceModel · LuaHelper<br/>SettingsModel · ...]
+        Core[aaa::ui::studio::Studio<br/>platform-neutral data model]
+        QML --> Models --> Core
+    end
+
+    Proj[(.aaaproj.lua<br/>project file)]
+
+    subgraph RuntimeApp["aaaseed_runtime.app  (engine playback)"]
         Delegate[AAASeedAppDelegate]
         MTKView[AAASeedMTKView]
         InputView[AAASeedInputView<br/><i>NSTextInputClient</i>]
@@ -38,6 +54,10 @@ flowchart LR
         Runner --> FileWatcher
     end
 
+    Core <-->|save / open| Proj
+    Core -.QProcess spawn<br/>--project arg.-> Delegate
+    Proj -.--project arg.-> Runner
+
     MTKView --> Backend
     MTKView --> Runner
     MTKView --> Widgets
@@ -46,6 +66,11 @@ flowchart LR
     Runner -.aaa.* bindings.-> Backend
     Widgets -.batched draws.-> Backend
 ```
+
+The Studio process **never** opens a Metal device. All GPU work
+happens in the runtime process. The two processes communicate via the
+`.aaaproj.lua` file (saved by Studio, read by runtime on launch) and
+via QProcess stdout/stderr streamed into the Studio's Console panel.
 
 ---
 
@@ -58,12 +83,14 @@ cascade.
 
 | Layer                       | Lives in                                                | Doctrine                                                                       |
 | --------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| App host (Cocoa / MTKView)  | `src/ui/macos/`                                         | Mac-only ; Objective-C++ ; subclasses `MTKView`                                |
+| Studio shell (Qt6 + QML)    | `src/ui/qt/`                                            | QGuiApplication + QQmlApplicationEngine ; no Metal in this process             |
+| Studio data model (neutral) | `src/ui/studio/aaa_studio.{h,cpp}`                      | Platform-neutral ; serializes to `.aaaproj.lua` for round-trip                 |
+| Runtime app host (Cocoa)    | `src/ui/macos/`                                         | Mac-only ; Objective-C++ ; subclasses `MTKView`                                |
 | Metal rendering backend     | `src/aaa/` + `src/macos/`                               | `GOL::Backend` -- present-per-pass discipline                                  |
 | Shader catalog              | `src/shaders/msl/` (169 `.metal` files)                 | [Path A revival pattern](memory-doctrine.md#path-a-revival-pattern)            |
 | MEU runner (Lua VM + draws) | `src/meu/aaa_meu_runner_mac.{h,mm}`                     | [Hermetic Mac sub-lib](memory-doctrine.md#hermetic-mac-sub-libs)               |
 | File watcher (hot reload)   | `src/meu/aaa_file_watcher_mac.{h,mm}`                   | FSEvents ; GCD dispatch                                                        |
-| Widget UI system            | `src/ui/widgets/aaa_widgets_mac.{h,mm}`                 | Immediate-mode + retained state ; hermetic                                     |
+| Widget UI system            | `src/ui/widgets/aaa_widgets_mac.{h,mm}`                 | Immediate-mode + retained state ; runtime-only since Qt cutover                |
 | Input event bridges         | `src/ui/macos/aaa_event_bridge*.{h,mm}`                 | [Bridge API standardization](memory-doctrine.md#bridge-api-standardization)    |
 | Lua bindings                | inline in `aaa_meu_runner_mac.mm`                       | Raw `lua_pushcfunction` (NO `AAALUACALL` macros)                               |
 | Vendor engine (limited)     | `aaaseed-windows/` submodule subset                     | Touched only via shadow shims                                                  |
@@ -171,8 +198,36 @@ keeps the runner buildable without `aaalua`'s reflection chain.
 
 ---
 
+## Studio process
+
+The Studio (`AAASeed Studio.app`) hosts the authoring UI in Qt 6 +
+QML. It owns no Metal device and never opens an `MTKView`. Its
+lifecycle :
+
+1. `QGuiApplication` boots, sets `Fusion` QML style + dark `QPalette`.
+2. Constructs an `aaa::ui::studio::Studio` (platform-neutral C++ core)
+   and a handful of `Q_OBJECT` adapters (`StudioModel`,
+   `NodeListModel`, `SoundDeviceModel`, `LuaHelper`, `SettingsModel`,
+   …) registered as QML context properties.
+3. `QQmlApplicationEngine` loads `qrc:/aaa/ui/qt/qml/Main.qml`.
+4. User edits a project ; mutations route through `StudioModel`,
+   which captures undo snapshots via
+   `Studio::serialize_to_string()` before each one.
+5. **Play (Cmd+P)** : auto-saves the project, then spawns
+   `aaaseed_runtime.app/Contents/MacOS/aaaseed_runtime --project <path>`
+   via `QProcess`. Stdout/stderr stream into the Studio's Console
+   panel.
+6. Workspace state (per-panel float/collapse/visible + named slots)
+   persists via `QSettings` under `workspace/` and `workspaces/<name>/`.
+
+The full Studio internals (panel docking, settings model, code
+editor, asset classifier) are documented in [Studio UI](studio.md).
+
+---
+
 ## Cross-references
 
+- [Studio UI](studio.md)
 - [Building from source](building.md)
 - [Running tests](testing.md)
 - [Ship script](ship-script.md)
@@ -182,6 +237,3 @@ keeps the runner buildable without `aaalua`'s reflection chain.
 - [Widget system](widget-system.md)
 - [NSTextInputClient + IME](nstextinputclient.md)
 - [Windows backend](windows-backend.md)
-- Layer supersession decision
-- v1 ship gate inventory
-- v4 milestone closure

@@ -114,7 +114,7 @@ Queue a single line of HUD overlay text for this frame.
 Write a line to the macOS unified log via `NSLog`.
 
 - Use for debugging from the Lua side ; visible in Console.app filtered
-  by the `aaaseed_app` process.
+  by the `aaaseed_runtime` process.
 - Example : `aaa.log( "shader changed to " .. shaders[ idx ] )`.
 
 ### `aaa.frame_index()`
@@ -818,7 +818,7 @@ usable via `aaa.use_shader( "<stem>" )` from any MEU.
    - Modify `src/ui/macos/AAASeedMTKView.mm` to point at your file,
      OR (preferred for development) call `runner.reload()` after
      swapping the file on disk if your host wiring exposes that path.
-6. Rebuild `aaaseed_app` (or trigger reload — see section 7).
+6. Rebuild `aaaseed_runtime` (or trigger reload — see section 7).
 7. Run the .app and verify your changes.
 
 ---

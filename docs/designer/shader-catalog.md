@@ -151,7 +151,7 @@ do not meaningfully impact DMG size.
 To list every shader stem available in your installed bundle :
 
 ```
-ls /Applications/AAASeed.app/Contents/Resources/shaders/ | sed 's/\.metal$//'
+ls "/Applications/AAASeed Studio.app"/Contents/Resources/shaders/ | sed 's/\.metal$//'
 ```
 
 Pick any stem from that list, pass to `aaa.use_shader(...)`, render.

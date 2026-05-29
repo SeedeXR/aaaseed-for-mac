@@ -158,7 +158,7 @@ See also : [`frame_index`](#aaaframe_index-int).
 Write a line to the macOS unified log via `NSLog`.
 
 - `text` (string) -- the text to log.
-- Visible in **Console.app** filtered by the `aaaseed_app` process.
+- Visible in **Console.app** filtered by the `aaaseed_runtime` process.
   Each line is prefixed `aaa.log: ...`.
 - Use for debugging from the Lua side. Cheap ; safe to call every
   frame, but per-frame logs flood the console quickly.

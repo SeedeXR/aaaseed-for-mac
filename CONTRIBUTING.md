@@ -27,12 +27,14 @@ Before you start, please read the [Code of Conduct](CODE_OF_CONDUCT.md) and
 
 Prerequisites :
 
-- **Hardware** : Apple Silicon (M1 / M2 / M3 / M4). Intel Macs build but
-  the universal-binary release is produced from Apple Silicon hosts.
+- **Hardware** : Apple Silicon (M1 / M2 / M3 / M4). The release is
+  arm64-only ; Intel Macs may run under Rosetta but aren't a CI target
+  (Homebrew Qt 6 is arm64-only).
 - **macOS** : 13.0 (Ventura) or newer.
 - **Xcode 15+** (Command Line Tools : `xcode-select --install`).
 - **CMake 3.27+** (`brew install cmake`).
 - **Ninja** (`brew install ninja`).
+- **Qt 6** (`brew install qt`). 6.6+ ; we ship against 6.11.
 - **Metal compiler** : `xcodebuild -downloadComponent MetalToolchain`.
 
 Clone, configure, build :
@@ -142,7 +144,7 @@ Include :
 - Hardware : `uname -m` and `sysctl -n machdep.cpu.brand_string`.
 - Repro steps, expected vs. actual.
 - If the bug is in a downloaded DMG, attach the output of
-  `./scripts/verify-dmg.sh path/to/AAASeed-*.dmg`.
+  `./scripts/verify-qt-dmg.sh path/to/AAASeed-*.dmg`.
 
 ---
 

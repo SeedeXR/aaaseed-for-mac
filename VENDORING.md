@@ -78,7 +78,7 @@ The default is `${CMAKE_SOURCE_DIR}/vendor/aaaseed-engine`. The override is usef
 
 Mâa's upstream is structured as two repos (`aaaseed_exe-main` and `aaaseed-main`) precisely because the C++ build artifact loads runtime content at startup. The split survives in `vendor/` for the same reason: the Mac binary (built from `aaaseed-engine/Src/`) loads scripts/shaders/textures from `aaaseed-runtime/AAAKernel/` at runtime.
 
-When the Mac `.app` is packaged, the build's `install` step copies `vendor/aaaseed-runtime/AAAKernel/` into `AAASeed.app/Contents/Resources/AAAKernel/`. See `instructions/instruction.md` §4.1a for the DMG-packaging plan.
+When the runtime `.app` is packaged, the build's `install` step copies `vendor/aaaseed-runtime/AAAKernel/` into `aaaseed_runtime.app/Contents/Resources/AAAKernel/`. The runtime is then nested inside `AAASeed Studio.app/Contents/Resources/runtime/` by `scripts/ship-qt-dmg.sh`.
 
 ## Repo size impact
 

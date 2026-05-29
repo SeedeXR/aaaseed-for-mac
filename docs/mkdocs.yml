@@ -82,7 +82,7 @@ nav:
     - Path A catalog: developer/path-a-catalog.md
     - MEU runner: developer/meu-runner.md
     - Widget system: developer/widget-system.md
-    - Studio UI (Dear ImGui): developer/studio.md
+    - Studio UI (Qt6 + QML): developer/studio.md
     - NSTextInputClient + IME: developer/nstextinputclient.md
     - Windows backend (v2+): developer/windows-backend.md
   - Authoring MEUs (legacy guide): AUTHORING_MEUS_ON_MAC.md
