@@ -1,25 +1,26 @@
 # Building from source
 
-This page covers building AAASeed for Mac from a clean checkout. For the
-end-to-end DMG ship pipeline see [Ship script](ship-script.md).
+This page covers building **AAASeed Studio** (the Qt 6 + QML
+authoring app) and **aaaseed_runtime** (the engine playback helper)
+from a clean checkout. For the end-to-end DMG ship pipeline, see
+[Ship script](ship-script.md).
 
 ---
 
 ## Prerequisites
 
-| Tool                 | Minimum version       | Notes                                              |
-| -------------------- | --------------------- | -------------------------------------------------- |
-| macOS                | 13 (Ventura)          | Universal-binary build targets 11 (Big Sur)+       |
-| Xcode Command Line   | latest available      | `xcode-select --install`                           |
-| CMake                | 3.20                  | `brew install cmake`                               |
-| Apple Silicon Mac    | M1 or newer           | Intel Macs can build but cross-compile is slower   |
-| (optional) Developer ID Application certificate | -- | For code-signed DMGs ; see [Ship script](ship-script.md) |
+| Tool                                | Minimum             | Notes                                                           |
+| ----------------------------------- | ------------------- | --------------------------------------------------------------- |
+| macOS                               | 13 (Ventura)        | `CMAKE_OSX_DEPLOYMENT_TARGET=13.0` baked into the ship script   |
+| Apple Silicon Mac                   | M1 / M2 / M3 / M4   | arm64-only ; Intel Macs run via Rosetta but aren't a CI target  |
+| Xcode Command Line Tools            | latest              | `xcode-select --install`                                        |
+| CMake                               | 3.27                | `brew install cmake`                                            |
+| Ninja                               | 1.10                | `brew install ninja`                                            |
+| **Qt 6**                            | **6.6** (we ship 6.11) | `brew install qt`. Qt 6.6+ for `Shape.CurveRenderer`         |
+| Metal toolchain                     | shipped with Xcode  | `xcodebuild -downloadComponent MetalToolchain` if missing       |
 
-The build produces a universal binary by default. Both arches are
-compiled natively on Apple Silicon -- Apple's clang frontend handles
-`-target x86_64-apple-macos11` without external SDK installs.
-
----
+Homebrew lands Qt at `/opt/homebrew/opt/qt/`. `cmake/aaa_qt6.cmake`
+auto-detects this ; no extra `Qt6_DIR` configuration needed.
 
 ## Clone + configure
 
@@ -27,138 +28,81 @@ compiled natively on Apple Silicon -- Apple's clang frontend handles
 git clone https://github.com/SeedeXR/aaaseed-for-mac
 cd aaaseed-for-mac
 git submodule update --init --recursive
-cmake -B out/macos-arm64-debug -S .
+
+cmake -S . -B out/macos-arm64-debug \
+    -G Ninja \
+    -DCMAKE_BUILD_TYPE=Debug \
+    -DCMAKE_OSX_ARCHITECTURES=arm64 \
+    -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0
 ```
 
-CMake will :
-
-- Locate the `MetalKit`, `Metal`, `Foundation`, `AppKit` frameworks.
-- Configure the bundled Lua 5.1 (`cmake/aaa_lua.cmake`).
-- Configure the bundled `luasocket` (`cmake/aaa_luasocket.cmake`).
-- Configure the bundled `stb_image` + `tinyexr` (PNG / EXR loaders).
-- Discover the 169 `.metal` shader sources in `src/shaders/msl/`.
-
-If you see a `Metal framework not found` error, your Xcode CLT install
-is incomplete -- run `sudo xcode-select --reset` then reinstall.
-
----
+For a Release build, swap `Debug` → `Release` and change the build
+directory accordingly (`out/macos-arm64-release`).
 
 ## Build
 
 ```bash
-cmake --build out/macos-arm64-debug -j 8
+cmake --build out/macos-arm64-debug --parallel
 ```
 
-The targets you usually care about :
+`--parallel` with no argument uses CMake's auto-detected core count
+(via `Ninja`). On a 12-core M-series Mac this saturates the machine ;
+on a 4-core CI runner it scales down automatically. Don't hard-code
+`-jN`.
 
-| Target          | What it is                                                                  |
-| --------------- | --------------------------------------------------------------------------- |
-| `aaaseed_app`   | The `.app` bundle's main executable                                         |
-| `aaaseed_meu_runner` | Static lib for the MEU runner sub-lib                                  |
-| `aaaseed_ui_widgets_mac` | Static lib for the widget system                                  |
-| `aaaseed_metal_backend`  | The `GOL::Backend` Metal implementation                          |
-| `all_tests`     | Aggregate target that builds every gtest binary                             |
+Common build targets :
 
-After a clean build the `.app` is at
-`out/macos-arm64-debug/src/ui/macos/AAASeed.app`.
+| Target                         | What                                    |
+| ------------------------------ | --------------------------------------- |
+| `aaaseed_app_qt`               | Studio app : `bin/AAASeed-Studio.app`   |
+| `aaaseed_runtime`              | Engine playback : `bin/aaaseed_runtime.app` |
+| `aaa_qt_studio_model_test`     | Qt::Test : Studio data layer (25 cases) |
+| `aaa_qt_panel_models_test`     | Qt::Test : Sound / Camera / Tasks (8)   |
+| `aaa_qt_lua_helper_test`       | Qt::Test : lint + asset classifier (14) |
+| `aaa_qt_settings_model_test`   | Qt::Test : preferences round-trip (7)   |
 
----
-
-## Build modes
-
-| Mode             | Flags                                                              | When to use                                 |
-| ---------------- | ------------------------------------------------------------------ | ------------------------------------------- |
-| `Debug` (default if no `-DCMAKE_BUILD_TYPE`) | `-O0 -g`                              | Day-to-day development + test iteration     |
-| `Release`        | `-Os -flto=thin -dead_strip` + post-link `strip -S`                | Ship DMG ; smallest + fastest binary        |
-| `RelWithDebInfo` | `-O2 -g`                                                           | Profiling under Instruments                 |
-
-LTO + dead-strip are configured in `src/ui/macos/CMakeLists.txt`
-(c142-A). The strip pass runs as a `add_custom_command(TARGET ...
-POST_BUILD)`. For Release builds the resulting `aaaseed_app`
-executable is ~75% smaller than Debug.
-
-To configure a Release build :
+## Test
 
 ```bash
-cmake -B out/macos-arm64-release -S . -DCMAKE_BUILD_TYPE=Release
-cmake --build out/macos-arm64-release -j 8
+cd out/macos-arm64-debug
+ctest -L qt --output-on-failure
 ```
 
----
+The Studio test surface uses `QT_QPA_PLATFORM=offscreen`, set
+automatically by the CTest properties.
 
-## Universal binary (production)
-
-For a UNIVERSAL binary (Apple Silicon + Intel x86_64), use the ship
-script which handles per-arch builds + `lipo` automatically :
+## Run
 
 ```bash
-./scripts/ship-dmg.sh
+# Studio (authoring shell)
+out/macos-arm64-debug/bin/AAASeed-Studio.app/Contents/MacOS/AAASeed-Studio
+
+# Runtime (engine playback) directly with a project file
+out/macos-arm64-debug/bin/aaaseed_runtime.app/Contents/MacOS/aaaseed_runtime \
+    --project bundle/macos/sample/starter.aaaproj.lua
 ```
 
-Defaults : `BUILD_TYPE=Release`, `ARCHES="arm64 x86_64"`, output DMG at
-`out/AAASeed-0.0.1.dmg`. See [Ship script](ship-script.md) for the
-full env-var matrix.
+The Studio's `▶ Play` (Cmd+P) spawns the runtime via `QProcess`.
 
----
-
-## Single-arch dev build (fast iteration)
-
-When you don't need x86_64 and want a Release DMG ASAP :
+## DMG
 
 ```bash
-ARCHES="arm64" ./scripts/ship-dmg.sh
+./scripts/ship-qt-dmg.sh
 ```
 
-This skips the x86_64 build entirely + skips `lipo` (no merging
-needed). On an M1 Pro the full pipeline (build + sign + DMG) runs in
-under 90 s.
+Produces `out/AAASeed-Studio-<version>.dmg`. See
+[Ship script](ship-script.md) for env vars (CODESIGN_IDENTITY,
+NOTARY_API_KEY_*).
 
----
+## Legacy gtest tree
 
-## CMake presets
-
-`CMakePresets.json` ships several common preset names :
+The pre-Qt test tree (`tests/unit/`, `tests/integration/`,
+`tests/regression/`) is gated behind an opt-in :
 
 ```bash
-cmake --preset macos-arm64-debug
-cmake --preset macos-arm64-release
-cmake --preset macos-x86_64-release
+cmake -S . -B out/macos-arm64-debug \
+    -DAAA_BUILD_LEGACY_TESTS=ON \
+    ...
 ```
 
-Each preset wires `CMAKE_OSX_ARCHITECTURES`, `CMAKE_BUILD_TYPE`, and
-the per-arch build directory under `out/`.
-
----
-
-## Common gotchas
-
-??? warning "I just deleted a .metal file but the .app still has it"
-
-    The MTKView host loads shaders from the bundle's `Resources/shaders/`
-    at startup. Run `cmake --build out/...` after editing shaders to
-    re-copy the catalog into the bundle. (Hot-reload via FSEvents is
-    only wired for `.lua` MEU scripts, not `.metal` shaders.)
-
-??? warning "Tests pass locally but fail in CI on a parallel `ctest -j`"
-
-    See [Distnoted dual-center](memory-doctrine.md#distnoted-dual-center).
-    Mac `distnoted` drops distributed notifications between parallel
-    ctest workers. The fix : post + observe on **both**
-    `CFNotificationCenterGetLocalCenter()` and
-    `GetDistributedCenter()`. Already applied to all affected tests.
-
-??? warning "`gtest_discover_tests` only honors the FIRST label"
-
-    Per [CTest label first-only](memory-doctrine.md#ctest-label-first-only).
-    Put the primary filter key (`perf`, `regression`, etc.) first in
-    `PROPERTIES LABELS` ; subsequent labels are accepted by CMake but
-    ignored by `ctest -L`.
-
----
-
-## Cross-references
-
-- [Architecture](architecture.md)
-- [Running tests](testing.md)
-- [Ship script](ship-script.md)
-- [Memory doctrine index](memory-doctrine.md)
+It's not required to pass for a Qt-era ship.

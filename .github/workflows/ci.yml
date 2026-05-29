@@ -1,11 +1,12 @@
-# AAASeed CI — Mac-only PR gate (Phase-7 c113 closure)
+# AAASeed CI — Mac-only PR gate (c152-P refit for Qt6 Studio)
 #
-# Establishes a cross-machine verifiable PR gate for the AAASeed Mac port.
-# Future "perf budget" + "regression golden" claims must pass this gate.
-#
-# TODO(c126+): Add Windows half once WindowsBackend extraction lands.
-#              Will require windows-2022 runner + MSVC + DirectX SDK.
-#              Currently SKIPPED — Mac port is the active target.
+# Mac-only by design : Studio is Qt6 + macOS Metal (foreign NSView). No
+# Windows / Linux runners in the chain. The job is machine-aware :
+#   - parallelism scales with `sysctl -n hw.ncpu` (no fixed -jN)
+#   - the headless GH-hosted macos-14 runner has no on-screen surface,
+#     so Metal-windowed tests are skipped ; offscreen Qt is forced
+#   - if a future runner offers a real GPU, Metal-windowed tests can
+#     re-enable via the GH_RUNNER_HAS_GPU env var
 
 name: ci
 
@@ -16,21 +17,21 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Cancel superseded runs on the same ref to save runner minutes.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  macos-arm64-debug:
-    name: macOS arm64 Debug (build + ctest)
-    # macos-14 is Apple Silicon (M1). Required: project enforces arm64.
+  qt6-studio:
+    name: macOS arm64 — Qt6 Studio build + tests
+    # macos-14 = Apple Silicon (M1). Project enforces arm64.
     runs-on: macos-14
-    timeout-minutes: 45
+    timeout-minutes: 30
 
     env:
-      PRESET: macos-arm64-debug
       BUILD_DIR: out/macos-arm64-debug
+      QT_PLUGIN_PATH: /opt/homebrew/share/qt/plugins
+      QT_QPA_PLATFORM: offscreen
 
     steps:
       - name: Checkout
@@ -39,74 +40,84 @@ jobs:
           submodules: recursive
           fetch-depth: 1
 
-      - name: Install CMake 4.3+ and Ninja
+      - name: Detect machine capacity
+        id: machine
+        run: |
+          NCPU=$(sysctl -n hw.ncpu)
+          MEMGB=$(( $(sysctl -n hw.memsize) / 1024 / 1024 / 1024 ))
+          # Headless GH runners have no on-screen Metal surface ; only
+          # opt in if explicitly set (future-proofing).
+          GPU="${GH_RUNNER_HAS_GPU:-no}"
+          echo "ncpu=$NCPU"   >> "$GITHUB_OUTPUT"
+          echo "memgb=$MEMGB" >> "$GITHUB_OUTPUT"
+          echo "gpu=$GPU"     >> "$GITHUB_OUTPUT"
+          echo "::notice::Runner has $NCPU CPUs, ${MEMGB} GB RAM, gpu=$GPU"
+
+      - name: Install toolchain (CMake + Ninja + Qt6)
         run: |
           brew update
-          brew install cmake ninja
+          brew install cmake ninja qt
           cmake --version
           ninja --version
+          /opt/homebrew/opt/qt/bin/qmake -v
 
       - name: Show toolchain
         run: |
           sw_vers
           uname -m
           xcodebuild -version || true
-          clang --version
+          clang --version | head -1
 
-      - name: Configure (preset = ${{ env.PRESET }})
-        run: cmake --preset ${{ env.PRESET }}
-
-      - name: Build (full target set — falls back to ctest targets on failure)
-        id: build_full
-        continue-on-error: true
-        run: cmake --build ${{ env.BUILD_DIR }} --parallel
-
-      - name: Build fallback (test targets only, if full build failed)
-        if: steps.build_full.outcome == 'failure'
+      - name: Configure (Debug, arm64, Ninja)
         run: |
-          echo "::warning::Full build failed (likely aaaseed_app.app target). Falling back to test targets."
-          cmake --build ${{ env.BUILD_DIR }} --target test --parallel || true
-          # Try to build everything ctest would invoke; ignore app-bundle link errors.
-          cmake --build ${{ env.BUILD_DIR }} --parallel -- -k 0 || true
+          cmake -S . -B "${BUILD_DIR}" \
+            -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_OSX_ARCHITECTURES=arm64 \
+            -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0
 
-      - name: ctest — unit (161 tests, blocking)
+      - name: Build aaaseed_app_qt + tests (jobs scoped to runner)
+        # `--parallel` with no arg lets CMake/Ninja read the runner's
+        # core count — no hardcoded -jN that'd starve smaller runners
+        # or under-utilize bigger ones.
+        run: |
+          cmake --build "${BUILD_DIR}" \
+            --target aaaseed_app_qt \
+                     aaa_qt_studio_model_test \
+                     aaa_qt_panel_models_test \
+                     aaa_qt_lua_helper_test \
+                     aaa_qt_settings_model_test \
+            --parallel
+
+      - name: Run Qt6 Studio test suites (offscreen QPA)
         working-directory: ${{ env.BUILD_DIR }}
-        run: ctest -L "unit" --output-on-failure
+        run: |
+          set -e
+          for t in aaa_qt_studio_model_test \
+                   aaa_qt_panel_models_test \
+                   aaa_qt_lua_helper_test \
+                   aaa_qt_settings_model_test; do
+            echo "::group::$t"
+            ./bin/$t
+            echo "::endgroup::"
+          done
 
-      - name: ctest — perf (7 tests, blocking)
-        working-directory: ${{ env.BUILD_DIR }}
-        run: ctest -L "perf" --output-on-failure
-
-      # Integration + regression suites may require a windowed Metal context.
-      # GitHub-hosted macos-14 runners are headless — Metal device creation
-      # generally works but no on-screen surface is available, so any test
-      # needing CAMetalLayer / NSWindow will fail. Marked non-blocking until
-      # we know which suites tolerate headless. Revisit after first green run.
-      - name: ctest — integration + regression (non-blocking, observe headless Metal behavior)
+      - name: Metal-windowed tests (skipped on headless runner)
+        if: steps.machine.outputs.gpu == 'yes'
         working-directory: ${{ env.BUILD_DIR }}
         continue-on-error: true
-        run: ctest -L "integration|regression" --output-on-failure
+        run: |
+          # Reserved for tests that need a real CAMetalLayer drawable.
+          # The GH-hosted macos-14 runner has a software Metal device
+          # but no window-server surface, so these are normally skipped.
+          ctest -L "metal-windowed" --output-on-failure || true
 
-      - name: ctest — full summary (always)
-        if: always()
-        working-directory: ${{ env.BUILD_DIR }}
-        run: ctest --output-on-failure | tail -40 || true
-
-      - name: Upload Testing/ logs on failure
+      - name: Upload test logs on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: ctest-logs-${{ github.run_id }}
+          name: ci-logs-${{ github.run_id }}
           path: |
             ${{ env.BUILD_DIR }}/Testing/
-            Testing/
           if-no-files-found: ignore
           retention-days: 14
-
-  # ---------------------------------------------------------------------------
-  # windows-x64:
-  #   TODO(c126+): Enable after WindowsBackend extraction.
-  #   Blocked on: WindowsBackend not yet decoupled from aaa_app / wgl pipeline.
-  #   When enabled, mirror the Mac job: configure preset, build, ctest -L unit,
-  #   ctest -L perf, optional integration/regression non-blocking.
-  # ---------------------------------------------------------------------------

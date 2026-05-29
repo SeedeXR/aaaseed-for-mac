@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/aaa/ui/qt">
+        <file>qml/Main.qml</file>
+        <file>qml/SettingsDialog.qml</file>
+        <file>qml/HomeScreen.qml</file>
+        <file>qml/panels/ConsolePanel.qml</file>
+        <file>qml/panels/NodeGraphPanel.qml</file>
+        <file>qml/panels/CodeEditorPanel.qml</file>
+        <file>qml/panels/InspectorPanel.qml</file>
+        <file>qml/panels/AssetsPanel.qml</file>
+        <file>qml/panels/ShaderCatalogPanel.qml</file>
+        <file>qml/panels/SoundPanel.qml</file>
+        <file>qml/panels/CameraPanel.qml</file>
+        <file>qml/panels/BinaryManagerPanel.qml</file>
+        <file>qml/panels/EnginePreviewPanel.qml</file>
+        <file>qml/panels/PanelHost.qml</file>
+    </qresource>
+</RCC>

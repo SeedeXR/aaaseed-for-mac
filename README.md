@@ -6,19 +6,27 @@ This repository is the macOS development tree. It is **self-contained**: clone i
 
 ## Status
 
-Work in progress. The math subsystem compiles and tests pass on Apple Silicon. Graphics backend (Metal) and UI host (Cocoa) are live. The **Studio** authoring UI (Dear ImGui + Metal, GaBuZoMeu palette) ships in the .app with 10 panels — Node Graph, Code Editor, MEU Inspector, Shader Catalog (auto-enumerated from `src/shaders/msl/*.metal`), Camera pose, Sound (real Core Audio device enumeration), Binary Manager, Console, Performance, Preferences. See `ui/notes/` for architecture, mindmap, philosophy, and the live todo list.
+**Shippable.** Two-binary split :
 
-Test suite : **555 / 555** passing (338 unit + 70 regression + integration + perf).
+- **`AAASeed Studio.app`** — Qt6 + QML authoring shell. **Home screen** with project tiles (last-modified, click-to-open, ✕ delete with confirm). **Native macOS menubar** : File · Edit (with Cmd+Z / Cmd+Shift+Z **Undo / Redo**) · Run · View (per-panel visibility toggles + Reset Workspace) · Window (Save / Load / Delete named workspaces). **Preferences** dialog (Cmd+,) — theme · editor font / tab / word-wrap / line-numbers / lint-debounce · auto-save · default project folder. **Detachable panels** (Photoshop-style) — every panel has a ⠿ grip (drag detaches), ⤢ / ⬡ snap toggle, — collapse, × close ; floating windows snap back when dragged near their dock slot. **Code Editor** with Lua syntax highlighting (keywords / strings / numbers / function calls / comments) and live lint (Run is gated until lint is green). **Node Graph** with pin-drag wiring, click-midpoint-to-delete wires, right-click context menus, generous drop tolerance. **Assets** panel with type-classified icons (image / video / mesh / audio / shader / script / project).
+- **`aaaseed_runtime.app`** — engine playback. MTKView + MEU runner + 169 MSL shaders + file-watch hot-reload. Spawned by the Studio's `▶ Play` (Cmd+P) with `--project <path>` ; bundled inside `AAASeed Studio.app/Contents/Resources/runtime/`.
+
+Build : `./scripts/ship-qt-dmg.sh` produces `out/AAASeed-Studio-<version>.dmg` (~54 MB, ULMO/LZMA compressed, ad-hoc signed ; export `CODESIGN_IDENTITY` + the three `NOTARY_API_KEY_*` env vars for a Developer-ID + notarised release). Verify with `./scripts/verify-qt-dmg.sh out/AAASeed-Studio-*.dmg`.
+
+Test suite : **54 / 54** Qt::Test cases across 4 binaries — `aaa_qt_studio_model_test` (25 cases : project lifecycle, node graph, links + duplicate-reject, uniforms round-trip, workspace save/load, **undo/redo**, recents, project delete), `aaa_qt_panel_models_test` (8 : Sound / Camera / BinaryTask), `aaa_qt_lua_helper_test` (14 : Lua lint + asset classifier), `aaa_qt_settings_model_test` (7 : settings round-trip + clamping). Legacy gtest tree gated behind `-DAAA_BUILD_LEGACY_TESTS=ON`.
+
+UI is **Qt6 + QML only** since c152-C. Dear ImGui retired (3000+ lines removed) ; the platform-neutral `aaa::ui::studio::Studio` data model is shared between the Qt UI and the engine runtime via `.aaaproj.lua` files.
 
 ## Requirements
 
 - **Hardware:** Apple Silicon (M1 / M2 / M3 / M4).
 - **macOS:** 13.0 (Ventura) or newer.
 - **Toolchain:**
-  - Xcode 15 or newer (with Command Line Tools installed: `xcode-select --install`).
+  - Xcode 15 or newer (with Command Line Tools : `xcode-select --install`).
   - CMake 3.27+ (`brew install cmake`).
   - Ninja (`brew install ninja`).
-  - Metal compiler (`xcodebuild -downloadComponent MetalToolchain`) — needed once Phase 3 lands.
+  - **Qt 6** for the Studio (`brew install qt`). Qt 6.6+ for `Shape.CurveRenderer` ; we ship against 6.11.
+  - Metal compiler (`xcodebuild -downloadComponent MetalToolchain`) — needed for the runtime's MSL shaders.
 
 ## Build
 
@@ -44,20 +52,24 @@ Output lives under `out/<preset>/bin/` and `out/<preset>/lib/`.
 aaaseed-for-mac/
 ├── CMakeLists.txt              Root build script
 ├── CMakePresets.json           macos-arm64-* presets
-├── cmake/                      Build helpers ; aaa_imgui.cmake vendors Dear ImGui
+├── cmake/                      Build helpers ; aaa_qt6.cmake locates Qt
 ├── src/                        Mac-native engine code
 │   ├── gol/metal/              GOL OpenGL-isolation backend, Metal target
 │   ├── meu/                    MEU Lua runner (Mac)
-│   ├── ui/macos/               NSApplication / NSWindow / MTKView host
-│   ├── ui/widgets/             c147-A widget chrome
-│   ├── ui/studio/              c148/c151-A Dear ImGui Studio (this session)
+│   ├── ui/macos/               NSApplication / NSWindow / MTKView host (runtime)
+│   ├── ui/widgets/             widget chrome (used by runtime)
+│   ├── ui/studio/              platform-neutral Studio data model (Q_OBJECT-free)
+│   ├── ui/qt/                  Qt6 + QML Studio shell (the authoring UI)
+│   │   ├── aaa_qt_main.cpp       QGuiApplication + QQmlApplicationEngine
+│   │   ├── aaa_studio_model.*    Q_OBJECT bridge over aaa_studio.h
+│   │   ├── aaa_panel_models.*    Sound / Camera / BinaryTask adapters
+│   │   ├── aaa_lua_helper.*      Lua highlight + lint + asset classifier
+│   │   ├── aaa_settings_model.*  app prefs (theme, editor, auto-save)
+│   │   └── qml/                  Main.qml, HomeScreen, SettingsDialog, panels/
 │   └── shaders/msl/            169 Path A .metal shaders
-├── ui/                         Studio UI design docs (no code)
-│   └── notes/                  philosophy.md, mindmap.md, ui-architecture.md, todo.md
-├── tests/
-│   ├── unit/                   338 GoogleTest unit tests
-│   ├── integration/            31 in-app end-to-end tests
-│   └── regression/             70 invariant guards (data-model + frame-buffer)
+├── tests/qt/                   Qt::Test coverage (54 cases ; 4 binaries)
+├── tests/unit/, integration/,  Legacy gtest tree (-DAAA_BUILD_LEGACY_TESTS=ON)
+└── tests/regression/
 ├── bundle/macos/               Info.plist.in, entitlements.plist, AAASeed.icns
 ├── vendor/
 │   ├── aaaseed-engine/         Snapshot of Mâa's Windows C++ engine source

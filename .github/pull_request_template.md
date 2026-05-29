@@ -81,9 +81,9 @@ silent gaps are the failure mode this section exists to prevent.
 ## Checklist
 
 - [ ] `ctest -L unit` is green locally.
-- [ ] `scripts/verify-dmg.sh` passes against the locally built DMG (if this PR
+- [ ] `scripts/verify-qt-dmg.sh` passes against the locally built DMG (if this PR
       touches the build, packaging, or runtime).
-- [ ] `scripts/ship-dmg.sh` succeeds end-to-end (if this PR touches packaging).
+- [ ] `scripts/ship-qt-dmg.sh` succeeds end-to-end (if this PR touches packaging).
 - [ ] Documentation updated where user-facing behaviour changed
       (`docs/designer/*` for designer-facing changes, `docs/developer/*` for
       contributor-facing changes — coordinate with c151-A / c151-B owners,

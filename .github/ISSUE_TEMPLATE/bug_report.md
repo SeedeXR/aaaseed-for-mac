@@ -11,7 +11,7 @@ Thanks for filing a bug. AAASeed for Mac is the universal-binary port of the
 upstream Windows engine. Before submitting, please confirm:
 
   1. You have the latest DMG from the Releases page (or you built from `main`).
-  2. You ran `scripts/verify-dmg.sh` against the DMG (if applicable) and it
+  2. You ran `scripts/verify-qt-dmg.sh` against the DMG (if applicable) and it
      reported "OK".
   3. You have checked SHIP_CHECKLIST.md and the docs site for known limitations
      (e.g. headless-Metal limitations in CI, unsigned/un-notarized binary).

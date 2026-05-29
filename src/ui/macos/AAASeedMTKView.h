@@ -20,8 +20,9 @@ namespace aaa { namespace meu { class Runner; } }
 //	WidgetSystem and hands a non-owning pointer to the MEU runner so
 //	Lua `aaa.ui.*` bindings route into the same instance.
 namespace aaa { namespace ui { namespace widgets { class WidgetSystem; } } }
-//	c148 : Studio forward-decl.
-namespace aaa { namespace ui { namespace studio { class Studio; } } }
+// c152-D : Studio forward-decl retired with the ImGui Studio. The
+// runtime binary (aaaseed_runtime) renders engine content only ;
+// authoring lives in the Qt Studio.
 #endif
 
 @interface AAASeedMTKViewDelegate : NSObject< MTKViewDelegate >
@@ -47,8 +48,6 @@ namespace aaa { namespace ui { namespace studio { class Studio; } } }
 //	AAASeedInputView for mouse-edge forwarding.
 - (aaa::ui::widgets::WidgetSystem*)widgetSystem;
 
-//	c148 : Studio accessor. Returns nullptr before the first drawable.
-- (aaa::ui::studio::Studio*)studio;
 #endif
 
 //	c147-A : mouse edge flags consumed by the widget system once per

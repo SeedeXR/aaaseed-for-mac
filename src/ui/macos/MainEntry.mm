@@ -14,11 +14,17 @@
 int main( int argc, char const* argv[] )
 {
     NSInteger maxFrames = 0;
+    NSString* projectPath = nil;       // c152-D : --project <path>
     for( int i = 1; i + 1 < argc; ++i )
     {
         if( std::strcmp( argv[ i ], "--max-frames" ) == 0 )
         {
             maxFrames = std::atoi( argv[ i + 1 ] );
+            ++i;
+        }
+        else if( std::strcmp( argv[ i ], "--project" ) == 0 )
+        {
+            projectPath = [NSString stringWithUTF8String: argv[ i + 1 ]];
             ++i;
         }
     }
@@ -30,6 +36,8 @@ int main( int argc, char const* argv[] )
 
         AAASeedAppDelegate* delegate = [[AAASeedAppDelegate alloc] init];
         delegate.maxFrames = maxFrames;
+        if( projectPath )
+            delegate.projectPath = projectPath;
         [app setDelegate:delegate];
 
         [app run];

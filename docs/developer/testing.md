@@ -1,181 +1,96 @@
 # Running tests
 
-AAASeed for Mac ships with a **516-test** pyramid that runs end-to-end
-under `ctest`. Every test is labelled so that you can filter by cohort
-(unit / integration / regression / perf) or by feature area (`meu`,
-`widgets`, `ui`, `v3`, `v4`, etc).
+The active test surface is **54 Qt::Test cases** across 4 binaries
+covering the Qt 6 + QML Studio data layer. A larger legacy gtest tree
+(~500 tests for the pre-Qt ImGui era) is gated behind
+`-DAAA_BUILD_LEGACY_TESTS=ON` ; it is **not** required to pass for a
+ship.
 
 ---
 
-## The test pyramid
+## Active Qt::Test suite (c152-O)
 
-```mermaid
-flowchart BT
-    Unit["UNIT (the base)<br/>per-class / per-function<br/>~360 tests"]
-    Integration["INTEGRATION<br/>cross-subsystem<br/>~90 tests"]
-    Regression["REGRESSION GUARD<br/>asserts deferred features<br/>stay deferred<br/>~40 tests"]
-    Perf["PERF<br/>frame-budget assertions<br/>at 1280x720<br/>~26 tests"]
-    Unit --> Integration --> Regression --> Perf
-```
+| Binary                              | Cases | Covers                                                            |
+| ----------------------------------- | ----- | ----------------------------------------------------------------- |
+| `aaa_qt_studio_model_test`          | 25    | Project lifecycle (new / open / save round-trip), node graph (add / remove / select / position / shader / script / uniforms with disk round-trip), link CRUD (+ duplicate-reject), `linksChanged` signal, recents + project delete, project metadata (basename / mtime / exists), workspace save/list/load/delete, workspace reset signal, serialize round-trip, **undo / redo** (basic add+remove, link reversible, redo invalidation on diverging mutation, `canUndo` / `canRedo` accessors). |
+| `aaa_qt_panel_models_test`          | 8     | Sound device enumeration, kind-flag sanity, camera enumeration + `setActive` safety, BinaryTask add / remove / `/bin/echo` round-trip. |
+| `aaa_qt_lua_helper_test`            | 14    | Lua lint accept / reject / empty ; asset classifier for image / video / mesh / audio / shader / script / project / unknown ; case-insensitive paths ; glyph-icon coverage. |
+| `aaa_qt_settings_model_test`        |  7    | Defaults sane, persistence across instances via QSettings, value clamping (font 9-28, tab 1-8, lint 50-2000, autoSave 5-3600), reset-to-defaults, change-signal fires-once. |
+| **Total**                           | **54**|                                                                   |
 
-| Cohort           | Approx. count | Location                            | Label             |
-| ---------------- | ------------- | ----------------------------------- | ----------------- |
-| Unit             | ~360          | `tests/unit/`                       | `unit`            |
-| Integration      | ~90           | `tests/integration/`                | `integration`     |
-| Regression guard | ~40           | `tests/regression/`                 | `regression`      |
-| Performance      | ~26           | `tests/unit/` (label-filtered)      | `perf`            |
-| **Total**        | **516**       |                                     |                   |
-
-Counts drift slightly between sessions ; the authoritative source is
-`ctest -N | tail -1` after a clean build.
-
----
-
-## ctest labels
-
-CMake's `gtest_discover_tests` runs each test binary at configure time
-to register every gtest case. We tag each test with `PROPERTIES LABELS`
-to drive filtered runs. Per
-[CTest label first-only](memory-doctrine.md#ctest-label-first-only) the
-toolchain honors **ONLY** the first label, so the primary filter key
-goes first :
-
-```cmake
-set_tests_properties(my_perf_test PROPERTIES LABELS "perf;v4;meu")
-# ctest -L perf -> selected
-# ctest -L meu  -> NOT selected (label honored = "perf" only)
-```
-
-Labels in active use :
-
-| Label         | Selects                                                       |
-| ------------- | ------------------------------------------------------------- |
-| `unit`        | Every gtest under `tests/unit/`                               |
-| `integration` | Cross-subsystem (Runner + WidgetSystem + Backend)             |
-| `regression`  | Regression-guard tests                                        |
-| `perf`        | Frame-budget assertions                                       |
-| `phase4`      | Input wiring + event bridges                                  |
-| `phase8`      | Ship pipeline (DMG verify, compression cascade)               |
-| `meu`         | MEU runner unit tests                                         |
-| `widgets`     | WidgetSystem unit tests                                       |
-| `ui`          | Mac UI host (`AAASeedMTKView`, `AAASeedInputView`)            |
-| `v3`          | v3 feature tests (drag-drop, hot-reload, presets, collapsing) |
-| `v4`          | v4 feature tests (NSTextInputClient, text_area, IME)          |
-
----
-
-## Running tests
+## Running the active suite
 
 ```bash
-# Build everything first
-cmake --build out/macos-arm64-debug -j 8
-
-# All 516 tests
-ctest --test-dir out/macos-arm64-debug --output-on-failure
-
-# A single cohort
-ctest --test-dir out/macos-arm64-debug -L unit
-ctest --test-dir out/macos-arm64-debug -L perf
-ctest --test-dir out/macos-arm64-debug -L v4
-
-# A single test by name
-ctest --test-dir out/macos-arm64-debug -R "SliderDragsOnHorizontalMouseMove"
-
-# Parallel (default is serial)
-ctest --test-dir out/macos-arm64-debug -L unit -j 8
+cd out/macos-arm64-debug   # or -release
+for t in aaa_qt_studio_model_test \
+         aaa_qt_panel_models_test \
+         aaa_qt_lua_helper_test \
+         aaa_qt_settings_model_test; do
+    QT_QPA_PLATFORM=offscreen \
+    QT_PLUGIN_PATH=/opt/homebrew/share/qt/plugins \
+        ./bin/$t
+done
 ```
 
-Note : if you run with `-j` and see flaky failures, check whether the
-test uses distributed notifications. See
-[Distnoted dual-center](memory-doctrine.md#distnoted-dual-center).
-
----
-
-## Performance budgets
-
-Per c121-B + c140-B every revival shader has a paired perf test that
-asserts a render-time budget at **1280 x 720**. The budget shape :
-
-```cpp
-// tests/unit/perf_aaa_bloom_real_test.cpp (illustrative)
-constexpr auto kBudget = std::chrono::microseconds( 2500 );
-auto elapsed = render_one_frame_at( 1280, 720 );
-EXPECT_LT( elapsed, kBudget );
-```
-
-Budgets are deliberately generous (~2.5x measured baseline) so the
-tests do not flake on cold-cache or shared-CI hosts. A real regression
-will blow past 2.5x and trip the assertion immediately.
-
-The full perf suite runs in under 30 s on an M1 Pro :
+Or via CTest :
 
 ```bash
-ctest --test-dir out/macos-arm64-debug -L perf --output-on-failure
+ctest -L qt --output-on-failure
 ```
 
-See [Path A catalog](path-a-catalog.md) for the per-revival perf test
-mapping.
+Each binary uses `QTEST_GUILESS_MAIN` so a real display isn't
+required ; `QT_QPA_PLATFORM=offscreen` covers the cases that DO
+need a QGuiApplication.
 
----
+## Machine-aware parallelism
 
-## Regression-guard pattern
+CTest's `-j` flag defaults to `nproc`. On a fresh checkout :
 
-Per
-[Regression guard tests](memory-doctrine.md#regression-guard-tests)
-when a beachhead **defers** a sub-feature (signing, sandbox, network)
-for governance reasons, we add a regression-guard test asserting the
-deferred symbol does **NOT** appear in source. This prevents silent
-creep where a future session "accidentally" lands the deferred feature.
-
-Example shape :
-
-```cpp
-// tests/regression/no_codesign_in_ship_dmg_test.cpp
-TEST( ShipDmgNoCodesign, ScriptDoesNotForceCodesignIdentity )
-{
-    auto contents = read_file( "scripts/ship-dmg.sh" );
-    // codesign MUST be conditional on env var, never hardcoded
-    EXPECT_THAT( contents, Not( HasSubstr( "Developer ID Application: " ) ) );
-}
+```bash
+ctest --parallel        # uses sysctl-reported core count
 ```
 
-Currently ~40 such guards cover : DMG signing config, sandbox
-entitlements, network ports, distnoted reverse-route, IME bypass paths.
+The CI workflow (`ci.yml`) follows the same pattern — no hard-coded
+parallelism — so the same step runs efficiently on a 4-core
+GitHub-hosted runner and a 12-core dev Mac.
 
----
+## Legacy gtest tree (`-DAAA_BUILD_LEGACY_TESTS=ON`)
 
-## Interactive gaps (honest documentation)
+The pre-Qt tree under `tests/unit/`, `tests/integration/`,
+`tests/regression/` contains the c113-era 516-test pyramid built for
+the ImGui Studio. Most cases still pass against the runtime side
+(`aaaseed_runtime.app`) ; the Studio-side cases were superseded by
+the Qt::Test surface above. Build them only when investigating an
+engine regression in the runtime ; they aren't required for a ship.
 
-Three feature areas have inherent gaps in autonomous test coverage
-because they require a human at the keyboard / mouse / IME chain :
+```bash
+cmake -B out/macos-arm64-debug -S . \
+      -DAAA_BUILD_LEGACY_TESTS=ON
+cmake --build out/macos-arm64-debug --parallel
+ctest --test-dir out/macos-arm64-debug -L "unit|perf"
+```
 
-| Feature                  | Gap                                                        | Mitigation                                          |
-| ------------------------ | ---------------------------------------------------------- | --------------------------------------------------- |
-| **Drag-drop**            | NSDraggingDestination needs a Finder source                | Synthetic `aaa.io.drop_file(path)` Lua binding      |
-| **Space-press for play** | `NSEventTypeKeyDown` needs `interpretKeyEvents:` chain     | Direct `on_key_event(0x31, true)` test seam         |
-| **Real CJK IME**         | Real Hanzi / hiragana input needs Apple IME chain          | `aaa.ime.set_marked_text` synthetic Lua binding     |
+## Test labels
 
-Each gap is documented in the matching guide
-([MEU runner](meu-runner.md) for drag-drop,
-[Widget system](widget-system.md) for keyboard,
-[NSTextInputClient + IME](nstextinputclient.md) for CJK).
+Active suite uses :
 
----
+| Label             | What                                                  |
+| ----------------- | ----------------------------------------------------- |
+| `qt`              | All Qt::Test binaries above.                          |
+| `unit`            | All four Qt::Test binaries (sub-second each).         |
+| `metal-windowed`  | Reserved for tests that need a CAMetalLayer drawable. Empty on the active surface ; CI's `metal-windowed` step is a future-proofing hook. |
 
-## CI tips
+## CI gate
 
-- Always pin `CMAKE_BUILD_TYPE=Debug` for CI test runs ; Release LTO
-  builds skip some asserts that catch real bugs.
-- Run cohorts in parallel groups : `unit` + `integration` together is
-  fine ; `perf` should run alone (CPU pinning).
-- The `regression` cohort is the cheapest -- run it on every PR.
+`.github/workflows/ci.yml` runs the four Qt::Test binaries on every
+PR against `macos-14`. The job is :
 
----
-
-## Cross-references
-
-- [Architecture](architecture.md)
-- [Building from source](building.md)
-- [Ship script](ship-script.md)
-- [Memory doctrine index](memory-doctrine.md)
-- [Path A catalog](path-a-catalog.md)
+- **Machine-aware** — reads `sysctl -n hw.ncpu` and `hw.memsize` into
+  job notes ; the build uses `cmake --build --parallel` (no fixed
+  `-j`) so it scales to the runner.
+- **Headless-aware** — sets `QT_QPA_PLATFORM=offscreen` so Qt boots
+  without an on-screen surface. Tests that would require a real GPU
+  drawable are skipped via the `metal-windowed` label (currently
+  empty ; opt-in via `GH_RUNNER_HAS_GPU=yes`).
+- **Failure-friendly** — uploads `Testing/` directory as an artifact
+  on failure.

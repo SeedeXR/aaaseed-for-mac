@@ -1,14 +1,13 @@
-# AAASeed for Mac -- release workflow.
+# AAASeed for Mac — release workflow (c152-P refit for Qt6 Studio)
 #
-# Builds the universal-binary DMG via `scripts/ship-dmg.sh`, verifies it with
-# `scripts/verify-dmg.sh`, packages a source tarball via `git archive`, then
-# attaches both artifacts to a GitHub Release for the pushed tag.
+# Builds AAASeed-Studio-X.Y.Z.dmg via scripts/ship-qt-dmg.sh, verifies
+# it via scripts/verify-qt-dmg.sh, packages a source tarball via
+# git archive, then attaches both to a GitHub Release for the pushed
+# tag.
 #
-# Trigger: tag push matching `v*` (e.g. `v0.0.1`, `v0.1.0`, `v1.0.0`).
-# Manual trigger: workflow_dispatch with an explicit `tag` input ; useful for
-# re-running a release on a tag that already exists.
+# Trigger : tag push matching `v*` (e.g. v0.0.1) or workflow_dispatch.
 #
-# Honest-scope note: the produced DMG is UNSIGNED and UN-NOTARIZED. See
+# Honest scope : the produced DMG is UNSIGNED and UN-NOTARIZED. See
 # SHIP_CHECKLIST.md for the signing / notarization runbook.
 
 name: release
@@ -24,7 +23,7 @@ on:
         required: true
 
 permissions:
-  contents: write   # required to create the Release and upload assets.
+  contents: write
 
 concurrency:
   group: release-${{ github.ref }}
@@ -32,12 +31,12 @@ concurrency:
 
 jobs:
   # ---------------------------------------------------------------------------
-  # 1. Build the universal DMG on macos-14 (Apple Silicon runner) and verify.
+  # 1. Build the Qt6 DMG on macos-14 (Apple Silicon) and verify.
   # ---------------------------------------------------------------------------
   build-dmg:
-    name: build + verify universal DMG
+    name: build + verify Qt6 DMG
     runs-on: macos-14
-    timeout-minutes: 60
+    timeout-minutes: 45
 
     outputs:
       dmg-name: ${{ steps.build.outputs.dmg-name }}
@@ -49,7 +48,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          fetch-depth: 0   # full history so `git archive` produces a stable tarball.
+          fetch-depth: 0   # full history so `git archive` is stable.
 
       - name: Resolve tag + version
         id: resolve-tag
@@ -64,9 +63,15 @@ jobs:
             exit 1
           fi
           VERSION="${TAG#v}"
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG"       >> "$GITHUB_OUTPUT"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "Resolved tag=$TAG version=$VERSION"
+
+      - name: Detect machine capacity
+        run: |
+          NCPU=$(sysctl -n hw.ncpu)
+          MEMGB=$(( $(sysctl -n hw.memsize) / 1024 / 1024 / 1024 ))
+          echo "::notice::Release runner has $NCPU CPUs, ${MEMGB} GB RAM"
 
       - name: Verify toolchain
         run: |
@@ -75,40 +80,53 @@ jobs:
           xcodebuild -version || true
           cmake --version
           which hdiutil
-          which codesign || true
 
-      - name: Install CMake + Ninja (idempotent)
+      - name: Install CMake + Ninja + Qt6
         run: |
           brew update
-          brew install cmake ninja || true
+          brew install cmake ninja qt
           cmake --version
           ninja --version
+          /opt/homebrew/opt/qt/bin/qmake -v
 
-      - name: Build universal DMG via scripts/ship-dmg.sh
+      - name: Build Qt6 DMG via scripts/ship-qt-dmg.sh
         id: build
         env:
           BUILD_TYPE: Release
         run: |
-          chmod +x scripts/ship-dmg.sh
-          ./scripts/ship-dmg.sh
-          DMG="$(ls out/AAASeed-*.dmg | head -1)"
+          chmod +x scripts/ship-qt-dmg.sh
+          ./scripts/ship-qt-dmg.sh
+          DMG="$(ls out/AAASeed-Studio-*.dmg | head -1)"
           if [ ! -f "$DMG" ]; then
-            echo "::error::ship-dmg.sh did not produce out/AAASeed-*.dmg."
+            echo "::error::ship-qt-dmg.sh did not produce out/AAASeed-Studio-*.dmg."
             ls -la out/ || true
             exit 1
           fi
           echo "dmg-name=$(basename "$DMG")" >> "$GITHUB_OUTPUT"
-          echo "dmg-path=$DMG" >> "$GITHUB_OUTPUT"
-          echo "Built: $DMG"
+          echo "dmg-path=$DMG"                >> "$GITHUB_OUTPUT"
+          echo "Built : $DMG"
 
-      - name: Verify DMG via scripts/verify-dmg.sh
+      - name: Verify DMG structure + runtime bundled
         run: |
-          chmod +x scripts/verify-dmg.sh
-          ./scripts/verify-dmg.sh "${{ steps.build.outputs.dmg-path }}"
+          chmod +x scripts/verify-qt-dmg.sh
+          ./scripts/verify-qt-dmg.sh "${{ steps.build.outputs.dmg-path }}"
+
+      - name: Runtime smoke (3 frames) on headless Metal — non-blocking
+        # GH-hosted macos-14 has a software Metal device. If the
+        # platform refuses to create a drawable for headless run we
+        # don't block the release ; the verifier already confirmed
+        # the binary is structurally present.
+        continue-on-error: true
+        run: |
+          DMG="${{ steps.build.outputs.dmg-path }}"
+          MNT=/tmp/ci_qt_mnt
+          hdiutil attach -nobrowse -mountpoint "$MNT" "$DMG"
+          "$MNT/AAASeed Studio.app/Contents/Resources/runtime/aaaseed_runtime.app/Contents/MacOS/aaaseed_runtime" --max-frames 3 || \
+            echo "::warning::Runtime smoke failed under headless Metal — not blocking."
+          hdiutil detach "$MNT"
 
       - name: Create source tarball
         run: |
-          TAG="${{ steps.resolve-tag.outputs.tag }}"
           VERSION="${{ steps.resolve-tag.outputs.version }}"
           TARBALL="aaaseed-for-mac-${VERSION}-src.tar.gz"
           git archive \
@@ -123,15 +141,13 @@ jobs:
         with:
           name: release-artifacts
           path: |
-            out/AAASeed-*.dmg
+            out/AAASeed-Studio-*.dmg
             aaaseed-for-mac-*-src.tar.gz
           if-no-files-found: error
           retention-days: 7
 
   # ---------------------------------------------------------------------------
   # 2. Publish the GitHub Release with both artifacts attached.
-  #    Runs on macos-14 (Apple Silicon) so the entire release pipeline stays
-  #    on Mac hardware -- no Linux runners anywhere in the chain.
   # ---------------------------------------------------------------------------
   publish-release:
     name: publish GitHub Release
@@ -148,9 +164,7 @@ jobs:
 
       - name: Flatten artifact layout
         run: |
-          # upload-artifact preserves the `out/` prefix for the DMG ; flatten
-          # so softprops/action-gh-release sees a clean glob.
-          find artifacts -type f -name 'AAASeed-*.dmg' -exec mv {} artifacts/ \;
+          find artifacts -type f -name 'AAASeed-Studio-*.dmg'         -exec mv {} artifacts/ \;
           find artifacts -type f -name 'aaaseed-for-mac-*-src.tar.gz' -exec mv {} artifacts/ \;
           ls -la artifacts/
 
@@ -158,53 +172,44 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.build-dmg.outputs.tag-name }}
-          name: AAASeed for Mac ${{ needs.build-dmg.outputs.tag-name }}
+          name:    AAASeed Studio ${{ needs.build-dmg.outputs.tag-name }}
           generate_release_notes: true
           fail_on_unmatched_files: true
           files: |
-            artifacts/AAASeed-*.dmg
+            artifacts/AAASeed-Studio-*.dmg
             artifacts/aaaseed-for-mac-*-src.tar.gz
           body: |
-            ## AAASeed for Mac -- Universal Binary Release
+            ## AAASeed Studio — Qt6 + QML Mac release
 
-            See `SHIP_CHECKLIST.md` in the source tarball for full install +
-            verify steps.
-
-            **Universal binary**: arm64 + x86_64. Runs on Apple Silicon AND
-            Intel Macs.
+            Apple Silicon arm64 build (Homebrew Qt 6 is arm64-only ; Intel
+            Macs can run under Rosetta).
 
             ### Quick install
 
-            1. Download `AAASeed-*.dmg` (asset below).
+            1. Download `AAASeed-Studio-*.dmg` (asset below).
             2. Double-click to mount.
-            3. Drag `AAASeed.app` to the `Applications` symlink inside the
-               mounted volume.
+            3. Drag **AAASeed Studio.app** to the `Applications` symlink.
             4. On first launch, clear the quarantine bit:
-
                ```
-               xattr -d com.apple.quarantine /Applications/AAASeed.app
+               xattr -d com.apple.quarantine "/Applications/AAASeed Studio.app"
                ```
-
-            5. Launch from `/Applications/AAASeed.app` (double-click or
-               `open -a AAASeed`).
+            5. Launch via `/Applications/AAASeed Studio.app`.
 
             ### Verify your download
-
-            Clone the source tarball, then:
 
             ```
             tar xzf aaaseed-for-mac-*-src.tar.gz
             cd aaaseed-for-mac-*
-            ./scripts/verify-dmg.sh /path/to/AAASeed-*.dmg
+            ./scripts/verify-qt-dmg.sh /path/to/AAASeed-Studio-*.dmg
             ```
 
-            The verifier checks the DMG mounts cleanly, contains the universal
-            `aaaseed_app` binary with both `arm64` and `x86_64` slices, and
-            that the Info.plist version string matches the release tag.
+            The verifier confirms the DMG mounts, contains AAASeed Studio.app
+            with all required Qt frameworks, the nested aaaseed_runtime.app,
+            the starter project, and the icon.
 
             ### Honest scope
 
-            This release is **unsigned and un-notarized**. The `xattr` step
-            above is required for first launch on a machine that downloaded
-            the DMG through a browser. See `SHIP_CHECKLIST.md` for the
-            signing / notarization runbook (requires an Apple Developer ID).
+            **Unsigned and un-notarized.** The `xattr` step above is required
+            for first launch on a machine that downloaded the DMG through a
+            browser. See `SHIP_CHECKLIST.md` for the signing / notarization
+            runbook (requires an Apple Developer ID).

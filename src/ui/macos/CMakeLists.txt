@@ -12,11 +12,16 @@ find_library(METAL_FRAMEWORK_UI       Metal      REQUIRED)
 find_library(FOUNDATION_FRAMEWORK_UI  Foundation REQUIRED)
 find_library(QUARTZCORE_FRAMEWORK_UI  QuartzCore REQUIRED)
 
+# c152-G : the engine-render bits split out of the executable as a
+# static lib so both aaaseed_runtime AND the Qt Studio
+# (aaaseed_app_qt) can link them for in-window engine viewport.
+set(AAA_ENGINE_VIEW_SOURCES
+    AAASeedMTKView.mm
+    AAASeedInputView.mm
+)
 set(AAA_UI_MM_SOURCES
     MainEntry.mm
     AAASeedAppDelegate.mm
-    AAASeedMTKView.mm
-    AAASeedInputView.mm
 )
 
 #  c119-B / Task #150 : aaa_event_bridge -- hermetic Mac sub-lib that drains
@@ -168,8 +173,45 @@ set_source_files_properties(${AAA_UI_MM_SOURCES} PROPERTIES
     COMPILE_FLAGS "-fno-objc-arc"
 )
 
-add_executable(aaaseed_app MACOSX_BUNDLE
+# c152-G : static lib carrying the engine-rendering MTKView delegate +
+# input view. Both aaaseed_runtime (full app) and aaaseed_app_qt (the
+# in-window Engine Preview panel) link this lib so the SAME render
+# pipeline drives both.
+set_source_files_properties(${AAA_ENGINE_VIEW_SOURCES} PROPERTIES
+    LANGUAGE OBJCXX
+    COMPILE_FLAGS "-fno-objc-arc"
+)
+add_library(aaaseed_engine_view STATIC
+    ${AAA_ENGINE_VIEW_SOURCES}
+)
+target_include_directories(aaaseed_engine_view PUBLIC
+    "${CMAKE_SOURCE_DIR}"
+    "${CMAKE_SOURCE_DIR}/third_party/metal-cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}"
+)
+target_link_libraries(aaaseed_engine_view PUBLIC
+    aaaseed_gol_metal
+    aaaseed_event_bridge
+    aaaseed_meu_runner
+    aaaseed_ui_widgets_mac
+    aaaseed_stb
+    aaaseed_text
+    "${COCOA_FRAMEWORK}"
+    "${METALKIT_FRAMEWORK}"
+    "${METAL_FRAMEWORK_UI}"
+    "${FOUNDATION_FRAMEWORK_UI}"
+    "${QUARTZCORE_FRAMEWORK_UI}"
+)
+target_compile_features(aaaseed_engine_view PUBLIC cxx_std_20)
+set_target_properties(aaaseed_engine_view PROPERTIES
+    POSITION_INDEPENDENT_CODE ON
+)
+
+add_executable(aaaseed_runtime MACOSX_BUNDLE
     ${AAA_UI_MM_SOURCES}
+)
+target_link_libraries(aaaseed_runtime PRIVATE
+    aaaseed_engine_view
 )
 
 #  Path A catalog shaders shipped inside the .app bundle so the
@@ -178,24 +220,24 @@ add_executable(aaaseed_app MACOSX_BUNDLE
 #  command copies src/shaders/msl/*.metal into the bundle's
 #  Contents/Resources/shaders/ directory on every build. This stays
 #  Mac-only ; Windows engine ships GLSL the historical way.
-add_custom_command(TARGET aaaseed_app POST_BUILD
+add_custom_command(TARGET aaaseed_runtime POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/shaders"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/shaders"
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         "${CMAKE_SOURCE_DIR}/src/shaders/msl"
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/shaders"
-    COMMENT "Copying Path A catalog .metal files into aaaseed_app bundle"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/shaders"
+    COMMENT "Copying Path A catalog .metal files into aaaseed_runtime bundle"
     VERBATIM
 )
 
 #  Continuation 46 : copy the build-time generated test_pattern.png
 #  into Resources/ . The aaa_test_png_fixture dependency ensures it
 #  exists before this copy runs.
-add_custom_command(TARGET aaaseed_app POST_BUILD
+add_custom_command(TARGET aaaseed_runtime POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${AAA_TEST_PNG_PATH}"
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/test_pattern.png"
-    COMMENT "Copying Phase 5 test_pattern.png into aaaseed_app bundle"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/test_pattern.png"
+    COMMENT "Copying Phase 5 test_pattern.png into aaaseed_runtime bundle"
     VERBATIM
 )
 
@@ -203,11 +245,11 @@ add_custom_command(TARGET aaaseed_app POST_BUILD
 #  Info.plist's CFBundleIconFile = "AAASeed" tells macOS to look for
 #  Resources/AAASeed.icns at runtime.
 if(EXISTS "${CMAKE_SOURCE_DIR}/bundle/macos/AAASeed.icns")
-    add_custom_command(TARGET aaaseed_app POST_BUILD
+    add_custom_command(TARGET aaaseed_runtime POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "${CMAKE_SOURCE_DIR}/bundle/macos/AAASeed.icns"
-            "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/AAASeed.icns"
-        COMMENT "Copying AAASeed.icns placeholder icon into aaaseed_app bundle"
+            "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/AAASeed.icns"
+        COMMENT "Copying AAASeed.icns placeholder icon into aaaseed_runtime bundle"
         VERBATIM
     )
 endif()
@@ -260,7 +302,7 @@ endif()
 #  matching ${VAR} sites at configure-time. The TARGET_PROPERTY values
 #  below are kept in lockstep ; mismatches between the two would
 #  drift the .app dictionary.
-set(MACOSX_BUNDLE_EXECUTABLE_NAME       "aaaseed_app")
+set(MACOSX_BUNDLE_EXECUTABLE_NAME       "aaaseed_runtime")
 set(MACOSX_BUNDLE_BUNDLE_NAME           "AAASeed")
 set(MACOSX_BUNDLE_BUNDLE_VERSION        "${PROJECT_VERSION}")
 set(MACOSX_BUNDLE_SHORT_VERSION_STRING  "${PROJECT_VERSION}")
@@ -272,7 +314,7 @@ configure_file(
     "${CMAKE_SOURCE_DIR}/bundle/macos/Info.plist.in"
     "${CMAKE_BINARY_DIR}/Info.plist"
 )
-set_target_properties(aaaseed_app PROPERTIES
+set_target_properties(aaaseed_runtime PROPERTIES
     MACOSX_BUNDLE                           TRUE
     MACOSX_BUNDLE_INFO_PLIST                "${CMAKE_BINARY_DIR}/Info.plist"
     MACOSX_BUNDLE_BUNDLE_NAME               "AAASeed"
@@ -281,12 +323,12 @@ set_target_properties(aaaseed_app PROPERTIES
     MACOSX_BUNDLE_SHORT_VERSION_STRING      "${PROJECT_VERSION}"
 )
 
-target_include_directories(aaaseed_app PRIVATE
+target_include_directories(aaaseed_runtime PRIVATE
     "${CMAKE_SOURCE_DIR}"
     "${CMAKE_SOURCE_DIR}/third_party/metal-cpp"
 )
 
-target_link_libraries(aaaseed_app PRIVATE
+target_link_libraries(aaaseed_runtime PRIVATE
     aaaseed_gol_metal
     aaaseed_stb
     aaaseed_text
@@ -313,9 +355,8 @@ target_link_libraries(aaaseed_app PRIVATE
     #  brought in by aaaseed_meu_runner (PUBLIC link), restated here
     #  for explicit clarity at the app link line.
     aaaseed_ui_widgets_mac
-    #  c148 : ImGui Studio authoring surface. Brings in aaaseed_imgui +
-    #  aaaseed_imgui_metal_backend transitively.
-    aaaseed_ui_studio_mac
+    # c152-D : ImGui Studio link retired ; aaaseed_runtime is now a
+    # pure engine renderer (no Studio).
     "${COCOA_FRAMEWORK}"
     "${METALKIT_FRAMEWORK}"
     "${METAL_FRAMEWORK_UI}"
@@ -327,7 +368,7 @@ target_link_libraries(aaaseed_app PRIVATE
 #  invoked outside its .app bundle (e.g. integration tests that drive
 #  AAASeedMTKViewDelegate without a packaged binary). NSBundle lookup
 #  remains the primary path -- this is only a fallback.
-target_compile_definitions(aaaseed_app PRIVATE
+target_compile_definitions(aaaseed_runtime PRIVATE
     AAA_MEU_HELLO_WORLD_LUA_PATH="${CMAKE_SOURCE_DIR}/bundle/macos/meu/hello_world.lua"
 )
 
@@ -336,13 +377,13 @@ target_compile_definitions(aaaseed_app PRIVATE
 #  `pathForResource:@"hello_world" ofType:@"lua" inDirectory:@"meu"`
 #  resolves to the shipped script. Matches the pattern used for
 #  Resources/shaders/ (continuation 39) and Resources/fonts/ (c61).
-add_custom_command(TARGET aaaseed_app POST_BUILD
+add_custom_command(TARGET aaaseed_runtime POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/meu"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/meu"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${CMAKE_SOURCE_DIR}/bundle/macos/meu/hello_world.lua"
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/meu/hello_world.lua"
-    COMMENT "Copying hello_world.lua into aaaseed_app bundle Resources/meu/"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/meu/hello_world.lua"
+    COMMENT "Copying hello_world.lua into aaaseed_runtime bundle Resources/meu/"
     VERBATIM
 )
 
@@ -369,24 +410,24 @@ add_custom_command(TARGET aaaseed_app POST_BUILD
 #    Samples/v2_modal_textinput/ -> modal_textinput_demo.lua + README.md
 #    Samples/v2_collapse_reload/ -> collapse_reload_demo.lua + README.md
 #  Regression-guarded by tests/unit/v2_phase234_samples_test.cpp .
-add_custom_command(TARGET aaaseed_app POST_BUILD
+add_custom_command(TARGET aaaseed_runtime POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/meu/Samples"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/meu/Samples"
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         "${CMAKE_SOURCE_DIR}/bundle/macos/meu/Samples"
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/meu/Samples"
-    COMMENT "Copying MEU sample library into aaaseed_app bundle Resources/meu/Samples/"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/meu/Samples"
+    COMMENT "Copying MEU sample library into aaaseed_runtime bundle Resources/meu/Samples/"
     VERBATIM
 )
 
 #  c145-D : ship the authoring guide inside the .app so users running
 #  the DMG without a source checkout can still find the aaa.* API
 #  reference. Lives at Resources/AUTHORING_MEUS_ON_MAC.md .
-add_custom_command(TARGET aaaseed_app POST_BUILD
+add_custom_command(TARGET aaaseed_runtime POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${CMAKE_SOURCE_DIR}/docs/AUTHORING_MEUS_ON_MAC.md"
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/AUTHORING_MEUS_ON_MAC.md"
-    COMMENT "Copying AUTHORING_MEUS_ON_MAC.md into aaaseed_app bundle Resources/"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/AUTHORING_MEUS_ON_MAC.md"
+    COMMENT "Copying AUTHORING_MEUS_ON_MAC.md into aaaseed_runtime bundle Resources/"
     VERBATIM
 )
 
@@ -394,22 +435,22 @@ add_custom_command(TARGET aaaseed_app POST_BUILD
 #  Resources/fonts/ directory so AAASeedMTKView can load it at boot
 #  via NSBundle pathForResource. The font is SIL OFL (Google Fonts)
 #  -- safe to ship inside the bundle.
-add_custom_command(TARGET aaaseed_app POST_BUILD
+add_custom_command(TARGET aaaseed_runtime POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/fonts"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/fonts"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${CMAKE_SOURCE_DIR}/vendor/aaaseed-runtime/AAAKernel/Fonts/Google/Source_Code_Pro/static/SourceCodePro-Medium.ttf"
-        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app>/Resources/fonts/SourceCodePro-Medium.ttf"
-    COMMENT "Copying SourceCodePro-Medium.ttf into aaaseed_app bundle"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_runtime>/Resources/fonts/SourceCodePro-Medium.ttf"
+    COMMENT "Copying SourceCodePro-Medium.ttf into aaaseed_runtime bundle"
     VERBATIM
 )
 
 #  Phase 5 fixture (continuation 46) : depend on the test_png target
 #  so the PNG is regenerated when the generator changes, then copy
 #  into the .app bundle's Resources at post-build.
-add_dependencies(aaaseed_app aaa_test_png_fixture)
+add_dependencies(aaaseed_runtime aaa_test_png_fixture)
 
-target_compile_features(aaaseed_app PRIVATE cxx_std_20)
+target_compile_features(aaaseed_runtime PRIVATE cxx_std_20)
 
 #  Phase 8 binary-size discipline (c143-B, 2026-05-27, todo.md L379-L387).
 #  Release-only : thin LTO + dead-code/dead-string strip + linker `-x`
@@ -417,10 +458,10 @@ target_compile_features(aaaseed_app PRIVATE cxx_std_20)
 #  on arm64 ; pairs with the post-link `strip -x` in scripts/ship-dmg.sh.
 #  Generator-expression-gated on CMAKE_BUILD_TYPE so Debug builds keep
 #  full symbols for lldb. Mac-only (we're in src/ui/macos/CMakeLists.txt).
-target_compile_options(aaaseed_app PRIVATE
+target_compile_options(aaaseed_runtime PRIVATE
     $<$<CONFIG:Release>:-flto=thin>
 )
-target_link_options(aaaseed_app PRIVATE
+target_link_options(aaaseed_runtime PRIVATE
     $<$<CONFIG:Release>:-flto=thin>
     $<$<CONFIG:Release>:-Wl,-dead_strip>
     $<$<CONFIG:Release>:-Wl,-x>
@@ -433,10 +474,10 @@ target_link_options(aaaseed_app PRIVATE
 #  `open`, which needs interactive activation. The smoke test catches
 #  init-time crashes, hung event loops, and link / linker-flag breakage.
 add_test(
-    NAME aaaseed_app_smoke
-    COMMAND $<TARGET_FILE:aaaseed_app> --max-frames 3
+    NAME aaaseed_runtime_smoke
+    COMMAND $<TARGET_FILE:aaaseed_runtime> --max-frames 3
 )
-set_tests_properties(aaaseed_app_smoke PROPERTIES
+set_tests_properties(aaaseed_runtime_smoke PROPERTIES
     LABELS "integration;ui;macos"
     TIMEOUT 10
 )

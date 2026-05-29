@@ -11,7 +11,7 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_OSX_ARCHITECTURES": "arm64",
-                "CMAKE_OSX_DEPLOYMENT_TARGET": "13.0"
+                "CMAKE_OSX_DEPLOYMENT_TARGET": "14.0"
             }
         },
         {
@@ -23,7 +23,7 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo",
                 "CMAKE_OSX_ARCHITECTURES": "arm64",
-                "CMAKE_OSX_DEPLOYMENT_TARGET": "13.0"
+                "CMAKE_OSX_DEPLOYMENT_TARGET": "14.0"
             }
         },
         {
@@ -35,7 +35,7 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_OSX_ARCHITECTURES": "arm64",
-                "CMAKE_OSX_DEPLOYMENT_TARGET": "13.0",
+                "CMAKE_OSX_DEPLOYMENT_TARGET": "14.0",
                 "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON"
             }
         }

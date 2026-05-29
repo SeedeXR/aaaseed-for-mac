@@ -10,8 +10,11 @@
 #import <MetalKit/MetalKit.h>
 
 #include "src/gol/metal/metal_backend.h"
+// c152-D : full Runner header for the projectPath load path.
+#include "src/meu/aaa_meu_runner_mac.h"
 
 #include <memory>
+#include <string>
 
 @implementation AAASeedAppDelegate
 {
@@ -49,19 +52,31 @@
         return;
     }
 
-    //	2. Create the window. 512x384 is small enough to be ignored, big
-    //	enough to show "yes, there's a window with a red rectangle in it".
-    NSRect const frame = NSMakeRect( 200, 200, 512, 384 );
+    //	2. Create the window. c151-C : sized for the Studio authoring
+    //	surface (1440x900) ; resizable + fullscreen-capable so the
+    //	green traffic-light enters native fullscreen and the corner
+    //	drag-handle resizes. Without NSWindowStyleMaskResizable the
+    //	zoom button was a no-op and Cmd+Ctrl+F did nothing.
+    NSRect const frame = NSMakeRect( 100, 100, 1440, 900 );
     NSWindowStyleMask const style =
-        NSWindowStyleMaskTitled    |
-        NSWindowStyleMaskClosable  |
-        NSWindowStyleMaskMiniaturizable;
+        NSWindowStyleMaskTitled         |
+        NSWindowStyleMaskClosable       |
+        NSWindowStyleMaskMiniaturizable |
+        NSWindowStyleMaskResizable;
 
     _window = [[NSWindow alloc] initWithContentRect:frame
                                           styleMask:style
                                             backing:NSBackingStoreBuffered
                                               defer:NO];
-    [_window setTitle:@"AAASeed (Metal)"];
+    [_window setTitle:@"AAASeed"];
+    //	c151-C : opt-in to native fullscreen so the green traffic-light
+    //	enters Mission Control fullscreen instead of just zoom-to-fit.
+    //	Cmd+Ctrl+F (the system "Enter Full Screen" shortcut) also works.
+    [_window setCollectionBehavior:
+        ( [_window collectionBehavior] |
+          NSWindowCollectionBehaviorFullScreenPrimary )];
+    //	c151-C : minimum size so panel layout doesn't break.
+    [_window setMinSize:NSMakeSize( 800, 600 )];
 
     //	3. Create the MTKView. Hand it the same MTLDevice the backend
     //	already created — no double-allocation.
@@ -76,6 +91,32 @@
     _mtkDelegate = [[AAASeedMTKViewDelegate alloc] initWithBackend:_backend.get()
                                                           maxFrames:_maxFrames];
     _mtkView.delegate = _mtkDelegate;
+
+    // c152-D : if launched with `--project <path>`, replace the
+    // bundled hello_world.lua that initWithBackend just loaded with
+    // the user-supplied .aaaproj.lua. The Studio's Play button
+    // spawns us this way.
+    if( self.projectPath && [self.projectPath length] > 0 )
+    {
+        auto* runner = [_mtkDelegate meuRunner];
+        if( runner )
+        {
+            std::string const path =
+                std::string( [self.projectPath fileSystemRepresentation] );
+            if( runner->load_script( path ) )
+            {
+                NSLog( @"AAASeed: runtime loaded project '%s'",
+                       path.c_str() );
+                runner->enable_file_watch();
+            }
+            else
+            {
+                NSLog( @"AAASeed: project load_script('%s') FAILED ; "
+                       @"falling back to bundled hello_world.lua.",
+                       path.c_str() );
+            }
+        }
+    }
 
     [_window setContentView:_mtkView];
     [_window center];

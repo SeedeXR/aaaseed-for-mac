@@ -14,4 +14,9 @@
 //	exit cleanly without a person clicking close.
 @property( nonatomic, assign ) NSInteger maxFrames;
 
+// c152-D : when set, the delegate hands this path to the MEU runner
+// via load_script() instead of the bundled hello_world.lua fallback.
+// Spawned by the Qt Studio's Play button : `--project <path>`.
+@property( nonatomic, copy   ) NSString* projectPath;
+
 @end

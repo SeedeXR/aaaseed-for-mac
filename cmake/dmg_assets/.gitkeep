@@ -1,5 +1,0 @@
-Placeholder so cmake/dmg_assets/ survives a fresh git clone.
-Future drops here :
-  - AAASeed.icns       (bundle icon ; wired in src/ui/macos/CMakeLists.txt)
-  - background.png     (DMG window backdrop ; goes into staging .background/)
-  - .VolumeIcon.icns   (volume icon shown when DMG is mounted)
