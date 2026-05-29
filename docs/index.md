@@ -53,22 +53,22 @@ Ships as a notarizable `.dmg` produced by a single
 
 ```mermaid
 flowchart TD
-    User[User / Designer] -->|launches| Studio[AAASeed Studio.app<br/>Qt6 + QML]
-    Studio -->|edits + saves| Proj[(.aaaproj.lua)]
-    Studio -->|▶ Play / Cmd+P<br/>QProcess spawn| Runtime[aaaseed_runtime.app<br/>engine playback]
-    User -->|writes .lua| MEU[MEU script]
+    User["User / Designer"] -->|launches| Studio["AAASeed Studio.app<br>Qt6 plus QML"]
+    Studio -->|edits and saves| Proj[(".aaaproj.lua")]
+    Studio -->|"Play / Cmd+P<br>QProcess spawn"| Runtime["aaaseed_runtime.app<br>engine playback"]
+    User -->|writes .lua| MEU["MEU script"]
     MEU --> Proj
-    Runtime --> View[AAASeedMTKView]
-    View --> Backend[GOL::Backend / Metal]
-    View --> Runner[aaa::meu::Runner]
-    View --> Widgets[aaa::ui::widgets::WidgetSystem]
-    View --> InputView[AAASeedInputView<br/>NSTextInputClient]
-    Runner -->|aaa.* bindings| Lua[lua_State]
-    Lua -->|use_shader / draw_quad| Backend
-    Runner -->|aaa.ui.*| Widgets
+    Runtime --> View["AAASeedMTKView"]
+    View --> Backend["GOL Backend / Metal"]
+    View --> Runner["aaa meu Runner"]
+    View --> Widgets["aaa ui widgets WidgetSystem"]
+    View --> InputView["AAASeedInputView<br>NSTextInputClient"]
+    Runner -->|"aaa.* bindings"| Lua["lua_State"]
+    Lua -->|"use_shader / draw_quad"| Backend
+    Runner -->|"aaa.ui.*"| Widgets
     Widgets --> Backend
-    InputView -->|on_marked_text<br/>on_text_input| Widgets
-    Backend --> Metal[(MTLDevice<br/>169 .metal shaders)]
+    InputView -->|"on_marked_text<br>on_text_input"| Widgets
+    Backend --> Metal[("MTLDevice<br>169 .metal shaders")]
 ```
 
 Studio side is pure Qt6 + QML — no Metal device opened in that

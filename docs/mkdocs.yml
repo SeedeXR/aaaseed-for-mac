@@ -59,6 +59,12 @@ markdown_extensions:
   - footnotes
   - attr_list
   - md_in_html
+  # c152-Q : enables :material-foo: / :fontawesome-bar: shorthand on
+  # the Home page cards. Without this, the literal ":material-..."
+  # text appears instead of the icon.
+  - pymdownx.emoji:
+      emoji_index:    !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
   - Home: index.md

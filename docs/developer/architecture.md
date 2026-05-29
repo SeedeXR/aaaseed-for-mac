@@ -21,50 +21,50 @@ internals specifically see [Studio UI](studio.md).
 
 ```mermaid
 flowchart LR
-    subgraph StudioApp["AAASeed Studio.app  (Qt6 + QML)"]
-        QML[QML scene<br/>Main.qml + panels/]
-        Models[Q_OBJECT bridges<br/>StudioModel · NodeListModel<br/>SoundDeviceModel · LuaHelper<br/>SettingsModel · ...]
-        Core[aaa::ui::studio::Studio<br/>platform-neutral data model]
+    subgraph StudioApp["AAASeed Studio app -- Qt6 plus QML"]
+        QML["QML scene<br>Main.qml plus panels/"]
+        Models["Q_OBJECT bridges<br>StudioModel, NodeListModel,<br>SoundDeviceModel, LuaHelper,<br>SettingsModel, ..."]
+        Core["aaa ui studio Studio<br>platform-neutral data model"]
         QML --> Models --> Core
     end
 
-    Proj[(.aaaproj.lua<br/>project file)]
+    Proj[(".aaaproj.lua<br>project file")]
 
-    subgraph RuntimeApp["aaaseed_runtime.app  (engine playback)"]
-        Delegate[AAASeedAppDelegate]
-        MTKView[AAASeedMTKView]
-        InputView[AAASeedInputView<br/><i>NSTextInputClient</i>]
+    subgraph RuntimeApp["aaaseed_runtime app -- engine playback"]
+        Delegate["AAASeedAppDelegate"]
+        MTKView["AAASeedMTKView"]
+        InputView["AAASeedInputView<br>NSTextInputClient"]
         Delegate --> MTKView
         MTKView -.subclass.-> InputView
     end
 
     subgraph Render["Render side"]
-        Backend[GOL::Backend<br/>MetalBackend]
-        Shaders[(169 .metal<br/>shaders)]
+        Backend["GOL Backend<br>MetalBackend"]
+        Shaders[("169 .metal<br>shaders")]
         Backend --> Shaders
     end
 
     subgraph Authoring["Authoring side"]
-        Runner[aaa::meu::Runner]
-        Widgets[aaa::ui::widgets::<br/>WidgetSystem]
-        FileWatcher[aaa::meu::<br/>FileWatcher]
-        Lua[(lua_State)]
+        Runner["aaa meu Runner"]
+        Widgets["aaa ui widgets<br>WidgetSystem"]
+        FileWatcher["aaa meu<br>FileWatcher"]
+        Lua[("lua_State")]
         Runner --> Lua
         Runner <--> Widgets
         Runner --> FileWatcher
     end
 
     Core <-->|save / open| Proj
-    Core -.QProcess spawn<br/>--project arg.-> Delegate
-    Proj -.--project arg.-> Runner
+    Core -. "QProcess spawn<br>project arg" .-> Delegate
+    Proj -. "project arg" .-> Runner
 
     MTKView --> Backend
     MTKView --> Runner
     MTKView --> Widgets
     InputView --> Widgets
 
-    Runner -.aaa.* bindings.-> Backend
-    Widgets -.batched draws.-> Backend
+    Runner -. "aaa.* bindings" .-> Backend
+    Widgets -. "batched draws" .-> Backend
 ```
 
 The Studio process **never** opens a Metal device. All GPU work
@@ -124,7 +124,7 @@ sequenceDiagram
     participant MTK as AAASeedMTKView
     participant W as WidgetSystem
     participant R as Runner
-    participant B as GOL::Backend
+    participant B as GOL_Backend
     participant Lua as lua_State
 
     MTK->>W: begin_frame(w, h, mx, my, pressed, released)
