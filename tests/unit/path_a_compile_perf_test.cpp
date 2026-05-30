@@ -5,7 +5,7 @@
 // in src/shaders/msl/. Embedded perf doctrine (philosophy.md 2.95) :
 //   1. CPU-side `os_signpost` interval per shader, plus one wrapping
 //      the whole sweep (visible in Instruments / Time Profiler under
-//      subsystem ai.bsa.aaaseed, category "performance").
+//      subsystem com.seedexr.aaaseed, category "performance").
 //   2. Wall-clock measurement with std::chrono::steady_clock per
 //      shader + total.
 //   3. Budget assertion : no single shader exceeds the per-shader cap.
@@ -74,7 +74,7 @@ namespace
 
     os_log_t perf_log()
     {
-        static os_log_t log = os_log_create( "ai.bsa.aaaseed", "performance" );
+        static os_log_t log = os_log_create( "com.seedexr.aaaseed", "performance" );
         return log;
     }
 }

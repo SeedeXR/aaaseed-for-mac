@@ -16,7 +16,7 @@
 //
 // Three-artifact perf doctrine (philosophy.md 2.95) :
 //   1. CPU os_signpost interval per-frame (Instruments / Time Profiler
-//      under subsystem ai.bsa.aaaseed). Reuses the proven shim wiring
+//      under subsystem com.seedexr.aaaseed). Reuses the proven shim wiring
 //      from gol_metal_perf_test.cpp + nsight_signpost_test.cpp.
 //   2. Wall-clock per-frame timing with std::chrono::steady_clock.
 //      We collect per-frame samples to derive mean / median / p95 so
@@ -81,7 +81,7 @@ namespace
     //	groups all aaaseed perf markers together.
     os_log_t perf_log()
     {
-        static os_log_t log = os_log_create( "ai.bsa.aaaseed", "performance" );
+        static os_log_t log = os_log_create( "com.seedexr.aaaseed", "performance" );
         return log;
     }
 }

@@ -110,7 +110,7 @@ namespace nsight
 	//	all TUs that include this header.
 	inline os_log_t & get_log()
 	{
-		static os_log_t log = os_log_create( "ai.bsa.aaaseed", "performance" );
+		static os_log_t log = os_log_create( "com.seedexr.aaaseed", "performance" );
 		return log;
 	}
 
@@ -121,7 +121,7 @@ namespace nsight
 
 	//	RAII scope marker. Construction issues an interval-begin signpost ;
 	//	destruction issues the matching end. Visible in Instruments under
-	//	"os_signpost" with subsystem ai.bsa.aaaseed / category performance.
+	//	"os_signpost" with subsystem com.seedexr.aaaseed / category performance.
 	struct NXProfileFunc
 	{
 		os_signpost_id_t	_spid;

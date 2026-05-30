@@ -29,6 +29,12 @@
 - Built `AAASeed-Studio.app/Contents/Info.plist` confirmed to contain both usage strings + correct executable name + no unsubstituted `${}` + `plutil -lint OK`.
 - **Full ctest 90/90 green, 0 regressions** (was 87 → +3 Qt tests).
 
+### Bundle identifier rename (c154, user-requested) + DMG
+
+- **Bundle id `ai.bsa.aaaseed` → `com.seedexr.aaaseed`** everywhere it's the actual identifier: `bundle/macos/Info.plist.in` (`CFBundleIdentifier`), `src/ui/qt/CMakeLists.txt` + `src/ui/macos/CMakeLists.txt` (`MACOSX_BUNDLE_GUI_IDENTIFIER`). Then the user asked to rename the rest for consistency: the `os_signpost`/`os_log_create` Instruments subsystem string + the `dispatch_queue` label (`...capture`) across `src/video/capture_mac.mm`, all `tests/unit/*perf*` + a couple comments, the living docs (`philosophy.md`, `agent_profile.md`, `todo.md`, `docs/designer/installation.md`), and `src/macos/aaa_bundle_meta.h` comment.
+- **Upstream-patch log ([[feedback-upstream-patches]]):** one-line behavior-preserving string change in the VENDOR file `vendor/aaaseed-engine/Src/draw/NSightEvents.h` — `os_log_create("ai.bsa.aaaseed",...)` → `os_log_create("com.seedexr.aaaseed",...)` in the Mac `#else` (os_log) branch only. Instruments-label-only ; no logic change ; Windows (NVTX) path untouched.
+- **Append-only handover history left as-is** (past entries record what was true then). Built `out/AAASeed-Studio-0.0.1.dmg` (53 MB, ULMO, VALID, ad-hoc). Verified in the shipped bundle: CFBundleIdentifier + codesign identifier + os_signpost subsystem all `com.seedexr.aaaseed` ; zero `ai.bsa.aaaseed` strings in either binary ; camera/mic usage strings + bundled runtime intact. Full ctest 90/90.
+
 ### Key facts for the next agent
 
 - The intuitive QML UI is the canonical Studio ; the native runtime window is the "Display → Native" alternative output, carrying the c153 multi-display/zero-copy features.

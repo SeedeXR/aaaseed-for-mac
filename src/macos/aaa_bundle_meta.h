@@ -40,7 +40,7 @@ namespace macos
 namespace bundle
 {
 
-//	CFBundleIdentifier. Returns "ai.bsa.aaaseed" when running inside
+//	CFBundleIdentifier. Returns "com.seedexr.aaaseed" when running inside
 //	AAASeed.app ; returns the test binary's bundle id when running
 //	from gtest (typically a UUID-suffixed temp id, or empty).
 std::string bundle_identifier();

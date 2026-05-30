@@ -22,7 +22,7 @@
 //
 // Three-artifact perf doctrine (philosophy.md 2.95 ; c121-B precedent) :
 //   1. os_signpost interval per round-trip iteration + outer-loop
-//      interval. Subsystem ai.bsa.aaaseed groups with the other perf
+//      interval. Subsystem com.seedexr.aaaseed groups with the other perf
 //      tests in Instruments.
 //   2. std::chrono::steady_clock wall-clock per iteration ; mean /
 //      median / p95 reported.
@@ -57,12 +57,12 @@
 
 namespace
 {
-    //  Per-process signpost log handle. Subsystem ai.bsa.aaaseed
+    //  Per-process signpost log handle. Subsystem com.seedexr.aaaseed
     //  groups with c121-B + other perf tests under one Instruments
     //  filter.
     os_log_t perf_log()
     {
-        static os_log_t log = os_log_create( "ai.bsa.aaaseed", "performance" );
+        static os_log_t log = os_log_create( "com.seedexr.aaaseed", "performance" );
         return log;
     }
 

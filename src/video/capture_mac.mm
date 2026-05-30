@@ -164,7 +164,7 @@ bool Capture::open( std::size_t device_index )
         delegate->latest_ = nullptr;
 
         dispatch_queue_t queue =
-            dispatch_queue_create( "ai.bsa.aaaseed.capture", DISPATCH_QUEUE_SERIAL );
+            dispatch_queue_create( "com.seedexr.aaaseed.capture", DISPATCH_QUEUE_SERIAL );
         [output setSampleBufferDelegate:delegate queue:queue];
 
         if( ![session canAddInput:input] || ![session canAddOutput:output] )

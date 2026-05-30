@@ -4,7 +4,7 @@
 // landed in continuations 47-51. Mirrors the three-artifact perf doctrine
 // (philosophy.md Part 2.95) :
 //   1. CPU-side `os_signpost` interval around the measured loop (visible
-//      in Instruments / Time Profiler under subsystem ai.bsa.aaaseed,
+//      in Instruments / Time Profiler under subsystem com.seedexr.aaaseed,
 //      category "performance").
 //   2. Wall-clock measurement with std::chrono::steady_clock.
 //   3. Budget assertion : average per-call latency for the bridge must
@@ -58,7 +58,7 @@ namespace
     //	so Instruments groups all aaaseed signposts under one category.
     os_log_t perf_log()
     {
-        static os_log_t log = os_log_create( "ai.bsa.aaaseed", "performance" );
+        static os_log_t log = os_log_create( "com.seedexr.aaaseed", "performance" );
         return log;
     }
 }

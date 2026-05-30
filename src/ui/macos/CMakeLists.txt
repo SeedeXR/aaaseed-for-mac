@@ -288,7 +288,7 @@ endif()
 #      - ${MACOSX_BUNDLE_SHORT_VERSION_STRING} -> CFBundleShortVersionString
 #      - ${CMAKE_OSX_DEPLOYMENT_TARGET}        -> LSMinimumSystemVersion
 #    Conflicts resolved :
-#      - CFBundleIdentifier : both files agreed on "ai.bsa.aaaseed".
+#      - CFBundleIdentifier : "com.seedexr.aaaseed" (SeedeXR reverse-DNS ; c154).
 #      - CFBundleDevelopmentRegion : both agreed on "en".
 #      - CFBundleInfoDictionaryVersion : both agreed on "6.0".
 #      - No semantic conflicts ; reconciliation was strict superset.
@@ -321,7 +321,7 @@ set_target_properties(aaaseed_runtime PROPERTIES
     MACOSX_BUNDLE                           TRUE
     MACOSX_BUNDLE_INFO_PLIST                "${CMAKE_BINARY_DIR}/Info.plist"
     MACOSX_BUNDLE_BUNDLE_NAME               "AAASeed"
-    MACOSX_BUNDLE_GUI_IDENTIFIER            "ai.bsa.aaaseed"
+    MACOSX_BUNDLE_GUI_IDENTIFIER            "com.seedexr.aaaseed"
     MACOSX_BUNDLE_BUNDLE_VERSION            "${PROJECT_VERSION}"
     MACOSX_BUNDLE_SHORT_VERSION_STRING      "${PROJECT_VERSION}"
 )

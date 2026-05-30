@@ -27,7 +27,7 @@
     - L378 hardened runtime entitlements : mic / camera / JIT.
     - L379 notarization metadata depends on these keys being present.
 
-  CFBundleIdentifier = ai.bsa.aaaseed     (user's domain bsa.ai reversed)
+  CFBundleIdentifier = com.seedexr.aaaseed  (SeedeXR reverse-DNS ; c154)
   CFBundleExecutable = aaaseed_app        (matches CMake target name)
   LSMinimumSystemVersion = ${CMAKE_OSX_DEPLOYMENT_TARGET}  (Apple Silicon baseline 13.0)
 
@@ -41,7 +41,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleIdentifier</key>
-    <string>ai.bsa.aaaseed</string>
+    <string>com.seedexr.aaaseed</string>
     <key>CFBundleName</key>
     <string>${MACOSX_BUNDLE_BUNDLE_NAME}</string>
     <key>CFBundleDisplayName</key>

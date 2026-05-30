@@ -146,7 +146,7 @@ you're on Intel without Rosetta installed.
 
 Drag `/Applications/AAASeed Studio.app` to the Trash. App settings
 (workspace layout, recent projects, prefs) live under
-`~/Library/Preferences/ai.bsa.aaaseed.plist` — delete that too if
+`~/Library/Preferences/com.seedexr.aaaseed.plist` — delete that too if
 you want a clean slate.
 
 ---

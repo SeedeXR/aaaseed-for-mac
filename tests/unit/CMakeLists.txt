@@ -1553,7 +1553,7 @@ gtest_discover_tests(aaaseed_syphon_round_trip_perf_tests
 # Tests assert "non-empty AND not crashing" semantics : gtest binaries
 # live outside AAASeed.app so the canonical plist keys are typically
 # absent ; the API contract is defensive (never crash, sensible
-# defaults), not "always returns ai.bsa.aaaseed". c121-B doctrine :
+# defaults), not "always returns com.seedexr.aaaseed". c121-B doctrine :
 # `phase8` is FIRST so `ctest -L phase8` includes this test.
 add_executable(aaaseed_macos_bundle_meta_tests
     macos_bundle_meta_test.cpp

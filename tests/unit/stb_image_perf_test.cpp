@@ -9,7 +9,7 @@
 // Three-artifact perf doctrine (philosophy.md 2.95) :
 //   1. CPU-side `os_signpost` interval around the measured loop
 //      (visible in Instruments / Time Profiler under subsystem
-//      ai.bsa.aaaseed, category "performance").
+//      com.seedexr.aaaseed, category "performance").
 //   2. Wall-clock measurement with std::chrono::steady_clock.
 //   3. Budget assertion : per-decode latency for a 256x256 RGBA PNG
 //      must stay under 20 ms on M4 debug build. Real-world decodes
@@ -79,7 +79,7 @@ namespace
 
     os_log_t perf_log()
     {
-        static os_log_t log = os_log_create( "ai.bsa.aaaseed", "performance" );
+        static os_log_t log = os_log_create( "com.seedexr.aaaseed", "performance" );
         return log;
     }
 }

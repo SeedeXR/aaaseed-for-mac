@@ -263,7 +263,7 @@ The companion auto-memory entry `[[feedback-nvidia-to-metal]]` carries the opera
 
 Every Metal backend change lands with three artifacts :
 
-1. **CPU side** — `os_signpost_interval_begin/end` from `<os/signpost.h>` around each significant encoder build. Already integrated as the Mac branch of NSightEvents.h (which is `NXPROFILEFUNC` upstream). Subsystem identifier : `ai.bsa.aaaseed`. Visible in Instruments → Time Profiler / Points of Interest.
+1. **CPU side** — `os_signpost_interval_begin/end` from `<os/signpost.h>` around each significant encoder build. Already integrated as the Mac branch of NSightEvents.h (which is `NXPROFILEFUNC` upstream). Subsystem identifier : `com.seedexr.aaaseed`. Visible in Instruments → Time Profiler / Points of Interest.
 
 2. **GPU side** — `MTL::RenderCommandEncoder::pushDebugGroup(NS::String*)` / `popDebugGroup()` around each render block, and `MTL::CommandBuffer::setLabel(NS::String*)` per frame. Visible in Xcode → Debug → GPU Frame Capture. This is the Apple equivalent of NVIDIA Nsight Graphics ranges per `feedback_nvidia_to_metal.md`.
 

@@ -9,7 +9,7 @@
 //   - nsight::init() / deinit() / update() are callable.
 //
 // To actually see the signposts : Xcode → Instruments → choose "os_signpost"
-// template → run the test binary → filter on subsystem "ai.bsa.aaaseed".
+// template → run the test binary → filter on subsystem "com.seedexr.aaaseed".
 
 #include <gtest/gtest.h>
 

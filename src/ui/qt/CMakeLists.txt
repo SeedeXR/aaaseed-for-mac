@@ -115,7 +115,7 @@ set_target_properties(aaaseed_app_qt PROPERTIES
     MACOSX_BUNDLE_BUNDLE_NAME       "AAASeed Studio"
     MACOSX_BUNDLE_BUNDLE_VERSION    "${PROJECT_VERSION}"
     MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}"
-    MACOSX_BUNDLE_GUI_IDENTIFIER    "ai.bsa.aaaseed"
+    MACOSX_BUNDLE_GUI_IDENTIFIER    "com.seedexr.aaaseed"
     MACOSX_BUNDLE_ICON_FILE         "AAASeed.icns"
     OUTPUT_NAME                     "AAASeed-Studio"
 )

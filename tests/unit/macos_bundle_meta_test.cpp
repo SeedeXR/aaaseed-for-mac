@@ -11,7 +11,7 @@
 //
 // Tests therefore assert "non-empty AND not crashing" semantics
 // (defensive contract -- never crash, return sensible defaults),
-// not "exactly ai.bsa.aaaseed". A future integration test launched
+// not "exactly com.seedexr.aaaseed". A future integration test launched
 // from inside the .app bundle could tighten these assertions ; for
 // now the unit-test layer locks the no-crash contract.
 //

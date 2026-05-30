@@ -28,7 +28,7 @@
 //   - 3 warmup frames (pipeline-state-object cache + first-launch
 //     amortization), matches c121-B convention.
 //   - os_signpost interval per measured frame (cross-tool Instruments
-//     correlation under subsystem ai.bsa.aaaseed). 3 perf tests x 1
+//     correlation under subsystem com.seedexr.aaaseed). 3 perf tests x 1
 //     per-frame interval = 3 interval kinds.
 //   - Mean + p95 collected and printed on every run, EXPECT_LT vs budget.
 //
@@ -106,7 +106,7 @@ namespace
     //	aaaseed perf markers together.
     os_log_t perf_log()
     {
-        static os_log_t log = os_log_create( "ai.bsa.aaaseed", "performance" );
+        static os_log_t log = os_log_create( "com.seedexr.aaaseed", "performance" );
         return log;
     }
 

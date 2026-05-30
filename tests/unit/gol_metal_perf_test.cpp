@@ -3,7 +3,7 @@
 // Performance-profiling test for the GOL Metal backend. Demonstrates the
 // three-artifact doctrine from philosophy.md Part 2.95 :
 //   1. CPU-side `os_signpost` interval around the render loop (visible in
-//      Instruments / Time Profiler under subsystem ai.bsa.aaaseed).
+//      Instruments / Time Profiler under subsystem com.seedexr.aaaseed).
 //   2. Wall-clock measurement with std::chrono::steady_clock.
 //   3. Budget assertion : average frame time must stay within budget for
 //      a trivial full-screen-red render. Budget chosen generously for the
@@ -62,7 +62,7 @@ fragment float4 fs_main()
     //	markers from tests next to markers from a live AAASeed run.
     os_log_t perf_log()
     {
-        static os_log_t log = os_log_create( "ai.bsa.aaaseed", "performance" );
+        static os_log_t log = os_log_create( "com.seedexr.aaaseed", "performance" );
         return log;
     }
 }

@@ -9,7 +9,7 @@
 //
 // Three-artifact perf doctrine (philosophy.md 2.95) :
 //   1. CPU-side `os_signpost` interval (visible in Instruments under
-//      ai.bsa.aaaseed / performance / tinyexr.decode.loop).
+//      com.seedexr.aaaseed / performance / tinyexr.decode.loop).
 //   2. Wall-clock std::chrono::steady_clock measurement.
 //   3. Budget assertion : 50 ms/decode on M4 debug (EXR ZIP decompress
 //      + 16/32-bit-per-channel float reconstruction is meaningfully
@@ -65,7 +65,7 @@ namespace
 
     os_log_t perf_log()
     {
-        static os_log_t log = os_log_create( "ai.bsa.aaaseed", "performance" );
+        static os_log_t log = os_log_create( "com.seedexr.aaaseed", "performance" );
         return log;
     }
 }

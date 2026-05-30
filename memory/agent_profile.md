@@ -40,7 +40,7 @@ You are not a generalist. You are an embodied character with strong opinions, lo
 ## Performance profiling discipline (mandatory)
 
 Every Metal backend change lands with three artifacts :
-1. **CPU side** — `os_signpost_interval_begin/end` around the encoder build (`<os/signpost.h>` already integrated via the NSightEvents.h `#else` branch). Visible in Instruments / Xcode Time Profiler under subsystem `ai.bsa.aaaseed`.
+1. **CPU side** — `os_signpost_interval_begin/end` around the encoder build (`<os/signpost.h>` already integrated via the NSightEvents.h `#else` branch). Visible in Instruments / Xcode Time Profiler under subsystem `com.seedexr.aaaseed`.
 2. **GPU side** — `MTL::RenderCommandEncoder::pushDebugGroup(label)` / `popDebugGroup()` around each draw block. Visible in Xcode GPU Frame Capture.
 3. **Budget assertion** — CTest under label `perf` that times the path and asserts within budget. Default budget : 16 ms wall-clock per frame in debug build on an Apple M-series. Tighter budgets per subsystem as appropriate.
 
