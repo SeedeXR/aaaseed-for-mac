@@ -89,6 +89,7 @@ nav:
     - MEU runner: developer/meu-runner.md
     - Widget system: developer/widget-system.md
     - Native subsystems (MIDI/Net/Clipboard/Syphon): developer/native-subsystems.md
+    - Qt native integration (Display menu + Devices): developer/qt-native-integration.md
     - Studio UI (Qt6 + QML): developer/studio.md
     - NSTextInputClient + IME: developer/nstextinputclient.md
     - Windows backend (v2+): developer/windows-backend.md

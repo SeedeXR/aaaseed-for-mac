@@ -56,6 +56,7 @@ ApplicationWindow {
     property bool showCamera:       true
     property bool showSound:        true
     property bool showTasks:        true
+    property bool showDevices:      true   // c154 : native-subsystem panel
 
     Settings {
         category: "workspace"
@@ -72,6 +73,7 @@ ApplicationWindow {
         property alias showCamera:        root.showCamera
         property alias showSound:         root.showSound
         property alias showTasks:         root.showTasks
+        property alias showDevices:       root.showDevices
         // Window geometry survives launches.
         property alias winX:      root.x
         property alias winY:      root.y
@@ -97,6 +99,7 @@ ApplicationWindow {
             root.showCamera        = true
             root.showSound         = true
             root.showTasks         = true
+            root.showDevices       = true
         }
     }
 
@@ -164,6 +167,47 @@ ApplicationWindow {
             Action { text: qsTr("Run Script");       shortcut: "Ctrl+R"; onTriggered: studio.runScript() }
             Action { text: qsTr("▶ Play Project");   shortcut: "Ctrl+P"; onTriggered: studio.playProject() }
         }
+        // c154 : Display menu -- choose the engine OUTPUT surface. The
+        // intuitive in-Studio Engine Preview (default) vs the native macOS
+        // window (aaaseed_runtime), which carries the c153 multi-display span
+        // + zero-copy video features. Selection persists via QSettings.
+        Menu {
+            title: qsTr("Display")
+            MenuItem {
+                text: qsTr("Intuitive Preview (in Studio)")
+                checkable: true
+                checked: nativeDisplay.engineDisplayMode === "intuitive"
+                onTriggered: {
+                    nativeDisplay.engineDisplayMode = "intuitive"
+                    root.showEnginePreview = true
+                }
+            }
+            MenuItem {
+                text: qsTr("Native macOS Window")
+                checkable: true
+                checked: nativeDisplay.engineDisplayMode === "native"
+                onTriggered: {
+                    nativeDisplay.engineDisplayMode = "native"
+                    nativeDisplay.launchNativeDisplay()
+                }
+            }
+            MenuSeparator {}
+            MenuItem {
+                text: qsTr("Multi-display span (Native)")
+                checkable: true
+                checked: nativeDisplay.multiDisplaySpan
+                onTriggered: nativeDisplay.multiDisplaySpan = !nativeDisplay.multiDisplaySpan
+            }
+            Action {
+                text: qsTr("Open Native Window Now")
+                enabled: nativeDisplay.engineDisplayMode === "native"
+                onTriggered: nativeDisplay.launchNativeDisplay()
+            }
+            Action {
+                text: qsTr("Refresh Displays (%1)").arg(nativeDisplay.screenCount)
+                onTriggered: nativeDisplay.refreshScreens()
+            }
+        }
         Menu {
             title: qsTr("View")
             Action {
@@ -213,6 +257,9 @@ ApplicationWindow {
             MenuItem { text: qsTr("  Tasks")
                        checkable: true; checked: root.showTasks
                        onTriggered: root.showTasks = !root.showTasks }
+            MenuItem { text: qsTr("  Devices (native)")
+                       checkable: true; checked: root.showDevices
+                       onTriggered: root.showDevices = !root.showDevices }
             MenuItem { text: qsTr("Console")
                        checkable: true; checked: root.showConsole
                        onTriggered: root.showConsole = !root.showConsole }
@@ -230,6 +277,7 @@ ApplicationWindow {
                     root.showCodeEditor=true; root.showRightPanels=true
                     root.showCamera=true; root.showSound=true
                     root.showTasks=true; root.showConsole=true
+                    root.showDevices=true
                 }
             }
         }
@@ -509,6 +557,7 @@ ApplicationWindow {
                         TabButton { text: qsTr("Camera")  }
                         TabButton { text: qsTr("Sound")   }
                         TabButton { text: qsTr("Tasks")   }
+                        TabButton { text: qsTr("Devices") }
                     }
                     StackLayout {
                         Layout.fillWidth: true
@@ -534,6 +583,16 @@ ApplicationWindow {
                             visible: root.showTasks
                             contentComponent: Component { BinaryManagerPanel { } }
                             onCloseRequested: root.showTasks = false
+                        }
+                        // c154 : native-subsystem device list (MIDI / audio /
+                        // video / Syphon / clipboard) -- the engine's device
+                        // truth surfaced in the intuitive UI.
+                        PanelHost {
+                            panelId: "devices"
+                            title:   qsTr("Devices")
+                            visible: root.showDevices
+                            contentComponent: Component { NativeDevicesPanel { } }
+                            onCloseRequested: root.showDevices = false
                         }
                     }
                 }

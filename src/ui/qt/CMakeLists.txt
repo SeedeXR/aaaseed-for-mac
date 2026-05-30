@@ -35,6 +35,8 @@ set(AAA_QT_SOURCES
     aaa_lua_helper.h
     aaa_settings_model.cpp       # c152-N : app settings (theme/editor/etc)
     aaa_settings_model.h
+    aaa_native_bridge.cpp        # c154 : native sub-lib bridge + Display menu
+    aaa_native_bridge.h
     aaa_qt_qml.qrc               # listed so AUTORCC bundles it
 )
 
@@ -68,6 +70,16 @@ target_link_libraries(aaaseed_app_qt PRIVATE
     # c152-E : direct lua link for the Studio's syntax-check scratchpad.
     # aaaseed_ui_studio links lua PUBLIC, so this is duplicate-but-explicit.
     aaaseed_lua
+    # c154 : the c153 native feature sub-libs, surfaced to QML via
+    # aaa_native_bridge (nativeDevices / nativeDisplay context properties).
+    # All hermetic ; no engine link beyond what they already carry.
+    aaaseed_midi
+    aaaseed_audio
+    aaaseed_video
+    aaaseed_syphon
+    aaaseed_clipboard
+    aaaseed_net
+    aaaseed_display
     Qt6::Core
     Qt6::Gui
     Qt6::Qml
@@ -78,9 +90,28 @@ target_link_libraries(aaaseed_app_qt PRIVATE
 
 target_compile_features(aaaseed_app_qt PRIVATE cxx_std_20)
 
+# c154 : wire the CANONICAL Info.plist into the Qt Studio app. PREVIOUSLY
+# aaaseed_app_qt auto-generated its plist from target properties, which OMITS
+# NSCameraUsageDescription / NSMicrophoneUsageDescription -- so the shipping
+# DMG app (which DOES access the camera via the Qt-Multimedia Camera panel)
+# would be KILLED by macOS TCC on first camera access, and never prompt. The
+# runtime (src/ui/macos) already uses bundle/macos/Info.plist.in ; we now
+# configure the same template for the Studio so the DMG asks permission.
+# NB: the template uses ${VAR} placeholders (matching the runtime consumer in
+# src/ui/macos), so configure_file WITHOUT @ONLY is required here.
+set(MACOSX_BUNDLE_EXECUTABLE_NAME       "AAASeed-Studio")
+set(MACOSX_BUNDLE_BUNDLE_NAME           "AAASeed Studio")
+set(MACOSX_BUNDLE_BUNDLE_VERSION        "${PROJECT_VERSION}")
+set(MACOSX_BUNDLE_SHORT_VERSION_STRING  "${PROJECT_VERSION}")
+configure_file(
+    "${CMAKE_SOURCE_DIR}/bundle/macos/Info.plist.in"
+    "${CMAKE_BINARY_DIR}/Info.qt.plist"
+)
+
 # c152-M : Qt is now the sole UI ; drop the "(Qt)" suffix from the
 # user-facing name. The OUTPUT_NAME stays binary-style.
 set_target_properties(aaaseed_app_qt PROPERTIES
+    MACOSX_BUNDLE_INFO_PLIST         "${CMAKE_BINARY_DIR}/Info.qt.plist"
     MACOSX_BUNDLE_BUNDLE_NAME       "AAASeed Studio"
     MACOSX_BUNDLE_BUNDLE_VERSION    "${PROJECT_VERSION}"
     MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}"

@@ -12,6 +12,10 @@ They build by default and ship a runnable test pyramid in `tests/native/`.
 > The full gap analysis + the remaining roadmap (Audio, Video→Metal zero-copy, context menu,
 > multi-window) lives in `second_todo.md` at the repo root.
 
+> **Surfaced in the Qt Studio (c154):** these sub-libs are now reachable from the intuitive QML UI
+> via a `nativeDevices` / `nativeDisplay` bridge — a **Devices** tab and a **Display** menu. See
+> [Qt native integration](qt-native-integration.md) for the wiring, data flow, and debug guide.
+
 ## Overview
 
 | Sub-lib | Target | Frameworks | Lua surface | Tests |

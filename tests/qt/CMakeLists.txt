@@ -108,3 +108,85 @@ set_tests_properties(aaa_qt_lua_helper_test PROPERTIES
     LABELS "qt;unit"
     TIMEOUT 30
 )
+
+# ── c154 : native-feature bridge + Display-menu integration ─────────────────
+# The c153 hermetic sub-libs the bridge surfaces to QML. Linked into the
+# bridge-driven tests (the regression test links none of these -- it only
+# reads files).
+set(AAA_NATIVE_FEATURE_LIBS
+    aaaseed_midi
+    aaaseed_audio
+    aaaseed_video
+    aaaseed_syphon
+    aaaseed_clipboard
+    aaaseed_net
+    aaaseed_display
+)
+
+# Unit : the bridge QObjects (guiless ; no QML scene, no camera/mic open).
+add_executable(aaa_qt_native_bridge_test
+    aaa_native_bridge_test.cpp
+    "${CMAKE_SOURCE_DIR}/src/ui/qt/aaa_native_bridge.cpp"
+    "${CMAKE_SOURCE_DIR}/src/ui/qt/aaa_native_bridge.h"
+)
+target_include_directories(aaa_qt_native_bridge_test PRIVATE "${CMAKE_SOURCE_DIR}")
+target_link_libraries(aaa_qt_native_bridge_test PRIVATE
+    ${AAA_NATIVE_FEATURE_LIBS}
+    Qt6::Core Qt6::Gui Qt6::Test Qt6::Qml
+)
+target_compile_features(aaa_qt_native_bridge_test PRIVATE cxx_std_20)
+target_compile_options(aaa_qt_native_bridge_test PRIVATE -Wno-deprecated-declarations)
+add_test(NAME aaa_qt_native_bridge_test COMMAND aaa_qt_native_bridge_test)
+set_tests_properties(aaa_qt_native_bridge_test PROPERTIES
+    LABELS "qt;unit"
+    TIMEOUT 60
+    ENVIRONMENT "QT_QPA_PLATFORM=offscreen"
+)
+
+# Integration : load NativeDevicesPanel.qml with the bridge context
+# properties bound, assert it reaches Ready (the feature "appears").
+add_executable(aaa_qt_native_panel_qml_test
+    aaa_native_panel_qml_test.cpp
+    "${CMAKE_SOURCE_DIR}/src/ui/qt/aaa_native_bridge.cpp"
+    "${CMAKE_SOURCE_DIR}/src/ui/qt/aaa_native_bridge.h"
+)
+target_include_directories(aaa_qt_native_panel_qml_test PRIVATE "${CMAKE_SOURCE_DIR}")
+target_link_libraries(aaa_qt_native_panel_qml_test PRIVATE
+    ${AAA_NATIVE_FEATURE_LIBS}
+    Qt6::Core Qt6::Gui Qt6::Test Qt6::Qml Qt6::Quick Qt6::QuickControls2
+)
+target_compile_definitions(aaa_qt_native_panel_qml_test PRIVATE
+    "AAA_NATIVE_DEVICES_PANEL_QML=\"${CMAKE_SOURCE_DIR}/src/ui/qt/qml/panels/NativeDevicesPanel.qml\""
+)
+target_compile_features(aaa_qt_native_panel_qml_test PRIVATE cxx_std_20)
+target_compile_options(aaa_qt_native_panel_qml_test PRIVATE -Wno-deprecated-declarations)
+add_test(NAME aaa_qt_native_panel_qml_test COMMAND aaa_qt_native_panel_qml_test)
+set_tests_properties(aaa_qt_native_panel_qml_test PROPERTIES
+    LABELS "qt;integration"
+    TIMEOUT 60
+    ENVIRONMENT "QT_QPA_PLATFORM=offscreen"
+)
+
+# Regression : file-content guards (plist permissions + QML/qrc/cpp wiring).
+add_executable(aaa_qt_integration_regression_test
+    aaa_integration_regression_test.cpp
+)
+target_include_directories(aaa_qt_integration_regression_test PRIVATE "${CMAKE_SOURCE_DIR}")
+target_link_libraries(aaa_qt_integration_regression_test PRIVATE
+    Qt6::Core Qt6::Test
+)
+target_compile_definitions(aaa_qt_integration_regression_test PRIVATE
+    "AAA_INFO_PLIST_IN=\"${CMAKE_SOURCE_DIR}/bundle/macos/Info.plist.in\""
+    "AAA_ENTITLEMENTS_PLIST=\"${CMAKE_SOURCE_DIR}/bundle/macos/entitlements.plist\""
+    "AAA_QT_CMAKELISTS=\"${CMAKE_SOURCE_DIR}/src/ui/qt/CMakeLists.txt\""
+    "AAA_MAIN_QML=\"${CMAKE_SOURCE_DIR}/src/ui/qt/qml/Main.qml\""
+    "AAA_QT_QRC=\"${CMAKE_SOURCE_DIR}/src/ui/qt/aaa_qt_qml.qrc\""
+    "AAA_QT_MAIN_CPP=\"${CMAKE_SOURCE_DIR}/src/ui/qt/aaa_qt_main.cpp\""
+)
+target_compile_features(aaa_qt_integration_regression_test PRIVATE cxx_std_20)
+target_compile_options(aaa_qt_integration_regression_test PRIVATE -Wno-deprecated-declarations)
+add_test(NAME aaa_qt_integration_regression_test COMMAND aaa_qt_integration_regression_test)
+set_tests_properties(aaa_qt_integration_regression_test PROPERTIES
+    LABELS "qt;regression"
+    TIMEOUT 30
+)

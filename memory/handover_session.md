@@ -4,6 +4,39 @@
 
 ---
 
+## Session 2026-05-30 (continuation 154) — QT STUDIO INTEGRATION of the c153 native subsystems + camera/mic permissions
+
+**Agent:** Claude Opus 4.8. Orchestrator-only (no sub-agents — the work was localized to src/ui/qt + bundle + tests/qt, where blind parallelism would risk the shipping Studio).
+
+**User:** "ensure all new features can be accessed in the qt qml interface without breaking what works now ... unit and regression tests ... ensure the dmg app asks permission to access camera and microphone ... add an option on the top of toolbar called display in which one can use the native ui display or the intuitive one ... document the integration process ... data flow ... debug, customise."
+
+**Clarified by user:** keep the intuitive QML UI as-is ; the *engine display* gets the new features ; rework the Sound/Camera (Qt-Multimedia) ↔ native sub-libs for consistency *without breaking anything*. → Display menu = engine OUTPUT surface toggle (Intuitive embedded preview vs Native window).
+
+### What landed (all ADDITIVE — existing 54 Qt::Test + Sound/Camera/Tasks panels untouched)
+
+1. **`src/ui/qt/aaa_native_bridge.{h,cpp}`** — plain-C++ Qt bridge exposing the c153 sub-libs to QML as two context properties (mirrors the `sound`/`camera`/`tasks` pattern):
+   - `NativeDevicesModel` (`nativeDevices`) — MIDI/audio/video/Syphon device enumeration + clipboard + async HTTP. TCC-safe (enumeration never opens camera/mic). Calls the C++-clean native headers directly (no ObjC in the Qt TU ; .mm lives in the sub-libs).
+   - `NativeDisplayController` (`nativeDisplay`) — Display-menu backend: `engineDisplayMode` "intuitive"|"native" + `multiDisplaySpan`, persisted via QSettings ; `launchNativeDisplay()` spawns `aaaseed_runtime` via QProcess with `AAASEED_MULTIDISPLAY` env (graceful false if runtime not found).
+2. **`NativeDevicesPanel.qml`** + **Devices tab** (4th right-strip tab) + View-menu toggle (`showDevices`, fully wired into the workspace-persistence Settings/Connections/Show-All blocks).
+3. **Display menu** (new top menubar entry between Run and View): Intuitive Preview / Native macOS Window / Multi-display span toggle / Open-native-now / Refresh-displays.
+4. **Permissions fix (latent bug):** `aaaseed_app_qt` previously auto-generated its Info.plist WITHOUT `NSCameraUsageDescription`/`NSMicrophoneUsageDescription` — yet its Camera panel opens the camera via Qt Multimedia → macOS TCC would KILL it. Now `configure_file`s the canonical `bundle/macos/Info.plist.in` (which has both keys) → `Info.qt.plist` → `MACOSX_BUNDLE_INFO_PLIST`. Verified on the built bundle via PlistBuddy. Entitlements already grant camera/audio-input (applied by ship-qt-dmg.sh codesign).
+5. **3 new Qt tests:** `aaa_qt_native_bridge_test` (unit, guiless), `aaa_qt_native_panel_qml_test` (integration — loads the panel QML offscreen with bindings bound → Ready), `aaa_qt_integration_regression_test` (file-content guards: plist keys + Display menu + Devices tab + qrc + main.cpp registration).
+6. **Docs:** new `docs/developer/qt-native-integration.md` (3-layer architecture + 2 mermaid data-flow/sequence diagrams + Display-menu flow + permissions flow + test map + extend/debug guide) + mkdocs nav + README + native-subsystems cross-link.
+
+### Verification
+
+- Qt Studio builds + links clean with all 7 native sub-libs ; launches offscreen with NO QML errors (Display menu + Devices panel + context props resolve).
+- Built `AAASeed-Studio.app/Contents/Info.plist` confirmed to contain both usage strings + correct executable name + no unsubstituted `${}` + `plutil -lint OK`.
+- **Full ctest 90/90 green, 0 regressions** (was 87 → +3 Qt tests).
+
+### Key facts for the next agent
+
+- The intuitive QML UI is the canonical Studio ; the native runtime window is the "Display → Native" alternative output, carrying the c153 multi-display/zero-copy features.
+- Bridge is plain C++ because every c153 native header is C++-clean (PIMPL). To surface a new native subsystem in the UI: add to `aaa_native_bridge.cpp` + link in BOTH `src/ui/qt/CMakeLists.txt` and `AAA_NATIVE_FEATURE_LIBS` in `tests/qt/CMakeLists.txt`.
+- Sound/Camera panels still use Qt Multimedia for LIVE preview (VideoOutput) by design ; the native enumeration sits alongside in the Devices tab for consistency. NOT a duplication bug — documented in qt-native-integration.md §1.
+
+---
+
 ## Session 2026-05-30 (continuation 153) — WAVE-2 NATIVE SUBSYSTEMS from upstream `mac-port` branch
 
 **Agent:** Claude Opus 4.8 (1M). 2 parallel background impl agents (MIDI, Net) + orchestrator (clipboard, syphon-directory, all CMake/build/test/docs).

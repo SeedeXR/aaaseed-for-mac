@@ -13,6 +13,7 @@
         <file>qml/panels/CameraPanel.qml</file>
         <file>qml/panels/BinaryManagerPanel.qml</file>
         <file>qml/panels/EnginePreviewPanel.qml</file>
+        <file>qml/panels/NativeDevicesPanel.qml</file>
         <file>qml/panels/PanelHost.qml</file>
     </qresource>
 </RCC>

@@ -1,5 +1,16 @@
 # second_todo.md — Upstream `aaaseed_exe-mac-port` → `aaaseed-for-mac` native-port gap catalog
 
+> **c154 status (2026-05-30):** QT STUDIO INTEGRATION DONE — all 8 c153 native sub-libs are now
+> reachable from the intuitive QML UI via a `nativeDevices`/`nativeDisplay` bridge
+> (`src/ui/qt/aaa_native_bridge.{h,cpp}`): a new **Devices** tab (MIDI/audio/video/Syphon/display/
+> clipboard) + a new **Display** menu (engine output : Intuitive preview vs Native window, with
+> multi-display span). **Permissions fix:** the shipping Studio DMG (`aaaseed_app_qt`) now consumes
+> the canonical `Info.plist.in` (camera+mic usage strings) — previously it auto-generated a plist
+> WITHOUT them, a latent TCC-kill on its Qt-Multimedia camera access. +3 Qt tests (unit/integration/
+> regression). **Full ctest 90/90 green, 0 regressions ; existing 54 Qt::Test + Studio panels
+> untouched.** Integration + data-flow + debug doc: `docs/developer/qt-native-integration.md`.
+> REMAINING: §8 live ≥2-display verification (hardware), §4 `bdd_syphon` widget, §6 engine SIMD resync.
+
 > **c153 status (2026-05-30):** DONE — §1 Audio, §2 Video (zero-copy Metal), §3 MIDI, §4 Syphon
 > directory+flip, §5 Net, §6 Clipboard, §7 Context menu, §8 Multi-window incl. the per-display
 > present primitive — **8 native hermetic sub-libs + 80 tests, 75 pass / 5

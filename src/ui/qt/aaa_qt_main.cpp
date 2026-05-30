@@ -23,6 +23,7 @@
 #include "src/ui/qt/aaa_engine_viewport.h"
 #include "src/ui/qt/aaa_lua_helper.h"
 #include "src/ui/qt/aaa_settings_model.h"
+#include "src/ui/qt/aaa_native_bridge.h"
 #include "src/ui/studio/aaa_studio.h"
 
 #include <QColor>
@@ -126,6 +127,23 @@ int main( int argc, char** argv )
         "aaa.ui.qt6", 1, 0, "SettingsModel",
         QStringLiteral( "expose via settings context property" ) );
 
+    // c154 : native-subsystem bridge (MIDI / audio / video / Syphon /
+    // clipboard / net device enumeration) + the Display-menu controller
+    // (engine output surface : intuitive preview vs native window). Both
+    // route logs into the Studio Console, like the other panel adapters.
+    aaa::ui::qt6::NativeDevicesModel     nativeDevices;
+    aaa::ui::qt6::NativeDisplayController nativeDisplay;
+    QObject::connect( &nativeDevices, &aaa::ui::qt6::NativeDevicesModel::logLine,
+                       &model,        &aaa::ui::qt6::StudioModel::logLine );
+    QObject::connect( &nativeDisplay, &aaa::ui::qt6::NativeDisplayController::logLine,
+                       &model,        &aaa::ui::qt6::StudioModel::logLine );
+    qmlRegisterUncreatableType< aaa::ui::qt6::NativeDevicesModel >(
+        "aaa.ui.qt6", 1, 0, "NativeDevicesModel",
+        QStringLiteral( "expose via nativeDevices context property" ) );
+    qmlRegisterUncreatableType< aaa::ui::qt6::NativeDisplayController >(
+        "aaa.ui.qt6", 1, 0, "NativeDisplayController",
+        QStringLiteral( "expose via nativeDisplay context property" ) );
+
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty(
         QStringLiteral( "studio" ), &model );
@@ -141,6 +159,10 @@ int main( int argc, char** argv )
         QStringLiteral( "luaHelper" ), &luaHelper );
     engine.rootContext()->setContextProperty(
         QStringLiteral( "settings" ), &settings );
+    engine.rootContext()->setContextProperty(
+        QStringLiteral( "nativeDevices" ), &nativeDevices );
+    engine.rootContext()->setContextProperty(
+        QStringLiteral( "nativeDisplay" ), &nativeDisplay );
 
     QObject::connect(
         &engine, &QQmlApplicationEngine::objectCreationFailed,
