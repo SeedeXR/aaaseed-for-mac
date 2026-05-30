@@ -17,6 +17,8 @@ Test suite : **54 / 54** Qt::Test cases across 4 binaries — `aaa_qt_studio_mod
 
 UI is **Qt6 + QML only** since c152-C. Dear ImGui retired (3000+ lines removed) ; the platform-neutral `aaa::ui::studio::Studio` data model is shared between the Qt UI and the engine runtime via `.aaaproj.lua` files.
 
+**Native peripheral subsystems (wave 2, c153)** — ported from the engine author's own `mac-port` branch as hermetic, Metal/Apple-framework-native sub-libs : **Audio** (CoreAudio device enum + AVAudioEngine player/input + a real energy-based beat detector), **Video** (AVFoundation movie playback + camera capture → **`CVMetalTextureCache` zero-copy `MTLTexture`** on unified memory, the headline GPU path), **MIDI** (CoreMIDI in/out + sysex), **Net** (NSURLSession async HTTP + JSON→Lua table), **Clipboard** (NSPasteboard UTF-8 copy/paste, C-ABI-compatible with the shared engine call site), a **Syphon server directory** (zero-config discovery over the existing IOSurface/Distributed-Notification bus) + vertical-flip receive helper, a native **context menu** (NSMenu builder from a platform-neutral model), and **multi-display** support (NSScreen geometry + borderless aux windows with per-display CAMetalLayers + a sub-rect present primitive, wired into the runtime's draw loop behind the opt-in `AAASEED_MULTIDISPLAY` env var). These build by default and ship a runnable `tests/native/` pyramid (**80 tests** ; 75 pass / 5 hardware-or-network-skipped). Remaining roadmap (live ≥2-display verification of the multi-display path, the Syphon BDD widget) lives in `second_todo.md`.
+
 ## Requirements
 
 - **Hardware:** Apple Silicon (M1 / M2 / M3 / M4).
@@ -56,6 +58,14 @@ aaaseed-for-mac/
 ├── src/                        Mac-native engine code
 │   ├── gol/metal/              GOL OpenGL-isolation backend, Metal target
 │   ├── meu/                    MEU Lua runner (Mac)
+│   ├── audio/                  CoreAudio enum + AVAudioEngine + beat detector (c153)
+│   ├── video/                  AVFoundation -> CVMetalTextureCache zero-copy (c153)
+│   ├── clipboard/              NSPasteboard copy/paste (c153)
+│   ├── midi/                   CoreMIDI in/out + sysex (c153)
+│   ├── net/                    NSURLSession HTTP + JSON->Lua (c153)
+│   ├── menu/                   NSMenu context-menu builder (c153)
+│   ├── display/                NSScreen geometry + multi-display windows (c153)
+│   ├── syphon/                 Syphon server/client + directory discovery (c153)
 │   ├── ui/macos/               NSApplication / NSWindow / MTKView host (runtime)
 │   ├── ui/widgets/             widget chrome (used by runtime)
 │   ├── ui/studio/              platform-neutral Studio data model (Q_OBJECT-free)
@@ -68,6 +78,7 @@ aaaseed-for-mac/
 │   │   └── qml/                  Main.qml, HomeScreen, SettingsDialog, panels/
 │   └── shaders/msl/            169 Path A .metal shaders
 ├── tests/qt/                   Qt::Test coverage (54 cases ; 4 binaries)
+├── tests/native/               Always-on gtest pyramid for the c153 native sub-libs
 ├── tests/unit/, integration/,  Legacy gtest tree (-DAAA_BUILD_LEGACY_TESTS=ON)
 └── tests/regression/
 ├── bundle/macos/               Info.plist.in, entitlements.plist, AAASeed.icns

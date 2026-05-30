@@ -64,6 +64,22 @@ add_subdirectory(src/infrastructure)
 add_subdirectory(src/gol/metal)
 add_subdirectory(src/text)
 add_subdirectory(src/syphon)
+# c153 (second_todo.md) : wave-2 native Mac feature sub-libs ported from the
+# engine author's mac-port branch. Hermetic (std:: + Apple frameworks only,
+# no engine link). Clipboard (S6), MIDI (S3), Net/HTTP+JSON (S5). The Syphon
+# directory + vertical-flip (S4) extend src/syphon in place above.
+add_subdirectory(src/clipboard)
+add_subdirectory(src/midi)
+add_subdirectory(src/net)
+# c153 wave-2 tier 2 (second_todo.md S1/S2) : Audio (CoreAudio/AVAudioEngine +
+# beat detector) and Video (AVFoundation -> CVMetalTextureCache zero-copy
+# MTLTexture, the unified-memory showcase + movie playback + camera capture).
+add_subdirectory(src/audio)
+add_subdirectory(src/video)
+# c153 wave-2 tier 3 (second_todo.md S7/S8) : native NSMenu context menu and
+# multi-display (NSScreen geometry + borderless aux windows w/ CAMetalLayers).
+add_subdirectory(src/menu)
+add_subdirectory(src/display)
 add_subdirectory(src/macos)
 add_subdirectory(src/meu)
 add_subdirectory(src/bdd)
@@ -101,6 +117,10 @@ endif()
 # c152-E : Qt::Test coverage for the new data layer. Builds whenever
 # Qt6 is enabled (same as aaaseed_app_qt).
 add_subdirectory(tests/qt)
+# c153 (second_todo.md) : ALWAYS-ON test tree for the wave-2 native Mac
+# subsystems (clipboard / midi / net / syphon-directory). Independent of the
+# quarantined AAA_BUILD_LEGACY_TESTS tree -- ctest picks these up by default.
+add_subdirectory(tests/native)
 # c152-C : tests/integration retired with the .mm in-app test family --
 # every test there compiled AAASeedMTKView.mm. Re-introduce on the Qt
 # side once an engine viewport ships.

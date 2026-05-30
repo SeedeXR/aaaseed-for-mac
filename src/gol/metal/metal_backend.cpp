@@ -894,6 +894,16 @@ namespace GOL
         return static_cast< void* >( _current_cb );
     }
 
+    // c153 (second_todo.md S8) : native MTL::Texture* for a TextureId, as a
+    // void* per the c134-A bridge doctrine. nullptr if unknown.
+    void* MetalBackend::native_texture( TextureId id ) const
+    {
+        auto it = _textures.find( id );
+        if( it == _textures.end() )
+            return nullptr;
+        return static_cast< void* >( it->second );
+    }
+
     Backend* create_default_backend()
     {
         return new MetalBackend();

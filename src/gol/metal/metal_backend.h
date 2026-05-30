@@ -95,6 +95,13 @@ namespace GOL
         //	commandBuffer.device to compile pipeline state lazily.
         void*              get_active_command_buffer() const;
 
+        //	c153 (second_todo.md S8) : returns the native MTL::Texture* backing
+        //	`id` as a void* (c134-A bridge-API doctrine), or nullptr if the id
+        //	is unknown. Lets the multi-display host sample an offscreen render
+        //	target (the shared "span" texture) with aaa::display::SubRectPresenter
+        //	without the backend depending on the display sub-lib.
+        void*              native_texture( TextureId id ) const;
+
 
         //	Window-target render-pass entry. The host (src/ui/macos/) calls
         //	this with the drawable acquired from MTKView's currentDrawable.

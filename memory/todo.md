@@ -2,6 +2,8 @@
 
 > Convention: `[ ]` open, `[x]` done, `[~]` in progress, `~~strike~~` cancelled or superseded. When a cancelled item is replaced, the new item references the original with **Why:**.
 
+> **Wave-2 work (c153+):** the catalog of features ported / to-port from the engine author's own `mac-port` branch lives in repo-root **`second_todo.md`**. c153 landed MIDI / Net / Clipboard / Syphon-directory (native, tested). Audio / Video / context-menu / multi-window remain tracked there.
+
 ## Project doctrine (read before touching any item)
 
 1. **Apple Metal GPU directly.** No abstraction via Vulkan / SPIR-V / SPIRV-Cross / MoltenVK / ANGLE / OpenGL-on-Metal. Engine shaders are hand-ported to MSL ; runtime path is `MTL::Device::newLibrary(NS::String*, ...)`. See `memory/feedback_nvidia_to_metal.md`.

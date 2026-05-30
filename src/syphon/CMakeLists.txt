@@ -28,9 +28,14 @@ add_library(aaaseed_syphon STATIC
     #  IOSurfaceID, and hands the recovered IOSurfaceRef (or wrapped
     #  MTLTexture) to the consumer.
     syphon_client_mac.mm
+    #  c153 (second_todo.md S4) : passive server DIRECTORY -- discovers
+    #  advertising servers by observing the shared frame DN, without
+    #  knowing names in advance. syphon_pixel_util.h (vertical-flip) is
+    #  header-only so it needs no source entry here.
+    syphon_directory_mac.mm
 )
 
-set_source_files_properties(syphon_mac.mm syphon_lua_mac.mm syphon_client_mac.mm
+set_source_files_properties(syphon_mac.mm syphon_lua_mac.mm syphon_client_mac.mm syphon_directory_mac.mm
     PROPERTIES
     LANGUAGE OBJCXX
     #  Manual reference counting matches the rest of the Mac sub-libs

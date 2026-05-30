@@ -196,6 +196,9 @@ target_link_libraries(aaaseed_engine_view PUBLIC
     aaaseed_ui_widgets_mac
     aaaseed_stb
     aaaseed_text
+    #  c153 (second_todo.md S8) : opt-in multi-display span (aux windows +
+    #  per-display CAMetalLayers + sub-rect present primitive).
+    aaaseed_display
     "${COCOA_FRAMEWORK}"
     "${METALKIT_FRAMEWORK}"
     "${METAL_FRAMEWORK_UI}"

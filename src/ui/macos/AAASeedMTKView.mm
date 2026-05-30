@@ -32,6 +32,20 @@
 //	(via the MTKView's `view` argument).
 #import "AAASeedInputView.h"
 
+//	c153 (second_todo.md S8) : opt-in multi-display fullscreen span. The aux
+//	windows + per-display CAMetalLayers + the sub-rect present primitive are
+//	the hermetic aaaseed_display sub-lib ; this host calls them after the
+//	primary frame is presented to mirror each aux display's sub-rect of the
+//	frame. Enabled only when AAASEED_MULTIDISPLAY is set in the environment ;
+//	default behaviour (incl. on multi-monitor machines) is byte-identical.
+#include "src/display/display_mac.h"
+#include "src/display/display_layout.h"
+#include "src/display/display_present_mac.h"
+//	ObjC Metal / QuartzCore for the metal-cpp <-> id<> bridge casts used by the
+//	aux-present path. Coexists with the <Metal/Metal.hpp> metal-cpp import.
+#import <Metal/Metal.h>
+#import <QuartzCore/CAMetalLayer.h>
+
 //	c148 : ImGui Studio authoring surface. Owned alongside the widget
 //	system ; driven once per frame (new_frame before the pass,
 //	render inside the pass after the widget system end_frame).
@@ -212,6 +226,13 @@ struct AAASeedAaaFuVec4s
     std::uint64_t      _perfMinNs;
     NSInteger          _perfMeasuredFrames;
 
+    //	c153 (second_todo.md S8) : opt-in multi-display span state. Both are
+    //	null unless AAASEED_MULTIDISPLAY is set AND >=2 screens are present ;
+    //	when null the draw loop runs exactly as before (zero regression).
+    aaa::display::MultiDisplay *     _multiDisplay;
+    aaa::display::SubRectPresenter * _spanPresenter;
+    BOOL                             _multiDisplayInitDone;
+
     //	Continuation 61 : HUD text path. Atlas built once at init from
     //	bundled SourceCodePro-Medium.ttf. R8 MTLTexture + text MSL +
     //	per-frame transient vertex buffer holding layout_text_quads()
@@ -313,6 +334,10 @@ struct AAASeedAaaFuVec4s
         _perfMaxNs         = 0;
         _perfMinNs         = ~std::uint64_t( 0 );
         _perfMeasuredFrames = 0;
+
+        _multiDisplay         = nullptr;
+        _spanPresenter        = nullptr;
+        _multiDisplayInitDone = NO;
 
         _hudProgram        = GOL::kInvalidProgramId;
         _hudAtlasTex       = GOL::kInvalidTextureId;
@@ -701,6 +726,32 @@ struct AAASeedAaaFuVec4s
 {
     if( !_backend ) return;
 
+    //	c153 (second_todo.md S8) : one-shot opt-in multi-display init. Runs
+    //	BEFORE currentDrawable so framebufferOnly=NO takes effect this frame
+    //	(the aux present path samples the primary drawable's texture). When
+    //	AAASEED_MULTIDISPLAY is unset, or there is only one screen, this is a
+    //	no-op and the loop below is byte-identical to the single-window path.
+    if( !_multiDisplayInitDone )
+    {
+        _multiDisplayInitDone = YES;
+        if( std::getenv( "AAASEED_MULTIDISPLAY" ) != nullptr )
+        {
+            _multiDisplay = new aaa::display::MultiDisplay();
+            if( _multiDisplay->enable() > 0 && _backend->get_device() )
+            {
+                id<MTLDevice> dev =
+                    (__bridge id<MTLDevice>)( void* ) _backend->get_device();
+                _spanPresenter = new aaa::display::SubRectPresenter( dev );
+                view.framebufferOnly = NO;   //	make the drawable sampleable
+            }
+            else
+            {
+                delete _multiDisplay;
+                _multiDisplay = nullptr;
+            }
+        }
+    }
+
     id< CAMetalDrawable > drawable = view.currentDrawable;
     if( !drawable ) return;
 
@@ -988,6 +1039,14 @@ struct AAASeedAaaFuVec4s
     //	overlay blends against fresh pixels (no intermediate copy needed).
     _backend->present_window( drawable_cpp );
 
+    //	c153 (second_todo.md S8) : mirror each aux display's sub-rect of the
+    //	just-presented primary frame. No-op unless multi-display is enabled.
+    //	The primary drawable's texture is sampleable (framebufferOnly=NO set at
+    //	init) ; the presenter's command buffers run after present_window's on
+    //	the same queue, so the frame is fully written before it is sampled.
+    if( _multiDisplay && _spanPresenter && _spanPresenter->is_valid() )
+        [self presentAuxDisplaysFrom:drawable_cpp];
+
     auto const t_frame_end = std::chrono::steady_clock::now();
     std::uint64_t const frame_ns = static_cast< std::uint64_t >(
         std::chrono::duration_cast< std::chrono::nanoseconds >(
@@ -1030,6 +1089,44 @@ struct AAASeedAaaFuVec4s
     }
 }
 
+//	c153 (second_todo.md S8) : mirror the primary frame onto each aux display.
+//	For each aux screen, sample its normalized sub-rect of the shared virtual
+//	canvas from the primary drawable's texture and present it into that aux
+//	window's CAMetalLayer drawable. Sub-rect math is the pure, unit-tested
+//	display_layout core ; the blit is the unit-tested SubRectPresenter.
+- (void)presentAuxDisplaysFrom:(CA::MetalDrawable*)primary
+{
+    if( !primary ) return;
+    MTL::Texture* src_cpp = primary->texture();
+    if( !src_cpp ) return;
+
+    id<MTLTexture>      src   = (__bridge id<MTLTexture>)( void* ) src_cpp;
+    id<MTLCommandQueue> queue =
+        (__bridge id<MTLCommandQueue>)( void* ) _backend->get_command_queue();
+    if( src == nil || queue == nil ) return;
+
+    //	Virtual bounding canvas over all screens (same basis MultiDisplay used
+    //	to pick aux screens).
+    std::vector< aaa::display::Rect > screens = aaa::display::enumerate_screens();
+    aaa::display::Rect const bounds = aaa::display::virtual_bounds( screens );
+
+    std::size_t const aux_n = _multiDisplay->aux_count();
+    for( std::size_t k = 0; k < aux_n; ++k )
+    {
+        void* layer_v = _multiDisplay->aux_metal_layer( k );
+        if( layer_v == nullptr ) continue;
+        CAMetalLayer* layer = (__bridge CAMetalLayer*) layer_v;
+
+        id<CAMetalDrawable> aux_drawable = [layer nextDrawable];
+        if( aux_drawable == nil ) continue;
+
+        aaa::display::Rect const sub =
+            aaa::display::normalized_subrect( _multiDisplay->aux_rect( k ), bounds );
+        _spanPresenter->present_to_drawable( queue, src,
+                                             (__bridge void*) aux_drawable, sub );
+    }
+}
+
 - (void)dealloc
 {
     //	c144 : tear the MEU runner down FIRST so its cached programs +
@@ -1049,6 +1146,10 @@ struct AAASeedAaaFuVec4s
     // c152-D : studio event monitor + studio teardown retired.
     _meuRunner.reset();
     _widgetSystem.reset();
+
+    //	c153 (second_todo.md S8) : tear down the opt-in multi-display state.
+    delete _spanPresenter; _spanPresenter = nullptr;   //	releases Metal pipeline
+    if( _multiDisplay ) { _multiDisplay->disable(); delete _multiDisplay; _multiDisplay = nullptr; }
 
     if( _backend )
     {

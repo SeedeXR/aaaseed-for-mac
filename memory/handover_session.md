@@ -4,6 +4,58 @@
 
 ---
 
+## Session 2026-05-30 (continuation 153) — WAVE-2 NATIVE SUBSYSTEMS from upstream `mac-port` branch
+
+**Agent:** Claude Opus 4.8 (1M). 2 parallel background impl agents (MIDI, Net) + orchestrator (clipboard, syphon-directory, all CMake/build/test/docs).
+
+**User:** "read aaaseed-originals/aaaseed_exe-mac-port ... compare to aaaseed-for-mac ... ensure each is implemented natively on Metal GPU ... no regression ... create second_todo.md ... update readme, docs, memory ... maintain cross platform, no hallucination, no regression, no assumptions ... port natively ... spin multiple agents ... don't stop nor defer."
+
+### What the new repo actually is (zero-hallucination finding)
+
+`aaaseed-originals/aaaseed_exe-mac-port` = the **engine author's OWN macOS port branch** (GitLab `aaa_foundation/aaaseed_exe`, branch `mac-port`). Key facts, all verified:
+- It **keeps OpenGL/GLUT** for rendering ; `Renderer_AAA_mac.cpp` is an event-wiring stub ; `Runner_mac.cpp` drives `glfwPollEvents`. **Metal is used only for Syphon interop.**
+- It adds **ZERO new `.metal`/`.glsl` shaders** (the runtime shader corpus lives in the *content* repo `aaaseed-main`, unchanged). Our repo already ports 169 MSL shaders. -> "new shaders" resolved to 0 shader files.
+- ~50 new `*_mac` files + 915 differing files ; the 915 are overwhelmingly **cross-platform SIMD churn** (`sse2neon`->`simde`, AVX2/SSE alignment, LF endings) -- engine-internal, NOT Mac-GPU work.
+- Genuinely-new feature subsystems our Metal-native repo lacked: **Audio (CoreAudio 932 LOC), Video (AVFoundation 1371 LOC), MIDI (320), Net/HTTP (481), Clipboard copy/paste, native context menu, multi-window span, richer Syphon receiver/directory.**
+
+### Scope decision (user-confirmed via AskUserQuestion)
+
+`project_context.md` L87 marked these "out of scope until v2" + `MEMORY.md` records v4 PROJECT CLOSURE, so this is a deliberate reactivation. Doing all 8 with full test pyramids is multi-session. User chose **"Tractable tier, fully done"**: port **Clipboard + MIDI + Net + Syphon-receiver** natively NOW with the full pyramid ; leave Audio/Video/Multi-window/Context-menu tracked in `second_todo.md`.
+
+### What landed (all hermetic sub-libs : pure ObjC++, `-fno-objc-arc`, std:: + Apple frameworks, NO engine link)
+
+| Sub-lib | Target | Files | Tests |
+|---|---|---|---|
+| Audio (S1, tier 2) | `aaaseed_audio` | `src/audio/{audio_mac,beat_detector}.{h,mm}` + CMake | 10 (+1 mic-skip) |
+| Video (S2, tier 2) | `aaaseed_video` | `src/video/{metal_texture_bridge,movie_mac,capture_mac}.{h,mm}` + CMake | 7 (+1 cam-skip) |
+| Clipboard (S6) | `aaaseed_clipboard` | `src/clipboard/clipboard_mac.{h,mm}` + CMake | 5 |
+| MIDI (S3) | `aaaseed_midi` | `src/midi/midi_mac.{h,mm}` + CMake | 19 (+1 hw-skip) |
+| Net (S5) | `aaaseed_net` | `src/net/{net_mac,net_json_lua}.{h,mm}` + CMake | 11 (+1 net-skip) |
+| Menu (S7, tier 3) | `aaaseed_menu` | `src/menu/menu_mac.{h,mm}` + CMake | 6 |
+| Display (S8, tier 3) | `aaaseed_display` | `src/display/{display_layout.h,display_mac.{h,mm},display_present_mac.{h,mm}}` + CMake | 12 (+1 gated-skip) |
+| Syphon dir (S4) | `aaaseed_syphon` (extended) | `src/syphon/syphon_directory_mac.{h,mm}` + `syphon_pixel_util.h` | 7 |
+
+**Tier 3 (Menu + Display) note:** done by orchestrator directly (no agents — bounded AppKit work). Menu = recursive NSMenu builder from a platform-neutral `aaa::menu::Item` model, path-based headless introspection. Display = pure geometry core (`display_layout.h`: virtual_bounds / normalized_subrect / primary_index) + live NSScreen enum + `MultiDisplay` borderless aux windows w/ CAMetalLayers + **`SubRectPresenter`** (inline-MSL fullscreen-quad that blits a normalized sub-rect of a shared source texture into an aux drawable, scaling to the display ; CI-tested via offscreen readback — its identity test caught + fixed a real shader UV-range bug). **S8 host integration LANDED:** wired into `AAASeedMTKView.mm` behind opt-in `AAASEED_MULTIDISPLAY` env (default + multi-monitor unset = byte-identical → zero regression). When enabled w/ ≥2 screens: `framebufferOnly=NO`, then after `present_window` mirror each aux display's `normalized_subrect` of the primary frame into its CAMetalLayer via `present_to_drawable` (presenter cmd buffers run after the engine's on the same queue). Added `MetalBackend::native_texture(TextureId)` (additive bridge accessor) + `present_to_drawable` overload. **Verified by RUNNING the runtime:** 60 frames clean default + 40 frames clean with env=1 on this 1-display machine (graceful no-op via enable()==0). Full build + ctest 87/87. **Only truly-open S8 item: live test on a ≥2-display rig (no such hardware here) — code-complete, mirror semantics; true-span is a later engine-resolution change.**
+
+**Tier 2 (Audio + Video) note:** the 2 background impl agents stalled on the watchdog mid-file (partial: BeatDetector + MetalTextureBridge drafted) ; orchestrator completed `audio_mac.mm`, `movie_mac.mm`, `capture_mac.{h,mm}` + all 4 test files by hand. **Video `MetalTextureBridge` is the unified-memory headline** : `CVMetalTextureCache` zero-copy CVPixelBuffer->MTLTexture, verified by a byte-readback test (no camera/file). Audio `BeatDetector` is a REAL energy-onset detector (recovers 120/90 BPM on synthetic click tracks), NOT the 12-LOC upstream stub.
+
+- **NEW always-on test tree** `tests/native/` (added unconditionally in root CMake like `tests/qt`) -- the legacy `tests/unit`+`tests/regression` are quarantined behind `AAA_BUILD_LEGACY_TESTS` since the Qt cutover, so new tests went into a fresh always-built tree. **80 new tests ; 75 pass / 5 explicitly skipped (hardware MIDI loopback, live network, live mic, live camera, live multi-display) -- never silent.**
+- **Full default ctest: 87/87 green, 0 regressions** (verified by building + running the 2 previously-unbuilt Qt test binaries too -- they pass ; their earlier "Not Run" was a build-state artifact of the targeted incremental build, not a regression).
+- **Syphon S4 nuance:** the *receiver* (`ClientMac::consume_metal_texture`) + multi-server send already existed (c124). c153 added the genuinely-missing **directory discovery** + the **vertical-flip** helper. The `bdd_syphon` per-instance UI widget remains tracked (UI/widget owner).
+- Clipboard ships the byte-compatible C-ABI `mac_clipboard_copy/paste` so the shared engine call site links the same symbol cross-platform.
+
+### Cross-platform / doctrine compliance
+
+- Change set = **only** new dirs (`src/clipboard`, `src/midi`, `src/net`, 3 syphon files, `tests/native`, `second_todo.md`) + 2 additive CMake wires (root + syphon). **No engine `.cpp`, no Windows file, no vendor edit, no `err.h`/`aaa_type.h` touch, no `#ifdef` in engine files.** ASCII-only verified across all new source.
+- All CoreMIDI / Foundation symbols SDK-verified by the impl agents.
+
+### Open threads / next
+
+- `second_todo.md` is the live catalog. S1-S8 ALL landed this session (tier 1: S3/S4/S5/S6 ; tier 2: S1/S2 ; tier 3: S7/S8 native core). REMAINING (tracked): **S8 live verification on a ≥2-display rig (host wiring is done + single-display-verified ; multi-monitor branch is code-complete but unexercisable on this 1-display machine), the S4 `bdd_syphon` per-instance UI widget, and the engine SIMD resync (915-file `simde` churn -> fold in at next `vendor/` re-sync per VENDORING.md).**
+- New doctrine memory: `feedback_native_sublib_wave2.md` (auto-memory) + `docs/developer/native-subsystems.md`.
+
+---
+
 ## Sessions 2026-05-27 (continuation 150 + 151) — 🎉 v4 COMPLETE (IME + multi-line) + DOCS DEPLOYMENT INFRASTRUCTURE LANDS
 
 ### Recap continuation 150 — v4 final feature work
