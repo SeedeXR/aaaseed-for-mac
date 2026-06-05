@@ -148,7 +148,7 @@ Mac v1 :
 | Engine layers (`fx.aaa_layers_all`)      | Layer subsystem                                    | Superseded -- Path A shaders only (no layer cells)  |
 | Visual node editor                       | None (never existed)                               | None                                                |
 | Lua authoring                            | Supported                                          | Supported                                           |
-| Sample MEU library                       | `AAAKernel/AAA_PROTO/MEU_PROTO*/`                  | `Contents/Resources/meu/Samples/` (14 starters)     |
+| Sample MEU library                       | `AAAKernel/AAA_PROTO/MEU_PROTO*/`                  | `Contents/Resources/meu/Samples/` (16 starters)     |
 | Hot reload                               | Manual                                             | FSEvents file watcher -- save and it reloads        |
 | Preset format                            | `preset_*.plua`                                    | Single-table Lua `return { ... }` file              |
 | Graphics backend                         | DirectX 11                                         | Metal                                               |
@@ -164,6 +164,11 @@ moving parts, all the same shaders.
 
 - [Installation](installation.md) -- DMG verification, Gatekeeper
   rinse, architecture check.
+- [Running scripts](running-scripts.md) -- Cmd+R now RUNS the editor
+  buffer in the engine (hot-reload on repeat presses), Play runs the
+  saved project, plus drag-drop and why a script can load yet render
+  nothing (the `aaa.on_frame` rule). **Read this first if "nothing
+  happens".**
 - [MEU authoring](meu-authoring.md) -- the canonical tutorial. Anatomy
   of a MEU, hot-reload, presets, what is not supported in v1.
 - [Lua API : core](lua-api/core.md) -- `aaa.use_shader`,
@@ -175,7 +180,7 @@ moving parts, all the same shaders.
   preset save / load + preset format spec.
 - [Lua API : IME](lua-api/ime.md) -- CJK marked-text composition path +
   synthetic injection bindings.
-- [Sample MEUs](samples.md) -- a guided tour of all 14 starter MEUs.
+- [Sample MEUs](samples.md) -- a guided tour of all 16 starter MEUs.
 - [Shader catalog](shader-catalog.md) -- the 169 Path A shaders, with
   the 11 real-algorithm revivals called out plus citations.
 

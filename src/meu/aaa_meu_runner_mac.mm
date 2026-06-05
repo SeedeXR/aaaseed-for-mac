@@ -86,6 +86,26 @@ namespace
         return ss.str();
     }
 
+    //	c157 : true iff the MSL source declares AaaFuVec4s at buffer(0)
+    //	(the c39-era legacy ABI of ps_Maa_add_scale). The catalog norm is
+    //	floats@0 / vec4s@1 / ints@2 ; the first buffer(0) declaration in
+    //	the file decides. Window-scan backwards from "[[buffer(0)]]" for
+    //	the struct name on the same declaration.
+    bool msl_declares_vec4s_at_buffer0( std::string const& src )
+    {
+        std::size_t pos = src.find( "[[buffer(0)]]" );
+        while( pos != std::string::npos )
+        {
+            std::size_t const from = pos > 80 ? pos - 80 : 0;
+            std::string const win  = src.substr( from, pos - from );
+            if( win.find( "AaaFuVec4s" )  != std::string::npos ) return true;
+            if( win.find( "AaaFuFloats" ) != std::string::npos ) return false;
+            if( win.find( "AaaFuInts" )   != std::string::npos ) return false;
+            pos = src.find( "[[buffer(0)]]", pos + 1 );
+        }
+        return false;
+    }
+
     //	Locate the bundle / build-time directory holding the .metal
     //	catalog. Preference order :
     //	  1. AAA_MEU_SHADERS_DIR env var (test override).
@@ -180,7 +200,32 @@ public:
             //	to lua_tostring(). On reload() we close + re-open.
             return false;
         }
+
+        //	c155 : a script that never defines `aaa.on_frame` loads fine
+        //	but renders NOTHING -- the classic "I ran my .lua and nothing
+        //	happened" trap (e.g. pasting a pure library module that just
+        //	`return`s a table). Surface it loudly instead of silently.
+        if( !has_on_frame() )
+        {
+            NSLog( @"aaa::meu::Runner : WARNING -- '%s' loaded but defines "
+                    "no aaa.on_frame(w, h, frame). Nothing will render. "
+                    "See Resources/meu/Samples/perlin_noise/ for the "
+                    "minimal pattern.",
+                   lua_path.c_str() );
+        }
         return true;
+    }
+
+    //	c155 : true iff the loaded state has `aaa.on_frame` as a function.
+    bool has_on_frame() const
+    {
+        if( _L == nullptr ) return false;
+        lua_getglobal( _L, "aaa" );
+        if( !lua_istable( _L, -1 ) ) { lua_pop( _L, 1 ); return false; }
+        lua_getfield( _L, -1, "on_frame" );
+        bool const is_fn = lua_isfunction( _L, -1 );
+        lua_pop( _L, 2 );
+        return is_fn;
     }
 
     bool reload()
@@ -216,6 +261,7 @@ public:
                 _backend->delete_texture( _placeholder_tex );
         }
         _program_cache.clear();
+        _program_vec4_at0.clear();
         _uniform_vec4s_buf  = GOL::kInvalidBufferId;
         _uniform_floats_buf = GOL::kInvalidBufferId;
         _uniform_ints_buf   = GOL::kInvalidBufferId;
@@ -1359,6 +1405,18 @@ private:
             return false;
         }
 
+        //	c157 : per-shader uniform-ABI detection. The catalog's dominant
+        //	ABI is floats@buffer(0) / vec4s@buffer(1) / ints@buffer(2)
+        //	(~168 shaders) ; the c39-era ps_Maa_add_scale alone declares
+        //	vec4s@buffer(0). The runner historically bound ONLY vec4s to
+        //	slot 0, which silently no-op'ed every set_uniform_float /
+        //	set_uniform_int and fed vec4 bytes into the trio shaders'
+        //	floats[]. We detect the legacy shape from the source we are
+        //	already holding and bind accordingly at draw time -- legacy
+        //	shaders keep their exact historical bytes, trio shaders get
+        //	all three uniform arrays for the first time.
+        _program_vec4_at0[ name ] = msl_declares_vec4s_at_buffer0( src );
+
         GOL::ProgramId prog = _backend->create_program_msl(
             src.c_str(), "vs_main", "fs_main", GOL::TextureFormat::BGRA8 );
         _program_cache[ name ] = prog;
@@ -1435,8 +1493,24 @@ private:
             _backend->bind_fragment_texture( _placeholder_tex, slot );
         }
 
-        //	Vec4s in slot 0 -- the most common engine-ABI layout.
-        _backend->bind_fragment_buffer( _uniform_vec4s_buf, 0, 0 );
+        //	c157 : bind per the shader's detected uniform ABI (see
+        //	use_shader). Trio ABI (the catalog norm) : floats@0, vec4s@1,
+        //	ints@2 -- makes aaa.set_uniform_float / _int functional.
+        //	Legacy vec4@0 ABI (ps_Maa_add_scale) : vec4s@0, byte-identical
+        //	to the historical binding so its established look is preserved.
+        auto const abi_it = _program_vec4_at0.find( _current_shader );
+        bool const legacy_vec4_at0 =
+            ( abi_it != _program_vec4_at0.end() ) && abi_it->second;
+        if( legacy_vec4_at0 )
+        {
+            _backend->bind_fragment_buffer( _uniform_vec4s_buf, 0, 0 );
+        }
+        else
+        {
+            _backend->bind_fragment_buffer( _uniform_floats_buf, 0, 0 );
+            _backend->bind_fragment_buffer( _uniform_vec4s_buf,  1, 0 );
+            _backend->bind_fragment_buffer( _uniform_ints_buf,   2, 0 );
+        }
 
         _backend->draw_arrays( GOL::PrimitiveType::Triangles, 0, 3 );
     }
@@ -1450,6 +1524,11 @@ private:
     //	Program cache : shader-stem -> compiled ProgramId. Entries with
     //	kInvalidProgramId are negative cache (compile failed).
     std::unordered_map< std::string, GOL::ProgramId > _program_cache;
+
+    //	c157 : per-shader uniform-ABI flag (true = legacy vec4s@buffer(0),
+    //	false = trio floats@0/vec4s@1/ints@2). Filled at compile time from
+    //	the MSL source ; consumed by draw_fullscreen_quad's bind block.
+    std::unordered_map< std::string, bool > _program_vec4_at0;
 
     //	Currently-bound shader for the next draw call.
     std::string  _current_shader;
@@ -1579,6 +1658,11 @@ std::string Runner::current_shader_name() const
 int Runner::frame_index() const
 {
     return _impl ? _impl->frame_index() : 0;
+}
+
+bool Runner::has_on_frame() const
+{
+    return _impl ? _impl->has_on_frame() : false;
 }
 
 std::vector< std::string > Runner::list_shaders() const

@@ -15,6 +15,7 @@ int main( int argc, char const* argv[] )
 {
     NSInteger maxFrames = 0;
     NSString* projectPath = nil;       // c152-D : --project <path>
+    NSString* scriptPath  = nil;       // c156 : --script <path.lua>
     for( int i = 1; i + 1 < argc; ++i )
     {
         if( std::strcmp( argv[ i ], "--max-frames" ) == 0 )
@@ -25,6 +26,14 @@ int main( int argc, char const* argv[] )
         else if( std::strcmp( argv[ i ], "--project" ) == 0 )
         {
             projectPath = [NSString stringWithUTF8String: argv[ i + 1 ]];
+            ++i;
+        }
+        // c156 : run a single MEU .lua directly (the Studio's Run Script
+        // path writes the editor buffer to a temp file and spawns us with
+        // this flag). Takes precedence over --project.
+        else if( std::strcmp( argv[ i ], "--script" ) == 0 )
+        {
+            scriptPath = [NSString stringWithUTF8String: argv[ i + 1 ]];
             ++i;
         }
     }
@@ -38,6 +47,8 @@ int main( int argc, char const* argv[] )
         delegate.maxFrames = maxFrames;
         if( projectPath )
             delegate.projectPath = projectPath;
+        if( scriptPath )
+            delegate.scriptPath = scriptPath;
         [app setDelegate:delegate];
 
         [app run];

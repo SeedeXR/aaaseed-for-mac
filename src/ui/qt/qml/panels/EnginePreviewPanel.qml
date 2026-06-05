@@ -104,10 +104,7 @@ Item {
                 visible: !viewport.running
                 Label {
                     anchors.centerIn: parent
-                    text: studio.projectPath.length > 0
-                          ? qsTr("Press Start to attach the engine\n→ %1")
-                                .arg(studio.projectPath)
-                          : qsTr("Save a project first, then press Start.")
+                    text: qsTr("Press Start, then Cmd+R runs the editor script here\n(or Cmd+Shift+R runs the node graph).")
                     color: "#7a8c8c"
                     horizontalAlignment: Text.AlignHCenter
                 }

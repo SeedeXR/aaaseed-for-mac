@@ -128,6 +128,14 @@ public:
     //	Resets on reload(). Exposed to tests + the HUD.
     int frame_index() const;
 
+    //	c155 : true iff the loaded script defined `aaa.on_frame` as a
+    //	function. A script WITHOUT it (e.g. a pure library module that
+    //	just `return`s a table) loads successfully but renders nothing --
+    //	the canonical "my script didn't work" failure mode. load_script
+    //	logs a clear warning in that case ; this accessor lets hosts and
+    //	tests detect it programmatically. False when no script is loaded.
+    bool has_on_frame() const;
+
     //	Catalog discovery : returns the list of .metal files found in the
     //	bundle's Resources/shaders/ (or the build-time path if running
     //	from a test binary). Each entry is the bare shader stem

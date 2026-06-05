@@ -90,7 +90,12 @@ void EngineViewport::attachToWindow( QQuickWindow* window,
     // Create the input view at the requested rect and the MTKView delegate.
     NSRect const frame = NSMakeRect( x, y, w, h );
     impl->view = [[AAASeedInputView alloc] initWithFrame:frame device:dev];
-    impl->view.colorPixelFormat = MTLPixelFormatRGBA8Unorm;
+    //	c158 : MUST be BGRA8 -- the MEU runner compiles every catalog
+    //	pipeline against TextureFormat::BGRA8 (matching the runtime
+    //	MTKView). The previous RGBA8 here made every use_shader draw fail
+    //	pipeline/pass validation, so the preview could never render a
+    //	script even when the catalog was present.
+    impl->view.colorPixelFormat = MTLPixelFormatBGRA8Unorm;
     impl->view.preferredFramesPerSecond = 60;
     impl->view.translatesAutoresizingMaskIntoConstraints = YES;
 
@@ -111,6 +116,56 @@ void EngineViewport::attachToWindow( QQuickWindow* window,
     emit logLine( /*INFO=*/0,
         QStringLiteral( "Engine preview attached at (%1,%2,%3,%4)" )
             .arg(x).arg(y).arg(w).arg(h) );
+
+    //	c158 : a script queued by loadScript() before attach loads now.
+    if( !pending_script_.isEmpty() )
+    {
+        QString const queued = pending_script_;
+        pending_script_.clear();
+        loadScript( queued );
+    }
+}
+
+void EngineViewport::loadScript( QString const& path )
+{
+    if( path.isEmpty() ) return;
+
+    auto* impl = static_cast< EngineViewportImpl* >( impl_ );
+    if( !impl->delegate || !running_ )
+    {
+        pending_script_ = path;
+        emit logLine( /*WARN=*/1,
+            QStringLiteral( "Engine preview not attached -- script queued. "
+                            "Press Start in the Engine Preview panel." ) );
+        return;
+    }
+    auto* runner = [impl->delegate meuRunner];
+    if( !runner )
+    {
+        emit logLine( /*ERR=*/2,
+            QStringLiteral( "Engine preview : runner missing." ) );
+        return;
+    }
+
+    std::string const std_path = path.toStdString();
+    if( runner->load_script( std_path ) )
+    {
+        runner->enable_file_watch();
+        if( !runner->has_on_frame() )
+            emit logLine( /*WARN=*/1,
+                QStringLiteral( "Engine preview : script loaded but defines "
+                                "no aaa.on_frame -- nothing will render." ) );
+        else
+            emit logLine( /*INFO=*/0,
+                QStringLiteral( "Engine preview now running the editor "
+                                "script (hot-reload on)." ) );
+    }
+    else
+    {
+        emit logLine( /*ERR=*/2,
+            QStringLiteral( "Engine preview : script load failed for %1" )
+                .arg( path ) );
+    }
 }
 
 void EngineViewport::setBounds( int x, int y, int w, int h )

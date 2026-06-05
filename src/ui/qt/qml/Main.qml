@@ -165,6 +165,9 @@ ApplicationWindow {
         Menu {
             title: qsTr("Run")
             Action { text: qsTr("Run Script");       shortcut: "Ctrl+R"; onTriggered: studio.runScript() }
+            // c158 : generate a MEU from the node graph (3 s per shader-
+            // bearing node) and run it through the same route as Cmd+R.
+            Action { text: qsTr("Run Graph");        shortcut: "Ctrl+Shift+R"; onTriggered: studio.runGraph() }
             Action { text: qsTr("▶ Play Project");   shortcut: "Ctrl+P"; onTriggered: studio.playProject() }
         }
         // c154 : Display menu -- choose the engine OUTPUT surface. The

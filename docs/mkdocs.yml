@@ -71,6 +71,7 @@ nav:
   - Designer Guide:
     - Getting Started: designer/getting-started.md
     - Installation: designer/installation.md
+    - Running Scripts: designer/running-scripts.md
     - MEU Authoring: designer/meu-authoring.md
     - Lua API:
       - Core (aaa.*): designer/lua-api/core.md

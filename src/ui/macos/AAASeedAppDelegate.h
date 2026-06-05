@@ -19,4 +19,11 @@
 // Spawned by the Qt Studio's Play button : `--project <path>`.
 @property( nonatomic, copy   ) NSString* projectPath;
 
+// c156 : when set, the delegate loads this single MEU .lua directly
+// (takes precedence over projectPath). Spawned by the Qt Studio's
+// Run Script (Cmd+R) : `--script <path.lua>`. The file watcher is
+// enabled so subsequent Cmd+R presses (which rewrite the same temp
+// file) hot-reload the running window without respawning.
+@property( nonatomic, copy   ) NSString* scriptPath;
+
 @end

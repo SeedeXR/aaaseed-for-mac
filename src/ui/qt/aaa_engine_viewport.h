@@ -57,6 +57,13 @@ public slots:
     // unloads back to the bundled hello_world.lua sample.
     void loadProject( QString const& path );
 
+    // c158 : load a single MEU .lua into the embedded preview's runner
+    // (the Cmd+R "intuitive" route). If the preview is not attached yet
+    // the path is QUEUED and loaded automatically on the next
+    // attachToWindow ; file-watch is enabled so re-running Cmd+R (which
+    // rewrites the same temp file) hot-reloads in place.
+    void loadScript( QString const& path );
+
     // Detach the engine view from its parent + tear down the runner.
     // Idempotent.
     void detach();
@@ -72,6 +79,8 @@ private:
     void*    impl_         = nullptr;
     bool     running_      = false;
     QString  project_path_;
+    // c158 : script queued by loadScript() before the view is attached.
+    QString  pending_script_;
 };
 
 } } } // namespace aaa::ui::qt6

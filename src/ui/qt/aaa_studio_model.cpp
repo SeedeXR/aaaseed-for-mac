@@ -20,11 +20,16 @@
 #include <QStandardPaths>
 #include <QTextStream>
 #include <QTimer>
+#include <QUrl>
 #include <QtGlobal>
 
 #include <algorithm>
 #include <filesystem>
 #include <utility>
+
+// c156 : Run Script liveness probe (kill(pid, 0)) for the hot-reload-
+// instead-of-respawn path.
+#include <signal.h>
 
 namespace aaa { namespace ui { namespace qt6 {
 
@@ -898,20 +903,7 @@ void StudioModel::playProject()
     //     ship-qt-dmg.sh).
     //   - Dev : we're at out/<preset>/bin/AAASeed-Studio and the
     //     runtime is the sibling out/<preset>/bin/aaaseed_runtime.app.
-    QString self = QCoreApplication::applicationDirPath();
-    QStringList candidates = {
-        // Bundled inside the Studio .app
-        self + QStringLiteral( "/../Resources/runtime/aaaseed_runtime.app/Contents/MacOS/aaaseed_runtime" ),
-        // Dev-tree sibling
-        self + QStringLiteral( "/aaaseed_runtime.app/Contents/MacOS/aaaseed_runtime" ),
-        self + QStringLiteral( "/aaaseed_runtime" ),
-    };
-    QString runtime_path;
-    for( auto const& c : candidates )
-    {
-        QFileInfo fi( c );
-        if( fi.exists() && fi.isExecutable() ) { runtime_path = c; break; }
-    }
+    QString const runtime_path = locateRuntimeBinary();
     if( runtime_path.isEmpty() )
     {
         emit logLine( /*ERR=*/2,
@@ -997,9 +989,255 @@ void StudioModel::runScript()
     // syntax is OK ; full execution happens in the runtime on Play.
     lua_close( L );
     emit logLine( /*LUA=*/3,
-        QStringLiteral( "Syntax OK (%1 bytes). Press Play (Cmd+P) "
-                        "to run in the engine runtime." )
-            .arg( utf8.size() ) );
+        QStringLiteral( "Syntax OK (%1 bytes)." ).arg( utf8.size() ) );
+
+    // c155 : the classic "my script didn't work" trap -- a pure library
+    // module (no `aaa.on_frame`) loads in the runtime and renders
+    // NOTHING. Heuristic string check ; cheap, no false negatives for
+    // real MEUs (they must literally contain "aaa.on_frame" to render).
+    if( !text.contains( QStringLiteral( "aaa.on_frame" ) ) )
+    {
+        emit logLine( /*WARN=*/1,
+            QStringLiteral( "Hint : this script defines no aaa.on_frame(w, h, frame) "
+                            "-- it will load but render nothing. See "
+                            "Samples/perlin_noise for the minimal pattern." ) );
+    }
+
+    // c156 : actually RUN the buffer in the engine. Write it to a stable
+    // temp .lua and dispatch (c158 : preview hook first, then the
+    // spawn / hot-reload path).
+    QString const tmp = writeEditorRunScript();
+    if( tmp.isEmpty() )
+    {
+        emit logLine( /*ERR=*/2,
+            QStringLiteral( "Run : could not write the editor script to a "
+                            "temp file." ) );
+        return;
+    }
+    dispatchRunFile( tmp );
+}
+
+// c158 : shared run-dispatch tail. Preview hook -> live-runtime
+// hot-reload -> spawn. `tmp` is the already-written script file.
+void StudioModel::dispatchRunFile( QString const& tmp )
+{
+    // Intuitive route : main() installs a hook that hands the script to
+    // the embedded Engine Preview when Display mode == "intuitive".
+    if( intuitive_run_hook_ && intuitive_run_hook_( tmp ) )
+    {
+        emit logLine( /*INFO=*/0,
+            QStringLiteral( "Run : script routed to the Engine Preview "
+                            "(Display menu : Intuitive)." ) );
+        return;
+    }
+
+    if( editor_run_pid_ > 0 && ::kill( pid_t( editor_run_pid_ ), 0 ) == 0 )
+    {
+        emit logLine( /*INFO=*/0,
+            QStringLiteral( "Run : script updated -- the running engine "
+                            "window hot-reloads it." ) );
+        return;
+    }
+
+    if( !run_spawn_enabled_ )
+    {
+        emit logLine( /*INFO=*/0,
+            QStringLiteral( "Run : spawn disabled (test mode) ; script "
+                            "written to %1." ).arg( tmp ) );
+        return;
+    }
+
+    QString const runtime = locateRuntimeBinary();
+    if( runtime.isEmpty() )
+    {
+        emit logLine( /*ERR=*/2,
+            QStringLiteral( "Run : aaaseed_runtime not found next to the "
+                            "Studio -- build the runtime target (dev) or "
+                            "reinstall the .app. Script written to %1." )
+                .arg( tmp ) );
+        return;
+    }
+
+    qint64 pid = 0;
+    if( QProcess::startDetached( runtime,
+            { QStringLiteral( "--script" ), tmp }, QString(), &pid ) )
+    {
+        editor_run_pid_ = pid;
+        emit logLine( /*INFO=*/0,
+            QStringLiteral( "Run : engine runtime spawned (pid=%1) with the "
+                            "editor script. Save/Cmd+R again to hot-reload." )
+                .arg( pid ) );
+    }
+    else
+    {
+        emit logLine( /*ERR=*/2,
+            QStringLiteral( "Run : failed to spawn %1" ).arg( runtime ) );
+    }
+}
+
+// c158 : generate a MEU from the node graph. Every node with a shader
+// gets a 3-second time slice ; numeric-keyed node uniforms (keys "0"..
+// "15") are applied as float slots. "" when no node carries a shader.
+QString StudioModel::generateGraphScript() const
+{
+    if( !studio_ ) return QString();
+
+    QString entries;
+    int     count = 0;
+    for( auto const& node : studio_->nodes() )
+    {
+        if( node.shader_name.empty() ) continue;
+        ++count;
+
+        QString uniforms;
+        for( auto const& kv : node.uniforms )
+        {
+            bool ok = false;
+            int const slot = QString::fromStdString( kv.first ).toInt( &ok );
+            if( ok && slot >= 0 && slot < 16 )
+                uniforms += QStringLiteral( "[%1]=%2," )
+                                .arg( slot )
+                                .arg( double( kv.second ) );
+        }
+
+        QString label = QString::fromStdString( node.label );
+        label.replace( QStringLiteral( "\\" ), QStringLiteral( "\\\\" ) )
+             .replace( QStringLiteral( "\"" ), QStringLiteral( "\\\"" ) );
+
+        entries += QStringLiteral(
+            "  { name = \"%1\", shader = \"%2\", u = { %3 } },\n" )
+                .arg( label )
+                .arg( QString::fromStdString( node.shader_name ) )
+                .arg( uniforms );
+    }
+    if( count == 0 ) return QString();
+
+    //	NB on '%' : QString::arg only substitutes '%' followed by a DIGIT,
+    //	so Lua's modulo ("% #nodes") and string.format markers ("%d", "%s")
+    //	pass through untouched ; only the explicit %1 / %2 are replaced.
+    return QStringLiteral(
+        "-- generated from the node graph (c158) ; %1 node(s)\n"
+        "local nodes = {\n%2}\n"
+        "local per = 3.0\n"
+        "function aaa.on_frame(w, h, frame)\n"
+        "  local t = aaa.time()\n"
+        "  local i = (math.floor(t / per) % #nodes) + 1\n"
+        "  local n = nodes[i]\n"
+        "  aaa.use_shader(n.shader)\n"
+        "  aaa.set_uniform_int(0, 1)\n"
+        "  aaa.set_uniform_float(0, t - math.floor(t))\n"
+        "  aaa.set_uniform_vec4(0, 1, 1, 1, 1)\n"
+        "  aaa.set_uniform_vec4(1, 0, 0, 0, 0)\n"
+        "  for slot, v in pairs(n.u) do aaa.set_uniform_float(slot, v) end\n"
+        "  aaa.draw_hud_text(string.format(\"graph %d/%d : %s (%s)\","
+        " i, #nodes, n.name, n.shader))\n"
+        "  aaa.draw_fullscreen_quad()\n"
+        "end\n"
+        "aaa.log(\"graph script : \" .. tostring(#nodes) .. \" node(s)\")\n" )
+            .arg( count )
+            .arg( entries );
+}
+
+bool StudioModel::runGraph()
+{
+    QString const script = generateGraphScript();
+    if( script.isEmpty() )
+    {
+        emit logLine( /*WARN=*/1,
+            QStringLiteral( "Run Graph : no node carries a shader. Assign "
+                            "one in the Inspector / Shader Catalog first." ) );
+        return false;
+    }
+
+    QString const path =
+        QDir::temp().filePath( QStringLiteral( "aaaseed_editor_run.lua" ) );
+    QFile f( path );
+    if( !f.open( QIODevice::WriteOnly | QIODevice::Truncate ) )
+    {
+        emit logLine( /*ERR=*/2,
+            QStringLiteral( "Run Graph : cannot write %1" ).arg( path ) );
+        return false;
+    }
+    f.write( script.toUtf8() );
+    f.close();
+
+    emit logLine( /*INFO=*/0,
+        QStringLiteral( "Run Graph : generated a MEU from the graph "
+                        "(3 s per node)." ) );
+    dispatchRunFile( path );
+    return true;
+}
+
+// c157 : drag-and-drop a .lua onto the Code Editor panel.
+bool StudioModel::loadEditorFromFile( QString const& path_or_url )
+{
+    if( !studio_ ) return false;
+
+    QString path = path_or_url;
+    if( path.startsWith( QStringLiteral( "file://" ) ) )
+        path = QUrl( path ).toLocalFile();
+
+    if( !path.endsWith( QStringLiteral( ".lua" ), Qt::CaseInsensitive ) )
+    {
+        emit logLine( /*WARN=*/1,
+            QStringLiteral( "Drop : only .lua files load into the editor "
+                            "(got %1)." ).arg( path ) );
+        return false;
+    }
+
+    QFile f( path );
+    if( !f.open( QIODevice::ReadOnly | QIODevice::Text ) )
+    {
+        emit logLine( /*ERR=*/2,
+            QStringLiteral( "Drop : cannot read %1" ).arg( path ) );
+        return false;
+    }
+
+    setEditorText( QString::fromUtf8( f.readAll() ) );
+    emit logLine( /*INFO=*/0,
+        QStringLiteral( "Drop : loaded %1 into the editor. Press Cmd+R "
+                        "to run it." ).arg( path ) );
+    return true;
+}
+
+// c156 : write the editor buffer to the stable Run Script temp path.
+QString StudioModel::writeEditorRunScript()
+{
+    if( !studio_ ) return QString();
+    QString const path =
+        QDir::temp().filePath( QStringLiteral( "aaaseed_editor_run.lua" ) );
+    QFile f( path );
+    if( !f.open( QIODevice::WriteOnly | QIODevice::Truncate ) )
+        return QString();
+    QByteArray const utf8 =
+        QString::fromStdString( studio_->editor_text() ).toUtf8();
+    if( f.write( utf8 ) != utf8.size() )
+    {
+        f.close();
+        return QString();
+    }
+    f.close();
+    return path;
+}
+
+// c156 : shared runtime locator (Run Script + Play).
+QString StudioModel::locateRuntimeBinary()
+{
+    QString const self = QCoreApplication::applicationDirPath();
+    QStringList const candidates = {
+        // Bundled inside the Studio .app
+        self + QStringLiteral( "/../Resources/runtime/aaaseed_runtime.app/Contents/MacOS/aaaseed_runtime" ),
+        // Dev-tree sibling
+        self + QStringLiteral( "/aaaseed_runtime.app/Contents/MacOS/aaaseed_runtime" ),
+        self + QStringLiteral( "/aaaseed_runtime" ),
+    };
+    for( auto const& c : candidates )
+    {
+        QFileInfo fi( c );
+        if( fi.exists() && fi.isExecutable() )
+            return c;
+    }
+    return QString();
 }
 
 void StudioModel::applyShaderToSelected( QString const& shader_name )

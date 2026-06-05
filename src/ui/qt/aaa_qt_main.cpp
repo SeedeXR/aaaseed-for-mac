@@ -144,6 +144,21 @@ int main( int argc, char** argv )
         "aaa.ui.qt6", 1, 0, "NativeDisplayController",
         QStringLiteral( "expose via nativeDisplay context property" ) );
 
+    // c158 : route Cmd+R / Run Graph by the Display menu. In "intuitive"
+    // mode the freshly-written run script goes to the EMBEDDED Engine
+    // Preview (queued if the preview isn't attached yet) ; in "native"
+    // mode the hook declines and StudioModel spawns / hot-reloads the
+    // standalone runtime window as before.
+    model.setIntuitiveRunHook(
+        [&nativeDisplay, &viewport]( QString const& path ) -> bool
+        {
+            if( nativeDisplay.engineDisplayMode()
+                    != QStringLiteral( "intuitive" ) )
+                return false;
+            viewport.loadScript( path );
+            return true;
+        } );
+
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty(
         QStringLiteral( "studio" ), &model );

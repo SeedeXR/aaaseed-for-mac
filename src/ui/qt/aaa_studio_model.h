@@ -17,6 +17,7 @@
 #include <QStringList>
 #include <QTimer>
 
+#include <functional>
 #include <memory>
 #include <string>
 
@@ -203,9 +204,54 @@ public slots:
     bool addAsset( QString const& src_path );
     void removeAsset( int row );
 
-    // Code editor : Cmd+R / Run button. Writes editorText to a temp
-    // .lua and (when a runner is attached) loads it.
+    // Code editor : Cmd+R / Run button. c156 : syntax-checks the buffer,
+    // writes it to a stable temp .lua, then RUNS it in the engine
+    // runtime (`aaaseed_runtime --script <tmp>`). If a runtime spawned
+    // by a previous Cmd+R is still alive, the rewrite alone hot-reloads
+    // it (the runtime watches the file) -- no second window.
     void runScript();
+
+    // c157 : drag-and-drop a .lua onto the Code Editor panel. Accepts a
+    // local path or a file:// URL string ; only .lua files load. Reads
+    // the file into the editor buffer and logs. Returns true on success.
+    Q_INVOKABLE bool loadEditorFromFile( QString const& path_or_url );
+
+    // c158 : Run-routing hook. Installed by main() ; when present, the
+    // freshly-written run script is offered to the hook FIRST. A true
+    // return means "delivered to the intuitive in-Studio Engine Preview"
+    // and the native-window spawn is skipped ; false falls through to the
+    // c156 spawn/hot-reload path. Plain C++ seam (not a slot) -- moc
+    // forbids `using` inside a slots section, hence the public: sandwich.
+public:
+    using RunHook = std::function< bool( const QString& ) >;
+    void setIntuitiveRunHook( RunHook hook )
+    {
+        intuitive_run_hook_ = std::move( hook );
+    }
+public slots:
+
+    // c158 : run the NODE GRAPH -- generates a MEU that time-slices
+    // through every shader-bearing node (3 s each ; numeric-keyed node
+    // uniforms applied as float slots), writes it to the run temp file
+    // and routes it exactly like runScript (preview hook, else native
+    // spawn). Returns false (with a Console warning) when no node
+    // carries a shader.
+    Q_INVOKABLE bool runGraph();
+
+    // c158 : test seam -- the generated graph MEU source ("" when the
+    // graph has no shader-bearing nodes).
+    Q_INVOKABLE QString generateGraphScript() const;
+
+    // c156 : test seams for runScript ------------------------------------
+    // Write the current editor buffer to the stable temp .lua used by
+    // Run Script. Returns the absolute path, or "" on write failure.
+    Q_INVOKABLE QString writeEditorRunScript();
+    // Locate the aaaseed_runtime executable (bundled inside the Studio
+    // .app, or the dev-tree sibling). "" when not found.
+    static QString locateRuntimeBinary();
+    // Tests disable spawning so Cmd+R logic can run headless without
+    // launching a real engine window. Default true.
+    void setRunSpawnEnabled( bool on ) { run_spawn_enabled_ = on; }
 
     // c152-D : "Play" -- spawn the bundled aaaseed_runtime binary,
     // pointed at the current project file. Auto-saves first if dirty.
@@ -304,6 +350,18 @@ private:
     QList< QString > undo_stack_;
     QList< QString > redo_stack_;
     bool             suppress_snapshot_ = false;
+
+    // c156 : Run Script state. pid of the runtime spawned by Cmd+R (0 =
+    // never spawned) ; rewriting the temp file hot-reloads it while it
+    // lives. run_spawn_enabled_=false is the headless-test seam.
+    qint64           editor_run_pid_    = 0;
+    bool             run_spawn_enabled_ = true;
+    // c158 : intuitive-preview routing (see setIntuitiveRunHook).
+    RunHook intuitive_run_hook_;
+
+    // c158 : shared run-dispatch tail (hook -> hot-reload -> spawn) used
+    // by runScript and runGraph. `tmp` is the already-written script.
+    void dispatchRunFile( QString const& tmp );
 
     std::unique_ptr< ConsoleListModel > console_;
     std::unique_ptr< NodeListModel    > nodes_;

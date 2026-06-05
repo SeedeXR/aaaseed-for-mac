@@ -92,11 +92,35 @@
                                                           maxFrames:_maxFrames];
     _mtkView.delegate = _mtkDelegate;
 
+    // c156 : if launched with `--script <path.lua>` (the Studio's Run
+    // Script / Cmd+R path), load that MEU directly. Takes precedence
+    // over --project. File watch stays on so the Studio can hot-reload
+    // the same temp file on every subsequent Cmd+R without respawning.
+    if( self.scriptPath && [self.scriptPath length] > 0 )
+    {
+        auto* runner = [_mtkDelegate meuRunner];
+        if( runner )
+        {
+            std::string const path =
+                std::string( [self.scriptPath fileSystemRepresentation] );
+            if( runner->load_script( path ) )
+            {
+                NSLog( @"AAASeed: runtime loaded script '%s'", path.c_str() );
+                runner->enable_file_watch();
+            }
+            else
+            {
+                NSLog( @"AAASeed: --script load_script('%s') FAILED ; "
+                       @"falling back to bundled hello_world.lua.",
+                       path.c_str() );
+            }
+        }
+    }
     // c152-D : if launched with `--project <path>`, replace the
     // bundled hello_world.lua that initWithBackend just loaded with
     // the user-supplied .aaaproj.lua. The Studio's Play button
     // spawns us this way.
-    if( self.projectPath && [self.projectPath length] > 0 )
+    else if( self.projectPath && [self.projectPath length] > 0 )
     {
         auto* runner = [_mtkDelegate meuRunner];
         if( runner )

@@ -87,6 +87,25 @@ private slots:
         QVERIFY( cpp.contains( QStringLiteral( "\"nativeDevices\"" ) ) );
         QVERIFY( cpp.contains( QStringLiteral( "\"nativeDisplay\"" ) ) );
     }
+
+    void code_editor_accepts_lua_drops()
+    {
+        // c157 : drag-and-drop a .lua onto the editor panel.
+        QString const qml = readAll( AAA_CODE_EDITOR_QML );
+        QVERIFY2( qml.contains( QStringLiteral( "DropArea" ) ),
+                  "CodeEditorPanel.qml must keep its DropArea" );
+        QVERIFY2( qml.contains( QStringLiteral( "loadEditorFromFile" ) ),
+                  "DropArea must route into studio.loadEditorFromFile" );
+    }
+
+    void particle_portal_shader_ships_in_catalog()
+    {
+        // c157 : the 40k-particle portal shader + its sample.
+        QString const msl = readAll( AAA_PORTAL_SHADER_METAL );
+        QVERIFY2( msl.contains( QStringLiteral( "fs_main" ) ),
+                  "aaa_particle_portal.metal missing from the catalog" );
+        QVERIFY( msl.contains( QStringLiteral( "RINGS" ) ) );
+    }
 };
 
 QTEST_GUILESS_MAIN( IntegrationRegressionTest )

@@ -328,9 +328,13 @@ no engine restart.
 
 ## Next steps
 
+- [Running scripts](running-scripts.md) -- Cmd+R runs the editor buffer
+  in the engine, Play runs the project, drag-drop, hot reload, and the
+  load-but-render-nothing trap.
 - [Lua API : core](lua-api/core.md) -- every `aaa.*` binding with
   examples.
 - [Lua API : UI](lua-api/ui.md) -- every `aaa.ui.*` widget.
-- [Sample MEUs](samples.md) -- 14 starter scripts to crib from.
+- [Sample MEUs](samples.md) -- 16 starter scripts to crib from
+  (`perlin_noise` shows how to wrap a library module so it renders).
 - [Shader catalog](shader-catalog.md) -- pick your visual building
   block.

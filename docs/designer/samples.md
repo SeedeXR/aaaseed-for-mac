@@ -1,12 +1,17 @@
 # Sample MEUs
 
-> Walkthrough of all 14 sample MEUs shipped at
+> Walkthrough of all 16 sample MEUs shipped at
 > `Contents/Resources/meu/Samples/<name>/<name>.lua` inside the .app
 > bundle. Each entry covers what the sample does, which bindings it
 > exercises, and a "try this" modification.
 >
 > Order : v1 starters (5) -> v2 widgets (4) -> v3 advanced (3) ->
-> v4 IME + multiline (2).
+> v4 IME + multiline (2) -> maintenance additions (2 : perlin_noise, particle_portal).
+>
+> New to running scripts entirely ? Read
+> [Running scripts](running-scripts.md) first -- it covers Cmd+R (runs the
+> editor buffer in the engine), Play, drag-drop, hot reload, and the
+> load-but-render-nothing trap.
 
 To point the runner at a sample instead of the default `hello_world.lua`,
 either :
@@ -317,9 +322,67 @@ marked-text underline all work in the same widget.
 
 ---
 
+## Maintenance additions (post-v4)
+
+### perlin_noise
+
+**Path** : `Resources/meu/Samples/perlin_noise/perlin_noise.lua`
+
+One-line description : the canonical "make my Lua library module
+actually render" sample. Embeds a complete CPU Perlin module (Ken
+Perlin's Improved Noise, Lua 5.1-safe, deterministically seeded) and
+wires it to the screen : the CPU `perlin.octave`/`perlin.noise` drive
+the shader's offset + gain uniforms every frame while the GPU
+`aaa_noise_real` revival renders the per-pixel field ; the HUD prints a
+live CPU noise sample as proof the module is executing.
+
+Teaches the trap : a file that just computes and `return`s a table
+loads fine and renders **nothing** — a MEU must define
+`aaa.on_frame(w, h, frame)` and call `aaa.draw_fullscreen_quad()`.
+The runner logs a warning when a loaded script defines no `aaa.on_frame`,
+and the Studio editor's Run hints the same.
+
+Bindings used : `aaa.on_frame`, `aaa.time`, `aaa.use_shader`,
+`aaa.set_uniform_int/float/vec4`, `aaa.draw_hud_text`,
+`aaa.draw_fullscreen_quad`, `aaa.log`.
+
+Shader : `aaa_noise_real` (c135-A — real Perlin / Simplex / FBM).
+
+Try this : change `perlin.seed(1337)` to another constant and watch the
+drift pattern change while the per-pixel field stays the same — that's
+the CPU/GPU split made visible.
+
+---
+
+### particle_portal
+
+**Path** : `Resources/meu/Samples/particle_portal/particle_portal.lua`
+
+One-line description : 40,960 small white particles forming a circular
+portal / energy-field flow on black, with live **weight / push / pull /
+acceleration** sliders and a **mouse-driven point of origin**. The GPU
+shader `aaa_particle_portal` (c157) evaluates every particle procedurally
+per frame (polar cell hash + per-band rotating frames -- per-pixel cost
+is decoupled from particle count) ; the script owns the forces and an
+embedded control-rate Perlin pulses the push so the field breathes.
+
+Bindings used : `aaa.on_frame`, `aaa.time`, `aaa.mouse_xy`,
+`aaa.ui.begin_panel/slider/end_panel`, `aaa.use_shader`,
+`aaa.set_uniform_int/float/vec4`, `aaa.draw_hud_text`,
+`aaa.draw_fullscreen_quad`.
+
+Shader : `aaa_particle_portal` (c157 -- procedural particle field,
+Reeves 1983 point sprites + hashed polar grid).
+
+Try this : drag `pull` to 0.9 and the whole annulus collapses into a
+razor-thin energy ring ; then push `acceleration` past 2 and watch the
+bands shear into a vortex. Move the mouse to drag the portal around.
+
+---
+
 ## Coverage summary
 
-Across the 14 samples :
+Across the 16 samples :
 
 - **All 12 `aaa.*` core bindings** exercised at least once.
 - **All 14 `aaa.ui.*` widget bindings** exercised by at least one
@@ -328,7 +391,7 @@ Across the 14 samples :
 - **Both `aaa.ime.*` synthetic bindings** exercised by the v4
   `ime_text_demo`.
 
-If you can read all 14 samples + the per-namespace API references
+If you can read all 16 samples + the per-namespace API references
 ([core](lua-api/core.md), [ui](lua-api/ui.md), [io](lua-api/io.md),
 [ime](lua-api/ime.md)), you have the full Mac v1 authoring surface
 in your head.

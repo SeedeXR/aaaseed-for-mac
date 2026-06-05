@@ -118,4 +118,27 @@ Item {
         repeat: false
         onTriggered: root.lintError = luaHelper.lint(editorArea.text)
     }
+
+    // c157 : drag-and-drop a .lua file onto the editor to load it into
+    // the buffer (then Cmd+R runs it). Sits on top of the whole panel ;
+    // shows a highlight ring while a file drag hovers.
+    DropArea {
+        id: editorDrop
+        anchors.fill: parent
+        keys: ["text/uri-list"]
+        onDropped: (drop) => {
+            if (drop.hasUrls && drop.urls.length > 0) {
+                if (studio.loadEditorFromFile(drop.urls[0].toString()))
+                    drop.accept(Qt.CopyAction)
+            }
+        }
+        Rectangle {
+            anchors.fill: parent
+            visible: editorDrop.containsDrag
+            color: "transparent"
+            border.color: "#33a6b3"
+            border.width: 2
+            radius: 4
+        }
+    }
 }

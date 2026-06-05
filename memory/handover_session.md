@@ -4,6 +4,82 @@
 
 ---
 
+## Session 2026-06-05 (continuation 158) — Engine Preview actually works : Cmd+R routes there, Run Graph, and THREE preview blockers fixed
+
+**User:** "still not working ... I see 4 rectangles ... the engine preview doesn't pick up what is written in the script or what's being orchestrated in the graph node." Diagnosis: the user was looking at the EMBEDDED Engine Preview (the 4 rectangles = its test-pattern fallback), which was a disconnected world.
+
+**THREE preview blockers found + fixed:**
+1. **The Studio bundle shipped NO shader catalog** (Resources/ had icns+qml+runtime+sample only). The embedded preview's runner resolves shaders from the HOSTING bundle -> every use_shader failed forever. Fix: c158 post-build copies into AAASeed-Studio.app -- shaders/ (full catalog), meu/hello_world.lua, test_pattern.png, fonts/SourceCodePro (+ aaa_test_png_fixture dependency).
+2. **Pixel-format mismatch**: the preview's AAASeedInputView used RGBA8 while the MEU runner compiles every pipeline for BGRA8 -> all script draws failed validation. Fix: preview view now BGRA8 (matches the runtime MTKView).
+3. **No route from editor/graph to the preview**: only `loadProject` existed (and it loads the .aaaproj DATA file as a script -> renders nothing!).
+
+**What landed:**
+- `EngineViewport::loadScript(path)` + pending-queue (script queued before attach loads on attachToWindow) + file-watch + the no-on_frame warning.
+- `StudioModel::setIntuitiveRunHook(RunHook)` (moc gotchas: west-const in the std::function alias -- moc mangles east-const ; and `using` is forbidden in a slots section -> public: sandwich). `dispatchRunFile()` factored tail: hook -> live-pid hot-reload -> spawn. main.cpp installs the hook: Display mode "intuitive" -> viewport.loadScript ; "native" -> declined -> spawn path.
+- **Run Graph (Cmd+Shift+R)**: `StudioModel::runGraph()` + `generateGraphScript()` -- MEU generated from shader-bearing nodes (3 s time-slice each, numeric-keyed node uniforms as float slots), routed identically. NB QString::arg only substitutes %-digit, so Lua's `% #nodes` / `%d` pass through -- the generated script is PARSE-CHECKED in the test via luaL_loadbuffer.
+- EnginePreviewPanel placeholder text updated ("Press Start, then Cmd+R runs the editor script here").
+- Tests (+3 cases in aaa_qt_run_script_test, now 10) : hook receives readable script + spawn skipped ; empty-graph warning ; generated graph Lua references both node shaders + PARSES + routes through the hook. **Full ctest 111/111.**
+
+**Key fact:** the embedded preview is now a first-class Cmd+R target ; preview resource lookups come from the STUDIO bundle (keep the c158 copy block in sync with the runtime's), and the preview view MUST stay BGRA8.
+
+---
+
+## Session 2026-05-30 (continuation 157) — Editor drag-drop + 40k-particle portal + the uniform-ABI bug fix
+
+**User:** "I still can't drag and drop a script to the editor" + wants "40k small white particles with weight, push, pull, acceleration and point of origin creating a circular portal / energy field on black."
+
+**What landed:**
+1. **Editor drag-drop:** `StudioModel::loadEditorFromFile(path_or_url)` (accepts path or file:// URL ; .lua only ; loads buffer + Console log) + a `DropArea` overlay in `CodeEditorPanel.qml` (teal hover ring). Drop -> buffer -> Cmd+R runs it.
+2. **`aaa_particle_portal.metal` (c157 catalog shader):** 40,960 procedural particles (40 radial bands x 128 angular cells x 8/cell), closed-form motion -- NO particle buffer (the MEU runner draws fullscreen tris only ; vanilla Lua can't step 40k bodies). Polar cell hash + PER-BAND ROTATING FRAMES keep fast swirl local to owning cells (pixel un-rotates before lookup) ; pull-gather inverts the same radius mapping for the pixel->band lookup ; 5 bands x 3 cells x 8 = 120 gaussian sprites/pixel. ABI: ints[0]=mode, floats[0]=t, vec4[0]=(pull,push,accel,weight), vec4[1]=(origin,R,size), vec4[2]=(brightness,aspect,dir). Citations: Reeves 1983 + hashed-grid procedural fields.
+3. **`Samples/particle_portal/particle_portal.lua`:** weight/push/pull/acceleration/radius/size sliders, mouse-driven origin, embedded control-rate Perlin pulses the push + wanders spin dir. Catalog 169 -> 170 ; samples 15 -> 16.
+4. **UNIFORM-ABI BUG FIX (the big one):** the runner bound ONLY `_uniform_vec4s_buf` to buffer slot 0 -- but ~168 of 169 catalog shaders declare floats@0 / vec4s@1 / ints@2 (only the c39-era `ps_Maa_add_scale` declares vec4s@0). Consequence: `aaa.set_uniform_float` and `aaa.set_uniform_int` were SILENT NO-OPS for every trio shader (mode ints never arrived -> shaders ran their stub paths!), and vec4 bytes landed in floats[]. Fix: per-shader ABI detection at compile time (`msl_declares_vec4s_at_buffer0()` window-scans the source the runner already slurps) -> draw binds trio (floats@0/vec4s@1/ints@2) or legacy (vec4s@0, byte-identical to history so ps_Maa_add_scale's look is preserved). `_program_vec4_at0` map ; cleared in unload().
+5. **Tests (+7, total 111/111 green):**
+   - `particle_portal_script_test.cpp` (5 unit ; stubs incl. aaa.ui.slider + mouse_xy) : shader selection, FULL force-uniform set incl. mouse->origin 0.5/0.5 + aspect, 6-slider panel, perlin lattice-zero/determinism, draws/frame.
+   - `particle_portal_runner_test.mm` (2 integration) : real Runner compiles the new shader + renders 256x256 offscreen ; **pixel readback proves the ABI fix** (max channel > 60 only happens when mode=1 reaches buffer(2) ; the fallback ring peaks ~38) ; legacy-ABI guard renders ps_Maa_add_scale.
+   - Qt: `loadEditorFromFile` round-trip (path + URL) + reject non-lua/missing ; regression guards for DropArea + the shader file.
+
+**Key fact:** when authoring catalog shaders for the MEU runner, use the trio ABI ; the runner now honours BOTH ABIs via source detection. set_uniform_float/int genuinely work as of c157.
+
+---
+
+## Session 2026-05-30 (continuation 156) — Run Script (Cmd+R) now EXECUTES the editor buffer in the engine
+
+**User:** "It's not working -- the editor panel script of perlin noise." Root cause beyond c155: there was NO path from the Code Editor buffer to engine execution at all (Cmd+R = syntax check only ; Play = saved project only). The c155 sample/diagnostics taught the contract but the user still couldn't RUN what they typed.
+
+**What landed:**
+1. **Runtime `--script <path.lua>` flag** (`MainEntry.mm` parse -> `AAASeedAppDelegate.{h,mm}` `scriptPath` property, takes precedence over `--project`, mirrors its load block verbatim + `enable_file_watch()`).
+2. **StudioModel::runScript() now runs the buffer**: syntax check (unchanged) -> c155 no-on_frame hint (unchanged) -> `writeEditorRunScript()` writes the buffer to the STABLE temp path `QDir::temp()/aaaseed_editor_run.lua` -> if a previously-spawned runtime is still alive (`kill(pid,0)==0`), the rewrite alone hot-reloads it (runtime watches the file) -> else spawn `aaaseed_runtime --script <tmp>` detached. New seams: `writeEditorRunScript()` (public), `locateRuntimeBinary()` (static ; playProject refactored onto it, messages unchanged), `setRunSpawnEnabled(false)` (headless-test seam).
+3. **Tests (+3, total 104/104 green):**
+   - `tests/qt/aaa_run_script_test.cpp` (6 cases, guiless, spawn disabled): temp-file round-trip ; empty-buffer warn ; module-only -> Syntax OK + hint + run path engaged ; MEU -> no hint ; syntax error stops before run ; locator safety.
+   - `tests/native/runtime_script_flag_test.cpp` (2 e2e, REAL app spawn w/ perl-alarm timeout): `--script <perlin sample> --max-frames 45` -> "perlin_noise.lua : loaded" + Perf line + exit 0 (PASSED LIVE -- 45 real frames) ; bad path -> logs FAILED + falls back to hello_world + still renders. Skips loudly on headless runners (no Perf line). RESOURCE_LOCK "aaaseed_runtime_window".
+4. **Docs:** `running-scripts.md` rewritten ("four ways"; Cmd+R = runs buffer w/ hot-reload-on-repeat) + cross-link phrasing updated in getting-started / meu-authoring / samples.
+
+**UX contract now:** type script -> Cmd+R -> engine window opens running it -> edit -> Cmd+R again -> same window hot-reloads. `aaa_qt_studio_model_test` (25 cases) untouched-green after the playProject refactor.
+
+---
+
+## Session 2026-05-30 (continuation 155) — "my perlin.lua didn't render" : sample MEU + silent-failure diagnostics
+
+**User:** pasted a pure-Lua Perlin module (computes noise, ends `return perlin`) into the Studio editor ; "didn't work". Asked: make a script run, no regression, unit + integration tests.
+
+**Root cause (two-part, both by design but silent):**
+1. Studio **Run** only syntax-checks (`StudioModel::runScript` -- the engine Runner lives in `aaaseed_runtime`, spawned by **Play**).
+2. A library module defines no `aaa.on_frame` and emits no draw -> the runner loads it successfully and renders NOTHING, with no diagnostic.
+
+**What landed (all additive):**
+1. **Sample MEU** `bundle/macos/meu/Samples/perlin_noise/{perlin_noise.lua,README.md}` -- the user's Perlin module embedded verbatim (global `perlin`, deterministic `seed(1337)`, no `os.time`) + the minimal MEU wrapper: CPU `perlin.octave/noise` drive offset+gain uniforms each frame, GPU `aaa_noise_real` (c135-A revival) renders the per-pixel field, HUD prints a live CPU sample. Ships automatically via the recursive Samples `copy_directory` (verified in the built runtime bundle). Doc entry added to `docs/designer/samples.md` ("Maintenance additions").
+2. **Runner diagnostic** (`src/meu/aaa_meu_runner_mac.{h,mm}`): new `bool Runner::has_on_frame() const` + a loud NSLog WARNING at `load_script` success when the script defines no `aaa.on_frame` ("nothing will render ... see Samples/perlin_noise").
+3. **Studio editor hint** (`aaa_studio_model.cpp::runScript`): after Syntax-OK, if the buffer lacks "aaa.on_frame", emit a Console WARN explaining it will load-but-not-render (heuristic string check ; no Qt test asserts runScript output, verified).
+4. **Tests (tests/native, always-on):**
+   - `perlin_meu_script_test.cpp` (7 unit) -- bare lua_State + recording stub `aaa` table: lattice zeros (Improved Noise == 0 at integer coords), determinism, reseed reproducibility, |octave| <= 1 sweep, on_frame defined, selects `aaa_noise_real` + >=4 uniforms + HUD + exactly 1 draw/frame.
+   - `meu_runner_perlin_test.mm` (4 integration) -- REAL Runner + MetalBackend: sample loads + has_on_frame ; module-only script loads but has_on_frame()==false (the diagnosed trap) ; no-script false ; 3 offscreen frames rendered (begin_render_pass(tex) / set_viewport / render_frame / present), asserts current_shader_name()=="aaa_noise_real", frame_index==3, HUD non-empty.
+
+**Verified:** full ctest **101/101 green** (was 90 -> +11), zero regression ; sample present in the built `aaaseed_runtime.app` Resources ; ASCII-clean additions.
+
+**Key fact for the next agent:** MEU contract = `aaa.on_frame(w,h,frame)` + at least one draw ; CPU Lua is for control-rate (uniforms/animation), the Path A catalog is the pixel-rate half. `Runner::has_on_frame()` is the programmatic detector for module-only scripts.
+
+---
+
 ## Session 2026-05-30 (continuation 154) — QT STUDIO INTEGRATION of the c153 native subsystems + camera/mic permissions
 
 **Agent:** Claude Opus 4.8. Orchestrator-only (no sub-agents — the work was localized to src/ui/qt + bundle + tests/qt, where blind parallelism would risk the shipping Studio).

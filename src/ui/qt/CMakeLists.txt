@@ -133,6 +133,34 @@ if(EXISTS "${CMAKE_SOURCE_DIR}/bundle/macos/AAASeed.icns")
     )
 endif()
 
+# c158 : the embedded Engine Preview hosts the SAME MTKView delegate + MEU
+# runner as the runtime, and the runner resolves its shader catalog (+ test
+# pattern + HUD font + default MEU) from THE HOSTING bundle's Resources/.
+# These were absent from the Studio .app, so the preview could never compile
+# a single use_shader() -- it only ever showed the built-in fallback. Mirror
+# the runtime's resource copies.
+add_custom_command(TARGET aaaseed_app_qt POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/src/shaders/msl"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app_qt>/Resources/shaders"
+    COMMAND ${CMAKE_COMMAND} -E make_directory
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app_qt>/Resources/meu"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_SOURCE_DIR}/bundle/macos/meu/hello_world.lua"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app_qt>/Resources/meu/hello_world.lua"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${AAA_TEST_PNG_PATH}"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app_qt>/Resources/test_pattern.png"
+    COMMAND ${CMAKE_COMMAND} -E make_directory
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app_qt>/Resources/fonts"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_SOURCE_DIR}/vendor/aaaseed-runtime/AAAKernel/Fonts/Google/Source_Code_Pro/static/SourceCodePro-Medium.ttf"
+        "$<TARGET_BUNDLE_CONTENT_DIR:aaaseed_app_qt>/Resources/fonts/SourceCodePro-Medium.ttf"
+    COMMENT "Copying engine-preview resources (shader catalog + MEU + pattern + font) into AAASeed-Studio.app"
+    VERBATIM
+)
+add_dependencies(aaaseed_app_qt aaa_test_png_fixture)
+
 # c152-A : suppress the deprecated-warnings inside the Qt headers
 # themselves (they hit on every Qt SDK refresh and are out of our
 # control).

@@ -167,6 +167,23 @@ set_tests_properties(aaa_qt_native_panel_qml_test PROPERTIES
     ENVIRONMENT "QT_QPA_PLATFORM=offscreen"
 )
 
+# c156 : Run Script (Cmd+R) editor-execution pipeline (guiless ; spawn
+# disabled via the test seam).
+add_executable(aaa_qt_run_script_test
+    aaa_run_script_test.cpp
+    ${AAA_QT_ADAPTER_SOURCES}
+)
+target_include_directories(aaa_qt_run_script_test PRIVATE "${CMAKE_SOURCE_DIR}")
+target_link_libraries(aaa_qt_run_script_test PRIVATE ${AAA_QT_TEST_LIBS})
+target_compile_features(aaa_qt_run_script_test PRIVATE cxx_std_20)
+target_compile_options(aaa_qt_run_script_test PRIVATE -Wno-deprecated-declarations)
+add_test(NAME aaa_qt_run_script_test COMMAND aaa_qt_run_script_test)
+set_tests_properties(aaa_qt_run_script_test PROPERTIES
+    LABELS "qt;unit"
+    TIMEOUT 60
+    ENVIRONMENT "QT_QPA_PLATFORM=offscreen"
+)
+
 # Regression : file-content guards (plist permissions + QML/qrc/cpp wiring).
 add_executable(aaa_qt_integration_regression_test
     aaa_integration_regression_test.cpp
@@ -182,6 +199,8 @@ target_compile_definitions(aaa_qt_integration_regression_test PRIVATE
     "AAA_MAIN_QML=\"${CMAKE_SOURCE_DIR}/src/ui/qt/qml/Main.qml\""
     "AAA_QT_QRC=\"${CMAKE_SOURCE_DIR}/src/ui/qt/aaa_qt_qml.qrc\""
     "AAA_QT_MAIN_CPP=\"${CMAKE_SOURCE_DIR}/src/ui/qt/aaa_qt_main.cpp\""
+    "AAA_CODE_EDITOR_QML=\"${CMAKE_SOURCE_DIR}/src/ui/qt/qml/panels/CodeEditorPanel.qml\""
+    "AAA_PORTAL_SHADER_METAL=\"${CMAKE_SOURCE_DIR}/src/shaders/msl/aaa_particle_portal.metal\""
 )
 target_compile_features(aaa_qt_integration_regression_test PRIVATE cxx_std_20)
 target_compile_options(aaa_qt_integration_regression_test PRIVATE -Wno-deprecated-declarations)

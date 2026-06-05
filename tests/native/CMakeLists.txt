@@ -291,3 +291,127 @@ gtest_discover_tests(aaaseed_display_present_native_tests
     DISCOVERY_TIMEOUT 30
     PROPERTIES LABELS "unit;display"
 )
+
+#  ----------------------------------------------------------------------
+#  Perlin sample MEU : pure-Lua unit (c155) -- the embedded Perlin math
+#  (determinism / lattice zeros / range) + the on_frame draw contract,
+#  via a recording stub aaa table. No Metal, no runner.
+#  ----------------------------------------------------------------------
+add_executable(aaaseed_perlin_meu_script_native_tests
+    perlin_meu_script_test.cpp
+)
+target_link_libraries(aaaseed_perlin_meu_script_native_tests PRIVATE
+    GTest::gtest GTest::gtest_main
+    aaaseed_lua
+)
+target_compile_definitions(aaaseed_perlin_meu_script_native_tests PRIVATE
+    "AAA_PERLIN_SAMPLE_LUA=\"${CMAKE_SOURCE_DIR}/bundle/macos/meu/Samples/perlin_noise/perlin_noise.lua\""
+)
+target_include_directories(aaaseed_perlin_meu_script_native_tests PRIVATE "${CMAKE_SOURCE_DIR}")
+target_compile_features(aaaseed_perlin_meu_script_native_tests PRIVATE cxx_std_20)
+gtest_discover_tests(aaaseed_perlin_meu_script_native_tests
+    DISCOVERY_TIMEOUT 30
+    PROPERTIES LABELS "unit;meu"
+)
+
+#  ----------------------------------------------------------------------
+#  Perlin sample MEU : integration (c155) -- real Runner + MetalBackend
+#  render offscreen frames ; has_on_frame() diagnostic for module-only
+#  scripts (the "my perlin.lua didn't work" failure mode).
+#  ----------------------------------------------------------------------
+add_executable(aaaseed_meu_runner_perlin_native_tests
+    meu_runner_perlin_test.mm
+)
+set_source_files_properties(meu_runner_perlin_test.mm
+    PROPERTIES LANGUAGE OBJCXX COMPILE_FLAGS "-fno-objc-arc"
+)
+target_link_libraries(aaaseed_meu_runner_perlin_native_tests PRIVATE
+    GTest::gtest GTest::gtest_main
+    aaaseed_meu_runner
+    aaaseed_gol_metal
+)
+target_compile_definitions(aaaseed_meu_runner_perlin_native_tests PRIVATE
+    "AAA_PERLIN_SAMPLE_LUA=\"${CMAKE_SOURCE_DIR}/bundle/macos/meu/Samples/perlin_noise/perlin_noise.lua\""
+)
+target_include_directories(aaaseed_meu_runner_perlin_native_tests PRIVATE "${CMAKE_SOURCE_DIR}")
+target_compile_features(aaaseed_meu_runner_perlin_native_tests PRIVATE cxx_std_20)
+gtest_discover_tests(aaaseed_meu_runner_perlin_native_tests
+    DISCOVERY_TIMEOUT 30
+    PROPERTIES LABELS "integration;meu"
+)
+
+#  ----------------------------------------------------------------------
+#  Particle portal sample : pure-Lua unit (c157) -- MEU contract + force
+#  uniforms + slider panel + embedded perlin, via recording stubs.
+#  ----------------------------------------------------------------------
+add_executable(aaaseed_particle_portal_script_native_tests
+    particle_portal_script_test.cpp
+)
+target_link_libraries(aaaseed_particle_portal_script_native_tests PRIVATE
+    GTest::gtest GTest::gtest_main
+    aaaseed_lua
+)
+target_compile_definitions(aaaseed_particle_portal_script_native_tests PRIVATE
+    "AAA_PORTAL_SAMPLE_LUA=\"${CMAKE_SOURCE_DIR}/bundle/macos/meu/Samples/particle_portal/particle_portal.lua\""
+)
+target_include_directories(aaaseed_particle_portal_script_native_tests PRIVATE "${CMAKE_SOURCE_DIR}")
+target_compile_features(aaaseed_particle_portal_script_native_tests PRIVATE cxx_std_20)
+gtest_discover_tests(aaaseed_particle_portal_script_native_tests
+    DISCOVERY_TIMEOUT 30
+    PROPERTIES LABELS "unit;meu"
+)
+
+#  ----------------------------------------------------------------------
+#  Particle portal : integration (c157) -- real Runner compiles the new
+#  catalog shader, renders offscreen, and PIXEL-PROVES the c157 uniform-
+#  ABI fix (mode int must reach buffer(2) for the bright field). Plus the
+#  legacy vec4@0 ABI regression guard (ps_Maa_add_scale still draws).
+#  ----------------------------------------------------------------------
+add_executable(aaaseed_particle_portal_runner_native_tests
+    particle_portal_runner_test.mm
+)
+set_source_files_properties(particle_portal_runner_test.mm
+    PROPERTIES LANGUAGE OBJCXX COMPILE_FLAGS "-fno-objc-arc"
+)
+target_link_libraries(aaaseed_particle_portal_runner_native_tests PRIVATE
+    GTest::gtest GTest::gtest_main
+    aaaseed_meu_runner
+    aaaseed_gol_metal
+)
+target_compile_definitions(aaaseed_particle_portal_runner_native_tests PRIVATE
+    "AAA_PORTAL_SAMPLE_LUA=\"${CMAKE_SOURCE_DIR}/bundle/macos/meu/Samples/particle_portal/particle_portal.lua\""
+)
+target_include_directories(aaaseed_particle_portal_runner_native_tests PRIVATE "${CMAKE_SOURCE_DIR}")
+target_compile_features(aaaseed_particle_portal_runner_native_tests PRIVATE cxx_std_20)
+gtest_discover_tests(aaaseed_particle_portal_runner_native_tests
+    DISCOVERY_TIMEOUT 30
+    PROPERTIES LABELS "integration;meu"
+)
+
+#  ----------------------------------------------------------------------
+#  Runtime --script flag : end-to-end (c156) -- spawns the REAL
+#  aaaseed_runtime with the perlin sample + a frame cap and asserts from
+#  its log that the script loaded and frames rendered. Skips (loudly) on
+#  a headless runner where no window can be created.
+#  ----------------------------------------------------------------------
+add_executable(aaaseed_runtime_script_flag_native_tests
+    runtime_script_flag_test.cpp
+)
+add_dependencies(aaaseed_runtime_script_flag_native_tests aaaseed_runtime)
+target_link_libraries(aaaseed_runtime_script_flag_native_tests PRIVATE
+    GTest::gtest GTest::gtest_main
+)
+target_compile_definitions(aaaseed_runtime_script_flag_native_tests PRIVATE
+    "AAA_RUNTIME_BIN=\"$<TARGET_FILE:aaaseed_runtime>\""
+    "AAA_PERLIN_SAMPLE_LUA=\"${CMAKE_SOURCE_DIR}/bundle/macos/meu/Samples/perlin_noise/perlin_noise.lua\""
+)
+target_compile_features(aaaseed_runtime_script_flag_native_tests PRIVATE cxx_std_20)
+gtest_discover_tests(aaaseed_runtime_script_flag_native_tests
+    DISCOVERY_TIMEOUT 30
+    PROPERTIES
+        LABELS "integration;meu"
+        TIMEOUT 120
+        #  Two runtime spawns share the GPU + window server ; don't
+        #  parallelize against other window-creating tests.
+        RESOURCE_LOCK "aaaseed_runtime_window"
+)
